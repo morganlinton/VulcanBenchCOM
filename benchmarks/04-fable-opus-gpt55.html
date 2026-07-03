@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 04 — Fable 5 vs Opus 4.8 vs GPT-5.5 — VulcanBench</title>
+<meta name="description" content="Four frontier configurations on 15 real engineering evals. All score 14/15 but each misses a different task; cost spans 4x.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html"><span class="v">Vulcan</span><span class="rest">Bench</span></a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 04</div>
+    <h1>Claude Fable 5 vs Opus 4.8 vs GPT-5.5</h1>
+    <p class="byline">Fifteen real engineering evals across four model configurations, graded by deterministic hidden tests</p>
+    <div class="runmeta">2026-07-02 &middot; 15 evals &middot; 60 runs &middot; zero refusals &middot; corrected costs</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p>All four configurations score <strong>14 of 15</strong>, but each misses a different task. GPT-5.5 alone solves the
+    multi-site Flask teardown redesign that stops every other model, and alone fails a SQL dialect transpile the others pass.
+    At equal accuracy, cost spans <strong>4x</strong>: Opus 4.8 is the value leader; GPT-5.5 pays heavily for its one extra
+    capability. Correctness no longer separates these models on ticket-sized work; economics does.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report4-4way.png" alt="Model card: Fable 5 low/medium vs Opus 4.8 high vs GPT-5.5 high across 15 evals">
+    <figcaption><b>Card 1.</b> Aggregate results and resource consumption at equal accuracy. Costs corrected for each provider's prompt-cache discount.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>Identical scores, different weak spots.</h2>
+    <table class="data">
+      <thead><tr><th>Model (effort)</th><th>Score</th><th>Cost</th><th>Time</th><th>Steps</th><th>Tokens</th></tr></thead>
+      <tbody>
+        <tr><td class="model">Claude Fable 5 (low)</td><td>14/15</td><td>$5.99</td><td>27 min</td><td>66</td><td>0.40 M</td></tr>
+        <tr><td class="model">Claude Fable 5 (medium)</td><td>14/15</td><td>$11.10</td><td>44 min</td><td>84</td><td>0.64 M</td></tr>
+        <tr><td class="model">Claude Opus 4.8 (high)</td><td>14/15</td><td class="win">$5.00</td><td>27 min</td><td>96</td><td>0.71 M</td></tr>
+        <tr><td class="model">GPT-5.5 (high)</td><td>14/15</td><td>$20.43</td><td>71 min</td><td>195</td><td>2.97 M</td></tr>
+      </tbody>
+    </table>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>The single misses differ.</strong> Fable (both efforts) and Opus fail only <span style="font-family:var(--mono);font-size:15px;">flask-teardown-robust</span>, the multi-site redesign that has stopped every Anthropic model to date. GPT-5.5 is the first model to solve it, but is the only one to fail <span style="font-family:var(--mono);font-size:15px;">sqlglot-iso8601-nanos</span>, a SQL dialect transpile the others pass easily. The suite now separates these models by <em>what kind</em> of task they miss.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Opus 4.8 is the value leader.</strong> The same 14/15 as everything else, at the lowest cost, the fewest tokens, and no reliability issues.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>More effort is not always better.</strong> Fable-medium cost 2x Fable-low for an identical score. GPT-5.5 spent 4x Opus and used 4x the tokens to buy exactly one extra task, which it offset by losing another.</p></div>
+    </div>
+  </section>
+
+  <figure>
+    <img src="../assets/cards/report4-evals.png" alt="The 15 evals ranked by difficulty">
+    <figcaption><b>Card 2.</b> The fifteen evals in this run, ranked by difficulty. Only the two hardest separate the models.</figcaption>
+  </figure>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>Fifteen tasks from real merged pull requests (flask, sqlglot, click, chi, more-itertools, packaging, anyio, pytest,
+      urllib3, poetry, redis; Python and Go), all merged after model training cutoffs, graded by deterministic hidden tests in
+      a network-isolated Docker sandbox. One run per task per configuration.</p>
+      <p>Two corrections make this run trustworthy relative to an earlier draft: the harness now folds OpenAI's automatic
+      prompt-cache discount into cost (GPT-5.5's true total is $20.43, not the ~6x figure a naive token count implies), and two
+      tasks a safety classifier had intermittently refused were replaced with equally-hard, reliably-attempted tasks, giving a
+      clean 15 for every model with zero refusals.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn" href="../assets/cards/report4-4way.png" download>Download model card</a>
+      <a class="btn" href="../assets/cards/report4-evals.png" download>Download evals card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="inner">
+    <span>VulcanBench &middot; an open-source coding benchmark</span>
+    <span class="brandf">Vulcan<span style="color:var(--faint)">Bench</span></span>
+  </div>
+</footer>
+
+</body>
+</html>

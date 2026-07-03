@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmarks — VulcanBench</title>
+<meta name="description" content="Published VulcanBench benchmark runs: each with a model card, findings, per-task results, and a downloadable report.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><span class="v">Vulcan</span><span class="rest">Bench</span></div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="benchmarks.html" class="active">Benchmarks</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head" style="padding-bottom:8px;">
+    <div class="rno">The published record</div>
+    <h1>Benchmarks</h1>
+    <p class="byline">Every measured run, newest first. Each links to its model card, findings, and report.</p>
+  </div>
+
+  <div class="report-list">
+
+    <a class="report-row" href="benchmarks/04-fable-opus-gpt55.html">
+      <div class="no">Report<b>04</b></div>
+      <div>
+        <div class="rtitle">Fable 5 vs Opus 4.8 vs GPT-5.5</div>
+        <div class="rsub">Four configurations, fifteen evals, each misses a different task.</div>
+        <div class="meta">2026-07-02 &middot; 15 evals &middot; 60 runs &middot; corrected costs</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+
+    <a class="report-row" href="benchmarks/03-fable-sonnet-glm.html">
+      <div class="no">Report<b>03</b></div>
+      <div>
+        <div class="rtitle">Fable 5 low vs Sonnet 5 high vs GLM-5.2</div>
+        <div class="rsub">Accuracy converges; efficiency spans an order of magnitude.</div>
+        <div class="meta">2026-07-01 &middot; 10 tasks &middot; 30 runs</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+
+    <a class="report-row" href="benchmarks/02-effort-sweep.html">
+      <div class="no">Report<b>02</b></div>
+      <div>
+        <div class="rtitle">Reasoning-effort sweep: Sonnet 5 vs Opus 4.8</div>
+        <div class="rsub">Does more thinking effort pay off? Cost versus correctness across low, medium, high.</div>
+        <div class="meta">2026-06-30 &middot; 52 tasks &middot; 936 runs</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+
+    <a class="report-row" href="benchmarks/01-cost-pilot.html">
+      <div class="no">Report<b>01</b></div>
+      <div>
+        <div class="rtitle">Real bugs, both solved: the gap is cost</div>
+        <div class="rsub">The pilot that established cost as the live axis once correctness saturates.</div>
+        <div class="meta">2026-07-01 &middot; 4 tasks &middot; 24 runs</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <div class="inner">
+    <span>VulcanBench &middot; an open-source coding benchmark</span>
+    <span class="brandf">Vulcan<span style="color:var(--faint)">Bench</span></span>
+  </div>
+</footer>
+
+</body>
+</html>

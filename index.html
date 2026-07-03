@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VulcanBench — an open-source coding benchmark for frontier models</title>
+<meta name="description" content="VulcanBench evaluates frontier language models on real engineering work: merged open-source pull requests graded by deterministic hidden tests. Cost, latency, and tokens are first-class results.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><span class="v">Vulcan</span><span class="rest">Bench</span></div>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Open-source coding benchmark</div>
+    <h1>Benchmarking models<br>on real engineering work.</h1>
+    <p class="tagline">Merged open-source pull requests, graded by deterministic hidden tests.</p>
+    <div class="cta">
+      <a class="btn primary" href="benchmarks.html">View the benchmarks</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+  </div>
+</div>
+
+<div class="rule2"></div><div class="wrap"><div class="rule1"></div></div>
+
+<div class="wrap">
+  <section>
+    <div class="section-label">What it is</div>
+    <h2>A benchmark that measures the job, not the trivia.</h2>
+    <div class="prose">
+      <p class="lead">Most coding benchmarks saturate: when every frontier model scores 98 to 100 percent, the benchmark
+      is measuring its own ceiling, not the models. VulcanBench is built to stay discriminating by sourcing tasks from
+      real engineering work that current models cannot all solve, and by treating economics as a first-class result.</p>
+      <p>Every task is a real pull request merged into a production open-source project (flask, sqlglot, aiohttp, urllib3,
+      poetry, redis, and more), each merged <em>after</em> the models' training cutoffs so the fix is genuinely novel and
+      cannot be recalled from memory. A model receives the repository sliced at the pull request's base commit plus a terse
+      issue describing the symptom, exactly as an engineering team would hand off a ticket. It is graded by the project's own
+      hidden tests: no LLM judge, no rubric, just pass or fail, run in a network-isolated sandbox.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">How it is measured</div>
+    <div class="cols3">
+      <div class="feature">
+        <div class="n">01</div>
+        <h3>Deterministic grading</h3>
+        <p>Each task's pass or fail is decided by hidden tests validated to fail on the base commit and pass on the merged fix.
+        No model judges another model.</p>
+      </div>
+      <div class="feature">
+        <div class="n">02</div>
+        <h3>Decontaminated tasks</h3>
+        <p>Every pull request was merged after the evaluated models' training cutoffs, so no model has seen the solution.
+        Memorization cannot help.</p>
+      </div>
+      <div class="feature">
+        <div class="n">03</div>
+        <h3>Economics as a result</h3>
+        <p>Cost, wall-clock time, agent steps, and tokens are recorded alongside accuracy. When correctness converges,
+        efficiency is the signal.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">The two things you came for</div>
+    <div class="cols3" style="grid-template-columns: 1fr 1fr;">
+      <a class="feature" href="benchmarks.html" style="display:block; border:1px solid rgba(28,26,23,0.28); padding:28px 30px; background:rgba(28,26,23,0.02);">
+        <h3 style="font-size:24px;">The Benchmarks &rarr;</h3>
+        <p style="font-size:17px;">Each measured run gets a dedicated page: the model card, the findings, the per-task
+        results, and the downloadable report. Four published so far.</p>
+      </a>
+      <a class="feature" href="https://github.com/morganlinton/VulcanBench" style="display:block; border:1px solid rgba(28,26,23,0.28); padding:28px 30px; background:rgba(28,26,23,0.02);">
+        <h3 style="font-size:24px;">The Repository &rarr;</h3>
+        <p style="font-size:17px;">Every task, hidden test, gold patch, per-task Docker image, and the full grading
+        harness. Reproduce any result; a two-model run costs about ten dollars.</p>
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="inner">
+    <span>VulcanBench &middot; an open-source coding benchmark</span>
+    <span class="brandf">Vulcan<span style="color:var(--faint)">Bench</span></span>
+  </div>
+</footer>
+
+</body>
+</html>

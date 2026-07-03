@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 01 — Real bugs, both solved: the gap is cost — VulcanBench</title>
+<meta name="description" content="The pilot run that established cost as the live axis: both frontier models solve every real, decontaminated bug, and the gap is entirely economic.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html"><span class="v">Vulcan</span><span class="rest">Bench</span></a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 01</div>
+    <h1>Real bugs, both solved. The gap is cost.</h1>
+    <p class="byline">Claude Sonnet 5 vs Opus 4.8 on four decontaminated post-cutoff bug-fix pull requests</p>
+    <div class="runmeta">2026-07-01 &middot; 4 tasks &middot; 24 runs &middot; deterministic grading</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p>The pilot that established the benchmark's thesis: once tasks are real and decontaminated, correctness saturates. Both
+    models solve all four real bugs, including a subtle set-algebra bug, so functional pass or fail no longer separates the
+    frontier. What remains is cost, and it varies 3.4x, concentrated in large-repository navigation.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report1-cost-pilot.png" alt="Model card: Sonnet 5 vs Opus 4.8 cost per task at equal correctness">
+    <figcaption><b>Card.</b> Cost per task at equal (100 percent) correctness. The gap is concentrated in the 76k-line repository.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Findings</div>
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>Correctness is saturated.</strong> Both models solve every real, decontaminated bug at 100 percent, even the subtle one. Functional pass or fail no longer separates the frontier.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Cost is the live axis.</strong> Same answers, 3.4x the spend: Sonnet 5 $19.88 versus Opus 4.8 $5.89. On the 76k-line repository, Sonnet cost $15.15 versus $2.08, a 7x gap, thrashing where Opus stayed efficient.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>The gap flips by scale.</strong> On small tasks Sonnet is often cheaper; on large-repository navigation Opus wins decisively. This motivated treating economics as a first-class result in every run that followed.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method</div>
+    <div class="prose">
+      <p>Four real bug-fix pull requests (sqlglot, packaging x2, more-itertools) merged February to June 2026, after model
+      cutoffs, so the fix is novel. The repository is sliced at the pull request's base commit; the model sees a terse issue
+      and the real code, graded deterministically by the pull request's own failing test. Docker sandbox, high effort, three
+      runs per task.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn" href="../assets/cards/report1-cost-pilot.png" download>Download card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="inner">
+    <span>VulcanBench &middot; an open-source coding benchmark</span>
+    <span class="brandf">Vulcan<span style="color:var(--faint)">Bench</span></span>
+  </div>
+</footer>
+
+</body>
+</html>

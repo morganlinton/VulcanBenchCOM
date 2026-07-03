@@ -1,0 +1,147 @@
+/* VulcanBench.com — scientific-journal styling, matched to the model cards. */
+:root {
+  --paper: #f7f5f0;
+  --ink: #1c1a17;
+  --faint: #6f6a62;
+  --line: #1c1a17;
+  --rust: #9c6644;
+  --slate: #3f5468;
+  --card-shadow: 0 1px 3px rgba(28, 26, 23, 0.10), 0 8px 28px rgba(28, 26, 23, 0.07);
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", Times, Georgia, serif;
+  --mono: "IBM Plex Mono", "SF Mono", "Courier New", monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--serif);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--ink); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+.wrap-wide { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+/* ---- masthead / nav ---- */
+.masthead {
+  border-bottom: 2.5px solid var(--line);
+  position: sticky; top: 0; background: var(--paper); z-index: 20;
+}
+.masthead .bar { border-bottom: 1px solid var(--line); }
+.masthead .inner {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 16px 32px; max-width: 1180px; margin: 0 auto;
+}
+.brand { font-size: 22px; font-weight: 600; letter-spacing: 0.3px; }
+.brand b { font-weight: 600; }
+.brand .v { color: var(--ink); }
+.brand .rest { color: var(--faint); }
+.nav { display: flex; gap: 26px; font-variant: small-caps; letter-spacing: 1.4px; font-size: 15px; }
+.nav a { color: var(--faint); }
+.nav a:hover, .nav a.active { color: var(--ink); text-decoration: none; }
+
+/* ---- hero ---- */
+.hero { text-align: center; padding: 76px 0 44px; }
+.hero .eyebrow { font-variant: small-caps; letter-spacing: 3px; font-size: 15px; color: var(--faint); }
+.hero h1 { font-size: 58px; font-weight: 600; line-height: 1.08; margin: 18px 0 0; letter-spacing: -0.5px; }
+.hero .tagline { font-style: italic; font-size: 23px; color: #3a362f; margin-top: 18px; }
+.hero .cta { margin-top: 34px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  font-family: var(--serif); font-size: 17px; font-variant: small-caps; letter-spacing: 1.5px;
+  padding: 12px 28px; border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink);
+  cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.btn:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn.primary:hover { background: #000; }
+
+/* ---- rules & sections ---- */
+.rule2 { border-top: 2.5px solid var(--line); }
+.rule1 { border-top: 1px solid var(--line); margin-top: 2.5px; }
+section { padding: 46px 0; }
+.section-label { font-variant: small-caps; letter-spacing: 2px; font-size: 15px; color: var(--faint); margin-bottom: 8px; }
+h2 { font-size: 34px; font-weight: 600; letter-spacing: -0.3px; }
+h3 { font-size: 22px; font-weight: 600; margin-top: 4px; }
+p.lead { font-size: 19px; margin-top: 14px; }
+p { margin-top: 14px; }
+.prose { max-width: 720px; }
+.prose p { font-size: 18px; }
+
+/* ---- feature columns ---- */
+.cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 30px; }
+.feature h3 { font-size: 20px; font-variant: small-caps; letter-spacing: 0.5px; }
+.feature p { font-size: 16.5px; color: #3a362f; margin-top: 8px; }
+.feature .n { font-family: var(--mono); font-size: 14px; color: var(--rust); }
+
+/* ---- benchmark index cards ---- */
+.report-list { display: flex; flex-direction: column; gap: 0; margin-top: 24px; }
+.report-row {
+  display: grid; grid-template-columns: 92px 1fr auto; gap: 26px; align-items: center;
+  padding: 26px 4px; border-top: 1px solid rgba(28,26,23,0.22); transition: background 0.12s;
+}
+.report-row:last-child { border-bottom: 1px solid rgba(28,26,23,0.22); }
+.report-row:hover { background: rgba(28,26,23,0.03); text-decoration: none; }
+.report-row .no { font-variant: small-caps; letter-spacing: 1px; font-size: 13.5px; color: var(--faint); text-align: left; }
+.report-row .no b { display: block; font-size: 30px; color: var(--ink); font-variant: normal; letter-spacing: 0; line-height: 1; margin-top: 3px; }
+.report-row .rtitle { font-size: 23px; font-weight: 600; }
+.report-row .rsub { font-size: 16.5px; color: #3a362f; margin-top: 5px; font-style: italic; }
+.report-row .meta { font-family: var(--mono); font-size: 13px; color: var(--faint); margin-top: 8px; }
+.report-row .arrow { font-size: 26px; color: var(--faint); }
+.report-row:hover .arrow { color: var(--ink); }
+
+/* ---- article (individual benchmark page) ---- */
+.article-head { text-align: center; padding: 54px 0 20px; }
+.article-head .rno { font-variant: small-caps; letter-spacing: 3px; font-size: 14px; color: var(--faint); }
+.article-head h1 { font-size: 44px; font-weight: 600; line-height: 1.12; margin-top: 16px; letter-spacing: -0.4px; }
+.article-head .byline { font-style: italic; font-size: 19px; color: #3a362f; margin-top: 14px; }
+.article-head .runmeta { font-family: var(--mono); font-size: 13px; color: var(--faint); margin-top: 14px; }
+
+.abstract-box {
+  border: 1px solid rgba(28,26,23,0.28); background: rgba(28,26,23,0.02);
+  padding: 26px 32px; margin: 30px 0; max-width: 780px; margin-left: auto; margin-right: auto;
+}
+.abstract-box .lbl { font-variant: small-caps; letter-spacing: 1.5px; font-weight: 600; font-size: 15px; }
+.abstract-box p { font-size: 18px; margin-top: 6px; }
+
+figure { margin: 40px 0; text-align: center; }
+figure img { width: 100%; max-width: 1120px; box-shadow: var(--card-shadow); border: 1px solid rgba(28,26,23,0.12); }
+figcaption { font-size: 15px; color: var(--faint); margin-top: 12px; font-style: italic; }
+figcaption b { font-style: normal; font-variant: small-caps; letter-spacing: 0.5px; color: var(--ink); }
+
+.findings-list { counter-reset: f; margin-top: 6px; }
+.finding { display: grid; grid-template-columns: 40px 1fr; gap: 14px; margin-top: 18px; }
+.finding .fn { font-weight: 700; font-size: 20px; }
+.finding p { margin-top: 0; font-size: 18px; }
+
+table.data { width: 100%; border-collapse: collapse; margin-top: 22px; font-size: 17px; }
+table.data thead th { border-top: 2px solid var(--line); border-bottom: 1px solid var(--line); padding: 9px 8px; text-align: right; font-weight: 600; font-size: 15.5px; }
+table.data thead th:first-child { text-align: left; }
+table.data tbody td { padding: 8px 8px; text-align: right; font-variant-numeric: tabular-nums; }
+table.data tbody td:first-child { text-align: left; }
+table.data tbody tr:nth-child(even) { background: rgba(28,26,23,0.028); }
+table.data tbody tr:last-child td { border-bottom: 2px solid var(--line); }
+table.data .model { font-style: italic; }
+table.data .win { font-weight: 700; }
+
+.dl-row { display: flex; gap: 16px; margin-top: 26px; flex-wrap: wrap; }
+
+.back { font-variant: small-caps; letter-spacing: 1.5px; font-size: 15px; color: var(--faint); }
+
+/* ---- footer ---- */
+footer { border-top: 1px solid var(--line); margin-top: 40px; }
+footer .inner { display: flex; justify-content: space-between; align-items: baseline; padding: 22px 32px; max-width: 1180px; margin: 0 auto; font-size: 14px; color: var(--faint); flex-wrap: wrap; gap: 12px; }
+footer .brandf { font-variant: small-caps; letter-spacing: 1.5px; color: var(--ink); font-size: 15px; }
+
+@media (max-width: 720px) {
+  .hero h1 { font-size: 40px; }
+  .cols3 { grid-template-columns: 1fr; }
+  .report-row { grid-template-columns: 60px 1fr; }
+  .report-row .arrow { display: none; }
+  .nav { gap: 16px; font-size: 13px; }
+  .article-head h1 { font-size: 32px; }
+}

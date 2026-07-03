@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 03 — Fable 5 vs Sonnet 5 vs GLM-5.2 — VulcanBench</title>
+<meta name="description" content="Accuracy converges across three models while efficiency spans an order of magnitude. Fable 5 at low effort matches Sonnet 5 at high effort for a quarter of the cost.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html"><span class="v">Vulcan</span><span class="rest">Bench</span></a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 03</div>
+    <h1>Frontier accuracy has converged. Efficiency has not.</h1>
+    <p class="byline">Claude Fable 5 at minimum effort vs. Claude Sonnet 5 at maximum effort vs. GLM-5.2</p>
+    <div class="runmeta">2026-07-01 &middot; 10 tasks &middot; 30 runs &middot; deterministic grading</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p>All three models score 80 percent on identical real-world engineering tasks, failing the same two. At equal accuracy,
+    resource consumption diverges by nearly an order of magnitude: the newest frontier tier at its <em>lowest</em> reasoning
+    effort completes the suite for 27 percent of the cost, 24 percent of the time, and 8 percent of the tokens of the prior
+    tier at its <em>highest</em> effort. Correctness no longer discriminates these models; cost, latency, and availability
+    carry the signal.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report3-3way.png" alt="Model card: Fable 5 low vs Sonnet 5 high vs GLM-5.2 high, 10 tasks">
+    <figcaption><b>Card.</b> Pass rate and resource consumption at equal (80 percent) accuracy across the three models.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <table class="data">
+      <thead><tr><th>Model (effort)</th><th>Score</th><th>Cost</th><th>Time</th><th>Tokens</th></tr></thead>
+      <tbody>
+        <tr><td class="model">Claude Fable 5 (low)</td><td>8/10</td><td class="win">$2.27</td><td>14 min</td><td>0.14 M</td></tr>
+        <tr><td class="model">Claude Sonnet 5 (high)</td><td>8/10</td><td>$8.41</td><td>59 min</td><td>1.75 M</td></tr>
+        <tr><td class="model">GLM-5.2 (high)</td><td>8/10</td><td>$15.81</td><td>124 min</td><td>10.82 M</td></tr>
+      </tbody>
+    </table>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>Same failures everywhere.</strong> Every model fails the Flask teardown redesign and the aiohttp deferred-upgrade fix. Both are multi-site behavioral contracts.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Minimum effort matched maximum effort.</strong> Fable 5 at low effort solved the suite's hardest passable task in 86 steps; Sonnet 5 at high effort thrashes for 330-plus steps and usually fails it. Per solved task, Fable cost $0.28 versus Sonnet's $1.05 and GLM's $1.98.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Cheap tokens, expensive outcomes.</strong> GLM-5.2 has the lowest unit price yet the highest cost per solved task, consuming 77x the tokens of Fable 5. On agentic work, token efficiency dominates unit price.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method</div>
+    <div class="prose">
+      <p>Ten tasks from real merged pull requests (flask, aiohttp, sqlglot, click, chi, more-itertools, packaging; Python and
+      Go), all merged after model training cutoffs, graded by deterministic hidden tests in a network-isolated Docker sandbox.
+      One run per task per model; prompt caching enabled. The full four-page report is available below.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-3way-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report3-3way.png" download>Download model card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="inner">
+    <span>VulcanBench &middot; an open-source coding benchmark</span>
+    <span class="brandf">Vulcan<span style="color:var(--faint)">Bench</span></span>
+  </div>
+</footer>
+
+</body>
+</html>

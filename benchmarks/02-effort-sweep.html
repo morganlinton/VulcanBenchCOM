@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 02 — Reasoning-effort sweep — VulcanBench</title>
+<meta name="description" content="Does more reasoning effort pay off? A 936-run sweep of Sonnet 5 and Opus 4.8 across low, medium, and high effort.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html"><span class="v">Vulcan</span><span class="rest">Bench</span></a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 02</div>
+    <h1>Does more reasoning effort pay off?</h1>
+    <p class="byline">A cost-versus-correctness sweep of Sonnet 5 and Opus 4.8 across low, medium, and high effort</p>
+    <div class="runmeta">2026-06-30 &middot; 52 tasks &middot; 936 runs &middot; deterministic grading</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p>Holding the task set fixed and sweeping the reasoning-effort dial turns a saturated benchmark into a discriminating one
+    for free: the low-effort dropoffs below the high-effort ceiling are the signal. Sonnet 5 scales cleanly with effort, from
+    97 percent at low to 100 percent at high, and matches Opus 4.8's accuracy at roughly 60 percent of the cost per run. Opus
+    stays flat across effort, so extra thinking buys it nothing on this suite.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report2-effort-sweep.png" alt="Effort-sweep card: Sonnet 5 vs Opus 4.8 cost versus accuracy across low, medium, high effort">
+    <figcaption><b>Card.</b> Cost versus accuracy across six cells. Sonnet 5 climbs with effort; every Opus cell is dominated.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Findings</div>
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>Sonnet 5 at high effort solves all 52 tasks</strong>, the only cell to ace the suite, and does so more cheaply than Opus at high effort.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Effort scales Sonnet, not Opus.</strong> Sonnet climbs 97 to 100 percent as effort rises; Opus holds at 97 to 98 percent regardless, so the extra thinking budget is wasted on it here.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>The effort dial is a free discriminator.</strong> Rather than authoring harder tasks, starving the thinking budget re-introduces separation on a suite the frontier had otherwise saturated.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method</div>
+    <div class="prose">
+      <p>Two models across three effort levels, three repeats each, over the 52-task v1 suite, graded deterministically in a
+      Docker sandbox. 936 runs total. The full report is available below.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/sonnet5-vs-opus48-effort-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report2-effort-sweep.png" download>Download card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="inner">
+    <span>VulcanBench &middot; an open-source coding benchmark</span>
+    <span class="brandf">Vulcan<span style="color:var(--faint)">Bench</span></span>
+  </div>
+</footer>
+
+</body>
+</html>
