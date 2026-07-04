@@ -5,16 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VulcanBench — an open-source coding benchmark for frontier models</title>
 <meta name="description" content="VulcanBench evaluates frontier language models on real engineering work: merged open-source pull requests graded by deterministic hidden tests. Cost, latency, and tokens are first-class results.">
-<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://vulcanbench.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="VulcanBench — an open-source coding benchmark for frontier models">
+<meta property="og:description" content="VulcanBench evaluates frontier language models on real engineering work: merged open-source pull requests graded by deterministic hidden tests. Cost, latency, and tokens are first-class results.">
+<meta property="og:url" content="https://vulcanbench.com/">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench — benchmarking models on real engineering work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VulcanBench — an open-source coding benchmark for frontier models">
+<meta name="twitter:description" content="VulcanBench evaluates frontier language models on real engineering work: merged open-source pull requests graded by deterministic hidden tests. Cost, latency, and tokens are first-class results.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vulcanbench.com/#org",
+      "name": "VulcanBench",
+      "url": "https://vulcanbench.com/",
+      "logo": "https://vulcanbench.com/assets/logo.png",
+      "sameAs": ["https://github.com/morganlinton/VulcanBench"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vulcanbench.com/#site",
+      "name": "VulcanBench",
+      "url": "https://vulcanbench.com/",
+      "publisher": {"@id": "https://vulcanbench.com/#org"},
+      "description": "An open-source coding benchmark that evaluates frontier language models on real, decontaminated engineering tasks graded by deterministic hidden tests, with cost and tokens as first-class results."
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 
 <header class="masthead">
   <div class="inner">
-    <div class="brand"><span class="v">Vulcan</span><span class="rest">Bench</span></div>
+    <div class="brand"><a href="index.html" aria-label="VulcanBench — home">
+      <img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
     <nav class="nav">
       <a href="index.html" class="active">Home</a>
       <a href="benchmarks.html">Benchmarks</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="methodology.html">Methodology</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
   </div>
@@ -33,10 +80,28 @@
   </div>
 </div>
 
-<div class="rule2"></div><div class="wrap"><div class="rule1"></div></div>
+<div class="wrap-wide">
+  <figure class="term-fig reveal">
+    <div class="term">
+      <div class="term-bar">
+        <span class="dot d1"></span><span class="dot"></span><span class="dot"></span>
+        <span class="term-title">vulcanbench — suite: v1-micro · sandbox: docker · network: off</span>
+        <span class="spacer"></span>
+      </div>
+      <div class="term-body" id="term" aria-label="Animated transcript of a real VulcanBench run: 26 sandboxed tasks graded pass or fail by hidden tests with per-task cost, finishing 25 of 26 at $0.82 total on Claude Sonnet 5."></div>
+    </div>
+    <p class="term-cap"><b>The harness, live</b> — an actual <code>v1-micro</code> run on Claude Sonnet 5 (low): 26 sandboxed tasks, graded by hidden tests, 25 pass at <span class="cost">$0.82</span> total.</p>
+  </figure>
+
+  <div class="stats reveal">
+    <div class="stat"><div class="num">04</div><div class="lbl">Published reports</div></div>
+    <div class="stat"><div class="num">52</div><div class="lbl">Decontaminated tasks</div></div>
+    <div class="stat"><div class="num">1,050<sup>+</sup></div><div class="lbl">Graded runs</div></div>
+  </div>
+</div>
 
 <div class="wrap">
-  <section>
+  <section class="reveal">
     <div class="section-label">What it is</div>
     <h2>A benchmark that measures the job, not the trivia.</h2>
     <div class="prose">
@@ -51,8 +116,9 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="section-label">How it is measured</div>
+    <h2>Three rules, no exceptions.</h2>
     <div class="cols3">
       <div class="feature">
         <div class="n">01</div>
@@ -75,29 +141,76 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
+    <div class="section-label">From Report 04</div>
+    <h2>Same score. Four times the cost.</h2>
+    <figure class="chart-fig">
+      <div class="chart">
+        <div class="chart-title">Total cost across fifteen evals, at identical accuracy</div>
+        <div class="chart-sub">Every configuration scores 14 of 15 — each missing a different task.</div>
+        <div class="bars">
+          <div class="bar-row">
+            <div class="bar-name">Claude Opus 4.8 <em>effort: high</em></div>
+            <div class="bar-track"><div class="bar-fill win" style="--w:24.5%"><span class="val">$5.00</span></div></div>
+            <div class="bar-score">14/15</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-name">Claude Fable 5 <em>effort: low</em></div>
+            <div class="bar-track"><div class="bar-fill" style="--w:29.3%"><span class="val">$5.99</span></div></div>
+            <div class="bar-score">14/15</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-name">Claude Fable 5 <em>effort: medium</em></div>
+            <div class="bar-track"><div class="bar-fill" style="--w:54.3%"><span class="val">$11.10</span></div></div>
+            <div class="bar-score">14/15</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-name">GPT-5.5 <em>effort: high</em></div>
+            <div class="bar-track"><div class="bar-fill" style="--w:100%"><span class="val">$20.43</span></div></div>
+            <div class="bar-score">14/15</div>
+          </div>
+        </div>
+        <p class="chart-note"><b>Fig. 1</b> — When correctness converges, economics is the signal. Costs include each provider's
+        prompt-cache discount. <a href="benchmarks/04-fable-opus-gpt55.html">Read the full report &rarr;</a></p>
+      </div>
+    </figure>
+  </section>
+
+  <section class="reveal">
     <div class="section-label">The two things you came for</div>
-    <div class="cols3" style="grid-template-columns: 1fr 1fr;">
-      <a class="feature" href="benchmarks.html" style="display:block; border:1px solid rgba(28,26,23,0.28); padding:28px 30px; background:rgba(28,26,23,0.02);">
-        <h3 style="font-size:24px;">The Benchmarks &rarr;</h3>
-        <p style="font-size:17px;">Each measured run gets a dedicated page: the model card, the findings, the per-task
+    <div class="dest-grid">
+      <a class="dest" href="benchmarks.html">
+        <div class="kicker">The published record</div>
+        <h3>The Benchmarks</h3>
+        <p>Each measured run gets a dedicated page: the model card, the findings, the per-task
         results, and the downloadable report. Four published so far.</p>
+        <span class="go">Browse the reports &rarr;</span>
       </a>
-      <a class="feature" href="https://github.com/morganlinton/VulcanBench" style="display:block; border:1px solid rgba(28,26,23,0.28); padding:28px 30px; background:rgba(28,26,23,0.02);">
-        <h3 style="font-size:24px;">The Repository &rarr;</h3>
-        <p style="font-size:17px;">Every task, hidden test, gold patch, per-task Docker image, and the full grading
+      <a class="dest" href="https://github.com/morganlinton/VulcanBench">
+        <div class="kicker">Open source</div>
+        <h3>The Repository</h3>
+        <p>Every task, hidden test, gold patch, per-task Docker image, and the full grading
         harness. Reproduce any result; a two-model run costs about ten dollars.</p>
+        <span class="go">View on GitHub &rarr;</span>
       </a>
     </div>
   </section>
 </div>
 
 <footer>
+  <div class="rule"></div>
   <div class="inner">
-    <span>VulcanBench &middot; an open-source coding benchmark</span>
-    <span class="brandf">Vulcan<span style="color:var(--faint)">Bench</span></span>
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
   </div>
 </footer>
 
+<script src="site.js?v=13" defer></script>
 </body>
 </html>
