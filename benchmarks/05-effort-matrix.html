@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 05 — Fable 5 vs Opus 4.8 on a frontier-hard tier — VulcanBench</title>
+<meta name="description" content="Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/05-effort-matrix.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Report 05 — Fable 5 vs Opus 4.8 on a frontier-hard tier — VulcanBench">
+<meta property="og:description" content="Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/05-effort-matrix.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report5-effort-matrix.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Report 05 — Fable 5 vs Opus 4.8 on a frontier-hard tier — VulcanBench">
+<meta name="twitter:description" content="Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report5-effort-matrix.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../style.css?v=15">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench — home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 05</div>
+    <h1>Fable 5 vs Opus 4.8 on a frontier-hard tier</h1>
+    <p class="byline">Two models, two effort levels, on a suite built to un-saturate the frontier &mdash; graded by deterministic hidden tests</p>
+    <div class="runmeta">2026-07-04 &middot; 15 evals &middot; 60 runs &middot; 3 refusals &middot; corrected costs</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p>Five net-new-algorithm tasks were added to the suite specifically to defeat low-effort frontier models. On the 13 tasks
+    every configuration completed, binary pass@1 is a <strong>four-way tie: 7/13 in every cell</strong> &mdash; all four
+    configurations pass the same seven tasks and fail the same six. The signal has moved off the binary metric. On the five
+    frontier-hard tasks, partial credit <strong>rises with reasoning effort for Opus (0.26 &rarr; 0.42)</strong> and
+    <strong>collapses for Fable (0.17 &rarr; 0.00)</strong>: at high effort Fable spends its entire output budget deliberating
+    and writes no code. Opus delivers the tied score at roughly <strong>one-third of Fable&rsquo;s cost</strong>, and Fable
+    alone refused two legitimate networking tasks as safety false-positives.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report5-effort-matrix.png" alt="Model card: Fable 5 and Opus 4.8 at low/high effort across 15 evals, with hard-tier progress, cost, and wall-clock" width="3200" height="1800" loading="lazy" decoding="async">
+    <figcaption><b>Card 1.</b> Apples-to-apples aggregate and the three axes that separate a four-way pass@1 tie. Costs corrected for each provider's prompt-cache discount.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>A tie on what they solve, a spread on everything else.</h2>
+    <table class="data">
+      <thead><tr><th>Model (effort)</th><th>Pass@1</th><th>Hard tier</th><th>Cost</th><th>Time</th><th>Refusals</th></tr></thead>
+      <tbody>
+        <tr><td class="model">Claude Fable 5 (low)</td><td>7/13</td><td>0.17</td><td>$22.35</td><td>104 min</td><td>2</td></tr>
+        <tr><td class="model">Claude Fable 5 (high)</td><td>7/13</td><td>0.00</td><td>$26.27</td><td>99 min</td><td>1</td></tr>
+        <tr><td class="model">Claude Opus 4.8 (low)</td><td>7/13</td><td>0.26</td><td class="win">$6.95</td><td class="win">37 min</td><td>0</td></tr>
+        <tr><td class="model">Claude Opus 4.8 (high)</td><td>7/13</td><td class="win">0.42</td><td>$12.77</td><td>54 min</td><td>0</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Aggregate on the 13-task common set (8 anchors + 5 hard-tier). <em>Hard tier</em> is the mean fraction of hidden tests passed across the five frontier-hard tasks. The two tasks Fable refused are excluded from all four configurations so the comparison is like-for-like.</p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>Frontier pass rates have converged to a literal tie.</strong> All four configurations score 7/13, passing the same seven tasks and failing the same six. An eval reporting only binary pass@1 would call these configurations identical &mdash; which is precisely why a harder tier and a partial-credit metric are needed.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Reasoning effort is a one-way lever.</strong> More thinking compounds for Opus (hard-tier score 0.26&nbsp;&rarr;&nbsp;0.42; its best task climbs from 1/6 to 5/6 of hidden tests) and backfires for Fable (0.17&nbsp;&rarr;&nbsp;0.00). At high effort Fable exhausted its output budget deliberating and produced <em>no implementation</em> on every hard task. "More effort" is a model-specific behavior, not a universal upgrade.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>At equal accuracy, the efficiency gap is ~3x.</strong> Opus matches Fable's score at a third of the cost ($6.95&ndash;$12.77 vs $22.35&ndash;$26.27) and about half the wall-clock. When correctness ties, cost and latency <em>are</em> the benchmark.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>Safety guardrails masquerade as capability loss.</strong> Fable refused two legitimate tasks &mdash; an HTTP-upgrade handler and an <span style="font-family:var(--mono);font-size:15px;">io.Tee</span> bug &mdash; as cyber-risk false positives; Opus refused none. On raw scores that reads as "Fable failed two tasks." Refusal-adjusted scoring should be table stakes for systems and networking code.</p></div>
+      <div class="finding"><div class="fn">5.</div><p><strong>Models follow training priors over explicit instructions.</strong> On the Leiden task the objective function is spelled out in the prompt, formula included, with a literal "this is CPM, not modularity" warning. The model implemented modularity anyway, scoring far below threshold. Tasks graded against a specified-but-unusual convention expose an instruction-versus-prior failure mode standard benchmarks never touch.</p></div>
+    </div>
+  </section>
+
+  <figure>
+    <img src="../assets/cards/report5-evals.png" alt="Per-task hidden-test pass fraction for the five frontier-hard tasks across the four configurations" width="3200" height="1800" loading="lazy" decoding="async">
+    <figcaption><b>Card 2.</b> The five frontier-hard tasks, task by task. No configuration clears any of them &mdash; deliberate headroom for the next model.</figcaption>
+  </figure>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>Fifteen tasks from real merged pull requests (flask, sqlglot, click, more-itertools, packaging, networkx, pennylane;
+      Python and Go), all merged after model training cutoffs, graded by deterministic hidden tests in a network-isolated
+      Docker sandbox. One run per task per configuration; no LLM judges. Five of the fifteen are net-new-algorithm tasks
+      individually screened to defeat low-effort frontier models: a native Leiden implementation, a SQL canonical-name rewrite,
+      and three quantum resource-estimation templates.</p>
+      <p>The hard tier was calibrated after an initial run showed it graded partly on conventions a correct implementation could
+      not derive. Grading was made fair-hard: the Leiden task moved from exact-partition matching to semantic quality thresholds
+      plus the algorithm's connectivity guarantee, and the three quantum tasks gained worked acceptance examples at parameter
+      points distinct from the hidden graded cases. Difficulty was preserved; unknowability was removed.</p>
+      <p>Two tasks Fable refused as cyber-classifier false positives are excluded from all four configurations in the
+      apples-to-apples table so the comparison is like-for-like; the refusals are reported separately. Costs reflect each
+      provider's automatic prompt-cache discount. Total spend for the run was approximately $100.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-effort-matrix-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report5-effort-matrix.png" download>Download model card</a>
+      <a class="btn" href="../assets/cards/report5-evals.png" download>Download hard-tier card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=13" defer></script>
+</body>
+</html>
