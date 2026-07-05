@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/logo.png">
-<link rel="stylesheet" href="style.css?v=15">
+<link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
 
@@ -39,6 +39,7 @@
       <a href="benchmarks.html">Benchmarks</a>
       <a href="leaderboard.html" class="active">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
+      <a href="support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
   </div>
@@ -49,15 +50,15 @@
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">The published record</div>
     <h1>Leaderboard</h1>
-    <p class="byline">Every model configuration measured on VulcanBench, ranked — five models, fifteen configurations, four reports.</p>
+    <p class="byline">Every model configuration measured on VulcanBench, ranked — five models, nineteen configurations, five reports.</p>
   </div>
 
   <div class="lb-note">
     <b>How to read this</b>
     Rankings are <em>within each report</em>: every report holds one suite fixed and runs each model against the identical
     tasks. Suites differ between reports in size and difficulty, so scores across reports are not comparable — a higher
-    percentage on an easier suite does not beat a lower one on a harder suite. When accuracy ties, economics decides:
-    cost, and cost per solved task.
+    percentage on an easier suite does not beat a lower one on a harder suite. When binary pass rates tie, the tie is
+    broken by whatever still separates the models — a harder partial-credit tier, or economics: cost and cost per solved task.
   </div>
 
   <div class="models-strip">
@@ -66,6 +67,26 @@
     <div class="model-chip"><b>Claude Opus 4.8</b><span>Anthropic</span></div>
     <div class="model-chip"><b>GPT-5.5</b><span>OpenAI</span></div>
     <div class="model-chip"><b>GLM-5.2</b><span>Z.ai</span></div>
+  </div>
+
+  <!-- ===== Report 05 ===== -->
+  <div class="lb-section">
+    <div class="lb-shead">
+      <div class="l"><b>Report 05</b> &middot; Effort matrix &middot; 15 evals &middot; 60 runs</div>
+      <a href="benchmarks/05-effort-matrix.html">Full report &rarr;</a>
+    </div>
+    <p class="lb-context">Binary pass@1 is a four-way tie at 7/13, so the signal moves to the frontier-hard tier: reasoning effort compounds for Opus and collapses for Fable. Ranked by hard-tier progress (mean fraction of hidden tests passed on the five hardest tasks).</p>
+    <div class="lb-scroll">
+    <table class="lb">
+      <thead><tr><th class="l">#</th><th class="l">Model</th><th>pass@1</th><th>Hard tier</th><th>Cost</th><th>Refusals</th></tr></thead>
+      <tbody>
+        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><span class="lb-model">Claude Opus 4.8</span> <span class="lb-eff">high</span><span class="lb-tag">Hard-tier leader</span></td><td>7/13</td><td class="lb-win">0.42</td><td>$12.77</td><td>0</td></tr>
+        <tr><td class="l lb-rank">2</td><td class="l"><span class="lb-model">Claude Opus 4.8</span> <span class="lb-eff">low</span></td><td>7/13</td><td>0.26</td><td class="lb-win">$6.95</td><td>0</td></tr>
+        <tr><td class="l lb-rank">3</td><td class="l"><span class="lb-model">Claude Fable 5</span> <span class="lb-eff">low</span></td><td>7/13</td><td>0.17</td><td>$22.35</td><td>2</td></tr>
+        <tr><td class="l lb-rank">4</td><td class="l"><span class="lb-model">Claude Fable 5</span> <span class="lb-eff">high</span></td><td>7/13</td><td>0.00</td><td>$26.27</td><td>1</td></tr>
+      </tbody>
+    </table>
+    </div>
   </div>
 
   <!-- ===== Report 04 ===== -->
@@ -170,6 +191,7 @@
       <a href="benchmarks.html">Benchmarks</a>
       <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
+      <a href="support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
     <span class="brandf"><img class="mark" src="assets/logo.png" alt="" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
