@@ -5,16 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Benchmarks — VulcanBench</title>
 <meta name="description" content="Published VulcanBench benchmark runs: each with a model card, findings, per-task results, and a downloadable report.">
-<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Benchmarks — VulcanBench">
+<meta property="og:description" content="Published VulcanBench benchmark runs: each with a model card, findings, per-task results, and a downloadable report.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench — benchmarking models on real engineering work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Benchmarks — VulcanBench">
+<meta name="twitter:description" content="Published VulcanBench benchmark runs: each with a model card, findings, per-task results, and a downloadable report.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 
 <header class="masthead">
   <div class="inner">
-    <div class="brand"><span class="v">Vulcan</span><span class="rest">Bench</span></div>
+    <div class="brand"><a href="index.html" aria-label="VulcanBench — home">
+      <img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="benchmarks.html" class="active">Benchmarks</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="methodology.html">Methodology</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
   </div>
@@ -74,11 +98,19 @@
 </div>
 
 <footer>
+  <div class="rule"></div>
   <div class="inner">
-    <span>VulcanBench &middot; an open-source coding benchmark</span>
-    <span class="brandf">Vulcan<span style="color:var(--faint)">Bench</span></span>
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
   </div>
 </footer>
 
+<script src="site.js?v=13" defer></script>
 </body>
 </html>

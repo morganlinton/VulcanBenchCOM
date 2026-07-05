@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaderboard — VulcanBench</title>
+<meta name="description" content="Every model configuration measured on VulcanBench, ranked. Fable 5, Sonnet 5, Opus 4.8, GPT-5.5, and GLM-5.2 across four published reports — accuracy, cost, and cost per solved task.">
+<link rel="canonical" href="https://vulcanbench.com/leaderboard.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Leaderboard — VulcanBench">
+<meta property="og:description" content="Every model configuration measured on VulcanBench, ranked by accuracy and cost across four published reports.">
+<meta property="og:url" content="https://vulcanbench.com/leaderboard.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench — benchmarking models on real engineering work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Leaderboard — VulcanBench">
+<meta name="twitter:description" content="Every model configuration measured on VulcanBench, ranked by accuracy and cost across four published reports.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="stylesheet" href="style.css?v=15">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="index.html" aria-label="VulcanBench — home">
+      <img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="leaderboard.html" class="active">Leaderboard</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head" style="padding-bottom:6px;">
+    <div class="rno">The published record</div>
+    <h1>Leaderboard</h1>
+    <p class="byline">Every model configuration measured on VulcanBench, ranked — five models, fifteen configurations, four reports.</p>
+  </div>
+
+  <div class="lb-note">
+    <b>How to read this</b>
+    Rankings are <em>within each report</em>: every report holds one suite fixed and runs each model against the identical
+    tasks. Suites differ between reports in size and difficulty, so scores across reports are not comparable — a higher
+    percentage on an easier suite does not beat a lower one on a harder suite. When accuracy ties, economics decides:
+    cost, and cost per solved task.
+  </div>
+
+  <div class="models-strip">
+    <div class="model-chip"><b>Claude Fable 5</b><span>Anthropic</span></div>
+    <div class="model-chip"><b>Claude Sonnet 5</b><span>Anthropic</span></div>
+    <div class="model-chip"><b>Claude Opus 4.8</b><span>Anthropic</span></div>
+    <div class="model-chip"><b>GPT-5.5</b><span>OpenAI</span></div>
+    <div class="model-chip"><b>GLM-5.2</b><span>Z.ai</span></div>
+  </div>
+
+  <!-- ===== Report 04 ===== -->
+  <div class="lb-section">
+    <div class="lb-shead">
+      <div class="l"><b>Report 04</b> &middot; Evals 6.2.26 &middot; 15 tasks &middot; 60 runs</div>
+      <a href="benchmarks/04-fable-opus-gpt55.html">Full report &rarr;</a>
+    </div>
+    <p class="lb-context">All four configurations score 14/15 but each misses a different task; at equal accuracy, cost spans 4&times;. Ranked by cost.</p>
+    <div class="lb-scroll">
+    <table class="lb">
+      <thead><tr><th class="l">#</th><th class="l">Model</th><th>Score</th><th>Cost</th><th>Time</th><th>Tokens</th><th>$/solved</th></tr></thead>
+      <tbody>
+        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><span class="lb-model">Claude Opus 4.8</span> <span class="lb-eff">high</span><span class="lb-tag">Value leader</span></td><td>14/15</td><td class="lb-win">$5.00</td><td>27 min</td><td>0.71 M</td><td>$0.36</td></tr>
+        <tr><td class="l lb-rank">2</td><td class="l"><span class="lb-model">Claude Fable 5</span> <span class="lb-eff">low</span></td><td>14/15</td><td>$5.99</td><td>27 min</td><td>0.40 M</td><td>$0.43</td></tr>
+        <tr><td class="l lb-rank">3</td><td class="l"><span class="lb-model">Claude Fable 5</span> <span class="lb-eff">medium</span></td><td>14/15</td><td>$11.10</td><td>44 min</td><td>0.64 M</td><td>$0.79</td></tr>
+        <tr><td class="l lb-rank">4</td><td class="l"><span class="lb-model">GPT-5.5</span> <span class="lb-eff">high</span></td><td>14/15</td><td>$20.43</td><td>71 min</td><td>2.97 M</td><td>$1.46</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ===== Report 03 ===== -->
+  <div class="lb-section">
+    <div class="lb-shead">
+      <div class="l"><b>Report 03</b> &middot; v2 Suite &middot; 10 tasks &middot; 30 runs</div>
+      <a href="benchmarks/03-fable-sonnet-glm.html">Full report &rarr;</a>
+    </div>
+    <p class="lb-context">Three models, three vendors, all score 8/10 and fail the same two tasks; resource use spans an order of magnitude. Ranked by cost per solved task.</p>
+    <div class="lb-scroll">
+    <table class="lb">
+      <thead><tr><th class="l">#</th><th class="l">Model</th><th>Score</th><th>Cost</th><th>Time</th><th>Tokens</th><th>$/solved</th></tr></thead>
+      <tbody>
+        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><span class="lb-model">Claude Fable 5</span> <span class="lb-eff">low</span><span class="lb-tag">Value leader</span></td><td>8/10</td><td class="lb-win">$2.27</td><td>14 min</td><td>0.14 M</td><td class="lb-win">$0.28</td></tr>
+        <tr><td class="l lb-rank">2</td><td class="l"><span class="lb-model">Claude Sonnet 5</span> <span class="lb-eff">high</span></td><td>8/10</td><td>$8.41</td><td>59 min</td><td>1.75 M</td><td>$1.05</td></tr>
+        <tr><td class="l lb-rank">3</td><td class="l"><span class="lb-model">GLM-5.2</span> <span class="lb-eff">high</span></td><td>8/10</td><td>$15.81</td><td>124 min</td><td>10.82 M</td><td>$1.98</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ===== Report 02 ===== -->
+  <div class="lb-section">
+    <div class="lb-shead">
+      <div class="l"><b>Report 02</b> &middot; v1 Suite &middot; 52 tasks &middot; 936 runs</div>
+      <a href="benchmarks/02-effort-sweep.html">Full report &rarr;</a>
+    </div>
+    <p class="lb-context">A reasoning-effort sweep: Sonnet 5 scales cleanly with effort while Opus 4.8 stays flat. Ranked by pass@1, then cost per run. Cost is per run (three repeats per cell).</p>
+    <div class="lb-scroll">
+    <table class="lb">
+      <thead><tr><th class="l">#</th><th class="l">Model</th><th>pass@1</th><th>$/run</th></tr></thead>
+      <tbody>
+        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><span class="lb-model">Claude Sonnet 5</span> <span class="lb-eff">high</span><span class="lb-tag">Accuracy leader</span></td><td class="lb-win">100%</td><td>$0.13</td></tr>
+        <tr><td class="l lb-rank">2</td><td class="l"><span class="lb-model">Claude Sonnet 5</span> <span class="lb-eff">medium</span></td><td>99.4%</td><td>$0.11</td></tr>
+        <tr><td class="l lb-rank">3</td><td class="l"><span class="lb-model">Claude Opus 4.8</span> <span class="lb-eff">medium</span></td><td>98.1%</td><td>$0.13</td></tr>
+        <tr><td class="l lb-rank">4</td><td class="l"><span class="lb-model">Claude Sonnet 5</span> <span class="lb-eff">low</span></td><td>97.4%</td><td>$0.07</td></tr>
+        <tr><td class="l lb-rank">5</td><td class="l"><span class="lb-model">Claude Opus 4.8</span> <span class="lb-eff">low</span></td><td>97.4%</td><td>$0.11</td></tr>
+        <tr><td class="l lb-rank">6</td><td class="l"><span class="lb-model">Claude Opus 4.8</span> <span class="lb-eff">high</span></td><td>97.4%</td><td>$0.14</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ===== Report 01 ===== -->
+  <div class="lb-section">
+    <div class="lb-shead">
+      <div class="l"><b>Report 01</b> &middot; Cost Pilot &middot; 4 tasks &middot; 24 runs</div>
+      <a href="benchmarks/01-cost-pilot.html">Full report &rarr;</a>
+    </div>
+    <p class="lb-context">The pilot: both models solve every real bug at 100%; the gap is entirely cost, concentrated in a 76k-line repository. Ranked by cost.</p>
+    <div class="lb-scroll">
+    <table class="lb">
+      <thead><tr><th class="l">#</th><th class="l">Model</th><th>Score</th><th>Cost</th><th>$/task</th><th>76k-LOC task</th></tr></thead>
+      <tbody>
+        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><span class="lb-model">Claude Opus 4.8</span> <span class="lb-eff">high</span><span class="lb-tag">Value leader</span></td><td>4/4</td><td class="lb-win">$5.89</td><td>$1.47</td><td>$2.08</td></tr>
+        <tr><td class="l lb-rank">2</td><td class="l"><span class="lb-model">Claude Sonnet 5</span> <span class="lb-eff">high</span></td><td>4/4</td><td>$19.88</td><td>$4.97</td><td>$15.15</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <section style="padding:44px 0 0;">
+    <div class="section-label">Reproduce it</div>
+    <div class="prose">
+      <p>Every number here comes from the open-source harness, computed from full run traces — nothing is hand-entered.
+      Regenerate any row with <span class="mono">vulcanbench leaderboard</span>, or reproduce a whole report from scratch:
+      a two-model run costs about ten dollars. The grading underneath is deterministic hidden tests, spelled out in the
+      <a href="methodology.html">methodology</a>.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="benchmarks.html">Browse the reports</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="assets/logo.png" alt="" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+</body>
+</html>

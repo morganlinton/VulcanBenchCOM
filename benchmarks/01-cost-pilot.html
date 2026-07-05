@@ -5,16 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Report 01 — Real bugs, both solved: the gap is cost — VulcanBench</title>
 <meta name="description" content="The pilot run that established cost as the live axis: both frontier models solve every real, decontaminated bug, and the gap is entirely economic.">
-<link rel="stylesheet" href="../style.css">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/01-cost-pilot.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Report 01 — Real bugs, both solved: the gap is cost — VulcanBench">
+<meta property="og:description" content="The pilot run that established cost as the live axis: both frontier models solve every real, decontaminated bug, and the gap is entirely economic.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/01-cost-pilot.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report1-cost-pilot.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Report 01 — Real bugs, both solved: the gap is cost — VulcanBench">
+<meta name="twitter:description" content="The pilot run that established cost as the live axis: both frontier models solve every real, decontaminated bug, and the gap is entirely economic.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report1-cost-pilot.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../style.css?v=15">
 </head>
 <body>
 
 <header class="masthead">
   <div class="inner">
-    <div class="brand"><a href="../index.html"><span class="v">Vulcan</span><span class="rest">Bench</span></a></div>
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench — home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
     <nav class="nav">
       <a href="../index.html">Home</a>
       <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
   </div>
@@ -37,7 +58,7 @@
   </div>
 
   <figure>
-    <img src="../assets/cards/report1-cost-pilot.png" alt="Model card: Sonnet 5 vs Opus 4.8 cost per task at equal correctness">
+    <img src="../assets/cards/report1-cost-pilot.png?v=2" alt="Model card: Sonnet 5 vs Opus 4.8 cost per task at equal correctness" width="3200" height="1800" loading="lazy" decoding="async">
     <figcaption><b>Card.</b> Cost per task at equal (100 percent) correctness. The gap is concentrated in the 76k-line repository.</figcaption>
   </figure>
 
@@ -59,7 +80,9 @@
       runs per task.</p>
     </div>
     <div class="dl-row">
-      <a class="btn" href="../assets/cards/report1-cost-pilot.png" download>Download card</a>
+      <a class="btn primary" href="../assets/reports/vulcanbench-cost-pilot-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report1-cost-pilot.png?v=2" download>Download model card</a>
+      <a class="btn" href="../assets/cards/report1-evals.png" download>Download evals card</a>
       <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
     </div>
     <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
@@ -67,11 +90,19 @@
 </div>
 
 <footer>
+  <div class="rule"></div>
   <div class="inner">
-    <span>VulcanBench &middot; an open-source coding benchmark</span>
-    <span class="brandf">Vulcan<span style="color:var(--faint)">Bench</span></span>
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
   </div>
 </footer>
 
+<script src="../site.js?v=13" defer></script>
 </body>
 </html>
