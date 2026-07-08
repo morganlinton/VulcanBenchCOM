@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 06 — Does it work every time? Opus 4.8 vs Haiku 4.5 reliability — VulcanBench</title>
+<meta name="description" content="The first reliability study on the suite: five runs per task. On pass^5 the cheapest model wins, the frontier model is the flaky one, and the frontier-hard tier holds at 0 solves in 30 attempts.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/06-reliability.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Report 06 — Does it work every time? Opus 4.8 vs Haiku 4.5 reliability — VulcanBench">
+<meta property="og:description" content="The first reliability study on the suite: five runs per task. On pass^5 the cheapest model wins, the frontier model is the flaky one, and the frontier-hard tier holds at 0 solves in 30 attempts.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/06-reliability.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report6-reliability.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Report 06 — Does it work every time? Opus 4.8 vs Haiku 4.5 reliability — VulcanBench">
+<meta name="twitter:description" content="The first reliability study on the suite: five runs per task. On pass^5 the cheapest model wins, the frontier model is the flaky one, and the frontier-hard tier holds at 0 solves in 30 attempts.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report6-reliability.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../style.css?v=16">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench — home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 06</div>
+    <h1>Does it work every time?</h1>
+    <p class="byline">Claude Opus 4.8 vs Claude Haiku 4.5, five runs per task &mdash; the first reliability study on the suite</p>
+    <div class="runmeta">2026-07-07 &middot; 15 evals &middot; 135 runs &middot; $79.55 total &middot; deterministic grading</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p>Single-run benchmarks measure luck-adjusted capability; repeated runs measure dependability, and the two rank models
+    differently. On pass@1 the frontier model and the budget model look close (0.600 vs 0.667). On <strong>pass^5 &mdash;
+    solved in all five runs &mdash; the cheapest model wins: 0.667 vs 0.533</strong>. Haiku 4.5 is perfectly bimodal: ten
+    tasks solved every single time, including the multi-site Flask redesign that has stopped every frontier model, and five
+    frontier-hard tasks never solved. Opus 4.8 is the flaky one: two of its passing tasks are coin flips that every previous
+    single-run report scored as clean 1.0s.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report6-reliability.png" alt="Model card: Opus 4.8 vs Haiku 4.5 reliability metrics — pass@k, pass@1, pass^k" width="3200" height="1800" loading="lazy" decoding="async">
+    <figcaption><b>Card 1.</b> The same two models under three definitions of "solves it." The ranking flips between capability and dependability.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>Capability and dependability are different leaderboards.</h2>
+    <table class="data">
+      <thead><tr><th>Model</th><th>pass@k (&ge;1)</th><th>pass@1</th><th>pass^k (all)</th><th>Flaky tasks</th><th>Runs</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td class="model">Claude Opus 4.8 (low)</td><td>0.667</td><td>0.600</td><td>0.533</td><td>2</td><td>71</td><td>$46.98</td></tr>
+        <tr><td class="model">Claude Haiku 4.5</td><td>0.667</td><td class="win">0.667</td><td class="win">0.667</td><td class="win">0</td><td>64</td><td class="win">$32.49</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Per-task repeats: Opus n=5 (two shortfalls noted under Method); Haiku n=5 on anchors, n=3 on the hard tier by design. <em>pass^k</em> requires solving a task in every attempt &mdash; the dependability number.</p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>The cheapest model was the most dependable.</strong> Haiku has zero task-level variance across 64 runs: every task is solved in all runs or in none, so its pass@1, pass@k, and pass^k coincide at 0.667. Its ten solid passes include <span style="font-family:var(--mono);font-size:15px;">flask-teardown-robust</span> (5/5) &mdash; the task that has stopped Fable&nbsp;5, Opus&nbsp;4.8, and Sonnet&nbsp;5 in every prior run &mdash; and <span style="font-family:var(--mono);font-size:15px;">aiohttp-upgrade-deferred</span> (5/5), which Fable refuses outright.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>pass@1 hides coin flips.</strong> <span style="font-family:var(--mono);font-size:15px;">sqlglot-iso8601-nanos</span> scored 1.0 in every earlier single-run report; under repetition it is 2/5 for Opus-low. The calibrated Leiden task landed at 3/5 &mdash; a genuine middle-band task, usually solvable, never reliably. Neither behavior is visible at n=1.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Persistence and depth are different axes.</strong> Haiku grinds &mdash; 378-step medians &mdash; and that persistence reliably closes multi-site integration work. But it hits the novel-algorithm tier as hard as everyone else (0/15), with <em>lower</em> partial credit than Opus (canonicalize flat 0.17 vs Opus reaching 0.50; Leiden 0/3 vs 3/5). Step-grinding buys reliability on breadth, not capability on depth.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>The frontier-hard tier holds.</strong> Zero solves in 30 attempts across both models. Every configuration ever run against it &mdash; Fable&nbsp;5, Opus&nbsp;4.8, Sonnet&nbsp;5, and now Haiku&nbsp;4.5 &mdash; has failed it.</p></div>
+    </div>
+  </section>
+
+  <figure>
+    <img src="../assets/cards/report6-evals.png" alt="Per-task reliability: fraction of repeated runs solved for each of the 15 tasks" width="3200" height="1800" loading="lazy" decoding="async">
+    <figcaption><b>Card 2.</b> Fifteen tasks, five runs each: the divergences, the solid passes, and the unsolved tier.</figcaption>
+  </figure>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>Fifteen tasks from real merged pull requests (10 anchors + 5 frontier-hard), all merged after model training
+      cutoffs, graded by deterministic hidden tests in a network-isolated Docker sandbox; no LLM judges. Suite frozen at
+      version <span style="font-family:var(--mono);font-size:15px;">78f8fdf22de1</span>; every run records the task hash it
+      was scored against. Per-run agent spend capped at $2.50 (a capped run is graded as-is and reported as a bounded DNF);
+      Haiku runs without the effort parameter, which the model rejects.</p>
+      <p>Coverage shortfalls, stated plainly: Opus has n=2 on one hard task and n=4 on another (all four of those runs hit
+      the $2.50 cap); Haiku has n=4 on one anchor and n=3 on the hard tier by design. Budget breakers stop launching new
+      runs but let in-flight runs finish; the Opus pass overshot its $38 cap to $43.13. The 135-run study cost $79.55,
+      made affordable by per-run caps, budget breakers, and gap-filling resume.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-reliability-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report6-reliability.png" download>Download model card</a>
+      <a class="btn" href="../assets/cards/report6-evals.png" download>Download per-task card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=13" defer></script>
+</body>
+</html>
