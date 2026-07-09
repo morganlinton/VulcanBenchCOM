@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Report 05 — Fable 5 vs Opus 4.8 on a frontier-hard tier — VulcanBench</title>
+<title>Report 05 | Fable 5 vs Opus 4.8 on a frontier-hard tier | VulcanBench</title>
 <meta name="description" content="Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/05-effort-matrix.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="Report 05 — Fable 5 vs Opus 4.8 on a frontier-hard tier — VulcanBench">
+<meta property="og:title" content="Report 05 | Fable 5 vs Opus 4.8 on a frontier-hard tier | VulcanBench">
 <meta property="og:description" content="Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/05-effort-matrix.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/cards/report5-effort-matrix.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Report 05 — Fable 5 vs Opus 4.8 on a frontier-hard tier — VulcanBench">
+<meta name="twitter:title" content="Report 05 | Fable 5 vs Opus 4.8 on a frontier-hard tier | VulcanBench">
 <meta name="twitter:description" content="Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report5-effort-matrix.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,14 +27,13 @@
 
 <header class="masthead">
   <div class="inner">
-    <div class="brand"><a href="../index.html" aria-label="VulcanBench — home">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
       <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
       <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
     </a></div>
     <nav class="nav">
       <a href="../index.html">Home</a>
       <a href="../benchmarks.html" class="active">Benchmarks</a>
-      <a href="../leaderboard.html">Leaderboard</a>
       <a href="../methodology.html">Methodology</a>
       <a href="../support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
@@ -47,14 +46,14 @@
   <div class="article-head">
     <div class="rno">Technical Report No. 05</div>
     <h1>Fable 5 vs Opus 4.8 on a frontier-hard tier</h1>
-    <p class="byline">Two models, two effort levels, on a suite built to un-saturate the frontier &mdash; graded by deterministic hidden tests</p>
+    <p class="byline">Two models, two effort levels, on a suite built to un-saturate the frontier, graded by deterministic hidden tests</p>
     <div class="runmeta">2026-07-04 &middot; 15 evals &middot; 60 runs &middot; 3 refusals &middot; corrected costs</div>
   </div>
 
   <div class="abstract-box">
     <span class="lbl">Abstract.</span>
     <p>Five net-new-algorithm tasks were added to the suite specifically to defeat low-effort frontier models. On the 13 tasks
-    every configuration completed, binary pass@1 is a <strong>four-way tie: 7/13 in every cell</strong> &mdash; all four
+    every configuration completed, binary pass@1 is a <strong>four-way tie: 7/13 in every cell</strong>, and all four
     configurations pass the same seven tasks and fail the same six. The signal has moved off the binary metric. On the five
     frontier-hard tasks, partial credit <strong>rises with reasoning effort for Opus (0.26 &rarr; 0.42)</strong> and
     <strong>collapses for Fable (0.17 &rarr; 0.00)</strong>: at high effort Fable spends its entire output budget deliberating
@@ -82,17 +81,17 @@
     <p class="prose" style="margin-top:10px;font-size:15px;">Aggregate on the 13-task common set (8 anchors + 5 hard-tier). <em>Hard tier</em> is the mean fraction of hidden tests passed across the five frontier-hard tasks. The two tasks Fable refused are excluded from all four configurations so the comparison is like-for-like.</p>
 
     <div class="findings-list">
-      <div class="finding"><div class="fn">1.</div><p><strong>Frontier pass rates have converged to a literal tie.</strong> All four configurations score 7/13, passing the same seven tasks and failing the same six. An eval reporting only binary pass@1 would call these configurations identical &mdash; which is precisely why a harder tier and a partial-credit metric are needed.</p></div>
+      <div class="finding"><div class="fn">1.</div><p><strong>Frontier pass rates have converged to a literal tie.</strong> All four configurations score 7/13, passing the same seven tasks and failing the same six. An eval reporting only binary pass@1 would call these configurations identical, which is precisely why a harder tier and a partial-credit metric are needed.</p></div>
       <div class="finding"><div class="fn">2.</div><p><strong>Reasoning effort is a one-way lever.</strong> More thinking compounds for Opus (hard-tier score 0.26&nbsp;&rarr;&nbsp;0.42; its best task climbs from 1/6 to 5/6 of hidden tests) and backfires for Fable (0.17&nbsp;&rarr;&nbsp;0.00). At high effort Fable exhausted its output budget deliberating and produced <em>no implementation</em> on every hard task. "More effort" is a model-specific behavior, not a universal upgrade.</p></div>
       <div class="finding"><div class="fn">3.</div><p><strong>At equal accuracy, the efficiency gap is ~3x.</strong> Opus matches Fable's score at a third of the cost ($6.95&ndash;$12.77 vs $22.35&ndash;$26.27) and about half the wall-clock. When correctness ties, cost and latency <em>are</em> the benchmark.</p></div>
-      <div class="finding"><div class="fn">4.</div><p><strong>Safety guardrails masquerade as capability loss.</strong> Fable refused two legitimate tasks &mdash; an HTTP-upgrade handler and an <span style="font-family:var(--mono);font-size:15px;">io.Tee</span> bug &mdash; as cyber-risk false positives; Opus refused none. On raw scores that reads as "Fable failed two tasks." Refusal-adjusted scoring should be table stakes for systems and networking code.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>Safety guardrails masquerade as capability loss.</strong> Fable refused two legitimate tasks, an HTTP-upgrade handler and an <span style="font-family:var(--mono);font-size:15px;">io.Tee</span> bug, as cyber-risk false positives; Opus refused none. On raw scores that reads as "Fable failed two tasks." Refusal-adjusted scoring should be table stakes for systems and networking code.</p></div>
       <div class="finding"><div class="fn">5.</div><p><strong>Models follow training priors over explicit instructions.</strong> On the Leiden task the objective function is spelled out in the prompt, formula included, with a literal "this is CPM, not modularity" warning. The model implemented modularity anyway, scoring far below threshold. Tasks graded against a specified-but-unusual convention expose an instruction-versus-prior failure mode standard benchmarks never touch.</p></div>
     </div>
   </section>
 
   <figure>
     <img src="../assets/cards/report5-evals.png" alt="Per-task hidden-test pass fraction for the five frontier-hard tasks across the four configurations" width="3200" height="1800" loading="lazy" decoding="async">
-    <figcaption><b>Card 2.</b> The five frontier-hard tasks, task by task. No configuration clears any of them &mdash; deliberate headroom for the next model.</figcaption>
+    <figcaption><b>Card 2.</b> The five frontier-hard tasks, task by task. No configuration clears any of them: deliberate headroom for the next model.</figcaption>
   </figure>
 
   <section style="padding-top:8px;">
@@ -127,7 +126,6 @@
     <span class="tag">Measured on the anvil, graded by hidden tests.</span>
     <nav class="fnav">
       <a href="../benchmarks.html">Benchmarks</a>
-      <a href="../leaderboard.html">Leaderboard</a>
       <a href="../methodology.html">Methodology</a>
       <a href="../support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>

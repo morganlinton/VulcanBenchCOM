@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Methodology — VulcanBench</title>
+<title>Methodology | VulcanBench</title>
 <meta name="description" content="How VulcanBench measures: real merged pull requests, decontaminated after model cutoffs, graded by deterministic hidden tests in a network-isolated sandbox, with cost and tokens as first-class results.">
 <link rel="canonical" href="https://vulcanbench.com/methodology.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="Methodology — VulcanBench">
+<meta property="og:title" content="Methodology | VulcanBench">
 <meta property="og:description" content="How VulcanBench measures: real merged pull requests, decontaminated after model cutoffs, graded by deterministic hidden tests, with cost and tokens as first-class results.">
 <meta property="og:url" content="https://vulcanbench.com/methodology.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="VulcanBench — benchmarking models on real engineering work">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Methodology — VulcanBench">
+<meta name="twitter:title" content="Methodology | VulcanBench">
 <meta name="twitter:description" content="How VulcanBench measures: real merged pull requests, decontaminated after model cutoffs, graded by deterministic hidden tests.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,14 +30,13 @@
 
 <header class="masthead">
   <div class="inner">
-    <div class="brand"><a href="index.html" aria-label="VulcanBench — home">
+    <div class="brand"><a href="index.html" aria-label="VulcanBench home">
       <img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
       <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
     </a></div>
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="benchmarks.html">Benchmarks</a>
-      <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html" class="active">Methodology</a>
       <a href="support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
@@ -50,7 +49,7 @@
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">How it works</div>
     <h1>Methodology</h1>
-    <p class="byline">Real engineering tasks, decontaminated after model cutoffs, graded by deterministic hidden tests — with economics treated as a first-class result.</p>
+    <p class="byline">Real engineering tasks, decontaminated after model cutoffs and graded by deterministic hidden tests, with cost, time, and tokens measured right alongside the score.</p>
   </div>
 
   <div class="method-toc">
@@ -63,21 +62,50 @@
     <a href="#effort"><b>07</b> Reasoning effort</a>
     <a href="#economics"><b>08</b> Economics</a>
     <a href="#refusals"><b>09</b> Refusals</a>
-    <a href="#suites"><b>10</b> Suites &amp; tiers</a>
-    <a href="#reproducibility"><b>11</b> Reproducibility</a>
+    <a href="#reproducibility"><b>10</b> Reproducibility</a>
   </div>
 
   <section id="principle">
     <div class="section-label">01 &middot; The principle</div>
-    <h2>Measure the job, not the trivia.</h2>
+    <h2>Evals based on real work, real engineering teams do.</h2>
     <div class="prose">
-      <p class="lead">Most coding benchmarks saturate. When every frontier model scores 98 to 100 percent, the benchmark
-      is measuring its own ceiling, not the models. VulcanBench stays discriminating two ways: it sources tasks from real
-      engineering work that current models cannot all solve, and it treats cost, latency, and tokens as first-class
-      results alongside accuracy.</p>
-      <p>So the question changes. When models spanning a wide price range land on identical pass rates with identical
-      failure sets, correctness has stopped separating them; what differs is what each model <em>spends</em> to get
-      there — and that is measured, not estimated.</p>
+      <p class="lead">Before diving into the methodology I have developed with VulcanBench, I think it probably makes
+      sense to introduce myself. Hi, I&rsquo;m Morgan, and I&rsquo;m the Cofounder and CTO of Bold Metrics, an AI startup
+      that helps some of the world&rsquo;s leading apparel brands with fit and sizing. I lead an engineering team, and
+      over the last 18 months we&rsquo;ve gone head-first into agentic coding workflows.</p>
+      <p>What has been challenging for me as an engineering leader is knowing what benchmarks I can use to truly
+      understand how a model will perform when my team uses it for the regular coding tasks we do every day. As I did a
+      deeper dive into some of the current benchmarks out there, I found many of the evals had too many tasks that were
+      things like puzzles or math problems, that didn&rsquo;t reflect the kind of things my team would be doing with
+      these models.</p>
+      <p>Looking on social media, I found a lot of people testing models by seeing how well a new model can build a
+      working version of Flappy Bird or create an image of a pelican riding a bike, and well, yeah, that&rsquo;s not as
+      helpful for engineering teams like mine shipping production code that goes out to hundreds of millions of active
+      users.</p>
+      <p>So I started benchmarking models myself, at first just testing our own engineering tasks across different
+      models. Then I started to augment the effort level and had a bit of an aha moment. I realized that while so many
+      model providers default to High effort, with the new class of models we now have, Low and Medium effort often
+      produces the same result, faster, and cheaper.</p>
+      <p>As I started to get deeper into model benchmarking for us, I realized that all of the Python scripts I had
+      created were getting messy, I needed a more clean and organized way to run my benchmarks. And well, I&rsquo;m a big
+      Star Trek fan, that&rsquo;s one of the reasons why we&rsquo;re called Bold Metrics, i.e. to boldly go where no one
+      has gone before ;) I knew I wanted the name of whatever tool I built to have the word bench at the end, and I also
+      knew I wanted a tool that at its core was about honest and transparent benchmarks, and I immediately thought,
+      Vulcans!</p>
+      <p>Yup, and that&rsquo;s how VulcanBench was formed.</p>
+      <p>My general thinking is that any benchmark that just runs one pass, and doesn&rsquo;t take into account things
+      like token use, cost, and time, is leaving out some really important pieces to the puzzle. If I am comparing two
+      models, and one is 5% better than the other, but that model also has an overthinking problem and uses 5x the
+      number of tokens and takes much longer to solve problems, that would be important to know, right?</p>
+      <p>And that&rsquo;s my mission with VulcanBench. Open source in every way, every single eval, and the source code
+      for the benchmarking tool itself, all available for everyone to see, critique, and help improve.</p>
+      <p>As you can probably now understand from the journey I&rsquo;ve been on to get here, I&rsquo;m not some kind of
+      benchmarking expert, and yes, there are a lot of people much smarter than me working on really interesting
+      benchmarks. So if you find an issue with one of my benchmarks, tell me, or better yet, put in a PR and help fix
+      it.</p>
+      <p>I am dedicated to helping my engineering team use the best models out there, and that means I need to run as
+      many evals as I can, and keep updating them every week to get even better. I hope I am able to help other teams
+      like us that are looking for benchmarks that reflect the kind of work we do every day.</p>
     </div>
   </section>
 
@@ -93,7 +121,7 @@
     <div class="method-steps">
       <div class="method-step"><div class="sn">1</div><div>
         <h3>Slice the repository</h3>
-        <p>The repository is checked out at the pull request's base commit — the exact state a developer would face before the fix existed.</p>
+        <p>The repository is checked out at the pull request's base commit, the exact state a developer would face before the fix existed.</p>
       </div></div>
       <div class="method-step"><div class="sn">2</div><div>
         <h3>Hand off the ticket</h3>
@@ -105,7 +133,7 @@
       </div></div>
       <div class="method-step"><div class="sn">4</div><div>
         <h3>Grade it</h3>
-        <p>The patch is scored by the project's own hidden tests — pass or fail — with resource consumption recorded alongside.</p>
+        <p>The patch is scored by the project's own hidden tests, pass or fail, with resource consumption recorded alongside.</p>
       </div></div>
     </div>
   </section>
@@ -115,11 +143,11 @@
     <h2>The fix must be genuinely novel.</h2>
     <div class="prose">
       <p>A benchmark built from public code risks measuring memory, not reasoning. So provenance is labeled and checked,
-      never assumed: every task declares a <span class="mono">source</span> — <span class="mono">hand-authored</span>
-      or <span class="mono">oss</span> — and an explicit <span class="mono">decontaminated</span> boolean, and the validator enforces the claim.</p>
+      never assumed: every task declares a <span class="mono">source</span>, either <span class="mono">hand-authored</span>
+      or <span class="mono">oss</span>, plus an explicit <span class="mono">decontaminated</span> boolean, and the validator enforces the claim.</p>
       <p><strong>Open-source tasks</strong> are built from pull requests merged <em>after</em> the evaluated models' training
       cutoffs, so the solution post-dates what any model could have seen. <strong>Hand-authored tasks</strong> are original
-      scenarios written for VulcanBench now — not derived from any public repository — so they are decontaminated by
+      scenarios written for VulcanBench now, not derived from any public repository, so they are decontaminated by
       construction. Where a task is sourced verbatim from an existing repository whose fix predates model cutoffs, it is
       honestly labeled <span class="mono">decontaminated: false</span>, and every result scored against it is flagged in the
       integrity section of the report.</p>
@@ -130,7 +158,7 @@
     <div class="section-label">04 &middot; Grading</div>
     <h2>Deterministic hidden tests. No model judges another model.</h2>
     <div class="prose">
-      <p>By default a task's correctness comes from <strong>hidden tests</strong> — deterministic and exact. The
+      <p>By default a task's correctness comes from <strong>hidden tests</strong> that are deterministic and exact. The
       <span class="mono">fail_to_pass</span> tests are validated to fail on the base commit and pass on the merged fix; the
       <span class="mono">pass_to_pass</span> tests guard against regressions. If any pass-to-pass test breaks, the functional
       score is gated to zero regardless of how many new tests pass: a fix that breaks working behavior is not a fix.</p>
@@ -141,7 +169,7 @@
         <span class="lbl">The exception, made explicit</span>
         <p>A task may opt into an <em>agentic grader</em> when the point is to test terse, realistic prompts where the
         specification lives in the grader rather than the prompt. It judges the diff against hidden acceptance criteria,
-        graded by a strong, <em>independent</em> model — never the model under test — by majority vote over several calls,
+        graded by a strong, <em>independent</em> model, never the model under test, by majority vote over several calls,
         and every such grader is itself evaluated for accuracy, self-consistency, and false-pass rate before it ships.
         Agentic grading is non-deterministic, so it is opt-in and never the default.</p>
       </div>
@@ -153,7 +181,7 @@
     <h2>Correctness is half the score. The rest is how you got there.</h2>
     <div class="prose">
       <p>Every run produces five sub-scores on a 0&ndash;1 scale, combined into a weighted total. Functional correctness
-      dominates, but a diff that passes tests can still be sloppy, insecure, or wasteful — and those are measured too.</p>
+      dominates, but a diff that passes tests can still be sloppy, insecure, or wasteful, and those are measured too.</p>
     </div>
     <div class="metric-weights">
       <div class="mw-row"><div class="mw-label">Functional<span>hidden tests</span></div><div class="mw-track"><div class="mw-fill" style="width:100%"></div></div><div class="mw-pct">50%</div></div>
@@ -165,7 +193,7 @@
     <div class="prose" style="margin-top:24px;">
       <p>Functional is pass/fail on the hidden tests. Quality runs real linters and complexity tools on the changed files.
       Security runs static analysis for introduced vulnerabilities. Efficiency maps token and step usage to a frugality
-      score. Human-like is the only judged metric, an LLM ensemble, and it carries the least weight — the report tables on
+      score. Human-like is the only judged metric, an LLM ensemble, and it carries the least weight. The report tables on
       this site are graded functional-only, with judges disabled, so that no model's opinion touches the headline numbers.</p>
     </div>
   </section>
@@ -186,14 +214,14 @@
     <div class="section-label">07 &middot; Reasoning effort</div>
     <h2>A cheap dial that re-introduces separation.</h2>
     <div class="prose">
-      <p>Reasoning effort — the model's thinking-token budget — is a normalized control set to <span class="mono">low</span>,
+      <p>Reasoning effort, the model's thinking-token budget, is a normalized control set to <span class="mono">low</span>,
       <span class="mono">medium</span>, <span class="mono">high</span>, or <span class="mono">extra-high</span>. It maps to each
       provider's native field (the Responses API effort setting for OpenAI, the Messages API effort setting for Anthropic).
       Holding a suite fixed and sweeping the dial turns a saturated benchmark into a discriminating one for free: the
       low-effort dropoffs below the high-effort ceiling are the signal.</p>
       <p><strong>The labels are not calibrated across vendors, and that matters.</strong> Effort is each provider's own
       scale: comparing two models at the same label compares each at its own setting, not a calibrated equivalence. So token
-      counts always sit beside effort labels, and the per-task step budget is held identical across cells — only the thinking
+      counts always sit beside effort labels, and the per-task step budget is held identical across cells, so only the thinking
       budget moves.</p>
     </div>
   </section>
@@ -204,11 +232,11 @@
     <div class="prose">
       <p>Every run records cost, wall-clock time, agent steps, and token usage. Cost is computed from each provider's
       published list prices and, where a provider applies an automatic prompt-cache discount, that discount is folded into
-      the reported total — a naive token count can overstate a run's true spend several-fold. The headline efficiency metric
+      the reported total, since a naive token count can overstate a run's true spend several-fold. The headline efficiency metric
       is <strong>cost per solved task</strong>: total spend divided by tasks passed, which fairly charges a model for both its
       failures and its verbosity.</p>
       <p>This is the axis that keeps mattering after accuracy converges. Across the published reports, models tying on
-      correctness have differed by 3&times; to 4&times; in cost and up to an order of magnitude in tokens — differences driven by how
+      correctness have differed by 3&times; to 4&times; in cost and up to an order of magnitude in tokens, differences driven by how
       much each agent thrashes, especially when navigating large repositories.</p>
     </div>
   </section>
@@ -217,40 +245,24 @@
     <div class="section-label">09 &middot; Refusals</div>
     <h2>A refusal is a failure.</h2>
     <div class="prose">
-      <p>When a model's safety classifier declines a benign, security-adjacent task — a parser fix flagged as cyber content,
-      say — the run is scored as a failure, with no fallback model configured. An engineering team whose model refuses to
+      <p>When a model's safety classifier declines a benign, security-adjacent task, say a parser fix flagged as cyber
+      content, the run is scored as a failure, with no fallback model configured. An engineering team whose model refuses to
       touch parser code experiences that as a failure, not a neutral abstention. It is invisible on conventional accuracy
       benchmarks and highly visible in practice, so VulcanBench records it as a first-class outcome.</p>
     </div>
   </section>
 
-  <section id="suites">
-    <div class="section-label">10 &middot; Suites &amp; tiers</div>
-    <h2>From routine fixes to subtly-wrong traps.</h2>
-    <div class="prose">
-      <p>Tasks are grouped into suites so a report can target a difficulty band and keep every task's outcome informative.
-      The graded tiers below share the same harness and grading; they differ in what they stress.</p>
-    </div>
-    <div class="tier-grid">
-      <div class="tier"><h4>v1</h4><p>Fifty-two gold-verified, hand-authored tasks across Python, Go, TypeScript, and Rust — the fixed suite used for reasoning-effort sweeps.</p></div>
-      <div class="tier"><h4>v2 / evals</h4><p>Tasks sourced from real merged pull requests in production repositories, composed to span routine single-site fixes to unsolved multi-site redesigns.</p></div>
-      <div class="tier"><h4>diamond</h4><p>Rubric-graded <em>mergeability</em>, not just correctness: would a maintainer accept this diff? Judged by a strong, independent model.</p></div>
-      <div class="tier"><h4>carbyne</h4><p>Harder still — terse, realistic prompts where the naive solution is subtly wrong, so surface-level pattern-matching fails.</p></div>
-    </div>
-  </section>
-
   <section id="reproducibility">
-    <div class="section-label">11 &middot; Reproducibility</div>
+    <div class="section-label">10 &middot; Reproducibility</div>
     <h2>Everything is open, and every run replays.</h2>
     <div class="prose">
       <p>Every task, hidden test, gold patch, per-task Docker image, and the full grading harness are open source. Each run
-      captures every step as a structured trace — model calls, tool calls, diffs, test results, and token usage — and writes
+      captures every step as a structured trace of model calls, tool calls, diffs, test results, and token usage, then writes
       a self-contained HTML transcript you can open in any browser, plus the exact command to replay it. Reproducing a
       published two-model run costs about ten dollars at list prices.</p>
     </div>
     <div class="dl-row">
       <a class="btn primary" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
-      <a class="btn" href="leaderboard.html">See the leaderboard</a>
       <a class="btn" href="benchmarks.html">Browse the reports</a>
     </div>
   </section>
@@ -262,7 +274,6 @@
     <span class="tag">Measured on the anvil, graded by hidden tests.</span>
     <nav class="fnav">
       <a href="benchmarks.html">Benchmarks</a>
-      <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
       <a href="support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>

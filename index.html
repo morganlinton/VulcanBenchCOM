@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VulcanBench — an open-source coding benchmark for frontier models</title>
+<title>VulcanBench | an open-source coding benchmark for frontier models</title>
 <meta name="description" content="VulcanBench evaluates frontier language models on real engineering work: merged open-source pull requests graded by deterministic hidden tests. Cost, latency, and tokens are first-class results.">
 <link rel="canonical" href="https://vulcanbench.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="VulcanBench — an open-source coding benchmark for frontier models">
+<meta property="og:title" content="VulcanBench: an open-source coding benchmark for frontier models">
 <meta property="og:description" content="VulcanBench evaluates frontier language models on real engineering work: merged open-source pull requests graded by deterministic hidden tests. Cost, latency, and tokens are first-class results.">
 <meta property="og:url" content="https://vulcanbench.com/">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="VulcanBench — benchmarking models on real engineering work">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VulcanBench — an open-source coding benchmark for frontier models">
+<meta name="twitter:title" content="VulcanBench: an open-source coding benchmark for frontier models">
 <meta name="twitter:description" content="VulcanBench evaluates frontier language models on real engineering work: merged open-source pull requests graded by deterministic hidden tests. Cost, latency, and tokens are first-class results.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,14 +53,13 @@
 
 <header class="masthead">
   <div class="inner">
-    <div class="brand"><a href="index.html" aria-label="VulcanBench — home">
+    <div class="brand"><a href="index.html" aria-label="VulcanBench home">
       <img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
       <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
     </a></div>
     <nav class="nav">
       <a href="index.html" class="active">Home</a>
       <a href="benchmarks.html">Benchmarks</a>
-      <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
       <a href="support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
@@ -86,34 +85,35 @@
     <div class="term">
       <div class="term-bar">
         <span class="dot d1"></span><span class="dot"></span><span class="dot"></span>
-        <span class="term-title">vulcanbench — suite: v1-micro · sandbox: docker · network: off</span>
+        <span class="term-title">vulcanbench: suite: v1-micro · sandbox: docker · network: off</span>
         <span class="spacer"></span>
       </div>
       <div class="term-body" id="term" aria-label="Animated transcript of a real VulcanBench run: 26 sandboxed tasks graded pass or fail by hidden tests with per-task cost, finishing 25 of 26 at $0.82 total on Claude Sonnet 5."></div>
     </div>
-    <p class="term-cap"><b>The harness, live</b> — an actual <code>v1-micro</code> run on Claude Sonnet 5 (low): 26 sandboxed tasks, graded by hidden tests, 25 pass at <span class="cost">$0.82</span> total.</p>
+    <p class="term-cap"><b>The harness, live:</b> an actual <code>v1-micro</code> run on Claude Sonnet 5 (low): 26 sandboxed tasks, graded by hidden tests, 25 pass at <span class="cost">$0.82</span> total.</p>
   </figure>
-
-  <div class="stats reveal">
-    <div class="stat"><div class="num">04</div><div class="lbl">Published reports</div></div>
-    <div class="stat"><div class="num">52</div><div class="lbl">Decontaminated tasks</div></div>
-    <div class="stat"><div class="num">1,050<sup>+</sup></div><div class="lbl">Graded runs</div></div>
-  </div>
 </div>
 
 <div class="wrap">
   <section class="reveal">
-    <div class="section-label">What it is</div>
-    <h2>A benchmark that measures the job, not the trivia.</h2>
+    <h2>Transparent, open source benchmarking, focused on evals that represent real work that real engineering teams use models for daily.</h2>
     <div class="prose">
-      <p class="lead">Most coding benchmarks saturate: when every frontier model scores 98 to 100 percent, the benchmark
-      is measuring its own ceiling, not the models. VulcanBench is built to stay discriminating by sourcing tasks from
-      real engineering work that current models cannot all solve, and by treating economics as a first-class result.</p>
-      <p>Every task is a real pull request merged into a production open-source project (flask, sqlglot, aiohttp, urllib3,
-      poetry, redis, and more), each merged <em>after</em> the models' training cutoffs so the fix is genuinely novel and
-      cannot be recalled from memory. A model receives the repository sliced at the pull request's base commit plus a terse
-      issue describing the symptom, exactly as an engineering team would hand off a ticket. It is graded by the project's own
-      hidden tests: no LLM judge, no rubric, just pass or fail, run in a network-isolated sandbox.</p>
+      <p class="lead">VulcanBench was developed by me, <a href="https://www.morganlinton.com/">Morgan Linton</a>, yup, I'm the guy writing this, not some AI. I lead
+      an engineering team and was finding it hard to know which benchmarks out there had evals that accurately
+      represented the kind of work me and my engineering team do every day.</p>
+      <p>Going on social media, I saw way too many people testing new models by seeing how well they can build a game
+      like Flappy Bird or one-shotting a Salesforce clone, and those aren't the kind of tasks engineering teams actually
+      use these models for.</p>
+      <p>I started testing models myself, on real engineering tasks, and looking at not just task completion scores, but
+      also at token use, cost, and time to complete tasks. If I am comparing two models, and one is 5% better than the
+      other, but that model also has an overthinking problem and uses 5x the number of tokens and takes much longer to
+      solve problems, that would be important to know, right?</p>
+      <p>What started as a bunch of Python scripts I was piecing together to test different models for my team turned
+      into fully open source benchmarking software, and open, transparent evals.</p>
+      <p>Every single benchmark you see on here you can run yourself. You can see every eval and all the source code for
+      VulcanBench itself.</p>
+      <p>My goal is simple: let's build better benchmarks that represent the real work engineering teams do, and that go
+      beyond scores, showing things like token use, cost, and time to complete a task.</p>
     </div>
   </section>
 
@@ -143,57 +143,63 @@
   </section>
 
   <section class="reveal">
-    <div class="section-label">From Report 04</div>
-    <h2>Same score. Four times the cost.</h2>
-    <figure class="chart-fig">
-      <div class="chart">
-        <div class="chart-title">Total cost across fifteen evals, at identical accuracy</div>
-        <div class="chart-sub">Every configuration scores 14 of 15 — each missing a different task.</div>
-        <div class="bars">
-          <div class="bar-row">
-            <div class="bar-name">Claude Opus 4.8 <em>effort: high</em></div>
-            <div class="bar-track"><div class="bar-fill win" style="--w:24.5%"><span class="val">$5.00</span></div></div>
-            <div class="bar-score">14/15</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-name">Claude Fable 5 <em>effort: low</em></div>
-            <div class="bar-track"><div class="bar-fill" style="--w:29.3%"><span class="val">$5.99</span></div></div>
-            <div class="bar-score">14/15</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-name">Claude Fable 5 <em>effort: medium</em></div>
-            <div class="bar-track"><div class="bar-fill" style="--w:54.3%"><span class="val">$11.10</span></div></div>
-            <div class="bar-score">14/15</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-name">GPT-5.5 <em>effort: high</em></div>
-            <div class="bar-track"><div class="bar-fill" style="--w:100%"><span class="val">$20.43</span></div></div>
-            <div class="bar-score">14/15</div>
-          </div>
+    <div class="section-label">The latest measurements</div>
+    <h2>Our last three reports.</h2>
+    <div class="report-list">
+      <a class="report-row" href="benchmarks/06-reliability.html">
+        <div class="no">Report<b>06</b></div>
+        <div>
+          <div class="rtitle">Opus 4.8 vs Haiku 4.5</div>
+          <div class="rsub">Five runs per task: the cheapest model wins on dependability; pass@1 hides coin flips.</div>
+          <div class="meta">2026-07-07 &middot; 15 evals &middot; 135 runs &middot; reliability study</div>
         </div>
-        <p class="chart-note"><b>Fig. 1</b> — When correctness converges, economics is the signal. Costs include each provider's
-        prompt-cache discount. <a href="benchmarks/04-fable-opus-gpt55.html">Read the full report &rarr;</a></p>
-      </div>
-    </figure>
+        <div class="arrow">&rarr;</div>
+      </a>
+      <a class="report-row" href="benchmarks/05-effort-matrix.html">
+        <div class="no">Report<b>05</b></div>
+        <div>
+          <div class="rtitle">Fable 5 vs Opus 4.8</div>
+          <div class="rsub">A four-way pass@1 tie; effort helps Opus and backfires for Fable.</div>
+          <div class="meta">2026-07-04 &middot; 15 evals &middot; 60 runs &middot; frontier-hard tier</div>
+        </div>
+        <div class="arrow">&rarr;</div>
+      </a>
+      <a class="report-row" href="benchmarks/04-fable-opus-gpt55.html">
+        <div class="no">Report<b>04</b></div>
+        <div>
+          <div class="rtitle">Fable 5 vs Opus 4.8 vs GPT-5.5</div>
+          <div class="rsub">Four configurations, fifteen evals, each misses a different task.</div>
+          <div class="meta">2026-07-02 &middot; 15 evals &middot; 60 runs &middot; corrected costs</div>
+        </div>
+        <div class="arrow">&rarr;</div>
+      </a>
+    </div>
+    <div class="dl-row" style="margin-top:24px;">
+      <a class="btn" href="benchmarks.html">See all reports &rarr;</a>
+    </div>
   </section>
 
   <section class="reveal">
-    <div class="section-label">The two things you came for</div>
-    <div class="dest-grid">
-      <a class="dest" href="benchmarks.html">
-        <div class="kicker">The published record</div>
-        <h3>The Benchmarks</h3>
-        <p>Each measured run gets a dedicated page: the model card, the findings, the per-task
-        results, and the downloadable report. Four published so far.</p>
-        <span class="go">Browse the reports &rarr;</span>
-      </a>
-      <a class="dest" href="https://github.com/morganlinton/VulcanBench">
-        <div class="kicker">Open source</div>
-        <h3>The Repository</h3>
-        <p>Every task, hidden test, gold patch, per-task Docker image, and the full grading
-        harness. Reproduce any result; a two-model run costs about ten dollars.</p>
-        <span class="go">View on GitHub &rarr;</span>
-      </a>
+    <div class="section-label">For labs &amp; teams</div>
+    <h2>Have your own model measured.</h2>
+    <div class="prose">
+      <p class="lead">Have your own model, fine-tune, or agent scaffold measured on the same suite, in a private report
+      graded to the same standard as everything published here.</p>
+    </div>
+    <div class="dl-row" style="margin-top:20px;">
+      <a class="btn primary" href="benchmark-your-model.html">Benchmark your model &rarr;</a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-label">Support VulcanBench</div>
+    <h2>VulcanBench is free. Sponsoring keeps it running.</h2>
+    <div class="prose">
+      <p class="lead">Sponsorships run entirely through GitHub Sponsors, at whatever amount and cadence you choose.
+      Sponsors are named on GitHub as a thank you.</p>
+    </div>
+    <div class="dl-row" style="margin-top:20px;">
+      <a class="btn primary" href="https://github.com/sponsors/morganlinton">Sponsor on GitHub &rarr;</a>
     </div>
   </section>
 </div>
@@ -204,7 +210,6 @@
     <span class="tag">Measured on the anvil, graded by hidden tests.</span>
     <nav class="fnav">
       <a href="benchmarks.html">Benchmarks</a>
-      <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
       <a href="support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
