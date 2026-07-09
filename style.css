@@ -211,7 +211,7 @@ h2 { font-size: 34px; font-weight: 600; letter-spacing: -0.3px; }
 h3 { font-size: 22px; font-weight: 600; margin-top: 4px; }
 p.lead { font-size: 19px; margin-top: 14px; }
 p { margin-top: 14px; }
-.prose { max-width: 720px; }
+.prose { max-width: 720px; margin: 0 auto; }
 .prose p { font-size: 18px; }
 
 /* ---- numbered feature cards ---- */
@@ -526,7 +526,7 @@ tr.leader td.l:first-child { box-shadow: inset 3px 0 0 var(--ember); }
   font-family: var(--mono); font-size: 0.86em; background: rgba(28, 26, 23, 0.06);
   padding: 1px 5px; border-radius: 3px;
 }
-.metric-weights { margin-top: 26px; max-width: 660px; }
+.metric-weights { margin: 26px auto 0; max-width: 660px; }
 .mw-row { display: grid; grid-template-columns: 148px 1fr 50px; align-items: center; gap: 16px; margin-top: 13px; }
 .mw-label { font-size: 16.5px; }
 .mw-label span { display: block; font-family: var(--mono); font-size: 11px; color: var(--faint); margin-top: 1px; }
