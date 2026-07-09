@@ -342,7 +342,7 @@ p { margin-top: 14px; }
 
 figure { margin: 40px 0; text-align: center; }
 figure img {
-  width: 100%; max-width: 1120px;
+  width: 100%; max-width: 1120px; height: auto;
   box-shadow: var(--card-shadow);
   border: 1px solid var(--hairline-soft);
   transition: box-shadow 0.2s ease;
