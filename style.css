@@ -208,11 +208,11 @@ section { padding: 52px 0; }
   margin-bottom: 10px;
 }
 h2 { font-size: 34px; font-weight: 600; letter-spacing: -0.3px; }
-h2 .h2-sub { display: block; font-size: 20px; font-weight: 400; letter-spacing: normal; color: var(--soft); margin-top: 8px; }
+h2 .h2-sub { display: block; font-size: 24px; font-weight: 600; letter-spacing: normal; color: var(--ink); margin-top: 8px; }
 h3 { font-size: 22px; font-weight: 600; margin-top: 4px; }
 p.lead { font-size: 19px; margin-top: 14px; }
 p { margin-top: 14px; }
-.prose { max-width: 720px; margin: 0 auto; }
+.prose { max-width: 860px; margin: 0 auto; }
 .prose p { font-size: 18px; }
 
 /* ---- numbered feature cards ---- */
