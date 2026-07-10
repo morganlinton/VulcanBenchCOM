@@ -56,7 +56,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="style.css?v=21">
+<link rel="stylesheet" href="style.css?v=22">
 </head>
 <body>
 
@@ -105,24 +105,31 @@
 
 <div class="wrap">
   <section class="reveal">
-    <h2>Transparent, open source benchmarking. <span class="h2-sub">Focused on evals that represent real work that real engineering teams use models for daily.</span></h2>
     <div class="prose">
-      <p class="lead">VulcanBench was developed by me, <a href="https://www.morganlinton.com/">Morgan Linton</a>, yup, I'm the guy writing this, not some AI. I lead
-      an engineering team and was finding it hard to know which benchmarks out there had evals that accurately
-      represented the kind of work me and my engineering team do every day.</p>
-      <p>Going on social media, I saw way too many people testing new models by seeing how well they can build a game
-      like Flappy Bird or one-shotting a Salesforce clone, and those aren't the kind of tasks engineering teams actually
-      use these models for.</p>
-      <p>I started testing models myself, on real engineering tasks, and looking at not just task completion scores, but
-      also at token use, cost, and time to complete tasks. If I am comparing two models, and one is 5% better than the
-      other, but that model also has an overthinking problem and uses 5x the number of tokens and takes much longer to
-      solve problems, that would be important to know, right?</p>
-      <p>What started as a bunch of Python scripts I was piecing together to test different models for my team turned
-      into fully open source benchmarking software, and open, transparent evals.</p>
-      <p>Every single benchmark you see on here you can run yourself. You can see every eval and all the source code for
-      VulcanBench itself.</p>
-      <p>My goal is simple: let's build better benchmarks that represent the real work engineering teams do, and that go
-      beyond scores, showing things like token use, cost, and time to complete a task.</p>
+      <p class="lead">Benchmarking what matters to engineering teams: accuracy, token use, time, and cost, all on
+      real engineering tasks, no puzzles, no math problems.</p>
+      <p>Hi I'm <a href="https://www.morganlinton.com/">Morgan</a>, and I run the open source benchmarking tool and
+      lab that is VulcanBench. My motivation behind building this developed organically through my own need, as a
+      Founder and CTO, to help my team leverage the best models for the work that we do.</p>
+      <p>The core problem I ran into with agentic coding benchmarks is that a good chunk of the tasks in the evals
+      are things like puzzles and math problems, that don't represent the kind of work engineering teams do every
+      day. At the same time, benchmarks that I like, don't show how models compared across token use and time,
+      which is critical for engineering leaders to know.</p>
+      <p>So, I started testing models myself, on real engineering tasks, and looking at not just task completion
+      scores, but also at token use, cost, and time to complete tasks. If I am comparing two models, and one is 5%
+      better than the other, but that model also has an overthinking problem and uses 5x the number of tokens and
+      takes much longer to solve problems, that would be important to know, right?</p>
+      <p>I also learned through my own testing that two models that have different scores on a popular benchmark,
+      might actually produce the same accuracy on regular every day engineering tasks.</p>
+      <p>And what started as a bunch of Python scripts I was piecing together to test different models for my team,
+      turned into fully open source benchmarking software, and open, transparent evals.</p>
+      <p>Every single benchmark you see on here you can run yourself. You can see every eval and all the source code
+      for VulcanBench itself. When I publish a benchmark, it will never just look at model accuracy, while that is
+      critically important, it will also look at how many tokens the models used to complete the tasks, what the
+      cost was, and how long it took.</p>
+      <p>My goal is simple: let's build better benchmarks that represent the real work engineering teams do, and
+      that go beyond scores, showing things like token use, cost, and time to complete a task.</p>
+      <p>Live long and benchmark 🖖</p>
     </div>
   </section>
 
