@@ -67,14 +67,12 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .brand img.mark { border-radius: 6px; }
 footer .brandf img.mark { border-radius: 4px; }
 .brand .wordmark {
-  font-family: var(--serif);
-  font-size: 22px; font-weight: 600;
-  font-variant: small-caps; letter-spacing: 0.8px;
+  font-family: var(--display);
+  font-size: 19px; font-weight: 600;
+  letter-spacing: 0.5px;
   line-height: 1;
+  color: var(--ink);
 }
-.brand .v { color: var(--ink); }
-.brand .rest { color: var(--ember); }
-.brand a:hover .rest { color: var(--ember-bright); }
 .nav {
   display: flex; gap: 30px;
   font-family: var(--display);
@@ -413,11 +411,10 @@ footer .fnav a { color: var(--faint); }
 footer .fnav a:hover { color: var(--ember); text-decoration: none; }
 footer .brandf {
   display: flex; align-items: center; gap: 8px;
-  font-family: var(--serif); font-size: 17px; font-weight: 600;
-  font-variant: small-caps; letter-spacing: 0.6px; color: var(--ink);
+  font-family: var(--display); font-size: 14.5px; font-weight: 600;
+  letter-spacing: 0.5px; color: var(--ink);
 }
 footer .brandf .mark { height: 18px; width: auto; }
-footer .brandf .rest { color: var(--ember); }
 
 @media (max-width: 860px) {
   .stats { grid-template-columns: 1fr 1fr; }
@@ -432,7 +429,7 @@ footer .brandf .rest { color: var(--ember); }
   .report-row { grid-template-columns: 64px 1fr; }
   .report-row .arrow { display: none; }
   .nav { gap: 16px; font-size: 11px; letter-spacing: 1.4px; }
-  .brand .wordmark { font-size: 18px; letter-spacing: 0.5px; }
+  .brand .wordmark { font-size: 16px; letter-spacing: 0.4px; }
   .brand .mark { height: 24px; }
   .term-body { font-size: 11px; height: 320px; padding: 12px 14px 14px; }
   .article-head h1 { font-size: 32px; }
