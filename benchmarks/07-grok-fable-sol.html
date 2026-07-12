@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 07 | Grok 4.5 vs Fable 5 vs GPT-5.6 Sol | VulcanBench</title>
+<meta name="description" content="Grok 4.5 leads at 91% from medium effort onward on the v3 suite; only GPT-5.6 Sol rewards the effort knob; two frontier-hard tasks go 0-for-27.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/07-grok-fable-sol.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Report 07 | Grok 4.5 vs Fable 5 vs GPT-5.6 Sol | VulcanBench">
+<meta property="og:description" content="Grok 4.5 leads at 91% from medium effort onward on the v3 suite; only GPT-5.6 Sol rewards the effort knob; two frontier-hard tasks go 0-for-27.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/07-grok-fable-sol.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report7-v3-3way.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Report 07 | Grok 4.5 vs Fable 5 vs GPT-5.6 Sol | VulcanBench">
+<meta name="twitter:description" content="Grok 4.5 leads at 91% from medium effort onward on the v3 suite; only GPT-5.6 Sol rewards the effort knob; two frontier-hard tasks go 0-for-27.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report7-v3-3way.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../style.css?v=24">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 07</div>
+    <h1>Grok 4.5 vs Fable 5 vs GPT-5.6 Sol</h1>
+    <p class="byline">Three models, three effort levels, on the new v3 suite: 23 real merged PRs across five languages</p>
+    <div class="runmeta">2026-07-12 &middot; 23 tasks &middot; 207 runs &middot; $96.72 total &middot; deterministic grading</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p><strong>Grok 4.5 leads at 91% from medium effort onward</strong> &mdash; high effort buys it nothing but a 31% larger bill.
+    GPT-5.6 Sol is the only model whose accuracy climbs monotonically with effort (78&rarr;83&rarr;87%);
+    Fable 5 oscillates at 85&plusmn;2% regardless of the knob. The two frontier-hard tasks went <strong>0-for-27</strong>.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report7-v3-3way.png" alt="Model card: Grok 4.5 vs Claude Fable 5 vs GPT-5.6 Sol across low, medium, and high effort on 23 v3 tasks" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> Accuracy and cost-efficiency across nine configurations. Within each model group, shades darken low &rarr; medium &rarr; high.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>Grok owns the efficiency frontier; only Sol climbs with effort.</h2>
+    <table class="data">
+      <thead><tr><th>Model (effort)</th><th>Score</th><th>pass@1</th><th>Cost</th><th>Tokens/task</th><th>Time/task</th><th>$/solved</th></tr></thead>
+      <tbody>
+        <tr><td class="model">Grok 4.5 (medium)</td><td class="win">21/23</td><td class="win">91.3%</td><td>$6.67</td><td>106 K</td><td>3.9 min</td><td class="win">$0.32</td></tr>
+        <tr><td class="model">Grok 4.5 (high)</td><td class="win">21/23</td><td class="win">91.3%</td><td>$8.76</td><td>141 K</td><td>4.9 min</td><td>$0.42</td></tr>
+        <tr><td class="model">Claude Fable 5 (low)<sup>&dagger;</sup></td><td>20/23</td><td>87.0%</td><td>$12.18</td><td>28 K</td><td>3.4 min</td><td>$0.61</td></tr>
+        <tr><td class="model">GPT-5.6 Sol (high)</td><td>20/23</td><td>87.0%</td><td>$15.90</td><td>85 K</td><td>4.2 min</td><td>$0.80</td></tr>
+        <tr><td class="model">Claude Fable 5 (high)<sup>&dagger;</sup></td><td>20/23</td><td>87.0%</td><td>$20.82</td><td>44 K</td><td>4.3 min</td><td>$1.04</td></tr>
+        <tr><td class="model">Grok 4.5 (low)</td><td>19/23</td><td>82.6%</td><td class="win">$3.39</td><td>57 K</td><td>2.5 min</td><td>$0.18</td></tr>
+        <tr><td class="model">GPT-5.6 Sol (medium)</td><td>19/23</td><td>82.6%</td><td>$8.83</td><td>50 K</td><td>2.8 min</td><td>$0.46</td></tr>
+        <tr><td class="model">Claude Fable 5 (medium)<sup>&dagger;</sup></td><td>19/23</td><td>82.6%</td><td>$16.32</td><td>36 K</td><td>3.7 min</td><td>$0.86</td></tr>
+        <tr><td class="model">GPT-5.6 Sol (low)</td><td>18/23</td><td>78.3%</td><td>$3.85</td><td>23 K</td><td>1.5 min</td><td>$0.21</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top:10px;font-size:15px;"><sup>&dagger;</sup> Fable 5 ran with Opus 4.8 refusal fallback: 6 of 69 runs (8.7%) were declined by the API safety classifier (category <em>cyber</em>; the same three tasks at every effort) and served end-to-end by Opus 4.8; all six passed. Tokens are billed tokens; time is sandbox wall-clock.</p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>Grok plateaus at medium &mdash; and that&rsquo;s the efficiency frontier.</strong> High effort spends 33% more tokens and 31% more money for the identical 21/23, failing the same two tasks. No config in the matrix beats 91.3% at $0.29/task.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Only Sol rewards the effort knob.</strong> 78.3 &rarr; 82.6 &rarr; 87.0%, monotonic; each step buys real accuracy. Fable oscillates at 85&plusmn;2% (87.0 &rarr; 82.6 &rarr; 87.0) with a different failure set each run &mdash; the knob changes which borderline tasks fall, not how many.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Frugal tokens, premium price.</strong> Fable uses the fewest tokens at every effort (28&ndash;44 K/task, roughly half the agent steps of Grok) yet is the costliest per solved task ($0.61&ndash;$1.04) at $10/$50-per-M pricing.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>The difficulty ceiling held; one wall fell.</strong> PennyLane Trotter fragmentation and SQLGlot internal-name canonicalization went 0-for-27 across all models and efforts. Flask&rsquo;s teardown-error redesign fell to all three models &mdash; but only at high effort, making it the suite&rsquo;s cleanest effort-discriminator.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Failure map</div>
+    <h2>Seven tasks that separated the field.</h2>
+    <table class="data">
+      <thead><tr><th>Task</th><th>Grok l/m/h</th><th>Fable l/m/h</th><th>Sol l/m/h</th></tr></thead>
+      <tbody>
+        <tr><td class="model">pennylane-trotter-fragmented</td><td>&times; &times; &times;</td><td>&times; &times; &times;</td><td>&times; &times; &times;</td></tr>
+        <tr><td class="model">sqlglot-canonicalize-internal-names</td><td>&times; &times; &times;</td><td>&times; &times; &times;</td><td>&times; &times; &times;</td></tr>
+        <tr><td class="model">flask-teardown-robust</td><td>&times; &#10003; &#10003;</td><td>&times; &#10003; &#10003;</td><td>&times; &times; &#10003;</td></tr>
+        <tr><td class="model">aiohttp-upgrade-deferred</td><td>&times; &#10003; &#10003;</td><td>&#10003;<sup>&dagger;</sup> &#10003;<sup>&dagger;</sup> &#10003;<sup>&dagger;</sup></td><td>&times; &#10003; &#10003;</td></tr>
+        <tr><td class="model">itertools-strip-prefix</td><td>&#10003; &#10003; &#10003;</td><td>&#10003; &#10003; &#10003;</td><td>&times; &times; &times;</td></tr>
+        <tr><td class="model">networkx-leiden-communities</td><td>&#10003; &#10003; &#10003;</td><td>&#10003; &times; &times;</td><td>&#10003; &#10003; &#10003;</td></tr>
+        <tr><td class="model">sqlglot-iso8601-nanos</td><td>&#10003; &#10003; &#10003;</td><td>&#10003; &times; &#10003;</td><td>&#10003; &#10003; &#10003;</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top:10px;font-size:15px;">The remaining 16 tasks passed everywhere. <sup>&dagger;</sup> Fable cells on <span style="font-family:var(--mono);font-size:15px;">aiohttp-upgrade-deferred</span> were served by the Opus 4.8 refusal fallback.</p>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>Twenty-three tasks from real merged pull requests (Python 9, Rust 4, TypeScript 4, JavaScript 3, Go 3 &mdash;
+      jiff, itertools, zod, hono, node-semver, cobra, pflag, chi, flask, aiohttp, sqlglot, packaging, more-itertools,
+      networkx, pennylane), all merged after model training cutoffs, graded by deterministic hidden tests in a
+      network-isolated Docker sandbox. One attempt per task per effort level (low, medium, high). Every task
+      pre-validated: gold patch = 1.0, unpatched = 0.0, deterministic over 3 runs.</p>
+      <p>Pricing: Grok 4.5 $2/$6, GPT-5.6 Sol $5/$30, Claude Fable 5 $10/$50 per million tokens. Fable refusal
+      fallback: <span style="font-family:var(--mono);font-size:15px;">VULCANBENCH_REFUSAL_FALLBACK=claude-opus-4-8</span>.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-v3-3way-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report7-v3-3way.png" download>Download model card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=13" defer></script>
+</body>
+</html>
