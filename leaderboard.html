@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leaderboard | VulcanBench</title>
-<meta name="description" content="Every model configuration measured on VulcanBench, ranked. Grok 4.5, Fable 5, Sonnet 5, Opus 4.8, GPT-5.6 Sol, GPT-5.5, and GLM-5.2 across published reports: accuracy, cost, and cost per solved task.">
+<meta name="description" content="Every model configuration measured on VulcanBench, ranked. Grok 4.5, Fable 5, Sonnet 5, Opus 4.8, GPT-5.6 Sol, GPT-5.5, GLM-5.2, and Kimi K3 across published reports: accuracy, cost, and cost per solved task.">
 <link rel="canonical" href="https://vulcanbench.com/leaderboard.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VulcanBench">
@@ -60,7 +60,7 @@
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">The published record</div>
     <h1>Leaderboard</h1>
-    <p class="byline">Every model configuration measured on VulcanBench, ranked: seven models, twenty-eight configurations, six reports.</p>
+    <p class="byline">Every model configuration measured on VulcanBench, ranked: eight models, thirty configurations, seven reports.</p>
   </div>
 
   <div class="lb-note">
@@ -79,6 +79,34 @@
     <div class="model-chip"><b>GPT-5.6 Sol</b><span>OpenAI</span></div>
     <div class="model-chip"><b>GPT-5.5</b><span>OpenAI</span></div>
     <div class="model-chip"><b>GLM-5.2</b><span>Z.ai</span></div>
+    <div class="model-chip"><b>Kimi K3</b><span>Moonshot AI</span></div>
+  </div>
+
+  <!-- ===== Report 08 ===== -->
+  <div class="lb-section">
+    <div class="lb-shead">
+      <div class="l"><b>Report 08</b> &middot; v3 Suite &middot; 23 tasks &middot; 28 Kimi runs</div>
+      <a href="benchmarks/08-kimi-k3.html">Full report &rarr;</a>
+    </div>
+    <p class="lb-context">Kimi K3 (one shipped effort level: max, always-thinking) joins the Report 07 field; Grok/Fable/Sol rows reproduced from Report 07. The 2-hour row is a budget ablation, not a standard config. Ranked by pass@1, then cost per solved task.</p>
+    <div class="lb-scroll">
+    <table class="lb">
+      <thead><tr><th class="l">#</th><th class="l">Model</th><th>Score</th><th>pass@1</th><th>Cost</th><th>$/solved</th></tr></thead>
+      <tbody>
+        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><span class="lb-model">Grok 4.5</span> <span class="lb-eff">medium</span><span class="lb-tag">Efficiency frontier</span></td><td class="lb-win">21/23</td><td class="lb-win">91.3%</td><td>$6.67</td><td class="lb-win">$0.32</td></tr>
+        <tr><td class="l lb-rank">2</td><td class="l"><span class="lb-model">Grok 4.5</span> <span class="lb-eff">high</span></td><td class="lb-win">21/23</td><td class="lb-win">91.3%</td><td>$8.76</td><td>$0.42</td></tr>
+        <tr><td class="l lb-rank">3</td><td class="l"><span class="lb-model">Claude Fable 5</span> <span class="lb-eff">low</span></td><td>20/23</td><td>87.0%</td><td>$12.18</td><td>$0.61</td></tr>
+        <tr><td class="l lb-rank">4</td><td class="l"><span class="lb-model">GPT-5.6 Sol</span> <span class="lb-eff">high</span></td><td>20/23</td><td>87.0%</td><td>$15.90</td><td>$0.80</td></tr>
+        <tr><td class="l lb-rank">5</td><td class="l"><span class="lb-model">Claude Fable 5</span> <span class="lb-eff">high</span></td><td>20/23</td><td>87.0%</td><td>$20.82</td><td>$1.04</td></tr>
+        <tr><td class="l lb-rank">6</td><td class="l"><span class="lb-model">Kimi K3</span> <span class="lb-eff">max &middot; 2-h ablation</span></td><td>20/23</td><td>87.0%</td><td>$27.43</td><td>$1.37</td></tr>
+        <tr><td class="l lb-rank">7</td><td class="l"><span class="lb-model">Grok 4.5</span> <span class="lb-eff">low</span></td><td>19/23</td><td>82.6%</td><td class="lb-win">$3.39</td><td>$0.18</td></tr>
+        <tr><td class="l lb-rank">8</td><td class="l"><span class="lb-model">GPT-5.6 Sol</span> <span class="lb-eff">medium</span></td><td>19/23</td><td>82.6%</td><td>$8.83</td><td>$0.46</td></tr>
+        <tr><td class="l lb-rank">9</td><td class="l"><span class="lb-model">Claude Fable 5</span> <span class="lb-eff">medium</span></td><td>19/23</td><td>82.6%</td><td>$16.32</td><td>$0.86</td></tr>
+        <tr><td class="l lb-rank">10</td><td class="l"><span class="lb-model">GPT-5.6 Sol</span> <span class="lb-eff">low</span></td><td>18/23</td><td>78.3%</td><td>$3.85</td><td>$0.21</td></tr>
+        <tr><td class="l lb-rank">11</td><td class="l"><span class="lb-model">Kimi K3</span> <span class="lb-eff">max &middot; 30-min</span></td><td>17/23</td><td>73.9%</td><td>$16.84</td><td>$0.99</td></tr>
+      </tbody>
+    </table>
+    </div>
   </div>
 
   <!-- ===== Report 07 ===== -->

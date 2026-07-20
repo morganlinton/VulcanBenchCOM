@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 08 | Kimi K3 vs Grok 4.5, Fable 5 &amp; GPT-5.6 Sol | VulcanBench</title>
+<meta name="description" content="Moonshot's 2.8T open-weight flagship on the v3 suite: 74% at the standard 30-minute budget, 87% at two hours — level with Fable 5 and Sol at high effort, at a 4-7x time premium.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/08-kimi-k3.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Report 08 | Kimi K3 vs Grok 4.5, Fable 5 &amp; GPT-5.6 Sol | VulcanBench">
+<meta property="og:description" content="Moonshot's 2.8T open-weight flagship on the v3 suite: 74% at the standard 30-minute budget, 87% at two hours — level with Fable 5 and Sol at high effort, at a 4-7x time premium.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/08-kimi-k3.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report8-kimi-k3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Report 08 | Kimi K3 vs Grok 4.5, Fable 5 &amp; GPT-5.6 Sol | VulcanBench">
+<meta name="twitter:description" content="Moonshot's 2.8T open-weight flagship on the v3 suite: 74% at the standard 30-minute budget, 87% at two hours — level with Fable 5 and Sol at high effort, at a 4-7x time premium.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report8-kimi-k3.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../style.css?v=24">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 08</div>
+    <h1>Kimi K3 vs Grok 4.5, Fable 5 &amp; GPT-5.6 Sol</h1>
+    <p class="byline">Moonshot&rsquo;s 2.8T open-weight flagship, at its single shipped effort level, against the Report 07 field on the v3 suite</p>
+    <div class="runmeta">2026-07-19 &middot; 23 tasks &middot; 28 Kimi runs &middot; $33.89 Kimi spend &middot; deterministic grading</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p><strong>Kimi K3 ships one effort level (max, always-thinking): 17/23 (74%) at the standard 30-minute budget,
+    20/23 (87%) at two hours</strong> &mdash; level with Fable 5 and Sol at high effort, at $1.37 vs. $0.80&ndash;$1.04 per
+    solved task. Every capped miss was a timeout, never a wrong patch; at 18.1 min/task it runs 4&ndash;7&times; slower
+    than the field.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report8-kimi-k3.png" alt="Model card: Kimi K3 at 30-minute and 2-hour budgets vs Grok 4.5, Claude Fable 5, and GPT-5.6 Sol across effort levels on 23 v3 tasks" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> All eleven configurations. Brown = Grok 4.5, blue = Claude Fable 5, gray = GPT-5.6 Sol, teal = Kimi K3; shades darken low &rarr; medium &rarr; high effort &mdash; for Kimi, 30-minute &rarr; 2-hour budget.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>One dial position: max. The clock, not the model, sets its score.</h2>
+    <table class="data">
+      <thead><tr><th>Model (effort)</th><th>Score</th><th>pass@1</th><th>Cost</th><th>Tokens/task</th><th>Time/task</th><th>$/solved</th></tr></thead>
+      <tbody>
+        <tr><td class="model">Grok 4.5 (medium)</td><td class="win">21/23</td><td class="win">91.3%</td><td>$6.67</td><td>106 K</td><td>3.9 min</td><td class="win">$0.32</td></tr>
+        <tr><td class="model">Grok 4.5 (high)</td><td class="win">21/23</td><td class="win">91.3%</td><td>$8.76</td><td>141 K</td><td>4.9 min</td><td>$0.42</td></tr>
+        <tr><td class="model">Claude Fable 5 (low)<sup>&dagger;</sup></td><td>20/23</td><td>87.0%</td><td>$12.18</td><td>28 K</td><td>3.4 min</td><td>$0.61</td></tr>
+        <tr><td class="model">GPT-5.6 Sol (high)</td><td>20/23</td><td>87.0%</td><td>$15.90</td><td>85 K</td><td>4.2 min</td><td>$0.80</td></tr>
+        <tr><td class="model">Claude Fable 5 (high)<sup>&dagger;</sup></td><td>20/23</td><td>87.0%</td><td>$20.82</td><td>44 K</td><td>4.3 min</td><td>$1.04</td></tr>
+        <tr><td class="model">Kimi K3 (max, 2-h budget)<sup>&Dagger;</sup></td><td>20/23</td><td>87.0%</td><td>$27.43</td><td>216 K</td><td>28.3 min</td><td>$1.37</td></tr>
+        <tr><td class="model">Grok 4.5 (low)</td><td>19/23</td><td>82.6%</td><td class="win">$3.39</td><td>57 K</td><td>2.5 min</td><td>$0.18</td></tr>
+        <tr><td class="model">GPT-5.6 Sol (medium)</td><td>19/23</td><td>82.6%</td><td>$8.83</td><td>50 K</td><td>2.8 min</td><td>$0.46</td></tr>
+        <tr><td class="model">Claude Fable 5 (medium)<sup>&dagger;</sup></td><td>19/23</td><td>82.6%</td><td>$16.32</td><td>36 K</td><td>3.7 min</td><td>$0.86</td></tr>
+        <tr><td class="model">GPT-5.6 Sol (low)</td><td>18/23</td><td>78.3%</td><td>$3.85</td><td>23 K</td><td>1.5 min</td><td>$0.21</td></tr>
+        <tr><td class="model">Kimi K3 (max, 30-min budget)</td><td>17/23</td><td>73.9%</td><td>$16.84</td><td>134 K</td><td>18.1 min</td><td>$0.99</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top:10px;font-size:15px;"><sup>&Dagger;</sup> 2-hour row: the five tasks that timed out at 30 minutes were re-run with exact budgets of 2 h / 400 steps / $4 per run (runs marked <span style="font-family:var(--mono);font-size:15px;">budget_override</span>); the other 18 runs are unchanged. It is an ablation, not a leaderboard config &mdash; every other model ran under the standard budget. <sup>&dagger;</sup> Fable 5 ran with Opus 4.8 refusal fallback (see Report 07). Grok/Fable/Sol rows reproduced from Report 07. Tokens are billed tokens; time is sandbox wall-clock.</p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>The clock is the failure mode.</strong> All six capped misses were timeouts mid-work &mdash; K3 never submitted a wrong final patch. Under the standard budget it is the only model whose score is set by the wall clock rather than by wrong answers.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Always-on max thinking is slow, not verbose.</strong> 18.1 min/task against 3.4&ndash;4.9 for the field, on moderate token volume (134 K/task). The cost of Preserved Thinking is time; on time-budgeted agentic work, latency is accuracy.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Given time, it closes the gap.</strong> At 2 hours, aiohttp (64 min), NetworkX-Leiden (107 min), and jiff-strftime (21 min &mdash; run-to-run variance, not time starvation) all fall: 20/23, matching high-effort Fable 5 and Sol for +$10.59.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>The difficulty ceiling held.</strong> PennyLane Trotter fragmentation (0.2 partial) and SQLGlot internal-name canonicalization (0.17 partial) remain unsolved by every configuration ever run on v3 &mdash; 0-for-27 in Report 07, and K3&rsquo;s two-hour, $4 attempts didn&rsquo;t crack them either.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Budget ablation</div>
+    <h2>What the extra ninety minutes bought.</h2>
+    <table class="data">
+      <thead><tr><th>Task</th><th>30-min budget</th><th>2-h budget</th><th>Time</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td class="model">aiohttp-upgrade-deferred</td><td>&times; timeout</td><td>&#10003; solved</td><td>64 min</td><td>$2.66</td></tr>
+        <tr><td class="model">networkx-leiden-communities</td><td>&times; timeout</td><td>&#10003; solved</td><td>107 min</td><td>$4.35</td></tr>
+        <tr><td class="model">jiff-strftime-negpad</td><td>&times; timeout</td><td>&#10003; solved</td><td>21 min</td><td>$1.14</td></tr>
+        <tr><td class="model">pennylane-trotter-fragmented</td><td>&times; timeout</td><td>partial (0.2), $4 cap</td><td>100 min</td><td>$4.78</td></tr>
+        <tr><td class="model">sqlglot-canonicalize-internal-names</td><td>&times; timeout</td><td>partial (0.17), $4 cap</td><td>94 min</td><td>$4.12</td></tr>
+        <tr><td class="model">sqlglot-iso8601-nanos</td><td>partial (0.7)</td><td>&mdash; not re-run</td><td>&mdash;</td><td>&mdash;</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top:10px;font-size:15px;">The two $4-capped partials ended on money, not conviction &mdash; a larger budget might buy more progress, at a meaningfully higher price than any other configuration on the board.</p>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>Same 23 v3 tasks as Report 07 (real merged post-cutoff PRs across Python, Rust, TypeScript, JavaScript, Go),
+      graded by deterministic hidden tests in a network-isolated Docker sandbox, one attempt per task per configuration.
+      kimi-k3 via the Moonshot API ($3 / $15 per million tokens, cache-hit input billed here at the cache-miss rate);
+      thinking is always on and <span style="font-family:var(--mono);font-size:15px;">reasoning_effort</span> accepts only
+      &ldquo;max&rdquo; &mdash; Moonshot has announced further levels but not shipped them, so K3 contributes one effort
+      configuration where other models contribute three.</p>
+      <p>Two harness notes from integrating an always-thinking model: single K3 responses can exceed generic HTTP read
+      timeouts (three solves were initially lost to 120-second judge-call timeouts and recovered with a 900-second
+      provider timeout), and the 2-hour ablation used the new
+      <span style="font-family:var(--mono);font-size:15px;">--override-budgets</span> flag, which stamps runs so they
+      cannot be mixed into capped comparisons.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/cards/report8-kimi-k3.png" download>Download model card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=13" defer></script>
+</body>
+</html>
