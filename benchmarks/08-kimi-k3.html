@@ -63,8 +63,8 @@
     <span class="lbl">Abstract.</span>
     <p><strong>Kimi K3 ships one effort level (max, always-thinking): 17/23 (74%) at the standard 30-minute budget,
     20/23 (87%) at two hours</strong> &mdash; level with Fable 5 and Sol at high effort, at $1.37 vs. $0.80&ndash;$1.04 per
-    solved task. Every capped miss was a timeout, never a wrong patch; at 18.1 min/task it runs 4&ndash;7&times; slower
-    than the field.</p>
+    solved task. Five of its six capped misses were timeouts (the sixth scored 0.7 partial credit); at 18.1 min/task
+    it runs 4&ndash;7&times; slower than the field.</p>
   </div>
 
   <figure>
@@ -74,7 +74,7 @@
 
   <section style="padding-top:20px;">
     <div class="section-label">Results</div>
-    <h2>One dial position: max. The clock, not the model, sets its score.</h2>
+    <h2>One dial position: max. The clock sets most of its score &mdash; not all of it.</h2>
     <table class="data">
       <thead><tr><th>Model (effort)</th><th>Score</th><th>pass@1</th><th>Cost</th><th>Tokens/task</th><th>Time/task</th><th>$/solved</th></tr></thead>
       <tbody>
@@ -94,7 +94,7 @@
     <p class="prose" style="margin-top:10px;font-size:15px;"><sup>&Dagger;</sup> 2-hour row: the five tasks that timed out at 30 minutes were re-run with exact budgets of 2 h / 400 steps / $4 per run (runs marked <span style="font-family:var(--mono);font-size:15px;">budget_override</span>); the other 18 runs are unchanged. It is an ablation, not a leaderboard config &mdash; every other model ran under the standard budget. <sup>&dagger;</sup> Fable 5 ran with Opus 4.8 refusal fallback (see Report 07). Grok/Fable/Sol rows reproduced from Report 07. Tokens are billed tokens; time is sandbox wall-clock.</p>
 
     <div class="findings-list">
-      <div class="finding"><div class="fn">1.</div><p><strong>The clock is the failure mode.</strong> All six capped misses were timeouts mid-work &mdash; K3 never submitted a wrong final patch. Under the standard budget it is the only model whose score is set by the wall clock rather than by wrong answers.</p></div>
+      <div class="finding"><div class="fn">1.</div><p><strong>The clock is the dominant failure mode &mdash; not the only one.</strong> Five of the six capped misses were timeouts mid-work; the sixth (SQLGlot ISO-8601) was a submitted patch that earned 0.7 partial credit. And the ablation shows time isn&rsquo;t the whole story: given two hours, three timeouts convert, while the two hardest tasks still end at the $4 cost cap with partial progress.</p></div>
       <div class="finding"><div class="fn">2.</div><p><strong>Always-on max thinking is slow, not verbose.</strong> 18.1 min/task against 3.4&ndash;4.9 for the field, on moderate token volume (134 K/task). The cost of Preserved Thinking is time; on time-budgeted agentic work, latency is accuracy.</p></div>
       <div class="finding"><div class="fn">3.</div><p><strong>Given time, it closes the gap.</strong> At 2 hours, aiohttp (64 min), NetworkX-Leiden (107 min), and jiff-strftime (21 min &mdash; run-to-run variance, not time starvation) all fall: 20/23, matching high-effort Fable 5 and Sol for +$10.59.</p></div>
       <div class="finding"><div class="fn">4.</div><p><strong>The difficulty ceiling held.</strong> PennyLane Trotter fragmentation (0.2 partial) and SQLGlot internal-name canonicalization (0.17 partial) remain unsolved by every configuration ever run on v3 &mdash; 0-for-27 in Report 07, and K3&rsquo;s two-hour, $4 attempts didn&rsquo;t crack them either.</p></div>
