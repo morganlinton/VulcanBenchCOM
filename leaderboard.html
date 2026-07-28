@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leaderboard | VulcanBench</title>
-<meta name="description" content="Every model configuration measured on VulcanBench, ranked. Grok 4.5, Fable 5, Sonnet 5, Opus 4.8, GPT-5.6 Sol, GPT-5.5, GLM-5.2, and Kimi K3 across published reports: accuracy, cost, and cost per solved task.">
+<meta name="description" content="Every model configuration measured on VulcanBench, ranked. Grok 4.5, Fable 5, Opus 5, Sonnet 5, Opus 4.8, GPT-5.6 Sol, GPT-5.5, GLM-5.2, and Kimi K3 across published reports: accuracy, cost, and cost per solved task.">
 <link rel="canonical" href="https://vulcanbench.com/leaderboard.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VulcanBench">
@@ -60,7 +60,7 @@
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">The published record</div>
     <h1>Leaderboard</h1>
-    <p class="byline">Every model configuration measured on VulcanBench, ranked: eight models, thirty configurations, seven reports.</p>
+    <p class="byline">Every model configuration measured on VulcanBench, ranked: nine models, thirty-three configurations, eight reports.</p>
   </div>
 
   <div class="lb-note">
@@ -74,12 +74,32 @@
   <div class="models-strip">
     <div class="model-chip"><b>Grok 4.5</b><span>xAI</span></div>
     <div class="model-chip"><b>Claude Fable 5</b><span>Anthropic</span></div>
+    <div class="model-chip"><b>Claude Opus 5</b><span>Anthropic</span></div>
     <div class="model-chip"><b>Claude Sonnet 5</b><span>Anthropic</span></div>
     <div class="model-chip"><b>Claude Opus 4.8</b><span>Anthropic</span></div>
     <div class="model-chip"><b>GPT-5.6 Sol</b><span>OpenAI</span></div>
     <div class="model-chip"><b>GPT-5.5</b><span>OpenAI</span></div>
     <div class="model-chip"><b>GLM-5.2</b><span>Z.ai</span></div>
     <div class="model-chip"><b>Kimi K3</b><span>Moonshot AI</span></div>
+  </div>
+
+  <!-- ===== Report 10 ===== -->
+  <div class="lb-section">
+    <div class="lb-shead">
+      <div class="l"><b>Report 10</b> &middot; v3 Suite &middot; 23 tasks &middot; 69 runs</div>
+      <a href="benchmarks/10-opus5-effort.html">Full report &rarr;</a>
+    </div>
+    <p class="lb-context">Claude Opus 5&rsquo;s first full-suite measurement, swept across the effort knob. Score falls as effort rises; high&rsquo;s losses are wall-clock timeouts, not wrong answers &mdash; it returns the fewest wrong answers of the three. Ranked by pass@1, then cost per solved task.</p>
+    <div class="lb-scroll">
+    <table class="lb">
+      <thead><tr><th class="l">#</th><th class="l">Model</th><th>Score</th><th>pass@1</th><th>Cost</th><th>$/solved</th></tr></thead>
+      <tbody>
+        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><span class="lb-model">Claude Opus 5</span> <span class="lb-eff">low</span><span class="lb-tag">Value leader</span></td><td class="lb-win">20/23</td><td class="lb-win">87.0%</td><td class="lb-win">$14.07</td><td class="lb-win">$0.70</td></tr>
+        <tr><td class="l lb-rank">2</td><td class="l"><span class="lb-model">Claude Opus 5</span> <span class="lb-eff">medium</span></td><td>19/23</td><td>82.6%</td><td>$24.09</td><td>$1.27</td></tr>
+        <tr><td class="l lb-rank">3</td><td class="l"><span class="lb-model">Claude Opus 5</span> <span class="lb-eff">high</span></td><td>18/23</td><td>78.3%</td><td>$43.60</td><td>$2.42</td></tr>
+      </tbody>
+    </table>
+    </div>
   </div>
 
   <!-- ===== Report 08 ===== -->

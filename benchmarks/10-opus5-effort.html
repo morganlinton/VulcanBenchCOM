@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 10 | Claude Opus 5 across the effort knob | VulcanBench</title>
+<meta name="description" content="First measurement of Claude Opus 5 on the full VulcanBench v3 suite: its cheapest setting wins at 20/23 and $0.70 per solved task; score falls at every step up the effort knob while cost triples.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/10-opus5-effort.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Report 10 | Claude Opus 5 across the effort knob | VulcanBench">
+<meta property="og:description" content="First measurement of Claude Opus 5 on the full VulcanBench v3 suite: its cheapest setting wins at 20/23 and $0.70 per solved task; score falls at every step up the effort knob while cost triples.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/10-opus5-effort.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report10-opus5-effort.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Report 10 | Claude Opus 5 across the effort knob | VulcanBench">
+<meta name="twitter:description" content="First measurement of Claude Opus 5 on the full VulcanBench v3 suite: its cheapest setting wins at 20/23 and $0.70 per solved task; score falls at every step up the effort knob while cost triples.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report10-opus5-effort.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../style.css?v=24">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 10</div>
+    <h1>Claude Opus 5 across the effort knob</h1>
+    <p class="byline">First measurement of Opus 5 on the full v3 suite: twenty-three real merged PRs across five languages, at low, medium, and high effort</p>
+    <div class="runmeta">2026-07-26 &middot; 23 tasks &middot; 69 runs &middot; $81.76 spend &middot; deterministic grading</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p><strong>Claude Opus 5&rsquo;s cheapest setting is its best: 20/23 (87.0%) at $0.70 per solved task on low effort.</strong>
+    Score falls at every step up the knob &mdash; 20 &rarr; 19 &rarr; 18 &mdash; while suite cost triples. The deficit is unfinished
+    work, not bad work: high effort returns the fewest wrong answers of any setting and the most wall-clock timeouts, so even granted
+    unlimited time its ceiling is a tie, at 3.1&times; the cost.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report10-opus5-effort.png" alt="Model card: Claude Opus 5 at low, medium, and high effort on 23 v3 tasks — the low-effort configuration leads at 20/23 and $0.70 per solved task" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> All three configurations, with the accuracy and economy curves moving in opposite directions and the seven tasks that moved between settings.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>The cheapest setting wins; effort converts wrong answers into timeouts.</h2>
+    <table class="data">
+      <thead><tr><th>Effort</th><th>Score</th><th>pass@1</th><th>Wrong</th><th>Timed out</th><th>Cost</th><th>Tokens/task</th><th>Time/task</th><th>$/solved</th></tr></thead>
+      <tbody>
+        <tr><td class="model">low</td><td class="win">20/23</td><td class="win">87.0%</td><td>3</td><td class="win">0</td><td class="win">$14.07</td><td>53 K</td><td>5.2 min</td><td class="win">$0.70</td></tr>
+        <tr><td class="model">medium</td><td>19/23</td><td>82.6%</td><td>3</td><td>1</td><td>$24.09</td><td>93 K</td><td>7.6 min</td><td>$1.27</td></tr>
+        <tr><td class="model">high</td><td>18/23</td><td>78.3%</td><td class="win">1</td><td>4</td><td>$43.60</td><td>157 K</td><td>13.6 min</td><td>$2.42</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Wrong = a finished run that failed the hidden tests; timed out = cut off at the 45-minute (large-repository) or 60-minute (xlarge) wall-clock budget, unchanged from Reports 07 and 08. Tokens are billed tokens; time is sandbox wall-clock.</p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>Low is never worse than high, and costs a third as much.</strong> Measured, low leads 20 to 18. Two of high&rsquo;s three regressions are budget cutoffs on tasks it solves at low &mdash; grant it unlimited time on both and it reaches 20/23, a tie, at 3.1&times; the cost. No reading of the sweep has paying for effort winning.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Effort trades wrong answers for unfinished runs.</strong> Wrong answers fall (3 &rarr; 3 &rarr; 1); runs that never finish climb (0 &rarr; 1 &rarr; 4). High spends 3&times; the tokens and 2.6&times; the clock per task, then times out on the biggest repositories &mdash; networkx-leiden was cut off at 60 minutes after solving in 11.6 at low. The one regression the clock does not explain is flask-teardown-robust: it finished, and returned a worse patch.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Effort buys exactly one task.</strong> itertools-strip-prefix is a genuine wrong answer at low and medium and solved at high &mdash; the same task GPT-5.6 Sol went 0-for-3 on in Report 07. One task, for an extra $29.53 of suite spend.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>First crack in a wall.</strong> pennylane-trotter-fragmented had never scored above zero for any model on v3. At low effort Opus 5 finishes it with a 0.40 partial; at medium and high it runs the full 60 minutes and scores nothing. Report 07&rsquo;s effort-discriminator inverts too: flask-teardown-robust, which every earlier model needed high effort to solve, falls to Opus 5 at low.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Failure map</div>
+    <h2>Seven tasks moved between settings; sixteen passed at all three.</h2>
+    <table class="data">
+      <thead><tr><th>Task</th><th>low</th><th>medium</th><th>high</th></tr></thead>
+      <tbody>
+        <tr><td class="model">aiohttp-upgrade-deferred</td><td>&#10003;</td><td>&#10003;</td><td>&times; timed out, 45 min</td></tr>
+        <tr><td class="model">networkx-leiden-communities</td><td>&#10003;</td><td>&#10003;</td><td>&times; timed out, 60 min</td></tr>
+        <tr><td class="model">flask-teardown-robust</td><td>&#10003;</td><td>&#10003;</td><td>partial (0.67)</td></tr>
+        <tr><td class="model">sqlglot-iso8601-nanos</td><td>&#10003;</td><td>partial (0.67)</td><td>&#10003;</td></tr>
+        <tr><td class="model">itertools-strip-prefix</td><td>&times; wrong</td><td>&times; wrong</td><td>&#10003;</td></tr>
+        <tr><td class="model">sqlglot-canonicalize-internal-names</td><td>partial (0.50)</td><td>partial (0.50)</td><td>&times; timed out, 45 min</td></tr>
+        <tr><td class="model">pennylane-trotter-fragmented</td><td>partial (0.40)</td><td>&times; timed out, 60 min</td><td>&times; timed out, 60 min</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top:10px;font-size:15px;">All five timeouts hit their wall-clock budget to the second; none was step-limited. A timeout scores 0.0 but is a different failure from a wrong answer. Partial scores below 1.0 count as unsolved.</p>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">The 16 K output cap</div>
+    <h2>A first pass returned 17/23. It was an artifact, and we fixed the harness.</h2>
+    <div class="prose">
+      <p>Five of six unfinished runs in the first high-effort pass died on a hardcoded 16,000-token output cap in the harness:
+      thinking bills against <span style="font-family:var(--mono);font-size:15px;">max_tokens</span>, so raising effort raised the
+      truncation rate, and the harness scored each empty patch as a failed attempt &mdash; indistinguishable from a wrong answer.
+      The cap now scales with effort (32 K &rarr; 128 K) and a truncated response raises instead of failing silently. Every run in
+      this report was produced under the fix. It reaches past this report: every prior VulcanBench result ran under the 16 K cap,
+      and any run that hit it was scored as a wrong answer. Reports 07 and 08 cannot be re-checked &mdash; their raw runs have
+      rotated out of retention.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>Same 23 v3 tasks as Reports 07 and 08 (real merged post-cutoff PRs across Python, Rust, TypeScript, JavaScript, Go),
+      graded by deterministic hidden tests in a network-isolated Docker sandbox, one attempt per task per configuration.
+      Claude Opus 5 at $5 / $25 per million tokens. Caveats: single attempts &mdash; a one-task difference is within noise &mdash;
+      and four of high&rsquo;s five failures are wall-clock cutoffs, so its ceiling here is partly the budget, not the model.
+      An extended-budget ablation would separate the two.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-opus5-effort-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report10-opus5-effort.png" download>Download model card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=13" defer></script>
+</body>
+</html>
