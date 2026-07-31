@@ -60,7 +60,7 @@
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">The published record</div>
     <h1>Leaderboard</h1>
-    <p class="byline">Every model configuration measured on VulcanBench, ranked: nine models, thirty-three configurations, eight reports.</p>
+    <p class="byline">Every model configuration measured on VulcanBench, ranked: eleven models, thirty-five configurations, nine reports.</p>
   </div>
 
   <div class="lb-note">
@@ -73,6 +73,8 @@
 
   <div class="models-strip">
     <div class="model-chip"><b>Grok 4.5</b><span>xAI</span></div>
+    <div class="model-chip"><b>Grok Voice TF 2.0</b><span>xAI</span></div>
+    <div class="model-chip"><b>GPT Realtime</b><span>OpenAI</span></div>
     <div class="model-chip"><b>Claude Fable 5</b><span>Anthropic</span></div>
     <div class="model-chip"><b>Claude Opus 5</b><span>Anthropic</span></div>
     <div class="model-chip"><b>Claude Sonnet 5</b><span>Anthropic</span></div>
@@ -81,6 +83,24 @@
     <div class="model-chip"><b>GPT-5.5</b><span>OpenAI</span></div>
     <div class="model-chip"><b>GLM-5.2</b><span>Z.ai</span></div>
     <div class="model-chip"><b>Kimi K3</b><span>Moonshot AI</span></div>
+  </div>
+
+  <!-- ===== Report 11 ===== -->
+  <div class="lb-section">
+    <div class="lb-shead">
+      <div class="l"><b>Report 11</b> &middot; Voice Eval Suite v1 &middot; 200 questions &middot; 1,840 units</div>
+      <a href="benchmarks/11-voice-tax.html">Full report &rarr;</a>
+    </div>
+    <p class="lb-context">The same held-out questions delivered typed vs spoken (three voices, fast speech, 10 dB noise); the voice tax is text minus audio accuracy on the clean/normal condition. One modality-blind scorer for both modes. Ranked by audio accuracy.</p>
+    <div class="lb-scroll">
+    <table class="lb">
+      <thead><tr><th class="l">#</th><th class="l">Model</th><th>Text</th><th>Audio</th><th>Voice tax</th><th>Turn (audio)</th></tr></thead>
+      <tbody>
+        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><span class="lb-model">Grok Voice Think Fast 2.0</span> <span class="lb-eff">speech-to-speech</span><span class="lb-tag">Smallest tax</span></td><td class="lb-win">99.0%</td><td class="lb-win">95.7%</td><td class="lb-win">+3.3 pp</td><td class="lb-win">1.43 s</td></tr>
+        <tr><td class="l lb-rank">2</td><td class="l"><span class="lb-model">GPT Realtime</span> <span class="lb-eff">realtime</span></td><td>97.5%</td><td>93.5%</td><td>+4.0 pp</td><td>2.70 s</td></tr>
+      </tbody>
+    </table>
+    </div>
   </div>
 
   <!-- ===== Report 10 ===== -->

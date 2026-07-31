@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 11 | The Voice Tax: Grok Voice Think Fast 2.0 vs GPT Realtime | VulcanBench</title>
+<meta name="description" content="First results from the VulcanBench Voice Eval Suite: the same 200 questions typed vs spoken. Grok Voice Think Fast 2.0 pays a +3.3 pp voice tax (99.0% text, 95.7% audio); GPT Realtime +4.0 pp. Both lose ~10 pp on spoken arithmetic.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/11-voice-tax.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Report 11 | The Voice Tax: Grok Voice Think Fast 2.0 vs GPT Realtime | VulcanBench">
+<meta property="og:description" content="First results from the VulcanBench Voice Eval Suite: the same 200 questions typed vs spoken. Grok Voice Think Fast 2.0 pays a +3.3 pp voice tax (99.0% text, 95.7% audio); GPT Realtime +4.0 pp. Both lose ~10 pp on spoken arithmetic.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/11-voice-tax.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report11-voice-tax.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Report 11 | The Voice Tax: Grok Voice Think Fast 2.0 vs GPT Realtime | VulcanBench">
+<meta name="twitter:description" content="First results from the VulcanBench Voice Eval Suite: the same 200 questions typed vs spoken. Grok Voice Think Fast 2.0 pays a +3.3 pp voice tax; GPT Realtime +4.0 pp.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report11-voice-tax.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../style.css?v=24">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 11</div>
+    <h1>The Voice Tax: Grok Voice Think Fast 2.0 vs GPT Realtime</h1>
+    <p class="byline">The same two hundred held-out questions delivered twice — typed, and spoken via TTS under three voices, fast speech, and background noise — scored by one modality-blind scorer</p>
+    <div class="runmeta">2026-07-31 &middot; 200 questions &middot; 1,840 units &middot; 0 errors &middot; voice-v1 suite</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p><strong>Both flagship voice models lose real accuracy when the question is spoken instead of typed — but not much, and not evenly.</strong>
+    Grok Voice Think Fast 2.0 leads on text (99.0%), on audio (95.7%), and pays the smaller voice tax (+3.3 vs +4.0 pp).
+    The tax concentrates in spoken arithmetic, where both models drop roughly ten points; on numeric extraction Grok&rsquo;s tax goes negative.
+    This suite measures a delta between input modalities for the same model; it makes no claim about other benchmarks.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report11-voice-tax.png" alt="Model card: Grok Voice Think Fast 2.0 scores 99.0% on text and 95.7% on audio (+3.3 pp voice tax); GPT Realtime 97.5% and 93.5% (+4.0 pp); category chart shows arithmetic driving the tax for both models" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> Brown = Grok Voice Think Fast 2.0, blue = GPT Realtime; light shades are text mode. In the category chart, a bar below the axis means audio beat text.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>A real but modest tax — and opposite latency profiles.</h2>
+    <table class="data">
+      <thead><tr><th>Model</th><th>Text</th><th>Audio</th><th>Voice tax</th><th>First token (audio)</th><th>Turn total (audio)</th></tr></thead>
+      <tbody>
+        <tr><td class="model">Grok Voice Think Fast 2.0</td><td class="win">99.0%</td><td class="win">95.7%</td><td class="win">+3.3 pp</td><td>1.22 s</td><td class="win">1.43 s</td></tr>
+        <tr><td class="model">GPT Realtime</td><td>97.5%</td><td>93.5%</td><td>+4.0 pp</td><td class="win">0.53 s</td><td>2.70 s</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Audio accuracy is the clean/normal condition over paired items; latency is the median. Text baselines ran through the same realtime sessions as audio, so only the input modality varies. Zero of 1,840 units errored; zero required the pinned STT fallback — every answer carried the model&rsquo;s own transcript.</p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>The tax lives in arithmetic.</strong> Both models drop ~10 pp on spoken mental math (Grok 100 &rarr; 89.2, GPT 100 &rarr; 90.8) — spoken operands can&rsquo;t be re-read, so one mis-held number sinks the computation. Every other category taxes at 6 pp or less.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Grok&rsquo;s tax goes negative on numeric extraction</strong> (&minus;1.7 pp): slightly better at pulling numbers out of spoken context than written — consistent with xAI&rsquo;s transcription-accuracy emphasis in the Think Fast 2.0 release.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Latency profiles are opposites.</strong> GPT Realtime streams its first token ~2.3&times; sooner (0.53 s vs 1.22 s); Grok finishes turns ~1.9&times; faster (1.43 s vs 2.70 s). Grok&rsquo;s reason-while-speaking design produces late starts and fast finishes; GPT Realtime the reverse.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>Voice and noise are second-order but real.</strong> Voice choice moves audio accuracy ~2 pp, and the models disagree on which voice is hard: Grok hears British-accented <em>fable</em> best; GPT Realtime&rsquo;s worst is <em>shimmer</em>. Ten decibels of ambient noise costs Grok 5.0 pp of tax and GPT Realtime none (n=60 subset — the softest numbers here).</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Breakdown</div>
+    <h2>Voice tax by category and condition (percentage points).</h2>
+    <table class="data">
+      <thead><tr><th>Category</th><th>Grok TF 2.0</th><th>GPT Realtime</th></tr></thead>
+      <tbody>
+        <tr><td class="model">arithmetic</td><td>+10.8</td><td>+9.2</td></tr>
+        <tr><td class="model">instruction-following</td><td>+5.8</td><td>+5.8</td></tr>
+        <tr><td class="model">general-knowledge</td><td>+1.7</td><td>+0.8</td></tr>
+        <tr><td class="model">multi-step-reasoning</td><td>+0.0</td><td>+2.5</td></tr>
+        <tr><td class="model">numeric-extraction</td><td class="win">&minus;1.7</td><td>+1.7</td></tr>
+      </tbody>
+    </table>
+    <table class="data" style="margin-top:14px;">
+      <thead><tr><th>Audio condition</th><th>Grok TF 2.0</th><th>GPT Realtime</th></tr></thead>
+      <tbody>
+        <tr><td class="model">onyx &middot; normal &middot; clean</td><td>+4.5</td><td>+2.5</td></tr>
+        <tr><td class="model">shimmer &middot; normal &middot; clean</td><td>+3.0</td><td>+5.0</td></tr>
+        <tr><td class="model">fable &middot; normal &middot; clean</td><td>+2.5</td><td>+4.5</td></tr>
+        <tr><td class="model">onyx &middot; 1.25&times; &middot; clean</td><td>+1.7</td><td>+1.7</td></tr>
+        <tr><td class="model">onyx &middot; normal &middot; 10 dB noise</td><td>+5.0</td><td>+0.0</td></tr>
+      </tbody>
+    </table>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Fast-rate and noise conditions ran on a seeded n=60 subset; their taxes are computed against the text baseline on the same items.</p>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>Voice Eval Suite v1: 200 original short-form questions written for this suite (never drawn from public benchmarks — TTS-rendered
+      public evals are trivially trainable), 40 per category, objectively checkable answers. TTS via OpenAI tts-1 (voices onyx, shimmer,
+      fable; numeric 1.25&times; speed), renders cached by (question, voice, rate, noise). Scoring is modality-blind by construction:
+      a single entry point — normalize (number-words &rarr; digits so transcription style can&rsquo;t skew accuracy) &rarr; exact/alias
+      &rarr; pinned LLM judge (anthropic:claude-opus-5, rubric in-repo). <strong>Caveats:</strong> single attempt per unit (one item &asymp;
+      0.5 pp); first-token here is time to first <em>transcript</em> delta, not comparable to xAI&rsquo;s advertised time-to-first-audio;
+      Gemini Live and Qwen3-Omni adapters exist but did not run.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-voice-tax-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report11-voice-tax.png" download>Download model card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=13" defer></script>
+</body>
+</html>
