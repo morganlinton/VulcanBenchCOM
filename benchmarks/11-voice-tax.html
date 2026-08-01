@@ -55,13 +55,13 @@
   <div class="article-head">
     <div class="rno">Technical Report No. 11</div>
     <h1>Grok Voice Think Fast 2.0 vs GPT Realtime</h1>
-    <p class="byline">The voice tax, measured: the same two hundred held-out questions delivered twice — typed, and spoken via TTS under three voices, fast speech, and background noise — scored by one modality-blind scorer</p>
+    <p class="byline">The voice tax, measured: the same two hundred held-out questions delivered twice, typed and spoken via TTS, under three voices, fast speech, and background noise. One scorer for both modes.</p>
     <div class="runmeta">2026-07-31 &middot; 200 questions &middot; 1,840 units &middot; 0 errors &middot; voice-v1 suite</div>
   </div>
 
   <div class="abstract-box">
     <span class="lbl">Abstract.</span>
-    <p><strong>Both flagship voice models lose real accuracy when the question is spoken instead of typed — but not much, and not evenly.</strong>
+    <p><strong>Both flagship voice models lose real accuracy when the question is spoken instead of typed, but not much, and not evenly.</strong>
     Grok Voice Think Fast 2.0 leads on text (99.0%), on audio (95.7%), and pays the smaller voice tax (+3.3 vs +4.0 pp).
     The tax concentrates in spoken arithmetic, where both models drop roughly ten points; on numeric extraction Grok&rsquo;s tax goes negative.
     This suite measures a delta between input modalities for the same model; it makes no claim about other benchmarks.</p>
@@ -74,7 +74,7 @@
 
   <section style="padding-top:20px;">
     <div class="section-label">Results</div>
-    <h2>A real but modest tax — and opposite latency profiles.</h2>
+    <h2>A real but modest tax, and opposite latency profiles.</h2>
     <table class="data">
       <thead><tr><th>Model</th><th>Text</th><th>Audio</th><th>Voice tax</th><th>First token (audio)</th><th>Turn total (audio)</th></tr></thead>
       <tbody>
@@ -82,13 +82,13 @@
         <tr><td class="model">GPT Realtime</td><td>97.5%</td><td>93.5%</td><td>+4.0 pp</td><td class="win">0.53 s</td><td>2.70 s</td></tr>
       </tbody>
     </table>
-    <p class="prose" style="margin-top:10px;font-size:15px;">Audio accuracy is the clean/normal condition over paired items; latency is the median. Text baselines ran through the same realtime sessions as audio, so only the input modality varies. Zero of 1,840 units errored; zero required the pinned STT fallback — every answer carried the model&rsquo;s own transcript.</p>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Audio accuracy is the clean/normal condition over paired items; latency is the median. Text baselines ran through the same realtime sessions as audio, so only the input modality varies. Zero of 1,840 units errored; zero required the pinned STT fallback; every answer carried the model&rsquo;s own transcript.</p>
 
     <div class="findings-list">
-      <div class="finding"><div class="fn">1.</div><p><strong>The tax lives in arithmetic.</strong> Both models drop ~10 pp on spoken mental math (Grok 100 &rarr; 89.2, GPT 100 &rarr; 90.8) — spoken operands can&rsquo;t be re-read, so one mis-held number sinks the computation. Every other category taxes at 6 pp or less.</p></div>
-      <div class="finding"><div class="fn">2.</div><p><strong>Grok&rsquo;s tax goes negative on numeric extraction</strong> (&minus;1.7 pp): slightly better at pulling numbers out of spoken context than written — consistent with xAI&rsquo;s transcription-accuracy emphasis in the Think Fast 2.0 release.</p></div>
+      <div class="finding"><div class="fn">1.</div><p><strong>The tax lives in arithmetic.</strong> Both models drop ~10 pp on spoken mental math (Grok 100 &rarr; 89.2, GPT 100 &rarr; 90.8). Spoken operands can&rsquo;t be re-read, so one mis-held number sinks the computation. Every other category taxes at 6 pp or less.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Grok&rsquo;s tax goes negative on numeric extraction</strong> (&minus;1.7 pp): slightly better at pulling numbers out of spoken context than written, consistent with xAI&rsquo;s transcription-accuracy emphasis in the Think Fast 2.0 release.</p></div>
       <div class="finding"><div class="fn">3.</div><p><strong>Latency profiles are opposites.</strong> GPT Realtime streams its first token ~2.3&times; sooner (0.53 s vs 1.22 s); Grok finishes turns ~1.9&times; faster (1.43 s vs 2.70 s). Grok&rsquo;s reason-while-speaking design produces late starts and fast finishes; GPT Realtime the reverse.</p></div>
-      <div class="finding"><div class="fn">4.</div><p><strong>Voice and noise are second-order but real.</strong> Voice choice moves audio accuracy ~2 pp, and the models disagree on which voice is hard: Grok hears British-accented <em>fable</em> best; GPT Realtime&rsquo;s worst is <em>shimmer</em>. Ten decibels of ambient noise costs Grok 5.0 pp of tax and GPT Realtime none (n=60 subset — the softest numbers here).</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>Voice and noise are second-order but real.</strong> Voice choice moves audio accuracy ~2 pp, and the models disagree on which voice is hard: Grok hears British-accented <em>fable</em> best; GPT Realtime&rsquo;s worst is <em>shimmer</em>. Ten decibels of ambient noise costs Grok 5.0 pp of tax and GPT Realtime none (n=60 subset, the softest numbers here).</p></div>
     </div>
   </section>
 
@@ -121,10 +121,10 @@
   <section style="padding-top:8px;">
     <div class="section-label">Method &amp; notes</div>
     <div class="prose">
-      <p>Voice Eval Suite v1: 200 original short-form questions written for this suite (never drawn from public benchmarks — TTS-rendered
+      <p>Voice Eval Suite v1: 200 original short-form questions written for this suite (never drawn from public benchmarks; TTS-rendered
       public evals are trivially trainable), 40 per category, objectively checkable answers. TTS via OpenAI tts-1 (voices onyx, shimmer,
       fable; numeric 1.25&times; speed), renders cached by (question, voice, rate, noise). Scoring is modality-blind by construction:
-      a single entry point — normalize (number-words &rarr; digits so transcription style can&rsquo;t skew accuracy) &rarr; exact/alias
+      a single entry point: normalize (number-words &rarr; digits so transcription style can&rsquo;t skew accuracy) &rarr; exact/alias
       &rarr; pinned LLM judge (anthropic:claude-opus-5, rubric in-repo). <strong>Caveats:</strong> single attempt per unit (one item &asymp;
       0.5 pp); first-token here is time to first <em>transcript</em> delta, not comparable to xAI&rsquo;s advertised time-to-first-audio;
       Gemini Live and Qwen3-Omni adapters exist but did not run.</p>
