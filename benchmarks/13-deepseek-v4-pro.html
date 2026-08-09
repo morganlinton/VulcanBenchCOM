@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report 13 | DeepSeek V4 Pro vs V4-Flash | VulcanBench</title>
+<meta name="description" content="DeepSeek V4 Pro ties V4-Flash at 87.0% pass@1 on VulcanBench v3. Pro uses 55% fewer tokens and runs 38% faster, but its higher token price makes the sweep 29% more expensive.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/13-deepseek-v4-pro.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Report 13 | DeepSeek V4 Pro vs V4-Flash | VulcanBench">
+<meta property="og:description" content="Same 87.0% pass@1. V4 Pro uses 55% fewer tokens and runs 38% faster, but costs 29% more overall.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/13-deepseek-v4-pro.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report13-deepseek-v4-pro.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DeepSeek V4 Pro vs V4-Flash: same score, half the tokens">
+<meta name="twitter:description" content="Both score 87.0% pass@1. Pro runs 38% faster and uses 55% fewer tokens, but costs 29% more.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report13-deepseek-v4-pro.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../style.css?v=25">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 13</div>
+    <h1>DeepSeek V4 Pro vs V4-Flash</h1>
+    <p class="byline">A controlled high-effort comparison on twenty-three real merged post-cutoff PRs across five languages, with three attempts per task and identical agent budgets.</p>
+    <div class="runmeta">2026-08-09 &middot; 23 tasks &middot; 138 runs &middot; high effort &middot; v3 suite &middot; $13.31</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p><strong>DeepSeek V4 Pro is an efficiency upgrade, not an accuracy upgrade: Pro and V4-Flash both score 87.0% pass@1.</strong>
+    The tie holds beyond the aggregate: each goes 3-for-3 on eighteen tasks, 2-for-3 on three, and 0-for-3 on the same two.
+    Pro reaches that result with 55% fewer tokens, 38% less wall-clock time, and 26% fewer agent steps.
+    Its list price is 3.1 times higher per token, however, so the 69-run sweep still costs 29% more: $7.51 versus $5.80.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report13-deepseek-v4-pro.png" alt="Model card comparing DeepSeek V4 Pro and V4-Flash at high effort: both score 87.0 percent pass at one; Pro uses 55 percent fewer tokens, runs 38 percent faster, uses 26 percent fewer steps, and costs 29 percent more" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> Both models complete the same number of attempts; the difference is resource use, latency, and price.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>The score is identical. The path to it is not.</h2>
+    <div class="table-scroll" role="region" aria-label="Model results" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Model</th><th>pass@1</th><th>Solved</th><th>Failed</th><th>Cost</th><th>Tokens/task</th><th>Time/task</th><th>Steps/task</th><th>$/solved</th></tr></thead>
+      <tbody>
+        <tr><td class="model">DeepSeek V4 Pro</td><td class="win">87.0%</td><td class="win">60/69</td><td>9</td><td>$7.51</td><td class="win">229 K</td><td class="win">7.4 min</td><td class="win">196</td><td>$0.13</td></tr>
+        <tr><td class="model">DeepSeek V4-Flash</td><td class="win">87.0%</td><td class="win">60/69</td><td>9</td><td class="win">$5.80</td><td>511 K</td><td>12.0 min</td><td>264</td><td class="win">$0.10</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Both columns use the provider&rsquo;s <em>high</em> reasoning setting, three attempts per task, network-isolated Docker sandboxes, and deterministic hidden-test grading. pass@1 is the mean per-task success rate. Cost uses public-beta list prices: V4 Pro at $0.435/$0.87 and V4-Flash at $0.14/$0.28 per million input/output tokens.</p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>No measurable reliability gain.</strong> Both models solve 60 of 69 attempts for 87.0% pass@1 with the same &plusmn;6.2-point standard error. Each is perfect on eighteen tasks, inconsistent on three, and fails all three attempts on the same two: <em>pennylane-trotter-fragmented</em> and <em>sqlglot-canonicalize-internal-names</em>.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>The tie is almost attempt-for-attempt.</strong> Twenty-one of twenty-three task columns are identical. Pro loses one success on <em>semver-truncate</em> and gains one on <em>sqlglot-qualify-lateral-star</em>. The aggregate tie is not hiding a broad capability reshuffle.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Pro is dramatically leaner.</strong> It consumes 15.8 million tokens against Flash&rsquo;s 35.3 million, averages 196 agent steps instead of 264, and finishes a task in 7.4 minutes instead of 12.0. That is 55% fewer tokens, 26% fewer steps, and 38% less time.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>Token efficiency nearly offsets a 3.1&times; unit-price premium.</strong> Pro costs $7.51 for the sweep versus $5.80 for Flash. The net premium is 29%, not 210%, because Pro uses less than half the tokens. Buyers are paying roughly three cents more per successful attempt to save 4.6 minutes of wall time.</p></div>
+      <div class="finding"><div class="fn">5.</div><p><strong>The choice is operational.</strong> Choose Flash when API spend dominates; choose Pro when latency and token volume matter more. On this suite, there is no accuracy case for paying the premium.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Task-level comparison</div>
+    <h2>Only two of twenty-three task columns differ.</h2>
+    <div class="table-scroll compact" role="region" aria-label="Task-level comparison" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Task group</th><th>Tasks</th><th>V4 Pro</th><th>V4-Flash</th></tr></thead>
+      <tbody>
+        <tr><td class="model">Perfect on both</td><td>17</td><td class="win">51/51</td><td class="win">51/51</td></tr>
+        <tr><td class="model">networkx-leiden-communities</td><td>1</td><td>2/3</td><td>2/3</td></tr>
+        <tr><td class="model">sqlglot-iso8601-nanos</td><td>1</td><td>2/3</td><td>2/3</td></tr>
+        <tr><td class="model">semver-truncate</td><td>1</td><td>2/3</td><td class="win">3/3</td></tr>
+        <tr><td class="model">sqlglot-qualify-lateral-star</td><td>1</td><td class="win">3/3</td><td>2/3</td></tr>
+        <tr><td class="model">Never solved on either</td><td>2</td><td>0/6</td><td>0/6</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">The never-solved pair is <em>pennylane-trotter-fragmented</em> and <em>sqlglot-canonicalize-internal-names</em>. Cells are successful attempts over total attempts. Partial hidden-test scores remain failures for pass@1.</p>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>VulcanBench v3 contains 23 tasks from real merged post-cutoff PRs (Python 9, TypeScript 4, Rust 4, Go 3, JavaScript 3). Both models ran through the same agent harness in network-isolated Docker sandboxes with deterministic hidden-test grading, high reasoning effort, three attempts per task, and the suite&rsquo;s fixed step, time, and cost budgets. Model judges were disabled. <strong>Caveats:</strong> this is one suite, one effort setting, and one harness; equal pass@1 does not establish equal capability in every coding domain. Runtime includes provider latency and can vary with service load. The &plusmn;6.2-point uncertainty bars overlap completely, so the result supports a tie, not a hidden ranking.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-deepseek-v4-pro-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report13-deepseek-v4-pro.png" download>Download model card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=13" defer></script>
+</body>
+</html>

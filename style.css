@@ -377,6 +377,9 @@ table.data tbody tr:hover { background: rgba(180, 73, 12, 0.06); }
 table.data tbody tr:last-child td { border-bottom: 2.5px solid var(--line); }
 table.data .model { font-style: italic; }
 table.data .win { font-weight: 700; color: var(--ember); }
+.table-scroll { width: 100%; max-width: 100%; overflow-x: auto; contain: inline-size; -webkit-overflow-scrolling: touch; }
+.table-scroll table.data { min-width: 820px; }
+.table-scroll.compact table.data { min-width: 560px; }
 
 .dl-row { display: flex; gap: 16px; margin-top: 26px; flex-wrap: wrap; }
 
@@ -433,6 +436,8 @@ footer .brandf .mark { height: 18px; width: auto; }
   .brand .mark { height: 24px; }
   .term-body { font-size: 11px; height: 320px; padding: 12px 14px 14px; }
   .article-head h1 { font-size: 32px; }
+  .wrap, .wrap-wide { padding-left: 20px; padding-right: 20px; }
+  .abstract-box { padding: 22px 24px; }
   .bar-row { grid-template-columns: 1fr; gap: 6px; }
   .bar-name { text-align: left; }
   .bar-name em { display: inline; margin-left: 6px; }
