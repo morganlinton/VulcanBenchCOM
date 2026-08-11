@@ -13,12 +13,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Model routing, measured on your stack | VulcanBench</title>
-<meta name="description" content="Optimize your model routing with a private benchmark built on your company's stack and task mix: which model, at which effort, for which class of task, with the cost case behind it.">
+<meta name="description" content="Optimize your model routing with custom eval suites modeled on the work your teams actually do: which model, at which effort, for which class of task, with the cost case behind it.">
 <link rel="canonical" href="https://vulcanbench.com/benchmark-your-stack.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="Model routing, measured on your stack | VulcanBench">
-<meta property="og:description" content="Optimize your model routing with a private benchmark on your stack and task mix, delivering a routing plan your team can ship with.">
+<meta property="og:description" content="Optimize your model routing with custom eval suites modeled on the work your teams actually do, delivering a routing plan you can ship with.">
 <meta property="og:url" content="https://vulcanbench.com/benchmark-your-stack.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -26,7 +26,7 @@
 <meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Model routing, measured on your stack | VulcanBench">
-<meta name="twitter:description" content="Optimize your model routing with a private benchmark on your stack and task mix, delivering a routing plan your team can ship with.">
+<meta name="twitter:description" content="Optimize your model routing with custom eval suites modeled on the work your teams actually do, delivering a routing plan you can ship with.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/logo.png">
 <meta name="twitter:image:alt" content="VulcanBench logo">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,15 +59,16 @@
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">For engineering teams</div>
     <h1>Model routing, measured.</h1>
-    <p class="byline">Which model, at which effort, for which class of task? A private benchmark on your stack answers it with a routing plan your team can ship with.</p>
+    <p class="byline">Which model, at which effort, for which class of task? A custom eval suite built on the work your team actually does answers it with a routing plan you can ship with.</p>
   </div>
 
   <div class="prose" style="max-width:820px; margin-top:30px;">
     <p class="lead">Most teams route every task to one frontier model at maximum effort and hope the bill is worth it.
-    A stack benchmark replaces that guess with a measurement: a private eval suite built from your languages, your
-    frameworks, and your task mix, run across the model-and-effort matrix in the same sandboxed harness that grades
-    every public report, and distilled into a routing plan: which model, at which reasoning effort, for which class
-    of task.</p>
+    A stack benchmark replaces that guess with a measurement, and the measurement starts with a custom eval suite
+    modeled on the work your team actually does. Mostly Python in mid-sized codebases? The suite is Python in
+    mid-sized codebases. TypeScript across a large codebase? Same. The suite runs across the model-and-effort matrix
+    in the sandboxed harness that grades every public report, and distills into a routing plan: which model, at which
+    reasoning effort, for which class of task.</p>
   </div>
 
   <section>
@@ -112,16 +113,18 @@
     <div class="section-label">How it works</div>
     <div class="method-steps">
       <div class="method-step"><div class="sn">1</div><div>
-        <h3>Stack intake</h3>
-        <p>We map what your team actually ships: languages, frameworks and versions, tooling, and the task mix, from
-        bug fixes and feature work to refactors, test writing, and migrations, plus volume and latency constraints.
-        This is what the suite and the routing classes are built from.</p>
+        <h3>Work profile</h3>
+        <p>We map what your team actually ships: languages, frameworks and versions, the size and shape of the
+        codebases you work in, and the task mix, from bug fixes and feature work to refactors, test writing, and
+        migrations, plus volume and latency constraints. This works per team, too: a platform team on Go and a
+        product team on TypeScript don't have to share a suite, or a routing table.</p>
       </div></div>
       <div class="method-step"><div class="sn">2</div><div>
         <h3>Suite build</h3>
-        <p>Evals are built from your own merged pull requests where possible, or curated equivalents on your exact
-        stack where not. Every task gets hidden tests validated to fail before the fix and pass after it, the same
-        fail&rarr;pass standard as the public suite. Your code stays private and never becomes public eval material.</p>
+        <p>Evals are built from your own merged pull requests where possible, or curated equivalents matched to your
+        work profile where not: same language, same scale of codebase, same kind of change. Every task gets hidden
+        tests validated to fail before the fix and pass after it, the same fail&rarr;pass standard as the public
+        suite. Your code stays private and never becomes public eval material.</p>
       </div></div>
       <div class="method-step"><div class="sn">3</div><div>
         <h3>The matrix run</h3>
@@ -176,10 +179,10 @@
     <h2>You pay for the measurement, never for a verdict.</h2>
     <div class="prose">
       <p>Pricing scales with the suite and the matrix: how many task classes, how many models, how many effort levels,
-      how many repeats. A focused engagement, one stack and a handful of task classes across a four-model matrix,
-      starts in the mid four figures; broader matrices and bigger suites are more. The compute is real and metered,
-      and you see it, the same cost transparency as the public reports. Re-runs on an existing suite cost a fraction
-      of the initial build.</p>
+      how many repeats. A focused engagement, one work profile and a handful of task classes across a four-model
+      matrix, starts in the mid four figures; broader matrices and bigger suites are more, and per-team suites add
+      their suite build, not a whole new engagement. The compute is real and metered, and you see it, the same cost
+      transparency as the public reports. Re-runs on an existing suite cost a fraction of the initial build.</p>
     </div>
   </section>
 
