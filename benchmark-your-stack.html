@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark your stack | VulcanBench</title>
+<meta name="description" content="A private benchmark built on your company's stack and task mix, run across the model-and-effort matrix, delivering a routing plan: which model, at which effort, for which class of task.">
+<link rel="canonical" href="https://vulcanbench.com/benchmark-your-stack.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Benchmark your stack | VulcanBench">
+<meta property="og:description" content="A private benchmark built on your stack and task mix, run across the model-and-effort matrix, delivering a routing plan your team can ship with.">
+<meta property="og:url" content="https://vulcanbench.com/benchmark-your-stack.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Benchmark your stack | VulcanBench">
+<meta name="twitter:description" content="A private benchmark built on your stack and task mix, run across the model-and-effort matrix, delivering a routing plan your team can ship with.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/logo.png">
+<meta name="twitter:image:alt" content="VulcanBench logo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="stylesheet" href="style.css?v=24">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="index.html" aria-label="VulcanBench home">
+      <img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head" style="padding-bottom:6px;">
+    <div class="rno">For engineering teams</div>
+    <h1>Benchmark your stack.</h1>
+    <p class="byline">The public reports measure models on our suite. A stack benchmark measures them on yours, and turns the result into a routing plan your team can ship with.</p>
+  </div>
+
+  <div class="prose" style="max-width:820px; margin-top:30px;">
+    <p class="lead">Most teams route every task to one frontier model at maximum effort and hope the bill is worth it.
+    A stack benchmark replaces that guess with a measurement: a private eval suite built from your languages, your
+    frameworks, and your task mix, run across the model-and-effort matrix in the same sandboxed harness that grades
+    every public report, and distilled into a routing plan: which model, at which reasoning effort, for which class
+    of task.</p>
+  </div>
+
+  <section>
+    <div class="section-label">Why routing</div>
+    <h2>The best model isn't a model. It's a table.</h2>
+    <div class="prose">
+      <p>The public reports keep converging on the same finding from different directions. Frontier accuracy has
+      largely converged while cost still spreads by an order of magnitude (Report 03). Reasoning effort pays for one
+      model and backfires for another on the identical tasks (Report 05). And when tasks are run repeatedly, the
+      cheapest model can be the most dependable one (Report 06).</p>
+      <p>Put those together and "which model is best" stops being a useful question. The useful question is which
+      model, at which effort, for which class of task, and a leaderboard built on someone else's suite cannot answer
+      it, because your stack and your task mix aren't generic. The answer has to be measured on your work.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">What you get</div>
+    <div class="cols3">
+      <div class="feature">
+        <div class="n">01</div>
+        <h3>A routing plan</h3>
+        <p>Task class by task class: which model, at which effort, with escalation rules for when the cheap route
+        misses. Not a leaderboard, a decision your platform team can implement.</p>
+      </div>
+      <div class="feature">
+        <div class="n">02</div>
+        <h3>A private stack report</h3>
+        <p>Your results in the same journal format as the public reports: per-task tables, costs, traces, and replay
+        transcripts. Private by default, yours to share internally.</p>
+      </div>
+      <div class="feature">
+        <div class="n">03</div>
+        <h3>A cost model</h3>
+        <p>Your task volume priced through the routing table: projected spend against your current setup, break-even
+        points included, re-runnable when the next model ships.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">How it works</div>
+    <div class="method-steps">
+      <div class="method-step"><div class="sn">1</div><div>
+        <h3>Stack intake</h3>
+        <p>We map what your team actually ships: languages, frameworks and versions, tooling, and the task mix — bug
+        fixes, feature work, refactors, test writing, migrations — plus volume and latency constraints. This is what
+        the suite and the routing classes are built from.</p>
+      </div></div>
+      <div class="method-step"><div class="sn">2</div><div>
+        <h3>Suite build</h3>
+        <p>Evals are built from your own merged pull requests where possible, or curated equivalents on your exact
+        stack where not. Every task gets hidden tests validated to fail before the fix and pass after it, the same
+        fail&rarr;pass standard as the public suite. Your code stays private and never becomes public eval material.</p>
+      </div></div>
+      <div class="method-step"><div class="sn">3</div><div>
+        <h3>The matrix run</h3>
+        <p>Models &times; effort levels &times; repeats, in the network-isolated Docker sandbox with deterministic
+        grading, no judges. Per task class we record pass@1, pass^k reliability, tokens, cost, and wall-clock: the
+        same five-way view the public reports use.</p>
+      </div></div>
+      <div class="method-step"><div class="sn">4</div><div>
+        <h3>The routing plan</h3>
+        <p>The matrix collapses into a routing table with escalation rules and the cost model behind it, delivered
+        with the full report and a walkthrough with your team. When a new model ships, the suite already exists:
+        re-running the matrix is the cheap part.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">What a routing plan looks like</div>
+    <h2>One row per class of work.</h2>
+    <table class="data">
+      <thead>
+        <tr><th>Task class</th><th>Route to</th><th>Escalate on miss</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Routine bug fixes</td><td class="model">Mid-tier &middot; low</td><td class="model">Frontier &middot; low</td><td>Accuracy parity with frontier at a fraction of the cost</td></tr>
+        <tr><td>Test writing</td><td class="model">Small &middot; low</td><td class="model">Mid-tier &middot; low</td><td>Highest-volume class; pass^k is the bar and the small model clears it</td></tr>
+        <tr><td>Feature work</td><td class="model">Mid-tier &middot; medium</td><td class="model">Frontier &middot; medium</td><td>Effort pays here, but only up to medium</td></tr>
+        <tr><td>Refactors &amp; migrations</td><td class="model">Frontier &middot; low</td><td class="model">Frontier &middot; high</td><td>Breadth wins; extra effort didn't move the score</td></tr>
+        <tr><td>Novel, cross-cutting work</td><td class="model">Frontier &middot; high</td><td class="model">Human review</td><td>The only route that moves these tasks at all</td></tr>
+      </tbody>
+    </table>
+    <div class="prose">
+      <p><em>Illustrative, not a recommendation: the entire point of a stack benchmark is that your table comes out of
+      your measurement, not ours. On your stack the rows, the routes, and the escalation rules can all land
+      differently.</em></p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Where the line is</div>
+    <div class="abstract-box" style="margin-top:26px;">
+      <span class="lbl">Private by default, vendor-neutral by design</span>
+      <p>A stack benchmark is your code, your suite, your numbers: tasks built from your repositories never become
+      public evals and never appear on the leaderboard. And no model vendor pays for placement in a routing
+      recommendation. The routing table is bought by you, graded by hidden tests, and owes nothing to anyone whose
+      model appears in it.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">What it costs</div>
+    <h2>You pay for the measurement, never for a verdict.</h2>
+    <div class="prose">
+      <p>Pricing scales with the suite and the matrix: how many task classes, how many models, how many effort levels,
+      how many repeats. A focused engagement, one stack and a handful of task classes across a four-model matrix,
+      starts in the mid four figures; broader matrices and bigger suites are more. The compute is real and metered,
+      and you see it, the same cost transparency as the public reports. Re-runs on an existing suite cost a fraction
+      of the initial build.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Get started</div>
+    <h2>Tell me about your stack.</h2>
+    <div class="prose">
+      <p>A couple of sentences is enough to start: what your team builds, the languages and frameworks involved, and
+      roughly what your task mix looks like. I'll come back with a proposed suite shape, a matrix, and a number.
+      Building a model rather than choosing one? That's <a href="benchmark-your-model.html">benchmark your model</a>.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="mailto:hello@vulcanbench.com?subject=Benchmark%20my%20stack">Start a conversation</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench/discussions">Open a discussion on GitHub</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="assets/logo.png" alt="" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+</body>
+</html>
