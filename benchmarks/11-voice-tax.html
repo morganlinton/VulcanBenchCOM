@@ -30,7 +30,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="../assets/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="../assets/logo.png">
-<link rel="stylesheet" href="../style.css?v=24">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Report 11 | Grok Voice Think Fast 2.0 vs GPT Realtime",
+  "description": "First results from the VulcanBench Voice Eval Suite: the same 200 questions typed vs spoken. Grok Voice Think Fast 2.0 pays a +3.3 pp voice tax (99.0% text, 95.7% audio); GPT Realtime +4.0 pp. Both lose ~10 pp on spoken arithmetic.",
+  "url": "https://vulcanbench.com/benchmarks/11-voice-tax.html",
+  "mainEntityOfPage": "https://vulcanbench.com/benchmarks/11-voice-tax.html",
+  "image": "https://vulcanbench.com/assets/cards/report11-voice-tax.png",
+  "datePublished": "2026-07-31",
+  "dateModified": "2026-07-31",
+  "author": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "url": "https://vulcanbench.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vulcanbench.com/assets/logo.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=25">
 </head>
 <body>
 
@@ -44,6 +71,7 @@
       <a href="../index.html">Home</a>
       <a href="../benchmarks.html" class="active">Benchmarks</a>
       <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">For teams</a>
       <a href="../support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
@@ -68,7 +96,7 @@
   </div>
 
   <figure>
-    <img src="../assets/cards/report11-voice-tax.png" alt="Model card: Grok Voice Think Fast 2.0 scores 99.0% on text and 95.7% on audio (+3.3 pp voice tax); GPT Realtime 97.5% and 93.5% (+4.0 pp); category chart shows arithmetic driving the tax for both models" width="1600" height="900" loading="lazy" decoding="async">
+    <img src="../assets/cards/report11-voice-tax.webp" alt="Model card: Grok Voice Think Fast 2.0 scores 99.0% on text and 95.7% on audio (+3.3 pp voice tax); GPT Realtime 97.5% and 93.5% (+4.0 pp); category chart shows arithmetic driving the tax for both models" width="1600" height="900" loading="lazy" decoding="async">
     <figcaption><b>Card.</b> Brown = Grok Voice Think Fast 2.0, blue = GPT Realtime; light shades are text mode. In the category chart, a bar below the axis means audio beat text.</figcaption>
   </figure>
 
@@ -152,6 +180,6 @@
   </div>
 </footer>
 
-<script src="../site.js?v=13" defer></script>
+<script src="../site.js?v=14" defer></script>
 </body>
 </html>

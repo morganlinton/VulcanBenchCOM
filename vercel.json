@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    { "source": "/leaderboard.html", "destination": "/benchmarks.html", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/style.css",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+    },
+    {
+      "source": "/site.js",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+    }
+  ]
+}

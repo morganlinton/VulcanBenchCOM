@@ -30,7 +30,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="../assets/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="../assets/logo.png">
-<link rel="stylesheet" href="../style.css?v=24">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Report 06 | Opus 4.8 vs Haiku 4.5",
+  "description": "The first reliability study on the suite: five runs per task. On pass^5 the cheapest model wins, the frontier model is the flaky one, and the frontier-hard tier holds at 0 solves in 30 attempts.",
+  "url": "https://vulcanbench.com/benchmarks/06-reliability.html",
+  "mainEntityOfPage": "https://vulcanbench.com/benchmarks/06-reliability.html",
+  "image": "https://vulcanbench.com/assets/cards/report6-reliability.png",
+  "datePublished": "2026-07-08",
+  "dateModified": "2026-07-08",
+  "author": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "url": "https://vulcanbench.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vulcanbench.com/assets/logo.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=25">
 </head>
 <body>
 
@@ -44,6 +71,7 @@
       <a href="../index.html">Home</a>
       <a href="../benchmarks.html" class="active">Benchmarks</a>
       <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">For teams</a>
       <a href="../support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
@@ -70,7 +98,7 @@
   </div>
 
   <figure>
-    <img src="../assets/cards/report6-reliability.png" alt="Model card: Opus 4.8 vs Haiku 4.5 reliability metrics, pass@k, pass@1, pass^k" width="3200" height="1800" loading="lazy" decoding="async">
+    <img src="../assets/cards/report6-reliability.webp" alt="Model card: Opus 4.8 vs Haiku 4.5 reliability metrics, pass@k, pass@1, pass^k" width="3200" height="1800" loading="lazy" decoding="async">
     <figcaption><b>Card 1.</b> The same two models under three definitions of "solves it." The ranking flips between capability and dependability.</figcaption>
   </figure>
 
@@ -95,7 +123,7 @@
   </section>
 
   <figure>
-    <img src="../assets/cards/report6-evals.png" alt="Per-task reliability: fraction of repeated runs solved for each of the 15 tasks" width="3200" height="1800" loading="lazy" decoding="async">
+    <img src="../assets/cards/report6-evals.webp" alt="Per-task reliability: fraction of repeated runs solved for each of the 15 tasks" width="3200" height="1800" loading="lazy" decoding="async">
     <figcaption><b>Card 2.</b> Fifteen tasks, five runs each: the divergences, the solid passes, and the unsolved tier.</figcaption>
   </figure>
 
@@ -136,6 +164,6 @@
   </div>
 </footer>
 
-<script src="../site.js?v=13" defer></script>
+<script src="../site.js?v=14" defer></script>
 </body>
 </html>

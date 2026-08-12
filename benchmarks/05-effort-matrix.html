@@ -30,7 +30,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="../assets/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="../assets/logo.png">
-<link rel="stylesheet" href="../style.css?v=24">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Report 05 | Fable 5 vs Opus 4.8",
+  "description": "Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.",
+  "url": "https://vulcanbench.com/benchmarks/05-effort-matrix.html",
+  "mainEntityOfPage": "https://vulcanbench.com/benchmarks/05-effort-matrix.html",
+  "image": "https://vulcanbench.com/assets/cards/report5-effort-matrix.png",
+  "datePublished": "2026-07-04",
+  "dateModified": "2026-07-04",
+  "author": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "url": "https://vulcanbench.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vulcanbench.com/assets/logo.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=25">
 </head>
 <body>
 
@@ -44,6 +71,7 @@
       <a href="../index.html">Home</a>
       <a href="../benchmarks.html" class="active">Benchmarks</a>
       <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">For teams</a>
       <a href="../support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
@@ -71,7 +99,7 @@
   </div>
 
   <figure>
-    <img src="../assets/cards/report5-effort-matrix.png" alt="Model card: Fable 5 and Opus 4.8 at low/high effort across 15 evals, with hard-tier progress, cost, and wall-clock" width="3200" height="1800" loading="lazy" decoding="async">
+    <img src="../assets/cards/report5-effort-matrix.webp" alt="Model card: Fable 5 and Opus 4.8 at low/high effort across 15 evals, with hard-tier progress, cost, and wall-clock" width="3200" height="1800" loading="lazy" decoding="async">
     <figcaption><b>Card 1.</b> Apples-to-apples aggregate and the three axes that separate a four-way pass@1 tie. Costs corrected for each provider's prompt-cache discount.</figcaption>
   </figure>
 
@@ -99,7 +127,7 @@
   </section>
 
   <figure>
-    <img src="../assets/cards/report5-evals.png" alt="Per-task hidden-test pass fraction for the five frontier-hard tasks across the four configurations" width="3200" height="1800" loading="lazy" decoding="async">
+    <img src="../assets/cards/report5-evals.webp" alt="Per-task hidden-test pass fraction for the five frontier-hard tasks across the four configurations" width="3200" height="1800" loading="lazy" decoding="async">
     <figcaption><b>Card 2.</b> The five frontier-hard tasks, task by task. No configuration clears any of them: deliberate headroom for the next model.</figcaption>
   </figure>
 
@@ -143,6 +171,6 @@
   </div>
 </footer>
 
-<script src="../site.js?v=13" defer></script>
+<script src="../site.js?v=14" defer></script>
 </body>
 </html>
