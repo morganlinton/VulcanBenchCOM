@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VulcanBench Reports</title>
+    <link>https://vulcanbench.com/</link>
+    <atom:link href="https://vulcanbench.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Technical reports from VulcanBench: frontier models measured on real engineering work, graded by deterministic hidden tests, with cost, tokens, and time as first-class results.</description>
+    <language>en</language>
+    <item>
+      <title>Report 13 | DeepSeek V4 Pro vs V4-Flash</title>
+      <link>https://vulcanbench.com/benchmarks/13-deepseek-v4-pro.html</link>
+      <guid>https://vulcanbench.com/benchmarks/13-deepseek-v4-pro.html</guid>
+      <pubDate>Sun, 09 Aug 2026 12:00:00 +0000</pubDate>
+      <description>DeepSeek V4 Pro ties V4-Flash at 87.0% pass@1 on VulcanBench v3. Pro uses 55% fewer tokens and runs 38% faster, but its higher token price makes the sweep 29% more expensive.</description>
+    </item>
+    <item>
+      <title>Report 12 | Qwen3.8-Max across the effort knob</title>
+      <link>https://vulcanbench.com/benchmarks/12-qwen38-max.html</link>
+      <guid>https://vulcanbench.com/benchmarks/12-qwen38-max.html</guid>
+      <pubDate>Tue, 04 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Qwen3.8-Max debuts on VulcanBench v3 with an effort knob that runs backwards: 81.2% at low, 71.0% at medium, 55.1% at its shipped default. Every failure at medium and xhigh is an unfinished run, not a wrong answer.</description>
+    </item>
+    <item>
+      <title>Report 11 | Grok Voice Think Fast 2.0 vs GPT Realtime</title>
+      <link>https://vulcanbench.com/benchmarks/11-voice-tax.html</link>
+      <guid>https://vulcanbench.com/benchmarks/11-voice-tax.html</guid>
+      <pubDate>Fri, 31 Jul 2026 12:00:00 +0000</pubDate>
+      <description>First results from the VulcanBench Voice Eval Suite: the same 200 questions typed vs spoken. Grok Voice Think Fast 2.0 pays a +3.3 pp voice tax (99.0% text, 95.7% audio); GPT Realtime +4.0 pp. Both lose ~10 pp on spoken arithmetic.</description>
+    </item>
+    <item>
+      <title>Report 09 | Does contamination move Claude Opus 5&#x27;s score?</title>
+      <link>https://vulcanbench.com/benchmarks/09-contamination.html</link>
+      <guid>https://vulcanbench.com/benchmarks/09-contamination.html</guid>
+      <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
+      <description>A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. Result: 11/13 vs 12/13, one genuine miss each — no detectable effect.</description>
+    </item>
+    <item>
+      <title>Report 10 | Claude Opus 5 across the effort knob</title>
+      <link>https://vulcanbench.com/benchmarks/10-opus5-effort.html</link>
+      <guid>https://vulcanbench.com/benchmarks/10-opus5-effort.html</guid>
+      <pubDate>Tue, 28 Jul 2026 12:00:00 +0000</pubDate>
+      <description>First measurement of Claude Opus 5 on the full VulcanBench v3 suite: its cheapest setting wins at 20/23 and $0.70 per solved task; score falls at every step up the effort knob while cost triples.</description>
+    </item>
+    <item>
+      <title>Report 08 | Kimi K3 vs Grok 4.5, Fable 5 &amp; GPT-5.6 Sol</title>
+      <link>https://vulcanbench.com/benchmarks/08-kimi-k3.html</link>
+      <guid>https://vulcanbench.com/benchmarks/08-kimi-k3.html</guid>
+      <pubDate>Sun, 19 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Kimi K3 joins the VulcanBench v3 field: Grok 4.5 leads all eleven configurations at 91.3% with the lowest cost per solved task; K3 debuts at 74%, rising to 87% under an extended-budget ablation.</description>
+    </item>
+    <item>
+      <title>Report 07 | Grok 4.5 vs Fable 5 vs GPT-5.6 Sol</title>
+      <link>https://vulcanbench.com/benchmarks/07-grok-fable-sol.html</link>
+      <guid>https://vulcanbench.com/benchmarks/07-grok-fable-sol.html</guid>
+      <pubDate>Sun, 12 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Grok 4.5 leads at 91% from medium effort onward on the v3 suite; only GPT-5.6 Sol rewards the effort knob; two frontier-hard tasks go 0-for-27.</description>
+    </item>
+    <item>
+      <title>Report 06 | Opus 4.8 vs Haiku 4.5</title>
+      <link>https://vulcanbench.com/benchmarks/06-reliability.html</link>
+      <guid>https://vulcanbench.com/benchmarks/06-reliability.html</guid>
+      <pubDate>Wed, 08 Jul 2026 12:00:00 +0000</pubDate>
+      <description>The first reliability study on the suite: five runs per task. On pass^5 the cheapest model wins, the frontier model is the flaky one, and the frontier-hard tier holds at 0 solves in 30 attempts.</description>
+    </item>
+    <item>
+      <title>Report 05 | Fable 5 vs Opus 4.8</title>
+      <link>https://vulcanbench.com/benchmarks/05-effort-matrix.html</link>
+      <guid>https://vulcanbench.com/benchmarks/05-effort-matrix.html</guid>
+      <pubDate>Sat, 04 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.</description>
+    </item>
+    <item>
+      <title>Report 04 | Fable 5 vs Opus 4.8 vs GPT-5.5</title>
+      <link>https://vulcanbench.com/benchmarks/04-fable-opus-gpt55.html</link>
+      <guid>https://vulcanbench.com/benchmarks/04-fable-opus-gpt55.html</guid>
+      <pubDate>Thu, 02 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Four frontier configurations on 15 real engineering evals. All score 14/15 but each misses a different task; cost spans 4x.</description>
+    </item>
+    <item>
+      <title>Report 01 | Sonnet 5 vs Opus 4.8</title>
+      <link>https://vulcanbench.com/benchmarks/01-cost-pilot.html</link>
+      <guid>https://vulcanbench.com/benchmarks/01-cost-pilot.html</guid>
+      <pubDate>Wed, 01 Jul 2026 12:00:00 +0000</pubDate>
+      <description>The pilot run that established cost as the live axis: both frontier models solve every real, decontaminated bug, and the gap is entirely economic.</description>
+    </item>
+    <item>
+      <title>Report 03 | Fable 5 vs Sonnet 5 vs GLM-5.2</title>
+      <link>https://vulcanbench.com/benchmarks/03-fable-sonnet-glm.html</link>
+      <guid>https://vulcanbench.com/benchmarks/03-fable-sonnet-glm.html</guid>
+      <pubDate>Wed, 01 Jul 2026 12:00:00 +0000</pubDate>
+      <description>Accuracy converges across three models while efficiency spans an order of magnitude. Fable 5 at low effort matches Sonnet 5 at high effort for a quarter of the cost.</description>
+    </item>
+    <item>
+      <title>Report 02 | Sonnet 5 vs Opus 4.8</title>
+      <link>https://vulcanbench.com/benchmarks/02-effort-sweep.html</link>
+      <guid>https://vulcanbench.com/benchmarks/02-effort-sweep.html</guid>
+      <pubDate>Tue, 30 Jun 2026 12:00:00 +0000</pubDate>
+      <description>Does more reasoning effort pay off? A 936-run sweep of Sonnet 5 and Opus 4.8 across low, medium, and high effort.</description>
+    </item>
+  </channel>
+</rss>

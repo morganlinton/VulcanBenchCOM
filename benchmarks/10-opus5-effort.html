@@ -30,7 +30,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="../assets/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="../assets/logo.png">
-<link rel="stylesheet" href="../style.css?v=24">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Report 10 | Claude Opus 5 across the effort knob",
+  "description": "First measurement of Claude Opus 5 on the full VulcanBench v3 suite: its cheapest setting wins at 20/23 and $0.70 per solved task; score falls at every step up the effort knob while cost triples.",
+  "url": "https://vulcanbench.com/benchmarks/10-opus5-effort.html",
+  "mainEntityOfPage": "https://vulcanbench.com/benchmarks/10-opus5-effort.html",
+  "image": "https://vulcanbench.com/assets/cards/report10-opus5-effort.png",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-28",
+  "author": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "url": "https://vulcanbench.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vulcanbench.com/assets/logo.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=25">
 </head>
 <body>
 
@@ -44,6 +71,7 @@
       <a href="../index.html">Home</a>
       <a href="../benchmarks.html" class="active">Benchmarks</a>
       <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">For teams</a>
       <a href="../support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
@@ -68,7 +96,7 @@
   </div>
 
   <figure>
-    <img src="../assets/cards/report10-opus5-effort.png" alt="Model card: Claude Opus 5 at low, medium, and high effort on 23 v3 tasks — the low-effort configuration leads at 20/23 and $0.70 per solved task" width="1600" height="900" loading="lazy" decoding="async">
+    <img src="../assets/cards/report10-opus5-effort.webp" alt="Model card: Claude Opus 5 at low, medium, and high effort on 23 v3 tasks — the low-effort configuration leads at 20/23 and $0.70 per solved task" width="1600" height="900" loading="lazy" decoding="async">
     <figcaption><b>Card.</b> All three configurations, with the accuracy and economy curves moving in opposite directions and the seven tasks that moved between settings.</figcaption>
   </figure>
 
@@ -157,6 +185,6 @@
   </div>
 </footer>
 
-<script src="../site.js?v=13" defer></script>
+<script src="../site.js?v=14" defer></script>
 </body>
 </html>

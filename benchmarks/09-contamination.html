@@ -30,7 +30,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="../assets/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="../assets/logo.png">
-<link rel="stylesheet" href="../style.css?v=24">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Report 09 | Does contamination move Claude Opus 5's score?",
+  "description": "A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. Result: 11/13 vs 12/13, one genuine miss each — no detectable effect.",
+  "url": "https://vulcanbench.com/benchmarks/09-contamination.html",
+  "mainEntityOfPage": "https://vulcanbench.com/benchmarks/09-contamination.html",
+  "image": "https://vulcanbench.com/assets/cards/report9-contamination.png",
+  "datePublished": "2026-07-29",
+  "dateModified": "2026-07-29",
+  "author": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "url": "https://vulcanbench.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vulcanbench.com/assets/logo.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=25">
 </head>
 <body>
 
@@ -44,6 +71,7 @@
       <a href="../index.html">Home</a>
       <a href="../benchmarks.html" class="active">Benchmarks</a>
       <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">For teams</a>
       <a href="../support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
@@ -67,7 +95,7 @@
   </div>
 
   <figure>
-    <img src="../assets/cards/report9-contamination.png" alt="Scorecard: Claude Opus 5 scores 11/13 on tasks whose fixes it could have seen in training and 12/13 on tasks published after its cutoff" width="1600" height="900" loading="lazy" decoding="async">
+    <img src="../assets/cards/report9-contamination.webp" alt="Scorecard: Claude Opus 5 scores 11/13 on tasks whose fixes it could have seen in training and 12/13 on tasks published after its cutoff" width="1600" height="900" loading="lazy" decoding="async">
     <figcaption><b>Card.</b> The two arms differ in exactly one property: whether the upstream fix predates the model&rsquo;s May 2026 training cutoff.</figcaption>
   </figure>
 
@@ -141,6 +169,6 @@
   </div>
 </footer>
 
-<script src="../site.js?v=13" defer></script>
+<script src="../site.js?v=14" defer></script>
 </body>
 </html>

@@ -1,8 +1,32 @@
-/* VulcanBench — terminal run animation + scroll reveals. No dependencies. */
+/* VulcanBench — terminal run animation + scroll reveals + CTA analytics + nav affordance. No dependencies. */
 (function () {
   "use strict";
 
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- CTA click events (GA4) ---- */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest("a.btn") : null;
+    if (!a || typeof window.gtag !== "function") return;
+    window.gtag("event", "cta_click", {
+      cta_text: (a.textContent || "").trim(),
+      cta_url: a.getAttribute("href") || "",
+      page_path: window.location.pathname
+    });
+  });
+
+  /* ---- mobile nav: show a fade while more links are off-screen right ---- */
+  var nav = document.querySelector(".masthead .nav");
+  if (nav) {
+    var updateNavFade = function () {
+      var scrollable = nav.scrollWidth > nav.clientWidth + 2;
+      var atEnd = nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 2;
+      nav.classList.toggle("nav-fade", scrollable && !atEnd);
+    };
+    updateNavFade();
+    nav.addEventListener("scroll", updateNavFade, { passive: true });
+    window.addEventListener("resize", updateNavFade);
+  }
 
   /* ---- scroll reveal ---- */
   var revealed = document.querySelectorAll(".reveal");
