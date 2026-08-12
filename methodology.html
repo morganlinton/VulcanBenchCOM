@@ -278,6 +278,46 @@
       <a class="btn" href="benchmarks.html">Browse the reports</a>
     </div>
   </section>
+
+  <section id="glossary">
+    <div class="section-label">Definitions</div>
+    <h2>The terms, precisely.</h2>
+    <div class="prose">
+      <h3 id="pass-at-1">pass@1</h3>
+      <p>The fraction of tasks a model solves on its first attempt, with a solve decided by hidden tests, not judgment.
+      It is the standard headline number in coding benchmarks, and it hides variance: a model that solves a task on
+      half of its attempts still counts the same as one that always solves it, whenever the sampled attempt happens
+      to pass.</p>
+
+      <h3 id="pass-at-k">pass@k</h3>
+      <p>The probability that at least one of k independent attempts solves the task. It measures a model's ceiling:
+      what you get if you can afford to retry and can recognize a correct answer when you see one.</p>
+
+      <h3 id="pass-hat-k">pass^k</h3>
+      <p>The probability that all k attempts solve the task: the dependability number. A team running a model inside
+      automation cares about pass^k, not pass@k, because nobody is hand-picking the good attempt. On VulcanBench,
+      pass^k is where cheap models have beaten frontier ones.</p>
+
+      <h3 id="reasoning-effort">Reasoning effort</h3>
+      <p>A per-request setting (low, medium, high) that controls how many thinking tokens a model spends before
+      answering. More effort always costs more tokens and time; VulcanBench reports show it does not always buy more
+      accuracy, and for some models accuracy falls as effort rises.</p>
+
+      <h3 id="decontamination">Decontamination</h3>
+      <p>Ensuring that no task in an eval suite could have appeared in a model's training data, on VulcanBench by
+      building tasks from pull requests merged after every measured model's training cutoff. Without it, a benchmark
+      can measure memory instead of ability.</p>
+
+      <h3 id="model-routing">Model routing</h3>
+      <p>Sending each class of task to the model and effort level that handles it best, instead of sending everything
+      to one frontier model at maximum effort. A routing decision is only as good as the measurement behind it, which
+      is what a <a href="benchmark-your-stack.html">stack benchmark</a> exists to provide.</p>
+
+      <h3 id="hidden-tests">Hidden tests</h3>
+      <p>Tests the model never sees, validated to fail on the code before the real fix and pass after it. They make
+      grading deterministic: a patch passes or it does not, and no model judges another model.</p>
+    </div>
+  </section>
 </div>
 
 <footer>
