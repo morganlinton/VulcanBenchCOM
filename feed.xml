@@ -7,6 +7,13 @@
     <description>Technical reports from VulcanBench: frontier models measured on real engineering work, graded by deterministic hidden tests, with cost, tokens, and time as first-class results.</description>
     <language>en</language>
     <item>
+      <title>Grok 4.6 reasoning-effort benchmark | Report 14</title>
+      <link>https://vulcanbench.com/benchmarks/14-grok-46-effort.html</link>
+      <guid>https://vulcanbench.com/benchmarks/14-grok-46-effort.html</guid>
+      <pubDate>Wed, 13 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Grok 4.6 peaks mid-knob on VulcanBench v3: 87.0% pass@1 at medium effort, 73.9% at its shipped default (high). Failures shift from wrong answers to unfinished runs as effort rises; the new xhigh level recovers less than half the drop.</description>
+    </item>
+    <item>
       <title>DeepSeek V4 Pro vs V4-Flash benchmark | Report 13</title>
       <link>https://vulcanbench.com/benchmarks/13-deepseek-v4-pro.html</link>
       <guid>https://vulcanbench.com/benchmarks/13-deepseek-v4-pro.html</guid>

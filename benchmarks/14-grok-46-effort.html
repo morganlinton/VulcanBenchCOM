@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grok 4.6 reasoning-effort benchmark | Report 14 | VulcanBench</title>
+<meta name="description" content="Grok 4.6 peaks mid-knob on VulcanBench v3: 87.0% pass@1 at medium effort, 73.9% at its shipped default (high). Failures shift from wrong answers to unfinished runs as effort rises.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/14-grok-46-effort.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Grok 4.6 reasoning-effort benchmark | Report 14 | VulcanBench">
+<meta property="og:description" content="87.0% at medium, 73.9% at the shipped default. One request flag separates Grok 4.6's best setting from its worst.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/14-grok-46-effort.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report14-grok-46.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grok 4.6: the best setting is one flag from the worst">
+<meta name="twitter:description" content="87.0% pass@1 at medium effort, 73.9% at the shipped default. The new xhigh level recovers less than half the drop.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report14-grok-46.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Grok 4.6 reasoning-effort benchmark | Report 14",
+  "description": "Grok 4.6 peaks mid-knob on VulcanBench v3: 87.0% pass@1 at medium effort, 73.9% at its shipped default (high). Failures shift from wrong answers to unfinished runs as effort rises.",
+  "url": "https://vulcanbench.com/benchmarks/14-grok-46-effort.html",
+  "mainEntityOfPage": "https://vulcanbench.com/benchmarks/14-grok-46-effort.html",
+  "image": "https://vulcanbench.com/assets/cards/report14-grok-46.png",
+  "datePublished": "2026-08-13",
+  "dateModified": "2026-08-13",
+  "author": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "url": "https://vulcanbench.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vulcanbench.com/assets/logo.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=25">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">For teams</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 14</div>
+    <h1>Grok 4.6 across the effort knob</h1>
+    <p class="byline">xAI&rsquo;s newest model debuts on the full v3 suite: twenty-three real merged post-cutoff PRs across five languages, at low, medium, high, and xhigh effort, one attempt per task.</p>
+    <div class="runmeta">2026-08-12 &middot; 23 tasks &middot; 92 runs &middot; 4 effort levels &middot; v3 suite &middot; $52.70</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p><strong>The best setting is one flag away from the worst: 87.0% pass@1 at medium, 73.9% at high &mdash; and high is what an unset request runs at.</strong>
+    The curve is non-monotone (82.6 &rarr; 87.0 &rarr; 73.9 &rarr; 78.3): the new xhigh level, introduced with 4.6, recovers less than half the drop from the medium peak.
+    As effort rises, failures change kind &mdash; at low all four are finished-but-wrong; at high and xhigh, four at each level are runs cut off by a budget, the conversion Report No.&nbsp;12 documented for Qwen3.8-Max.
+    On this suite Grok 4.6 does not clear its predecessor: Report No.&nbsp;07 measured Grok 4.5 at 91.3% under the same single-attempt protocol.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report14-grok-46.png" alt="Model card: Grok 4.6 scores 82.6% at low effort, 87.0% at medium, 73.9% at its default high setting, and 78.3% at xhigh; runs cut off by a budget climb from zero at low to four at high and xhigh" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> Shades darken low &rarr; xhigh. Accuracy peaks at medium; unfinished runs appear only above low. Both panels are zero-based.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>Accuracy peaks mid-knob. The shipped default is the worst measured setting.</h2>
+    <div class="table-scroll" role="region" aria-label="Effort results" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Effort</th><th>pass@1</th><th>Solved</th><th>Wrong</th><th>Unfinished</th><th>Cost</th><th>Tokens/task</th><th>Time/task</th><th>$/solved</th></tr></thead>
+      <tbody>
+        <tr><td class="model">low</td><td>82.6%</td><td>19/23</td><td>4</td><td class="win">0</td><td class="win">$4.15</td><td class="win">79 K</td><td class="win">4.8 min</td><td class="win">$0.22</td></tr>
+        <tr><td class="model">medium</td><td class="win">87.0%</td><td class="win">20/23</td><td class="win">1</td><td>2</td><td>$15.76</td><td>322 K</td><td>14.2 min</td><td>$0.79</td></tr>
+        <tr><td class="model">high (default)</td><td>73.9%</td><td>17/23</td><td>2</td><td>4</td><td>$12.56</td><td>258 K</td><td>16.3 min</td><td>$0.74</td></tr>
+        <tr><td class="model">xhigh</td><td>78.3%</td><td>18/23</td><td class="win">1</td><td>4</td><td>$20.24</td><td>418 K</td><td>15.8 min</td><td>$1.12</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">One attempt per task per configuration, network-isolated Docker sandboxes, deterministic hidden-test grading. Wrong = a finished run that failed the hidden tests; unfinished = cut off at a step or wall-clock budget (one low run hit a budget and its partial diff still passed; it counts as solved). Grok 4.6 priced at $2/$6 per million input/output tokens, &lt;200K-input tier. xAI&rsquo;s documented effort enum is low/medium/high/xhigh; <em>high</em> is the default when the field is unset, and reasoning cannot be disabled.</p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>The shipped default is the worst measured setting.</strong> An unset request runs at high: 73.9%, thirteen points under medium, at 3.3&times; the token volume of low and 16.3 minutes per task. One request flag &mdash; <code>reasoning_effort: "medium"</code> &mdash; moves an integration from the worst column to the best.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>The knob is non-monotone, and the new top level does not fix it.</strong> Accuracy rises from low to medium, falls eleven points at high, and recovers only four at xhigh. Reasoning volume rises the whole way &mdash; median tokens per run climb 31K &rarr; 111K &rarr; 166K &rarr; 249K &mdash; so the extra deliberation past medium buys negative returns.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Effort converts wrong answers into unfinished runs.</strong> Wrong answers fall 4 &rarr; 1 &rarr; 2 &rarr; 1 while budget-cut runs climb 0 &rarr; 2 &rarr; 4 &rarr; 4. The pattern matches Report No.&nbsp;12&rsquo;s Qwen3.8-Max result in miniature: past its sweet spot the model does not get sloppier, it stops finishing.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>The regression sits in solvable work.</strong> Sixteen tasks are solved at every setting, and the two never solved &mdash; <em>pennylane-trotter-fragmented</em> and <em>sqlglot-canonicalize-internal-names</em> &mdash; are the same pair every model in Reports No.&nbsp;12 and 13 also fails. Of the five tasks that move, three are solved at low or medium and lost at high and xhigh.</p></div>
+      <div class="finding"><div class="fn">5.</div><p><strong>It does not clear Grok 4.5, and the margin of this report is wide.</strong> Report No.&nbsp;07 measured 4.5 at 91.3% (21/23) at medium and high under the same single-attempt protocol; 4.6&rsquo;s best column is 87.0%. Single-attempt standard errors are &plusmn;7&ndash;9 points and the medium-vs-high gap is roughly 1.1&times; the pair&rsquo;s combined uncertainty &mdash; suggestive, not settled. A three-attempt top-up of medium and high is queued.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Breakdown</div>
+    <h2>The five tasks that moved; the other eighteen scored identically at every setting.</h2>
+    <div class="table-scroll compact" role="region" aria-label="Task-level breakdown" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Task</th><th>low</th><th>medium</th><th>high</th><th>xhigh</th></tr></thead>
+      <tbody>
+        <tr><td class="model">semver-truncate</td><td>0/1</td><td class="win">1/1</td><td class="win">1/1</td><td class="win">1/1</td></tr>
+        <tr><td class="model">aiohttp-upgrade-deferred</td><td>0/1</td><td class="win">1/1</td><td>0/1</td><td>0/1</td></tr>
+        <tr><td class="model">flask-teardown-robust</td><td class="win">1/1</td><td class="win">1/1</td><td>0/1</td><td>0/1</td></tr>
+        <tr><td class="model">networkx-leiden-communities</td><td class="win">1/1</td><td class="win">1/1</td><td>0/1</td><td>0/1</td></tr>
+        <tr><td class="model">sqlglot-qualify-lateral-star</td><td class="win">1/1</td><td>0/1</td><td>0/1</td><td class="win">1/1</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Cells are solved/attempted. Sixteen tasks were solved at all four settings; never solved at any: <em>pennylane-trotter-fragmented</em> and <em>sqlglot-canonicalize-internal-names</em>. With one attempt per cell, individual flips can be run-to-run variance; the aggregate shape, not any single cell, is the result.</p>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>VulcanBench v3: 23 tasks from real merged post-cutoff PRs (Python 9, TypeScript 4, Rust 4, Go 3, JavaScript 3), network-isolated
+      Docker sandboxes, deterministic hidden-test grading, one attempt per task per configuration, and the suite&rsquo;s fixed step, time,
+      and cost budgets, unchanged since Report No.&nbsp;07. Model judges were disabled for scoring. Runs executed 2026-08-12 against
+      xAI&rsquo;s production API. <strong>Caveats:</strong> single-attempt columns carry &plusmn;7&ndash;9-point standard errors &mdash;
+      wider than the three-attempt columns of Reports No.&nbsp;12 and 13 &mdash; so per-task flips can be variance rather than stable
+      behavior; the comparison to Grok 4.5 spans reports run six weeks apart; and requests above 200K input tokens bill at double rate,
+      which per-run receipts do not expose, so costs are lower bounds on the largest repositories. Runtime includes provider latency.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-grok-46-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report14-grok-46.png" download>Download model card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=14" defer></script>
+</body>
+</html>
