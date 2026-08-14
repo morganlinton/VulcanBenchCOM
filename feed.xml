@@ -7,6 +7,13 @@
     <description>Technical reports from VulcanBench: frontier models measured on real engineering work, graded by deterministic hidden tests, with cost, tokens, and time as first-class results.</description>
     <language>en</language>
     <item>
+      <title>Grok 4.6 in Cursor vs a bare-bones harness | Report 15 | Harness Study No. 01</title>
+      <link>https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html</link>
+      <guid>https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html</guid>
+      <pubDate>Fri, 14 Aug 2026 12:00:00 +0000</pubDate>
+      <description>VulcanBench's first model x harness study: the same Grok 4.6, the same 23 tasks, two delivery systems. Inside Cursor it scores up to 21 points higher at the same nominal effort, runs 2-5x faster, and its effort curve inverts from peak-and-collapse to monotone rise.</description>
+    </item>
+    <item>
       <title>Grok 4.6 reasoning-effort benchmark | Report 14</title>
       <link>https://vulcanbench.com/benchmarks/14-grok-46-effort.html</link>
       <guid>https://vulcanbench.com/benchmarks/14-grok-46-effort.html</guid>
