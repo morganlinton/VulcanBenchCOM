@@ -627,3 +627,11 @@ section[id] { scroll-margin-top: 90px; }
 @media (max-width: 720px) {
   .support-tiers { grid-template-columns: 1fr; }
 }
+
+/* Correction notice on a republished report (Report 15, Aug 2026). */
+.correction{border:2px solid var(--ember,#b4462a);background:#fdf6f3;
+  padding:18px 22px;margin:26px 0 8px;border-radius:2px}
+.correction .lbl{display:block;font-family:var(--sans,inherit);font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;color:#b4462a;font-weight:700;margin-bottom:8px}
+.correction p{margin:0;font-size:15.5px;line-height:1.62}
+.correction p + p{margin-top:10px}

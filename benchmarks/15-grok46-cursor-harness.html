@@ -12,19 +12,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grok 4.6 in Cursor vs a bare-bones harness | Report 15 | VulcanBench</title>
-<meta name="description" content="The first model x harness study on VulcanBench: the same Grok 4.6, the same 23 tasks, two delivery systems. Inside Cursor it scores up to 21 points higher at the same nominal effort and runs 2-5x faster.">
+<meta name="description" content="Corrected 16 Aug 2026. The first model x harness study on VulcanBench: the same Grok 4.6, the same 23 tasks, two delivery systems. Contained and audited, the harness is worth 14.5 points at high effort and nothing measurable elsewhere.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="Grok 4.6 in Cursor vs a bare-bones harness | Report 15 | VulcanBench">
-<meta property="og:description" content="The first model x harness study: +21 points at the same nominal effort setting, 2-5x faster, and the effort curve inverts.">
+<meta property="og:description" content="Corrected: the harness is worth 14.5 points at high effort, and nothing measurable at any other level.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/cards/report15-grok46-cursor.png">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The harness is worth more than the effort knob">
-<meta name="twitter:description" content="Same Grok 4.6, same tasks, same hidden tests: +21 points inside Cursor at the same nominal setting. VulcanBench's first model x harness study.">
+<meta name="twitter:title" content="Corrected: the harness advantage is one level wide">
+<meta name="twitter:description" content="Same Grok 4.6, same tasks, same hidden tests. First published with contaminated data; re-run contained and audited, the gap is +14.5 at high effort only.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report15-grok46-cursor.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,12 +36,12 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Grok 4.6 in Cursor vs a bare-bones harness | Report 15",
-  "description": "The first model x harness study on VulcanBench: the same Grok 4.6, the same 23 tasks, two delivery systems. Inside Cursor it scores up to 21 points higher at the same nominal effort and runs 2-5x faster.",
+  "description": "Corrected 16 Aug 2026. The first model x harness study on VulcanBench: the same Grok 4.6, the same 23 tasks, two delivery systems. Contained and audited, the harness is worth 14.5 points at high effort and nothing measurable elsewhere.",
   "url": "https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html",
   "mainEntityOfPage": "https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html",
   "image": "https://vulcanbench.com/assets/cards/report15-grok46-cursor.png",
   "datePublished": "2026-08-14",
-  "dateModified": "2026-08-14",
+  "dateModified": "2026-08-16",
   "author": {
     "@type": "Organization",
     "name": "VulcanBench",
@@ -85,60 +85,101 @@
     <div class="rno">Technical Report No. 15 &middot; Harness Study No. 01</div>
     <h1>Grok 4.6 in Cursor vs. a bare-bones harness</h1>
     <p class="byline">The first model &times; harness study on VulcanBench: one model, two delivery systems, on twenty-three real merged post-cutoff PRs, graded by the same hidden tests. Every prior report compared models; this one holds the model fixed and varies the scaffold around it.</p>
-    <div class="runmeta">2026-08-14 &middot; 23 tasks &middot; 414 runs &middot; 2 harnesses &middot; 4 effort levels &middot; v3 suite</div>
+    <div class="runmeta">Corrected 2026-08-16 &middot; 23 tasks &middot; 368 runs &middot; 2 harnesses &middot; 4 effort levels &middot; v3 suite</div>
+  </div>
+
+  <div class="correction">
+    <span class="lbl">Correction &middot; 16 August 2026</span>
+    <p>This report was first published on 14 August with contaminated data, and <strong>every figure in it has changed.</strong>
+    Two independent leaks were found afterwards. First, the Cursor agent fetched the upstream pull requests its tasks are derived
+    from: 46% of runs, and the median patch of those runs matched the task&rsquo;s gold patch exactly. Second, in a follow-up sweep
+    with the web blocked, the agent read VulcanBench&rsquo;s own <code>gold_patch.diff</code> and hidden test files from disk &mdash;
+    46 runs did so, and all 46 solved.</p>
+    <p>Both channels are now closed. CLI-harness agents run in a workspace created outside the repository, so no task definition,
+    gold patch, or hidden test exists above the agent&rsquo;s working directory, and their web tools are denied. Every run records a
+    per-run integrity audit of both channels. The figures below come from 276 re-run, audited, uncontaminated runs; all 276 are
+    clean. The original reported +21.0 points at high effort and a monotone rising curve to 95.7%; neither survived. VulcanBench&rsquo;s
+    own agent loop was never exposed to either channel &mdash; it has no web tools and its sandbox is network-off with no host mount
+    &mdash; so Report No.&nbsp;14 and all API-side results are unaffected.</p>
   </div>
 
   <div class="abstract-box">
     <span class="lbl">Abstract.</span>
-    <p><strong>The harness is worth more than the effort knob: at the same nominal <em>high</em> setting, Grok 4.6 scores 94.9% inside Cursor against 73.9% through VulcanBench&rsquo;s deliberately minimal reference loop, a 21.0-point gap.</strong>
-    Through the raw API the effort curve peaks at medium and collapses; inside Cursor it rises monotonically (79.7 &rarr; 94.2 &rarr; 94.9 &rarr; 95.7).
-    The overthinking failure mode disappears: the raw API produced ten budget-cut runs above low effort, Cursor produced zero at any level.
-    The harness also changes which tasks are solvable. The two tasks no raw-API run has ever solved both fall inside Cursor, while a task every raw-API level solves becomes Cursor&rsquo;s only recurring failure.
-    Only at low effort does the bare-bones loop win, by 2.9 points.</p>
+    <p><strong>The harness advantage is real but narrow: 14.5 points at high effort, and nothing measurable anywhere else.</strong>
+    At the same nominal <em>high</em> setting Grok 4.6 scores 88.4% inside Cursor against 73.9% through VulcanBench&rsquo;s
+    deliberately minimal reference loop &mdash; the only level whose gap clears its error bars. At low (+1.5) and xhigh (+7.2) the
+    two systems are statistically indistinguishable, and at medium the bare-bones loop leads by 2.9 points.
+    What the scaffold reliably does is prevent one specific failure: the raw API collapses from 87.0% at medium to 73.9% at high,
+    and Cursor does not (84.1 &rarr; 88.4). Contained, Cursor&rsquo;s own effort curve is nearly flat.
+    The containment produced a second result: the agent attempted 299 web fetches across 276 runs and every one was refused, with
+    attempts rising monotonically with effort &mdash; the harder the model works, the harder it reaches for outside help.</p>
   </div>
 
   <figure>
-    <img src="../assets/cards/report15-grok46-cursor.png" alt="Harness Study card: Grok 4.6 scores 79.7, 94.2, 94.9 and 95.7 percent across effort levels inside Cursor, against 82.6, 87.0, 73.9 and 78.3 through the bare-bones API loop; plus 21 points at high effort, 2 to 5 times faster per task" width="1600" height="900" loading="lazy" decoding="async">
-    <figcaption><b>Card.</b> The signature chart: one line per harness on a shared effort axis. The curves cross between low and medium and never meet again.</figcaption>
+    <img src="../assets/cards/report15-grok46-cursor.png" alt="Harness Study card: Grok 4.6 scores 84.1, 84.1, 88.4 and 85.5 percent across effort levels inside Cursor, against 82.6, 87.0, 73.9 and 78.3 through the bare-bones API loop; plus 14.5 points at high effort and 299 refused web fetches" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> One line per harness on a shared effort axis. The systems track each other until high effort, where the bare-bones loop collapses and Cursor does not.</figcaption>
   </figure>
 
   <section style="padding-top:20px;">
     <div class="section-label">Results</div>
-    <h2>Same model, same tasks, same tests. Two different systems.</h2>
+    <h2>The gap is one level wide.</h2>
     <div class="table-scroll" role="region" aria-label="Harness comparison results" tabindex="0">
     <table class="data">
       <thead><tr><th>Effort</th><th>In Cursor</th><th>Bare-bones API</th><th>Delta</th><th>Cursor time/task</th><th>API time/task</th></tr></thead>
       <tbody>
-        <tr><td class="model">low</td><td>79.7% &plusmn;8.1</td><td class="win">82.6% &plusmn;8.1</td><td>&minus;2.9</td><td class="win">2.9 min</td><td>4.8 min</td></tr>
-        <tr><td class="model">medium</td><td class="win">94.2% &plusmn;4.4</td><td>87.0% &plusmn;7.2</td><td>+7.2</td><td class="win">2.9 min</td><td>14.2 min</td></tr>
-        <tr><td class="model">high</td><td class="win">94.9% &plusmn;4.4</td><td>73.9% &plusmn;9.4</td><td>+21.0</td><td class="win">4.2 min</td><td>16.3 min</td></tr>
-        <tr><td class="model">xhigh</td><td class="win">95.7% &plusmn;4.3</td><td>78.3% &plusmn;8.8</td><td>+17.4</td><td class="win">4.2 min</td><td>15.8 min</td></tr>
+        <tr><td class="model">low</td><td>84.1% &plusmn;7.5</td><td>82.6% &plusmn;8.1</td><td>+1.5</td><td>3.5 min</td><td class="win">4.8 min</td></tr>
+        <tr><td class="model">medium</td><td>84.1% &plusmn;7.2</td><td class="win">87.0% &plusmn;7.2</td><td>&minus;2.9</td><td class="win">4.6 min</td><td>14.2 min</td></tr>
+        <tr><td class="model">high</td><td class="win">88.4% &plusmn;6.5</td><td>73.9% &plusmn;9.4</td><td class="win">+14.5</td><td class="win">6.9 min</td><td>16.3 min</td></tr>
+        <tr><td class="model">xhigh</td><td>85.5% &plusmn;7.2</td><td>78.3% &plusmn;8.8</td><td>+7.2</td><td class="win">6.5 min</td><td>15.8 min</td></tr>
       </tbody>
     </table>
     </div>
-    <p class="prose" style="margin-top:10px;font-size:15px;">System A (bare-bones) is Report No.&nbsp;14: the xAI API through VulcanBench&rsquo;s minimal reference loop, one attempt per task, effort sent per request. System B is Cursor&rsquo;s own agent via <code>cursor-agent</code>, three attempts per task (84/84/79/75 runs per level), effort baked into the model id (<code>cursor-grok-4.6-low</code> &hellip; <code>-xhigh</code>), non-fast ids. Both systems are graded by the same deterministic hidden tests in Docker. pass@1 is the mean per-task success rate, so uneven attempt counts do not bias it; times are medians and include provider latency.</p>
+    <p class="prose" style="margin-top:10px;font-size:15px;">System A (bare-bones) is Report No.&nbsp;14: the xAI API through
+    VulcanBench&rsquo;s minimal reference loop, one attempt per task, effort sent per request. System B is Cursor&rsquo;s own agent
+    via <code>cursor-agent</code>, three attempts per task (69 runs per level, 23/23 tasks), effort baked into the model id
+    (<code>cursor-grok-4.6-low</code> &hellip; <code>-xhigh</code>), non-fast ids, web tools denied and workspace outside the
+    repository. Both systems are graded by the same deterministic hidden tests in Docker. pass@1 is the mean per-task success rate;
+    times are medians and include provider latency. <strong>Only the high-effort gap exceeds the combined uncertainty of its pair</strong>
+    &mdash; low, medium, and xhigh do not.</p>
 
     <div class="findings-list">
-      <div class="finding"><div class="fn">1.</div><p><strong>The harness is worth more than the effort knob.</strong> The largest gap the knob produced in Report No.&nbsp;14 was 13.1 points. The harness produces 21.0 at the same nominal setting, and every Cursor level from medium up beats every bare-bones level.</p></div>
-      <div class="finding"><div class="fn">2.</div><p><strong>The overthinking failure mode disappears.</strong> Raw-API failures above low effort are dominated by runs cut off at a step or wall-clock budget (2, 4, and 4 at medium, high, xhigh). Inside Cursor there are zero budget-cut runs at any level, and the same nominal level finishes 1.6&ndash;4.9&times; faster.</p></div>
-      <div class="finding"><div class="fn">3.</div><p><strong>The harness changes which tasks are solvable.</strong> <em>pennylane-trotter-fragmented</em> and <em>sqlglot-canonicalize-internal-names</em>, unsolved by any raw-API run across Reports No.&nbsp;12&ndash;14, are both solved inside Cursor. In the other direction, <em>itertools-strip-prefix</em>, solved at every raw-API level, fails at medium, high, and xhigh inside Cursor.</p></div>
-      <div class="finding"><div class="fn">4.</div><p><strong>Low effort is the exception that sharpens the question.</strong> The bare-bones loop wins low by 2.9 points. Whatever Cursor&rsquo;s scaffold adds, it pays off where the model reasons long and costs a little where it does not.</p></div>
-      <div class="finding"><div class="fn">5.</div><p><strong>This is a product measurement, not a weights measurement.</strong> Read it as &ldquo;Grok 4.6 as Cursor ships it&rdquo; against &ldquo;Grok 4.6 as the API hands it to you.&rdquo; The 21-point delta is far outside both columns&rsquo; uncertainty; its cause is not identifiable from outside this wall (see Caveats).</p></div>
+      <div class="finding"><div class="fn">1.</div><p><strong>The advantage is one level wide.</strong> Only high effort clears its error bars (+14.5 against &plusmn;6.5). Low is +1.5, xhigh +7.2, and medium is &minus;2.9 in the bare-bones loop&rsquo;s favour. The first version of this report claimed the harness beat the effort knob at every level above low; with contamination removed, it does not.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>What the scaffold prevents is the high-effort collapse.</strong> The raw API falls from 87.0% at medium to 73.9% at high; inside Cursor the same transition rises, 84.1% to 88.4%. The harness earns its keep precisely where the model would otherwise overthink itself into failure, and nowhere else.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Contained, Cursor&rsquo;s effort curve is nearly flat.</strong> 84.1 &rarr; 84.1 &rarr; 88.4 &rarr; 85.5, a 4.3-point spread against the raw API&rsquo;s 13.1. Turning the knob inside this harness changes little; the published monotone climb to 95.7% was an artifact of leaked answers.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>The agent reaches for the web in proportion to effort.</strong> Refused fetch attempts climb 29 &rarr; 66 &rarr; 96 &rarr; 108 from low to xhigh, 299 across the sweep, every one denied. Contamination in the first version concentrated at exactly the levels where these attempts are most frequent, which is why the high-effort column was the most inflated.</p></div>
+      <div class="finding"><div class="fn">5.</div><p><strong>Two tasks resist both systems.</strong> <em>itertools-strip-prefix</em> and <em>sqlglot-canonicalize-internal-names</em> go unsolved at every contained level. The first version reported that Cursor solved tasks no API run could; that claim rested on runs which had fetched the upstream fix.</p></div>
     </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Breakdown</div>
+    <h2>Task-level consistency inside Cursor.</h2>
+    <div class="table-scroll compact" role="region" aria-label="Task consistency" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Effort</th><th>Solved every attempt</th><th>Mixed</th><th>Never solved</th></tr></thead>
+      <tbody>
+        <tr><td class="model">low</td><td>19/23</td><td>2</td><td>2</td></tr>
+        <tr><td class="model">medium</td><td>18/23</td><td>3</td><td>2</td></tr>
+        <tr><td class="model">high</td><td class="win">20/23</td><td class="win">1</td><td>2</td></tr>
+        <tr><td class="model">xhigh</td><td>19/23</td><td>2</td><td>2</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Three attempts per task per level. The same two tasks go unsolved at every level: <em>itertools-strip-prefix</em> and <em>sqlglot-canonicalize-internal-names</em>.</p>
   </section>
 
   <section style="padding-top:8px;">
     <div class="section-label">Caveats</div>
     <h2>What this study can and cannot attribute.</h2>
     <div class="prose">
-      <p>The gap could come from Cursor&rsquo;s scaffold (context management, tool design, stopping rules), from how Cursor&rsquo;s effort-suffixed model ids map to the API&rsquo;s <code>reasoning_effort</code> values, or from different serving. &ldquo;Cursor Grok 4.6&rdquo; is Cursor&rsquo;s own branding and may be a tuned or differently-hosted deployment. These explanations are indistinguishable from outside, and per-request token counts, which Cursor does not report, would settle it. Attempt counts differ between systems (3 vs 1), so per-task flips carry more weight on the Cursor side. Bare-bones costs in Report No.&nbsp;14 are lower bounds: xAI reports reasoning tokens outside <code>completion_tokens</code> and the harness under-counted them at the time of that sweep (since fixed). Cursor-side spend is not reportable by the CLI and appears only in the account dashboard, so this study reports no dollar comparison.</p>
+      <p>The surviving high-effort gap could come from Cursor&rsquo;s scaffold (context management, tool design, stopping rules), from how Cursor&rsquo;s effort-suffixed model ids map to the API&rsquo;s <code>reasoning_effort</code> values, or from different serving. &ldquo;Cursor Grok 4.6&rdquo; is Cursor&rsquo;s own branding and may be a tuned or differently-hosted deployment. These are indistinguishable from outside, and per-request token counts, which Cursor does not report, would settle it. Attempt counts differ between systems (3 vs 1), so per-task flips carry more weight on the Cursor side. Bare-bones costs in Report No.&nbsp;14 are lower bounds: xAI reports reasoning tokens outside <code>completion_tokens</code> and the harness under-counted them during that sweep (since fixed). The xhigh column was collected in two sessions days apart after promotional credits ran out mid-level; every other level ran in one continuous pass. The integrity audit certifies that no run reached the web or the benchmark&rsquo;s own files; it cannot certify what was in the model&rsquo;s training data.</p>
     </div>
   </section>
 
   <section style="padding-top:8px;">
     <div class="section-label">Method &amp; notes</div>
     <div class="prose">
-      <p>VulcanBench v3: 23 tasks from real merged post-cutoff PRs (Python 9, TypeScript 4, Rust 4, Go 3, JavaScript 3). Both systems are graded by the same deterministic hidden tests in Docker; model judges disabled. System A ran 2026-08-12 (Report No.&nbsp;14). System B ran 2026-08-13/14 with cursor-agent 2026.08, Cursor&rsquo;s sandbox enabled, and VulcanBench setup and verification in Docker over the agent&rsquo;s host workspace; about a fifth of the low and medium runs are recovered attempts re-verified in Docker after a harness fix, and all runs at every level were verified in the same environment. This is the first VulcanBench study to hold the model fixed and vary the harness; the Harness Study series continues with other model &times; harness combinations.</p>
+      <p>VulcanBench v3: 23 tasks from real merged post-cutoff PRs (Python 9, TypeScript 4, Rust 4, Go 3, JavaScript 3). Both systems are graded by the same deterministic hidden tests in Docker; model judges disabled. System A ran 2026-08-12 (Report No.&nbsp;14). System B ran 2026-08-15/16 with cursor-agent 2026.08, non-fast model ids, Cursor&rsquo;s sandbox enabled, web tools denied through a workspace permissions file, and an agent workspace created outside the repository so that no task definition, gold patch, or hidden test exists above the agent&rsquo;s working directory; VulcanBench setup and verification run in Docker over that workspace. Every run carries an integrity audit of both leak channels and all 276 are clean. This is the first VulcanBench study to hold the model fixed and vary the harness; the Harness Study series continues with other model &times; harness combinations.</p>
     </div>
     <div class="dl-row">
       <a class="btn primary" href="../assets/reports/vulcanbench-grok46-cursor-report.pdf">Read the full report (PDF)</a>
