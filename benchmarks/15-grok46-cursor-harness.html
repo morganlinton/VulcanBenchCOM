@@ -90,18 +90,16 @@
 
   <div class="abstract-box">
     <span class="lbl">Abstract.</span>
-    <p><strong>The harness advantage is real but narrow: 14.5 points at high effort, and nothing measurable anywhere else.</strong>
-    At the same nominal <em>high</em> setting Grok 4.6 scores 88.4% inside Cursor against 73.9% through VulcanBench&rsquo;s
-    deliberately minimal reference loop &mdash; the only level whose gap clears its error bars. At low (+1.5) and xhigh (+7.2) the
-    two systems are statistically indistinguishable, and at medium the bare-bones loop leads by 2.9 points.
-    What the scaffold reliably does is prevent one specific failure: the raw API collapses from 87.0% at medium to 73.9% at high,
-    and Cursor does not (84.1 &rarr; 88.4). Contained, Cursor&rsquo;s own effort curve is nearly flat.
-    The containment produced a second result: the agent attempted 299 web fetches across 276 runs and every one was refused, with
-    attempts rising monotonically with effort &mdash; the harder the model works, the harder it reaches for outside help.</p>
+    <p><strong>Cursor is worth 14.5 points at high effort. At every other level the two systems land within noise of each other.</strong>
+    At the high setting, Grok 4.6 scores 88.4% inside Cursor and 73.9% through VulcanBench&rsquo;s minimal reference loop, and that is
+    the only level where the gap is larger than the error bars. Low is +1.5, xhigh +7.2, and at medium the reference loop is ahead by
+    2.9. The clearest difference is what happens above medium: the raw API drops from 87.0% to 73.9% as effort rises to high, while
+    the same step inside Cursor goes up, from 84.1% to 88.4%. The agent also tried to reach the web 299 times across the 276 runs,
+    more often at higher effort, and was refused every time.</p>
   </div>
 
   <figure>
-    <img src="../assets/cards/report15-grok46-cursor.png" alt="Harness Study card: Grok 4.6 scores 84.1, 84.1, 88.4 and 85.5 percent across effort levels inside Cursor, against 82.6, 87.0, 73.9 and 78.3 through the bare-bones API loop; plus 14.5 points at high effort and 299 refused web fetches" width="1600" height="900" loading="lazy" decoding="async">
+    <img src="../assets/cards/report15-grok46-cursor.png" alt="Harness Study card: Grok 4.6 scores 84.1, 84.1, 88.4 and 85.5 percent across effort levels inside Cursor, against 82.6, 87.0, 73.9 and 78.3 through the bare-bones API loop; plus 14.5 points at high effort and a 2.4 times median speedup per task" width="1600" height="900" loading="lazy" decoding="async">
     <figcaption><b>Card.</b> One line per harness on a shared effort axis. The systems track each other until high effort, where the bare-bones loop collapses and Cursor does not.</figcaption>
   </figure>
 
@@ -124,15 +122,14 @@
     via <code>cursor-agent</code>, three attempts per task (69 runs per level, 23/23 tasks), effort baked into the model id
     (<code>cursor-grok-4.6-low</code> &hellip; <code>-xhigh</code>), non-fast ids, web tools denied and workspace outside the
     repository. Both systems are graded by the same deterministic hidden tests in Docker. pass@1 is the mean per-task success rate;
-    times are medians and include provider latency. <strong>Only the high-effort gap exceeds the combined uncertainty of its pair</strong>
-    &mdash; low, medium, and xhigh do not.</p>
+    times are medians and include provider latency. <strong>Only the high-effort gap exceeds the combined uncertainty of its pair.</strong></p>
 
     <div class="findings-list">
-      <div class="finding"><div class="fn">1.</div><p><strong>The advantage is one level wide.</strong> Only high effort clears its error bars (+14.5 against &plusmn;6.5). Low is +1.5, xhigh +7.2, and medium is &minus;2.9 in the bare-bones loop&rsquo;s favour. Averaged across the whole knob, the two systems sit four points apart.</p></div>
-      <div class="finding"><div class="fn">2.</div><p><strong>What the scaffold prevents is the high-effort collapse.</strong> The raw API falls from 87.0% at medium to 73.9% at high; inside Cursor the same transition rises, 84.1% to 88.4%. The harness earns its keep precisely where the model would otherwise overthink itself into failure, and nowhere else.</p></div>
-      <div class="finding"><div class="fn">3.</div><p><strong>Contained, Cursor&rsquo;s effort curve is nearly flat.</strong> 84.1 &rarr; 84.1 &rarr; 88.4 &rarr; 85.5, a 4.3-point spread against the raw API&rsquo;s 13.1. The scaffold, not the effort setting, is the operative variable inside Cursor.</p></div>
-      <div class="finding"><div class="fn">4.</div><p><strong>The agent reaches for the web in proportion to effort.</strong> Refused fetch attempts climb 29 &rarr; 66 &rarr; 96 &rarr; 108 from low to xhigh, 299 across the sweep, every one denied. A benchmark that permitted browsing would therefore flatter high-effort configurations most; every figure here is from runs where no fetch succeeded.</p></div>
-      <div class="finding"><div class="fn">5.</div><p><strong>The stubborn tasks differ by system.</strong> <em>sqlglot-canonicalize-internal-names</em> goes unsolved by every configuration of either system, while <em>itertools-strip-prefix</em>, solved at every raw-API level, fails all attempts inside Cursor.</p></div>
+      <div class="finding"><div class="fn">1.</div><p><strong>The advantage is one level wide.</strong> Only the high setting produces a gap bigger than its error bars: +14.5 against &plusmn;6.5. Low is +1.5, xhigh is +7.2, and at medium the reference loop is ahead by 2.9. Across the whole knob the two systems average about four points apart.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Cursor prevents the high-effort collapse.</strong> Report No.&nbsp;14 found the raw API falling from 87.0% at medium to 73.9% at high. Inside Cursor the same step rises, 84.1% to 88.4%. The scaffold helps at the setting where the model tends to overwork a problem, and only there.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>The effort knob barely matters inside Cursor.</strong> 84.1, 84.1, 88.4, 85.5 is a 4.3-point spread, against 13.1 through the raw API. Which harness you use matters more than which effort you pick.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>Higher effort means more web attempts.</strong> Refused fetch attempts climb from 29 at low to 66, 96, and then 108 at xhigh, 299 in total, every one denied. A benchmark that allowed browsing would flatter the high-effort settings most. Every figure here comes from runs where no fetch went through.</p></div>
+      <div class="finding"><div class="fn">5.</div><p><strong>The stubborn tasks differ by system.</strong> <em>sqlglot-canonicalize-internal-names</em> is never solved by either system at any setting. <em>itertools-strip-prefix</em> goes the other way: every raw-API level solves it, and every Cursor attempt fails.</p></div>
     </div>
   </section>
 
@@ -157,7 +154,7 @@
     <div class="section-label">Caveats</div>
     <h2>What this study can and cannot attribute.</h2>
     <div class="prose">
-      <p>The surviving high-effort gap could come from Cursor&rsquo;s scaffold (context management, tool design, stopping rules), from how Cursor&rsquo;s effort-suffixed model ids map to the API&rsquo;s <code>reasoning_effort</code> values, or from different serving. &ldquo;Cursor Grok 4.6&rdquo; is Cursor&rsquo;s own branding and may be a tuned or differently-hosted deployment. These are indistinguishable from outside, and per-request token counts, which Cursor does not report, would settle it. Attempt counts differ between systems (3 vs 1), so per-task flips carry more weight on the Cursor side. Bare-bones costs in Report No.&nbsp;14 are lower bounds: xAI reports reasoning tokens outside <code>completion_tokens</code> and the harness under-counted them during that sweep (since fixed). The xhigh column was collected in two sessions days apart after promotional credits ran out mid-level; every other level ran in one continuous pass. The integrity audit certifies that no run reached the web or the benchmark&rsquo;s own files; it cannot certify what was in the model&rsquo;s training data.</p>
+      <p>The high-effort gap could come from Cursor&rsquo;s scaffold (context management, tool design, stopping rules), from how Cursor&rsquo;s effort-suffixed model ids map to the API&rsquo;s <code>reasoning_effort</code> values, or from different serving. &ldquo;Cursor Grok 4.6&rdquo; is Cursor&rsquo;s own branding and may be a tuned or differently-hosted deployment. These are indistinguishable from outside, and per-request token counts, which Cursor does not report, would settle it. Attempt counts differ between systems (3 vs 1), so per-task flips carry more weight on the Cursor side. Bare-bones costs in Report No.&nbsp;14 are lower bounds: xAI reports reasoning tokens outside <code>completion_tokens</code> and the harness under-counted them during that sweep (since fixed). The xhigh column was collected in two sessions days apart after promotional credits ran out mid-level; every other level ran in one continuous pass. The integrity audit certifies that no run reached the web or the benchmark&rsquo;s own files; it cannot certify what was in the model&rsquo;s training data.</p>
     </div>
   </section>
 
