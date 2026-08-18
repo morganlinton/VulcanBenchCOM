@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grok 4.6 in Grok Build vs Cursor vs a bare-bones harness | Report 16 | VulcanBench</title>
+<meta name="description" content="A three-way model x harness study: the same Grok 4.6, the same 23 tasks, three delivery systems. Inside xAI's own harness the effort knob is monotone and reaches 92.8%, the best result this suite has recorded for the model.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/16-grok46-grok-build.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Grok 4.6 in Grok Build vs Cursor vs a bare-bones harness | Report 16 | VulcanBench">
+<meta property="og:description" content="Three harnesses, one model, one suite. Only xAI's own harness turns the effort knob into a straight line, ending at 92.8%.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/16-grok46-grok-build.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report16-grok46-grok-build.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The effort knob works in exactly one of three harnesses">
+<meta name="twitter:description" content="Same Grok 4.6, same tasks, same hidden tests, three delivery systems. Inside xAI's own harness the curve is monotone and ends at 92.8%.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report16-grok46-grok-build.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Grok 4.6 in Grok Build vs Cursor vs a bare-bones harness | Report 16",
+  "description": "A three-way model x harness study: the same Grok 4.6, the same 23 tasks, three delivery systems. Inside xAI's own harness the effort knob is monotone and reaches 92.8%, the best result this suite has recorded for the model.",
+  "url": "https://vulcanbench.com/benchmarks/16-grok46-grok-build.html",
+  "mainEntityOfPage": "https://vulcanbench.com/benchmarks/16-grok46-grok-build.html",
+  "image": "https://vulcanbench.com/assets/cards/report16-grok46-grok-build.png",
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-18",
+  "author": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "url": "https://vulcanbench.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vulcanbench.com/assets/logo.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=25">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">For teams</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 16 &middot; Harness Study No. 02</div>
+    <h1>Grok 4.6 in Grok Build vs. Cursor vs. a bare-bones harness</h1>
+    <p class="byline">The first three-way harness study on VulcanBench: one model, three delivery systems, on twenty-three real merged post-cutoff PRs, graded by the same hidden tests. Grok Build is xAI&rsquo;s own agent CLI; Cursor is <a href="15-grok46-cursor-harness.html">Report No.&nbsp;15</a>; the minimal reference loop is <a href="14-grok-46-effort.html">Report No.&nbsp;14</a>.</p>
+    <div class="runmeta">2026-08-18 &middot; 23 tasks &middot; 277 runs &middot; 3 harnesses &middot; 4 effort levels &middot; v3 suite</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p><strong>Inside xAI&rsquo;s own harness the effort knob finally does what it promises.</strong>
+    Grok 4.6 in Grok Build climbs 84.1, 88.4, 89.9, 92.8 across low, medium, high and xhigh: monotone, every step up buying
+    accuracy. Neither other system behaves that way. Through the raw API the same knob is non-monotone and collapses at high,
+    from 87.0% to 73.9%; inside Cursor it is nearly flat, moving 4.3 points across the whole range and peaking a level early.
+    The 92.8% at xhigh is the highest pass@1 VulcanBench has recorded for Grok 4.6 on this suite in any harness, 14.5 points
+    above the raw API at the same setting and 7.3 above Cursor&rsquo;s best. Grok Build is also the fastest of the three at
+    every level, finishing a high-effort task in a median 4.5 minutes against the API&rsquo;s 16.3. The gains are not free:
+    token use nearly triples from low to xhigh.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report16-grok46-grok-build.png" alt="Harness Study card: Grok 4.6 scores 84.1, 88.4, 89.9 and 92.8 percent across effort levels in Grok Build, against 84.1, 84.1, 88.4 and 85.5 inside Cursor and 82.6, 87.0, 73.9 and 78.3 through the bare-bones API loop" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> One line per harness on a shared effort axis, whiskers &plusmn;1 stderr. Only the Grok Build line rises at every step.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>The only knob that goes straight up.</h2>
+    <div class="table-scroll" role="region" aria-label="Three-harness comparison results" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Effort</th><th>Grok Build</th><th>In Cursor</th><th>Bare-bones API</th><th>Grok Build time/task</th><th>API time/task</th></tr></thead>
+      <tbody>
+        <tr><td class="model">low</td><td>84.1% &plusmn;6.9</td><td>84.1% &plusmn;7.5</td><td>82.6% &plusmn;8.1</td><td class="win">2.4 min</td><td>4.8 min</td></tr>
+        <tr><td class="model">medium</td><td>88.4% &plusmn;5.4</td><td>84.1% &plusmn;7.2</td><td>87.0% &plusmn;7.2</td><td class="win">4.3 min</td><td>14.2 min</td></tr>
+        <tr><td class="model">high</td><td>89.9% &plusmn;5.3</td><td>88.4% &plusmn;6.5</td><td>73.9% &plusmn;9.4</td><td class="win">4.5 min</td><td>16.3 min</td></tr>
+        <tr><td class="model">xhigh</td><td class="win">92.8% &plusmn;5.1</td><td>85.5% &plusmn;7.2</td><td>78.3% &plusmn;8.8</td><td class="win">4.1 min</td><td>15.8 min</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">System C (Grok Build) is the <code>grok</code> CLI 1.0.5 on a
+    grok.com plan, three attempts per task (69 to 70 runs per level, 23/23 tasks), effort sent with
+    <code>--reasoning-effort</code> and read back from the session receipt on every run. System B is
+    <a href="15-grok46-cursor-harness.html">Report No.&nbsp;15</a>, three attempts per task. System A is
+    <a href="14-grok-46-effort.html">Report No.&nbsp;14</a>, one attempt per task. All three are graded by the same
+    deterministic hidden tests in Docker. pass@1 is the mean per-task success rate; times are medians and include provider
+    latency. <strong>Grok Build clears the bare API&rsquo;s error bars at high and xhigh; its margin over Cursor sits inside
+    them at every level.</strong></p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>The effort knob works, and only here.</strong> 84.1, 88.4, 89.9, 92.8 is monotone across all four settings, an 8.7-point climb. The raw API over the same knob is non-monotone with a collapse at high; Cursor is flat within 4.3 points and peaks a level early. Of the three delivery systems, xAI&rsquo;s own is the only one where paying for more reasoning reliably returns more correctness.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>92.8% is the best result this suite has seen from Grok 4.6.</strong> Higher than any level of either other harness, and 14.5 points above the raw API at the same xhigh setting. pass@3 reaches 95.7%, which is 22 of 23 tasks solved at least once.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>A task nothing had ever solved fell.</strong> <em>sqlglot-canonicalize-internal-names</em> went unsolved in every run of <a href="15-grok46-cursor-harness.html">Report No.&nbsp;15</a>, by both the API and Cursor, at every setting. Grok Build solves it 2 of 3 times at medium. <em>pennylane-trotter-fragmented</em>, also never solved by the raw API, climbs 0/3, 1/3, 2/3, 3/3 across the knob: the effort curve reproduced inside a single task.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>Both vendor harnesses share a blind spot the minimal loop does not have.</strong> <em>itertools-strip-prefix</em> is solved by the bare API at all four levels but fails 12 of 12 Cursor attempts and 11 of 12 Grok Build attempts, and the failure is identical in both: not a missed fix but a regression, breaking an existing passing test while making the change. Richer scaffolds edit more broadly, and on this task breadth is the defect.</p></div>
+      <div class="finding"><div class="fn">5.</div><p><strong>Speed and accuracy moved together.</strong> Grok Build is fastest at every level while scoring highest, finishing high-effort tasks 3.6 times faster than the raw API at the same setting. Its own time curve is nearly flat from medium up, so the extra tokens at xhigh buy accuracy without buying latency.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Breakdown</div>
+    <h2>What the extra effort costs.</h2>
+    <div class="table-scroll" role="region" aria-label="Cost and token use by effort level" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Effort</th><th>pass@1</th><th>pass@3</th><th>Prompt tokens</th><th>Completion</th><th>API-equivalent</th></tr></thead>
+      <tbody>
+        <tr><td class="model">low</td><td>84.1%</td><td>91.3%</td><td>40.4M</td><td>454K</td><td>$28.93</td></tr>
+        <tr><td class="model">medium</td><td>88.4%</td><td>95.7%</td><td>80.6M</td><td>986K</td><td>$55.71</td></tr>
+        <tr><td class="model">high</td><td>89.9%</td><td>95.7%</td><td>92.7M</td><td>1.20M</td><td>$63.88</td></tr>
+        <tr><td class="model">xhigh</td><td class="win">92.8%</td><td>95.7%</td><td>112.4M</td><td>1.38M</td><td>$75.13</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Cost is counterfactual value at xAI list prices, not cash: these
+    runs billed a grok.com subscription, so marginal cash was zero. Prompt tokens include cache reads, which dominate agentic
+    loops. Across the sweep that is $223.65 of API-equivalent value for 277 runs. Grok Build is the first subscription harness
+    VulcanBench has measured that reports enough per-run detail to price at all; Cursor reported none.</p>
+
+    <div class="table-scroll compact" role="region" aria-label="Task consistency" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Effort</th><th>Solved every attempt</th><th>Mixed</th><th>Never solved</th></tr></thead>
+      <tbody>
+        <tr><td class="model">low</td><td>18/23</td><td>3</td><td>2</td></tr>
+        <tr><td class="model">medium</td><td>18/23</td><td>4</td><td>1</td></tr>
+        <tr><td class="model">high</td><td>19/23</td><td>3</td><td>1</td></tr>
+        <tr><td class="model">xhigh</td><td class="win">21/23</td><td class="win">1</td><td>1</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Consistency tightens as effort rises: 21 of 23 tasks solved on
+    every attempt at xhigh, with a single mixed task. Only <em>itertools-strip-prefix</em> goes unsolved above low.</p>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Caveats</div>
+    <h2>What this study can and cannot attribute.</h2>
+    <div class="prose">
+      <p>Grok Build is xAI&rsquo;s harness running xAI&rsquo;s model, so this study cannot separate scaffold quality from
+      first-party advantage: prompt tuning, serving, and model variant all sit on the same side of the comparison. There is
+      direct evidence of the last one. VulcanBench requested <code>grok-4.6</code> and the session receipt reports
+      <code>grok-4.6</code>, but the CLI&rsquo;s own usage ledger names the served model <code>grok-4.6-build</code>. Whether
+      that is a distinct checkpoint or an internal billing label is not visible from outside, and it is the same class of
+      unknown that &ldquo;Cursor Grok 4.6&rdquo; raised in <a href="15-grok46-cursor-harness.html">Report No.&nbsp;15</a>.</p>
+      <p>On the measurement side: attempt counts differ across systems (3 vs 3 vs 1), so the bare-bones column carries the
+      widest error bars and its per-task results turn on single runs. Costs for the bare API in
+      <a href="14-grok-46-effort.html">Report No.&nbsp;14</a> are lower bounds, because xAI reports reasoning tokens outside
+      <code>completion_tokens</code> and the harness under-counted them during that sweep, so cost is not comparable across
+      systems; the Grok Build figures here are fully measured. Grok Build&rsquo;s advantage over Cursor is inside the error
+      bars at every level, and only its margin over the bare API at high and xhigh clears them. The integrity audit certifies
+      that no run reached the web or the benchmark&rsquo;s own files; it cannot certify what was in the model&rsquo;s training
+      data.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>VulcanBench v3: 23 tasks from real merged post-cutoff PRs (Python 9, TypeScript 4, Rust 4, Go 3, JavaScript 3). All
+      three systems are graded by the same deterministic hidden tests in Docker; model judges disabled. System A ran 2026-08-12
+      (<a href="14-grok-46-effort.html">Report No.&nbsp;14</a>), System B 2026-08-15/16
+      (<a href="15-grok46-cursor-harness.html">Report No.&nbsp;15</a>), System C 2026-08-17/18 with grok 1.0.5, three attempts
+      per task at each of four levels. Grok Build runs used a custom kernel sandbox profile (Seatbelt) that permits workspace
+      writes while denying reads of the VulcanBench checkout, an agent workspace created outside the repository, web tools
+      removed from the agent entirely, and cross-session memory disabled so repeats cannot recall each other. Every run carries
+      an integrity audit of both leak channels and all 277 are clean. Effort is not taken on trust: each run records the level
+      the CLI reports it actually used, and all 277 match what was requested. pass@1 is the mean per-task success rate, so
+      uneven attempt counts do not bias it. One level, xhigh, failed to start on its first attempt and was rerun in full.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-grok46-grokbuild-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report16-grok46-grok-build.png" download>Download study card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=13" defer></script>
+</body>
+</html>

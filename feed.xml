@@ -7,6 +7,13 @@
     <description>Technical reports from VulcanBench: frontier models measured on real engineering work, graded by deterministic hidden tests, with cost, tokens, and time as first-class results.</description>
     <language>en</language>
     <item>
+      <title>Grok 4.6 in Grok Build vs Cursor vs a bare-bones harness | Report 16 | Harness Study No. 02</title>
+      <link>https://vulcanbench.com/benchmarks/16-grok46-grok-build.html</link>
+      <guid>https://vulcanbench.com/benchmarks/16-grok46-grok-build.html</guid>
+      <pubDate>Tue, 18 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The first three-way harness study on VulcanBench: the same Grok 4.6 through xAI's own Grok Build CLI, through Cursor, and through a minimal reference loop. Only inside xAI's harness does the effort knob rise at every step, from 84.1% to 92.8%, the best pass@1 this suite has recorded for the model. 277 integrity-audited runs.</description>
+    </item>
+    <item>
       <title>Grok 4.6 in Cursor vs a bare-bones harness | Report 15 | Harness Study No. 01</title>
       <link>https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html</link>
       <guid>https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html</guid>
