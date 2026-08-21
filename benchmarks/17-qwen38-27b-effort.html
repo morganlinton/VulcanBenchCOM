@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qwen3.8-27B across the effort knob | Report 17 | VulcanBench</title>
+<meta name="description" content="Alibaba's open-weights Qwen3.8-27B on VulcanBench v3: the reasoning dial runs flat then backward (82.6% low, 82.6% medium, 73.9% xhigh), and xhigh is 2.4x slower for a worse score. The open model is far more robust than the Qwen3.8-Max flagship.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/17-qwen38-27b-effort.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Qwen3.8-27B across the effort knob | Report 17 | VulcanBench">
+<meta property="og:description" content="The open model's reasoning dial runs backward: 82.6% at low and medium, 73.9% at xhigh, and 2.4x slower for it. The same shape the Qwen3.8-Max flagship showed, but far milder.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/17-qwen38-27b-effort.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report17-qwen38-27b.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Qwen3.8-27B: the reasoning dial runs backward">
+<meta name="twitter:description" content="82.6% at low and medium, 73.9% at xhigh, and 2.4x slower for the worse score. The open 27B holds up far better than the Qwen3.8-Max flagship on the same knob.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report17-qwen38-27b.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Qwen3.8-27B across the effort knob | Report 17",
+  "description": "Alibaba's open-weights Qwen3.8-27B on VulcanBench v3: the reasoning dial runs flat then backward (82.6% low, 82.6% medium, 73.9% xhigh), and xhigh is 2.4x slower for a worse score.",
+  "url": "https://vulcanbench.com/benchmarks/17-qwen38-27b-effort.html",
+  "mainEntityOfPage": "https://vulcanbench.com/benchmarks/17-qwen38-27b-effort.html",
+  "image": "https://vulcanbench.com/assets/cards/report17-qwen38-27b.png",
+  "datePublished": "2026-08-21",
+  "dateModified": "2026-08-21",
+  "author": { "@type": "Organization", "name": "VulcanBench", "url": "https://vulcanbench.com/" },
+  "publisher": { "@type": "Organization", "name": "VulcanBench",
+    "logo": { "@type": "ImageObject", "url": "https://vulcanbench.com/assets/logo.png" } }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=25">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">For teams</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 17</div>
+    <h1>Qwen3.8-27B across the effort knob</h1>
+    <p class="byline">Alibaba&rsquo;s open-weights 27B on the full v3 suite: twenty-three real merged post-cutoff PRs across five languages, at low, medium, and xhigh reasoning effort, through the first-party DashScope API. The smaller sibling of the flagship <a href="12-qwen38-max.html">Qwen3.8-Max</a> measured in Report No.&nbsp;12.</p>
+    <div class="runmeta">2026-08-21 &middot; 23 tasks &middot; 129 runs &middot; 3 effort levels &middot; v3 suite</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p><strong>Turning up the reasoning dial does not help this model, and eventually hurts it.</strong>
+    Qwen3.8-27B scores 82.6% pass@1 at both low and medium effort, then falls to 73.9% at xhigh: flat, then backward. The extra
+    effort is not free time, either. xhigh runs a median 17 minutes per task against 7 at low, 2.4 times slower for a worse
+    result, and it regresses two tasks that lower effort solved. The shape echoes the flagship:
+    <a href="12-qwen38-max.html">Report No.&nbsp;12</a> found Qwen3.8-Max running the same knob backward, 81.2% to 55.1%, a
+    26-point collapse. The open 27B is far more robust, dropping 8.7 points rather than 26, and it matches the flagship at low
+    effort.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report17-qwen38-27b.png" alt="Report card: Qwen3.8-27B scores 82.6 percent at low and medium effort and 73.9 percent at xhigh, a backward curve; the Qwen3.8-Max flagship falls further, from 81.2 to 55.1 percent across the same knob" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> Both Qwen 3.8 models run the effort knob backward, whiskers &plusmn;1 stderr. The open 27B holds up far better than the hosted flagship.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>Effort is inert, then harmful.</h2>
+    <div class="table-scroll compact" role="region" aria-label="Effort results" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Effort</th><th>pass@1</th><th>Solved</th><th>Median time/task</th><th>Cost/task</th></tr></thead>
+      <tbody>
+        <tr><td class="model">low</td><td class="win">82.6% &plusmn;8.1</td><td>19/23</td><td>7.1 min</td><td>$0.71</td></tr>
+        <tr><td class="model">medium</td><td class="win">82.6% &plusmn;8.1</td><td>19/23</td><td class="win">6.8 min</td><td class="win">$0.48</td></tr>
+        <tr><td class="model">xhigh</td><td>73.9% &plusmn;9.4</td><td>17/23</td><td>17.1 min</td><td>$0.69</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">One attempt per task per level (the reportable comparison).
+    Runs executed 2026-08-21 against DashScope&rsquo;s first-party <code>qwen3.8-27b</code> endpoint, effort set via
+    <code>reasoning_effort</code> (the documented low/medium/xhigh enum; there is no &ldquo;high&rdquo;). The low level was
+    additionally run three times, whose mean is <strong>76.8% &plusmn;8.2</strong>, so its single-pass 82.6% is a slightly lucky
+    draw and the true low-versus-medium gap is smaller still. pass@1 is the mean per-task success rate; times are medians and
+    include provider latency.</p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>Effort is inert, then harmful.</strong> Low and medium tie at 82.6%; xhigh drops to 73.9%. Nothing about the extra reasoning improved accuracy on this suite, and past medium it started subtracting.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>xhigh costs time for a worse result.</strong> A median 17.1 minutes per task at xhigh against 7.1 at low, 2.4 times slower. One task, <em>pennylane-trotter-fragmented</em>, ran the full 60-minute budget at xhigh and still failed, having been solvable at lower effort.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Higher effort regressed solved tasks.</strong> <em>flask-teardown-robust</em> and <em>semver-inc-dotted-prerelease</em> were both solved at low and medium but failed at xhigh: the model talked itself out of answers it already had.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>The open model is more robust than the flagship.</strong> <a href="12-qwen38-max.html">Qwen3.8-Max</a> lost 26 points across the same knob; the 27B loses 8.7. At low effort the open 27B (82.6%) matches the hosted Max (81.2%) on this suite.</p></div>
+      <div class="finding"><div class="fn">5.</div><p><strong>Four tasks resist every setting.</strong> <em>aiohttp-upgrade-deferred</em>, <em>networkx-leiden-communities</em>, <em>pennylane-trotter-fragmented</em>, and <em>sqlglot-canonicalize-internal-names</em> go unsolved at low, medium, and xhigh alike.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Breakdown</div>
+    <h2>The reasoning knob across the Qwen 3.8 family.</h2>
+    <div class="table-scroll compact" role="region" aria-label="Family comparison" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Model</th><th>low</th><th>medium</th><th>xhigh</th><th>low to xhigh</th></tr></thead>
+      <tbody>
+        <tr><td class="model">Qwen3.8-27B (open)</td><td>82.6%</td><td>82.6%</td><td>73.9%</td><td>&minus;8.7</td></tr>
+        <tr><td class="model">Qwen3.8-Max</td><td>81.2%</td><td>71.0%</td><td>55.1%</td><td>&minus;26.1</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Both models run the knob backward, and xhigh is the shipped default for the family, so an untuned integration gets the worst setting on either. <a href="12-qwen38-max.html">Report No.&nbsp;12</a> measured the Max at three attempts per task; the direction, not the exact single-pass value, is the comparison.</p>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Caveats</div>
+    <h2>What this measurement can and cannot say.</h2>
+    <div class="prose">
+      <p>This is a single-pass measurement, so the per-column standard errors are wide (&plusmn;8 to 9 points) and low versus
+      medium is a statistical tie. The reliable signals are the xhigh drop, the 2.4&times; slower runtime, and the two regressed
+      tasks, which point the same direction. DashScope does not publish the serving quantization for the open 27B, so
+      &ldquo;the model&rdquo; here means whatever Alibaba serves first-party, comparable to how
+      <a href="12-qwen38-max.html">Report No.&nbsp;12</a> treated the Max.</p>
+      <p>Costs are unusually high for a small model because the 1M-token context window lets the agent re-send its full growing
+      transcript every step with no truncation, and implicit caching did not engage; a local run of the same weights, capped at
+      a 32K window, used a fraction of the tokens. The comparison to Report No.&nbsp;12 spans a single-pass column against a
+      three-pass one, so only the direction transfers, not the exact gap.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>VulcanBench v3: 23 tasks from real merged post-cutoff PRs (Python 9, TypeScript 4, Rust 4, Go 3, JavaScript 3), graded
+      by deterministic hidden tests in Docker; model judges disabled. Runs executed 2026-08-21 against DashScope&rsquo;s
+      international OpenAI-compatible endpoint (<code>qwen3.8-27b</code>), with <code>reasoning_effort</code> set to low, medium,
+      and xhigh. Each level is one attempt per task; the low level was run three times and reports its first attempt here for
+      symmetry, with the three-pass mean noted. pass@1 is the mean per-task success rate. A per-request ceiling of 1200 seconds
+      was applied so a single xhigh reasoning turn on a hard task is not cut off mid-thought; the run&rsquo;s overall wall-clock
+      budget still bounds each task. This is the open-weights counterpart to <a href="12-qwen38-max.html">Report No.&nbsp;12</a>&rsquo;s
+      Qwen3.8-Max on the same suite and the same reasoning dial.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-qwen38-27b-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="../assets/cards/report17-qwen38-27b.png" download>Download report card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=13" defer></script>
+</body>
+</html>

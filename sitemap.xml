@@ -22,6 +22,7 @@
   <url><loc>https://vulcanbench.com/models/qwen3-8-max.html</loc><lastmod>2026-08-12</lastmod><priority>0.6</priority></url>
   <url><loc>https://vulcanbench.com/models/deepseek-v4-pro.html</loc><lastmod>2026-08-12</lastmod><priority>0.6</priority></url>
   <url><loc>https://vulcanbench.com/models/deepseek-v4-flash.html</loc><lastmod>2026-08-12</lastmod><priority>0.6</priority></url>
+  <url><loc>https://vulcanbench.com/benchmarks/17-qwen38-27b-effort.html</loc><lastmod>2026-08-21</lastmod><priority>0.8</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/16-grok46-grok-build.html</loc><lastmod>2026-08-18</lastmod><priority>0.8</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html</loc><lastmod>2026-08-16</lastmod><priority>0.8</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/14-grok-46-effort.html</loc><lastmod>2026-08-13</lastmod><priority>0.8</priority></url>
