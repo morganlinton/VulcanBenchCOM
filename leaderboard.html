@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaderboard | Eval Suite 3 | VulcanBench</title>
+<meta name="description" content="The VulcanBench Eval Suite 3 leaderboard: twelve frontier models on 23 real merged-PR tasks, ranked by pass@1 at each model's best-scoring reasoning effort, with cost per task, speed, and effort curves.">
+<link rel="canonical" href="https://vulcanbench.com/leaderboard.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="VulcanBench leaderboard: Eval Suite 3">
+<meta property="og:description" content="Twelve frontier models on 23 real merged-PR tasks, ranked by pass@1. Grok 4.5 leads at 90%; 10 of 12 models sit within one stderr of the lead. Cost and speed alongside.">
+<meta property="og:url" content="https://vulcanbench.com/leaderboard.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/leaderboard/v3-rankings-og.png">
+<meta property="og:image:width" content="2560">
+<meta property="og:image:height" content="1440">
+<meta property="og:image:alt" content="VulcanBench Eval Suite 3 rankings: twelve models ranked by pass@1, Grok 4.5 first at 90 percent">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VulcanBench leaderboard: Eval Suite 3">
+<meta name="twitter:description" content="Twelve frontier models on 23 real merged-PR tasks, ranked by pass@1. Grok 4.5 leads at 90%; 10 of 12 sit within one stderr of the lead.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/leaderboard/v3-rankings-og.png">
+<meta name="twitter:image:alt" content="VulcanBench Eval Suite 3 rankings card">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "VulcanBench Eval Suite 3 leaderboard",
+  "description": "Twelve frontier language models measured on 23 real merged open-source pull requests, graded by deterministic hidden tests in Docker. pass@1, cost per task run, wall-clock time, and effort curves.",
+  "url": "https://vulcanbench.com/leaderboard.html",
+  "license": "https://github.com/morganlinton/VulcanBench/blob/main/LICENSE",
+  "creator": { "@type": "Organization", "name": "VulcanBench", "url": "https://vulcanbench.com/" },
+  "dateModified": "2026-08-13",
+  "isAccessibleForFree": true
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="style.css?v=25">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="index.html" aria-label="VulcanBench home">
+      <img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="leaderboard.html" class="active">Leaderboard</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="benchmark-your-stack.html">For teams</a>
+      <a href="support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head" style="padding-bottom:6px;">
+    <div class="rno">Eval Suite 3 &middot; the running board</div>
+    <h1>Leaderboard</h1>
+    <p class="byline">Every model measured on Eval Suite 3, ranked by pass@1. Twelve models, twenty-three frontier-hard tasks from real merged open-source PRs, each model shown at its best-scoring reasoning effort.</p>
+    <div class="runmeta">Updated 2026-08-13 &middot; 23 tasks &middot; 12 models &middot; 33 model&times;effort columns &middot; 1,384 runs &middot; v3 suite</div>
+  </div>
+
+  <div class="lb-note">
+    <b>How to read this</b>
+    One row per model at the effort level that scored best for it on this suite (ties break to the cheaper run; a
+    partial-coverage sweep cannot outrank a full one). Whiskers on the cards are &plusmn;1 standard error, and on this suite
+    that matters: ten of the twelve models sit within one stderr of the leader, so the order inside that band is not
+    supported by the data. Cost and speed are where they actually separate. Every tested effort level is plotted in the
+    effort-curve card below.
+  </div>
+
+  <figure>
+    <img src="assets/leaderboard/v3-rankings.png" alt="VulcanBench Eval Suite 3 rankings: Grok 4.5 at 90 percent pass at one, Claude Fable 5 at 89, DeepSeek V4-Flash at 88, then DeepSeek V4 Pro, GPT-5.6 Terra, Claude Opus 5, Grok 4.6, and GPT-5.6 Sol at 87, GPT-5.6 Luna 86, Qwen3.8-Max 81, Claude Haiku 4.5 76, Kimi K3 74" width="2560" height="2080" loading="eager" decoding="async">
+    <figcaption><b>Rankings card.</b> pass@1 by model at its best-scoring effort, whiskers &plusmn;1 stderr, with cost per task run and run count alongside.</figcaption>
+  </figure>
+
+  <div class="dl-row" style="margin-top:6px;justify-content:center;">
+    <a class="btn primary" href="https://x.com/intent/post?text=VulcanBench%20Eval%20Suite%203%20leaderboard%3A%2012%20frontier%20models%20on%2023%20real%20merged-PR%20tasks%2C%20ranked%20by%20pass%401.%20Grok%204.5%20leads%20at%2090%25%3B%2010%20of%2012%20sit%20within%20one%20stderr%20of%20the%20lead.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html" target="_blank" rel="noopener">Share on X</a>
+    <a class="btn" href="assets/leaderboard/v3-rankings.png" download>Download rankings card</a>
+  </div>
+
+  <div class="lb-section">
+    <div class="lb-shead">
+      <div class="l"><b>Eval Suite 3</b> &middot; 23 tasks &middot; ranked by pass@1</div>
+      <a href="methodology.html">How it is measured &rarr;</a>
+    </div>
+    <p class="lb-context">pass@1 is the mean per-task success rate across all runs in the column. Repeat-swept models aggregate three or more attempts per task; single-pass columns (n&le;23) carry wider uncertainty. Cost is total spend at list API prices &divide; runs in the column; time is sandbox wall-clock per task.</p>
+    <div class="lb-scroll">
+    <table class="lb">
+      <thead><tr><th class="l">#</th><th class="l">Model</th><th>pass@1</th><th>&plusmn;1 se</th><th>$/task run</th><th>min/task</th><th>Runs</th></tr></thead>
+      <tbody>
+        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><a class="lb-model" href="models/grok-4-5.html">Grok 4.5</a> <span class="lb-eff">high</span><span class="lb-tag">Leader</span></td><td class="lb-win">89.9%</td><td>6.1</td><td>$0.47</td><td>8.4</td><td>50</td></tr>
+        <tr><td class="l lb-rank">2</td><td class="l"><a class="lb-model" href="models/claude-fable-5.html">Claude Fable 5</a> <span class="lb-eff">low &middot; 19/23 tasks*</span></td><td>89.5%</td><td>7.2</td><td>$0.51</td><td>3.5</td><td>19</td></tr>
+        <tr><td class="l lb-rank">3</td><td class="l"><a class="lb-model" href="models/deepseek-v4-flash.html">DeepSeek V4-Flash</a> <span class="lb-eff">max</span><span class="lb-tag">Cheapest</span></td><td>88.4%</td><td>6.2</td><td class="lb-win">$0.06</td><td>11.2</td><td>68</td></tr>
+        <tr><td class="l lb-rank">4</td><td class="l"><a class="lb-model" href="models/deepseek-v4-pro.html">DeepSeek V4 Pro</a> <span class="lb-eff">high</span></td><td>87.0%</td><td>6.2</td><td>$0.11</td><td>7.4</td><td>69</td></tr>
+        <tr><td class="l lb-rank">5</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span> <span class="lb-eff">medium</span><span class="lb-tag">Fastest</span></td><td>87.0%</td><td>7.2</td><td>$0.19</td><td class="lb-win">2.3</td><td>69</td></tr>
+        <tr><td class="l lb-rank">6</td><td class="l"><a class="lb-model" href="models/claude-opus-5.html">Claude Opus 5</a> <span class="lb-eff">low &middot; Report 10&dagger;</span></td><td>87.0%</td><td>7.2</td><td>$0.61</td><td>5.2</td><td>23</td></tr>
+        <tr><td class="l lb-rank">7</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a> <span class="lb-eff">medium</span></td><td>87.0%</td><td>7.2</td><td>$0.69</td><td>14.2</td><td>23</td></tr>
+        <tr><td class="l lb-rank">8</td><td class="l"><a class="lb-model" href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a> <span class="lb-eff">high</span></td><td>87.0%</td><td>7.2</td><td>$0.69</td><td>4.2</td><td>23</td></tr>
+        <tr><td class="l lb-rank">9</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span> <span class="lb-eff">high</span></td><td>85.5%</td><td>6.6</td><td>$0.17</td><td>3.8</td><td>69</td></tr>
+        <tr><td class="l lb-rank">10</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a> <span class="lb-eff">low</span></td><td>81.2%</td><td>7.8</td><td>$0.61</td><td>19.6</td><td>69</td></tr>
+        <tr><td class="l lb-rank">11</td><td class="l"><a class="lb-model" href="models/claude-haiku-4-5.html">Claude Haiku 4.5</a> <span class="lb-eff">default &middot; 21/23 tasks*</span></td><td>76.2%</td><td>9.5</td><td>$0.42</td><td>5.3</td><td>21</td></tr>
+        <tr><td class="l lb-rank">12</td><td class="l"><a class="lb-model" href="models/kimi-k3.html">Kimi K3</a> <span class="lb-eff">extra-high &middot; 19/23 tasks*</span></td><td>73.7%</td><td>10.4</td><td>$0.69</td><td>17.2</td><td>19</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:14px;font-size:15px;">* Partial task coverage: Claude Fable 5 excludes tasks refused by its safety filters (19/23 at low); Kimi K3 19/23; Claude Haiku 4.5 21/23. &dagger; Claude Opus 5 rows come from <a href="benchmarks/10-opus5-effort.html">Report 10</a> (single runs, 2026-07-26). Effort names are each provider&rsquo;s own enum: DeepSeek&rsquo;s top level is &ldquo;max&rdquo;, Qwen&rsquo;s and Grok 4.6&rsquo;s is &ldquo;xhigh&rdquo;. Claude Haiku 4.5 and Kimi K3 have a single tested setting.</p>
+  </div>
+
+  <section style="padding-top:28px;">
+    <div class="section-label">Speed</div>
+    <h2>Wall-clock minutes per task, fastest first.</h2>
+    <figure style="margin-top:22px;">
+      <img src="assets/leaderboard/v3-speed.png" alt="Speed card: GPT-5.6 Terra finishes a task in 2.3 minutes on average, GPT-5.6 Luna 3.8, Claude Fable 5 3.5, GPT-5.6 Sol 4.2, Claude Opus 5 5.2, Claude Haiku 4.5 5.3, DeepSeek V4 Pro 7.4, Grok 4.5 8.4, DeepSeek V4-Flash 11.2, Grok 4.6 14.2, Kimi K3 17.2, Qwen3.8-Max 19.6" width="2560" height="2080" loading="lazy" decoding="async">
+      <figcaption><b>Speed card.</b> Average sandbox wall-clock per task run at each model&rsquo;s best-scoring effort; pass@1 alongside for context.</figcaption>
+    </figure>
+    <div class="dl-row" style="margin-top:6px;justify-content:center;">
+      <a class="btn" href="assets/leaderboard/v3-speed.png" download>Download speed card</a>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Cost</div>
+    <h2>API spend per task run, lowest first.</h2>
+    <figure style="margin-top:22px;">
+      <img src="assets/leaderboard/v3-cost.png" alt="Cost card: DeepSeek V4-Flash at 6 cents per task run, DeepSeek V4 Pro 11 cents, GPT-5.6 Luna 17 cents, GPT-5.6 Terra 19 cents, Claude Haiku 4.5 42 cents, Grok 4.5 47 cents, Claude Fable 5 51 cents, Claude Opus 5 and Qwen3.8-Max 61 cents, Grok 4.6, GPT-5.6 Sol and Kimi K3 69 cents" width="2560" height="2080" loading="lazy" decoding="async">
+      <figcaption><b>Cost card.</b> Total list-price API spend for the column divided by runs. Negotiated, cached-input, and batch rates all differ; treat these as relative, not quotes.</figcaption>
+    </figure>
+    <div class="dl-row" style="margin-top:6px;justify-content:center;">
+      <a class="btn" href="assets/leaderboard/v3-cost.png" download>Download cost card</a>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Effort curves</div>
+    <h2>What happens when you turn the reasoning knob.</h2>
+    <p class="prose" style="margin-top:10px;font-size:17px;">The rows above show one effort level per model. This card shows every level that was tested, on one shared y-scale: more reasoning is not reliably better on this suite, and for several models it is worse.</p>
+    <figure style="margin-top:22px;">
+      <img src="assets/leaderboard/v3-effort-curves.png" alt="Effort curves: pass@1 at each reasoning-effort level for nine swept models. Grok 4.5, DeepSeek V4-Flash, GPT-5.6 Sol, and GPT-5.6 Luna rise with effort; GPT-5.6 Terra and Grok 4.6 peak mid-ladder; Claude Fable 5 dips at medium; Claude Opus 5 and Qwen3.8-Max fall as effort rises" width="2560" height="1440" loading="lazy" decoding="async">
+      <figcaption><b>Effort-curve card.</b> Each x-axis is that provider&rsquo;s own documented enum, not a common scale. Larger point = the model&rsquo;s best level.</figcaption>
+    </figure>
+    <div class="dl-row" style="margin-top:6px;justify-content:center;">
+      <a class="btn" href="assets/leaderboard/v3-effort-curves.png" download>Download effort-curve card</a>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>VulcanBench Eval Suite 3: 23 tasks from real merged post-cutoff PRs (Python 9, TypeScript 4, Rust 4, Go 3,
+      JavaScript 3), graded by deterministic hidden tests in Docker with model judges disabled. Each row aggregates every
+      fresh run of that model at that effort whose task hashes match the frozen suite; pass@1 is the mean per-task success
+      rate and its standard error is the spread of per-task means. The board is regenerated from the public run data with
+      the harness&rsquo;s <span class="mono">scripts/rankings-chart</span> pipeline; nothing here is edited by hand. Individual
+      reports on the <a href="benchmarks.html">Benchmarks</a> page carry the per-task detail, failure modes, and caveats behind
+      each row.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="https://x.com/intent/post?text=VulcanBench%20Eval%20Suite%203%20leaderboard%3A%2012%20frontier%20models%20on%2023%20real%20merged-PR%20tasks%2C%20ranked%20by%20pass%401.%20Grok%204.5%20leads%20at%2090%25%3B%2010%20of%2012%20sit%20within%20one%20stderr%20of%20the%20lead.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html" target="_blank" rel="noopener">Share on X</a>
+      <a class="btn" href="benchmarks.html">Read the reports</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="site.js?v=13" defer></script>
+</body>
+</html>
