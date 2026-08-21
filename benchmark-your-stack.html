@@ -12,21 +12,21 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Model routing, measured on your stack | VulcanBench</title>
-<meta name="description" content="Optimize your model routing with custom eval suites modeled on the work your teams actually do: which model, at which effort, for which class of task, with the cost case behind it.">
+<title>You're paying list price for max effort. Is it earning it? | VulcanBench</title>
+<meta name="description" content="Teams spend six figures a year on one frontier model at high or max effort without measuring it. A stack benchmark builds an eval suite from your actual work, runs the model-and-effort matrix, and hands back a routing policy and the cost model behind it.">
 <link rel="canonical" href="https://vulcanbench.com/benchmark-your-stack.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="Model routing, measured on your stack | VulcanBench">
-<meta property="og:description" content="Optimize your model routing with custom eval suites modeled on the work your teams actually do, delivering a routing plan you can ship with.">
+<meta property="og:title" content="Your API bill is a guess. Measure it. | VulcanBench">
+<meta property="og:description" content="Most teams run one frontier model at max effort for everything. A stack benchmark measures what each class of your work actually needs and returns a routing policy, as files, with the cost model behind it.">
 <meta property="og:url" content="https://vulcanbench.com/benchmark-your-stack.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Model routing, measured on your stack | VulcanBench">
-<meta name="twitter:description" content="Optimize your model routing with custom eval suites modeled on the work your teams actually do, delivering a routing plan you can ship with.">
+<meta name="twitter:title" content="Your API bill is a guess. Measure it. | VulcanBench">
+<meta name="twitter:description" content="Most teams run one frontier model at max effort for everything. A stack benchmark measures what each class of your work actually needs and returns a routing policy, as files, with the cost model behind it.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/logo.png">
 <meta name="twitter:image:alt" content="VulcanBench logo">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +50,7 @@
       <a href="benchmarks.html">Benchmarks</a>
       <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
-      <a href="benchmark-your-stack.html" class="active">For teams</a>
+      <a href="benchmark-your-stack.html" class="active">Audit your spend</a>
       <a href="support.html">Support</a>
       <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
     </nav>
@@ -61,38 +61,32 @@
 <div class="wrap">
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">For engineering teams</div>
-    <h1>Model routing, measured.</h1>
-    <p class="byline">Which model, at which effort, for which class of task? A custom eval suite built on the work your team actually does answers it with a routing plan you can ship with.</p>
+    <h1>Your API bill is a guess. Measure it.</h1>
+    <p class="byline">Most teams pay one frontier model, at high or max effort, for every task. A stack benchmark rebuilds your work as an eval suite, runs it across models and effort levels, and tells you what each class of task actually needs, with the files to enforce it.</p>
   </div>
 
   <div class="prose" style="max-width:820px; margin-top:30px;">
-    <p class="lead">Most teams route every task to one frontier model at maximum effort and hope the bill is worth it.
-    A stack benchmark replaces that guess with a measurement, and the measurement starts with a custom eval suite
-    modeled on the work your team actually does. Mostly Python in mid-sized codebases? The suite is Python in
-    mid-sized codebases. TypeScript across a large codebase? Same. The suite runs across the model-and-effort matrix
-    in the sandboxed harness that grades every public report, and distills into a routing plan: which model, at which
-    reasoning effort, for which class of task.</p>
-  </div>
-
-  <div class="abstract-box" id="what-is-model-routing">
-    <span class="lbl">What is model routing?</span>
-    <p>Model routing is sending each class of engineering task to the model and reasoning-effort level that handles it
-    best, instead of sending everything to one frontier model at maximum effort. Done well, it holds accuracy while
-    cutting cost and latency, because most day-to-day tasks don't need the most expensive configuration. A routing
-    decision is only as good as the measurement behind it: that measurement is what this engagement produces.</p>
+    <p class="lead">Companies are paying Anthropic and OpenAI hundreds of thousands of dollars a year at API prices, and
+    inside those companies the pattern is almost always the same: one model from each lab, set to high or max effort,
+    for everything from a one-line bug fix to a cross-service migration. Nobody has measured whether the top setting
+    earns its price on that work. The public reports say it often doesn&rsquo;t: frontier accuracy has converged while
+    cost still spreads by an order of magnitude, and raising effort helps one model and hurts another on identical
+    tasks. On your stack, the answer is unknown. That is the only problem this engagement solves.</p>
   </div>
 
   <section>
-    <div class="section-label">Why routing</div>
-    <h2>The best model isn't a model. It's a table.</h2>
+    <div class="section-label">Why the default is expensive</div>
+    <h2>The best model isn&rsquo;t a model. It&rsquo;s a table.</h2>
     <div class="prose">
-      <p>The public reports keep converging on the same finding from different directions. Frontier accuracy has
-      largely converged while cost still spreads by an order of magnitude (Report 03). Reasoning effort pays for one
-      model and backfires for another on the identical tasks (Report 05). And when tasks are run repeatedly, the
-      cheapest model can be the most dependable one (Report 06).</p>
-      <p>Put those together and "which model is best" stops being a useful question. The useful question is which
-      model, at which effort, for which class of task, and a leaderboard built on someone else's suite cannot answer
-      it, because your stack and your task mix aren't generic. The answer has to be measured on your work.</p>
+      <p>The public reports keep landing on the same three findings. Frontier accuracy has largely converged while cost
+      still spreads by an order of magnitude (<a href="benchmarks/03-fable-sonnet-glm.html">Report 03</a>). Reasoning
+      effort pays for one model and backfires for another on the identical tasks
+      (<a href="benchmarks/05-effort-matrix.html">Report 05</a>,
+      <a href="leaderboard.html">and the effort curves on the leaderboard</a>). And when tasks are run repeatedly, the
+      cheapest model can be the most dependable one (<a href="benchmarks/06-reliability.html">Report 06</a>).</p>
+      <p>Put those together and &ldquo;which model is best&rdquo; stops being a useful question. The useful one is which
+      model, at which effort, for which class of task. A public leaderboard can&rsquo;t answer that for you, because your
+      stack and your task mix aren&rsquo;t generic. It has to be measured on your work.</p>
     </div>
   </section>
 
@@ -101,21 +95,24 @@
     <div class="cols3">
       <div class="feature">
         <div class="n">01</div>
-        <h3>A routing plan</h3>
-        <p>Task class by task class: which model, at which effort, with escalation rules for when the cheap route
-        misses. Not a leaderboard, a decision your platform team can implement.</p>
+        <h3>A routing policy, as files</h3>
+        <p>A model-and-effort policy per task class (routine fixes, tests, feature work, refactors, novel work), with
+        escalation rules for when the cheap route misses. Delivered as a config your platform team drops into whatever
+        gateway or router you run, with a README. Not a slide.</p>
       </div>
       <div class="feature">
         <div class="n">02</div>
-        <h3>A private stack report</h3>
-        <p>Your results in the same journal format as the public reports: per-task tables, costs, traces, and replay
-        transcripts. Private by default, yours to share internally.</p>
+        <h3>Your own eval suite</h3>
+        <p>Built from your merged PRs, or matched equivalents: your languages, your codebase scale, your task mix, with
+        hidden tests that fail before the fix and pass after. It stays private, and it&rsquo;s yours to rerun when the
+        next model ships.</p>
       </div>
       <div class="feature">
         <div class="n">03</div>
-        <h3>A cost model</h3>
-        <p>Your task volume priced through the routing table: projected spend against your current setup, break-even
-        points included, re-runnable when the next model ships.</p>
+        <h3>The cost model</h3>
+        <p>Your task volume priced through the policy against what you pay today, break-even per task class,
+        re-runnable. This is the number you take to whoever signs the invoice, alongside a private report in the same
+        format as the public ones.</p>
       </div>
     </div>
   </section>
@@ -124,36 +121,35 @@
     <div class="section-label">How it works</div>
     <div class="method-steps">
       <div class="method-step"><div class="sn">1</div><div>
-        <h3>Work profile</h3>
-        <p>We map what your team actually ships: languages, frameworks and versions, the size and shape of the
-        codebases you work in, and the task mix, from bug fixes and feature work to refactors, test writing, and
-        migrations, plus volume and latency constraints. This works per team, too: a platform team on Go and a
-        product team on TypeScript don't have to share a suite, or a routing table.</p>
+        <h3>I learn your stack</h3>
+        <p>Languages, frameworks and versions, the size and shape of your codebases, and the task mix: bug fixes,
+        feature work, refactors, test writing, migrations, plus volume and latency constraints. Per team if your
+        teams don&rsquo;t share a stack; a platform team on Go and a product team on TypeScript get their own suite
+        and their own table.</p>
       </div></div>
       <div class="method-step"><div class="sn">2</div><div>
-        <h3>Suite build</h3>
-        <p>Evals are built from your own merged pull requests where possible, or curated equivalents matched to your
-        work profile where not: same language, same scale of codebase, same kind of change. Every task gets hidden
-        tests validated to fail before the fix and pass after it, the same fail&rarr;pass standard as the public
-        suite. Your code stays private and never becomes public eval material.</p>
+        <h3>I build the suite to match it</h3>
+        <p>Evals from your own merged pull requests where possible, curated equivalents where not: same language, same
+        scale of codebase, same kind of change. Every task gets hidden tests validated to fail before the fix and pass
+        after, the same standard as the public suite. Your code never becomes public eval material.</p>
       </div></div>
       <div class="method-step"><div class="sn">3</div><div>
-        <h3>The matrix run</h3>
+        <h3>The matrix runs</h3>
         <p>Models &times; effort levels &times; repeats, in the network-isolated Docker sandbox with deterministic
-        grading, no judges. Per task class we record pass@1, pass^k reliability, tokens, cost, and wall-clock: the
-        same five-way view the public reports use.</p>
+        grading and no judges. Per task class: pass@1, pass^k reliability, tokens, cost, and wall-clock, the same view
+        the public reports use.</p>
       </div></div>
       <div class="method-step"><div class="sn">4</div><div>
-        <h3>The routing plan</h3>
-        <p>The matrix collapses into a routing table with escalation rules and the cost model behind it, delivered
-        with the full report and a walkthrough with your team. When a new model ships, the suite already exists:
-        re-running the matrix is the cheap part.</p>
+        <h3>You get the policy and the cost model</h3>
+        <p>The matrix collapses into a routing table with escalation rules, shipped as config plus the report and a
+        walkthrough with your team. When a new model ships, the suite already exists; rerunning the matrix is the
+        cheap part.</p>
       </div></div>
     </div>
   </section>
 
   <section style="padding-top:8px;">
-    <div class="section-label">What a routing plan looks like</div>
+    <div class="section-label">What the policy looks like</div>
     <h2>One row per class of work.</h2>
     <table class="data">
       <thead>
@@ -163,14 +159,14 @@
         <tr><td>Routine bug fixes</td><td class="model">Mid-tier &middot; low</td><td class="model">Frontier &middot; low</td><td>Accuracy parity with frontier at a fraction of the cost</td></tr>
         <tr><td>Test writing</td><td class="model">Small &middot; low</td><td class="model">Mid-tier &middot; low</td><td>Highest-volume class; pass^k is the bar and the small model clears it</td></tr>
         <tr><td>Feature work</td><td class="model">Mid-tier &middot; medium</td><td class="model">Frontier &middot; medium</td><td>Effort pays here, but only up to medium</td></tr>
-        <tr><td>Refactors &amp; migrations</td><td class="model">Frontier &middot; low</td><td class="model">Frontier &middot; high</td><td>Breadth wins; extra effort didn't move the score</td></tr>
+        <tr><td>Refactors &amp; migrations</td><td class="model">Frontier &middot; low</td><td class="model">Frontier &middot; high</td><td>Breadth wins; extra effort didn&rsquo;t move the score</td></tr>
         <tr><td>Novel, cross-cutting work</td><td class="model">Frontier &middot; high</td><td class="model">Human review</td><td>The only route that moves these tasks at all</td></tr>
       </tbody>
     </table>
     <div class="prose">
-      <p><em>Illustrative, not a recommendation: the entire point of a stack benchmark is that your table comes out of
-      your measurement, not ours. On your stack the rows, the routes, and the escalation rules can all land
-      differently.</em></p>
+      <p><em>Illustrative, not a recommendation: your table comes out of your measurement, not ours. On your stack the
+      rows, the routes, and the escalation rules can all land differently. The table ships as a policy file your
+      router reads, with the escalation rules and a README beside it.</em></p>
     </div>
   </section>
 
@@ -179,34 +175,34 @@
     <div class="abstract-box" style="margin-top:26px;">
       <span class="lbl">Private by default, vendor-neutral by design</span>
       <p>A stack benchmark is your code, your suite, your numbers: tasks built from your repositories never become
-      public evals and never appear on the leaderboard. And no model vendor pays for placement in a routing
-      recommendation. The routing table is bought by you, graded by hidden tests, and owes nothing to anyone whose
-      model appears in it.</p>
+      public evals and never appear on the leaderboard. No model vendor pays for placement in a routing
+      recommendation. The policy is bought by you, graded by hidden tests, and owes nothing to anyone whose model
+      appears in it.</p>
     </div>
   </section>
 
   <section style="padding-top:8px;">
     <div class="section-label">What it costs</div>
-    <h2>You pay for the measurement, never for a verdict.</h2>
+    <h2>Less than one month of the bill it audits.</h2>
     <div class="prose">
-      <p>Pricing scales with the suite and the matrix: how many task classes, how many models, how many effort levels,
-      how many repeats. A focused engagement, one work profile and a handful of task classes across a four-model
-      matrix, starts in the mid four figures; broader matrices and bigger suites are more, and per-team suites add
-      their suite build, not a whole new engagement. The compute is real and metered, and you see it, the same cost
-      transparency as the public reports. Re-runs on an existing suite cost a fraction of the initial build.</p>
+      <p>A focused engagement, one work profile and a handful of task classes across a four-model matrix, starts in
+      the mid four figures. Against a six-figure annual API spend, a single reclassified task class usually pays for
+      it. Broader matrices and bigger suites cost more; per-team suites add a suite build, not a whole new engagement.
+      Compute is metered and shown, the same cost transparency as the public reports, and reruns on an existing suite
+      are a fraction of the initial build. You pay for the measurement, never for a verdict.</p>
     </div>
   </section>
 
   <section style="padding-top:8px;">
     <div class="section-label">Get started</div>
-    <h2>Tell me about your stack.</h2>
+    <h2>Tell me what you&rsquo;re paying and what you&rsquo;re running.</h2>
     <div class="prose">
-      <p>A couple of sentences is enough to start: what your team builds, the languages and frameworks involved, and
-      roughly what your task mix looks like. I'll come back with a proposed suite shape, a matrix, and a number.
-      Building a model rather than choosing one? That's <a href="benchmark-your-model.html">benchmark your model</a>.</p>
+      <p>A few sentences is enough: your stack, which model and effort your team defaults to, and rough monthly API
+      spend. I&rsquo;ll come back with a proposed suite shape, a matrix, and what it would cost to find out.
+      Building a model rather than choosing one? That&rsquo;s <a href="benchmark-your-model.html">benchmark your model</a>.</p>
     </div>
     <div class="dl-row">
-      <a class="btn primary" href="mailto:hello@vulcanbench.com?subject=Benchmark%20my%20stack">Start a conversation</a>
+      <a class="btn primary" href="mailto:hello@vulcanbench.com?subject=Audit%20my%20API%20spend">Start a conversation</a>
       <a class="btn" href="https://github.com/morganlinton/VulcanBench/discussions">Open a discussion on GitHub</a>
     </div>
   </section>
