@@ -84,7 +84,8 @@
     <p><strong>Turning up the reasoning dial does not help this model, and eventually hurts it.</strong>
     Qwen3.8-27B scores 82.6% pass@1 at both low and medium effort, then falls to 73.9% at xhigh: flat, then backward. The extra
     effort is not free time, either. xhigh runs a median 17 minutes per task against 7 at low, 2.4 times slower for a worse
-    result, and it regresses two tasks that lower effort solved. The shape echoes the flagship:
+    result. Every one of its failures is an unfinished run that reasoned past the time budget, not a wrong answer, including two
+    tasks lower effort had solved in minutes. The shape echoes the flagship:
     <a href="12-qwen38-max.html">Report No.&nbsp;12</a> found Qwen3.8-Max running the same knob backward, 81.2% to 55.1%, a
     26-point collapse. The open 27B is far more robust, dropping 8.7 points rather than 26, and it matches the flagship at low
     effort.</p>
@@ -116,9 +117,9 @@
     include provider latency.</p>
 
     <div class="findings-list">
-      <div class="finding"><div class="fn">1.</div><p><strong>Effort is inert, then harmful.</strong> Low and medium tie at 82.6%; xhigh drops to 73.9%. Nothing about the extra reasoning improved accuracy on this suite, and past medium it started subtracting.</p></div>
+      <div class="finding"><div class="fn">1.</div><p><strong>Effort is inert, then it runs out the clock.</strong> Low and medium tie at 82.6%; xhigh drops to 73.9%. The extra reasoning improved nothing, and the drop is not wrong answers: every one of the six xhigh failures was an unfinished run, cut off at its step or wall-clock budget, zero finished-but-wrong. xhigh did not make the model less accurate, it made it too slow to produce a patch in a fixed budget, the same &ldquo;failures change kind&rdquo; pattern Reports No.&nbsp;12 and 14 found.</p></div>
       <div class="finding"><div class="fn">2.</div><p><strong>xhigh costs time for a worse result.</strong> A median 17.1 minutes per task at xhigh against 7.1 at low, 2.4 times slower. One task, <em>pennylane-trotter-fragmented</em>, ran the full 60-minute budget at xhigh and still failed, having been solvable at lower effort.</p></div>
-      <div class="finding"><div class="fn">3.</div><p><strong>Higher effort regressed solved tasks.</strong> <em>flask-teardown-robust</em> and <em>semver-inc-dotted-prerelease</em> were both solved at low and medium but failed at xhigh: the model talked itself out of answers it already had.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Higher effort ran two quick wins into the ground.</strong> <em>flask-teardown-robust</em> and <em>semver-inc-dotted-prerelease</em> were both solved in minutes at low and medium. At xhigh the model kept reasoning past 20 minutes and 70 to 120 steps and never shipped a finished patch on either, so both count as misses.</p></div>
       <div class="finding"><div class="fn">4.</div><p><strong>The open model is more robust than the flagship.</strong> <a href="12-qwen38-max.html">Qwen3.8-Max</a> lost 26 points across the same knob; the 27B loses 8.7. At low effort the open 27B (82.6%) matches the hosted Max (81.2%) on this suite.</p></div>
       <div class="finding"><div class="fn">5.</div><p><strong>Four tasks resist every setting.</strong> <em>aiohttp-upgrade-deferred</em>, <em>networkx-leiden-communities</em>, <em>pennylane-trotter-fragmented</em>, and <em>sqlglot-canonicalize-internal-names</em> go unsolved at low, medium, and xhigh alike.</p></div>
     </div>
