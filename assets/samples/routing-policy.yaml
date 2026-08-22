@@ -1,0 +1,151 @@
+# VulcanBench routing policy (SAMPLE)
+#
+# This is what a stack benchmark delivers: one file your gateway reads, one row
+# per class of work, each row backed by a measured cell in the model x effort
+# matrix run on a suite built from your own merged PRs.
+#
+# Everything below is ILLUSTRATIVE. The classes, routes, and numbers come from a
+# fictional engagement, not a recommendation. Your file comes out of your
+# measurement. See README.md beside this file for field semantics and wiring.
+
+policy_version: 1
+schema: vulcanbench.routing-policy/v1
+
+engagement:
+  customer: acme-platform
+  suite_id: acme-v1            # private suite, 28 tasks, built 2026-08
+  generated: 2026-08-28
+  matrix:
+    models:
+      - anthropic:claude-fable-5
+      - anthropic:claude-haiku-4-5
+      - openai:gpt-5.6-terra
+      - openai:gpt-5.6-sol
+    efforts: [low, medium, high]
+    repeats: 3
+  baseline:                    # what the team was doing before the measurement
+    route: {provider: anthropic, model: claude-fable-5, effort: high}
+    monthly_task_volume: 18400
+    monthly_api_spend_usd: 41200
+
+# Hard limits the policy must respect. The measurement only ever considered
+# routes that satisfy these.
+constraints:
+  allowed_providers: [anthropic, openai]
+  data_residency: us
+  max_wall_clock_s: 1800
+  never_route_to: []           # e.g. [provider:model] pairs barred by contract
+
+# How a request is assigned to a class. First match wins; order matters.
+# Signals are whatever your gateway can see at request time: the task label
+# from your tracker, the diff footprint, touched paths, requested outputs.
+classifier:
+  - class: test_writing
+    when:
+      any:
+        - label: [tests, coverage]
+        - paths_match: ["**/test_*.py", "**/*.spec.ts", "**/*_test.go"]
+  - class: routine_fix
+    when:
+      all:
+        - label: [bug, fix]
+        - files_touched_max: 3
+        - lines_changed_max: 80
+  - class: feature_work
+    when:
+      any:
+        - label: [feature, enhancement]
+  - class: refactor_migration
+    when:
+      any:
+        - label: [refactor, migration, upgrade]
+        - files_touched_min: 8
+  - class: novel_cross_cutting
+    when:
+      any:
+        - label: [design, rfc, cross-cutting]
+        - services_touched_min: 2
+  - class: default
+    when: {always: true}
+
+# One row per class. `route` is the first attempt; `escalate` is tried in order
+# when the attempt misses (see README for the miss conditions).
+routes:
+  test_writing:
+    route:    {provider: anthropic, model: claude-haiku-4-5, effort: low}
+    escalate:
+      - {provider: openai,    model: gpt-5.6-terra,  effort: low}
+    budget:   {max_wall_clock_s: 600, max_attempts: 2}
+    measured: {pass_at_1: 0.91, pass_pow_3: 0.84, cost_per_task_usd: 0.09, p50_minutes: 2.1}
+    why: "Highest-volume class. pass^3 is the bar and the small model clears it at 1/6 the baseline cost."
+
+  routine_fix:
+    route:    {provider: openai,    model: gpt-5.6-terra,  effort: low}
+    escalate:
+      - {provider: anthropic, model: claude-fable-5,  effort: low}
+    budget:   {max_wall_clock_s: 900, max_attempts: 2}
+    measured: {pass_at_1: 0.88, pass_pow_3: 0.79, cost_per_task_usd: 0.14, p50_minutes: 2.6}
+    why: "Accuracy parity with the frontier baseline (0.89) at a fraction of the cost and a third of the time."
+
+  feature_work:
+    route:    {provider: openai,    model: gpt-5.6-terra,  effort: medium}
+    escalate:
+      - {provider: anthropic, model: claude-fable-5,  effort: medium}
+    budget:   {max_wall_clock_s: 1500, max_attempts: 2}
+    measured: {pass_at_1: 0.84, pass_pow_3: 0.71, cost_per_task_usd: 0.31, p50_minutes: 4.8}
+    why: "Effort pays here, but only up to medium; high added cost and time with no score change."
+
+  refactor_migration:
+    route:    {provider: anthropic, model: claude-fable-5,  effort: low}
+    escalate:
+      - {provider: anthropic, model: claude-fable-5,  effort: high}
+    budget:   {max_wall_clock_s: 1800, max_attempts: 2}
+    measured: {pass_at_1: 0.80, pass_pow_3: 0.65, cost_per_task_usd: 0.58, p50_minutes: 6.2}
+    why: "Breadth wins. Low effort matched high on this class; high is kept as the escalation, not the default."
+
+  novel_cross_cutting:
+    route:    {provider: anthropic, model: claude-fable-5,  effort: high}
+    escalate:
+      - {human_review: true}
+    budget:   {max_wall_clock_s: 1800, max_attempts: 1}
+    measured: {pass_at_1: 0.52, pass_pow_3: 0.30, cost_per_task_usd: 1.95, p50_minutes: 11.4}
+    why: "The only route that moves these tasks at all. Low pass^3 means a human stays in the loop."
+
+  default:
+    route:    {provider: anthropic, model: claude-fable-5,  effort: medium}
+    escalate:
+      - {provider: anthropic, model: claude-fable-5,  effort: high}
+    budget:   {max_wall_clock_s: 1500, max_attempts: 2}
+    measured: null             # unclassified work; not measured as a class
+    why: "Safe middle for anything the classifier does not recognise. Watch its volume: if it grows, add a class."
+
+# What counts as a miss (triggers the next escalation step).
+escalation:
+  on:
+    - hidden_tests_fail        # your CI / the task's own tests
+    - wall_clock_exceeded
+    - no_patch_produced
+  not_on:
+    - lint_only_failure        # cheap to fix in place; do not re-route
+
+# The cost model is what the routing table is worth in money. Recomputed from
+# `engagement.baseline` and per-class `measured` cost x your volume mix.
+cost_model:
+  class_mix:                   # share of monthly task volume, from your tracker
+    test_writing: 0.31
+    routine_fix: 0.27
+    feature_work: 0.22
+    refactor_migration: 0.11
+    novel_cross_cutting: 0.04
+    default: 0.05
+  projected_monthly_spend_usd: 9100
+  baseline_monthly_spend_usd: 41200
+  break_even_note: "Routing test_writing alone pays for the engagement in the first month."
+
+# Re-measure triggers. The suite already exists; rerunning the matrix is cheap.
+review:
+  rerun_when:
+    - new_model_available: true
+    - class_escalation_rate_over: 0.20      # a class escalating this often is mis-routed
+    - quarterly: true
+  last_run: 2026-08-28

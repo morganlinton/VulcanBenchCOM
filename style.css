@@ -515,6 +515,15 @@ tr.leader td.l:first-child { box-shadow: inset 3px 0 0 var(--ember); }
 }
 .lb-win { font-weight: 700; color: var(--ember); }
 
+/* ==== code samples ==== */
+pre.code {
+  font-family: var(--mono); font-size: 13.5px; line-height: 1.55;
+  background: rgba(28, 26, 23, 0.04); border: 1px solid var(--hairline);
+  border-left: 3px solid var(--ember); padding: 18px 22px; margin: 18px 0 6px;
+  overflow-x: auto; max-width: 860px;
+}
+pre.code code { font-family: inherit; }
+
 /* ==== methodology ==== */
 .method-steps { margin-top: 26px; }
 .method-step {

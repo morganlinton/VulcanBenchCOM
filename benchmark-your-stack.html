@@ -99,7 +99,7 @@
         <h3>A routing policy</h3>
         <p>Which model, at which effort, for each class of work in your suite, with escalation rules for when the first
         route fails its tests. Delivered as a config file for whatever gateway, router, or agent harness you already run,
-        with the reasoning written down next to it.</p>
+        with the reasoning written down next to it. <a href="#policy-sample">See a sample row.</a></p>
       </div>
       <div class="feature">
         <div class="n">02</div>
@@ -151,7 +151,7 @@
     </div>
   </section>
 
-  <section style="padding-top:8px;">
+  <section style="padding-top:8px;" id="policy-sample">
     <div class="section-label">What the policy looks like</div>
     <h2>One row per class of work.</h2>
     <table class="data">
@@ -169,6 +169,24 @@
     <div class="prose">
       <p><em>Illustrative. The task classes, the routes, and the escalation rules in your policy come out of your
       measurements, and they can land differently from this in every row.</em></p>
+      <p>The table ships as a policy file your router reads. One row of the sample, with the measured cell that
+      justifies it:</p>
+    </div>
+<pre class="code"><code>routine_fix:
+  route:    {provider: openai,    model: gpt-5.6-terra, effort: low}
+  escalate:
+    - {provider: anthropic, model: claude-fable-5, effort: low}
+  budget:   {max_wall_clock_s: 900, max_attempts: 2}
+  measured: {pass_at_1: 0.88, pass_pow_3: 0.79, cost_per_task_usd: 0.14, p50_minutes: 2.6}
+  why: "Accuracy parity with the frontier baseline (0.89) at a fraction of the cost."</code></pre>
+    <div class="prose">
+      <p>The full sample has the classifier that assigns work to a class, the escalation conditions, the constraints the
+      measurement respected (allowed providers, data residency, wall-clock ceiling), the cost model priced through your
+      volume mix, and the rerun triggers. The README beside it covers wiring it into whatever gateway you run.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn" href="assets/samples/routing-policy.yaml" download>Download the sample policy (YAML)</a>
+      <a class="btn" href="assets/samples/README.md" download>Download the README</a>
     </div>
   </section>
 
