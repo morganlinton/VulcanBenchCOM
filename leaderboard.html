@@ -134,8 +134,8 @@
 
   <div id="view-best" role="tabpanel" aria-labelledby="lbTabBest">
   <figure>
-    <img src="assets/leaderboard/v3-rankings.png" alt="VulcanBench Eval Suite 3 rankings: Grok 4.5 at 90 percent pass at one, Claude Fable 5 at 89, DeepSeek V4-Flash at 88, then DeepSeek V4 Pro, GPT-5.6 Terra, Claude Opus 5, Grok 4.6, and GPT-5.6 Sol at 87, GPT-5.6 Luna 86, Qwen3.8-Max 81, Claude Haiku 4.5 76, Kimi K3 74" width="2560" height="2080" loading="eager" decoding="async">
-    <figcaption><b>Rankings card.</b> pass@1 by model at its best-scoring effort, whiskers &plusmn;1 stderr, with cost per task run and run count alongside. Rendered 2026-08-13; Qwen3.8-27B (added 2026-08-23, row 10 below) and GLM 5.3 (added 2026-08-24, row 12, <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>) appear in the table and the <a href="#full-board">full board</a>.</figcaption>
+    <img src="assets/leaderboard/v3-rankings.png?v=2" alt="VulcanBench Eval Suite 3 rankings: Grok 4.5 at 90 percent pass at one, Claude Fable 5 at 89, DeepSeek V4-Flash at 88, then DeepSeek V4 Pro, GPT-5.6 Terra, Claude Opus 5, Grok 4.6, and GPT-5.6 Sol at 87, GPT-5.6 Luna 86, Qwen3.8-27B 83, Qwen3.8-Max 81, GLM 5.3 at 78, Claude Haiku 4.5 76, Kimi K3 74" width="2560" height="2080" loading="eager" decoding="async">
+    <figcaption><b>Rankings card.</b> pass@1 by model at its best-scoring effort, whiskers &plusmn;1 stderr, with cost per task run and run count alongside. Rendered 2026-08-24 with all fourteen models, including Qwen3.8-27B (<a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>) and GLM 5.3 (<a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>).</figcaption>
   </figure>
 
   <div class="dl-row" style="margin-top:6px;justify-content:center;">
@@ -180,7 +180,7 @@
     <div class="section-label">Speed</div>
     <h2>Wall-clock minutes per task, fastest first.</h2>
     <figure style="margin-top:22px;">
-      <img src="assets/leaderboard/v3-speed.png" alt="Speed card: GPT-5.6 Terra finishes a task in 2.3 minutes on average, GPT-5.6 Luna 3.8, Claude Fable 5 3.5, GPT-5.6 Sol 4.2, Claude Opus 5 5.2, Claude Haiku 4.5 5.3, DeepSeek V4 Pro 7.4, Grok 4.5 8.4, DeepSeek V4-Flash 11.2, Grok 4.6 14.2, Kimi K3 17.2, Qwen3.8-Max 19.6" width="2560" height="2080" loading="lazy" decoding="async">
+      <img src="assets/leaderboard/v3-speed.png?v=2" alt="Speed card: GPT-5.6 Terra finishes a task in 2.3 minutes on average, GPT-5.6 Luna 3.8, Claude Fable 5 3.5, GPT-5.6 Sol 4.2, Claude Opus 5 5.2, Claude Haiku 4.5 5.3, DeepSeek V4 Pro 7.4, Grok 4.5 8.4, DeepSeek V4-Flash 11.2, Grok 4.6 14.2, Kimi K3 17.2, Qwen3.8-Max 19.6" width="2560" height="2080" loading="lazy" decoding="async">
       <figcaption><b>Speed card.</b> Average sandbox wall-clock per task run at each model&rsquo;s best-scoring effort; pass@1 alongside for context. Every column&rsquo;s time is on the <a href="#full-board">full board</a>.</figcaption>
     </figure>
     <div class="dl-row" style="margin-top:6px;justify-content:center;">
@@ -192,7 +192,7 @@
     <div class="section-label">Cost</div>
     <h2>API spend per task run, lowest first.</h2>
     <figure style="margin-top:22px;">
-      <img src="assets/leaderboard/v3-cost.png" alt="Cost card: DeepSeek V4-Flash at 6 cents per task run, DeepSeek V4 Pro 11 cents, GPT-5.6 Luna 17 cents, GPT-5.6 Terra 19 cents, Claude Haiku 4.5 42 cents, Grok 4.5 47 cents, Claude Fable 5 51 cents, Claude Opus 5 and Qwen3.8-Max 61 cents, Grok 4.6, GPT-5.6 Sol and Kimi K3 69 cents" width="2560" height="2080" loading="lazy" decoding="async">
+      <img src="assets/leaderboard/v3-cost.png?v=2" alt="Cost card: DeepSeek V4-Flash at 6 cents per task run, DeepSeek V4 Pro 11 cents, GPT-5.6 Luna 17 cents, GPT-5.6 Terra 19 cents, Claude Haiku 4.5 42 cents, Grok 4.5 47 cents, Claude Fable 5 51 cents, Claude Opus 5 and Qwen3.8-Max 61 cents, Grok 4.6, GPT-5.6 Sol and Kimi K3 69 cents" width="2560" height="2080" loading="lazy" decoding="async">
       <figcaption><b>Cost card.</b> Total list-price API spend for the column divided by runs. Negotiated, cached-input, and batch rates all differ; treat these as relative, not quotes. Every column&rsquo;s cost is on the <a href="#full-board">full board</a>.</figcaption>
     </figure>
     <div class="dl-row" style="margin-top:6px;justify-content:center;">
@@ -209,10 +209,8 @@
     model&rsquo;s row says &ldquo;best: low&rdquo;, its medium and high columns are here too &mdash; low simply beat them.
     Click a column header to re-sort by score, cost, or speed.</p>
     <figure style="margin-top:22px;">
-      <img src="assets/leaderboard/v3-full-board.jpeg?v=2" alt="Full board card: all 36 model-by-effort columns rendered 2026-08-23, ranked by pass@1 from Grok 4.5 at high effort (90 percent) down to Qwen3.8-Max at xhigh (55 percent), with per-column speed and cost panels and ten per-model effort-curve cards including Qwen3.8-27B" width="2560" height="4800" loading="lazy" decoding="async">
-      <figcaption><b>Full-board card.</b> Every column, one render: rankings, speed, cost, and effort curves. Rendered
-      2026-08-23 &mdash; all 36 columns, including the three Qwen3.8-27B columns from
-      <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>. GLM 5.3&rsquo;s three columns (added 2026-08-24, <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>) appear in the table below and join the next render.</figcaption>
+      <img src="assets/leaderboard/v3-full-board.jpeg?v=3" alt="Full board card: all 39 model-by-effort columns rendered 2026-08-24, ranked by pass@1 from Grok 4.5 at high effort (90 percent) down to Qwen3.8-Max at xhigh (55 percent), with per-column speed and cost panels and eleven per-model effort-curve cards including Qwen3.8-27B and GLM 5.3" width="2560" height="4800" loading="lazy" decoding="async">
+      <figcaption><b>Full-board card.</b> Every column, one render: rankings, speed, cost, and effort curves. Rendered 2026-08-24 with all 39 columns, including GLM 5.3&rsquo;s three from <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>.</figcaption>
     </figure>
     <div class="dl-row" style="margin-top:6px;justify-content:center;">
       <a class="btn primary" href="https://x.com/intent/post?text=The%20full%20VulcanBench%20board%3A%2039%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Every%20reasoning-effort%20level%2C%20not%20just%20each%20model%27s%20best.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html%23full-board" target="_blank" rel="noopener">Share on X</a>
@@ -310,10 +308,10 @@
       <div class="section-label">Speed</div>
       <h2>Wall-clock minutes per task, every column.</h2>
       <figure style="margin-top:22px;">
-        <img src="assets/leaderboard/v3-full-speed.jpeg?v=2" alt="Speed panel, all 36 model-by-effort columns fastest first: GPT-5.6 Luna low at 1.2 minutes per task through GPT-5.6 Terra medium 2.3, Claude Fable 5 low 3.5, Qwen3.8-27B medium 6.8, Grok 4.5 high 8.4, DeepSeek V4-Flash max 11, Grok 4.6 medium 14, up to Qwen3.8-Max xhigh at 25 minutes" width="2560" height="813" loading="lazy" decoding="async">
+        <img src="assets/leaderboard/v3-full-speed.jpeg?v=3" alt="Speed panel, all 39 model-by-effort columns fastest first: GPT-5.6 Luna low at 1.2 minutes per task, GLM 5.3 low at 3.1, Claude Fable 5 low 3.5, Qwen3.8-27B medium 6.8, Grok 4.5 high 8.4, DeepSeek V4-Flash max 11, Grok 4.6 medium 14, up to Qwen3.8-Max xhigh at 25 minutes" width="2560" height="813" loading="lazy" decoding="async">
         <figcaption><b>Speed panel.</b> Average sandbox wall-clock per task for every column, fastest first. Rendered
-        2026-08-23, before GLM 5.3 joined (its medians are in the table); Qwen3.8-27B&rsquo;s times are medians
-        (<a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>).</figcaption>
+        2026-08-24; Qwen3.8-27B&rsquo;s and GLM 5.3&rsquo;s times are medians
+        (<a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>, <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>).</figcaption>
       </figure>
     </section>
 
@@ -321,10 +319,10 @@
       <div class="section-label">Cost</div>
       <h2>API spend per task run, every column.</h2>
       <figure style="margin-top:22px;">
-        <img src="assets/leaderboard/v3-full-cost.jpeg?v=2" alt="Cost panel, all 36 model-by-effort columns lowest first: GPT-5.6 Luna low at 3 cents per task run, DeepSeek V4-Flash low 4 cents, through Grok 4.5 high 47 cents, Qwen3.8-27B medium 48 cents, up to Claude Opus 5 high at 1 dollar 90 and GPT-5.6 Terra max at 2 dollars 29" width="2560" height="818" loading="lazy" decoding="async">
+        <img src="assets/leaderboard/v3-full-cost.jpeg?v=3" alt="Cost panel, all 39 model-by-effort columns lowest first: GPT-5.6 Luna low at 3 cents per task run, DeepSeek V4-Flash low 4 cents, GLM 5.3 low 32 cents, Grok 4.5 high 47 cents, Qwen3.8-27B medium 48 cents, up to Claude Opus 5 high at 1 dollar 90 and GPT-5.6 Terra max at 2 dollars 29" width="2560" height="818" loading="lazy" decoding="async">
         <figcaption><b>Cost panel.</b> Total list-price API spend &divide; runs for every column, lowest first. The same
         model can span more than an order of magnitude in cost across its own effort ladder. Negotiated, cached-input, and batch rates all
-        differ; treat these as relative, not quotes. Rendered 2026-08-23, before GLM 5.3 joined; its per-run costs are in the table.</figcaption>
+        differ; treat these as relative, not quotes. Rendered 2026-08-24.</figcaption>
       </figure>
     </section>
 
@@ -446,8 +444,8 @@
     <h2>What happens when you turn the reasoning knob.</h2>
     <p class="prose" style="margin-top:10px;font-size:17px;">The best-per-model rows show one effort level each. This card shows every level that was tested, on one shared y-scale: more reasoning is not reliably better on this suite, and for several models it is worse.</p>
     <figure style="margin-top:22px;">
-      <img src="assets/leaderboard/v3-effort-curves.png" alt="Effort curves: pass@1 at each reasoning-effort level for nine swept models. Grok 4.5, DeepSeek V4-Flash, GPT-5.6 Sol, and GPT-5.6 Luna rise with effort; GPT-5.6 Terra and Grok 4.6 peak mid-ladder; Claude Fable 5 dips at medium; Claude Opus 5 and Qwen3.8-Max fall as effort rises" width="2560" height="1440" loading="lazy" decoding="async">
-      <figcaption><b>Effort-curve card.</b> Each x-axis is that provider&rsquo;s own documented enum, not a common scale. Larger point = the model&rsquo;s best level. Qwen3.8-27B&rsquo;s curve (flat, then backward, like its Max sibling) appears on the <a href="#full-board">full-board card</a> (2026-08-23 render) and in <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>; this standalone card updates with the next sweep.</figcaption>
+      <img src="assets/leaderboard/v3-effort-curves.png?v=2" alt="Effort curves: pass@1 at each reasoning-effort level for eleven swept models. Grok 4.5, DeepSeek V4-Flash, GPT-5.6 Sol, and GPT-5.6 Luna rise with effort; GPT-5.6 Terra, Grok 4.6, and Qwen3.8-27B peak mid-ladder; Claude Fable 5 dips at medium; Claude Opus 5, Qwen3.8-Max, and GLM 5.3 fall as effort rises" width="2560" height="1440" loading="lazy" decoding="async">
+      <figcaption><b>Effort-curve card.</b> Each x-axis is that provider&rsquo;s own documented enum, not a common scale. Larger point = the model&rsquo;s best level. Rendered 2026-08-24 with all eleven swept models, including Qwen3.8-27B (<a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>) and GLM 5.3 (<a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>), both single-pass sweeps.</figcaption>
     </figure>
     <div class="dl-row" style="margin-top:6px;justify-content:center;">
       <a class="btn" href="assets/leaderboard/v3-effort-curves.png" download>Download effort-curve card</a>
@@ -528,7 +526,7 @@
       <div class="hist-row"><div class="hdate">2026-08-24</div>
         <p>GLM 5.3 joins at #12 from <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a> (its raw-API
         ladder: 78/74/65 across low/high/max); the board grows to 14 models and 39 columns. The same report&rsquo;s
-        ZCode-harness results (87% at max) are model plus product and stay off the board.</p></div>
+        ZCode-harness results (87% at max) are model plus product and stay off the board. Every board card is re-rendered with the full 39 columns.</p></div>
       <div class="hist-row"><div class="hdate">2026-08-23</div>
         <p>Qwen3.8-27B joins at #10 from <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>, and the
         full-board card is re-rendered with all 36 columns. Full-board view, per-view speed and cost panels, effort
