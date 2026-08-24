@@ -553,6 +553,45 @@ table.lb thead th.sorted-desc::after { content: "\2193"; opacity: 1; color: var(
 }
 tr.fb-new { background: rgba(180, 73, 12, 0.045); }
 table.lb td.fb-eff { font-family: var(--mono); font-size: 13px; color: var(--soft); text-align: left; }
+.fb-def {
+  display: inline-block; font-family: var(--display); font-size: 9.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px; color: var(--faint);
+  border: 1px dashed rgba(28, 26, 23, 0.4); padding: 1px 6px; margin-left: 8px;
+  vertical-align: middle; white-space: nowrap;
+}
+
+/* ==== frontier chart ==== */
+.pareto-fig { position: relative; margin-top: 22px; }
+.pareto-fig svg { width: 100%; height: auto; display: block; }
+.pareto-fig .pt { cursor: pointer; }
+.pareto-legend {
+  display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center;
+  margin-top: 14px; font-family: var(--mono); font-size: 12.5px; color: var(--soft);
+}
+.pareto-legend .sw { display: inline-block; width: 11px; height: 11px; margin-right: 6px; vertical-align: -1px; }
+.pareto-legend .sw.diamond { transform: rotate(45deg) scale(0.85); }
+.pareto-legend .fr { display: inline-block; width: 22px; height: 0; border-top: 2px solid var(--ember); margin-right: 6px; vertical-align: 3px; }
+.pareto-tip {
+  position: absolute; display: none; pointer-events: none; z-index: 40;
+  background: var(--ink); color: var(--paper); font-family: var(--mono);
+  font-size: 12px; line-height: 1.4; padding: 6px 10px; white-space: nowrap;
+}
+
+/* ==== FAQ ==== */
+.faq-list { margin-top: 26px; }
+.faq-item { border-top: 1px solid var(--hairline); padding: 20px 4px 22px; }
+.faq-list .faq-item:last-child { border-bottom: 1px solid var(--hairline); }
+.faq-item h3 { font-size: 19.5px; font-weight: 600; margin: 0 0 9px; }
+.faq-item p { font-size: 16.5px; color: var(--soft); line-height: 1.62; margin: 0; }
+
+/* ==== board history ==== */
+.hist-list { margin-top: 24px; border-top: 2.5px solid var(--line); }
+.hist-row {
+  display: grid; grid-template-columns: 128px 1fr; gap: 18px;
+  padding: 14px 4px; border-bottom: 1px solid var(--hairline);
+}
+.hist-row .hdate { font-family: var(--mono); font-size: 13px; color: var(--faint); padding-top: 3px; }
+.hist-row p { font-size: 16px; margin: 0; color: var(--soft); line-height: 1.55; }
 
 /* ==== test queue ==== */
 .queue-list { margin-top: 24px; border-top: 2.5px solid var(--line); }
@@ -644,6 +683,8 @@ section[id] { scroll-margin-top: 90px; }
   .lb-effstrip { font-size: 11px; }
   .fb-best { display: none; }
   .queue-row { grid-template-columns: 1fr; gap: 8px; }
+  .hist-row { grid-template-columns: 1fr; gap: 4px; }
+  .pareto-legend { font-size: 11px; gap: 6px 12px; }
   .lb-note { padding: 16px 18px; font-size: 15.5px; }
   .lb-shead { flex-direction: column; gap: 4px; align-items: flex-start; }
   .method-step { grid-template-columns: 40px 1fr; gap: 12px; }
