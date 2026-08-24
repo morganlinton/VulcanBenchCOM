@@ -12,13 +12,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leaderboard | Eval Suite 3 | VulcanBench</title>
-<meta name="description" content="The VulcanBench Eval Suite 3 leaderboard: thirteen frontier models on 23 real merged-PR tasks, every reasoning-effort level swept — 36 model×effort columns behind the rankings, with cost per task, speed, and effort curves.">
+<meta name="description" content="The VulcanBench Eval Suite 3 leaderboard: fourteen frontier models on 23 real merged-PR tasks, every reasoning-effort level swept, 39 model×effort columns behind the rankings, with cost per task, speed, and effort curves.">
 <link rel="canonical" href="https://vulcanbench.com/leaderboard.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="VulcanBench leaderboard: Eval Suite 3">
-<meta property="og:description" content="Thirteen frontier models on 23 real merged-PR tasks, every reasoning-effort level swept: 36 model×effort columns behind the rankings. Grok 4.5 leads at 90%. Cost and speed alongside.">
+<meta property="og:description" content="Fourteen frontier models on 23 real merged-PR tasks, every reasoning-effort level swept: 39 model×effort columns behind the rankings. Grok 4.5 leads at 90%. Cost and speed alongside.">
 <meta property="og:url" content="https://vulcanbench.com/leaderboard.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/leaderboard/v3-rankings-og.png">
 <meta property="og:image:width" content="2560">
@@ -26,7 +26,7 @@
 <meta property="og:image:alt" content="VulcanBench Eval Suite 3 rankings: twelve models ranked by pass@1, Grok 4.5 first at 90 percent">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="VulcanBench leaderboard: Eval Suite 3">
-<meta name="twitter:description" content="Thirteen frontier models on 23 real merged-PR tasks, every reasoning-effort level swept: 36 model×effort columns behind the rankings. Grok 4.5 leads at 90%.">
+<meta name="twitter:description" content="Fourteen frontier models on 23 real merged-PR tasks, every reasoning-effort level swept: 39 model×effort columns behind the rankings. Grok 4.5 leads at 90%.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/leaderboard/v3-rankings-og.png">
 <meta name="twitter:image:alt" content="VulcanBench Eval Suite 3 rankings card">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "VulcanBench Eval Suite 3 leaderboard",
-  "description": "Thirteen frontier language models measured on 23 real merged open-source pull requests, graded by deterministic hidden tests in Docker. Every reasoning-effort level swept: 36 model-by-effort columns. pass@1, cost per task run, wall-clock time, and effort curves.",
+  "description": "Fourteen frontier language models measured on 23 real merged open-source pull requests, graded by deterministic hidden tests in Docker. Every reasoning-effort level swept: 39 model-by-effort columns. pass@1, cost per task run, wall-clock time, and effort curves.",
   "url": "https://vulcanbench.com/leaderboard.html",
   "license": "https://github.com/morganlinton/VulcanBench/blob/main/LICENSE",
   "creator": { "@type": "Organization", "name": "VulcanBench", "url": "https://vulcanbench.com/" },
@@ -60,7 +60,7 @@
     {
       "@type": "Question",
       "name": "Claude Fable 5 is shown at low effort — did VulcanBench only test low?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No — every model is swept across every reasoning-effort level its API documents. Claude Fable 5 ran at low, medium, and high; low scored best (89% vs 81% and 85%), so low is the row. The full board lists all 36 model-by-effort columns." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No — every model is swept across every reasoning-effort level its API documents. Claude Fable 5 ran at low, medium, and high; low scored best (89% vs 81% and 85%), so low is the row. The full board lists all 39 model-by-effort columns." }
     },
     {
       "@type": "Question",
@@ -70,12 +70,12 @@
     {
       "@type": "Question",
       "name": "Why doesn't VulcanBench rank models inside the error band?",
-      "acceptedAnswer": { "@type": "Answer", "text": "With 23 tasks, one standard error is ±6–10 points, and eleven of the thirteen models sit within one stderr of the leader, so ordering inside that band would be noise. Cost and speed separate models reliably: similar accuracy spans over 10x in price." }
+      "acceptedAnswer": { "@type": "Answer", "text": "With 23 tasks, one standard error is ±6–10 points, and eleven of the fourteen models sit within one stderr of the leader, so ordering inside that band would be noise. Cost and speed separate models reliably: similar accuracy spans over 10x in price." }
     },
     {
       "@type": "Question",
       "name": "What do the provider-default markers mean?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Where a provider documents what an unset request gets, that column is marked on the full board — and it is never the best column. Grok 4.6 defaults to its worst measured setting (high, 74%), and the Qwen 3.8 family defaults to xhigh, the bottom of both its ladders." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Where a provider documents what an unset request gets, that column is marked on the full board, and it is never the best column. Grok 4.6 defaults to its worst measured setting (high, 74%), the Qwen 3.8 family defaults to xhigh, the bottom of both its ladders, and GLM 5.3 defaults to max, the bottom of its ladder (65% against 78% at low)." }
     },
     {
       "@type": "Question",
@@ -111,8 +111,8 @@
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">Eval Suite 3 &middot; the running board</div>
     <h1>Leaderboard</h1>
-    <p class="byline">Every model measured on Eval Suite 3, ranked by pass@1. Thirteen models, twenty-three frontier-hard tasks from real merged open-source PRs. Every model is swept across its whole reasoning-effort ladder; a row below shows its best-scoring level, and <a href="#full-board">the full board</a> shows all 36 columns.</p>
-    <div class="runmeta">Updated 2026-08-23 &middot; 23 tasks &middot; 13 models &middot; 36 model&times;effort columns &middot; 1,513 runs &middot; v3 suite</div>
+    <p class="byline">Every model measured on Eval Suite 3, ranked by pass@1. Fourteen models, twenty-three frontier-hard tasks from real merged open-source PRs. Every model is swept across its whole reasoning-effort ladder; a row below shows its best-scoring level, and <a href="#full-board">the full board</a> shows all 39 columns.</p>
+    <div class="runmeta">Updated 2026-08-24 &middot; 23 tasks &middot; 14 models &middot; 39 model&times;effort columns &middot; 1,582 runs &middot; v3 suite</div>
   </div>
 
   <div class="lb-note">
@@ -121,25 +121,25 @@
     point of VulcanBench. Each row shows the model at the level that scored best for it on this suite (ties break to the
     cheaper run; a partial-coverage sweep cannot outrank a full one), so &ldquo;<span class="mono">best: low</span>&rdquo;
     means low <em>beat</em> the higher settings, not that only low was tested. The small print under each name is the
-    model&rsquo;s full ladder; the complete 36-column board is <a href="#full-board">one click away</a>. Whiskers on the
-    cards are &plusmn;1 standard error, and on this suite that matters: eleven of the thirteen models sit within one
+    model&rsquo;s full ladder; the complete 39-column board is <a href="#full-board">one click away</a>. Whiskers on the
+    cards are &plusmn;1 standard error, and on this suite that matters: eleven of the fourteen models sit within one
     stderr of the leader, so the order inside that band is not supported by the data. Cost and speed are where they
     actually separate.
   </div>
 
   <div class="lb-toggle" id="lbToggle" role="tablist" aria-label="Leaderboard view">
-    <button type="button" role="tab" id="lbTabBest" aria-selected="true" aria-controls="view-best" class="active" data-view="best">Best per model &middot; <span class="n">13</span></button>
-    <button type="button" role="tab" id="lbTabFull" aria-selected="false" aria-controls="full-board" data-view="full">Full board &middot; <span class="n">36</span> columns</button>
+    <button type="button" role="tab" id="lbTabBest" aria-selected="true" aria-controls="view-best" class="active" data-view="best">Best per model &middot; <span class="n">14</span></button>
+    <button type="button" role="tab" id="lbTabFull" aria-selected="false" aria-controls="full-board" data-view="full">Full board &middot; <span class="n">39</span> columns</button>
   </div>
 
   <div id="view-best" role="tabpanel" aria-labelledby="lbTabBest">
   <figure>
     <img src="assets/leaderboard/v3-rankings.png" alt="VulcanBench Eval Suite 3 rankings: Grok 4.5 at 90 percent pass at one, Claude Fable 5 at 89, DeepSeek V4-Flash at 88, then DeepSeek V4 Pro, GPT-5.6 Terra, Claude Opus 5, Grok 4.6, and GPT-5.6 Sol at 87, GPT-5.6 Luna 86, Qwen3.8-Max 81, Claude Haiku 4.5 76, Kimi K3 74" width="2560" height="2080" loading="eager" decoding="async">
-    <figcaption><b>Rankings card.</b> pass@1 by model at its best-scoring effort, whiskers &plusmn;1 stderr, with cost per task run and run count alongside. Rendered 2026-08-13; Qwen3.8-27B (added 2026-08-23) appears at row 10 below and on the re-rendered <a href="#full-board">full board</a>.</figcaption>
+    <figcaption><b>Rankings card.</b> pass@1 by model at its best-scoring effort, whiskers &plusmn;1 stderr, with cost per task run and run count alongside. Rendered 2026-08-13; Qwen3.8-27B (added 2026-08-23, row 10 below) and GLM 5.3 (added 2026-08-24, row 12, <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>) appear in the table and the <a href="#full-board">full board</a>.</figcaption>
   </figure>
 
   <div class="dl-row" style="margin-top:6px;justify-content:center;">
-    <a class="btn primary" href="https://x.com/intent/post?text=VulcanBench%20Eval%20Suite%203%20leaderboard%3A%2013%20frontier%20models%2C%20every%20reasoning-effort%20level%20swept%20%E2%80%94%2036%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Grok%204.5%20leads%20at%2090%25.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html" target="_blank" rel="noopener">Share on X</a>
+    <a class="btn primary" href="https://x.com/intent/post?text=VulcanBench%20Eval%20Suite%203%20leaderboard%3A%2014%20frontier%20models%2C%20every%20reasoning-effort%20level%20swept%3A%2039%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Grok%204.5%20leads%20at%2090%25.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html" target="_blank" rel="noopener">Share on X</a>
     <a class="btn" href="assets/leaderboard/v3-rankings.png" download>Download rankings card</a>
   </div>
 
@@ -164,15 +164,16 @@
         <tr><td class="l lb-rank">9</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span> <span class="lb-eff">best: high</span><span class="lb-effstrip">low 77 <span class="sep">&middot;</span> med 80 <span class="sep">&middot;</span> <b>high 86</b> <span class="sep">&middot;</span> max 86*</span></td><td>85.5%</td><td>6.6</td><td>$0.17</td><td>3.8</td><td>69</td></tr>
         <tr class="fb-new"><td class="l lb-rank">10</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a> <span class="lb-eff">best: medium</span><span class="lb-tag">New</span><span class="lb-effstrip">low 77 <span class="sep">&middot;</span> <b>med 83</b> <span class="sep">&middot;</span> xhigh 74</span></td><td>82.6%</td><td>8.1</td><td>$0.48</td><td>6.8&Dagger;</td><td>23</td></tr>
         <tr><td class="l lb-rank">11</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a> <span class="lb-eff">best: low</span><span class="lb-effstrip"><b>low 81</b> <span class="sep">&middot;</span> med 71 <span class="sep">&middot;</span> xhigh 55</span></td><td>81.2%</td><td>7.8</td><td>$0.61</td><td>19.6</td><td>69</td></tr>
-        <tr><td class="l lb-rank">12</td><td class="l"><a class="lb-model" href="models/claude-haiku-4-5.html">Claude Haiku 4.5</a> <span class="lb-eff">default &middot; 21/23 tasks*</span><span class="lb-effstrip"><b>default 76</b> <span class="sep">&middot;</span> no effort knob exposed</span></td><td>76.2%</td><td>9.5</td><td>$0.42</td><td>5.3</td><td>21</td></tr>
-        <tr><td class="l lb-rank">13</td><td class="l"><a class="lb-model" href="models/kimi-k3.html">Kimi K3</a> <span class="lb-eff">extra-high &middot; 19/23 tasks*</span><span class="lb-effstrip"><b>extra-high 74</b> <span class="sep">&middot;</span> single tested setting</span></td><td>73.7%</td><td>10.4</td><td>$0.69</td><td>17.2</td><td>19</td></tr>
+        <tr class="fb-new"><td class="l lb-rank">12</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a> <span class="lb-eff">best: low&sect;</span><span class="lb-tag">New</span><span class="lb-effstrip"><b>low 78</b> <span class="sep">&middot;</span> high 74 <span class="sep">&middot;</span> max 65</span></td><td>78.3%</td><td>8.6</td><td>$0.32</td><td>3.1&sect;</td><td>23</td></tr>
+        <tr><td class="l lb-rank">13</td><td class="l"><a class="lb-model" href="models/claude-haiku-4-5.html">Claude Haiku 4.5</a> <span class="lb-eff">default &middot; 21/23 tasks*</span><span class="lb-effstrip"><b>default 76</b> <span class="sep">&middot;</span> no effort knob exposed</span></td><td>76.2%</td><td>9.5</td><td>$0.42</td><td>5.3</td><td>21</td></tr>
+        <tr><td class="l lb-rank">14</td><td class="l"><a class="lb-model" href="models/kimi-k3.html">Kimi K3</a> <span class="lb-eff">extra-high &middot; 19/23 tasks*</span><span class="lb-effstrip"><b>extra-high 74</b> <span class="sep">&middot;</span> single tested setting</span></td><td>73.7%</td><td>10.4</td><td>$0.69</td><td>17.2</td><td>19</td></tr>
       </tbody>
     </table>
     </div>
     <p class="prose" style="margin-top:14px;font-size:15px;">The small print under each model is its full effort ladder
     (pass@1 per level, best in orange); an asterisk on a level marks partial task coverage.
     * Partial task coverage: Claude Fable 5 excludes tasks refused by its safety filters (low 19/23, medium 21/23, high 20/23); Kimi K3 19/23; Claude Haiku 4.5 21/23; Grok 4.5 low has 21/23 fresh tasks. &dagger; Claude Opus 5 rows come from <a href="benchmarks/10-opus5-effort.html">Report 10</a> (single runs, 2026-07-26).
-    &Dagger; Qwen3.8-27B joined 2026-08-23 from <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>: one pass per level, times are medians, and its low column aggregates three runs (mean 76.8%, the value its ladder shows). Effort names are each provider&rsquo;s own enum: DeepSeek&rsquo;s top level is &ldquo;max&rdquo;, Qwen&rsquo;s and Grok 4.6&rsquo;s is &ldquo;xhigh&rdquo;. Claude Haiku 4.5 and Kimi K3 have a single tested setting.</p>
+    &Dagger; Qwen3.8-27B joined 2026-08-23 from <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>: one pass per level, times are medians, and its low column aggregates three runs (mean 76.8%, the value its ladder shows). &sect; GLM 5.3 joined 2026-08-24 from <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>: one attempt per level, times are medians. The same report measures it inside Z.ai&rsquo;s own ZCode harness at 87.0%; that result is model plus product and is not a board entry. Effort names are each provider&rsquo;s own enum: DeepSeek&rsquo;s and GLM 5.3&rsquo;s top level is &ldquo;max&rdquo;, Qwen&rsquo;s and Grok 4.6&rsquo;s is &ldquo;xhigh&rdquo;. Claude Haiku 4.5 and Kimi K3 have a single tested setting.</p>
   </div>
 
   <section style="padding-top:28px;">
@@ -204,23 +205,23 @@
     <div class="section-label">The full board</div>
     <h2>Every model &times; effort column. Nothing hidden.</h2>
     <p class="prose" style="margin-top:10px;font-size:17px;">The best-per-model view shows one row per model. This is
-    everything behind those rows: all 36 model&times;effort columns that have run on the frozen v3 suite. When a
+    everything behind those rows: all 39 model&times;effort columns that have run on the frozen v3 suite. When a
     model&rsquo;s row says &ldquo;best: low&rdquo;, its medium and high columns are here too &mdash; low simply beat them.
     Click a column header to re-sort by score, cost, or speed.</p>
     <figure style="margin-top:22px;">
       <img src="assets/leaderboard/v3-full-board.jpeg?v=2" alt="Full board card: all 36 model-by-effort columns rendered 2026-08-23, ranked by pass@1 from Grok 4.5 at high effort (90 percent) down to Qwen3.8-Max at xhigh (55 percent), with per-column speed and cost panels and ten per-model effort-curve cards including Qwen3.8-27B" width="2560" height="4800" loading="lazy" decoding="async">
       <figcaption><b>Full-board card.</b> Every column, one render: rankings, speed, cost, and effort curves. Rendered
       2026-08-23 &mdash; all 36 columns, including the three Qwen3.8-27B columns from
-      <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>.</figcaption>
+      <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>. GLM 5.3&rsquo;s three columns (added 2026-08-24, <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>) appear in the table below and join the next render.</figcaption>
     </figure>
     <div class="dl-row" style="margin-top:6px;justify-content:center;">
-      <a class="btn primary" href="https://x.com/intent/post?text=The%20full%20VulcanBench%20board%3A%2036%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Every%20reasoning-effort%20level%2C%20not%20just%20each%20model%27s%20best.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html%23full-board" target="_blank" rel="noopener">Share on X</a>
+      <a class="btn primary" href="https://x.com/intent/post?text=The%20full%20VulcanBench%20board%3A%2039%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Every%20reasoning-effort%20level%2C%20not%20just%20each%20model%27s%20best.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html%23full-board" target="_blank" rel="noopener">Share on X</a>
       <a class="btn" href="assets/leaderboard/v3-full-board.jpeg" download>Download full-board card</a>
     </div>
 
     <div class="lb-section" style="margin-top:34px;">
       <div class="lb-shead">
-        <div class="l"><b>All 36 columns</b> &middot; ranked by pass@1 &middot; click headers to sort</div>
+        <div class="l"><b>All 39 columns</b> &middot; ranked by pass@1 &middot; click headers to sort</div>
         <a href="methodology.html">How it is measured &rarr;</a>
       </div>
       <p class="lb-context">pass@1 here is shown to the whole percent, as on the card; the per-model reports carry the
@@ -265,16 +266,19 @@
           <tr><td class="l lb-rank" data-k="rank">24</td><td class="l"><a class="lb-model" href="models/claude-fable-5.html">Claude Fable 5</a></td><td class="fb-eff">medium*</td><td data-k="pass">81%</td><td data-k="cost">$0.70</td><td data-k="min">3.8</td><td data-k="runs">21</td></tr>
           <tr><td class="l lb-rank" data-k="rank">25</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span></td><td class="fb-eff">medium</td><td data-k="pass">80%</td><td data-k="cost">$0.06</td><td data-k="min">2.1</td><td data-k="runs">69</td></tr>
           <tr><td class="l lb-rank" data-k="rank">26</td><td class="l"><a class="lb-model" href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a></td><td class="fb-eff">low</td><td data-k="pass">78%</td><td data-k="cost">$0.17</td><td data-k="min">1.5</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">27</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a></td><td class="fb-eff">xhigh</td><td data-k="pass">78%</td><td data-k="cost">$0.88</td><td data-k="min">15.8</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">28</td><td class="l"><a class="lb-model" href="models/claude-opus-5.html">Claude Opus 5</a></td><td class="fb-eff">high&dagger;</td><td data-k="pass">78%</td><td data-k="cost">$1.90</td><td data-k="min">13.6</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">29</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span></td><td class="fb-eff">low</td><td data-k="pass">77%</td><td data-k="cost">$0.03</td><td data-k="min">1.2</td><td data-k="runs">69</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">30</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a><span class="lb-tag">New</span></td><td class="fb-eff">low&Dagger;</td><td data-k="pass">77%</td><td data-k="cost">$0.71</td><td data-k="min">7.1</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">31</td><td class="l"><a class="lb-model" href="models/claude-haiku-4-5.html">Claude Haiku 4.5</a><span class="fb-best">best</span></td><td class="fb-eff">default*</td><td data-k="pass">76%</td><td data-k="cost">$0.42</td><td data-k="min">5.3</td><td data-k="runs">21</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">32</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a></td><td class="fb-eff">high<span class="fb-def">default</span></td><td data-k="pass">74%</td><td data-k="cost">$0.55</td><td data-k="min">16.3</td><td data-k="runs">23</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">33</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a><span class="lb-tag">New</span></td><td class="fb-eff">xhigh&Dagger;<span class="fb-def">default</span></td><td data-k="pass">74%</td><td data-k="cost">$0.69</td><td data-k="min">17.1</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">34</td><td class="l"><a class="lb-model" href="models/kimi-k3.html">Kimi K3</a><span class="fb-best">best</span></td><td class="fb-eff">extra-high*</td><td data-k="pass">74%</td><td data-k="cost">$0.69</td><td data-k="min">17.2</td><td data-k="runs">19</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">35</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a></td><td class="fb-eff">medium</td><td data-k="pass">71%</td><td data-k="cost">$0.56</td><td data-k="min">21.7</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">36</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a></td><td class="fb-eff">xhigh<span class="fb-def">default</span></td><td data-k="pass">55%</td><td data-k="cost">$0.71</td><td data-k="min">25.5</td><td data-k="runs">64</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">27</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a><span class="fb-best">best</span><span class="lb-tag">New</span></td><td class="fb-eff">low&sect;</td><td data-k="pass">78%</td><td data-k="cost">$0.32</td><td data-k="min">3.1</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">28</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a></td><td class="fb-eff">xhigh</td><td data-k="pass">78%</td><td data-k="cost">$0.88</td><td data-k="min">15.8</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">29</td><td class="l"><a class="lb-model" href="models/claude-opus-5.html">Claude Opus 5</a></td><td class="fb-eff">high&dagger;</td><td data-k="pass">78%</td><td data-k="cost">$1.90</td><td data-k="min">13.6</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">30</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span></td><td class="fb-eff">low</td><td data-k="pass">77%</td><td data-k="cost">$0.03</td><td data-k="min">1.2</td><td data-k="runs">69</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">31</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a><span class="lb-tag">New</span></td><td class="fb-eff">low&Dagger;</td><td data-k="pass">77%</td><td data-k="cost">$0.71</td><td data-k="min">7.1</td><td data-k="runs">69</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">32</td><td class="l"><a class="lb-model" href="models/claude-haiku-4-5.html">Claude Haiku 4.5</a><span class="fb-best">best</span></td><td class="fb-eff">default*</td><td data-k="pass">76%</td><td data-k="cost">$0.42</td><td data-k="min">5.3</td><td data-k="runs">21</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">33</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a><span class="lb-tag">New</span></td><td class="fb-eff">high&sect;</td><td data-k="pass">74%</td><td data-k="cost">$0.45</td><td data-k="min">9.4</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">34</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a></td><td class="fb-eff">high<span class="fb-def">default</span></td><td data-k="pass">74%</td><td data-k="cost">$0.55</td><td data-k="min">16.3</td><td data-k="runs">23</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">35</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a><span class="lb-tag">New</span></td><td class="fb-eff">xhigh&Dagger;<span class="fb-def">default</span></td><td data-k="pass">74%</td><td data-k="cost">$0.69</td><td data-k="min">17.1</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">36</td><td class="l"><a class="lb-model" href="models/kimi-k3.html">Kimi K3</a><span class="fb-best">best</span></td><td class="fb-eff">extra-high*</td><td data-k="pass">74%</td><td data-k="cost">$0.69</td><td data-k="min">17.2</td><td data-k="runs">19</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">37</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a></td><td class="fb-eff">medium</td><td data-k="pass">71%</td><td data-k="cost">$0.56</td><td data-k="min">21.7</td><td data-k="runs">69</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">38</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a><span class="lb-tag">New</span></td><td class="fb-eff">max&sect;<span class="fb-def">default</span></td><td data-k="pass">65%</td><td data-k="cost">$0.78</td><td data-k="min">20.1</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">39</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a></td><td class="fb-eff">xhigh<span class="fb-def">default</span></td><td data-k="pass">55%</td><td data-k="cost">$0.71</td><td data-k="min">25.5</td><td data-k="runs">64</td></tr>
         </tbody>
       </table>
       </div>
@@ -283,7 +287,9 @@
       Grok 4.5 low has 21/23 fresh tasks. &dagger; Claude Opus 5
       columns are from <a href="benchmarks/10-opus5-effort.html">Report 10</a>. &Dagger; Qwen3.8-27B columns are from
       <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a> (2026-08-21): single pass per level, times are medians
-      rather than means, and the low column aggregates its three runs. GPT-5.6 Terra and Luna &ldquo;max&rdquo; columns are
+      rather than means, and the low column aggregates its three runs. &sect; GLM 5.3 columns are from
+      <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a> (2026-08-24): one attempt per level, times are medians;
+      its ZCode-harness results in the same report are model plus product and are not board columns. GPT-5.6 Terra and Luna &ldquo;max&rdquo; columns are
       partial-coverage single sweeps of a level OpenAI added after the main runs; per the board rule they cannot outrank
       those models&rsquo; full columns. Five Qwen3.8-Max xhigh runs lost to 600s API read timeouts are excluded rather than
       scored 0.</p>
@@ -294,8 +300,10 @@
       Where a provider documents what an unset request gets, that level is marked
       <span class="fb-def" style="margin-left:0;">default</span> above &mdash; and on this suite it is never the best
       column. Grok 4.6 defaults to high (74%, against 87% at medium) and the Qwen&nbsp;3.8 family defaults to xhigh
-      (55% for Max against 81% at low; 74% for the 27B against 83% at medium). An untuned integration gets the worst
-      measured setting of all three; one request flag moves it to the best.
+      (55% for Max against 81% at low; 74% for the 27B against 83% at medium), and GLM 5.3 defaults to max, the bottom
+      of its ladder (65% against 78% at low; see <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a> for
+      what Z.ai&rsquo;s own harness does with the same knob). An untuned integration gets the worst measured setting of
+      all four; one request flag moves it to the best.
     </div>
 
     <section style="padding-top:8px;">
@@ -304,7 +312,7 @@
       <figure style="margin-top:22px;">
         <img src="assets/leaderboard/v3-full-speed.jpeg?v=2" alt="Speed panel, all 36 model-by-effort columns fastest first: GPT-5.6 Luna low at 1.2 minutes per task through GPT-5.6 Terra medium 2.3, Claude Fable 5 low 3.5, Qwen3.8-27B medium 6.8, Grok 4.5 high 8.4, DeepSeek V4-Flash max 11, Grok 4.6 medium 14, up to Qwen3.8-Max xhigh at 25 minutes" width="2560" height="813" loading="lazy" decoding="async">
         <figcaption><b>Speed panel.</b> Average sandbox wall-clock per task for every column, fastest first. Rendered
-        2026-08-23; Qwen3.8-27B&rsquo;s times are medians
+        2026-08-23, before GLM 5.3 joined (its medians are in the table); Qwen3.8-27B&rsquo;s times are medians
         (<a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>).</figcaption>
       </figure>
     </section>
@@ -316,7 +324,7 @@
         <img src="assets/leaderboard/v3-full-cost.jpeg?v=2" alt="Cost panel, all 36 model-by-effort columns lowest first: GPT-5.6 Luna low at 3 cents per task run, DeepSeek V4-Flash low 4 cents, through Grok 4.5 high 47 cents, Qwen3.8-27B medium 48 cents, up to Claude Opus 5 high at 1 dollar 90 and GPT-5.6 Terra max at 2 dollars 29" width="2560" height="818" loading="lazy" decoding="async">
         <figcaption><b>Cost panel.</b> Total list-price API spend &divide; runs for every column, lowest first. The same
         model can span more than an order of magnitude in cost across its own effort ladder. Negotiated, cached-input, and batch rates all
-        differ; treat these as relative, not quotes. Rendered 2026-08-23.</figcaption>
+        differ; treat these as relative, not quotes. Rendered 2026-08-23, before GLM 5.3 joined; its per-run costs are in the table.</figcaption>
       </figure>
     </section>
 
@@ -330,7 +338,7 @@
       Hover any point for its column.</p>
       <figure class="pareto-fig" id="paretoFig">
         <svg viewBox="0 0 960 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="paretoTitle" font-family="IBM Plex Mono, SF Mono, monospace" id="paretoSvg">
-<title id="paretoTitle">Cost versus pass at 1 for all 36 model-by-effort columns; the Pareto frontier is GPT-5.6 Luna low, DeepSeek V4-Flash low, DeepSeek V4-Flash max, and Grok 4.5 high</title>
+<title id="paretoTitle">Cost versus pass at 1 for all 39 model-by-effort columns; the Pareto frontier is GPT-5.6 Luna low, DeepSeek V4-Flash low, DeepSeek V4-Flash max, and Grok 4.5 high</title>
 <line x1="66" y1="440.4" x2="934" y2="440.4" stroke="#1c1a17" stroke-opacity="0.08"/>
 <text x="57" y="444.4" text-anchor="end" font-size="12" fill="#6f6a62">55</text>
 <line x1="66" y1="384.8" x2="934" y2="384.8" stroke="#1c1a17" stroke-opacity="0.08"/>
@@ -400,6 +408,9 @@
 <g class="pt" data-tip="DeepSeek V4-Flash (low) — 86% · $0.04/run · 8.4 min"><circle cx="145.3" cy="95.8" r="7.5" fill="#4d7ce8" stroke="#f7f4ee" stroke-width="2"/><circle cx="145.3" cy="95.8" r="14" fill="transparent"><title>DeepSeek V4-Flash (low) — 86% · $0.04/run · 8.4 min</title></circle></g>
 <g class="pt" data-tip="DeepSeek V4-Flash (max) — 88.4% · $0.06/run · 11.2 min"><circle cx="220.0" cy="69.1" r="7.5" fill="#4d7ce8" stroke="#f7f4ee" stroke-width="2"/><circle cx="220.0" cy="69.1" r="14" fill="transparent"><title>DeepSeek V4-Flash (max) — 88.4% · $0.06/run · 11.2 min</title></circle></g>
 <g class="pt" data-tip="Grok 4.5 (high) — 89.9% · $0.47/run · 8.4 min"><circle cx="599.0" cy="52.5" r="7.5" fill="#1c1a17" stroke="#f7f4ee" stroke-width="2"/><circle cx="599.0" cy="52.5" r="14" fill="transparent"><title>Grok 4.5 (high) — 89.9% · $0.47/run · 8.4 min</title></circle></g>
+<g class="pt" data-tip="GLM 5.3 (low): 78.3% &middot; $0.32/run &middot; 3.1 min"><path d="M 526.4 174.4 L 532.9 186.3 L 519.9 186.3 Z" fill="#0e7a8a" stroke="#f7f4ee" stroke-width="2"/><circle cx="526.4" cy="181.4" r="14" fill="transparent"><title>GLM 5.3 (low): 78.3% &middot; $0.32/run &middot; 3.1 min</title></circle></g>
+<g class="pt" data-tip="GLM 5.3 (high): 73.9% &middot; $0.45/run &middot; 9.4 min"><path d="M 588.9 223.3 L 595.4 235.2 L 582.4 235.2 Z" fill="#0e7a8a" stroke="#f7f4ee" stroke-width="2"/><circle cx="588.9" cy="230.3" r="14" fill="transparent"><title>GLM 5.3 (high): 73.9% &middot; $0.45/run &middot; 9.4 min</title></circle></g>
+<g class="pt" data-tip="GLM 5.3 (max, default): 65.2% &middot; $0.78/run &middot; 20.1 min"><path d="M 692.5 320.0 L 699.0 331.9 L 686.0 331.9 Z" fill="#0e7a8a" stroke="#f7f4ee" stroke-width="2"/><circle cx="692.5" cy="327.0" r="14" fill="transparent"><title>GLM 5.3 (max, default): 65.2% &middot; $0.78/run &middot; 20.1 min</title></circle></g>
 <text x="591.0" y="38.5" text-anchor="end" font-size="11.5" fill="#3a362f">Grok 4.5 high</text>
 <text x="626.0" y="70.9" text-anchor="start" font-size="11.5" fill="#3a362f">Fable 5 low</text>
 <text x="230.0" y="61.1" text-anchor="start" font-size="11.5" fill="#3a362f">Flash max</text>
@@ -409,6 +420,7 @@
 <text x="102.3" y="213.9" text-anchor="start" font-size="11.5" fill="#3a362f">Luna low</text>
 <text x="615.9" y="234.3" text-anchor="end" font-size="11.5" fill="#3a362f">Grok 4.6 high (default)</text>
 <text x="681.6" y="248.5" text-anchor="start" font-size="11.5" fill="#3a362f">Kimi K3</text>
+<text x="704.5" y="331.0" text-anchor="start" font-size="11.5" fill="#3a362f">GLM 5.3 max (default)</text>
 <text x="684.9" y="443.3" text-anchor="start" font-size="11.5" fill="#3a362f">Qwen-Max xhigh (default)</text>
 </svg>
         <div class="pareto-legend" aria-hidden="true">
@@ -417,12 +429,13 @@
           <span><span class="sw" style="background:#4d7ce8;border-radius:50%;"></span>DeepSeek</span>
           <span><span class="sw" style="background:#14976b;border-radius:50%;"></span>OpenAI</span>
           <span><span class="sw" style="background:#a83ac2;"></span>Alibaba (squares)</span>
+          <span><span class="sw" style="background:#0e7a8a;clip-path:polygon(50% 0,100% 100%,0 100%);"></span>Z.ai (triangles)</span>
           <span><span class="sw diamond" style="background:#46465e;"></span>Moonshot</span>
           <span><span class="fr"></span>the frontier</span>
         </div>
         <div class="pareto-tip" id="paretoTip" role="status"></div>
         <figcaption style="margin-top:12px;"><b>Frontier chart.</b> pass@1 against list-price cost per task run
-        (log scale) for all 36 columns; larger points and the stepped line mark the frontier. Same numbers as the
+        (log scale) for all 39 columns; larger points and the stepped line mark the frontier. Same numbers as the
         table above &mdash; sort it by $/task run for the readable version of this picture.</figcaption>
       </figure>
     </section>
@@ -449,7 +462,7 @@
         <h3>Claude Fable 5 is shown at &ldquo;low&rdquo; &mdash; did you only test low?</h3>
         <p>No &mdash; sweeping every effort level is the whole idea. Fable 5 ran at low, medium, and high; low scored
         best (89% against 81% and 85%), so low is the row. The same holds for every model: the row shows the winner of
-        its own ladder, and the <a href="#full-board">full board</a> lists all 36 model&times;effort columns, with a
+        its own ladder, and the <a href="#full-board">full board</a> lists all 39 model&times;effort columns, with a
         &ldquo;best&rdquo; marker on each model&rsquo;s representative one.</p>
       </div>
       <div class="faq-item">
@@ -463,7 +476,7 @@
       </div>
       <div class="faq-item">
         <h3>Why won&rsquo;t you rank the models inside the error band?</h3>
-        <p>With 23 tasks, one standard error is &plusmn;6&ndash;10 points, and eleven of the thirteen models sit within
+        <p>With 23 tasks, one standard error is &plusmn;6&ndash;10 points, and eleven of the fourteen models sit within
         one stderr of the leader. Ordering inside that band would be reading noise as signal. What does separate models
         reliably is cost and speed: similar accuracy spans over 10&times; in price and roughly 6&times; in wall-clock
         across the best columns, and far more across the full board.</p>
@@ -471,8 +484,9 @@
       <div class="faq-item">
         <h3>What&rsquo;s the deal with the &ldquo;default&rdquo; markers?</h3>
         <p>Where a provider documents what an unset request gets, that column is marked on the full board &mdash; and
-        it is never the best column. Grok 4.6 defaults to its worst measured setting (high, 74%), and the Qwen&nbsp;3.8
-        family defaults to xhigh, the bottom of both its ladders. If you integrate a model without touching
+        it is never the best column. Grok 4.6 defaults to its worst measured setting (high, 74%), the Qwen&nbsp;3.8
+        family defaults to xhigh, the bottom of both its ladders, and GLM 5.3 defaults to max, the bottom of its ladder
+        (65% against 78% at low). If you integrate a model without touching
         <span class="mono">reasoning_effort</span>, this is the column you are actually running.</p>
       </div>
       <div class="faq-item">
@@ -494,12 +508,12 @@
     <div class="queue-list">
       <div class="queue-row">
         <div>
-          <span class="qmodel">GLM 5.3</span><span class="qlab">Z.ai</span>
-          <div class="qnote">Effort sweep queued. Its predecessor GLM-5.2 was measured on the v2 suite in
-          <a href="benchmarks/03-fable-sonnet-glm.html">Report 3</a>; 5.3 enters the v3 board once every documented
-          effort level has run.</div>
+          <span class="qmodel">Queue clear</span>
+          <div class="qnote">GLM 5.3 completed its sweep and joined the board 2026-08-24 from
+          <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>. Nothing is currently queued; nominations
+          welcome.</div>
         </div>
-        <span class="qstatus hot">Sweep queued</span>
+        <span class="qstatus">Up to date</span>
       </div>
     </div>
     <div class="dl-row" style="margin-top:22px;">
@@ -511,6 +525,10 @@
     <div class="section-label">Board history</div>
     <h2>What changed, and when.</h2>
     <div class="hist-list">
+      <div class="hist-row"><div class="hdate">2026-08-24</div>
+        <p>GLM 5.3 joins at #12 from <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a> (its raw-API
+        ladder: 78/74/65 across low/high/max); the board grows to 14 models and 39 columns. The same report&rsquo;s
+        ZCode-harness results (87% at max) are model plus product and stay off the board.</p></div>
       <div class="hist-row"><div class="hdate">2026-08-23</div>
         <p>Qwen3.8-27B joins at #10 from <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>, and the
         full-board card is re-rendered with all 36 columns. Full-board view, per-view speed and cost panels, effort
@@ -541,11 +559,11 @@
       the harness&rsquo;s <span class="mono">scripts/rankings-chart</span> pipeline; table rows are transcribed from that
       pipeline&rsquo;s output and the numbered reports. Individual
       reports on the <a href="benchmarks.html">Benchmarks</a> page carry the per-task detail, failure modes, and caveats behind
-      each row. The whole board &mdash; all 36 columns with cost, speed, coverage, and default markers &mdash; is also
+      each row. The whole board &mdash; all 39 columns with cost, speed, coverage, and default markers &mdash; is also
       published as <a href="leaderboard.json">machine-readable JSON</a>.</p>
     </div>
     <div class="dl-row">
-      <a class="btn primary" href="https://x.com/intent/post?text=VulcanBench%20Eval%20Suite%203%20leaderboard%3A%2013%20frontier%20models%2C%20every%20reasoning-effort%20level%20swept%20%E2%80%94%2036%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Grok%204.5%20leads%20at%2090%25.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html" target="_blank" rel="noopener">Share on X</a>
+      <a class="btn primary" href="https://x.com/intent/post?text=VulcanBench%20Eval%20Suite%203%20leaderboard%3A%2014%20frontier%20models%2C%20every%20reasoning-effort%20level%20swept%3A%2039%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Grok%204.5%20leads%20at%2090%25.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html" target="_blank" rel="noopener">Share on X</a>
       <a class="btn" href="benchmarks.html">Read the reports</a>
       <a class="btn" href="leaderboard.json" download>Download the board (JSON)</a>
       <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
