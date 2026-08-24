@@ -136,6 +136,30 @@
     * Partial task coverage: Claude Fable 5 excludes tasks refused by its safety filters (low 19/23, medium 21/23, high 20/23); Kimi K3 19/23; Claude Haiku 4.5 21/23; Grok 4.5 low has 21/23 fresh tasks. &dagger; Claude Opus 5 rows come from <a href="benchmarks/10-opus5-effort.html">Report 10</a> (single runs, 2026-07-26).
     &Dagger; Qwen3.8-27B joined 2026-08-23 from <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>: one pass per level, times are medians, and its low column aggregates three runs (mean 76.8%, the value its ladder shows). Effort names are each provider&rsquo;s own enum: DeepSeek&rsquo;s top level is &ldquo;max&rdquo;, Qwen&rsquo;s and Grok 4.6&rsquo;s is &ldquo;xhigh&rdquo;. Claude Haiku 4.5 and Kimi K3 have a single tested setting.</p>
   </div>
+
+  <section style="padding-top:28px;">
+    <div class="section-label">Speed</div>
+    <h2>Wall-clock minutes per task, fastest first.</h2>
+    <figure style="margin-top:22px;">
+      <img src="assets/leaderboard/v3-speed.png" alt="Speed card: GPT-5.6 Terra finishes a task in 2.3 minutes on average, GPT-5.6 Luna 3.8, Claude Fable 5 3.5, GPT-5.6 Sol 4.2, Claude Opus 5 5.2, Claude Haiku 4.5 5.3, DeepSeek V4 Pro 7.4, Grok 4.5 8.4, DeepSeek V4-Flash 11.2, Grok 4.6 14.2, Kimi K3 17.2, Qwen3.8-Max 19.6" width="2560" height="2080" loading="lazy" decoding="async">
+      <figcaption><b>Speed card.</b> Average sandbox wall-clock per task run at each model&rsquo;s best-scoring effort; pass@1 alongside for context. Every column&rsquo;s time is on the <a href="#full-board">full board</a>.</figcaption>
+    </figure>
+    <div class="dl-row" style="margin-top:6px;justify-content:center;">
+      <a class="btn" href="assets/leaderboard/v3-speed.png" download>Download speed card</a>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Cost</div>
+    <h2>API spend per task run, lowest first.</h2>
+    <figure style="margin-top:22px;">
+      <img src="assets/leaderboard/v3-cost.png" alt="Cost card: DeepSeek V4-Flash at 6 cents per task run, DeepSeek V4 Pro 11 cents, GPT-5.6 Luna 17 cents, GPT-5.6 Terra 19 cents, Claude Haiku 4.5 42 cents, Grok 4.5 47 cents, Claude Fable 5 51 cents, Claude Opus 5 and Qwen3.8-Max 61 cents, Grok 4.6, GPT-5.6 Sol and Kimi K3 69 cents" width="2560" height="2080" loading="lazy" decoding="async">
+      <figcaption><b>Cost card.</b> Total list-price API spend for the column divided by runs. Negotiated, cached-input, and batch rates all differ; treat these as relative, not quotes. Every column&rsquo;s cost is on the <a href="#full-board">full board</a>.</figcaption>
+    </figure>
+    <div class="dl-row" style="margin-top:6px;justify-content:center;">
+      <a class="btn" href="assets/leaderboard/v3-cost.png" download>Download cost card</a>
+    </div>
+  </section>
   </div>
 
   <section id="full-board" role="tabpanel" aria-labelledby="lbTabFull" style="padding-top:28px;">
@@ -226,36 +250,34 @@
       those models&rsquo; full columns. Five Qwen3.8-Max xhigh runs lost to 600s API read timeouts are excluded rather than
       scored 0.</p>
     </div>
-  </section>
 
-  <section style="padding-top:28px;">
-    <div class="section-label">Speed</div>
-    <h2>Wall-clock minutes per task, fastest first.</h2>
-    <figure style="margin-top:22px;">
-      <img src="assets/leaderboard/v3-speed.png" alt="Speed card: GPT-5.6 Terra finishes a task in 2.3 minutes on average, GPT-5.6 Luna 3.8, Claude Fable 5 3.5, GPT-5.6 Sol 4.2, Claude Opus 5 5.2, Claude Haiku 4.5 5.3, DeepSeek V4 Pro 7.4, Grok 4.5 8.4, DeepSeek V4-Flash 11.2, Grok 4.6 14.2, Kimi K3 17.2, Qwen3.8-Max 19.6" width="2560" height="2080" loading="lazy" decoding="async">
-      <figcaption><b>Speed card.</b> Average sandbox wall-clock per task run at each model&rsquo;s best-scoring effort; pass@1 alongside for context.</figcaption>
-    </figure>
-    <div class="dl-row" style="margin-top:6px;justify-content:center;">
-      <a class="btn" href="assets/leaderboard/v3-speed.png" download>Download speed card</a>
-    </div>
-  </section>
+    <section style="padding-top:8px;">
+      <div class="section-label">Speed</div>
+      <h2>Wall-clock minutes per task, every column.</h2>
+      <figure style="margin-top:22px;">
+        <img src="assets/leaderboard/v3-full-speed.jpeg" alt="Speed panel, all 33 rendered model-by-effort columns fastest first: GPT-5.6 Luna low at 1.2 minutes per task through GPT-5.6 Terra medium 2.3, Claude Fable 5 low 3.5, Grok 4.5 high 8.4, DeepSeek V4-Flash max 11, Grok 4.6 medium 14, up to Qwen3.8-Max xhigh at 25 minutes" width="2185" height="665" loading="lazy" decoding="async">
+        <figcaption><b>Speed panel.</b> Average sandbox wall-clock per task for every column, fastest first. From the
+        2026-08-13 render; Qwen3.8-27B&rsquo;s median times (6.8&ndash;17.1 min by effort,
+        <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>) are in the table above.</figcaption>
+      </figure>
+    </section>
 
-  <section style="padding-top:8px;">
-    <div class="section-label">Cost</div>
-    <h2>API spend per task run, lowest first.</h2>
-    <figure style="margin-top:22px;">
-      <img src="assets/leaderboard/v3-cost.png" alt="Cost card: DeepSeek V4-Flash at 6 cents per task run, DeepSeek V4 Pro 11 cents, GPT-5.6 Luna 17 cents, GPT-5.6 Terra 19 cents, Claude Haiku 4.5 42 cents, Grok 4.5 47 cents, Claude Fable 5 51 cents, Claude Opus 5 and Qwen3.8-Max 61 cents, Grok 4.6, GPT-5.6 Sol and Kimi K3 69 cents" width="2560" height="2080" loading="lazy" decoding="async">
-      <figcaption><b>Cost card.</b> Total list-price API spend for the column divided by runs. Negotiated, cached-input, and batch rates all differ; treat these as relative, not quotes.</figcaption>
-    </figure>
-    <div class="dl-row" style="margin-top:6px;justify-content:center;">
-      <a class="btn" href="assets/leaderboard/v3-cost.png" download>Download cost card</a>
-    </div>
+    <section style="padding-top:8px;">
+      <div class="section-label">Cost</div>
+      <h2>API spend per task run, every column.</h2>
+      <figure style="margin-top:22px;">
+        <img src="assets/leaderboard/v3-full-cost.jpeg" alt="Cost panel, all 33 rendered model-by-effort columns lowest first: GPT-5.6 Luna low at 3 cents per task run, DeepSeek V4-Flash low 4 cents, through Grok 4.5 high 47 cents, Claude Fable 5 low 51 cents, up to Claude Opus 5 high at 1 dollar 90 and GPT-5.6 Terra max at 2 dollars 29" width="2185" height="645" loading="lazy" decoding="async">
+        <figcaption><b>Cost panel.</b> Total list-price API spend &divide; runs for every column, lowest first. The same
+        model can span more than an order of magnitude in cost across its own effort ladder. Negotiated, cached-input, and batch rates all
+        differ; treat these as relative, not quotes. Qwen3.8-27B&rsquo;s costs ($0.48&ndash;$0.71) are in the table above.</figcaption>
+      </figure>
+    </section>
   </section>
 
   <section style="padding-top:8px;">
     <div class="section-label">Effort curves</div>
     <h2>What happens when you turn the reasoning knob.</h2>
-    <p class="prose" style="margin-top:10px;font-size:17px;">The rows above show one effort level per model. This card shows every level that was tested, on one shared y-scale: more reasoning is not reliably better on this suite, and for several models it is worse.</p>
+    <p class="prose" style="margin-top:10px;font-size:17px;">The best-per-model rows show one effort level each. This card shows every level that was tested, on one shared y-scale: more reasoning is not reliably better on this suite, and for several models it is worse.</p>
     <figure style="margin-top:22px;">
       <img src="assets/leaderboard/v3-effort-curves.png" alt="Effort curves: pass@1 at each reasoning-effort level for nine swept models. Grok 4.5, DeepSeek V4-Flash, GPT-5.6 Sol, and GPT-5.6 Luna rise with effort; GPT-5.6 Terra and Grok 4.6 peak mid-ladder; Claude Fable 5 dips at medium; Claude Opus 5 and Qwen3.8-Max fall as effort rises" width="2560" height="1440" loading="lazy" decoding="async">
       <figcaption><b>Effort-curve card.</b> Each x-axis is that provider&rsquo;s own documented enum, not a common scale. Larger point = the model&rsquo;s best level. Qwen3.8-27B&rsquo;s curve (flat, then backward, like its Max sibling) is in <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a> and joins the next render.</figcaption>
