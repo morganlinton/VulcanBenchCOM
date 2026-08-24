@@ -514,6 +514,61 @@ tr.leader td.l:first-child { box-shadow: inset 3px 0 0 var(--ember); }
   white-space: nowrap;
 }
 .lb-win { font-weight: 700; color: var(--ember); }
+.lb-effstrip {
+  display: block; font-family: var(--mono); font-size: 12px; color: var(--faint);
+  margin-top: 4px; letter-spacing: 0.2px; white-space: nowrap;
+}
+.lb-effstrip b { font-weight: 600; color: var(--ember); }
+.lb-effstrip .sep { opacity: 0.45; padding: 0 2px; }
+
+/* ==== leaderboard view toggle ==== */
+.lb-toggle { display: none; justify-content: center; margin: 30px 0 4px; }
+.lb-toggle.on { display: flex; }
+.lb-toggle button {
+  font-family: var(--display); font-size: 12.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 2px;
+  padding: 11px 24px; border: 1.5px solid var(--ink);
+  background: transparent; color: var(--ink); cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.lb-toggle button + button { border-left: none; }
+.lb-toggle button:hover { color: var(--ember); }
+.lb-toggle button.active { background: var(--ink); color: var(--paper); }
+.lb-toggle button.active:hover { color: var(--paper); }
+.lb-toggle button .n { color: var(--ember); font-weight: 600; }
+.lb-toggle button.active .n { color: var(--ember-bright); }
+.lb-hidden { display: none !important; }
+
+/* ==== full board (every model x effort column) ==== */
+table.lb thead th.sortable { cursor: pointer; user-select: none; }
+table.lb thead th.sortable:hover { color: var(--ember); }
+table.lb thead th.sortable::after { content: "\2195"; opacity: 0.35; margin-left: 5px; font-size: 11px; }
+table.lb thead th.sorted-asc::after { content: "\2191"; opacity: 1; color: var(--ember); }
+table.lb thead th.sorted-desc::after { content: "\2193"; opacity: 1; color: var(--ember); }
+.fb-best {
+  display: inline-block; font-family: var(--display); font-size: 9.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px; color: var(--ember);
+  border: 1px solid rgba(180, 73, 12, 0.45); padding: 1px 6px; margin-left: 8px;
+  vertical-align: middle; white-space: nowrap;
+}
+tr.fb-new { background: rgba(180, 73, 12, 0.045); }
+table.lb td.fb-eff { font-family: var(--mono); font-size: 13px; color: var(--soft); text-align: left; }
+
+/* ==== test queue ==== */
+.queue-list { margin-top: 24px; border-top: 2.5px solid var(--line); }
+.queue-row {
+  display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: baseline;
+  padding: 16px 4px; border-bottom: 1px solid var(--hairline);
+}
+.queue-row .qmodel { font-weight: 600; font-size: 17.5px; }
+.queue-row .qlab { font-family: var(--mono); font-size: 12.5px; color: var(--faint); margin-left: 9px; }
+.queue-row .qnote { font-size: 15px; color: var(--soft); margin-top: 3px; }
+.queue-row .qstatus {
+  font-family: var(--display); font-size: 10.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1.2px; color: var(--faint); border: 1px solid var(--hairline);
+  padding: 3px 9px; white-space: nowrap;
+}
+.queue-row .qstatus.hot { color: var(--ember); border-color: var(--ember); }
 
 /* ==== code samples ==== */
 pre.code {
@@ -585,6 +640,10 @@ section[id] { scroll-margin-top: 90px; }
   table.lb thead th { padding: 8px 12px; }
   .lb-rank { font-size: 17px; width: 30px; }
   .lb-tag { display: none; }
+  .lb-toggle button { font-size: 11px; letter-spacing: 1.4px; padding: 10px 14px; }
+  .lb-effstrip { font-size: 11px; }
+  .fb-best { display: none; }
+  .queue-row { grid-template-columns: 1fr; gap: 8px; }
   .lb-note { padding: 16px 18px; font-size: 15.5px; }
   .lb-shead { flex-direction: column; gap: 4px; align-items: flex-start; }
   .method-step { grid-template-columns: 40px 1fr; gap: 12px; }
