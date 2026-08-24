@@ -7,6 +7,13 @@
     <description>Technical reports from VulcanBench: frontier models measured on real engineering work, graded by deterministic hidden tests, with cost, tokens, and time as first-class results.</description>
     <language>en</language>
     <item>
+      <title>GLM 5.3 in ZCode vs a bare-bones harness | Report 18 | Harness Study No. 03</title>
+      <link>https://vulcanbench.com/benchmarks/18-glm53-zcode-harness.html</link>
+      <guid>https://vulcanbench.com/benchmarks/18-glm53-zcode-harness.html</guid>
+      <pubDate>Mon, 24 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The first subscription-harness study on VulcanBench: the same GLM 5.3 through Z.ai's own ZCode harness (GLM Coding Plan) and through a bare-bones API loop. The effort knob points opposite directions (78.3/73.9/65.2 raw vs 82.6/82.6/87.0 in ZCode), the harness is worth 21.8 points at max, and the failure modes split cleanly: every raw-API failure is a wall-clock timeout, every ZCode failure a finished wrong answer.</description>
+    </item>
+    <item>
       <title>Qwen3.8-27B across the effort knob | Report 17</title>
       <link>https://vulcanbench.com/benchmarks/17-qwen38-27b-effort.html</link>
       <guid>https://vulcanbench.com/benchmarks/17-qwen38-27b-effort.html</guid>
