@@ -290,6 +290,11 @@
     everything behind those rows: all 42 model&times;effort columns that have run on the frozen v3 suite. When a
     model&rsquo;s row says &ldquo;best: low&rdquo;, its medium and high columns are here too &mdash; low simply beat them.
     Click a column header to re-sort by score, cost, or speed.</p>
+    <div class="lb-toggle chart-toggle" id="fbChartToggle" role="tablist" aria-label="Full-board chart style">
+      <button type="button" role="tab" aria-selected="true" class="active" data-chart="bar">Full-board card</button>
+      <button type="button" role="tab" aria-selected="false" data-chart="pareto">Pareto &middot; all 42 columns</button>
+    </div>
+    <div id="fbChartBar">
     <figure style="margin-top:22px;">
       <img src="assets/leaderboard/v3-full-board.jpeg?v=4" alt="Full board card: all 42 model-by-effort columns rendered 2026-08-25, ranked by pass@1 from Grok 4.5 at high effort (90 percent) down to Muse Spark 1.2 at xhigh (52 percent), with per-column speed and cost panels and twelve per-model effort-curve cards including Muse Spark 1.2 and GLM 5.3" width="2560" height="4800" loading="lazy" decoding="async">
       <figcaption><b>Full-board card.</b> Every column, one render: rankings, speed, cost, and effort curves. Rendered 2026-08-25 with all 42 columns, including Muse Spark 1.2&rsquo;s three from <a href="benchmarks/19-musespark-effort.html">Report 19</a>.</figcaption>
@@ -298,119 +303,8 @@
       <a class="btn primary" href="https://x.com/intent/post?text=The%20full%20VulcanBench%20board%3A%2042%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Every%20reasoning-effort%20level%2C%20not%20just%20each%20model%27s%20best.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html%23full-board" target="_blank" rel="noopener">Share on X</a>
       <a class="btn" href="assets/leaderboard/v3-full-board.jpeg" download>Download full-board card</a>
     </div>
-
-    <div class="lb-section" style="margin-top:34px;">
-      <div class="lb-shead">
-        <div class="l"><b>All 42 columns</b> &middot; ranked by pass@1 &middot; click headers to sort</div>
-        <a href="methodology.html">How it is measured &rarr;</a>
-      </div>
-      <p class="lb-context">pass@1 here is shown to the whole percent, as on the card; the per-model reports carry the
-      decimals and per-task detail. Cost is total column spend at list API prices &divide; runs; single-pass columns
-      (n&le;23) carry wider uncertainty than repeat-swept ones. <span class="lb-tag" style="margin-left:0;">best</span>
-      marks the column that represents its model in the rankings above.</p>
-      <div class="lb-scroll">
-      <table class="lb" id="fullboard">
-        <thead><tr>
-          <th class="l sortable" data-key="rank">#</th>
-          <th class="l">Model</th>
-          <th class="l">Effort</th>
-          <th class="sortable" data-key="pass">pass@1</th>
-          <th class="sortable" data-key="cost">$/task run</th>
-          <th class="sortable" data-key="min">min/task</th>
-          <th class="sortable" data-key="runs">Runs</th>
-        </tr></thead>
-        <tbody>
-          <tr class="leader"><td class="l lb-rank" data-k="rank">1</td><td class="l"><a class="lb-model" href="models/grok-4-5.html">Grok 4.5</a><span class="fb-best">best</span></td><td class="fb-eff">high</td><td class="lb-win" data-k="pass">90%</td><td data-k="cost">$0.47</td><td data-k="min">8.4</td><td data-k="runs">50</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">2</td><td class="l"><a class="lb-model" href="models/claude-fable-5.html">Claude Fable 5</a><span class="fb-best">best</span></td><td class="fb-eff">low*</td><td data-k="pass">89%</td><td data-k="cost">$0.51</td><td data-k="min">3.5</td><td data-k="runs">19</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">3</td><td class="l"><a class="lb-model" href="models/deepseek-v4-flash.html">DeepSeek V4-Flash</a><span class="fb-best">best</span></td><td class="fb-eff">max</td><td data-k="pass">88%</td><td data-k="cost">$0.06</td><td data-k="min">11.2</td><td data-k="runs">68</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">4</td><td class="l"><a class="lb-model" href="models/deepseek-v4-flash.html">DeepSeek V4-Flash</a></td><td class="fb-eff">high</td><td data-k="pass">87%</td><td data-k="cost">$0.08</td><td data-k="min">12.0</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">5</td><td class="l"><a class="lb-model" href="models/deepseek-v4-pro.html">DeepSeek V4 Pro</a><span class="fb-best">best</span></td><td class="fb-eff">high</td><td data-k="pass">87%</td><td data-k="cost">$0.11</td><td data-k="min">7.4</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">6</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span><span class="fb-best">best</span></td><td class="fb-eff">medium</td><td data-k="pass">87%</td><td data-k="cost">$0.19</td><td data-k="min">2.3</td><td data-k="runs">69</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">7</td><td class="l"><a class="lb-model" href="models/muse-spark-1-2.html">Muse Spark 1.2</a><span class="fb-best">best</span><span class="lb-tag">New</span></td><td class="fb-eff">low&para;</td><td data-k="pass">87%</td><td data-k="cost">$0.36</td><td data-k="min">3.2</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">8</td><td class="l"><a class="lb-model" href="models/claude-opus-5.html">Claude Opus 5</a><span class="fb-best">best</span></td><td class="fb-eff">low&dagger;</td><td data-k="pass">87%</td><td data-k="cost">$0.61</td><td data-k="min">5.2</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">9</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a><span class="fb-best">best</span></td><td class="fb-eff">medium</td><td data-k="pass">87%</td><td data-k="cost">$0.69</td><td data-k="min">14.2</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">10</td><td class="l"><a class="lb-model" href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a><span class="fb-best">best</span></td><td class="fb-eff">high</td><td data-k="pass">87%</td><td data-k="cost">$0.69</td><td data-k="min">4.2</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">11</td><td class="l"><a class="lb-model" href="models/grok-4-5.html">Grok 4.5</a></td><td class="fb-eff">low*</td><td data-k="pass">86%</td><td data-k="cost">$0.11</td><td data-k="min">1.7</td><td data-k="runs">21</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">12</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span></td><td class="fb-eff">max*</td><td data-k="pass">86%</td><td data-k="cost">$0.84</td><td data-k="min">13</td><td data-k="runs">21</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">13</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span></td><td class="fb-eff">max*</td><td data-k="pass">86%</td><td data-k="cost">$2.29</td><td data-k="min">14</td><td data-k="runs">21</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">14</td><td class="l"><a class="lb-model" href="models/deepseek-v4-flash.html">DeepSeek V4-Flash</a></td><td class="fb-eff">low</td><td data-k="pass">86%</td><td data-k="cost">$0.04</td><td data-k="min">8.4</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">15</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span><span class="fb-best">best</span></td><td class="fb-eff">high</td><td data-k="pass">86%</td><td data-k="cost">$0.17</td><td data-k="min">3.8</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">16</td><td class="l"><a class="lb-model" href="models/grok-4-5.html">Grok 4.5</a></td><td class="fb-eff">medium</td><td data-k="pass">86%</td><td data-k="cost">$0.43</td><td data-k="min">8.5</td><td data-k="runs">50</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">17</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span></td><td class="fb-eff">high</td><td data-k="pass">86%</td><td data-k="cost">$0.38</td><td data-k="min">4.2</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">18</td><td class="l"><a class="lb-model" href="models/claude-fable-5.html">Claude Fable 5</a></td><td class="fb-eff">high*</td><td data-k="pass">85%</td><td data-k="cost">$0.90</td><td data-k="min">4.5</td><td data-k="runs">20</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">19</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a></td><td class="fb-eff">low</td><td data-k="pass">83%</td><td data-k="cost">$0.18</td><td data-k="min">4.8</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">20</td><td class="l"><a class="lb-model" href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a></td><td class="fb-eff">medium</td><td data-k="pass">83%</td><td data-k="cost">$0.38</td><td data-k="min">2.8</td><td data-k="runs">23</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">21</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a><span class="fb-best">best</span><span class="lb-tag">New</span></td><td class="fb-eff">medium&Dagger;</td><td data-k="pass">83%</td><td data-k="cost">$0.48</td><td data-k="min">6.8</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">22</td><td class="l"><a class="lb-model" href="models/claude-opus-5.html">Claude Opus 5</a></td><td class="fb-eff">medium&dagger;</td><td data-k="pass">83%</td><td data-k="cost">$1.05</td><td data-k="min">7.6</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">23</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span></td><td class="fb-eff">low</td><td data-k="pass">81%</td><td data-k="cost">$0.15</td><td data-k="min">2.0</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">24</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a><span class="fb-best">best</span></td><td class="fb-eff">low</td><td data-k="pass">81%</td><td data-k="cost">$0.61</td><td data-k="min">19.6</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">25</td><td class="l"><a class="lb-model" href="models/claude-fable-5.html">Claude Fable 5</a></td><td class="fb-eff">medium*</td><td data-k="pass">81%</td><td data-k="cost">$0.70</td><td data-k="min">3.8</td><td data-k="runs">21</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">26</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span></td><td class="fb-eff">medium</td><td data-k="pass">80%</td><td data-k="cost">$0.06</td><td data-k="min">2.1</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">27</td><td class="l"><a class="lb-model" href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a></td><td class="fb-eff">low</td><td data-k="pass">78%</td><td data-k="cost">$0.17</td><td data-k="min">1.5</td><td data-k="runs">23</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">28</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a><span class="fb-best">best</span><span class="lb-tag">New</span></td><td class="fb-eff">low&sect;</td><td data-k="pass">78%</td><td data-k="cost">$0.32</td><td data-k="min">3.1</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">29</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a></td><td class="fb-eff">xhigh</td><td data-k="pass">78%</td><td data-k="cost">$0.88</td><td data-k="min">15.8</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">30</td><td class="l"><a class="lb-model" href="models/claude-opus-5.html">Claude Opus 5</a></td><td class="fb-eff">high&dagger;</td><td data-k="pass">78%</td><td data-k="cost">$1.90</td><td data-k="min">13.6</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">31</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span></td><td class="fb-eff">low</td><td data-k="pass">77%</td><td data-k="cost">$0.03</td><td data-k="min">1.2</td><td data-k="runs">69</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">32</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a><span class="lb-tag">New</span></td><td class="fb-eff">low&Dagger;</td><td data-k="pass">77%</td><td data-k="cost">$0.71</td><td data-k="min">7.1</td><td data-k="runs">69</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">33</td><td class="l"><a class="lb-model" href="models/claude-haiku-4-5.html">Claude Haiku 4.5</a><span class="fb-best">best</span></td><td class="fb-eff">default*</td><td data-k="pass">76%</td><td data-k="cost">$0.42</td><td data-k="min">5.3</td><td data-k="runs">21</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">34</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a><span class="lb-tag">New</span></td><td class="fb-eff">high&sect;</td><td data-k="pass">74%</td><td data-k="cost">$0.45</td><td data-k="min">9.4</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">35</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a></td><td class="fb-eff">high<span class="fb-def">default</span></td><td data-k="pass">74%</td><td data-k="cost">$0.55</td><td data-k="min">16.3</td><td data-k="runs">23</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">36</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a><span class="lb-tag">New</span></td><td class="fb-eff">xhigh&Dagger;<span class="fb-def">default</span></td><td data-k="pass">74%</td><td data-k="cost">$0.69</td><td data-k="min">17.1</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">37</td><td class="l"><a class="lb-model" href="models/kimi-k3.html">Kimi K3</a><span class="fb-best">best</span></td><td class="fb-eff">extra-high*</td><td data-k="pass">74%</td><td data-k="cost">$0.69</td><td data-k="min">17.2</td><td data-k="runs">19</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">38</td><td class="l"><a class="lb-model" href="models/muse-spark-1-2.html">Muse Spark 1.2</a><span class="lb-tag">New</span></td><td class="fb-eff">high&para;</td><td data-k="pass">74%</td><td data-k="cost">$0.91</td><td data-k="min">12.4</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">39</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a></td><td class="fb-eff">medium</td><td data-k="pass">71%</td><td data-k="cost">$0.56</td><td data-k="min">21.7</td><td data-k="runs">69</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">40</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a><span class="lb-tag">New</span></td><td class="fb-eff">max&sect;<span class="fb-def">default</span></td><td data-k="pass">65%</td><td data-k="cost">$0.78</td><td data-k="min">20.1</td><td data-k="runs">23</td></tr>
-          <tr><td class="l lb-rank" data-k="rank">41</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a></td><td class="fb-eff">xhigh<span class="fb-def">default</span></td><td data-k="pass">55%</td><td data-k="cost">$0.71</td><td data-k="min">25.5</td><td data-k="runs">64</td></tr>
-          <tr class="fb-new"><td class="l lb-rank" data-k="rank">42</td><td class="l"><a class="lb-model" href="models/muse-spark-1-2.html">Muse Spark 1.2</a><span class="lb-tag">New</span></td><td class="fb-eff">xhigh&para;</td><td data-k="pass">52%</td><td data-k="cost">$1.18</td><td data-k="min">20.1</td><td data-k="runs">23</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <p class="prose" style="margin-top:14px;font-size:15px;">* Partial task coverage: Claude Fable 5 excludes tasks
-      refused by its safety filters (low 19/23, medium 21/23, high 20/23); Kimi K3 19/23; Claude Haiku 4.5 21/23;
-      Grok 4.5 low has 21/23 fresh tasks. &dagger; Claude Opus 5
-      columns are from <a href="benchmarks/10-opus5-effort.html">Report 10</a>. &Dagger; Qwen3.8-27B columns are from
-      <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a> (2026-08-21): single pass per level, times are medians
-      rather than means, and the low column aggregates its three runs. &sect; GLM 5.3 columns are from
-      <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a> (2026-08-24): one attempt per level, times are medians;
-      its ZCode-harness results in the same report are model plus product and are not board columns. GPT-5.6 Terra and Luna &ldquo;max&rdquo; columns are
-      partial-coverage single sweeps of a level OpenAI added after the main runs; per the board rule they cannot outrank
-      those models&rsquo; full columns. Five Qwen3.8-Max xhigh runs lost to 600s API read timeouts are excluded rather than
-      scored 0.</p>
     </div>
-
-    <div class="lb-note" style="margin-top:26px;">
-      <b>Watch the shipped defaults</b>
-      Where a provider documents what an unset request gets, that level is marked
-      <span class="fb-def" style="margin-left:0;">default</span> above &mdash; and on this suite it is never the best
-      column. Grok 4.6 defaults to high (74%, against 87% at medium) and the Qwen&nbsp;3.8 family defaults to xhigh
-      (55% for Max against 81% at low; 74% for the 27B against 83% at medium), and GLM 5.3 defaults to max, the bottom
-      of its ladder (65% against 78% at low; see <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a> for
-      what Z.ai&rsquo;s own harness does with the same knob). An untuned integration gets the worst measured setting of
-      all four; one request flag moves it to the best.
-    </div>
-
-    <section style="padding-top:8px;">
-      <div class="section-label">Speed</div>
-      <h2>Wall-clock minutes per task, every column.</h2>
-      <figure style="margin-top:22px;">
-        <img src="assets/leaderboard/v3-full-speed.jpeg?v=4" alt="Speed panel, all 42 model-by-effort columns fastest first: GPT-5.6 Luna low at 1.2 minutes per task, GLM 5.3 low at 3.1, Muse Spark 1.2 low at 3.2, Claude Fable 5 low 3.5, Grok 4.5 high 8.4, DeepSeek V4-Flash max 11, Grok 4.6 medium 14, up to Qwen3.8-Max xhigh at 25 minutes" width="2560" height="813" loading="lazy" decoding="async">
-        <figcaption><b>Speed panel.</b> Average sandbox wall-clock per task for every column, fastest first. Rendered
-        2026-08-25; Qwen3.8-27B&rsquo;s, GLM 5.3&rsquo;s, and Muse Spark 1.2&rsquo;s times are medians
-        (<a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>, <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>).</figcaption>
-      </figure>
-    </section>
-
-    <section style="padding-top:8px;">
-      <div class="section-label">Cost</div>
-      <h2>API spend per task run, every column.</h2>
-      <figure style="margin-top:22px;">
-        <img src="assets/leaderboard/v3-full-cost.jpeg?v=4" alt="Cost panel, all 42 model-by-effort columns lowest first: GPT-5.6 Luna low at 3 cents per task run, DeepSeek V4-Flash low 4 cents, GLM 5.3 low 32 cents, Grok 4.5 high 47 cents, Qwen3.8-27B medium 48 cents, up to Claude Opus 5 high at 1 dollar 90 and GPT-5.6 Terra max at 2 dollars 29" width="2560" height="818" loading="lazy" decoding="async">
-        <figcaption><b>Cost panel.</b> Total list-price API spend &divide; runs for every column, lowest first. The same
-        model can span more than an order of magnitude in cost across its own effort ladder. Negotiated, cached-input, and batch rates all
-        differ; treat these as relative, not quotes. Rendered 2026-08-25.</figcaption>
-      </figure>
-    </section>
-
+    <div id="fbChartPareto" class="lb-hidden">
     <section style="padding-top:8px;">
       <div class="section-label">The frontier</div>
       <h2>Which column should you actually run?</h2>
@@ -528,6 +422,120 @@
         table above &mdash; sort it by $/task run for the readable version of this picture.</figcaption>
       </figure>
     </section>
+    </div>
+
+    <div class="lb-section" style="margin-top:34px;">
+      <div class="lb-shead">
+        <div class="l"><b>All 42 columns</b> &middot; ranked by pass@1 &middot; click headers to sort</div>
+        <a href="methodology.html">How it is measured &rarr;</a>
+      </div>
+      <p class="lb-context">pass@1 here is shown to the whole percent, as on the card; the per-model reports carry the
+      decimals and per-task detail. Cost is total column spend at list API prices &divide; runs; single-pass columns
+      (n&le;23) carry wider uncertainty than repeat-swept ones. <span class="lb-tag" style="margin-left:0;">best</span>
+      marks the column that represents its model in the rankings above.</p>
+      <div class="lb-scroll">
+      <table class="lb" id="fullboard">
+        <thead><tr>
+          <th class="l sortable" data-key="rank">#</th>
+          <th class="l">Model</th>
+          <th class="l">Effort</th>
+          <th class="sortable" data-key="pass">pass@1</th>
+          <th class="sortable" data-key="cost">$/task run</th>
+          <th class="sortable" data-key="min">min/task</th>
+          <th class="sortable" data-key="runs">Runs</th>
+        </tr></thead>
+        <tbody>
+          <tr class="leader"><td class="l lb-rank" data-k="rank">1</td><td class="l"><a class="lb-model" href="models/grok-4-5.html">Grok 4.5</a><span class="fb-best">best</span></td><td class="fb-eff">high</td><td class="lb-win" data-k="pass">90%</td><td data-k="cost">$0.47</td><td data-k="min">8.4</td><td data-k="runs">50</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">2</td><td class="l"><a class="lb-model" href="models/claude-fable-5.html">Claude Fable 5</a><span class="fb-best">best</span></td><td class="fb-eff">low*</td><td data-k="pass">89%</td><td data-k="cost">$0.51</td><td data-k="min">3.5</td><td data-k="runs">19</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">3</td><td class="l"><a class="lb-model" href="models/deepseek-v4-flash.html">DeepSeek V4-Flash</a><span class="fb-best">best</span></td><td class="fb-eff">max</td><td data-k="pass">88%</td><td data-k="cost">$0.06</td><td data-k="min">11.2</td><td data-k="runs">68</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">4</td><td class="l"><a class="lb-model" href="models/deepseek-v4-flash.html">DeepSeek V4-Flash</a></td><td class="fb-eff">high</td><td data-k="pass">87%</td><td data-k="cost">$0.08</td><td data-k="min">12.0</td><td data-k="runs">69</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">5</td><td class="l"><a class="lb-model" href="models/deepseek-v4-pro.html">DeepSeek V4 Pro</a><span class="fb-best">best</span></td><td class="fb-eff">high</td><td data-k="pass">87%</td><td data-k="cost">$0.11</td><td data-k="min">7.4</td><td data-k="runs">69</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">6</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span><span class="fb-best">best</span></td><td class="fb-eff">medium</td><td data-k="pass">87%</td><td data-k="cost">$0.19</td><td data-k="min">2.3</td><td data-k="runs">69</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">7</td><td class="l"><a class="lb-model" href="models/muse-spark-1-2.html">Muse Spark 1.2</a><span class="fb-best">best</span><span class="lb-tag">New</span></td><td class="fb-eff">low&para;</td><td data-k="pass">87%</td><td data-k="cost">$0.36</td><td data-k="min">3.2</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">8</td><td class="l"><a class="lb-model" href="models/claude-opus-5.html">Claude Opus 5</a><span class="fb-best">best</span></td><td class="fb-eff">low&dagger;</td><td data-k="pass">87%</td><td data-k="cost">$0.61</td><td data-k="min">5.2</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">9</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a><span class="fb-best">best</span></td><td class="fb-eff">medium</td><td data-k="pass">87%</td><td data-k="cost">$0.69</td><td data-k="min">14.2</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">10</td><td class="l"><a class="lb-model" href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a><span class="fb-best">best</span></td><td class="fb-eff">high</td><td data-k="pass">87%</td><td data-k="cost">$0.69</td><td data-k="min">4.2</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">11</td><td class="l"><a class="lb-model" href="models/grok-4-5.html">Grok 4.5</a></td><td class="fb-eff">low*</td><td data-k="pass">86%</td><td data-k="cost">$0.11</td><td data-k="min">1.7</td><td data-k="runs">21</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">12</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span></td><td class="fb-eff">max*</td><td data-k="pass">86%</td><td data-k="cost">$0.84</td><td data-k="min">13</td><td data-k="runs">21</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">13</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span></td><td class="fb-eff">max*</td><td data-k="pass">86%</td><td data-k="cost">$2.29</td><td data-k="min">14</td><td data-k="runs">21</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">14</td><td class="l"><a class="lb-model" href="models/deepseek-v4-flash.html">DeepSeek V4-Flash</a></td><td class="fb-eff">low</td><td data-k="pass">86%</td><td data-k="cost">$0.04</td><td data-k="min">8.4</td><td data-k="runs">69</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">15</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span><span class="fb-best">best</span></td><td class="fb-eff">high</td><td data-k="pass">86%</td><td data-k="cost">$0.17</td><td data-k="min">3.8</td><td data-k="runs">69</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">16</td><td class="l"><a class="lb-model" href="models/grok-4-5.html">Grok 4.5</a></td><td class="fb-eff">medium</td><td data-k="pass">86%</td><td data-k="cost">$0.43</td><td data-k="min">8.5</td><td data-k="runs">50</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">17</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span></td><td class="fb-eff">high</td><td data-k="pass">86%</td><td data-k="cost">$0.38</td><td data-k="min">4.2</td><td data-k="runs">69</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">18</td><td class="l"><a class="lb-model" href="models/claude-fable-5.html">Claude Fable 5</a></td><td class="fb-eff">high*</td><td data-k="pass">85%</td><td data-k="cost">$0.90</td><td data-k="min">4.5</td><td data-k="runs">20</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">19</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a></td><td class="fb-eff">low</td><td data-k="pass">83%</td><td data-k="cost">$0.18</td><td data-k="min">4.8</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">20</td><td class="l"><a class="lb-model" href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a></td><td class="fb-eff">medium</td><td data-k="pass">83%</td><td data-k="cost">$0.38</td><td data-k="min">2.8</td><td data-k="runs">23</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">21</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a><span class="fb-best">best</span><span class="lb-tag">New</span></td><td class="fb-eff">medium&Dagger;</td><td data-k="pass">83%</td><td data-k="cost">$0.48</td><td data-k="min">6.8</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">22</td><td class="l"><a class="lb-model" href="models/claude-opus-5.html">Claude Opus 5</a></td><td class="fb-eff">medium&dagger;</td><td data-k="pass">83%</td><td data-k="cost">$1.05</td><td data-k="min">7.6</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">23</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span></td><td class="fb-eff">low</td><td data-k="pass">81%</td><td data-k="cost">$0.15</td><td data-k="min">2.0</td><td data-k="runs">69</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">24</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a><span class="fb-best">best</span></td><td class="fb-eff">low</td><td data-k="pass">81%</td><td data-k="cost">$0.61</td><td data-k="min">19.6</td><td data-k="runs">69</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">25</td><td class="l"><a class="lb-model" href="models/claude-fable-5.html">Claude Fable 5</a></td><td class="fb-eff">medium*</td><td data-k="pass">81%</td><td data-k="cost">$0.70</td><td data-k="min">3.8</td><td data-k="runs">21</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">26</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span></td><td class="fb-eff">medium</td><td data-k="pass">80%</td><td data-k="cost">$0.06</td><td data-k="min">2.1</td><td data-k="runs">69</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">27</td><td class="l"><a class="lb-model" href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a></td><td class="fb-eff">low</td><td data-k="pass">78%</td><td data-k="cost">$0.17</td><td data-k="min">1.5</td><td data-k="runs">23</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">28</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a><span class="fb-best">best</span><span class="lb-tag">New</span></td><td class="fb-eff">low&sect;</td><td data-k="pass">78%</td><td data-k="cost">$0.32</td><td data-k="min">3.1</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">29</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a></td><td class="fb-eff">xhigh</td><td data-k="pass">78%</td><td data-k="cost">$0.88</td><td data-k="min">15.8</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">30</td><td class="l"><a class="lb-model" href="models/claude-opus-5.html">Claude Opus 5</a></td><td class="fb-eff">high&dagger;</td><td data-k="pass">78%</td><td data-k="cost">$1.90</td><td data-k="min">13.6</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">31</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span></td><td class="fb-eff">low</td><td data-k="pass">77%</td><td data-k="cost">$0.03</td><td data-k="min">1.2</td><td data-k="runs">69</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">32</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a><span class="lb-tag">New</span></td><td class="fb-eff">low&Dagger;</td><td data-k="pass">77%</td><td data-k="cost">$0.71</td><td data-k="min">7.1</td><td data-k="runs">69</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">33</td><td class="l"><a class="lb-model" href="models/claude-haiku-4-5.html">Claude Haiku 4.5</a><span class="fb-best">best</span></td><td class="fb-eff">default*</td><td data-k="pass">76%</td><td data-k="cost">$0.42</td><td data-k="min">5.3</td><td data-k="runs">21</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">34</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a><span class="lb-tag">New</span></td><td class="fb-eff">high&sect;</td><td data-k="pass">74%</td><td data-k="cost">$0.45</td><td data-k="min">9.4</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">35</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a></td><td class="fb-eff">high<span class="fb-def">default</span></td><td data-k="pass">74%</td><td data-k="cost">$0.55</td><td data-k="min">16.3</td><td data-k="runs">23</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">36</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a><span class="lb-tag">New</span></td><td class="fb-eff">xhigh&Dagger;<span class="fb-def">default</span></td><td data-k="pass">74%</td><td data-k="cost">$0.69</td><td data-k="min">17.1</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">37</td><td class="l"><a class="lb-model" href="models/kimi-k3.html">Kimi K3</a><span class="fb-best">best</span></td><td class="fb-eff">extra-high*</td><td data-k="pass">74%</td><td data-k="cost">$0.69</td><td data-k="min">17.2</td><td data-k="runs">19</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">38</td><td class="l"><a class="lb-model" href="models/muse-spark-1-2.html">Muse Spark 1.2</a><span class="lb-tag">New</span></td><td class="fb-eff">high&para;</td><td data-k="pass">74%</td><td data-k="cost">$0.91</td><td data-k="min">12.4</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">39</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a></td><td class="fb-eff">medium</td><td data-k="pass">71%</td><td data-k="cost">$0.56</td><td data-k="min">21.7</td><td data-k="runs">69</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">40</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a><span class="lb-tag">New</span></td><td class="fb-eff">max&sect;<span class="fb-def">default</span></td><td data-k="pass">65%</td><td data-k="cost">$0.78</td><td data-k="min">20.1</td><td data-k="runs">23</td></tr>
+          <tr><td class="l lb-rank" data-k="rank">41</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a></td><td class="fb-eff">xhigh<span class="fb-def">default</span></td><td data-k="pass">55%</td><td data-k="cost">$0.71</td><td data-k="min">25.5</td><td data-k="runs">64</td></tr>
+          <tr class="fb-new"><td class="l lb-rank" data-k="rank">42</td><td class="l"><a class="lb-model" href="models/muse-spark-1-2.html">Muse Spark 1.2</a><span class="lb-tag">New</span></td><td class="fb-eff">xhigh&para;</td><td data-k="pass">52%</td><td data-k="cost">$1.18</td><td data-k="min">20.1</td><td data-k="runs">23</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="prose" style="margin-top:14px;font-size:15px;">* Partial task coverage: Claude Fable 5 excludes tasks
+      refused by its safety filters (low 19/23, medium 21/23, high 20/23); Kimi K3 19/23; Claude Haiku 4.5 21/23;
+      Grok 4.5 low has 21/23 fresh tasks. &dagger; Claude Opus 5
+      columns are from <a href="benchmarks/10-opus5-effort.html">Report 10</a>. &Dagger; Qwen3.8-27B columns are from
+      <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a> (2026-08-21): single pass per level, times are medians
+      rather than means, and the low column aggregates its three runs. &sect; GLM 5.3 columns are from
+      <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a> (2026-08-24): one attempt per level, times are medians;
+      its ZCode-harness results in the same report are model plus product and are not board columns. GPT-5.6 Terra and Luna &ldquo;max&rdquo; columns are
+      partial-coverage single sweeps of a level OpenAI added after the main runs; per the board rule they cannot outrank
+      those models&rsquo; full columns. Five Qwen3.8-Max xhigh runs lost to 600s API read timeouts are excluded rather than
+      scored 0.</p>
+    </div>
+
+    <div class="lb-note" style="margin-top:26px;">
+      <b>Watch the shipped defaults</b>
+      Where a provider documents what an unset request gets, that level is marked
+      <span class="fb-def" style="margin-left:0;">default</span> above &mdash; and on this suite it is never the best
+      column. Grok 4.6 defaults to high (74%, against 87% at medium) and the Qwen&nbsp;3.8 family defaults to xhigh
+      (55% for Max against 81% at low; 74% for the 27B against 83% at medium), and GLM 5.3 defaults to max, the bottom
+      of its ladder (65% against 78% at low; see <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a> for
+      what Z.ai&rsquo;s own harness does with the same knob). An untuned integration gets the worst measured setting of
+      all four; one request flag moves it to the best.
+    </div>
+
+    <section style="padding-top:8px;">
+      <div class="section-label">Speed</div>
+      <h2>Wall-clock minutes per task, every column.</h2>
+      <figure style="margin-top:22px;">
+        <img src="assets/leaderboard/v3-full-speed.jpeg?v=4" alt="Speed panel, all 42 model-by-effort columns fastest first: GPT-5.6 Luna low at 1.2 minutes per task, GLM 5.3 low at 3.1, Muse Spark 1.2 low at 3.2, Claude Fable 5 low 3.5, Grok 4.5 high 8.4, DeepSeek V4-Flash max 11, Grok 4.6 medium 14, up to Qwen3.8-Max xhigh at 25 minutes" width="2560" height="813" loading="lazy" decoding="async">
+        <figcaption><b>Speed panel.</b> Average sandbox wall-clock per task for every column, fastest first. Rendered
+        2026-08-25; Qwen3.8-27B&rsquo;s, GLM 5.3&rsquo;s, and Muse Spark 1.2&rsquo;s times are medians
+        (<a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>, <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>).</figcaption>
+      </figure>
+    </section>
+
+    <section style="padding-top:8px;">
+      <div class="section-label">Cost</div>
+      <h2>API spend per task run, every column.</h2>
+      <figure style="margin-top:22px;">
+        <img src="assets/leaderboard/v3-full-cost.jpeg?v=4" alt="Cost panel, all 42 model-by-effort columns lowest first: GPT-5.6 Luna low at 3 cents per task run, DeepSeek V4-Flash low 4 cents, GLM 5.3 low 32 cents, Grok 4.5 high 47 cents, Qwen3.8-27B medium 48 cents, up to Claude Opus 5 high at 1 dollar 90 and GPT-5.6 Terra max at 2 dollars 29" width="2560" height="818" loading="lazy" decoding="async">
+        <figcaption><b>Cost panel.</b> Total list-price API spend &divide; runs for every column, lowest first. The same
+        model can span more than an order of magnitude in cost across its own effort ladder. Negotiated, cached-input, and batch rates all
+        differ; treat these as relative, not quotes. Rendered 2026-08-25.</figcaption>
+      </figure>
+    </section>
+
   </section>
 
   <section style="padding-top:8px;">
@@ -760,10 +768,11 @@
 
 (function () {
   "use strict";
-  var toggle = document.getElementById("chartToggle");
-  var bar = document.getElementById("chartBar");
-  var pareto = document.getElementById("chartPareto");
-  if (toggle && bar && pareto) {
+  function bindChartToggle(toggleId, barId, paretoId, board) {
+    var toggle = document.getElementById(toggleId);
+    var bar = document.getElementById(barId);
+    var pareto = document.getElementById(paretoId);
+    if (!toggle || !bar || !pareto) return;
     var cbuttons = toggle.querySelectorAll("button");
     Array.prototype.forEach.call(cbuttons, function (b) {
       b.addEventListener("click", function () {
@@ -776,12 +785,14 @@
           x.setAttribute("aria-selected", active ? "true" : "false");
         });
         if (typeof window.gtag === "function") {
-          window.gtag("event", "lb_chart_toggle", { chart: chart });
+          window.gtag("event", "lb_chart_toggle", { chart: chart, board: board });
         }
       });
     });
     toggle.classList.add("on"); // shown only when JS runs; without it the bar card renders alone
   }
+  bindChartToggle("chartToggle", "chartBar", "chartPareto", "best");
+  bindChartToggle("fbChartToggle", "fbChartBar", "fbChartPareto", "full");
 
   function bindTip(figId, tipId) {
     var fig = document.getElementById(figId);
