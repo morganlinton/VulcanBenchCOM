@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muse Spark 1.2 across the effort knob | Report 19 | VulcanBench</title>
+<meta name="description" content="Meta's Muse Spark 1.2 on VulcanBench v3: the steepest effort inversion measured on the suite. 87.0% pass@1 at low reasoning effort, 52.2% at xhigh, and every failure at rising effort a wall-clock timeout rather than a wrong answer.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/19-musespark-effort.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Muse Spark 1.2 across the effort knob | Report 19 | VulcanBench">
+<meta property="og:description" content="The steepest effort inversion measured on v3: 87.0% at low, 52.2% at xhigh, -34.8 points. Higher effort converts wrong answers into wall-clock timeouts; at low it ties the board's 87.0% cluster at $0.41 per solved task.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/19-musespark-effort.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report19-musespark.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Muse Spark 1.2: the steepest backward effort knob yet">
+<meta name="twitter:description" content="87.0% at low effort, 52.2% at xhigh, -34.8 points. The failures at high effort are not wrong answers; they are runs that reasoned until the clock ran out.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report19-musespark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Muse Spark 1.2 across the effort knob | Report 19",
+  "description": "Meta's Muse Spark 1.2 on VulcanBench v3: the steepest effort inversion measured on the suite. 87.0% pass@1 at low reasoning effort, 52.2% at xhigh, and every failure at rising effort a wall-clock timeout rather than a wrong answer.",
+  "url": "https://vulcanbench.com/benchmarks/19-musespark-effort.html",
+  "mainEntityOfPage": "https://vulcanbench.com/benchmarks/19-musespark-effort.html",
+  "image": "https://vulcanbench.com/assets/cards/report19-musespark.png",
+  "datePublished": "2026-08-25",
+  "dateModified": "2026-08-25",
+  "author": { "@type": "Organization", "name": "VulcanBench", "url": "https://vulcanbench.com/" },
+  "publisher": { "@type": "Organization", "name": "VulcanBench",
+    "logo": { "@type": "ImageObject", "url": "https://vulcanbench.com/assets/logo.png" } }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=28">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">Custom evals</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 19</div>
+    <h1>Muse Spark 1.2 across the effort knob</h1>
+    <p class="byline">Meta&rsquo;s flagship coding model on the full v3 suite: twenty-three real merged post-cutoff PRs across five languages, at low, high, and xhigh reasoning effort, through the Meta Model API and VulcanBench&rsquo;s uniform agent loop. The steepest effort inversion measured on this suite, ahead of <a href="12-qwen38-max.html">Qwen3.8-Max</a> and <a href="18-glm53-zcode-harness.html">GLM 5.3&rsquo;s raw API</a>.</p>
+    <div class="runmeta">2026-08-25 &middot; 23 tasks &middot; 69 runs &middot; 3 effort levels &middot; v3 suite</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p><strong>The reasoning dial runs backward, and further than any model measured here.</strong>
+    Muse Spark 1.2 scores 87.0% pass@1 at low effort, tying the four-model 87.0% cluster on the Eval Suite 3 board at $0.41
+    per solved task. At high it falls to 73.9%, at xhigh to 52.2%: 34.8 points surrendered to the model&rsquo;s own effort
+    setting. The mechanism is visible in the per-step numbers. At higher effort the model emits 2 to 33&times; the output
+    tokens per agent step on the same task, so runs that low effort finishes in minutes instead run out their wall clock:
+    timeouts climb 0, 5, 10 while wrong answers fall 3, 1, 1. Ten of the fifteen timed-out runs had written no patch at all
+    when the budget killed them. The budgets are the suite&rsquo;s standing rules, identical for every model on the board and
+    unchanged since Report No.&nbsp;07.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report19-musespark.png" alt="Report card: Muse Spark 1.2 scores 87.0 percent at low effort, 73.9 at high, and 52.2 at xhigh, the steepest backward effort curve measured on VulcanBench v3" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> The steepest backward effort knob on the board, whiskers &plusmn;1 stderr. GLM 5.3&rsquo;s raw-API curve (Report No.&nbsp;18) shown for scale.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>Effort buys timeouts, not answers.</h2>
+    <div class="table-scroll compact" role="region" aria-label="Effort results" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Effort</th><th>pass@1</th><th>Solved</th><th>Wrong</th><th>Timeouts</th><th>Median time/task</th><th>$/solved</th></tr></thead>
+      <tbody>
+        <tr><td class="model">low</td><td class="win">87.0% &plusmn;7.0</td><td class="win">20/23</td><td>3</td><td class="win">0</td><td class="win">3.2 min</td><td class="win">$0.41</td></tr>
+        <tr><td class="model">high</td><td>73.9% &plusmn;9.2</td><td>17/23</td><td>1</td><td>5</td><td>12.4 min</td><td>$1.23</td></tr>
+        <tr><td class="model">xhigh</td><td>52.2% &plusmn;10.4</td><td>12/23</td><td>1</td><td>10</td><td>20.1 min</td><td>$2.27</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">One attempt per task per level, judges off, $56.36 total. Runs
+    executed 2026-08-25 against the Meta Model API (<code>muse-spark-1.2</code>), effort set via <code>reasoning.effort</code>
+    (the documented minimal/low/medium/high/xhigh enum; <code>minimal</code> and <code>medium</code> were not measured, and
+    Meta does not document what an unset request runs at). pass@1 is the mean per-task success rate; the integrity audit
+    flagged zero contaminated runs.</p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>The steepest backward knob measured on v3.</strong> Low leads xhigh by 34.8 points, ahead of Qwen3.8-Max&rsquo;s 26.1 (<a href="12-qwen38-max.html">Report No.&nbsp;12</a>), GLM 5.3&rsquo;s 13.1 on the raw API (<a href="18-glm53-zcode-harness.html">Report No.&nbsp;18</a>), and Claude Opus 5&rsquo;s 9 (Report No.&nbsp;10). The gap is more than triple the &plusmn;7 to 10 point single-pass uncertainty.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Why the runs failed: slower steps against a fixed clock.</strong> Every task carries a wall-clock budget scaled by repo size (20, 45, or 60 minutes), the same for every model on the board and unchanged since Report No.&nbsp;07. At higher effort Muse Spark emits 2 to 33&times; the output tokens per agent step on the same task (<em>itertools-strip-prefix</em>: ~140 tokens/step and solved in 7 minutes at low; ~4,600 tokens/step and killed at the 60-minute wall at xhigh). All fifteen timeouts ran out that clock; none hit the step ceiling or a cost cap.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>The timeouts are empty-handed, not near misses.</strong> VulcanBench grades whatever patch exists when a run is cut off, so partial work counts. In ten of the fifteen timed-out runs the patch was zero bytes: the model reasoned for its entire budget without writing a line. Eight of the fifteen are tasks the same model solves at low in 1.6 to 12 minutes.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>At low effort this is a board-tying debut.</strong> 87.0% matches the four-model 87.0% cluster (DeepSeek V4 Pro, GPT-5.6 Terra, GPT-5.6 Sol, Claude Opus 5, Grok 4.6), behind only Grok 4.5, Claude Fable 5, and DeepSeek V4-Flash, at $0.36 per task and a 3.2-minute median. Judged at xhigh instead, the same model is mid-board at 52.2%.</p></div>
+      <div class="finding"><div class="fn">5.</div><p><strong>The unsolvable trio holds.</strong> <em>networkx-leiden-communities</em>, <em>pennylane-trotter-fragmented</em>, and <em>sqlglot-canonicalize-internal-names</em> score zero at every setting, the same three tasks that survived Qwen3.8-Max everywhere and that GLM 5.3&rsquo;s raw API never finished. Extra reasoning rescues none of the suite&rsquo;s hardest tasks; it only endangers the solvable ones.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Breakdown</div>
+    <h2>The backward knob, across the board.</h2>
+    <div class="table-scroll compact" role="region" aria-label="Cross-model effort comparison" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Model (report)</th><th>best</th><th>worst</th><th>drop</th><th>failure mode at the top</th></tr></thead>
+      <tbody>
+        <tr><td class="model">Muse Spark 1.2 (No. 19)</td><td>87.0% low</td><td>52.2% xhigh</td><td>&minus;34.8</td><td>10 of 11 failures are timeouts</td></tr>
+        <tr><td class="model">Qwen3.8-Max (No. 12)</td><td>81.2% low</td><td>55.1% xhigh</td><td>&minus;26.1</td><td>every failure unfinished</td></tr>
+        <tr><td class="model">GLM 5.3 raw API (No. 18)</td><td>78.3% low</td><td>65.2% max</td><td>&minus;13.1</td><td>7 of 8 failures are timeouts</td></tr>
+        <tr><td class="model">Qwen3.8-27B (No. 17)</td><td>82.6% low</td><td>73.9% xhigh</td><td>&minus;8.7</td><td>every failure unfinished</td></tr>
+        <tr><td class="model">Claude Opus 5 (No. 10)</td><td>87.0% low</td><td>78.3% xhigh</td><td>&minus;8.7</td><td>mixed</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Five models, one pattern: on real engineering tasks under real
+    budgets, the maker&rsquo;s higher reasoning settings score worse than the lowest one, and the deficit is unfinished work.
+    The counterexample remains <a href="18-glm53-zcode-harness.html">Report No.&nbsp;18</a>&rsquo;s ZCode track, where a product
+    harness turned the same knob right-side up.</p>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Caveats</div>
+    <h2>What this measurement can and cannot say.</h2>
+    <div class="prose">
+      <p>This is a single-pass measurement, so the per-column standard errors are wide (&plusmn;7 to 10 points) and the
+      high-versus-xhigh ordering is suggestive; the low-versus-xhigh inversion and the wrong-versus-timeout composition are
+      the categorical signals. <code>minimal</code> and <code>medium</code> were not measured, and because Meta does not
+      document the unset default, this report cannot say what an untuned integration gets, only that it has a two-in-five
+      chance of a good setting.</p>
+      <p>The budgets are a fixed property of the suite, not of this report: 20 to 60 minutes by repo size, identical for
+      every model on the board since Report No.&nbsp;07. With an unbounded clock, xhigh might finish more of what it times
+      out on; agents in production do not get an unbounded clock. The low column reuses five identical-configuration runs
+      from a 2026-08-12 invocation via <code>--only-missing</code>; the other 64 runs are fresh.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>VulcanBench v3: 23 tasks from real merged post-cutoff PRs (Python 9, TypeScript 4, Rust 4, Go 3, JavaScript 3),
+      graded by deterministic hidden tests in network-isolated Docker; model judges disabled. Runs executed 2026-08-25
+      against the Meta Model API&rsquo;s OpenAI-compatible Responses endpoint, priced at $1.25 input / $4.25 output per
+      million tokens. Effort mapping: low&rarr;low, high&rarr;high, extra-high&rarr;xhigh. Every run&rsquo;s effort metadata
+      confirms the requested level was sent and accepted, and the integrity audit (web and filesystem channels) flagged zero
+      contaminated runs. The full model card, per-task outcome matrix, and chart generator are in the
+      <a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/v3-musespark-2026-08">open repository</a>.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-musespark-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="https://x.com/intent/post?text=Muse%20Spark%201.2%3A%20the%20steepest%20backward%20effort%20knob%20yet%20%28VulcanBench%29&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2F19-musespark-effort.html" target="_blank" rel="noopener">Share on X</a>
+      <a class="btn" href="../assets/cards/report19-musespark.png" download>Download report card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=14" defer></script>
+</body>
+</html>

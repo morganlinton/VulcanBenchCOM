@@ -7,6 +7,13 @@
     <description>Technical reports from VulcanBench: frontier models measured on real engineering work, graded by deterministic hidden tests, with cost, tokens, and time as first-class results.</description>
     <language>en</language>
     <item>
+      <title>Muse Spark 1.2 across the effort knob | Report 19</title>
+      <link>https://vulcanbench.com/benchmarks/19-musespark-effort.html</link>
+      <guid>https://vulcanbench.com/benchmarks/19-musespark-effort.html</guid>
+      <pubDate>Tue, 25 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Meta's Muse Spark 1.2 on VulcanBench v3: the steepest effort inversion measured on the suite (87.0% at low, 73.9% at high, 52.2% at xhigh, -34.8 points). Higher effort converts wrong answers into wall-clock timeouts (0, 5, 10) under the same 20/45/60-minute budgets every model on the board gets, and ten of the fifteen timed-out runs had written no patch at all. At low effort it ties the board's 87.0% cluster at $0.41 per solved task.</description>
+    </item>
+    <item>
       <title>GLM 5.3 in ZCode vs a bare-bones harness | Report 18 | Harness Study No. 03</title>
       <link>https://vulcanbench.com/benchmarks/18-glm53-zcode-harness.html</link>
       <guid>https://vulcanbench.com/benchmarks/18-glm53-zcode-harness.html</guid>
