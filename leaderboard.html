@@ -128,19 +128,100 @@
   </div>
 
   <div class="lb-toggle" id="lbToggle" role="tablist" aria-label="Leaderboard view">
-    <button type="button" role="tab" id="lbTabBest" aria-selected="true" aria-controls="view-best" class="active" data-view="best">Best per model &middot; <span class="n">14</span></button>
+    <button type="button" role="tab" id="lbTabBest" aria-selected="true" aria-controls="view-best" class="active" data-view="best">Best per model &middot; <span class="n">15</span></button>
     <button type="button" role="tab" id="lbTabFull" aria-selected="false" aria-controls="full-board" data-view="full">Full board &middot; <span class="n">42</span> columns</button>
   </div>
 
   <div id="view-best" role="tabpanel" aria-labelledby="lbTabBest">
+  <div class="lb-toggle chart-toggle" id="chartToggle" role="tablist" aria-label="Chart style">
+    <button type="button" role="tab" aria-selected="true" class="active" data-chart="bar">Bar rankings</button>
+    <button type="button" role="tab" aria-selected="false" data-chart="pareto">Pareto &middot; cost vs pass@1</button>
+  </div>
+  <div id="chartBar">
   <figure>
-    <img src="assets/leaderboard/v3-rankings.png?v=3" alt="VulcanBench Eval Suite 3 rankings: Grok 4.5 at 90 percent pass at one, Claude Fable 5 at 89, DeepSeek V4-Flash at 88, then DeepSeek V4 Pro, GPT-5.6 Terra, Claude Opus 5, Grok 4.6, and GPT-5.6 Sol at 87, GPT-5.6 Luna 86, Qwen3.8-27B 83, Qwen3.8-Max 81, GLM 5.3 at 78, Claude Haiku 4.5 76, Kimi K3 74" width="2560" height="2080" loading="eager" decoding="async">
+    <img src="assets/leaderboard/v3-rankings.png?v=3" alt="VulcanBench Eval Suite 3 rankings: Grok 4.5 at 90 percent pass at one, Claude Fable 5 at 89, DeepSeek V4-Flash at 88, then DeepSeek V4 Pro, GPT-5.6 Terra, Muse Spark 1.2, Claude Opus 5, Grok 4.6, and GPT-5.6 Sol at 87, GPT-5.6 Luna 86, Qwen3.8-27B 83, Qwen3.8-Max 81, GLM 5.3 at 78, Claude Haiku 4.5 76, Kimi K3 74" width="2560" height="2080" loading="eager" decoding="async">
     <figcaption><b>Rankings card.</b> pass@1 by model at its best-scoring effort, whiskers &plusmn;1 stderr, with cost per task run and run count alongside. Rendered 2026-08-25 with all fifteen models, including Muse Spark 1.2 (<a href="benchmarks/19-musespark-effort.html">Report 19</a>) and GLM 5.3 (<a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>).</figcaption>
   </figure>
 
   <div class="dl-row" style="margin-top:6px;justify-content:center;">
     <a class="btn primary" href="https://x.com/intent/post?text=VulcanBench%20Eval%20Suite%203%20leaderboard%3A%2015%20frontier%20models%2C%20every%20reasoning-effort%20level%20swept%3A%2042%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Grok%204.5%20leads%20at%2090%25.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html" target="_blank" rel="noopener">Share on X</a>
     <a class="btn" href="assets/leaderboard/v3-rankings.png" download>Download rankings card</a>
+  </div>
+  </div>
+
+  <div id="chartPareto" class="lb-hidden">
+  <figure class="pareto-fig" id="paretoBestFig">
+    <svg viewBox="0 0 960 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="paretoBestTitle" font-family="IBM Plex Mono, SF Mono, monospace" id="paretoBestSvg">
+<title id="paretoBestTitle">Cost versus pass at 1 for each of the fifteen models at its best-scoring effort; the Pareto frontier is DeepSeek V4-Flash max and Grok 4.5 high</title>
+<line x1="66" y1="440.4" x2="934" y2="440.4" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="57" y="444.4" text-anchor="end" font-size="12" fill="#6f6a62">55</text>
+<line x1="66" y1="384.8" x2="934" y2="384.8" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="57" y="388.8" text-anchor="end" font-size="12" fill="#6f6a62">60</text>
+<line x1="66" y1="329.3" x2="934" y2="329.3" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="57" y="333.3" text-anchor="end" font-size="12" fill="#6f6a62">65</text>
+<line x1="66" y1="273.7" x2="934" y2="273.7" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="57" y="277.7" text-anchor="end" font-size="12" fill="#6f6a62">70</text>
+<line x1="66" y1="218.1" x2="934" y2="218.1" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="57" y="222.1" text-anchor="end" font-size="12" fill="#6f6a62">75</text>
+<line x1="66" y1="162.5" x2="934" y2="162.5" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="57" y="166.5" text-anchor="end" font-size="12" fill="#6f6a62">80</text>
+<line x1="66" y1="106.9" x2="934" y2="106.9" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="57" y="110.9" text-anchor="end" font-size="12" fill="#6f6a62">85</text>
+<line x1="66" y1="51.3" x2="934" y2="51.3" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="57" y="55.3" text-anchor="end" font-size="12" fill="#6f6a62">90</text>
+<line x1="92.3" y1="18" x2="92.3" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="92.3" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$0.03</text>
+<line x1="186.4" y1="18" x2="186.4" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="186.4" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$0.05</text>
+<line x1="314.0" y1="18" x2="314.0" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="314.0" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$0.1</text>
+<line x1="441.6" y1="18" x2="441.6" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="441.6" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$0.2</text>
+<line x1="610.3" y1="18" x2="610.3" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="610.3" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$0.5</text>
+<line x1="738.0" y1="18" x2="738.0" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="738.0" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$1</text>
+<line x1="865.6" y1="18" x2="865.6" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
+<text x="865.6" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$2</text>
+<text x="500" y="546" text-anchor="middle" font-size="12.5" fill="#3a362f">$ per task run (log scale)</text>
+<text x="18" y="257" text-anchor="middle" font-size="12.5" fill="#3a362f" transform="rotate(-90 18 257)">pass@1 (%)</text>
+<path d="M 220.0 69.1 L 599.0 69.1 L 599.0 52.5" fill="none" stroke="#b4490c" stroke-width="2" stroke-opacity="0.85"/>
+<g class="pt" data-tip="DeepSeek V4-Flash (max) &middot; 88.4% &middot; $0.06/run &middot; frontier"><circle cx="220.0" cy="69.1" r="7.5" fill="#4d7ce8" stroke="#f7f4ee" stroke-width="2"/><circle cx="220.0" cy="69.1" r="14" fill="transparent"><title>DeepSeek V4-Flash (max) &middot; 88.4% &middot; $0.06/run &middot; frontier</title></circle></g>
+<g class="pt" data-tip="Grok 4.5 (high) &middot; 89.9% &middot; $0.47/run &middot; frontier"><circle cx="599.0" cy="52.5" r="7.5" fill="#1c1a17" stroke="#f7f4ee" stroke-width="2"/><circle cx="599.0" cy="52.5" r="14" fill="transparent"><title>Grok 4.5 (high) &middot; 89.9% &middot; $0.47/run &middot; frontier</title></circle></g>
+<g class="pt" data-tip="Claude Fable 5 (low) &middot; 89.5% &middot; $0.51/run"><circle cx="614.0" cy="56.9" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="614.0" cy="56.9" r="14" fill="transparent"><title>Claude Fable 5 (low) &middot; 89.5% &middot; $0.51/run</title></circle></g>
+<g class="pt" data-tip="DeepSeek V4 Pro (high) &middot; 87.0% &middot; $0.11/run"><circle cx="331.6" cy="84.7" r="6.5" fill="#4d7ce8" stroke="#f7f4ee" stroke-width="2"/><circle cx="331.6" cy="84.7" r="14" fill="transparent"><title>DeepSeek V4 Pro (high) &middot; 87.0% &middot; $0.11/run</title></circle></g>
+<g class="pt" data-tip="GPT-5.6 Terra (medium) &middot; 87.0% &middot; $0.19/run"><circle cx="432.2" cy="84.7" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="432.2" cy="84.7" r="14" fill="transparent"><title>GPT-5.6 Terra (medium) &middot; 87.0% &middot; $0.19/run</title></circle></g>
+<g class="pt" data-tip="Muse Spark 1.2 (low) &middot; 87.0% &middot; $0.36/run"><path d="M 549.9 77.60000000000001 L 556.4 89.5 L 543.4 89.5 Z" fill="#0866ff" stroke="#f7f4ee" stroke-width="2"/><circle cx="549.9" cy="84.7" r="14" fill="transparent"><title>Muse Spark 1.2 (low) &middot; 87.0% &middot; $0.36/run</title></circle></g>
+<g class="pt" data-tip="Claude Opus 5 (low) &middot; 87.0% &middot; $0.61/run"><circle cx="647.0" cy="84.7" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="647.0" cy="84.7" r="14" fill="transparent"><title>Claude Opus 5 (low) &middot; 87.0% &middot; $0.61/run</title></circle></g>
+<g class="pt" data-tip="Grok 4.6 (medium) + GPT-5.6 Sol (high) &middot; both 87.0% &middot; $0.69/run"><circle cx="669.6" cy="84.7" r="6.5" fill="#1c1a17" stroke="#f7f4ee" stroke-width="2"/><circle cx="669.6" cy="84.7" r="14" fill="transparent"><title>Grok 4.6 (medium) + GPT-5.6 Sol (high) &middot; both 87.0% &middot; $0.69/run</title></circle></g>
+<g class="pt" data-tip="GPT-5.6 Luna (high) &middot; 85.5% &middot; $0.17/run"><circle cx="411.7" cy="101.4" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="411.7" cy="101.4" r="14" fill="transparent"><title>GPT-5.6 Luna (high) &middot; 85.5% &middot; $0.17/run</title></circle></g>
+<g class="pt" data-tip="Qwen3.8-27B (medium) &middot; 82.6% &middot; $0.48/run"><rect x="597.3" y="128.1" width="11.0" height="11.0" fill="#a83ac2" stroke="#f7f4ee" stroke-width="2"/><circle cx="602.8" cy="133.6" r="14" fill="transparent"><title>Qwen3.8-27B (medium) &middot; 82.6% &middot; $0.48/run</title></circle></g>
+<g class="pt" data-tip="Qwen3.8-Max (low) &middot; 81.2% &middot; $0.61/run"><rect x="641.5" y="143.7" width="11.0" height="11.0" fill="#a83ac2" stroke="#f7f4ee" stroke-width="2"/><circle cx="647.0" cy="149.2" r="14" fill="transparent"><title>Qwen3.8-Max (low) &middot; 81.2% &middot; $0.61/run</title></circle></g>
+<g class="pt" data-tip="GLM 5.3 (low) &middot; 78.3% &middot; $0.32/run"><path d="M 526.4 174.3 L 532.9 186.20000000000002 L 519.9 186.20000000000002 Z" fill="#0e7a8a" stroke="#f7f4ee" stroke-width="2"/><circle cx="526.4" cy="181.4" r="14" fill="transparent"><title>GLM 5.3 (low) &middot; 78.3% &middot; $0.32/run</title></circle></g>
+<g class="pt" data-tip="Claude Haiku 4.5 (default) &middot; 76.2% &middot; $0.42/run"><circle cx="578.2" cy="204.8" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="578.2" cy="204.8" r="14" fill="transparent"><title>Claude Haiku 4.5 (default) &middot; 76.2% &middot; $0.42/run</title></circle></g>
+<g class="pt" data-tip="Kimi K3 (extra-high) &middot; 73.7% &middot; $0.69/run"><path d="M 669.6 222.0 L 680.1 232.5 L 669.6 243.0 L 659.1 232.5 Z" fill="#46465e" stroke="#f7f4ee" stroke-width="2"/><circle cx="669.6" cy="232.5" r="14" fill="transparent"><title>Kimi K3 (extra-high) &middot; 73.7% &middot; $0.69/run</title></circle></g>
+<text x="591.0" y="40.5" text-anchor="end" font-size="11.5" fill="#3a362f">Grok 4.5 high</text>
+<text x="626.0" y="62.9" text-anchor="start" font-size="11.5" fill="#3a362f">Fable 5 low</text>
+<text x="230.0" y="61.1" text-anchor="start" font-size="11.5" fill="#3a362f">V4-Flash max</text>
+<text x="321.6" y="88.7" text-anchor="end" font-size="11.5" fill="#3a362f">V4 Pro high</text>
+<text x="432.2" y="73.0" text-anchor="middle" font-size="11.5" fill="#3a362f">Terra med</text>
+<text x="549.9" y="104.9" text-anchor="middle" font-size="11.5" fill="#3a362f">Muse Spark low</text>
+<text x="647.0" y="104.9" text-anchor="middle" font-size="11.5" fill="#3a362f">Opus 5 low</text>
+<text x="681.6" y="88.7" text-anchor="start" font-size="11.5" fill="#3a362f">Grok 4.6 med + Sol high</text>
+<text x="399.7" y="105.4" text-anchor="end" font-size="11.5" fill="#3a362f">Luna high</text>
+<text x="614.8" y="137.6" text-anchor="start" font-size="11.5" fill="#3a362f">Qwen 27B med</text>
+<text x="659.0" y="153.2" text-anchor="start" font-size="11.5" fill="#3a362f">Qwen-Max low</text>
+<text x="514.4" y="185.4" text-anchor="end" font-size="11.5" fill="#3a362f">GLM 5.3 low</text>
+<text x="566.2" y="208.8" text-anchor="end" font-size="11.5" fill="#3a362f">Haiku 4.5</text>
+<text x="684.1" y="236.5" text-anchor="start" font-size="11.5" fill="#3a362f">Kimi K3</text>
+</svg>
+    <div class="pareto-tip" id="paretoBestTip" role="status"></div>
+    <figcaption style="margin-top:12px;"><b>Pareto view.</b> The same fifteen rows as the bar chart, plotted as
+    pass@1 against list-price cost per task run (log scale), each model at its best-scoring effort. The stepped line is
+    the frontier: only <b>DeepSeek V4-Flash max</b> and <b>Grok 4.5 high</b> survive it; every other model&rsquo;s best
+    column is beaten on both axes by one of those two. Grok 4.6 medium and GPT-5.6 Sol high plot at the identical point.
+    Hover any point for its column; <a href="#full-board">the frontier chart below</a> plots all 42 columns.</figcaption>
+  </figure>
   </div>
 
   <div class="lb-section">
@@ -679,9 +760,33 @@
 
 (function () {
   "use strict";
-  var fig = document.getElementById("paretoFig");
-  var tip = document.getElementById("paretoTip");
-  if (!fig || !tip) return;
+  var toggle = document.getElementById("chartToggle");
+  var bar = document.getElementById("chartBar");
+  var pareto = document.getElementById("chartPareto");
+  if (toggle && bar && pareto) {
+    var cbuttons = toggle.querySelectorAll("button");
+    Array.prototype.forEach.call(cbuttons, function (b) {
+      b.addEventListener("click", function () {
+        var chart = b.getAttribute("data-chart");
+        bar.classList.toggle("lb-hidden", chart === "pareto");
+        pareto.classList.toggle("lb-hidden", chart !== "pareto");
+        Array.prototype.forEach.call(cbuttons, function (x) {
+          var active = x === b;
+          x.classList.toggle("active", active);
+          x.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "lb_chart_toggle", { chart: chart });
+        }
+      });
+    });
+    toggle.classList.add("on"); // shown only when JS runs; without it the bar card renders alone
+  }
+
+  function bindTip(figId, tipId) {
+    var fig = document.getElementById(figId);
+    var tip = document.getElementById(tipId);
+    if (!fig || !tip) return;
   fig.addEventListener("mousemove", function (e) {
     var g = e.target.closest ? e.target.closest(".pt") : null;
     if (!g) { tip.style.display = "none"; return; }
@@ -692,7 +797,10 @@
     if (x + tip.offsetWidth > r.width - 4) x = e.clientX - r.left - tip.offsetWidth - 14;
     tip.style.left = x + "px"; tip.style.top = y + "px";
   });
-  fig.addEventListener("mouseleave", function () { tip.style.display = "none"; });
+    fig.addEventListener("mouseleave", function () { tip.style.display = "none"; });
+  }
+  bindTip("paretoFig", "paretoTip");
+  bindTip("paretoBestFig", "paretoBestTip");
 })();
 </script>
 </body>

@@ -539,6 +539,11 @@ tr.leader td.l:first-child { box-shadow: inset 3px 0 0 var(--ember); }
 .lb-toggle button.active .n { color: var(--ember-bright); }
 .lb-hidden { display: none !important; }
 
+/* compact bar/pareto sub-toggle inside the best-per-model view */
+.chart-toggle { margin: 22px 0 0; }
+.chart-toggle button { font-size: 11px; letter-spacing: 1.6px; padding: 8px 16px; }
+
+
 /* ==== full board (every model x effort column) ==== */
 table.lb thead th.sortable { cursor: pointer; user-select: none; }
 table.lb thead th.sortable:hover { color: var(--ember); }
