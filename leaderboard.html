@@ -135,13 +135,48 @@
     high columns are here too &mdash; low simply beat them.
     Click a column header to re-sort by score, cost, or speed.</p>
     <div class="lb-toggle chart-toggle" id="fbChartToggle" role="tablist" aria-label="Full-board chart style">
-      <button type="button" role="tab" aria-selected="true" class="active" data-chart="bar">Full-board card</button>
+      <button type="button" role="tab" aria-selected="true" class="active" data-chart="bar">Bar rankings</button>
       <button type="button" role="tab" aria-selected="false" data-chart="pareto">Pareto &middot; all 42 columns</button>
     </div>
     <div id="fbChartBar">
-    <figure style="margin-top:22px;">
-      <img src="assets/leaderboard/v3-full-board.jpeg?v=4" alt="Full board card: all 42 model-by-effort columns rendered 2026-08-25, ranked by pass@1 from Grok 4.5 at high effort (90 percent) down to Muse Spark 1.2 at xhigh (52 percent), with per-column speed and cost panels and twelve per-model effort-curve cards including Muse Spark 1.2 and GLM 5.3" width="2560" height="4800" loading="lazy" decoding="async">
-      <figcaption><b>Full-board card.</b> Every column, one render: rankings, speed, cost, and effort curves. Rendered 2026-08-25 with all 42 columns, including Muse Spark 1.2&rsquo;s three from <a href="benchmarks/19-musespark-effort.html">Report 19</a>.</figcaption>
+    <style>
+      .bc-controls { position: relative; display: flex; align-items: center; gap: 10px; margin-top: 18px; }
+      .bc-btn { font: inherit; font-size: 14px; color: #1c1a17; background: #fff; border: 1px solid rgba(28,26,23,0.25); border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+      .bc-btn:hover { border-color: rgba(28,26,23,0.5); }
+      .bc-btn .car { font-size: 11px; opacity: 0.6; margin-left: 4px; }
+      .bc-menu { position: absolute; z-index: 30; top: calc(100% + 6px); left: 0; min-width: 240px; max-height: 340px; overflow-y: auto; background: #fff; border: 1px solid rgba(28,26,23,0.25); border-radius: 8px; box-shadow: 0 8px 24px rgba(28,26,23,0.14); padding: 8px; }
+      .bc-menu[hidden] { display: none; }
+      .bc-acts { display: flex; gap: 6px; padding: 2px 4px 8px; border-bottom: 1px solid rgba(28,26,23,0.1); margin-bottom: 6px; }
+      .bc-acts button { font: inherit; font-size: 12.5px; background: none; border: 1px solid rgba(28,26,23,0.25); border-radius: 5px; padding: 3px 9px; cursor: pointer; color: #3a362f; }
+      .bc-acts button:hover { border-color: rgba(28,26,23,0.5); }
+      .bc-menu label { display: flex; align-items: center; gap: 8px; font-size: 14px; padding: 5px 6px; border-radius: 5px; cursor: pointer; }
+      .bc-menu label:hover { background: rgba(28,26,23,0.05); }
+      .bc-menu .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+      .bc-hint { font-size: 13px; color: #6f6a62; }
+      .bc-chart { margin-top: 16px; }
+      .bc-row { display: grid; grid-template-columns: 200px 1fr; align-items: center; gap: 10px; padding: 3px 0; }
+      .bc-lab { font-size: 13.5px; color: #1c1a17; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .bc-lab .eff { color: #6f6a62; font-size: 12.5px; }
+      .bc-lab .bst { color: #b4490c; font-size: 11px; font-weight: 600; margin-left: 4px; }
+      .bc-track { display: flex; align-items: center; gap: 8px; min-width: 0; }
+      .bc-bar { height: 15px; border-radius: 0 3px 3px 0; min-width: 2px; }
+      .bc-val { font-size: 12.5px; color: #3a362f; white-space: nowrap; }
+      .bc-empty { padding: 30px 0; text-align: center; color: #6f6a62; font-size: 14.5px; }
+      @media (max-width: 620px) {
+        .bc-row { grid-template-columns: 1fr; gap: 2px; padding: 5px 0; }
+        .bc-lab { text-align: left; }
+      }
+    </style>
+    <div class="bc-controls">
+      <button type="button" class="bc-btn" id="bcBtn" aria-haspopup="true" aria-expanded="false" aria-controls="bcMenu">Models &middot; <span id="bcCount">15/15</span><span class="car">&#9662;</span></button>
+      <span class="bc-hint">pick which models appear; every tested effort level of each is shown</span>
+      <div class="bc-menu" id="bcMenu" hidden role="group" aria-label="Models on the chart"></div>
+    </div>
+    <figure style="margin-top:6px;">
+      <div class="bc-chart" id="bcChart" aria-live="polite"></div>
+      <figcaption style="margin-top:12px;"><b>Bar rankings.</b> pass@1 for every model&times;effort column of the models
+      picked above, ranked highest first; ties order by cheaper run. Colors follow the Pareto legend below; <span style="color:#b4490c;font-weight:600;">best</span>
+      marks each model&rsquo;s top-scoring level. Data is the same 42-column table further down.</figcaption>
     </figure>
     <div class="dl-row" style="margin-top:6px;justify-content:center;">
       <a class="btn primary" href="https://x.com/intent/post?text=The%20full%20VulcanBench%20board%3A%2042%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Every%20reasoning-effort%20level%2C%20not%20just%20each%20model%27s%20best.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html%23full-board" target="_blank" rel="noopener">Share on X</a>
@@ -571,6 +606,89 @@
       th.classList.add(dir === 1 ? "sorted-asc" : "sorted-desc");
     });
   });
+})();
+
+(function () {
+  "use strict";
+  // model, lab, effort, pass@1 %, $/run, min/task, best-for-model
+  var DATA = [["Grok 4.5","xAI","high",89.9,0.47,8.4,1],["Claude Fable 5","Anthropic","low",89.5,0.51,3.5,1],["DeepSeek V4-Flash","DeepSeek","max",88.4,0.06,11.2,1],["DeepSeek V4-Flash","DeepSeek","high",87.0,0.08,12.0,0],["DeepSeek V4 Pro","DeepSeek","high",87.0,0.11,7.4,1],["GPT-5.6 Terra","OpenAI","medium",87.0,0.19,2.3,1],["Muse Spark 1.2","Meta","low",87.0,0.36,3.2,1],["Claude Opus 5","Anthropic","low",87.0,0.61,5.2,1],["Grok 4.6","xAI","medium",87.0,0.69,14.2,1],["GPT-5.6 Sol","OpenAI","high",87.0,0.69,4.2,1],["Grok 4.5","xAI","low",86,0.11,1.7,0],["GPT-5.6 Luna","OpenAI","max",86,0.84,13,0],["GPT-5.6 Terra","OpenAI","max",86,2.29,14,0],["DeepSeek V4-Flash","DeepSeek","low",86,0.04,8.4,0],["GPT-5.6 Luna","OpenAI","high",85.5,0.17,3.8,1],["Grok 4.5","xAI","medium",86,0.43,8.5,0],["GPT-5.6 Terra","OpenAI","high",86,0.38,4.2,0],["Claude Fable 5","Anthropic","high",85,0.9,4.5,0],["Grok 4.6","xAI","low",82.6,0.18,4.8,0],["GPT-5.6 Sol","OpenAI","medium",82.6,0.38,2.8,0],["Qwen3.8-27B","Alibaba","medium",82.6,0.48,6.8,1],["Claude Opus 5","Anthropic","medium",82.6,1.05,7.6,0],["GPT-5.6 Terra","OpenAI","low",81,0.15,2.0,0],["Qwen3.8-Max","Alibaba","low",81.2,0.61,19.6,1],["Claude Fable 5","Anthropic","medium",81,0.7,3.8,0],["GPT-5.6 Luna","OpenAI","medium",80,0.06,2.1,0],["GPT-5.6 Sol","OpenAI","low",78.3,0.17,1.5,0],["GLM 5.3","Z.ai","low",78.3,0.32,3.1,1],["Grok 4.6","xAI","xhigh",78.3,0.88,15.8,0],["Claude Opus 5","Anthropic","high",78.3,1.9,13.6,0],["GPT-5.6 Luna","OpenAI","low",77,0.03,1.2,0],["Qwen3.8-27B","Alibaba","low",76.8,0.71,7.1,0],["Claude Haiku 4.5","Anthropic","default",76.2,0.42,5.3,1],["GLM 5.3","Z.ai","high",73.9,0.45,9.4,0],["Grok 4.6","xAI","high",73.9,0.55,16.3,0],["Qwen3.8-27B","Alibaba","xhigh",73.9,0.69,17.1,0],["Kimi K3","Moonshot","extra-high",73.7,0.69,17.2,1],["Muse Spark 1.2","Meta","high",73.9,0.91,12.4,0],["Qwen3.8-Max","Alibaba","medium",71.0,0.56,21.7,0],["GLM 5.3","Z.ai","max",65.2,0.78,20.1,0],["Qwen3.8-Max","Alibaba","xhigh",55.1,0.71,25.5,0],["Muse Spark 1.2","Meta","xhigh",52.2,1.18,20.1,0]];
+  var LAB = { "xAI": "#1c1a17", "Anthropic": "#c2643c", "DeepSeek": "#4d7ce8", "OpenAI": "#14976b", "Alibaba": "#a83ac2", "Z.ai": "#0e7a8a", "Meta": "#0866ff", "Moonshot": "#46465e" };
+
+  var btn = document.getElementById("bcBtn");
+  var menu = document.getElementById("bcMenu");
+  var chart = document.getElementById("bcChart");
+  var count = document.getElementById("bcCount");
+  if (!btn || !menu || !chart) return;
+
+  var models = [];
+  DATA.forEach(function (d) { if (models.indexOf(d[0]) === -1) models.push(d[0]); });
+  var selected = {};
+  models.forEach(function (m) { selected[m] = true; });
+
+  function pct(v) { return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(1)) + "%"; }
+
+  function render() {
+    var picked = models.filter(function (m) { return selected[m]; });
+    count.textContent = picked.length + "/" + models.length;
+    if (!picked.length) {
+      chart.innerHTML = '<div class="bc-empty">No models picked &mdash; open the Models menu to add some.</div>';
+      return;
+    }
+    var rows = DATA.filter(function (d) { return selected[d[0]]; }).slice();
+    rows.sort(function (a, b) { return (b[3] - a[3]) || (a[4] - b[4]); });
+    var html = rows.map(function (d) {
+      return '<div class="bc-row"><div class="bc-lab">' + d[0] +
+        ' <span class="eff">&middot; ' + d[2] + "</span>" + (d[6] ? '<span class="bst">best</span>' : "") +
+        '</div><div class="bc-track"><div class="bc-bar" style="width:' + d[3] +
+        '%;background:' + LAB[d[1]] + ';"></div><span class="bc-val">' + pct(d[3]) +
+        " &middot; $" + d[4].toFixed(2) + "/run</span></div></div>";
+    }).join("");
+    chart.innerHTML = html;
+  }
+
+  function renderMenu() {
+    var html = '<div class="bc-acts"><button type="button" data-act="all">All</button><button type="button" data-act="none">None</button></div>';
+    html += models.map(function (m) {
+      var lab = null;
+      DATA.some(function (d) { if (d[0] === m) { lab = d[1]; return true; } return false; });
+      return '<label><input type="checkbox" value="' + m + '"' + (selected[m] ? " checked" : "") +
+        '><span class="dot" style="background:' + LAB[lab] + ';"></span>' + m + "</label>";
+    }).join("");
+    menu.innerHTML = html;
+  }
+
+  btn.addEventListener("click", function () {
+    var open = menu.hasAttribute("hidden");
+    if (open) { menu.removeAttribute("hidden"); } else { menu.setAttribute("hidden", ""); }
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.addEventListener("click", function (e) {
+    if (menu.hasAttribute("hidden")) return;
+    // a click on All/None re-renders the menu and detaches its target mid-dispatch
+    if (!document.documentElement.contains(e.target)) return;
+    if (e.target === btn || btn.contains(e.target) || menu.contains(e.target)) return;
+    menu.setAttribute("hidden", "");
+    btn.setAttribute("aria-expanded", "false");
+  });
+  menu.addEventListener("change", function (e) {
+    if (e.target && e.target.type === "checkbox") {
+      selected[e.target.value] = e.target.checked;
+      render();
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "lb_model_filter", { models: models.filter(function (m) { return selected[m]; }).length });
+      }
+    }
+  });
+  menu.addEventListener("click", function (e) {
+    var act = e.target && e.target.getAttribute && e.target.getAttribute("data-act");
+    if (!act) return;
+    models.forEach(function (m) { selected[m] = act === "all"; });
+    renderMenu();
+    render();
+  });
+
+  renderMenu();
+  render();
 })();
 
 (function () {
