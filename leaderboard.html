@@ -183,7 +183,11 @@
 <text x="262.0" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$1</text>
 <line x1="134.4" y1="18" x2="134.4" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
 <text x="134.4" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$2</text>
-<text x="500" y="546" text-anchor="middle" font-size="12.5" fill="#3a362f">$ per task run (log scale) &middot; cheaper &rarr;</text>
+<line x1="66" y1="528" x2="920" y2="528" stroke="#3a362f" stroke-width="1.5"/>
+<path d="M 934 528 L 920 521.5 L 920 534.5 Z" fill="#3a362f"/>
+<text x="66" y="549" text-anchor="start" font-size="12.5" font-weight="600" fill="#3a362f">&larr; more expensive</text>
+<text x="500" y="549" text-anchor="middle" font-size="12.5" fill="#6f6a62">$ per task run (log scale)</text>
+<text x="934" y="549" text-anchor="end" font-size="12.5" font-weight="600" fill="#3a362f">cheaper &rarr;</text>
 <text x="18" y="257" text-anchor="middle" font-size="12.5" fill="#3a362f" transform="rotate(-90 18 257)">pass@1 (%)</text>
 <path  d="M 780.0 69.1 L 401.0 69.1 L 401.0 52.5" fill="none" stroke="#b4490c" stroke-width="2" stroke-opacity="0.85"/>
 <g class="pt" data-tip="DeepSeek V4-Flash (max) &middot; 88.4% &middot; $0.06/run &middot; frontier"><circle cx="780.0" cy="69.1" r="7.5" fill="#4d7ce8" stroke="#f7f4ee" stroke-width="2"/><circle cx="780.0" cy="69.1" r="14" fill="transparent"><title>DeepSeek V4-Flash (max) &middot; 88.4% &middot; $0.06/run &middot; frontier</title></circle></g>
@@ -228,7 +232,8 @@
     </div>
     <div class="pareto-tip" id="paretoBestTip" role="status"></div>
     <figcaption style="margin-top:12px;"><b>Pareto view.</b> The same fifteen rows as the bar chart, plotted as
-    pass@1 against list-price cost per task run (log scale), each model at its best-scoring effort. The stepped line is
+    pass@1 against list-price cost per task run (log scale). <b>Note the cost axis runs reversed:</b> cheapest is on the
+    <em>right</em>, so better sits toward the top-right corner. Each model plots at its best-scoring effort. The stepped line is
     the frontier: only <b>DeepSeek V4-Flash max</b> and <b>Grok 4.5 high</b> survive it; every other model&rsquo;s best
     column is beaten on both axes by one of those two. Grok 4.6 medium and GPT-5.6 Sol high plot at the identical point.
     Hover any point for its column; <a href="#full-board">the frontier chart below</a> plots all 42 columns.</figcaption>
@@ -357,7 +362,11 @@
 <text x="262.0" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$1</text>
 <line x1="134.4" y1="18" x2="134.4" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
 <text x="134.4" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$2</text>
-<text x="500" y="546" text-anchor="middle" font-size="12.5" fill="#3a362f">$ per task run (log scale) &middot; cheaper &rarr;</text>
+<line x1="66" y1="528" x2="920" y2="528" stroke="#3a362f" stroke-width="1.5"/>
+<path d="M 934 528 L 920 521.5 L 920 534.5 Z" fill="#3a362f"/>
+<text x="66" y="549" text-anchor="start" font-size="12.5" font-weight="600" fill="#3a362f">&larr; more expensive</text>
+<text x="500" y="549" text-anchor="middle" font-size="12.5" fill="#6f6a62">$ per task run (log scale)</text>
+<text x="934" y="549" text-anchor="end" font-size="12.5" font-weight="600" fill="#3a362f">cheaper &rarr;</text>
 <text x="18" y="257" text-anchor="middle" font-size="12.5" fill="#3a362f" transform="rotate(-90 18 257)">pass@1 (%)</text>
 <path  d="M 907.7 195.9 L 854.7 195.9 L 854.7 95.8 L 780.0 95.8 L 780.0 69.1 L 401.0 69.1 L 401.0 52.5" fill="none" stroke="#b4490c" stroke-width="2" stroke-opacity="0.85"/>
 <g class="pt" data-tip="Claude Fable 5 (low) — 89.5% · $0.51/run · 3.5 min"><circle cx="386.0" cy="56.9" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="386.0" cy="56.9" r="14" fill="transparent"><title>Claude Fable 5 (low) — 89.5% · $0.51/run · 3.5 min</title></circle></g>
@@ -429,7 +438,8 @@
         </div>
         <div class="pareto-tip" id="paretoTip" role="status"></div>
         <figcaption style="margin-top:12px;"><b>Frontier chart.</b> pass@1 against list-price cost per task run
-        (log scale) for all 42 columns; larger points and the stepped line mark the frontier. Same numbers as the
+        (log scale) for all 42 columns; cheapest is on the <em>right</em>, so better sits toward the top-right corner.
+        Larger points and the stepped line mark the frontier. Same numbers as the
         table above &mdash; sort it by $/task run for the readable version of this picture.</figcaption>
       </figure>
     </section>
