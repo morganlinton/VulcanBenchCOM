@@ -424,10 +424,25 @@
   <section style="padding-top:8px;">
     <div class="section-label">Effort curves</div>
     <h2>What happens when you turn the reasoning knob.</h2>
-    <p class="prose" style="margin-top:10px;font-size:17px;">This card shows every level that was tested, per model, on one shared y-scale: more reasoning is not reliably better on this suite, and for several models it is worse.</p>
-    <figure style="margin-top:22px;">
-      <img src="assets/leaderboard/v3-effort-curves.png?v=3" alt="Effort curves: pass@1 at each reasoning-effort level for eleven swept models. Grok 4.5, DeepSeek V4-Flash, GPT-5.6 Sol, and GPT-5.6 Luna rise with effort; GPT-5.6 Terra, Grok 4.6, and Qwen3.8-27B peak mid-ladder; Claude Fable 5 dips at medium; Claude Opus 5, Qwen3.8-Max, and GLM 5.3 fall as effort rises" width="2560" height="1440" loading="lazy" decoding="async">
-      <figcaption><b>Effort-curve card.</b> Each x-axis is that provider&rsquo;s own documented enum, not a common scale. Larger point = the model&rsquo;s best level. Rendered 2026-08-25 with all twelve swept models, including Muse Spark 1.2 (<a href="benchmarks/19-musespark-effort.html">Report 19</a>) and GLM 5.3 (<a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>), single-pass sweeps.</figcaption>
+    <p class="prose" style="margin-top:10px;font-size:17px;">Every level that was tested, per model, on one shared y-scale: more reasoning is not reliably better on this suite, and for several models it is worse.</p>
+    <style>
+      .ec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 16px; }
+      .ec-card { border: 1px solid rgba(28,26,23,0.14); border-radius: 8px; background: #fff; padding: 10px 8px 2px; }
+      .ec-name { display: flex; align-items: center; gap: 7px; font-size: 13.5px; color: #1c1a17; padding: 0 4px 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .ec-name .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+      .ec-card svg { width: 100%; height: auto; display: block; }
+    </style>
+    <div class="bc-controls">
+      <button type="button" class="bc-btn" id="ecBtn" aria-haspopup="true" aria-expanded="false" aria-controls="ecMenu">Models &middot; <span id="ecCount">15/15</span><span class="car">&#9662;</span></button>
+      <span class="bc-hint">pick which models appear; one card per model, its whole effort ladder</span>
+      <div class="bc-menu" id="ecMenu" hidden role="group" aria-label="Models on the effort curves"></div>
+    </div>
+    <figure style="margin-top:6px;">
+      <div class="ec-grid" id="ecGrid" aria-live="polite"></div>
+      <figcaption style="margin-top:12px;"><b>Effort curves.</b> pass@1 at each reasoning-effort level for the models
+      picked above, one shared y-scale (50&ndash;90%). Each x-axis is that provider&rsquo;s own documented enum, not a
+      common scale; the <span style="color:#b4490c;font-weight:600;">ringed</span> point is the model&rsquo;s best level.
+      Hover any point for its column. Single-setting models (Claude Haiku 4.5, Kimi K3) plot as one point.</figcaption>
     </figure>
     <div class="dl-row" style="margin-top:6px;justify-content:center;">
       <a class="btn" href="assets/leaderboard/v3-effort-curves.png" download>Download effort-curve card</a>
@@ -608,12 +623,13 @@
   });
 })();
 
+// model, lab, effort, pass@1 %, $/run, min/task, best-for-model
+var VB_DATA = [["Grok 4.5","xAI","high",89.9,0.47,8.4,1],["Claude Fable 5","Anthropic","low",89.5,0.51,3.5,1],["DeepSeek V4-Flash","DeepSeek","max",88.4,0.06,11.2,1],["DeepSeek V4-Flash","DeepSeek","high",87.0,0.08,12.0,0],["DeepSeek V4 Pro","DeepSeek","high",87.0,0.11,7.4,1],["GPT-5.6 Terra","OpenAI","medium",87.0,0.19,2.3,1],["Muse Spark 1.2","Meta","low",87.0,0.36,3.2,1],["Claude Opus 5","Anthropic","low",87.0,0.61,5.2,1],["Grok 4.6","xAI","medium",87.0,0.69,14.2,1],["GPT-5.6 Sol","OpenAI","high",87.0,0.69,4.2,1],["Grok 4.5","xAI","low",86,0.11,1.7,0],["GPT-5.6 Luna","OpenAI","max",86,0.84,13,0],["GPT-5.6 Terra","OpenAI","max",86,2.29,14,0],["DeepSeek V4-Flash","DeepSeek","low",86,0.04,8.4,0],["GPT-5.6 Luna","OpenAI","high",85.5,0.17,3.8,1],["Grok 4.5","xAI","medium",86,0.43,8.5,0],["GPT-5.6 Terra","OpenAI","high",86,0.38,4.2,0],["Claude Fable 5","Anthropic","high",85,0.9,4.5,0],["Grok 4.6","xAI","low",82.6,0.18,4.8,0],["GPT-5.6 Sol","OpenAI","medium",82.6,0.38,2.8,0],["Qwen3.8-27B","Alibaba","medium",82.6,0.48,6.8,1],["Claude Opus 5","Anthropic","medium",82.6,1.05,7.6,0],["GPT-5.6 Terra","OpenAI","low",81,0.15,2.0,0],["Qwen3.8-Max","Alibaba","low",81.2,0.61,19.6,1],["Claude Fable 5","Anthropic","medium",81,0.7,3.8,0],["GPT-5.6 Luna","OpenAI","medium",80,0.06,2.1,0],["GPT-5.6 Sol","OpenAI","low",78.3,0.17,1.5,0],["GLM 5.3","Z.ai","low",78.3,0.32,3.1,1],["Grok 4.6","xAI","xhigh",78.3,0.88,15.8,0],["Claude Opus 5","Anthropic","high",78.3,1.9,13.6,0],["GPT-5.6 Luna","OpenAI","low",77,0.03,1.2,0],["Qwen3.8-27B","Alibaba","low",76.8,0.71,7.1,0],["Claude Haiku 4.5","Anthropic","default",76.2,0.42,5.3,1],["GLM 5.3","Z.ai","high",73.9,0.45,9.4,0],["Grok 4.6","xAI","high",73.9,0.55,16.3,0],["Qwen3.8-27B","Alibaba","xhigh",73.9,0.69,17.1,0],["Kimi K3","Moonshot","extra-high",73.7,0.69,17.2,1],["Muse Spark 1.2","Meta","high",73.9,0.91,12.4,0],["Qwen3.8-Max","Alibaba","medium",71.0,0.56,21.7,0],["GLM 5.3","Z.ai","max",65.2,0.78,20.1,0],["Qwen3.8-Max","Alibaba","xhigh",55.1,0.71,25.5,0],["Muse Spark 1.2","Meta","xhigh",52.2,1.18,20.1,0]];
+var VB_LAB = { "xAI": "#1c1a17", "Anthropic": "#c2643c", "DeepSeek": "#4d7ce8", "OpenAI": "#14976b", "Alibaba": "#a83ac2", "Z.ai": "#0e7a8a", "Meta": "#0866ff", "Moonshot": "#46465e" };
+
 (function () {
   "use strict";
-  // model, lab, effort, pass@1 %, $/run, min/task, best-for-model
-  var DATA = [["Grok 4.5","xAI","high",89.9,0.47,8.4,1],["Claude Fable 5","Anthropic","low",89.5,0.51,3.5,1],["DeepSeek V4-Flash","DeepSeek","max",88.4,0.06,11.2,1],["DeepSeek V4-Flash","DeepSeek","high",87.0,0.08,12.0,0],["DeepSeek V4 Pro","DeepSeek","high",87.0,0.11,7.4,1],["GPT-5.6 Terra","OpenAI","medium",87.0,0.19,2.3,1],["Muse Spark 1.2","Meta","low",87.0,0.36,3.2,1],["Claude Opus 5","Anthropic","low",87.0,0.61,5.2,1],["Grok 4.6","xAI","medium",87.0,0.69,14.2,1],["GPT-5.6 Sol","OpenAI","high",87.0,0.69,4.2,1],["Grok 4.5","xAI","low",86,0.11,1.7,0],["GPT-5.6 Luna","OpenAI","max",86,0.84,13,0],["GPT-5.6 Terra","OpenAI","max",86,2.29,14,0],["DeepSeek V4-Flash","DeepSeek","low",86,0.04,8.4,0],["GPT-5.6 Luna","OpenAI","high",85.5,0.17,3.8,1],["Grok 4.5","xAI","medium",86,0.43,8.5,0],["GPT-5.6 Terra","OpenAI","high",86,0.38,4.2,0],["Claude Fable 5","Anthropic","high",85,0.9,4.5,0],["Grok 4.6","xAI","low",82.6,0.18,4.8,0],["GPT-5.6 Sol","OpenAI","medium",82.6,0.38,2.8,0],["Qwen3.8-27B","Alibaba","medium",82.6,0.48,6.8,1],["Claude Opus 5","Anthropic","medium",82.6,1.05,7.6,0],["GPT-5.6 Terra","OpenAI","low",81,0.15,2.0,0],["Qwen3.8-Max","Alibaba","low",81.2,0.61,19.6,1],["Claude Fable 5","Anthropic","medium",81,0.7,3.8,0],["GPT-5.6 Luna","OpenAI","medium",80,0.06,2.1,0],["GPT-5.6 Sol","OpenAI","low",78.3,0.17,1.5,0],["GLM 5.3","Z.ai","low",78.3,0.32,3.1,1],["Grok 4.6","xAI","xhigh",78.3,0.88,15.8,0],["Claude Opus 5","Anthropic","high",78.3,1.9,13.6,0],["GPT-5.6 Luna","OpenAI","low",77,0.03,1.2,0],["Qwen3.8-27B","Alibaba","low",76.8,0.71,7.1,0],["Claude Haiku 4.5","Anthropic","default",76.2,0.42,5.3,1],["GLM 5.3","Z.ai","high",73.9,0.45,9.4,0],["Grok 4.6","xAI","high",73.9,0.55,16.3,0],["Qwen3.8-27B","Alibaba","xhigh",73.9,0.69,17.1,0],["Kimi K3","Moonshot","extra-high",73.7,0.69,17.2,1],["Muse Spark 1.2","Meta","high",73.9,0.91,12.4,0],["Qwen3.8-Max","Alibaba","medium",71.0,0.56,21.7,0],["GLM 5.3","Z.ai","max",65.2,0.78,20.1,0],["Qwen3.8-Max","Alibaba","xhigh",55.1,0.71,25.5,0],["Muse Spark 1.2","Meta","xhigh",52.2,1.18,20.1,0]];
-  var LAB = { "xAI": "#1c1a17", "Anthropic": "#c2643c", "DeepSeek": "#4d7ce8", "OpenAI": "#14976b", "Alibaba": "#a83ac2", "Z.ai": "#0e7a8a", "Meta": "#0866ff", "Moonshot": "#46465e" };
-
+  var DATA = VB_DATA, LAB = VB_LAB;
   var btn = document.getElementById("bcBtn");
   var menu = document.getElementById("bcMenu");
   var chart = document.getElementById("bcChart");
@@ -676,6 +692,111 @@
       render();
       if (typeof window.gtag === "function") {
         window.gtag("event", "lb_model_filter", { models: models.filter(function (m) { return selected[m]; }).length });
+      }
+    }
+  });
+  menu.addEventListener("click", function (e) {
+    var act = e.target && e.target.getAttribute && e.target.getAttribute("data-act");
+    if (!act) return;
+    models.forEach(function (m) { selected[m] = act === "all"; });
+    renderMenu();
+    render();
+  });
+
+  renderMenu();
+  render();
+})();
+
+(function () {
+  "use strict";
+  var btn = document.getElementById("ecBtn");
+  var menu = document.getElementById("ecMenu");
+  var grid = document.getElementById("ecGrid");
+  var count = document.getElementById("ecCount");
+  if (!btn || !menu || !grid) return;
+
+  var ORD = { "default": 0, "low": 0, "medium": 1, "high": 2, "extra-high": 3, "xhigh": 3, "max": 4 };
+  var models = [];
+  var byModel = {};
+  VB_DATA.forEach(function (d) {
+    if (!byModel[d[0]]) { byModel[d[0]] = []; models.push(d[0]); }
+    byModel[d[0]].push(d);
+  });
+  models.forEach(function (m) {
+    byModel[m].sort(function (a, b) { return ORD[a[2]] - ORD[b[2]]; });
+  });
+  var selected = {};
+  models.forEach(function (m) { selected[m] = true; });
+
+  function pct(v) { return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(1)) + "%"; }
+  // shared y-scale: 50% -> y 96, 92% -> y 18
+  function py(p) { return 18 + (92 - p) * 78 / 42; }
+
+  function card(m) {
+    var rows = byModel[m];
+    var lab = rows[0][1];
+    var n = rows.length;
+    var svg = "";
+    [60, 70, 80, 90].forEach(function (g) {
+      svg += '<line x1="8" y1="' + py(g).toFixed(1) + '" x2="202" y2="' + py(g).toFixed(1) + '" stroke="#1c1a17" stroke-opacity="0.07"/>';
+    });
+    var pts = rows.map(function (d, i) {
+      var x = n === 1 ? 105 : 16 + i * (178 / (n - 1));
+      return { x: x, y: py(d[3]), d: d };
+    });
+    if (n > 1) {
+      svg += '<polyline points="' + pts.map(function (p) { return p.x.toFixed(1) + "," + p.y.toFixed(1); }).join(" ") +
+        '" fill="none" stroke="' + VB_LAB[lab] + '" stroke-width="2" stroke-opacity="0.75"/>';
+    }
+    pts.forEach(function (p) {
+      var d = p.d;
+      var tip = m + " (" + d[2] + ") &mdash; " + pct(d[3]) + " &middot; $" + d[4].toFixed(2) + "/run";
+      svg += '<g><circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="' + (d[6] ? 4.5 : 3) +
+        '" fill="' + VB_LAB[lab] + '"' + (d[6] ? ' stroke="#b4490c" stroke-width="2"' : "") + "/>" +
+        '<circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="11" fill="transparent"><title>' + tip + "</title></circle>" +
+        '<text x="' + p.x.toFixed(1) + '" y="' + (p.y - 8).toFixed(1) + '" text-anchor="middle" font-size="9.5" fill="#3a362f">' + pct(d[3]) + "</text>" +
+        '<text x="' + p.x.toFixed(1) + '" y="114" text-anchor="middle" font-size="9" fill="#6f6a62">' + d[2] + "</text></g>";
+    });
+    return '<div class="ec-card"><div class="ec-name"><span class="dot" style="background:' + VB_LAB[lab] + ';"></span>' + m +
+      '</div><svg viewBox="0 0 210 120" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, SF Mono, monospace" role="img" aria-label="Effort curve for ' + m + '">' + svg + "</svg></div>";
+  }
+
+  function render() {
+    var picked = models.filter(function (m) { return selected[m]; });
+    count.textContent = picked.length + "/" + models.length;
+    grid.innerHTML = picked.length
+      ? picked.map(card).join("")
+      : '<div class="bc-empty" style="grid-column:1/-1;">No models picked &mdash; open the Models menu to add some.</div>';
+  }
+
+  function renderMenu() {
+    var html = '<div class="bc-acts"><button type="button" data-act="all">All</button><button type="button" data-act="none">None</button></div>';
+    html += models.map(function (m) {
+      return '<label><input type="checkbox" value="' + m + '"' + (selected[m] ? " checked" : "") +
+        '><span class="dot" style="background:' + VB_LAB[byModel[m][0][1]] + ';"></span>' + m + "</label>";
+    }).join("");
+    menu.innerHTML = html;
+  }
+
+  btn.addEventListener("click", function () {
+    var open = menu.hasAttribute("hidden");
+    if (open) { menu.removeAttribute("hidden"); } else { menu.setAttribute("hidden", ""); }
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.addEventListener("click", function (e) {
+    if (menu.hasAttribute("hidden")) return;
+    // a click on All/None re-renders the menu and detaches its target mid-dispatch
+    if (!document.documentElement.contains(e.target)) return;
+    if (e.target === btn || btn.contains(e.target) || menu.contains(e.target)) return;
+    menu.setAttribute("hidden", "");
+    btn.setAttribute("aria-expanded", "false");
+  });
+  menu.addEventListener("change", function (e) {
+    if (e.target && e.target.type === "checkbox") {
+      selected[e.target.value] = e.target.checked;
+      render();
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "lb_curve_filter", { models: models.filter(function (m) { return selected[m]; }).length });
       }
     }
   });
