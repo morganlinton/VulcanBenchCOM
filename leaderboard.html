@@ -111,226 +111,28 @@
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">Eval Suite 3 &middot; the running board</div>
     <h1>Leaderboard</h1>
-    <p class="byline">Every model measured on Eval Suite 3, ranked by pass@1. Fifteen models, twenty-three frontier-hard tasks from real merged open-source PRs. Every model is swept across its whole reasoning-effort ladder; a row below shows its best-scoring level, and <a href="#full-board">the full board</a> shows all 42 columns.</p>
+    <p class="byline">Every model measured on Eval Suite 3, ranked by pass@1. Fifteen models, twenty-three frontier-hard tasks from real merged open-source PRs. Every model is swept across its whole reasoning-effort ladder, and the board shows all 42 model&times;effort columns &mdash; nothing collapsed, nothing hidden.</p>
     <div class="runmeta">Updated 2026-08-25 &middot; 23 tasks &middot; 15 models &middot; 42 model&times;effort columns &middot; 1,651 runs &middot; v3 suite</div>
   </div>
 
   <div class="lb-note">
     <b>How to read this</b>
     Every model here was run at <em>every</em> reasoning-effort level its API documents &mdash; that sweep is the whole
-    point of VulcanBench. Each row shows the model at the level that scored best for it on this suite (ties break to the
-    cheaper run; a partial-coverage sweep cannot outrank a full one), so &ldquo;<span class="mono">best: low</span>&rdquo;
-    means low <em>beat</em> the higher settings, not that only low was tested. The small print under each name is the
-    model&rsquo;s full ladder; the complete 42-column board is <a href="#full-board">one click away</a>. Whiskers on the
-    cards are &plusmn;1 standard error, and on this suite that matters: twelve of the fifteen models sit within one
-    stderr of the leader, so the order inside that band is not supported by the data. Cost and speed are where they
-    actually separate.
+    point of VulcanBench, and every column is on the board: a model appears once per level, not once. The
+    <span class="mono">best</span> tag marks the level that scored highest for that model (ties break to the cheaper
+    run; a partial-coverage sweep cannot outrank a full one), so a tagged &ldquo;low&rdquo; means low <em>beat</em> the
+    higher settings, not that only low was tested. On this suite the uncertainty matters: twelve of the fifteen models
+    sit within one standard error of the leader, so the order inside that band is not supported by the data. Cost and
+    speed are where they actually separate.
   </div>
 
-  <div class="lb-toggle" id="lbToggle" role="tablist" aria-label="Leaderboard view">
-    <button type="button" role="tab" id="lbTabBest" aria-selected="true" aria-controls="view-best" class="active" data-view="best">Best per model &middot; <span class="n">15</span></button>
-    <button type="button" role="tab" id="lbTabFull" aria-selected="false" aria-controls="full-board" data-view="full">Full board &middot; <span class="n">42</span> columns</button>
-  </div>
 
-  <div id="view-best" role="tabpanel" aria-labelledby="lbTabBest">
-  <div class="lb-toggle chart-toggle" id="chartToggle" role="tablist" aria-label="Chart style">
-    <button type="button" role="tab" aria-selected="true" class="active" data-chart="bar">Bar rankings</button>
-    <button type="button" role="tab" aria-selected="false" data-chart="pareto">Pareto &middot; cost vs pass@1, all 42 columns</button>
-  </div>
-  <div id="chartBar">
-  <figure>
-    <img src="assets/leaderboard/v3-rankings.png?v=3" alt="VulcanBench Eval Suite 3 rankings: Grok 4.5 at 90 percent pass at one, Claude Fable 5 at 89, DeepSeek V4-Flash at 88, then DeepSeek V4 Pro, GPT-5.6 Terra, Muse Spark 1.2, Claude Opus 5, Grok 4.6, and GPT-5.6 Sol at 87, GPT-5.6 Luna 86, Qwen3.8-27B 83, Qwen3.8-Max 81, GLM 5.3 at 78, Claude Haiku 4.5 76, Kimi K3 74" width="2560" height="2080" loading="eager" decoding="async">
-    <figcaption><b>Rankings card.</b> pass@1 by model at its best-scoring effort, whiskers &plusmn;1 stderr, with cost per task run and run count alongside. Rendered 2026-08-25 with all fifteen models, including Muse Spark 1.2 (<a href="benchmarks/19-musespark-effort.html">Report 19</a>) and GLM 5.3 (<a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>).</figcaption>
-  </figure>
-
-  <div class="dl-row" style="margin-top:6px;justify-content:center;">
-    <a class="btn primary" href="https://x.com/intent/post?text=VulcanBench%20Eval%20Suite%203%20leaderboard%3A%2015%20frontier%20models%2C%20every%20reasoning-effort%20level%20swept%3A%2042%20model%C3%97effort%20columns%20on%2023%20real%20merged-PR%20tasks.%20Grok%204.5%20leads%20at%2090%25.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fleaderboard.html" target="_blank" rel="noopener">Share on X</a>
-    <a class="btn" href="assets/leaderboard/v3-rankings.png" download>Download rankings card</a>
-  </div>
-  </div>
-
-  <div id="chartPareto" class="lb-hidden">
-  <figure class="pareto-fig" id="paretoBestFig">
-    <svg viewBox="0 0 960 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="paretoBestTitle" font-family="IBM Plex Mono, SF Mono, monospace" id="paretoBestSvg">
-<title id="paretoBestTitle">Cost versus pass at 1 for all 42 model-by-effort columns, cheapest on the left; the Pareto frontier is GPT-5.6 Luna low, DeepSeek V4-Flash low, DeepSeek V4-Flash max, and Grok 4.5 high</title>
-<line x1="66" y1="440.4" x2="934" y2="440.4" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="57" y="444.4" text-anchor="end" font-size="12" fill="#6f6a62">55</text>
-<line x1="66" y1="384.8" x2="934" y2="384.8" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="57" y="388.8" text-anchor="end" font-size="12" fill="#6f6a62">60</text>
-<line x1="66" y1="329.2" x2="934" y2="329.2" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="57" y="333.2" text-anchor="end" font-size="12" fill="#6f6a62">65</text>
-<line x1="66" y1="273.6" x2="934" y2="273.6" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="57" y="277.6" text-anchor="end" font-size="12" fill="#6f6a62">70</text>
-<line x1="66" y1="218.1" x2="934" y2="218.1" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="57" y="222.1" text-anchor="end" font-size="12" fill="#6f6a62">75</text>
-<line x1="66" y1="162.5" x2="934" y2="162.5" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="57" y="166.5" text-anchor="end" font-size="12" fill="#6f6a62">80</text>
-<line x1="66" y1="106.9" x2="934" y2="106.9" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="57" y="110.9" text-anchor="end" font-size="12" fill="#6f6a62">85</text>
-<line x1="66" y1="51.3" x2="934" y2="51.3" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="57" y="55.3" text-anchor="end" font-size="12" fill="#6f6a62">90</text>
-<line x1="92.3" y1="18" x2="92.3" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="92.3" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$0.03</text>
-<line x1="186.4" y1="18" x2="186.4" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="186.4" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$0.05</text>
-<line x1="314.1" y1="18" x2="314.1" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="314.1" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$0.1</text>
-<line x1="441.8" y1="18" x2="441.8" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="441.8" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$0.2</text>
-<line x1="610.7" y1="18" x2="610.7" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="610.7" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$0.5</text>
-<line x1="738.4" y1="18" x2="738.4" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="738.4" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$1</text>
-<line x1="866.1" y1="18" x2="866.1" y2="496" stroke="#1c1a17" stroke-opacity="0.08"/>
-<text x="866.1" y="516" text-anchor="middle" font-size="12" fill="#6f6a62">$2</text>
-<line x1="66" y1="528" x2="920" y2="528" stroke="#3a362f" stroke-width="1.5"/>
-<path d="M 934 528 L 920 521.5 L 920 534.5 Z" fill="#3a362f"/>
-<text x="66" y="549" text-anchor="start" font-size="12.5" font-weight="600" fill="#3a362f">&larr; cheaper</text>
-<text x="500" y="549" text-anchor="middle" font-size="12.5" fill="#6f6a62">$ per task run (log scale)</text>
-<text x="934" y="549" text-anchor="end" font-size="12.5" font-weight="600" fill="#3a362f">more expensive &rarr;</text>
-<text x="18" y="257" text-anchor="middle" font-size="12.5" fill="#3a362f" transform="rotate(-90 18 257)">pass@1 (%)</text>
-<path d="M 92.3 195.8 L 145.3 195.8 L 145.3 95.8 L 220 95.8 L 220 69.1 L 599.3 69.1 L 599.3 52.4" fill="none" stroke="#b4490c" stroke-width="2" stroke-opacity="0.85"/>
-<g class="pt" data-tip="Claude Fable 5 (low) &mdash; 89.5% &middot; $0.51/run &middot; 3.5 min"><circle cx="614.3" cy="56.9" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="614.3" cy="56.9" r="14" fill="transparent"><title>Claude Fable 5 (low) &mdash; 89.5% &middot; $0.51/run &middot; 3.5 min</title></circle></g>
-<g class="pt" data-tip="DeepSeek V4-Flash (high) &mdash; 87% &middot; $0.08/run &middot; 12 min"><circle cx="273" cy="84.7" r="6.5" fill="#4d7ce8" stroke="#f7f4ee" stroke-width="2"/><circle cx="273" cy="84.7" r="14" fill="transparent"><title>DeepSeek V4-Flash (high) &mdash; 87% &middot; $0.08/run &middot; 12 min</title></circle></g>
-<g class="pt" data-tip="DeepSeek V4 Pro (high) &mdash; 87% &middot; $0.11/run &middot; 7.4 min"><circle cx="331.7" cy="84.7" r="6.5" fill="#4d7ce8" stroke="#f7f4ee" stroke-width="2"/><circle cx="331.7" cy="84.7" r="14" fill="transparent"><title>DeepSeek V4 Pro (high) &mdash; 87% &middot; $0.11/run &middot; 7.4 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Terra (medium) &mdash; 87% &middot; $0.19/run &middot; 2.3 min"><circle cx="432.4" cy="84.7" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="432.4" cy="84.7" r="14" fill="transparent"><title>GPT-5.6 Terra (medium) &mdash; 87% &middot; $0.19/run &middot; 2.3 min</title></circle></g>
-<g class="pt" data-tip="Muse Spark 1.2 (low) &mdash; 87% &middot; $0.36/run &middot; 3.2 min"><path d="M 550.1 77.5 L 543.6 89.4 L 556.7 89.4 Z" fill="#0866ff" stroke="#f7f4ee" stroke-width="2"/><circle cx="550.1" cy="84.7" r="14" fill="transparent"><title>Muse Spark 1.2 (low) &mdash; 87% &middot; $0.36/run &middot; 3.2 min</title></circle></g>
-<g class="pt" data-tip="Claude Opus 5 (low) &mdash; 87% &middot; $0.61/run &middot; 5.2 min"><circle cx="647.3" cy="84.7" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="647.3" cy="84.7" r="14" fill="transparent"><title>Claude Opus 5 (low) &mdash; 87% &middot; $0.61/run &middot; 5.2 min</title></circle></g>
-<g class="pt" data-tip="Grok 4.6 (medium) &mdash; 87% &middot; $0.69/run &middot; 14.2 min"><circle cx="670" cy="84.7" r="6.5" fill="#1c1a17" stroke="#f7f4ee" stroke-width="2"/><circle cx="670" cy="84.7" r="14" fill="transparent"><title>Grok 4.6 (medium) &mdash; 87% &middot; $0.69/run &middot; 14.2 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Sol (high) &mdash; 87% &middot; $0.69/run &middot; 4.2 min"><circle cx="670" cy="84.7" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="670" cy="84.7" r="14" fill="transparent"><title>GPT-5.6 Sol (high) &mdash; 87% &middot; $0.69/run &middot; 4.2 min</title></circle></g>
-<g class="pt" data-tip="Grok 4.5 (low) &mdash; 86% &middot; $0.11/run &middot; 1.7 min"><circle cx="331.7" cy="95.8" r="6.5" fill="#1c1a17" stroke="#f7f4ee" stroke-width="2"/><circle cx="331.7" cy="95.8" r="14" fill="transparent"><title>Grok 4.5 (low) &mdash; 86% &middot; $0.11/run &middot; 1.7 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Luna (max) &mdash; 86% &middot; $0.84/run &middot; 13 min"><circle cx="706.2" cy="95.8" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="706.2" cy="95.8" r="14" fill="transparent"><title>GPT-5.6 Luna (max) &mdash; 86% &middot; $0.84/run &middot; 13 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Terra (max) &mdash; 86% &middot; $2.29/run &middot; 14 min"><circle cx="891" cy="95.8" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="891" cy="95.8" r="14" fill="transparent"><title>GPT-5.6 Terra (max) &mdash; 86% &middot; $2.29/run &middot; 14 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Luna (high) &mdash; 85.5% &middot; $0.17/run &middot; 3.8 min"><circle cx="411.9" cy="101.3" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="411.9" cy="101.3" r="14" fill="transparent"><title>GPT-5.6 Luna (high) &mdash; 85.5% &middot; $0.17/run &middot; 3.8 min</title></circle></g>
-<g class="pt" data-tip="Grok 4.5 (medium) &mdash; 86% &middot; $0.43/run &middot; 8.5 min"><circle cx="582.9" cy="95.8" r="6.5" fill="#1c1a17" stroke="#f7f4ee" stroke-width="2"/><circle cx="582.9" cy="95.8" r="14" fill="transparent"><title>Grok 4.5 (medium) &mdash; 86% &middot; $0.43/run &middot; 8.5 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Terra (high) &mdash; 86% &middot; $0.38/run &middot; 4.2 min"><circle cx="560.1" cy="95.8" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="560.1" cy="95.8" r="14" fill="transparent"><title>GPT-5.6 Terra (high) &mdash; 86% &middot; $0.38/run &middot; 4.2 min</title></circle></g>
-<g class="pt" data-tip="Claude Fable 5 (high) &mdash; 85% &middot; $0.90/run &middot; 4.5 min"><circle cx="719" cy="106.9" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="719" cy="106.9" r="14" fill="transparent"><title>Claude Fable 5 (high) &mdash; 85% &middot; $0.90/run &middot; 4.5 min</title></circle></g>
-<g class="pt" data-tip="Grok 4.6 (low) &mdash; 82.6% &middot; $0.18/run &middot; 4.8 min"><circle cx="422.4" cy="133.6" r="6.5" fill="#1c1a17" stroke="#f7f4ee" stroke-width="2"/><circle cx="422.4" cy="133.6" r="14" fill="transparent"><title>Grok 4.6 (low) &mdash; 82.6% &middot; $0.18/run &middot; 4.8 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Sol (medium) &mdash; 82.6% &middot; $0.38/run &middot; 2.8 min"><circle cx="560.1" cy="133.6" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="560.1" cy="133.6" r="14" fill="transparent"><title>GPT-5.6 Sol (medium) &mdash; 82.6% &middot; $0.38/run &middot; 2.8 min</title></circle></g>
-<g class="pt" data-tip="Qwen3.8-27B (medium) &mdash; 82.6% &middot; $0.48/run &middot; 6.8 min"><rect x="597.6" y="128.1" width="11" height="11" fill="#a83ac2" stroke="#f7f4ee" stroke-width="2"/><circle cx="603.1" cy="133.6" r="14" fill="transparent"><title>Qwen3.8-27B (medium) &mdash; 82.6% &middot; $0.48/run &middot; 6.8 min</title></circle></g>
-<g class="pt" data-tip="Claude Opus 5 (medium) &mdash; 82.6% &middot; $1.05/run &middot; 7.6 min"><circle cx="747.4" cy="133.6" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="747.4" cy="133.6" r="14" fill="transparent"><title>Claude Opus 5 (medium) &mdash; 82.6% &middot; $1.05/run &middot; 7.6 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Terra (low) &mdash; 81% &middot; $0.15/run &middot; 2 min"><circle cx="388.8" cy="151.4" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="388.8" cy="151.4" r="14" fill="transparent"><title>GPT-5.6 Terra (low) &mdash; 81% &middot; $0.15/run &middot; 2 min</title></circle></g>
-<g class="pt" data-tip="Qwen3.8-Max (low) &mdash; 81.2% &middot; $0.61/run &middot; 19.6 min"><rect x="641.8" y="143.6" width="11" height="11" fill="#a83ac2" stroke="#f7f4ee" stroke-width="2"/><circle cx="647.3" cy="149.1" r="14" fill="transparent"><title>Qwen3.8-Max (low) &mdash; 81.2% &middot; $0.61/run &middot; 19.6 min</title></circle></g>
-<g class="pt" data-tip="Claude Fable 5 (medium) &mdash; 81% &middot; $0.70/run &middot; 3.8 min"><circle cx="672.7" cy="151.4" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="672.7" cy="151.4" r="14" fill="transparent"><title>Claude Fable 5 (medium) &mdash; 81% &middot; $0.70/run &middot; 3.8 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Luna (medium) &mdash; 80% &middot; $0.06/run &middot; 2.1 min"><circle cx="220" cy="162.5" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="220" cy="162.5" r="14" fill="transparent"><title>GPT-5.6 Luna (medium) &mdash; 80% &middot; $0.06/run &middot; 2.1 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Sol (low) &mdash; 78.3% &middot; $0.17/run &middot; 1.5 min"><circle cx="411.9" cy="181.4" r="6.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="411.9" cy="181.4" r="14" fill="transparent"><title>GPT-5.6 Sol (low) &mdash; 78.3% &middot; $0.17/run &middot; 1.5 min</title></circle></g>
-<g class="pt" data-tip="GLM 5.3 (low) &mdash; 78.3% &middot; $0.32/run &middot; 3.1 min"><path d="M 528.4 174.2 L 521.9 186.1 L 535 186.1 Z" fill="#0e7a8a" stroke="#f7f4ee" stroke-width="2"/><circle cx="528.4" cy="181.4" r="14" fill="transparent"><title>GLM 5.3 (low) &mdash; 78.3% &middot; $0.32/run &middot; 3.1 min</title></circle></g>
-<g class="pt" data-tip="Grok 4.6 (xhigh) &mdash; 78.3% &middot; $0.88/run &middot; 15.8 min"><circle cx="714.8" cy="181.4" r="6.5" fill="#1c1a17" stroke="#f7f4ee" stroke-width="2"/><circle cx="714.8" cy="181.4" r="14" fill="transparent"><title>Grok 4.6 (xhigh) &mdash; 78.3% &middot; $0.88/run &middot; 15.8 min</title></circle></g>
-<g class="pt" data-tip="Claude Opus 5 (high) &mdash; 78.3% &middot; $1.90/run &middot; 13.6 min"><circle cx="856.6" cy="181.4" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="856.6" cy="181.4" r="14" fill="transparent"><title>Claude Opus 5 (high) &mdash; 78.3% &middot; $1.90/run &middot; 13.6 min</title></circle></g>
-<g class="pt" data-tip="Qwen3.8-27B (low) &mdash; 76.8% &middot; $0.71/run &middot; 7.1 min"><rect x="669.8" y="192.6" width="11" height="11" fill="#a83ac2" stroke="#f7f4ee" stroke-width="2"/><circle cx="675.3" cy="198" r="14" fill="transparent"><title>Qwen3.8-27B (low) &mdash; 76.8% &middot; $0.71/run &middot; 7.1 min</title></circle></g>
-<g class="pt" data-tip="Claude Haiku 4.5 (default) &mdash; 76.2% &middot; $0.42/run &middot; 5.3 min"><circle cx="578.5" cy="204.7" r="6.5" fill="#c2643c" stroke="#f7f4ee" stroke-width="2"/><circle cx="578.5" cy="204.7" r="14" fill="transparent"><title>Claude Haiku 4.5 (default) &mdash; 76.2% &middot; $0.42/run &middot; 5.3 min</title></circle></g>
-<g class="pt" data-tip="GLM 5.3 (high) &mdash; 73.9% &middot; $0.45/run &middot; 9.4 min"><path d="M 591.2 223.2 L 584.7 235 L 597.8 235 Z" fill="#0e7a8a" stroke="#f7f4ee" stroke-width="2"/><circle cx="591.2" cy="230.3" r="14" fill="transparent"><title>GLM 5.3 (high) &mdash; 73.9% &middot; $0.45/run &middot; 9.4 min</title></circle></g>
-<g class="pt" data-tip="Grok 4.6 (high) &mdash; 73.9% &middot; $0.55/run &middot; 16.3 min"><circle cx="628.2" cy="230.3" r="6.5" fill="#1c1a17" stroke="#f7f4ee" stroke-width="2"/><circle cx="628.2" cy="230.3" r="14" fill="transparent"><title>Grok 4.6 (high) &mdash; 73.9% &middot; $0.55/run &middot; 16.3 min</title></circle></g>
-<g class="pt" data-tip="Qwen3.8-27B (xhigh) &mdash; 73.9% &middot; $0.69/run &middot; 17.1 min"><rect x="664.5" y="224.8" width="11" height="11" fill="#a83ac2" stroke="#f7f4ee" stroke-width="2"/><circle cx="670" cy="230.3" r="14" fill="transparent"><title>Qwen3.8-27B (xhigh) &mdash; 73.9% &middot; $0.69/run &middot; 17.1 min</title></circle></g>
-<g class="pt" data-tip="Kimi K3 (extra-high) &mdash; 73.7% &middot; $0.69/run &middot; 17.2 min"><path d="M 670 222 L 659.5 232.5 L 670 243 L 680.5 232.5 Z" fill="#46465e" stroke="#f7f4ee" stroke-width="2"/><circle cx="670" cy="232.5" r="14" fill="transparent"><title>Kimi K3 (extra-high) &mdash; 73.7% &middot; $0.69/run &middot; 17.2 min</title></circle></g>
-<g class="pt" data-tip="Muse Spark 1.2 (high) &mdash; 73.9% &middot; $0.91/run &middot; 12.4 min"><path d="M 721 223.2 L 714.4 235 L 727.5 235 Z" fill="#0866ff" stroke="#f7f4ee" stroke-width="2"/><circle cx="721" cy="230.3" r="14" fill="transparent"><title>Muse Spark 1.2 (high) &mdash; 73.9% &middot; $0.91/run &middot; 12.4 min</title></circle></g>
-<g class="pt" data-tip="Qwen3.8-Max (medium) &mdash; 71% &middot; $0.56/run &middot; 21.7 min"><rect x="626" y="257" width="11" height="11" fill="#a83ac2" stroke="#f7f4ee" stroke-width="2"/><circle cx="631.5" cy="262.5" r="14" fill="transparent"><title>Qwen3.8-Max (medium) &mdash; 71% &middot; $0.56/run &middot; 21.7 min</title></circle></g>
-<g class="pt" data-tip="GLM 5.3 (max) &mdash; 65.2% &middot; $0.78/run &middot; 20.1 min"><path d="M 692.6 319.9 L 686 331.8 L 699.1 331.8 Z" fill="#0e7a8a" stroke="#f7f4ee" stroke-width="2"/><circle cx="692.6" cy="327" r="14" fill="transparent"><title>GLM 5.3 (max) &mdash; 65.2% &middot; $0.78/run &middot; 20.1 min</title></circle></g>
-<g class="pt" data-tip="Qwen3.8-Max (xhigh) &mdash; 55.1% &middot; $0.71/run &middot; 25.5 min"><rect x="669.8" y="433.8" width="11" height="11" fill="#a83ac2" stroke="#f7f4ee" stroke-width="2"/><circle cx="675.3" cy="439.3" r="14" fill="transparent"><title>Qwen3.8-Max (xhigh) &mdash; 55.1% &middot; $0.71/run &middot; 25.5 min</title></circle></g>
-<g class="pt" data-tip="Muse Spark 1.2 (xhigh) &mdash; 52.2% &middot; $1.18/run &middot; 20.1 min"><path d="M 768.9 464.4 L 762.3 476.3 L 775.4 476.3 Z" fill="#0866ff" stroke="#f7f4ee" stroke-width="2"/><circle cx="768.9" cy="471.5" r="14" fill="transparent"><title>Muse Spark 1.2 (xhigh) &mdash; 52.2% &middot; $1.18/run &middot; 20.1 min</title></circle></g>
-<g class="pt" data-tip="Grok 4.5 (high) &mdash; 89.9% &middot; $0.47/run &middot; 8.4 min"><circle cx="599.3" cy="52.4" r="7.5" fill="#1c1a17" stroke="#f7f4ee" stroke-width="2"/><circle cx="599.3" cy="52.4" r="14" fill="transparent"><title>Grok 4.5 (high) &mdash; 89.9% &middot; $0.47/run &middot; 8.4 min</title></circle></g>
-<g class="pt" data-tip="DeepSeek V4-Flash (max) &mdash; 88.4% &middot; $0.06/run &middot; 11.2 min"><circle cx="220" cy="69.1" r="7.5" fill="#4d7ce8" stroke="#f7f4ee" stroke-width="2"/><circle cx="220" cy="69.1" r="14" fill="transparent"><title>DeepSeek V4-Flash (max) &mdash; 88.4% &middot; $0.06/run &middot; 11.2 min</title></circle></g>
-<g class="pt" data-tip="DeepSeek V4-Flash (low) &mdash; 86% &middot; $0.04/run &middot; 8.4 min"><circle cx="145.3" cy="95.8" r="7.5" fill="#4d7ce8" stroke="#f7f4ee" stroke-width="2"/><circle cx="145.3" cy="95.8" r="14" fill="transparent"><title>DeepSeek V4-Flash (low) &mdash; 86% &middot; $0.04/run &middot; 8.4 min</title></circle></g>
-<g class="pt" data-tip="GPT-5.6 Luna (low) &mdash; 77% &middot; $0.03/run &middot; 1.2 min"><circle cx="92.3" cy="195.8" r="7.5" fill="#14976b" stroke="#f7f4ee" stroke-width="2"/><circle cx="92.3" cy="195.8" r="14" fill="transparent"><title>GPT-5.6 Luna (low) &mdash; 77% &middot; $0.03/run &middot; 1.2 min</title></circle></g>
-<text x="82.3" y="199.8" text-anchor="end" font-size="11.5" fill="#3a362f">Luna low</text>
-<text x="135.3" y="89.8" text-anchor="end" font-size="11.5" fill="#3a362f">Flash low</text>
-<text x="230" y="63.1" text-anchor="start" font-size="11.5" fill="#3a362f">Flash max</text>
-<text x="607.3" y="40.4" text-anchor="start" font-size="11.5" fill="#3a362f">Grok 4.5 high</text>
-<text x="626.3" y="66.9" text-anchor="start" font-size="11.5" fill="#3a362f">Fable 5 low</text>
-<text x="879" y="99.8" text-anchor="end" font-size="11.5" fill="#3a362f">Terra max</text>
-<text x="856.6" y="203.4" text-anchor="middle" font-size="11.5" fill="#3a362f">Opus 5 high</text>
-<text x="628.2" y="254.3" text-anchor="middle" font-size="11.5" fill="#3a362f">Grok 4.6 high (default)</text>
-<text x="684" y="220.5" text-anchor="start" font-size="11.5" fill="#3a362f">Kimi K3</text>
-<text x="704.6" y="331" text-anchor="start" font-size="11.5" fill="#3a362f">GLM 5.3 max (default)</text>
-<text x="687.3" y="443.3" text-anchor="start" font-size="11.5" fill="#3a362f">Qwen-Max xhigh (default)</text>
-<text x="538.1" y="88.7" text-anchor="end" font-size="11.5" fill="#3a362f">Muse Spark low</text>
-<text x="780.9" y="475.5" text-anchor="start" font-size="11.5" fill="#3a362f">Muse Spark xhigh</text>
-</svg>
-    <div class="pareto-legend" aria-hidden="true">
-      <span><span class="sw" style="background:#1c1a17;border-radius:50%;"></span>xAI</span>
-      <span><span class="sw" style="background:#c2643c;border-radius:50%;"></span>Anthropic</span>
-      <span><span class="sw" style="background:#4d7ce8;border-radius:50%;"></span>DeepSeek</span>
-      <span><span class="sw" style="background:#14976b;border-radius:50%;"></span>OpenAI</span>
-      <span><span class="sw" style="background:#a83ac2;"></span>Alibaba (squares)</span>
-      <span><span class="sw" style="background:#0e7a8a;clip-path:polygon(50% 0,100% 100%,0 100%);"></span>Z.ai (triangles)</span>
-      <span><span class="sw" style="background:#0866ff;clip-path:polygon(50% 0,100% 100%,0 100%);"></span>Meta (triangles)</span>
-      <span><span class="sw diamond" style="background:#46465e;"></span>Moonshot</span>
-      <span><span class="fr"></span>the frontier: best score available at each price</span>
-    </div>
-    <div class="pareto-tip" id="paretoBestTip" role="status"></div>
-    <figcaption style="margin-top:12px;"><b>Pareto view.</b> All 42 model&times;effort columns &mdash; not just each
-    model&rsquo;s best &mdash; plotted as pass@1 against list-price cost per task run (log scale), cheapest on the left.
-    Larger points and the stepped line mark the frontier: <b>GPT-5.6 Luna low</b>, <b>DeepSeek V4-Flash low</b>,
-    <b>V4-Flash max</b>, and <b>Grok 4.5 high</b>. Every other column is beaten on both axes by one of those four.
-    Hover any point for its column; <a href="#full-board">the full board</a> has the same numbers as a sortable table.</figcaption>
-  </figure>
-  </div>
-
-  <div class="lb-section">
-    <div class="lb-shead">
-      <div class="l"><b>Eval Suite 3</b> &middot; 23 tasks &middot; ranked by pass@1</div>
-      <a href="methodology.html">How it is measured &rarr;</a>
-    </div>
-    <p class="lb-context">pass@1 is the mean per-task success rate across all runs in the column. Repeat-swept models aggregate three or more attempts per task; single-pass columns (n&le;23) carry wider uncertainty. Cost is total spend at list API prices &divide; runs in the column; time is sandbox wall-clock per task.</p>
-    <div class="lb-scroll">
-    <table class="lb">
-      <thead><tr><th class="l">#</th><th class="l">Model</th><th>pass@1</th><th>&plusmn;1 se</th><th>$/task run</th><th>min/task</th><th>Runs</th></tr></thead>
-      <tbody>
-        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><a class="lb-model" href="models/grok-4-5.html">Grok 4.5</a> <span class="lb-eff">best: high</span><span class="lb-tag">Leader</span><span class="lb-effstrip">low 86* <span class="sep">&middot;</span> med 86 <span class="sep">&middot;</span> <b>high 90</b></span></td><td class="lb-win">89.9%</td><td>6.1</td><td>$0.47</td><td>8.4</td><td>50</td></tr>
-        <tr><td class="l lb-rank">2</td><td class="l"><a class="lb-model" href="models/claude-fable-5.html">Claude Fable 5</a> <span class="lb-eff">best: low &middot; 19/23 tasks*</span><span class="lb-effstrip"><b>low 89*</b> <span class="sep">&middot;</span> med 81* <span class="sep">&middot;</span> high 85*</span></td><td>89.5%</td><td>7.2</td><td>$0.51</td><td>3.5</td><td>19</td></tr>
-        <tr><td class="l lb-rank">3</td><td class="l"><a class="lb-model" href="models/deepseek-v4-flash.html">DeepSeek V4-Flash</a> <span class="lb-eff">best: max</span><span class="lb-tag">Cheapest</span><span class="lb-effstrip">low 86 <span class="sep">&middot;</span> high 87 <span class="sep">&middot;</span> <b>max 88</b></span></td><td>88.4%</td><td>6.2</td><td class="lb-win">$0.06</td><td>11.2</td><td>68</td></tr>
-        <tr><td class="l lb-rank">4</td><td class="l"><a class="lb-model" href="models/deepseek-v4-pro.html">DeepSeek V4 Pro</a> <span class="lb-eff">high</span><span class="lb-effstrip"><b>high 87</b> <span class="sep">&middot;</span> one level run so far</span></td><td>87.0%</td><td>6.2</td><td>$0.11</td><td>7.4</td><td>69</td></tr>
-        <tr><td class="l lb-rank">5</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span> <span class="lb-eff">best: medium</span><span class="lb-tag">Fastest</span><span class="lb-effstrip">low 81 <span class="sep">&middot;</span> <b>med 87</b> <span class="sep">&middot;</span> high 86 <span class="sep">&middot;</span> max 86*</span></td><td>87.0%</td><td>7.2</td><td>$0.19</td><td class="lb-win">2.3</td><td>69</td></tr>
-        <tr class="fb-new"><td class="l lb-rank">6</td><td class="l"><a class="lb-model" href="models/muse-spark-1-2.html">Muse Spark 1.2</a> <span class="lb-eff">best: low&para;</span><span class="lb-tag">New</span><span class="lb-effstrip"><b>low 87</b> <span class="sep">&middot;</span> high 74 <span class="sep">&middot;</span> xhigh 52</span></td><td>87.0%</td><td>7.0</td><td>$0.36</td><td>3.2&para;</td><td>23</td></tr>
-        <tr><td class="l lb-rank">7</td><td class="l"><a class="lb-model" href="models/claude-opus-5.html">Claude Opus 5</a> <span class="lb-eff">best: low &middot; Report 10&dagger;</span><span class="lb-effstrip"><b>low 87</b> <span class="sep">&middot;</span> med 83 <span class="sep">&middot;</span> high 78</span></td><td>87.0%</td><td>7.2</td><td>$0.61</td><td>5.2</td><td>23</td></tr>
-        <tr><td class="l lb-rank">8</td><td class="l"><a class="lb-model" href="models/grok-4-6.html">Grok 4.6</a> <span class="lb-eff">best: medium</span><span class="lb-effstrip">low 83 <span class="sep">&middot;</span> <b>med 87</b> <span class="sep">&middot;</span> high 74 <span class="sep">&middot;</span> xhigh 78</span></td><td>87.0%</td><td>7.2</td><td>$0.69</td><td>14.2</td><td>23</td></tr>
-        <tr><td class="l lb-rank">9</td><td class="l"><a class="lb-model" href="models/gpt-5-6-sol.html">GPT-5.6 Sol</a> <span class="lb-eff">best: high</span><span class="lb-effstrip">low 78 <span class="sep">&middot;</span> med 83 <span class="sep">&middot;</span> <b>high 87</b></span></td><td>87.0%</td><td>7.2</td><td>$0.69</td><td>4.2</td><td>23</td></tr>
-        <tr><td class="l lb-rank">10</td><td class="l"><span class="lb-model">GPT-5.6 Luna</span> <span class="lb-eff">best: high</span><span class="lb-effstrip">low 77 <span class="sep">&middot;</span> med 80 <span class="sep">&middot;</span> <b>high 86</b> <span class="sep">&middot;</span> max 86*</span></td><td>85.5%</td><td>6.6</td><td>$0.17</td><td>3.8</td><td>69</td></tr>
-        <tr class="fb-new"><td class="l lb-rank">11</td><td class="l"><a class="lb-model" href="models/qwen3-8-27b.html">Qwen3.8-27B</a> <span class="lb-eff">best: medium</span><span class="lb-tag">New</span><span class="lb-effstrip">low 77 <span class="sep">&middot;</span> <b>med 83</b> <span class="sep">&middot;</span> xhigh 74</span></td><td>82.6%</td><td>8.1</td><td>$0.48</td><td>6.8&Dagger;</td><td>23</td></tr>
-        <tr><td class="l lb-rank">12</td><td class="l"><a class="lb-model" href="models/qwen3-8-max.html">Qwen3.8-Max</a> <span class="lb-eff">best: low</span><span class="lb-effstrip"><b>low 81</b> <span class="sep">&middot;</span> med 71 <span class="sep">&middot;</span> xhigh 55</span></td><td>81.2%</td><td>7.8</td><td>$0.61</td><td>19.6</td><td>69</td></tr>
-        <tr class="fb-new"><td class="l lb-rank">13</td><td class="l"><a class="lb-model" href="models/glm-5-3.html">GLM 5.3</a> <span class="lb-eff">best: low&sect;</span><span class="lb-tag">New</span><span class="lb-effstrip"><b>low 78</b> <span class="sep">&middot;</span> high 74 <span class="sep">&middot;</span> max 65</span></td><td>78.3%</td><td>8.6</td><td>$0.32</td><td>3.1&sect;</td><td>23</td></tr>
-        <tr><td class="l lb-rank">14</td><td class="l"><a class="lb-model" href="models/claude-haiku-4-5.html">Claude Haiku 4.5</a> <span class="lb-eff">default &middot; 21/23 tasks*</span><span class="lb-effstrip"><b>default 76</b> <span class="sep">&middot;</span> no effort knob exposed</span></td><td>76.2%</td><td>9.5</td><td>$0.42</td><td>5.3</td><td>21</td></tr>
-        <tr><td class="l lb-rank">15</td><td class="l"><a class="lb-model" href="models/kimi-k3.html">Kimi K3</a> <span class="lb-eff">extra-high &middot; 19/23 tasks*</span><span class="lb-effstrip"><b>extra-high 74</b> <span class="sep">&middot;</span> single tested setting</span></td><td>73.7%</td><td>10.4</td><td>$0.69</td><td>17.2</td><td>19</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p class="prose" style="margin-top:14px;font-size:15px;">The small print under each model is its full effort ladder
-    (pass@1 per level, best in orange); an asterisk on a level marks partial task coverage.
-    * Partial task coverage: Claude Fable 5 excludes tasks refused by its safety filters (low 19/23, medium 21/23, high 20/23); Kimi K3 19/23; Claude Haiku 4.5 21/23; Grok 4.5 low has 21/23 fresh tasks. &dagger; Claude Opus 5 rows come from <a href="benchmarks/10-opus5-effort.html">Report 10</a> (single runs, 2026-07-26).
-    &Dagger; Qwen3.8-27B joined 2026-08-23 from <a href="benchmarks/17-qwen38-27b-effort.html">Report 17</a>: one pass per level, times are medians, and its low column aggregates three runs (mean 76.8%, the value its ladder shows). &sect; GLM 5.3 joined 2026-08-24 from <a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>: one attempt per level, times are medians. The same report measures it inside Z.ai&rsquo;s own ZCode harness at 87.0%; that result is model plus product and is not a board entry. &para; Muse Spark 1.2 joined 2026-08-25 from <a href="benchmarks/19-musespark-effort.html">Report 19</a>: one attempt per level, times are medians; Meta documents no unset-request default for it. Effort names are each provider&rsquo;s own enum: DeepSeek&rsquo;s and GLM 5.3&rsquo;s top level is &ldquo;max&rdquo;; Qwen&rsquo;s, Grok 4.6&rsquo;s, and Muse Spark 1.2&rsquo;s is &ldquo;xhigh&rdquo;. Claude Haiku 4.5 and Kimi K3 have a single tested setting.</p>
-  </div>
-
-  <section style="padding-top:28px;">
-    <div class="section-label">Speed</div>
-    <h2>Wall-clock minutes per task, fastest first.</h2>
-    <figure style="margin-top:22px;">
-      <img src="assets/leaderboard/v3-speed.png?v=3" alt="Speed card: GPT-5.6 Terra finishes a task in 2.3 minutes on average, GPT-5.6 Luna 3.8, Claude Fable 5 3.5, GPT-5.6 Sol 4.2, Claude Opus 5 5.2, Claude Haiku 4.5 5.3, DeepSeek V4 Pro 7.4, Grok 4.5 8.4, DeepSeek V4-Flash 11.2, Grok 4.6 14.2, Kimi K3 17.2, Qwen3.8-Max 19.6" width="2560" height="2080" loading="lazy" decoding="async">
-      <figcaption><b>Speed card.</b> Average sandbox wall-clock per task run at each model&rsquo;s best-scoring effort; pass@1 alongside for context. Every column&rsquo;s time is on the <a href="#full-board">full board</a>.</figcaption>
-    </figure>
-    <div class="dl-row" style="margin-top:6px;justify-content:center;">
-      <a class="btn" href="assets/leaderboard/v3-speed.png" download>Download speed card</a>
-    </div>
-  </section>
-
-  <section style="padding-top:8px;">
-    <div class="section-label">Cost</div>
-    <h2>API spend per task run, lowest first.</h2>
-    <figure style="margin-top:22px;">
-      <img src="assets/leaderboard/v3-cost.png?v=3" alt="Cost card: DeepSeek V4-Flash at 6 cents per task run, DeepSeek V4 Pro 11 cents, GPT-5.6 Luna 17 cents, GPT-5.6 Terra 19 cents, Claude Haiku 4.5 42 cents, Grok 4.5 47 cents, Claude Fable 5 51 cents, Claude Opus 5 and Qwen3.8-Max 61 cents, Grok 4.6, GPT-5.6 Sol and Kimi K3 69 cents" width="2560" height="2080" loading="lazy" decoding="async">
-      <figcaption><b>Cost card.</b> Total list-price API spend for the column divided by runs. Negotiated, cached-input, and batch rates all differ; treat these as relative, not quotes. Every column&rsquo;s cost is on the <a href="#full-board">full board</a>.</figcaption>
-    </figure>
-    <div class="dl-row" style="margin-top:6px;justify-content:center;">
-      <a class="btn" href="assets/leaderboard/v3-cost.png" download>Download cost card</a>
-    </div>
-  </section>
-  </div>
-
-  <section id="full-board" role="tabpanel" aria-labelledby="lbTabFull" style="padding-top:28px;">
-    <div class="section-label">The full board</div>
+  <section id="full-board" style="padding-top:28px;">
+    <div class="section-label">The board</div>
     <h2>Every model &times; effort column. Nothing hidden.</h2>
-    <p class="prose" style="margin-top:10px;font-size:17px;">The best-per-model view shows one row per model. This is
-    everything behind those rows: all 42 model&times;effort columns that have run on the frozen v3 suite. When a
-    model&rsquo;s row says &ldquo;best: low&rdquo;, its medium and high columns are here too &mdash; low simply beat them.
+    <p class="prose" style="margin-top:10px;font-size:17px;">All 42 model&times;effort columns that have run on the
+    frozen v3 suite. When a model&rsquo;s <span class="mono">best</span> tag sits on &ldquo;low&rdquo;, its medium and
+    high columns are here too &mdash; low simply beat them.
     Click a column header to re-sort by score, cost, or speed.</p>
     <div class="lb-toggle chart-toggle" id="fbChartToggle" role="tablist" aria-label="Full-board chart style">
       <button type="button" role="tab" aria-selected="true" class="active" data-chart="bar">Full-board card</button>
@@ -478,7 +280,7 @@
       <p class="lb-context">pass@1 here is shown to the whole percent, as on the card; the per-model reports carry the
       decimals and per-task detail. Cost is total column spend at list API prices &divide; runs; single-pass columns
       (n&le;23) carry wider uncertainty than repeat-swept ones. <span class="lb-tag" style="margin-left:0;">best</span>
-      marks the column that represents its model in the rankings above.</p>
+      marks each model&rsquo;s highest-scoring column.</p>
       <div class="lb-scroll">
       <table class="lb" id="fullboard">
         <thead><tr>
@@ -587,7 +389,7 @@
   <section style="padding-top:8px;">
     <div class="section-label">Effort curves</div>
     <h2>What happens when you turn the reasoning knob.</h2>
-    <p class="prose" style="margin-top:10px;font-size:17px;">The best-per-model rows show one effort level each. This card shows every level that was tested, on one shared y-scale: more reasoning is not reliably better on this suite, and for several models it is worse.</p>
+    <p class="prose" style="margin-top:10px;font-size:17px;">This card shows every level that was tested, per model, on one shared y-scale: more reasoning is not reliably better on this suite, and for several models it is worse.</p>
     <figure style="margin-top:22px;">
       <img src="assets/leaderboard/v3-effort-curves.png?v=3" alt="Effort curves: pass@1 at each reasoning-effort level for eleven swept models. Grok 4.5, DeepSeek V4-Flash, GPT-5.6 Sol, and GPT-5.6 Luna rise with effort; GPT-5.6 Terra, Grok 4.6, and Qwen3.8-27B peak mid-ladder; Claude Fable 5 dips at medium; Claude Opus 5, Qwen3.8-Max, and GLM 5.3 fall as effort rises" width="2560" height="1440" loading="lazy" decoding="async">
       <figcaption><b>Effort-curve card.</b> Each x-axis is that provider&rsquo;s own documented enum, not a common scale. Larger point = the model&rsquo;s best level. Rendered 2026-08-25 with all twelve swept models, including Muse Spark 1.2 (<a href="benchmarks/19-musespark-effort.html">Report 19</a>) and GLM 5.3 (<a href="benchmarks/18-glm53-zcode-harness.html">Report 18</a>), single-pass sweeps.</figcaption>
@@ -773,47 +575,6 @@
 
 (function () {
   "use strict";
-  var toggle = document.getElementById("lbToggle");
-  var best = document.getElementById("view-best");
-  var full = document.getElementById("full-board");
-  if (!toggle || !best || !full) return;
-  var buttons = toggle.querySelectorAll("button");
-
-  function setView(view) {
-    best.classList.toggle("lb-hidden", view === "full");
-    full.classList.toggle("lb-hidden", view !== "full");
-    Array.prototype.forEach.call(buttons, function (b) {
-      var active = b.getAttribute("data-view") === view;
-      b.classList.toggle("active", active);
-      b.setAttribute("aria-selected", active ? "true" : "false");
-    });
-  }
-
-  Array.prototype.forEach.call(buttons, function (b) {
-    b.addEventListener("click", function () {
-      var view = b.getAttribute("data-view");
-      setView(view);
-      history.replaceState(null, "", view === "full" ? "#full-board" : location.pathname + location.search);
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "lb_view_toggle", { view: view });
-      }
-    });
-  });
-
-  // in-page links to #full-board (byline, how-to-read box) switch the view first
-  window.addEventListener("hashchange", function () {
-    if (location.hash === "#full-board") {
-      setView("full");
-      full.scrollIntoView();
-    }
-  });
-
-  setView(location.hash === "#full-board" ? "full" : "best");
-  toggle.classList.add("on"); // only shown when JS runs; without it both views render
-})();
-
-(function () {
-  "use strict";
   function bindChartToggle(toggleId, barId, paretoId, board) {
     var toggle = document.getElementById(toggleId);
     var bar = document.getElementById(barId);
@@ -837,7 +598,6 @@
     });
     toggle.classList.add("on"); // shown only when JS runs; without it the bar card renders alone
   }
-  bindChartToggle("chartToggle", "chartBar", "chartPareto", "best");
   bindChartToggle("fbChartToggle", "fbChartBar", "fbChartPareto", "full");
 
   function bindTip(figId, tipId) {
@@ -857,7 +617,6 @@
     fig.addEventListener("mouseleave", function () { tip.style.display = "none"; });
   }
   bindTip("paretoFig", "paretoTip");
-  bindTip("paretoBestFig", "paretoBestTip");
 })();
 </script>
 </body>
