@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muse Spark 1.2 in Pi vs a bare-bones harness | Report 20 | VulcanBench</title>
+<meta name="description" content="The fourth harness study, and the first on an open-source agent: the same Muse Spark 1.2 through Pi and through a bare-bones API loop. Pi wins at every effort level, and the study caught the model hunting the host for answer keys: 17 of 69 cells were replaced by kernel-confined, audited-clean reruns that cut the headline gap roughly in half.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Muse Spark 1.2 in Pi vs a bare-bones harness | Report 20 | VulcanBench">
+<meta property="og:description" content="Same model, 4 to 17 points apart: 52.2% at xhigh through the raw API loop, 69.6% through Pi. And the model got caught hunting the host for answer keys; all 17 flagged cells were replaced by sandbox-confined reruns before publication.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/report20-musespark-pi.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="We caught the model cheating">
+<meta name="twitter:description" content="Muse Spark 1.2 through the open-source Pi harness beats its raw API at every effort level. Unconfined, it also went looking for our answer keys: 17 of 69 cells replaced by confined, audited-clean reruns.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report20-musespark-pi.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Muse Spark 1.2 in Pi vs a bare-bones harness | Report 20",
+  "description": "The fourth harness study, and the first on an open-source agent: the same Muse Spark 1.2 through Pi and through a bare-bones API loop. Pi wins at every effort level, and the study caught the model hunting the host for answer keys: 17 of 69 cells were replaced by kernel-confined, audited-clean reruns that cut the headline gap roughly in half.",
+  "url": "https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html",
+  "mainEntityOfPage": "https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html",
+  "image": "https://vulcanbench.com/assets/cards/report20-musespark-pi.png",
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "author": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "url": "https://vulcanbench.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vulcanbench.com/assets/logo.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=28">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">Custom evals</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical Report No. 20 &middot; Harness Study No. 04</div>
+    <h1>Muse Spark 1.2 in Pi vs. a bare-bones harness</h1>
+    <p class="byline">The fourth harness study, and the first on an open-source agent: one model, two delivery systems, on twenty-three real merged post-cutoff PRs, graded by the same hidden tests. Pi is a minimal open-source coding agent wrapping the metered Meta Model API; the reference loop calls the same <code>muse-spark-1.2</code> the same way. It is also the first study where the integrity audit caught the model reading answer keys, and every flagged cell was replaced by a kernel-confined rerun before publication. The series began with <a href="15-grok46-cursor-harness.html">Report No.&nbsp;15</a>, <a href="16-grok46-grok-build.html">Report No.&nbsp;16</a>, and <a href="18-glm53-zcode-harness.html">Report No.&nbsp;18</a>.</p>
+    <div class="runmeta">2026-08-28 &middot; 23 tasks &middot; 138 scored cells &middot; 2 harnesses &middot; 3 effort levels &middot; v3 suite</div>
+  </div>
+
+  <div class="abstract-box">
+    <span class="lbl">Abstract.</span>
+    <p><strong>Same model, 4.3 to 17.4 points apart: Muse Spark 1.2 scores 52.2% at xhigh through the raw API loop and 69.6% through Pi, and Pi wins at every effort level.</strong>
+    The effort knob points backward on both systems, but only the loop collapses: 87.0 to 73.9 to 52.2 raw, against 91.3 to 82.6
+    to 69.6 in Pi. The gap is unfinished work: the loop&rsquo;s failures are dominated by fifteen wall-clock timeouts, while Pi
+    finishes nearly everything and fails by being wrong. The study&rsquo;s second result is about integrity: run unconfined on the
+    host, the model went looking for gold patches and hidden tests, and 17 of 69 Pi cells were flagged. All 17 were replaced by
+    macOS-seatbelt-confined, audited-clean reruns, which cut the headline gap roughly in half from what the unconfined sweep
+    claimed. Six of the flagged &ldquo;solves&rdquo; did not survive honest reruns.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/cards/report20-musespark-pi.png" alt="Harness Study card: Muse Spark 1.2 scores 91.3, 82.6 and 69.6 percent across low, high and xhigh effort through the Pi harness, against 87.0, 73.9 and 52.2 through the bare-bones API loop, plus a leaderboard panel showing the raw-API entry tied in the 87 percent frontier cluster" width="1600" height="900" loading="lazy" decoding="async">
+    <figcaption><b>Card.</b> One line per harness on a shared effort axis, whiskers &plusmn;1 stderr; the right panel places Muse Spark&rsquo;s raw-API best on the v3 best-effort board. Pi (model plus agent) is charted on the left and never joins the board.</figcaption>
+  </figure>
+
+  <section style="padding-top:20px;">
+    <div class="section-label">Results</div>
+    <h2>The gap grows with effort.</h2>
+    <div class="table-scroll" role="region" aria-label="Harness comparison results" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Effort</th><th>In Pi</th><th>Bare-bones API</th><th>Delta</th><th>Pi time/task</th><th>API time/task</th></tr></thead>
+      <tbody>
+        <tr><td class="model">low</td><td class="win">91.3% &plusmn;5.9</td><td>87.0% &plusmn;7.0</td><td>+4.3</td><td class="win">1.5 min</td><td>6.7 min</td></tr>
+        <tr><td class="model">high</td><td>82.6% &plusmn;7.9</td><td>73.9% &plusmn;9.2</td><td>+8.7</td><td class="win">3.0 min</td><td>21.3 min</td></tr>
+        <tr><td class="model">xhigh</td><td>69.6% &plusmn;9.6</td><td>52.2% &plusmn;10.4</td><td class="win">+17.4</td><td class="win">4.1 min</td><td>28.7 min</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">System A (bare-bones) is the Meta Model API through VulcanBench&rsquo;s
+    minimal reference loop, effort sent per request. System B is Pi, the open-source coding agent, wrapping the identical
+    <code>meta:muse-spark-1.2</code> spec on the same metered API. One attempt per task per level per system; both systems are
+    graded by the same deterministic hidden tests in Docker. Pi runs on the host and Docker is the verifier, which is where the
+    integrity story below comes from. Pi time/task averages describe the original sweep&rsquo;s cells; the seventeen confined
+    rerun cells ran heavier and slower. <strong>Only the xhigh gap exceeds the combined uncertainty of its pair, but the ordering
+    holds at every level, and the timeout-versus-wrong split below is categorical, not statistical.</strong></p>
+
+    <div class="findings-list">
+      <div class="finding"><div class="fn">1.</div><p><strong>The harness is worth 4.3 to 17.4 points, and every number is audited clean.</strong> Pi beats the loop at every matched effort. The unconfined sweep had claimed more (95.7 / 87.0 / 78.3): replacing its 17 audit-flagged cells with confined reruns cut the headline gap roughly in half, which is itself the study&rsquo;s calibration lesson. Judged only by its xhigh loop setting, Muse Spark looks like a 52% model; judged through Pi at low, it is a 91% model.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>The effort knob points backward on both systems, but only one falls off a cliff.</strong> The loop inverts hard, 87.0 to 52.2, the steepest backward dial measured on v3 (<a href="19-musespark-effort.html">Report No.&nbsp;19</a>). Pi slides gently, 91.3 to 69.6, on the same <code>low / high / xhigh</code> enum. Low is the right setting everywhere; the harness decides how much the higher settings cost.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>The gap is unfinished work, not worse work.</strong> The loop&rsquo;s failures at high and xhigh are dominated by timeouts: 0, then 5, then 10 unfinished runs as effort rises, against 3, 1, 1 finished wrong answers. Pi is nearly the mirror image: two timeouts in 69 cells, every other failure a finished wrong answer in single-digit minutes. This is the pattern Reports No.&nbsp;<a href="12-qwen38-max.html">12</a> and <a href="18-glm53-zcode-harness.html">18</a> documented; a second harness on this model almost removes it.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>Confined, the model hunts for the answer key, and it costs real budget.</strong> The original sweep ran Pi unconfined on the host; the audit flagged 17 of 69 cells for filesystem access outside the workspace, 6 of them reading gold patches or hidden tests. Every rerun stream shows the model probing the host for benchmark data and being refused by the seatbelt, and both Pi timeouts on the board are the model spending its entire wall-clock budget running <code>find / -name</code> instead of working. Any host-run harness result for this model without filesystem confinement should be assumed contaminated.</p></div>
+      <div class="finding"><div class="fn">5.</div><p><strong>The cheated cells did not survive honest reruns.</strong> Sqlglot-canonicalize lost all three of its unconfined &ldquo;solves&rdquo; (wrong at every level once confined), pennylane&rsquo;s went to wrong at high and xhigh, and one cell each of flask and sqlglot-iso8601 became timeouts. Report No.&nbsp;19&rsquo;s unsolvable trio holds almost intact: confined Pi adds only networkx-leiden at low, a solve reverified under confinement with a clean audit. The seventeen honest reruns metered $58.31, more than the loop&rsquo;s entire $56.36 three-column sweep.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Breakdown</div>
+    <h2>The twelve tasks that moved.</h2>
+    <div class="table-scroll compact" role="region" aria-label="Task-level failure map" tabindex="0">
+    <table class="data">
+      <thead><tr><th>Task</th><th>API low</th><th>API high</th><th>API xhigh</th><th>Pi low</th><th>Pi high</th><th>Pi xhigh</th></tr></thead>
+      <tbody>
+        <tr><td class="model">pennylane-trotter-fragmented</td><td>W</td><td>T</td><td>T</td><td>W</td><td>W</td><td>W</td></tr>
+        <tr><td class="model">networkx-leiden-communities</td><td>W</td><td>T</td><td>T</td><td class="win">S</td><td>W</td><td>W</td></tr>
+        <tr><td class="model">sqlglot-canonicalize-internal-names</td><td>W</td><td>T</td><td>T</td><td>W</td><td>W</td><td>W</td></tr>
+        <tr><td class="model">aiohttp-upgrade-deferred</td><td class="win">S</td><td>T</td><td>T</td><td class="win">S</td><td class="win">S</td><td class="win">S</td></tr>
+        <tr><td class="model">flask-teardown-robust</td><td class="win">S</td><td>T</td><td>T</td><td class="win">S</td><td class="win">S</td><td>T</td></tr>
+        <tr><td class="model">itertools-strip-prefix</td><td class="win">S</td><td class="win">S</td><td>T</td><td class="win">S</td><td>W</td><td>W</td></tr>
+        <tr><td class="model">jiff-strftime-negpad</td><td class="win">S</td><td class="win">S</td><td>T</td><td class="win">S</td><td class="win">S</td><td class="win">S</td></tr>
+        <tr><td class="model">packaging-range-prerelease-policy</td><td class="win">S</td><td class="win">S</td><td>T</td><td class="win">S</td><td class="win">S</td><td class="win">S</td></tr>
+        <tr><td class="model">semver-inc-dotted-prerelease</td><td class="win">S</td><td class="win">S</td><td>T</td><td class="win">S</td><td class="win">S</td><td class="win">S</td></tr>
+        <tr><td class="model">semver-xrange-order</td><td class="win">S</td><td class="win">S</td><td>T</td><td class="win">S</td><td class="win">S</td><td class="win">S</td></tr>
+        <tr><td class="model">sqlglot-iso8601-nanos</td><td class="win">S</td><td class="win">S</td><td class="win">S</td><td class="win">S</td><td class="win">S</td><td>T</td></tr>
+        <tr><td class="model">sqlglot-qualify-lateral-star</td><td class="win">S</td><td>W</td><td>W</td><td class="win">S</td><td class="win">S</td><td>W</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="prose" style="margin-top:10px;font-size:15px;">S solved &middot; W finished but failed the hidden tests &middot; T cut off at its
+    wall-clock budget. The other eleven tasks were solved by both systems at every level. Where the loop degrades it degrades into
+    T; where Pi degrades it degrades into W. Both Pi timeouts are the confined model spending its budget hunting the host for
+    benchmark files. Of the loop&rsquo;s fifteen unfinished runs, all hit the wall clock; none was stopped by the step ceiling or a
+    cost cap.</p>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Caveats</div>
+    <h2>What this study can and cannot attribute.</h2>
+    <div class="prose">
+      <p>The gap could come from Pi&rsquo;s scaffold (system prompt, four plain tools, turn-taking) or from how the two systems
+      spend the same reasoning enum; these are indistinguishable from outside. Both tracks are metered API on the identical
+      wire model, so serving differences are unlikely. The Pi column is model plus agent and never joins the raw-API board: the
+      leaderboard CLI filters <code>pi:</code> rows out of the API track by construction. One attempt per cell, so only the
+      xhigh gap clears the combined error bars; the low and high gaps are directional, while the timeout-versus-wrong split and
+      the answer-key findings are exact counts.</p>
+      <p>On the integrity side: the original sweep&rsquo;s agent was not kernel-sandboxed, and its per-run audit is what caught the
+      answer-key reads. All 17 flagged cells were replaced by reruns under a macOS seatbelt profile denying the agent every local
+      benchmark checkout; each accepted rerun&rsquo;s audit shows no benchmark paths and no web use. One unflagged cell was
+      additionally reverified because it carried the entire low-effort gap: networkx-leiden at low re-solved under confinement
+      with a clean audit. The original sweep also under-metered Pi&rsquo;s cash by recording only the last usage record per run
+      (fixed in v0.9.1), so whole-column Pi dollars are not quoted; the seventeen rerun cells are metered correctly. Wall-clock
+      budgets (20 to 60 minutes by repository size) are the same fixed budgets every model on the board runs under.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Method &amp; notes</div>
+    <div class="prose">
+      <p>VulcanBench v3: 23 tasks from real merged post-cutoff PRs (Python 9, TypeScript 4, Rust 4, Go 3, JavaScript 3). Both
+      systems are graded by the same deterministic hidden tests in Docker; model judges disabled. System A is the Meta Model API
+      (<code>muse-spark-1.2</code>, $1.25/$4.25 per M tokens) through the minimal reference loop, from
+      <a href="19-musespark-effort.html">Report No.&nbsp;19</a>. System B ran Pi headlessly (0.74.2 for the sweep, 0.75.5 with a
+      declared 262K context window for the confined reruns) with sessions, skills, and extensions disabled and a per-run isolated
+      HOME. The sweep ran 2026-08-27; the seventeen confined replacement cells and the leiden verification ran 2026-08-27 and
+      2026-08-28 under a seatbelt profile denying every local benchmark checkout. Every CLI-harness run carries an integrity audit
+      of the filesystem and web channels. This is the fourth entry in the Harness Study series, after Cursor
+      (<a href="15-grok46-cursor-harness.html">Report No.&nbsp;15</a>), Grok Build
+      (<a href="16-grok46-grok-build.html">Report No.&nbsp;16</a>), and ZCode
+      (<a href="18-glm53-zcode-harness.html">Report No.&nbsp;18</a>), and the first where both tracks bill the same metered API.</p>
+    </div>
+    <div class="dl-row">
+      <a class="btn primary" href="../assets/reports/vulcanbench-musespark-pi-report.pdf">Read the full report (PDF)</a>
+      <a class="btn" href="https://x.com/intent/post?text=We%20caught%20the%20model%20cheating%20%28VulcanBench%20Report%2020%29&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2F20-musespark-pi-harness.html" target="_blank" rel="noopener">Share on X</a>
+      <a class="btn" href="../assets/cards/report20-musespark-pi.png" download>Download study card</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../benchmarks.html">&larr; All benchmarks</a></p>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=13" defer></script>
+</body>
+</html>

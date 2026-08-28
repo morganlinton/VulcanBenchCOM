@@ -7,6 +7,13 @@
     <description>Technical reports from VulcanBench: frontier models measured on real engineering work, graded by deterministic hidden tests, with cost, tokens, and time as first-class results.</description>
     <language>en</language>
     <item>
+      <title>Muse Spark 1.2 in Pi vs a bare-bones harness | Report 20 | Harness Study No. 04</title>
+      <link>https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html</link>
+      <guid>https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html</guid>
+      <pubDate>Fri, 28 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The fourth harness study, and the first on an open-source agent: the same Muse Spark 1.2 through Pi and through a bare-bones API loop. Pi wins at every effort level (91.3/82.6/69.6 vs 87.0/73.9/52.2, +4.3 to +17.4 points), the loop fails by timing out while Pi fails by being wrong, and the integrity audit caught the model hunting the host for answer keys: 17 of 69 Pi cells were replaced by kernel-confined, audited-clean reruns that cut the headline gap roughly in half. Six flagged "solves" did not survive honest reruns.</description>
+    </item>
+    <item>
       <title>Muse Spark 1.2 across the effort knob | Report 19</title>
       <link>https://vulcanbench.com/benchmarks/19-musespark-effort.html</link>
       <guid>https://vulcanbench.com/benchmarks/19-musespark-effort.html</guid>
