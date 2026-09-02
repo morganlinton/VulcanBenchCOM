@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels | VulcanBench</title>
+<meta name="description" content="How a $300,000-a-year model bill led me to build evals on my own team's codebase, benchmark models across every effort level rather than just Max, and start publishing the results as VulcanBench.">
+<link rel="canonical" href="https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels">
+<meta property="og:description" content="How a $300,000-a-year model bill led me to build evals on my own team's codebase, benchmark models across every effort level rather than just Max, and start publishing the results as VulcanBench.">
+<meta property="og:url" content="https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels">
+<meta name="twitter:description" content="How a $300,000-a-year model bill led me to build evals on my own team's codebase, benchmark models across every effort level rather than just Max, and start publishing the results as VulcanBench.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels",
+  "description": "How a $300,000-a-year model bill led me to build evals on my own team's codebase, benchmark models across every effort level rather than just Max, and start publishing the results as VulcanBench.",
+  "url": "https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html",
+  "mainEntityOfPage": "https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html",
+  "image": "https://vulcanbench.com/assets/og-image.png",
+  "datePublished": "2026-09-02",
+  "dateModified": "2026-09-02",
+  "author": {
+    "@type": "Person",
+    "name": "Morgan Linton",
+    "url": "https://www.morganlinton.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vulcanbench.com/assets/logo.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=29">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">Custom evals</a>
+      <a href="../blog.html" class="active">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Post No. 01</div>
+    <h1>Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels</h1>
+    <p class="byline">A benchmark that started as a spreadsheet problem: which model, at which effort level, for which piece of the work</p>
+    <div class="runmeta">2026-09-02 &middot; Morgan Linton &middot; 5 min read</div>
+  </div>
+
+  <div class="post-body">
+    <p class="lead-in">Hi, I&rsquo;m Morgan, and I am the mad scientist behind VulcanBench. Before I go any further I want to
+    make it clear, I am not an expert, and I don&rsquo;t want anyone to mistake me for one. I kinda fell into benchmarking,
+    and into the creation of VulcanBench out of my own needs, and really more my team&rsquo;s needs, so let me explain.</p>
+
+    <p>Annnnnd first, it probably makes sense to give a super short intro to me. I was born in Berkeley, California, and
+    as a kid was kinda obsessed with space and science. I took science classes at the Lawrence Hall of Science, and I
+    think that really sparked my interest in science at a young age.</p>
+
+    <p>When I was in Junior High, I started a web design company that ended up building some of the first websites for
+    real estate co&rsquo;s in the bay area, and yes, this was back in the mid-90&rsquo;s, I&rsquo;m old.</p>
+
+    <p>During High School I worked for two different startups, Xaos Tools and Xinet, and yes, I guess I had a thing for
+    startups that had names that started with an X. After High School I went to Carnegie Mellon, did my undergrad in
+    Computer Engineering with a minor in Computer Science, then stayed on and did my Masters in Computer Engineering.</p>
+
+    <p>It was during my Masters that I became kinda obsessed with optimization. At that time, I was working on optimizing
+    C code using assembly, so it could run faster on small chips like the Intel XScale processor.</p>
+
+    <p>Okay, I don&rsquo;t want to bore you with my whole life story, so I&rsquo;ll fast-forward to today. I am the
+    Cofounder and CTO of Bold Metrics, we&rsquo;re an AI company that builds custom models for predicting body
+    measurements and garment sizing, and work with some of the biggest, most awesome apparel brands in the world.
+    It&rsquo;s really neat stuff, and I have an amazing engineering and data science team, that is all in on agentic
+    coding workflows.</p>
+
+    <p>The problem we ran into earlier this year (let&rsquo;s call it March of 2026) is that it was becoming incredibly
+    difficult to both figure out what models were the best for each team, the programming language they were using,
+    codebase size, etc. and what effort level to use with each model.</p>
+
+    <p>We were on a path that was going to lead to a bill of over $300,000 for the year, and that was crazy, I knew there
+    had to be a better path. So I started looking at how the team was using models, and they did, what I think most
+    engineering teams do, pick a provider like Anthropic or Open AI, and then use their best model, at High effort (or
+    higher) for everything.</p>
+
+    <p>So I thought, what if I build some evals based on our codebase, and the actual work our team is doing, and test
+    different models, at different effort levels. What I learned kinda blew my mind. For a lot of the daily routine tasks
+    my team was doing, they didn&rsquo;t need high effort, or even medium effort in many cases, and they also
+    didn&rsquo;t need the latest, most powerful frontier model, to get the exact same accuracy.</p>
+
+    <p>As I went deeper, I also realized that for individual PRs, most had components that were mostly easy or medium
+    difficulty, with some truly hard stuff, but often less than 20% of the work in the PR really needed a model and
+    effort level for solving something really challenging.</p>
+
+    <p>So I started to noodle on the idea of a multi-model execution layer, which at a high-level means working with a
+    planning agent to break a coding task into easy, medium, and hard components, and then sending each of those
+    components to a different model, at a different effort level. I wrote more about this on Medium, and decided to call
+    this general concept, a difficulty aware multi-model execution layer.</p>
+
+    <p>It was a bit of an aha moment. So then I went to go look at a bunch of different benchmarks to help figure out
+    what models to send to each component of the execution layer, and hit a wall. Most of the benchmarks I looked at
+    tested models only at Max effort, the signal I was looking for, around what effort level me and my team really
+    needed, just wasn&rsquo;t available.</p>
+
+    <p>So I whipped up a little benchmarking tool and started benchmarking across effort levels myself. This finally gave
+    me the data I needed, and after benchmarking model after model, across effort levels, we got what we needed, and our
+    bill went from $300,000/year to under $30,000/year. It was wild, and I started talking to a few other friends about
+    it and they suggested I start posting my benchmarks on X, they thought there were probably other eng teams out there
+    that could benefit from the same data.</p>
+
+    <p>I came up with a name, VulcanBench, which as a lifelong Star Trek fan just made sense to me right away, and I
+    started sharing my benchmarks on X. The response and interest level in what I was doing really surprised me, it
+    turned out I guess I wasn&rsquo;t the only person that was hungry for benchmark data on models across effort levels,
+    not just on Max.</p>
+
+    <p>Soon companies started reaching out asking me to do what I had done for our team, benchmark their exact stack by
+    building custom evals based on their codebase so they could have customized model routing recommendations, and most
+    importantly, effort level data that they could use to really cut token use and cost.</p>
+
+    <p>And ideas for new evals keep popping into my head constantly. I&rsquo;m working on a Python-only eval suite, a
+    TypeScript-only eval suite, Cybersecurity eval suite, and more language and domain specific eval suites. The more I
+    learn through my benchmarks, the more I realize that there&rsquo;s a real problem here, generalized benchmarks, taken
+    only at Max effort, and without much data on if the coding tasks in the eval suite actually represent the kind of
+    work you or your team does, don&rsquo;t provide enough signal to make a decision.</p>
+
+    <p>When people can&rsquo;t make a decision, they tend to take the easy route, which means picking one model provider,
+    and just using their latest model at high effort (or higher), but that&rsquo;s an expensive and slow path. I think
+    there&rsquo;s a better way, and I&rsquo;m excited to continue to explore this new frontier at VulcanBench.</p>
+
+    <p>Phew, and this turned into one heck of a long blog post, guess I had a lot to say! As you can probably tell,
+    I&rsquo;m incredibly passionate about what I&rsquo;m doing here, and I honestly have no idea where it&rsquo;s all
+    going, I just know, I can&rsquo;t stop thinking about evals and benchmarks.</p>
+
+    <p class="signoff">Thanks for reading, and live long and benchmark &#x1F596;</p>
+  </div>
+
+  <div class="post-note">
+    <b>Where to go next</b>
+    Every model on the current suite is swept across its whole reasoning-effort ladder on the
+    <a href="../leaderboard.html">leaderboard</a>, the per-run detail lives in the
+    <a href="../benchmarks.html">benchmark reports</a>, and if you want this run on your own codebase, that is
+    <a href="../benchmark-your-stack.html">custom evals</a>.
+  </div>
+
+  <div class="post-foot">
+    <div class="dl-row">
+      <a class="btn primary" href="../benchmark-your-stack.html">Benchmark your stack &rarr;</a>
+      <a class="btn" href="https://x.com/intent/post?text=Why%20I%20started%20VulcanBench%2C%20and%20my%20journey%20building%20evals%20and%20benchmarking%20models%20across%20effort%20levels&amp;url=https%3A%2F%2Fvulcanbench.com%2Fblog%2F01-why-i-started-vulcanbench.html" target="_blank" rel="noopener">Share on X</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../blog.html">&larr; All posts</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=14" defer></script>
+</body>
+</html>

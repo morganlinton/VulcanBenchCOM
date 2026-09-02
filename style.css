@@ -741,3 +741,28 @@ section[id] { scroll-margin-top: 90px; }
 @media (max-width: 720px) {
   .support-tiers { grid-template-columns: 1fr; }
 }
+
+/* ==== blog ==== */
+.post-body { max-width: 760px; margin: 0 auto; }
+.post-body p { font-size: 19px; line-height: 1.74; margin-top: 22px; }
+.post-body p.lead-in { font-size: 21px; line-height: 1.66; margin-top: 0; }
+.post-body p.signoff { font-size: 21px; font-style: italic; color: var(--soft); margin-top: 34px; }
+.post-body h2 {
+  font-size: 27px; font-weight: 600; letter-spacing: -0.2px; line-height: 1.22;
+  margin-top: 52px; padding-top: 26px; border-top: 1px solid var(--hairline);
+}
+.post-body h2 + p { margin-top: 16px; }
+.post-body strong { font-weight: 600; }
+.post-note {
+  max-width: 760px; margin: 46px auto 0; padding: 22px 26px;
+  border-left: 3px solid var(--ember); background: rgba(28, 26, 23, 0.03);
+  font-size: 16.5px; line-height: 1.62; color: var(--soft);
+}
+.post-note b { font-family: var(--display); font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.6px; color: var(--ink); display: block; margin-bottom: 6px; }
+.post-foot { max-width: 760px; margin: 0 auto; }
+.report-row .no b.postno { font-size: 26px; }
+@media (max-width: 720px) {
+  .post-body p { font-size: 17.5px; }
+  .post-body p.lead-in { font-size: 19px; }
+  .post-body h2 { font-size: 23px; margin-top: 42px; }
+}

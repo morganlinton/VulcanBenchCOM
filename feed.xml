@@ -7,6 +7,13 @@
     <description>Technical reports from VulcanBench: frontier models measured on real engineering work, graded by deterministic hidden tests, with cost, tokens, and time as first-class results.</description>
     <language>en</language>
     <item>
+      <title>Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels</title>
+      <link>https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html</link>
+      <guid>https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html</guid>
+      <pubDate>Wed, 02 Sep 2026 12:00:00 +0000</pubDate>
+      <description>The first VulcanBench blog post: how a $300,000-a-year model bill led Morgan Linton to build evals on his own team's codebase, benchmark models across every effort level instead of just Max, and start publishing the results publicly. The team's bill ended up under $30,000/year.</description>
+    </item>
+    <item>
       <title>Muse Spark 1.2 in Pi vs a bare-bones harness | Report 20 | Harness Study No. 04</title>
       <link>https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html</link>
       <guid>https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html</guid>
