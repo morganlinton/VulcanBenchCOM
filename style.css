@@ -766,3 +766,36 @@ section[id] { scroll-margin-top: 90px; }
   .post-body p.lead-in { font-size: 19px; }
   .post-body h2 { font-size: 23px; margin-top: 42px; }
 }
+
+/* ---- blog: breadcrumb, summary, author ---- */
+.crumbs {
+  font-family: var(--mono); font-size: 12.5px; color: var(--faint);
+  padding: 26px 0 0; display: flex; gap: 8px; flex-wrap: wrap; align-items: baseline;
+}
+.crumbs a { color: var(--faint); }
+.crumbs a:hover { color: var(--ember); text-decoration: none; }
+.crumbs .sep { opacity: 0.5; }
+.tldr {
+  max-width: 760px; margin: 6px auto 40px; padding: 24px 28px 26px;
+  border: 1px solid var(--line); background: rgba(28, 26, 23, 0.02);
+}
+.tldr b {
+  font-family: var(--display); font-size: 11.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1.8px; color: var(--ember); display: block;
+}
+.tldr ul { margin: 12px 0 0; padding-left: 20px; }
+.tldr li { font-size: 17px; line-height: 1.62; margin-top: 10px; color: var(--soft); }
+.tldr li strong { color: var(--ink); font-weight: 600; }
+.author-box {
+  max-width: 760px; margin: 40px auto 0; padding: 24px 28px;
+  border-top: 2.5px solid var(--line); border-bottom: 1px solid var(--hairline);
+}
+.author-box b {
+  font-family: var(--display); font-size: 11.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1.8px; color: var(--ink); display: block; margin-bottom: 8px;
+}
+.author-box p { font-size: 16.5px; line-height: 1.65; color: var(--soft); margin: 0; }
+@media (max-width: 720px) {
+  .tldr, .author-box { padding: 20px 22px; }
+  .tldr li { font-size: 16px; }
+}

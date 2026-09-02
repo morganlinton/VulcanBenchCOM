@@ -1,0 +1,33 @@
+# VulcanBench
+
+> An open-source coding benchmark that measures frontier language models on real merged
+> open-source pull requests, graded by deterministic hidden tests. Unusually for a coding
+> benchmark, every model is swept across its whole reasoning-effort ladder (low, medium,
+> high, xhigh, max) rather than measured only at maximum effort, and cost, wall-clock time,
+> agent steps, and token use are reported alongside accuracy.
+
+VulcanBench is run by Morgan Linton, Cofounder and CTO of Bold Metrics. Tasks come from pull
+requests merged after the evaluated models' training cutoffs, so solutions cannot have been
+memorised. Grading is done by hidden tests validated to fail on the base commit and pass on
+the merged fix; no model judges another model. The harness and every eval are open source.
+
+## Key pages
+- [Leaderboard](https://vulcanbench.com/leaderboard.html): every model on the current v3 suite, ranked at every effort level, with pass@1, cost per task, and minutes per task.
+- [Benchmarks](https://vulcanbench.com/benchmarks.html): the full published record of technical reports, newest first.
+- [Methodology](https://vulcanbench.com/methodology.html): how tasks are selected, decontaminated, sandboxed, and graded.
+- [Blog](https://vulcanbench.com/blog.html): writing about why VulcanBench exists and what the effort knob keeps showing.
+- [Custom evals](https://vulcanbench.com/benchmark-your-stack.html): private eval suites built from a team's own repositories, returned as a model-routing policy.
+- [Benchmark your model](https://vulcanbench.com/benchmark-your-model.html): for labs measuring their own model, fine-tune, or agent scaffold.
+
+## Blog posts
+- [Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels](https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html): Morgan Linton on the $300,000-a-year model bill that led him to build evals on his own team's codebase, the idea of a difficulty-aware multi-model execution layer, and why benchmarks measured only at Max effort gave him no usable signal. His team's bill fell to under $30,000/year.
+
+## Recurring findings
+- Higher reasoning effort frequently does not improve pass@1 on real engineering tasks, and on several models it reduces it while multiplying cost and wall-clock time.
+- When accuracy converges between models, cost, token use, and time are the signals that separate them.
+- The agent harness a model runs inside can be worth more points than the choice of model.
+
+## Feeds and data
+- [RSS feed](https://vulcanbench.com/feed.xml)
+- [Leaderboard JSON](https://vulcanbench.com/leaderboard.json)
+- [Source repository](https://github.com/morganlinton/VulcanBench)

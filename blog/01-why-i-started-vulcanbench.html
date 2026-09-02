@@ -12,24 +12,39 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels | VulcanBench</title>
-<meta name="description" content="How a $300,000-a-year model bill led me to build evals on my own team's codebase, benchmark models across every effort level rather than just Max, and start publishing the results as VulcanBench.">
+<title>Why I started VulcanBench | Benchmarking models across effort levels</title>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="A $300,000/year model bill led me to build evals on my own team's codebase and benchmark models at every effort level, not just Max. Ours fell under $30,000.">
+<meta name="author" content="Morgan Linton">
 <link rel="canonical" href="https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels">
-<meta property="og:description" content="How a $300,000-a-year model bill led me to build evals on my own team's codebase, benchmark models across every effort level rather than just Max, and start publishing the results as VulcanBench.">
+<meta property="og:description" content="A $300,000/year model bill led me to build evals on my own team's codebase and benchmark models at every effort level, not just Max. Ours fell under $30,000.">
 <meta property="og:url" content="https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html">
-<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/blog1-why-vulcanbench.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta property="og:image:alt" content="Why I started VulcanBench: benchmarking models across every effort level, not just Max">
+<meta property="article:published_time" content="2026-09-02T12:00:00+00:00">
+<meta property="article:modified_time" content="2026-09-02T12:00:00+00:00">
+<meta property="article:author" content="https://www.morganlinton.com/">
+<meta property="article:section" content="Benchmarking">
+<meta property="article:tag" content="AI benchmarks">
+<meta property="article:tag" content="reasoning effort">
+<meta property="article:tag" content="model routing">
+<meta property="article:tag" content="agentic coding">
+<meta property="article:tag" content="LLM cost optimization">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels">
-<meta name="twitter:description" content="How a $300,000-a-year model bill led me to build evals on my own team's codebase, benchmark models across every effort level rather than just Max, and start publishing the results as VulcanBench.">
-<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
-<meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta name="twitter:description" content="A $300,000/year model bill led me to build evals on my own team's codebase and benchmark models at every effort level, not just Max. Ours fell under $30,000.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/blog1-why-vulcanbench.png">
+<meta name="twitter:image:alt" content="Why I started VulcanBench: benchmarking models across every effort level, not just Max">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Morgan Linton">
+<meta name="twitter:label2" content="Reading time">
+<meta name="twitter:data2" content="5 minutes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -38,31 +53,65 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels",
-  "description": "How a $300,000-a-year model bill led me to build evals on my own team's codebase, benchmark models across every effort level rather than just Max, and start publishing the results as VulcanBench.",
-  "url": "https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html",
-  "mainEntityOfPage": "https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html",
-  "image": "https://vulcanbench.com/assets/og-image.png",
-  "datePublished": "2026-09-02",
-  "dateModified": "2026-09-02",
-  "author": {
-    "@type": "Person",
-    "name": "Morgan Linton",
-    "url": "https://www.morganlinton.com/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "VulcanBench",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://vulcanbench.com/assets/logo.png"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html#post",
+      "headline": "Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels",
+      "alternativeHeadline": "Why benchmarks measured only at Max effort gave me no usable signal",
+      "description": "A $300,000/year model bill led me to build evals on my own team's codebase and benchmark models at every effort level, not just Max. Ours fell under $30,000.",
+      "url": "https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html",
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html"},
+      "image": {"@type": "ImageObject", "url": "https://vulcanbench.com/assets/cards/blog1-why-vulcanbench.png", "width": 1200, "height": 630},
+      "datePublished": "2026-09-02T12:00:00+00:00",
+      "dateModified": "2026-09-02T12:00:00+00:00",
+      "inLanguage": "en-US",
+      "wordCount": 1138,
+      "timeRequired": "PT5M",
+      "articleSection": "Benchmarking",
+      "keywords": "AI coding benchmarks, reasoning effort levels, model routing, agentic coding, LLM cost optimization, evals",
+      "isPartOf": {"@id": "https://vulcanbench.com/blog.html#blog"},
+      "about": [
+        {"@type": "Thing", "name": "AI coding benchmarks"},
+        {"@type": "Thing", "name": "Reasoning effort levels"},
+        {"@type": "Thing", "name": "Multi-model routing"}
+      ],
+      "author": {"@id": "https://vulcanbench.com/#morgan"},
+      "publisher": {"@id": "https://vulcanbench.com/#org"}
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vulcanbench.com/#morgan",
+      "name": "Morgan Linton",
+      "url": "https://www.morganlinton.com/",
+      "jobTitle": "Cofounder and CTO",
+      "worksFor": {"@type": "Organization", "name": "Bold Metrics"},
+      "knowsAbout": ["AI coding benchmarks", "Evaluation harnesses", "Reasoning effort levels", "Model routing", "Agentic coding workflows"],
+      "alumniOf": {"@type": "CollegeOrUniversity", "name": "Carnegie Mellon University"},
+      "sameAs": ["https://www.morganlinton.com/", "https://github.com/morganlinton"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://vulcanbench.com/#org",
+      "name": "VulcanBench",
+      "url": "https://vulcanbench.com/",
+      "logo": {"@type": "ImageObject", "url": "https://vulcanbench.com/assets/logo.png"},
+      "founder": {"@id": "https://vulcanbench.com/#morgan"},
+      "sameAs": ["https://github.com/morganlinton/VulcanBench"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vulcanbench.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vulcanbench.com/blog.html"},
+        {"@type": "ListItem", "position": 3, "name": "Why I started VulcanBench"}
+      ]
     }
-  }
+  ]
 }
 </script>
 <link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
-<link rel="stylesheet" href="../style.css?v=29">
+<link rel="stylesheet" href="../style.css?v=30">
 </head>
 <body>
 
@@ -85,11 +134,34 @@
 </header>
 
 <div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="../blog.html">Blog</a>
+    <span class="sep">/</span>
+    <span aria-current="page">Why I started VulcanBench</span>
+  </nav>
+
   <div class="article-head">
     <div class="rno">Post No. 01</div>
     <h1>Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels</h1>
     <p class="byline">A benchmark that started as a spreadsheet problem: which model, at which effort level, for which piece of the work</p>
     <div class="runmeta">2026-09-02 &middot; Morgan Linton &middot; 5 min read</div>
+  </div>
+
+  <div class="tldr">
+    <b>In short</b>
+    <ul>
+      <li>My team&rsquo;s agentic coding spend was on track for more than <strong>$300,000 a year</strong>, because we did
+      what most teams do: pick one provider, and use its best model at high effort for everything.</li>
+      <li>Evals built on our own codebase showed that most daily tasks did not need high effort, or the newest frontier
+      model, to reach the same accuracy.</li>
+      <li>Less than 20% of the work in a typical pull request is genuinely hard. That is the idea behind a
+      <strong>difficulty aware multi-model execution layer</strong>: break the task into easy, medium, and hard
+      components, and route each to a different model at a different effort level.</li>
+      <li>Almost every benchmark I could find tested models only at Max effort, so I built my own and published the
+      results as VulcanBench. Our bill went to <strong>under $30,000 a year</strong>.</li>
+    </ul>
   </div>
 
   <div class="post-body">
@@ -127,7 +199,7 @@
     higher) for everything.</p>
 
     <p>So I thought, what if I build some evals based on our codebase, and the actual work our team is doing, and test
-    different models, at different effort levels. What I learned kinda blew my mind. For a lot of the daily routine tasks
+    <a href="../methodology.html">different models, at different effort levels</a>. What I learned kinda blew my mind. For a lot of the daily routine tasks
     my team was doing, they didn&rsquo;t need high effort, or even medium effort in many cases, and they also
     didn&rsquo;t need the latest, most powerful frontier model, to get the exact same accuracy.</p>
 
@@ -145,7 +217,7 @@
     tested models only at Max effort, the signal I was looking for, around what effort level me and my team really
     needed, just wasn&rsquo;t available.</p>
 
-    <p>So I whipped up a little benchmarking tool and started benchmarking across effort levels myself. This finally gave
+    <p>So I whipped up a little benchmarking tool and started <a href="../leaderboard.html">benchmarking across effort levels</a> myself. This finally gave
     me the data I needed, and after benchmarking model after model, across effort levels, we got what we needed, and our
     bill went from $300,000/year to under $30,000/year. It was wild, and I started talking to a few other friends about
     it and they suggested I start posting my benchmarks on X, they thought there were probably other eng teams out there
@@ -157,7 +229,7 @@
     not just on Max.</p>
 
     <p>Soon companies started reaching out asking me to do what I had done for our team, benchmark their exact stack by
-    building custom evals based on their codebase so they could have customized model routing recommendations, and most
+    building <a href="../benchmark-your-stack.html">custom evals based on their codebase</a> so they could have customized model routing recommendations, and most
     importantly, effort level data that they could use to really cut token use and cost.</p>
 
     <p>And ideas for new evals keep popping into my head constantly. I&rsquo;m working on a Python-only eval suite, a
@@ -183,6 +255,15 @@
     <a href="../leaderboard.html">leaderboard</a>, the per-run detail lives in the
     <a href="../benchmarks.html">benchmark reports</a>, and if you want this run on your own codebase, that is
     <a href="../benchmark-your-stack.html">custom evals</a>.
+  </div>
+
+  <div class="author-box">
+    <b>About the author</b>
+    <p><a href="https://www.morganlinton.com/">Morgan Linton</a> is the Cofounder and CTO of Bold Metrics, an AI company
+    that builds custom models for predicting body measurements and garment sizing for apparel brands. He studied Computer
+    Engineering at Carnegie Mellon University, and runs VulcanBench, the open-source coding benchmark that measures
+    frontier models across every reasoning-effort level on real merged pull requests. The harness and every eval are
+    <a href="https://github.com/morganlinton/VulcanBench">open source on GitHub</a>.</p>
   </div>
 
   <div class="post-foot">
