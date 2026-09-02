@@ -145,24 +145,9 @@
   <div class="article-head">
     <div class="rno">Post No. 01</div>
     <h1>Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels</h1>
-    <p class="byline">A benchmark that started as a spreadsheet problem: which model, at which effort level, for which piece of the work</p>
     <div class="runmeta">2026-09-02 &middot; Morgan Linton &middot; 5 min read</div>
   </div>
 
-  <div class="tldr">
-    <b>In short</b>
-    <ul>
-      <li>My team&rsquo;s agentic coding spend was on track for more than <strong>$300,000 a year</strong>, because we did
-      what most teams do: pick one provider, and use its best model at high effort for everything.</li>
-      <li>Evals built on our own codebase showed that most daily tasks did not need high effort, or the newest frontier
-      model, to reach the same accuracy.</li>
-      <li>Less than 20% of the work in a typical pull request is genuinely hard. That is the idea behind a
-      <strong>difficulty aware multi-model execution layer</strong>: break the task into easy, medium, and hard
-      components, and route each to a different model at a different effort level.</li>
-      <li>Almost every benchmark I could find tested models only at Max effort, so I built my own and published the
-      results as VulcanBench. Our bill went to <strong>under $30,000 a year</strong>.</li>
-    </ul>
-  </div>
 
   <div class="post-body">
     <p class="lead-in">Hi, I&rsquo;m Morgan, and I am the mad scientist behind VulcanBench. Before I go any further I want to
