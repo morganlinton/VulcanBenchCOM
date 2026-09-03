@@ -73,7 +73,6 @@
     <nav class="nav">
       <a href="index.html" class="active">Home</a>
       <a href="benchmarks.html">Benchmarks</a>
-      <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
       <a href="benchmark-your-stack.html">Custom evals</a>
       <a href="blog.html">Blog</a>
@@ -88,8 +87,8 @@
     <h1>Benchmarking models<br>on real engineering work.</h1>
     <p class="tagline">Merged open-source pull requests, graded by deterministic hidden tests.</p>
     <div class="cta">
-      <a class="btn primary" href="leaderboard.html">See the leaderboard</a>
-      <a class="btn" href="benchmarks.html">Read the benchmarks</a>
+      <a class="btn primary" href="benchmarks.html">Read the benchmarks</a>
+      <a class="btn" href="methodology.html">How it works</a>
       <a class="btn" href="benchmark-your-stack.html">Custom evals for your stack</a>
     </div>
   </div>
@@ -161,28 +160,6 @@
         <p>Cost, wall-clock time, agent steps, and tokens are recorded alongside accuracy. When correctness converges,
         efficiency is the signal.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="section-label">The running board</div>
-    <h2>Thirteen models, every effort level, ranked.</h2>
-    <p class="prose" style="margin-top:10px;font-size:18px;">Eval Suite 3: twenty-three frontier-hard tasks from real merged PRs, every model swept across its whole reasoning-effort ladder &mdash; 39 model&times;effort columns behind these rows. Each model is shown at its best-scoring effort; eleven of the fourteen sit within one standard error of the lead, so cost and speed are where they actually separate.</p>
-    <div class="lb-scroll">
-    <table class="lb">
-      <thead><tr><th class="l">#</th><th class="l">Model</th><th>pass@1</th><th>$/task run</th><th>min/task</th></tr></thead>
-      <tbody>
-        <tr class="leader"><td class="l lb-rank">1</td><td class="l"><span class="lb-model">Grok 4.5</span> <span class="lb-eff">high</span></td><td class="lb-win">89.9%</td><td>$0.47</td><td>8.4</td></tr>
-        <tr><td class="l lb-rank">2</td><td class="l"><span class="lb-model">Claude Fable 5</span> <span class="lb-eff">low</span></td><td>89.5%</td><td>$0.51</td><td>3.5</td></tr>
-        <tr><td class="l lb-rank">3</td><td class="l"><span class="lb-model">DeepSeek V4-Flash</span> <span class="lb-eff">max</span></td><td>88.4%</td><td class="lb-win">$0.06</td><td>11.2</td></tr>
-        <tr><td class="l lb-rank">4</td><td class="l"><span class="lb-model">DeepSeek V4 Pro</span> <span class="lb-eff">high</span></td><td>87.0%</td><td>$0.11</td><td>7.4</td></tr>
-        <tr><td class="l lb-rank">5</td><td class="l"><span class="lb-model">GPT-5.6 Terra</span> <span class="lb-eff">medium</span></td><td>87.0%</td><td>$0.19</td><td class="lb-win">2.3</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="dl-row" style="margin-top:24px;">
-      <a class="btn primary" href="leaderboard.html">See the full leaderboard &rarr;</a>
-      <a class="btn" href="assets/leaderboard/v3-rankings.png" download>Download the rankings card</a>
     </div>
   </section>
 
@@ -293,7 +270,6 @@
     <span class="tag">Measured on the anvil, graded by hidden tests.</span>
     <nav class="fnav">
       <a href="benchmarks.html">Benchmarks</a>
-      <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
       <a href="blog.html">Blog</a>
       <a href="support.html">Support</a>
