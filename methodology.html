@@ -13,12 +13,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Methodology | VulcanBench</title>
-<meta name="description" content="How VulcanBench measures: real merged pull requests, decontaminated after model cutoffs, graded by deterministic hidden tests in a network-isolated sandbox, with cost and tokens as first-class results.">
+<meta name="description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks, graded by deterministic hidden tests, run under a disclosed execution boundary, with cost, time and tokens as first-class results.">
 <link rel="canonical" href="https://vulcanbench.com/methodology.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="Methodology | VulcanBench">
-<meta property="og:description" content="How VulcanBench measures: real merged pull requests, decontaminated after model cutoffs, graded by deterministic hidden tests, with cost and tokens as first-class results.">
+<meta property="og:description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks, graded by deterministic hidden tests, with cost, time and tokens as first-class results.">
 <meta property="og:url" content="https://vulcanbench.com/methodology.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -26,7 +26,7 @@
 <meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Methodology | VulcanBench">
-<meta name="twitter:description" content="How VulcanBench measures: real merged pull requests, decontaminated after model cutoffs, graded by deterministic hidden tests.">
+<meta name="twitter:description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks, graded by deterministic hidden tests.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,6 @@
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="benchmarks.html">Benchmarks</a>
-      <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html" class="active">Methodology</a>
       <a href="benchmark-your-stack.html">Custom evals</a>
       <a href="blog.html">Blog</a>
@@ -61,20 +60,21 @@
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">How it works</div>
     <h1>Methodology</h1>
-    <p class="byline">Real engineering tasks, decontaminated after model cutoffs and graded by deterministic hidden tests, with cost, time, and tokens measured right alongside the score.</p>
+    <p class="byline">Real engineering tasks, gated on difficulty and decontaminated against model cutoffs, graded by deterministic hidden tests, with cost, time, and tokens measured right alongside the score.</p>
   </div>
 
   <div class="method-toc">
     <a href="#principle"><b>01</b> The principle</a>
     <a href="#task"><b>02</b> What a task is</a>
-    <a href="#decontamination"><b>03</b> Decontamination</a>
-    <a href="#grading"><b>04</b> Grading</a>
-    <a href="#metrics"><b>05</b> The five metrics</a>
-    <a href="#sandbox"><b>06</b> The sandbox</a>
-    <a href="#effort"><b>07</b> Reasoning effort</a>
-    <a href="#economics"><b>08</b> Economics</a>
-    <a href="#refusals"><b>09</b> Refusals</a>
-    <a href="#reproducibility"><b>10</b> Reproducibility</a>
+    <a href="#frontier"><b>03</b> The frontier suite</a>
+    <a href="#decontamination"><b>04</b> Decontamination</a>
+    <a href="#grading"><b>05</b> Grading</a>
+    <a href="#metrics"><b>06</b> The five metrics</a>
+    <a href="#boundary"><b>07</b> The execution boundary</a>
+    <a href="#effort"><b>08</b> Reasoning effort</a>
+    <a href="#economics"><b>09</b> Economics</a>
+    <a href="#refusals"><b>10</b> Refusals and infrastructure</a>
+    <a href="#reproducibility"><b>11</b> Reproducibility</a>
   </div>
 
   <section id="principle">
@@ -126,10 +126,15 @@
     <div class="section-label">02 &middot; What a task is</div>
     <h2>A real ticket, handed off exactly as an engineer would receive it.</h2>
     <div class="prose">
-      <p>Most tasks are built from a real merged pull request in a production open-source project (flask, sqlglot,
-      aiohttp, urllib3, poetry, redis, click, chi, and more). Each task ships a starting repository, a set of
-      <span class="mono">hidden</span> tests never shown to the agent, declarative <span class="mono">fail_to_pass</span>
-      and <span class="mono">pass_to_pass</span> test commands, and a gold-patch reference solution.</p>
+      <p>Tasks come in two shapes. The <strong>mined-PR format</strong> builds a task from a real merged pull request in a
+      production open-source project (flask, sqlglot, aiohttp, urllib3, hono, zod, semver, jiff, chi, networkx, and more).
+      The <strong>binary-parity format</strong>, described in the next section, replaces the readable defect with a compiled
+      artifact. Both ship a starting repository, a set of <span class="mono">hidden</span> tests never shown to the agent,
+      declarative <span class="mono">fail_to_pass</span> and <span class="mono">pass_to_pass</span> test commands, and a
+      gold-patch reference solution.</p>
+      <p>The mined-PR format is the mid-band and regression tier, and it is where most of the corpus lives: the Coding
+      Intelligence Index v1 suite carries 58 gold-verified tasks across Python, TypeScript, Go, Rust, and JavaScript, and
+      the older v1/v3/v4 suites remain frozen and replayable for the reports already published against them.</p>
     </div>
     <div class="method-steps">
       <div class="method-step"><div class="sn">1</div><div>
@@ -138,37 +143,107 @@
       </div></div>
       <div class="method-step"><div class="sn">2</div><div>
         <h3>Hand off the ticket</h3>
-        <p>The agent receives a terse issue describing the symptom plus the full working tree, and the standard toolset: list, read, edit, search, and run commands.</p>
+        <p>The agent receives a terse issue describing the symptom plus the full working tree, and the standard toolset: list, read, edit, search, and run commands. The issue describes symptoms and requirements, never the file to edit or the shape of the fix.</p>
       </div></div>
       <div class="method-step"><div class="sn">3</div><div>
         <h3>Produce a patch</h3>
-        <p>The agent works the problem until it believes it is done, within a fixed step budget and a wall-clock limit. Its diff is captured as the answer.</p>
+        <p>The agent works the problem until it believes it is done, within a step budget and a wall-clock sanity bound. Its diff is captured as the answer.</p>
       </div></div>
       <div class="method-step"><div class="sn">4</div><div>
         <h3>Grade it</h3>
-        <p>The patch is scored by the project's own hidden tests, pass or fail, with resource consumption recorded alongside.</p>
+        <p>The patch is scored by the project's own hidden tests, pass or fail, with time, tokens, and resource consumption recorded alongside.</p>
       </div></div>
     </div>
   </section>
 
+  <section id="frontier">
+    <div class="section-label">03 &middot; The frontier suite</div>
+    <h2>When the defect is readable, models read it.</h2>
+    <div class="prose">
+      <p>The mined-PR format ranks frontier models but does not stretch them: on the v1 index, Claude Opus 5 scores 96.4%
+      pass@1. Ten separate attempts to make that format harder, architecture-scale changes, hindsight traps, performance
+      gates, multi-bug composites, symptom-only debugging, live multi-service environments, all failed the same way. Opus 5
+      solved 21 of 21 gated runs across them. In one case it discarded the planted bugs and rewrote the algorithm from
+      scratch in 106 seconds.</p>
+      <p>The finding that survived is blunt: <strong>a defect that exists in readable source gets found by reading.</strong>
+      The hard part has to sit behind something the model cannot read. So the <strong>Coding Intelligence Index v4</strong>
+      changed the unit of work.</p>
+      <div class="abstract-box" style="margin-top:26px;">
+        <span class="lbl">The binary-parity format</span>
+        <p>Each task ships a compiled legacy binary, a written specification that has drifted out of sync with it, and a
+        replacement implementation written from that specification. The job is to bring the replacement to byte-for-byte
+        parity with the binary. The information needed to do that is in no source file; it has to be recovered from the
+        binary itself.</p>
+      </div>
+      <p style="margin-top:26px;">Difficulty is now an <strong>admission criterion</strong>, not something measured after the
+      fact, following Terminal-Bench's discipline. Every candidate is run n=3 against two reference frontier models on their
+      own subscription harnesses, and admitted only if the weaker reference (GPT 5.6 Sol on the Codex CLI) solves at most one
+      of three runs <em>and</em> the stronger one (Claude Opus 5 on the Claude Code CLI) needs a median of ten minutes or more
+      per run, or misses a run outright. Correctness gating is separate and absolute: the reference solution scores 1.0, the
+      unmodified base scores 0.0, three consecutive identical runs, plus a build check that the reference matches the binary
+      byte-for-byte across randomized input sweeps. Marginal admits are re-measured at n=5 under a rule committed to the
+      repository before the runs start; two tasks that gated at 1-of-3 turned out to be 2-of-5 and 3-of-5 and were pruned.</p>
+      <p>The suite came out of 37 gated candidates. It was frozen at 18 tasks as version 2.0.0 rather than lower the bar, and
+      has since grown by admission. Results at the freeze:</p>
+    </div>
+    <div class="table-scroll compact">
+      <table class="data">
+        <thead><tr><th>Model (harness)</th><th>Full budget</th><th>@10 min</th><th>@30 min</th><th>Median tokens/run</th></tr></thead>
+        <tbody>
+          <tr><td class="model">Claude Opus 5 (Claude Code CLI)</td><td class="win">85.6%</td><td>5.9%</td><td>77.4%</td><td>0.57M</td></tr>
+          <tr><td class="model">GPT 5.6 Sol (Codex CLI)</td><td>4.4%</td><td>3.3%</td><td>4.4%</td><td>1.14M</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose" style="margin-top:24px;">
+      <p>Opus 5 misses runs on six of the eighteen tasks, and spends half the tokens of the model scoring a nineteenth as
+      much. The time columns are computed from recorded durations after the fact; no run was ever stopped by a cut.</p>
+      <div class="abstract-box" style="margin-top:26px;">
+        <span class="lbl">A compact binary is not actually opaque</span>
+        <p>This is worth publishing because it cost six candidate tasks. GPT 5.6 Sol now opens with disassembly by default on
+        this family, and on a small single-engine binary it reads the mechanics straight out of the assembly in four to
+        thirteen minutes. Hiding the constants did not help: deriving them at startup from a seed table, sharing one code path
+        between both engines, data-driven dispatch, it extracted the seed table bytes and reproduced the derivation.
+        Concealment only slows the read. What holds up is <em>reconstruction burden</em>: state spaces where fixing a hypothesis
+        by differential fuzzing stays slow, and where an overgeneralized fix breaks the spec-faithful behavior the tests also
+        check. It cuts the other way too, and the suite says so: the admitted tasks passed their gates partly because the
+        weaker reference did not always reach for static analysis. Where it did, it sometimes won.</p>
+      </div>
+      <p style="margin-top:26px;">Rejected candidates are not thrown away. They are recycled into the v1 mid-band suite, and
+      every verdict, admit or reject, is recorded per run in the suite's candidate ledger.</p>
+    </div>
+  </section>
+
   <section id="decontamination">
-    <div class="section-label">03 &middot; Decontamination</div>
-    <h2>The fix must be genuinely novel.</h2>
+    <div class="section-label">04 &middot; Decontamination</div>
+    <h2>The fix must be genuinely novel, and stay that way.</h2>
     <div class="prose">
       <p>A benchmark built from public code risks measuring memory, not reasoning. So provenance is labeled and checked,
       never assumed: every task declares a <span class="mono">source</span>, either <span class="mono">hand-authored</span>
       or <span class="mono">oss</span>, plus an explicit <span class="mono">decontaminated</span> boolean, and the validator enforces the claim.</p>
       <p><strong>Open-source tasks</strong> are built from pull requests merged <em>after</em> the evaluated models' training
-      cutoffs, so the solution post-dates what any model could have seen. <strong>Hand-authored tasks</strong> are original
-      scenarios written for VulcanBench now, not derived from any public repository, so they are decontaminated by
-      construction. Where a task is sourced verbatim from an existing repository whose fix predates model cutoffs, it is
-      honestly labeled <span class="mono">decontaminated: false</span>, and every result scored against it is flagged in the
-      integrity section of the report.</p>
+      cutoffs, so the solution post-dates what any model could have seen, and every task records its
+      <span class="mono">upstream_merged</span> date so the clean subset for a given model is a query rather than an archaeology
+      exercise. <strong>Hand-authored tasks</strong>, including the whole binary-parity suite, are original scenarios written
+      for VulcanBench now, not derived from any public repository, so they are decontaminated by construction. Where a task is
+      sourced verbatim from an existing repository whose fix predates model cutoffs, it is honestly labeled
+      <span class="mono">decontaminated: false</span>, and every result scored against it is flagged in the integrity section
+      of the report.</p>
+      <p><strong>Publication starts the contamination clock</strong>, so two mechanisms keep the claim honest over time.
+      Every task carries a <strong>canary</strong> string and GUID in its metadata, absent from the task's
+      <span class="mono">repo/</span> tree by design, so a suite that has leaked into a training corpus can be detected rather
+      than argued about. And the suites follow <strong>benchmark semantic versioning</strong>: adding, removing, or changing
+      the environment of a task is a breaking change that bumps the version, and results are comparable only within one
+      version. Every run summary records the suite version and a per-task content hash.</p>
+      <p>Suites also decay by design. When a new frontier generation lands, the frontier suite is re-gated, and any task the
+      weaker reference now solves reliably, or where the stronger reference's median drops under ten minutes, is
+      <strong>pruned</strong> out to the mid-band suite with the verdict logged. A benchmark that never removes tasks is
+      quietly measuring something different every year.</p>
     </div>
   </section>
 
   <section id="grading">
-    <div class="section-label">04 &middot; Grading</div>
+    <div class="section-label">05 &middot; Grading</div>
     <h2>Deterministic hidden tests. No model judges another model.</h2>
     <div class="prose">
       <p>By default a task's correctness comes from <strong>hidden tests</strong> that are deterministic and exact. The
@@ -190,7 +265,7 @@
   </section>
 
   <section id="metrics">
-    <div class="section-label">05 &middot; The five metrics</div>
+    <div class="section-label">06 &middot; The five metrics</div>
     <h2>Correctness is half the score. The rest is how you got there.</h2>
     <div class="prose">
       <p>Every run produces five sub-scores on a 0&ndash;1 scale, combined into a weighted total. Functional correctness
@@ -211,27 +286,85 @@
     </div>
   </section>
 
-  <section id="sandbox">
-    <div class="section-label">06 &middot; The sandbox</div>
-    <h2>Network-isolated, non-root, resource-limited.</h2>
+  <section id="boundary">
+    <div class="section-label">07 &middot; The execution boundary</div>
+    <h2>Three modes, disclosed per run.</h2>
     <div class="prose">
-      <p>Real runs execute in a Docker sandbox: a non-root container with the network switched off and CPU and memory
-      capped. Tool calls and the functional grading both run inside it, so the agent cannot reach the internet to fetch a
-      known answer and cannot escape the container. Tasks with heavy dependency stacks use per-task images with the
-      upstream package's dependencies preinstalled, so a run measures the model's engineering, not its ability to fight a
-      package manager. Network isolation is the default; opting out is deliberate and recorded.</p>
+      <p>There is no longer one universal container, because there is no longer one kind of run. A raw-API run and a run
+      through a vendor's own coding CLI have genuinely different boundaries, and pretending otherwise would be the
+      dishonest option. Every run summary records which boundary applied.</p>
+    </div>
+    <div class="tier-grid" style="grid-template-columns:1fr;">
+      <div class="tier">
+        <h4>Docker sandbox &mdash; the default for API runs</h4>
+        <p>A non-root container with the network switched off and CPU and memory capped. Command execution and the functional
+        verifier both run inside it, so the agent cannot reach the internet to fetch a known answer. Tasks with heavy
+        dependency stacks use per-task images with the upstream package's dependencies preinstalled, so a run measures the
+        model's engineering, not its ability to fight a package manager. It fails closed: if the daemon is unreachable the run
+        errors rather than silently falling back to the host. Network isolation is the default; opting out is deliberate and
+        recorded.</p>
+      </div>
+      <div class="tier">
+        <h4>Vendor harness &mdash; for subscription runs</h4>
+        <p>Claude Code, Codex, Cursor, Grok Build, and ZCode run under <em>their own</em> sandbox on the host, not ours:
+        Codex's workspace-write, Claude Code's permission mode, Cursor's sandbox, a custom Seatbelt/Landlock kernel profile
+        for Grok Build, and, for ZCode, no kernel sandbox at all. VulcanBench keeps task preparation, the captured diff,
+        hidden verification, and scoring. Publication runs verify in Docker even when the agent phase does not.</p>
+      </div>
+      <div class="tier">
+        <h4>Agent-in-container &mdash; opt-in</h4>
+        <p>The newest mode runs the subscription CLI itself inside a container built from the sandbox base image, so the same
+        resource band bounds the agent phase as well as verification. Authentication is a run-scoped copy of the host
+        credentials, and the container, rather than the CLI's own sandbox, provides the write boundary.</p>
+      </div>
+    </div>
+    <div class="prose" style="margin-top:30px;">
+      <h3>Two leak channels, both real, both observed</h3>
+      <p>An agent running on the host with broad tool access, against tasks derived from public merged PRs, leaks two ways.
+      Blocking one does nothing about the other, and both showed up in live sweeps before they were closed.</p>
+      <p><strong>The web.</strong> Every mined-PR task's fix sits at a known URL. In the first Cursor sweep, 46% of runs
+      fetched their task's exact source pull request or fix commit, and the median patch of those runs matched the gold patch
+      exactly.</p>
+      <p><strong>The filesystem.</strong> A workspace inside the benchmark checkout lets an agent walk up into the task tree
+      and read the gold patch and the hidden tests, the grader's answer key, not merely the upstream fix. In one sweep with
+      the web already blocked, 46 runs read their own task's answer key, and all 46 solved.</p>
+    </div>
+    <div class="method-steps">
+      <div class="method-step"><div class="sn">1</div><div>
+        <h3>Containment</h3>
+        <p>The load-bearing defence. Harness runs get a workspace created outside the repository entirely, so no benchmark data exists anywhere above the agent's working directory. Enumerating forbidden paths is the same losing game as enumerating forbidden URLs.</p>
+      </div></div>
+      <div class="method-step"><div class="sn">2</div><div>
+        <h3>Prevention</h3>
+        <p>Web search and fetch tools are denied or removed outright, per harness, along with the browser plugin one of them enables by default. Cross-session memory is disabled everywhere, so repeat two cannot remember repeat one.</p>
+      </div></div>
+      <div class="method-step"><div class="sn">3</div><div>
+        <h3>Detection</h3>
+        <p>Every harness run carries an integrity audit over both channels, with verdicts from <span class="mono">no_web</span> and <span class="mono">web_blocked</span> through <span class="mono">upstream_access</span> and <span class="mono">solution_retrieval</span>, and from <span class="mono">clean</span> through <span class="mono">answer_key_access</span>. A run flagged on either channel is contaminated. The audit annotates; it never rescores.</p>
+      </div></div>
+    </div>
+    <div class="prose" style="margin-top:24px;">
+      <p>Note what the audit is not. A rejected call is not access, and the audit has to correlate a tool call's start and
+      completion before scoring it, an earlier version scored the start event alone and flagged four clean runs as
+      contaminated, one of them as solution retrieval.</p>
     </div>
   </section>
 
   <section id="effort">
-    <div class="section-label">07 &middot; Reasoning effort</div>
+    <div class="section-label">08 &middot; Reasoning effort</div>
     <h2>A cheap dial that re-introduces separation.</h2>
     <div class="prose">
-      <p>Reasoning effort, the model's thinking-token budget, is a normalized control set to <span class="mono">low</span>,
-      <span class="mono">medium</span>, <span class="mono">high</span>, or <span class="mono">extra-high</span>. It maps to each
-      provider's native field (the Responses API effort setting for OpenAI, the Messages API effort setting for Anthropic).
-      Holding a suite fixed and sweeping the dial turns a saturated benchmark into a discriminating one for free: the
-      low-effort dropoffs below the high-effort ceiling are the signal.</p>
+      <p>Reasoning effort, the model's thinking-token budget, is a normalized control set to <span class="mono">minimal</span>,
+      <span class="mono">low</span>, <span class="mono">medium</span>, <span class="mono">high</span>,
+      <span class="mono">extra-high</span>, or <span class="mono">max</span>. It maps to each provider's native field where one
+      exists, and subscription harnesses pass the supported labels through to their own CLIs. Holding a suite fixed and
+      sweeping the dial turns a saturated benchmark into a discriminating one for free: the low-effort dropoffs below the
+      high-effort ceiling are the signal.</p>
+      <p><strong>A label that cannot be sent is never pretended.</strong> Providers document different enums, and several
+      silently coerce a level they do not support into a neighbouring one, which would quietly turn a sweep into two
+      identical columns. So each provider's mapping is explicit, an unsupported label is recorded as metadata without being
+      sent, and where a CLI reports back the level it actually used, that value is read out of the CLI's own ledger and
+      recorded next to the requested one.</p>
       <p><strong>The labels are not calibrated across vendors, and that matters.</strong> Effort is each provider's own
       scale: comparing two models at the same label compares each at its own setting, not a calibrated equivalence. So token
       counts always sit beside effort labels, and the per-task step budget is held identical across cells, so only the thinking
@@ -240,39 +373,71 @@
   </section>
 
   <section id="economics">
-    <div class="section-label">08 &middot; Economics</div>
+    <div class="section-label">09 &middot; Economics</div>
     <h2>Cost is a result, not a footnote.</h2>
     <div class="prose">
-      <p>Every run records cost, wall-clock time, agent steps, and token usage. Cost is computed from each provider's
-      published list prices and, where a provider applies an automatic prompt-cache discount, that discount is folded into
-      the reported total, since a naive token count can overstate a run's true spend several-fold. The headline efficiency metric
-      is <strong>cost per solved task</strong>: total spend divided by tasks passed, which fairly charges a model for both its
-      failures and its verbosity.</p>
-      <p>This is the axis that keeps mattering after accuracy converges. Across the published reports, models tying on
-      correctness have differed by 3&times; to 4&times; in cost and up to an order of magnitude in tokens, differences driven by how
-      much each agent thrashes, especially when navigating large repositories.</p>
+      <p>Every run records cost, wall-clock time, agent steps, and token usage. The headline efficiency metric is
+      <strong>cost per solved task</strong>: total spend divided by tasks passed, which fairly charges a model for both its
+      failures and its verbosity. This is the axis that keeps mattering after accuracy converges. Across the published
+      reports, models tying on correctness have differed by 3&times; to 4&times; in cost and up to an order of magnitude in
+      tokens, differences driven by how much each agent thrashes, especially when navigating large repositories.</p>
+      <p>How that number is derived depends on how the run was billed, and the two are kept in <strong>separate
+      tracks</strong>.</p>
+      <p><strong>API track.</strong> Cost is computed from each provider's published list prices and, where a provider applies
+      an automatic prompt-cache discount, that discount is folded into the reported total, since a naive token count can
+      overstate a run's true spend several-fold.</p>
+      <p><strong>Subscription track.</strong> A run billed to a Claude, ChatGPT, Cursor, GLM, or Grok plan does not get to claim
+      that included usage cost zero. Each run carries an economics receipt whose fields are recorded independently rather than
+      summed into one comforting number: marginal cash caused by the run, measurable overage, a modeled share of the plan fee,
+      the cash cost of independent grading, the counterfactual API-equivalent value of the tokens, and the provider-reported
+      quota consumed. Every one of those carries a measurement-quality flag saying whether it is exact, provider-reported,
+      estimated, or simply unavailable. One CLI streams no usage at all, so its API-equivalent value is recorded as
+      unavailable rather than guessed.</p>
+      <p><strong>The two tracks are never added into one claim.</strong> A subscription result includes the product's system
+      prompt, context management, safety layers, tools, and possible model routing: it measures a model <em>plus</em> a
+      harness, and it is labeled that way everywhere it appears.</p>
     </div>
   </section>
 
   <section id="refusals">
-    <div class="section-label">09 &middot; Refusals</div>
-    <h2>A refusal is a failure.</h2>
+    <div class="section-label">10 &middot; Refusals and infrastructure</div>
+    <h2>A refusal is a failure. A broken machine is not.</h2>
     <div class="prose">
       <p>When a model's safety classifier declines a benign, security-adjacent task, say a parser fix flagged as cyber
       content, the run is scored as a failure, with no fallback model configured. An engineering team whose model refuses to
       touch parser code experiences that as a failure, not a neutral abstention. It is invisible on conventional accuracy
       benchmarks and highly visible in practice, so VulcanBench records it as a first-class outcome.</p>
+      <p>The mirror image is treated as carefully in the other direction. A subscription quota running out mid-sweep, a
+      verifier dependency missing from an image, a container killed for running out of memory: none of those are things the
+      model did, and scoring them as functional zeros would silently punish whichever model happened to be running when the
+      machine broke. They are classified as infrastructure errors, reported separately from wrong answers, and the suite stops
+      hot-looping the affected unit rather than burning quota on a condition that will not improve. A wall-clock timeout is
+      also reported as its own outcome, not folded into incorrectness.</p>
     </div>
   </section>
 
   <section id="reproducibility">
-    <div class="section-label">10 &middot; Reproducibility</div>
+    <div class="section-label">11 &middot; Reproducibility</div>
     <h2>Everything is open, and every run replays.</h2>
     <div class="prose">
       <p>Every task, hidden test, gold patch, per-task Docker image, and the full grading harness are open source. Each run
       captures every step as a structured trace of model calls, tool calls, diffs, test results, and token usage, then writes
-      a self-contained HTML transcript you can open in any browser, plus the exact command to replay it. Reproducing a
-      published two-model run costs about ten dollars at list prices.</p>
+      a self-contained HTML transcript you can open in any browser, plus the exact command to replay it. Grading is
+      deterministic and every run records the content hash of the task definition it was scored against, so a comparison is a
+      query over recorded runs rather than a re-run, and a run scored against a since-edited task is flagged as stale instead
+      of quietly compared. A run through a vendor CLI additionally records the harness and CLI version, the authentication
+      mode and non-secret plan label, the requested and CLI-reported model, the requested and actual effort, and the raw
+      redacted event stream. A field the CLI cannot report is recorded as unknown, never inferred.</p>
+      <h3>The clock is a sanity bound, not a difficulty lever</h3>
+      <p>Every frontier task carries a flat ten-hour timeout, following Terminal-Bench 4.0's move to a flat eight-hour agent
+      timeout so that frontier models rarely or never time out. No run in the program has come near it. This replaced an
+      earlier per-task calibration for a reason worth stating: tightening effective time does not make a benchmark harder, it
+      converts wrong answers into timeouts, and one of the published reports shows exactly that happening as reasoning effort
+      rises. So difficulty by the clock is reported <em>analytically</em>, pass@1-within-T computed from recorded durations and
+      always shown alongside the full-budget score. <strong>No run is ever terminated by a time slice</strong>, which keeps the
+      measurement about capability while still showing where the headroom is.</p>
+      <p>One caveat, stated plainly: host-run tasks do not yet pin CPU and memory. Every gate run so far executed on a single
+      documented machine, and resource pinning comes before any cross-machine comparison is published.</p>
     </div>
     <div class="dl-row">
       <a class="btn primary" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
@@ -300,14 +465,26 @@
       pass^k is where cheap models have beaten frontier ones.</p>
 
       <h3 id="reasoning-effort">Reasoning effort</h3>
-      <p>A per-request setting (low, medium, high) that controls how many thinking tokens a model spends before
-      answering. More effort always costs more tokens and time; VulcanBench reports show it does not always buy more
-      accuracy, and for some models accuracy falls as effort rises.</p>
+      <p>A per-request setting (minimal through max, depending on the provider) that controls how many thinking tokens a
+      model spends before answering. More effort always costs more tokens and time; VulcanBench reports show it does not
+      always buy more accuracy, and for some models accuracy falls as effort rises, mostly by converting finished wrong
+      answers into timeouts.</p>
 
       <h3 id="decontamination">Decontamination</h3>
-      <p>Ensuring that no task in an eval suite could have appeared in a model's training data, on VulcanBench by
-      building tasks from pull requests merged after every measured model's training cutoff. Without it, a benchmark
-      can measure memory instead of ability.</p>
+      <p>Ensuring that no task in an eval suite could have appeared in a model's training data, on VulcanBench by building
+      tasks from pull requests merged after every measured model's training cutoff, or by authoring them outright. Without
+      it, a benchmark can measure memory instead of ability. Publishing a suite starts the clock on its own contamination,
+      which is why every task carries a canary string and every suite is versioned.</p>
+
+      <h3 id="binary-parity">Binary parity</h3>
+      <p>A task format where the specification of the required behavior exists only inside a compiled binary. The agent is
+      given a drifted written spec and a replacement implementation, and must recover the real behavior from the artifact
+      until the two match byte for byte. It exists because defects written in readable source get found by reading.</p>
+
+      <h3 id="admission-gate">Admission gate</h3>
+      <p>A difficulty requirement a candidate task must clear before it joins a suite, measured against reference frontier
+      models rather than asserted by the author. A suite gated this way has to prune tasks as models improve, and says so in
+      its version number.</p>
 
       <h3 id="model-routing">Model routing</h3>
       <p>Sending each class of task to the model and effort level that handles it best, instead of sending everything
@@ -327,7 +504,6 @@
     <span class="tag">Measured on the anvil, graded by hidden tests.</span>
     <nav class="fnav">
       <a href="benchmarks.html">Benchmarks</a>
-      <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
       <a href="blog.html">Blog</a>
       <a href="support.html">Support</a>
