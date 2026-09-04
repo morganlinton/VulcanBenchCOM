@@ -156,18 +156,13 @@
     </div>
   </section>
 
-  <section id="frontier">
+<section id="frontier">
     <div class="section-label">03 &middot; The frontier suite</div>
     <h2>When the defect is readable, models read it.</h2>
     <div class="prose">
-      <p>The mined-PR format ranks frontier models but does not stretch them: on the v1 index, Claude Opus 5 scores 96.4%
-      pass@1. Ten separate attempts to make that format harder, architecture-scale changes, hindsight traps, performance
-      gates, multi-bug composites, symptom-only debugging, live multi-service environments, all failed the same way. Opus 5
-      solved 21 of 21 gated runs across them. In one case it discarded the planted bugs and rewrote the algorithm from
-      scratch in 106 seconds.</p>
-      <p>The finding that survived is blunt: <strong>a defect that exists in readable source gets found by reading.</strong>
-      The hard part has to sit behind something the model cannot read. So <strong>VulcanBench-SWE v4</strong>
-      changed the unit of work.</p>
+      <p>The mined-PR format ranks frontier models but does not stretch them: on the mid-band suite, Claude Opus 5 scores
+      96.4% pass@1. A defect that exists in readable source gets found by reading, so the hard part has to sit behind
+      something the model cannot read. <strong>VulcanBench-SWE v4</strong> is built on that principle.</p>
       <div class="abstract-box" style="margin-top:26px;">
         <span class="lbl">The binary-parity format</span>
         <p>Each task ships a compiled legacy binary, a written specification that has drifted out of sync with it, and a
@@ -175,16 +170,13 @@
         parity with the binary. The information needed to do that is in no source file; it has to be recovered from the
         binary itself.</p>
       </div>
-      <p style="margin-top:26px;">Difficulty is now an <strong>admission criterion</strong>, not something measured after the
-      fact, following Terminal-Bench's discipline. Every candidate is run n=3 against two reference frontier models on their
-      own subscription harnesses, and admitted only if the weaker reference (GPT 5.6 Sol on the Codex CLI) solves at most one
-      of three runs <em>and</em> the stronger one (Claude Opus 5 on the Claude Code CLI) needs a median of ten minutes or more
-      per run, or misses a run outright. Correctness gating is separate and absolute: the reference solution scores 1.0, the
-      unmodified base scores 0.0, three consecutive identical runs, plus a build check that the reference matches the binary
-      byte-for-byte across randomized input sweeps. Marginal admits are re-measured at n=5 under a rule committed to the
-      repository before the runs start; two tasks that gated at 1-of-3 turned out to be 2-of-5 and 3-of-5 and were pruned.</p>
-      <p>The suite came out of 37 gated candidates. It was frozen at 18 tasks as version 2.0.0 rather than lower the bar, and
-      has since grown by admission. Results at the freeze:</p>
+      <p style="margin-top:26px;">Difficulty is an <strong>admission criterion</strong>, not something measured after the
+      fact. Every candidate is run n=3 against two reference frontier models on their own subscription harnesses, and
+      admitted only if the weaker reference (GPT 5.6 Sol on the Codex CLI) solves at most one of three runs <em>and</em>
+      the stronger one (Claude Opus 5 on the Claude Code CLI) needs a median of ten minutes or more per run, or misses a
+      run outright. Correctness gating is separate and absolute: the reference solution scores 1.0, the unmodified base
+      scores 0.0, three consecutive identical runs, plus a build check that the reference matches the binary
+      byte-for-byte across randomized input sweeps.</p>
     </div>
     <div class="table-scroll compact">
       <table class="data">
@@ -197,20 +189,17 @@
     </div>
     <div class="prose" style="margin-top:24px;">
       <p>Opus 5 misses runs on six of the eighteen tasks, and spends half the tokens of the model scoring a nineteenth as
-      much. The time columns are computed from recorded durations after the fact; no run was ever stopped by a cut.</p>
+      much. The time columns are computed from recorded durations after the fact; no run is ever stopped by a cut.</p>
       <div class="abstract-box" style="margin-top:26px;">
         <span class="lbl">A compact binary is not actually opaque</span>
-        <p>This is worth publishing because it cost six candidate tasks. GPT 5.6 Sol now opens with disassembly by default on
-        this family, and on a small single-engine binary it reads the mechanics straight out of the assembly in four to
-        thirteen minutes. Hiding the constants did not help: deriving them at startup from a seed table, sharing one code path
-        between both engines, data-driven dispatch, it extracted the seed table bytes and reproduced the derivation.
-        Concealment only slows the read. What holds up is <em>reconstruction burden</em>: state spaces where fixing a hypothesis
-        by differential fuzzing stays slow, and where an overgeneralized fix breaks the spec-faithful behavior the tests also
-        check. It cuts the other way too, and the suite says so: the admitted tasks passed their gates partly because the
-        weaker reference did not always reach for static analysis. Where it did, it sometimes won.</p>
+        <p>GPT 5.6 Sol defaults to disassembly on this task family and, on a small single-engine binary, reads the mechanics
+        straight out of the assembly in four to thirteen minutes. What holds up against that isn't concealment, it's
+        <em>reconstruction burden</em>: state spaces where fixing a hypothesis by differential fuzzing stays slow, and where
+        an overgeneralized fix breaks the spec-faithful behavior the tests also check. Read the scores above as
+        model-plus-strategy under each vendor's own harness, not as a ceiling on what the model can do.</p>
       </div>
-      <p style="margin-top:26px;">Rejected candidates are not thrown away. They are recycled into the v1 mid-band suite, and
-      every verdict, admit or reject, is recorded per run in the suite's candidate ledger.</p>
+      <p style="margin-top:26px;">Rejected candidates are recycled into the mid-band suite, and every admission verdict is
+      recorded in the suite's candidate ledger.</p>
     </div>
   </section>
 
