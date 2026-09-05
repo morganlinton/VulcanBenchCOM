@@ -69,7 +69,7 @@
     <a href="#frontier"><b>03</b> The frontier suite</a>
     <a href="#decontamination"><b>04</b> Decontamination</a>
     <a href="#grading"><b>05</b> Grading</a>
-    <a href="#metrics"><b>06</b> The five metrics</a>
+    <a href="#metrics"><b>06</b> Scoring</a>
     <a href="#boundary"><b>07</b> The execution boundary</a>
     <a href="#effort"><b>08</b> Reasoning effort</a>
     <a href="#economics"><b>09</b> Economics</a>
@@ -254,24 +254,25 @@
   </section>
 
   <section id="metrics">
-    <div class="section-label">06 &middot; The five metrics</div>
-    <h2>Correctness is half the score. The rest is how you got there.</h2>
+    <div class="section-label">06 &middot; Scoring</div>
+    <h2>Five factors in the framework. Four computed factors in published reports.</h2>
     <div class="prose">
-      <p>Every run produces five sub-scores on a 0&ndash;1 scale, combined into a weighted total. Functional correctness
-      dominates, but a diff that passes tests can still be sloppy, insecure, or wasteful, and those are measured too.</p>
+      <p>The framework has five possible sub-scores on a 0&ndash;1 scale. Functional correctness dominates, but a diff that
+      passes tests can still be sloppy, insecure, or wasteful, and those are measured too. Published report tables disable
+      the human-like LLM judge and re-normalize the four computed factors below.</p>
     </div>
     <div class="metric-weights">
-      <div class="mw-row"><div class="mw-label">Functional<span>hidden tests</span></div><div class="mw-track"><div class="mw-fill" style="width:100%"></div></div><div class="mw-pct">50%</div></div>
-      <div class="mw-row"><div class="mw-label">Quality<span>lint · complexity · maintainability</span></div><div class="mw-track"><div class="mw-fill accent" style="width:30%"></div></div><div class="mw-pct">15%</div></div>
-      <div class="mw-row"><div class="mw-label">Security<span>static analysis</span></div><div class="mw-track"><div class="mw-fill accent" style="width:30%"></div></div><div class="mw-pct">15%</div></div>
-      <div class="mw-row"><div class="mw-label">Efficiency<span>tokens &amp; steps</span></div><div class="mw-track"><div class="mw-fill accent" style="width:20%"></div></div><div class="mw-pct">10%</div></div>
-      <div class="mw-row"><div class="mw-label">Human-like<span>LLM judge ensemble</span></div><div class="mw-track"><div class="mw-fill accent" style="width:20%"></div></div><div class="mw-pct">10%</div></div>
+      <div class="mw-row"><div class="mw-label">Functional<span>hidden tests</span></div><div class="mw-track"><div class="mw-fill" style="width:100%"></div></div><div class="mw-pct">55.6%</div></div>
+      <div class="mw-row"><div class="mw-label">Quality<span>lint · complexity · maintainability</span></div><div class="mw-track"><div class="mw-fill accent" style="width:30%"></div></div><div class="mw-pct">16.7%</div></div>
+      <div class="mw-row"><div class="mw-label">Security<span>static analysis</span></div><div class="mw-track"><div class="mw-fill accent" style="width:30%"></div></div><div class="mw-pct">16.7%</div></div>
+      <div class="mw-row"><div class="mw-label">Efficiency<span>tokens &amp; steps</span></div><div class="mw-track"><div class="mw-fill accent" style="width:20%"></div></div><div class="mw-pct">11.1%</div></div>
     </div>
     <div class="prose" style="margin-top:24px;">
       <p>Functional is pass/fail on the hidden tests. Quality runs real linters and complexity tools on the changed files.
       Security runs static analysis for introduced vulnerabilities. Efficiency maps token and step usage to a frugality
-      score. Human-like is the only judged metric, an LLM ensemble, and it carries the least weight. The report tables on
-      this site are graded functional-only, with judges disabled, so that no model's opinion touches the headline numbers.</p>
+      score. Human-like is the fifth, optional factor: an LLM ensemble with a base weight of 10%. It is disabled in the
+      published report tables so no model's opinion touches their scores. When it is absent, the four displayed weights
+      are re-normalized from the framework's 50%, 15%, 15%, and 10% base weights.</p>
     </div>
   </section>
 
