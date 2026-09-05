@@ -151,10 +151,10 @@
       <p>New-behavior tests are validated to fail on the starting code and pass on the reference solution.
       Regression tests check that working behavior remains intact. A regression failure gates the functional score to zero.</p>
       <p>Individual test groups can produce a partial functional score. A task counts as solved for pass@1 only
-      when its functional score is 1.0. Plausible-looking code receives no subjective credit.</p>
+      when its functional score is 1.0. Subjective review cannot turn a failed task into a functional pass.</p>
       <p>The default correctness grader is deterministic. Tasks may explicitly opt into an independent model grader
       for hidden acceptance criteria; those results must identify that exception and its validation.
-      This is separate from the optional human-like metric described below.</p>
+      This is separate from the human-like review metric described below.</p>
       <h3 id="refusals">Failures, timeouts, and missing results</h3>
       <ul>
         <li><strong>Refusals:</strong> a refusal that leaves the task unsolved counts as an unsuccessful attempt.</li>
@@ -178,26 +178,60 @@
       <p><strong>Functional pass@1</strong> measures how often a task is fully solved in one attempt.
       With one attempt per task, it is tasks solved divided by tasks scored. With repeated attempts, the harness
       averages each task's success rate across tasks, giving tasks equal weight.</p>
-      <p><strong>The aggregate score</strong> combines functional correctness, quality, security, and efficiency.
-      A perfect pass@1 does not imply a perfect aggregate score. The weights below apply when all four metrics
-      are available and human-like judges are disabled, as in the standard published reporting mode.</p>
-      <h3>Aggregate weights with judges disabled</h3>
+      <p><strong>The combined score</strong> measures functional correctness, static quality, security, and
+      human-like code review. Passing every task does not imply a combined score of 100.
+      Functional correctness retains half the weight; review contributes 20%.</p>
+      <p>We are adding human-like judging back into reviewed results to assess the code beyond test outcomes:
+      whether a change is clear, well structured, and maintainable. It supplements functional grading rather
+      than changing which tasks count as solved.</p>
+      <h3>Reviewed scoring revision: September 5, 2026</h3>
     </div>
-    <div class="metric-weights" aria-label="Aggregate metric weights, rounded to one decimal place">
-      <div class="mw-row"><div class="mw-label">Functional<span>hidden tests</span></div><div class="mw-track"><div class="mw-fill" style="width:100%"></div></div><div class="mw-pct">55.6%</div></div>
-      <div class="mw-row"><div class="mw-label">Quality<span>lint · complexity · maintainability</span></div><div class="mw-track"><div class="mw-fill accent" style="width:30%"></div></div><div class="mw-pct">16.7%</div></div>
-      <div class="mw-row"><div class="mw-label">Security<span>static analysis</span></div><div class="mw-track"><div class="mw-fill accent" style="width:30%"></div></div><div class="mw-pct">16.7%</div></div>
-      <div class="mw-row"><div class="mw-label">Efficiency<span>tokens &amp; steps</span></div><div class="mw-track"><div class="mw-fill accent" style="width:20%"></div></div><div class="mw-pct">11.1%</div></div>
+    <div class="metric-weights" aria-label="Combined score weights: functional 50%, quality 15%, security 15%, human-like review 20%">
+      <div class="mw-row"><div class="mw-label">Functional<span>hidden tests</span></div><div class="mw-track"><div class="mw-fill" style="width:50%"></div></div><div class="mw-pct">50%</div></div>
+      <div class="mw-row"><div class="mw-label">Quality<span>lint · complexity · maintainability</span></div><div class="mw-track"><div class="mw-fill accent" style="width:15%"></div></div><div class="mw-pct">15%</div></div>
+      <div class="mw-row"><div class="mw-label">Security<span>static analysis</span></div><div class="mw-track"><div class="mw-fill accent" style="width:15%"></div></div><div class="mw-pct">15%</div></div>
+      <div class="mw-row"><div class="mw-label">Human-like review<span>model-based code review</span></div><div class="mw-track"><div class="mw-fill accent" style="width:20%"></div></div><div class="mw-pct">20%</div></div>
     </div>
     <div class="prose" style="margin-top:24px;">
-      <p>Displayed percentages sum to 100.1% because of rounding; the calculation uses unrounded weights.
-      Bar lengths show relative weights, with functional as the reference.</p>
-      <p>The five-factor framework uses base weights of 50% functional, 15% quality, 15% security, 10% efficiency,
-      and 10% human-like. Human-like uses an optional LLM judge ensemble. An unavailable metric is recorded as
-      missing and excluded from the weighted average; the remaining weights are normalized to sum to one.</p>
+      <p>Bars use a shared 0% to 100% scale. For each run, the combined score is
+      <code>100 × (0.50F + 0.15Q + 0.15S + 0.20H)</code>, with each factor on a 0 to 1 scale.
+      F is the partial-credit functional score, not the binary solved indicator used by pass@1.
+      Reports average attempts within each task, then average tasks equally. All four factors must be present;
+      a missing factor makes this combined score unavailable rather than silently changing its weights.</p>
+      <p>Twenty percent is a benchmark policy choice, not an empirically calibrated measure of engineering value.
+      Review adds a code-quality perspective when functional tests approach saturation, but overlaps with static
+      quality and correctness. It cannot replace acceptance tests or establish production readiness.</p>
+      <h3>Human-like review</h3>
+      <p>This is model-based code review, not a human rating or a detector of human authorship. The reviewed Astra
+      sweep uses three separate Astra Medium sessions per solution, with correctness, readability, and
+      maintainability personas. Their 0 to 100 ratings are averaged and divided by 100 to obtain H.</p>
+      <p>Reviewers receive the issue, complete saved patch, and test outcome. Solver model and effort labels are
+      omitted; tools and external access are disabled. All three valid ratings are required. Reports disclose
+      the judge model, effort, rubric, prompt coverage, and whether review happened during or after the run.</p>
+      <p>The Astra review was retrospective: original solutions and functional results were preserved.
+      Three personas using the same model are not three independent models. Same-model preference and rubric
+      sensitivity remain limitations; these ratings should not be treated as independent human validation.</p>
+      <h3>Independent reviewer validation</h3>
+      <p>We are extending the Astra study with a separate Claude Opus 5 review at Medium effort, using the same
+      three personas, full patches, and test evidence. Reviewers do not receive the solver identity, effort,
+      or previous reviewer scores. This validation is in progress, not part of the current combined scores.</p>
+      <p>We will compare task-level ratings and rationales, not only overall averages. A different provider
+      reduces reliance on self-review but does not eliminate shared biases. Agreement is supporting evidence,
+      not proof of correctness; disagreements identify cases for closer inspection.</p>
+      <p>The review weight remains 20% during validation. Any change to reviewer aggregation or scoring weights
+      will receive a new reporting profile, with its rule fixed before calculating the revised comparison.
+      We will not silently blend new ratings into already reported scores.</p>
+      <h3>Efficiency and historical comparability</h3>
       <p>Quality uses lint, complexity, and maintainability tools; security uses static analysis.
       These are automated indicators and do not establish that code is production-ready or free of vulnerabilities.
-      Efficiency scores token and step usage. It is distinct from the financial measure, cost per solved task.</p>
+      Efficiency is reported separately through tokens, wall-clock time, and cost, not blended into this revised
+      quality score. In the historical Astra run, unavailable step counts were recorded as zero, making the
+      legacy efficiency score unsuitable for reuse. The revision does not repair or reuse those step scores.</p>
+      <p>The reporting profile is <code>swe-v4-reviewed-2026-09-05</code>. It is an explicit reporting revision,
+      not a change to saved historical results or the legacy harness default. Older five-factor totals used
+      50% functional, 15% quality, 15% security, 10% efficiency, and 10% review, renormalizing over available
+      factors. Do not compare totals across these profiles. Comparisons require the same task set, scoring
+      profile, and judge protocol; retrospective rescoring must be identified. Original pass@1 remains separate.</p>
     </div>
   </section>
 
