@@ -667,6 +667,9 @@ section[id] { scroll-margin-top: 90px; }
 .methodology-page .method-toc { margin-bottom: 0; }
 .methodology-page .prose h3 { margin-top: 30px; }
 .methodology-page .prose h3 + p { margin-top: 10px; }
+.methodology-page .prose ul { list-style: none; margin: 16px 0 20px; padding: 0; }
+.methodology-page .prose li { position: relative; margin-top: 10px; padding-left: 20px; font-size: 18px; line-height: 1.55; }
+.methodology-page .prose li::before { content: ""; position: absolute; left: 0; top: 0.67em; width: 6px; height: 6px; background: var(--ember); border-radius: 50%; }
 
 @media (max-width: 720px) {
   /* nav drops to its own full-width row below the brand and scrolls horizontally
