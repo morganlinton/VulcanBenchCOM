@@ -665,6 +665,8 @@ section[id] { scroll-margin-top: 90px; }
 .methodology-page > section:first-of-type { padding-top: 30px; }
 .methodology-page > section:last-of-type { padding-bottom: 42px; }
 .methodology-page .method-toc { margin-bottom: 0; }
+.methodology-page .prose h3 { margin-top: 30px; }
+.methodology-page .prose h3 + p { margin-top: 10px; }
 
 @media (max-width: 720px) {
   /* nav drops to its own full-width row below the brand and scrolls horizontally
