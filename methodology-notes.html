@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology technical notes | VulcanBench</title>
+<meta name="description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks, graded by deterministic hidden tests, run under a disclosed execution boundary, with cost, time and tokens as first-class results.">
+<link rel="canonical" href="https://vulcanbench.com/methodology-notes.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Methodology technical notes | VulcanBench">
+<meta property="og:description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks, graded by deterministic hidden tests, with cost, time and tokens as first-class results.">
+<meta property="og:url" content="https://vulcanbench.com/methodology-notes.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Methodology technical notes | VulcanBench">
+<meta name="twitter:description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks, graded by deterministic hidden tests.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="style.css?v=30">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="index.html" aria-label="VulcanBench home">
+      <img class="mark" src="assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="methodology.html" class="active">Methodology</a>
+      <a href="benchmark-your-stack.html">Custom evals</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Technical notes</div>
+    <h1>Methodology notes</h1>
+    <p class="byline">Historical measurements and implementation context for the <a href="methodology.html">methodology</a>.</p>
+  </div>
+  <section id="reference-measurements">
+    <h2>Historical reference measurements</h2>
+    <div class="prose">
+      <p>This table was retained from the earlier methodology page. Its accompanying text described an eighteen-task
+      reference set. It is not the current 23-task Astra sweep and should not be used as a direct comparison with that run.
+      The original page did not identify an exact snapshot date, suite hash, or table-specific run count, so this is
+      historical context rather than a fully specified benchmark result.</p>
+    </div>
+    <div class="table-scroll compact">
+      <table class="data">
+        <thead><tr><th>Model (harness)</th><th>Full budget</th><th>@10 min</th><th>@30 min</th><th>Median tokens/run</th></tr></thead>
+        <tbody>
+          <tr><td class="model">Claude Opus 5 (Claude Code CLI)</td><td class="win">85.6%</td><td>5.9%</td><td>77.4%</td><td>0.57M</td></tr>
+          <tr><td class="model">GPT 5.6 Sol (Codex CLI)</td><td>4.4%</td><td>3.3%</td><td>4.4%</td><td>1.14M</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <p>The time thresholds describe results calculated from recorded durations. They did not terminate attempts.
+      For current comparisons, use a report that identifies the full task set, attempt counts, and execution configuration.</p>
+    </div>
+  </section>
+  <section id="integrity-incidents">
+    <h2>Historical access incidents</h2>
+    <div class="prose">
+      <p>Earlier sweeps exposed two distinct risks. In an initial Cursor sweep, the recorded investigation reported
+      that 46% of runs fetched their task's source pull request or fix commit, with a median patch matching the reference
+      solution. In a separate sweep with web access blocked, 46 runs accessed their task's answer key through the
+      filesystem, and all 46 solved.</p>
+      <p>These are historical findings retained from the prior methodology page, not estimates of contamination in
+      current runs. They motivated separate web and filesystem controls, workspaces outside the benchmark checkout,
+      and audits of available execution traces.</p>
+      <p>An earlier audit also flagged four clean runs because it treated a tool call's start as completed access.
+      Audits must correlate requests with their outcomes: a rejected request does not establish that protected content
+      was retrieved.</p>
+      <p>Integrity flags annotate the evidence; they do not automatically rescore or exclude a run. A report must state
+      how flagged results were treated.</p>
+    </div>
+  </section>
+  <section id="harness-details">
+    <h2>Harness-specific boundaries</h2>
+    <div class="prose">
+      <p>The original methodology described Codex workspace permissions, Claude Code permission modes, Cursor's sandbox,
+      a custom Seatbelt/Landlock profile for Grok Build, and ZCode without a kernel sandbox. These details can change
+      with product and harness versions. Each run's recorded configuration is the relevant evidence.</p>
+      <p>Placing a workspace outside the benchmark checkout avoids exposing reference material in its ancestor
+      directories. It does not by itself prevent access through absolute paths. Filesystem permissions, web controls,
+      and trace audits must be considered together.</p>
+      <p>API sandbox runs and optional agent-in-container runs have different boundaries from agents running on the
+      host. Reports should identify agent execution and verification environments separately.</p>
+    </div>
+  </section>
+</div>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="blog.html">Blog</a>
+      <a href="support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="assets/logo.png" alt="" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="site.js?v=14" defer></script>
+</body>
+</html>
+
