@@ -2,6 +2,7 @@
 
 import csv
 import hashlib
+import html
 from html.parser import HTMLParser
 from pathlib import Path
 import unittest
@@ -97,6 +98,12 @@ class BenchmarkIndexTests(unittest.TestCase):
         card = ROOT / "assets/cards/swe-v4-astra-fable51.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(),
                          "138c96d9fdffab4845d1b373c035b71d180272a9901fcb98bb7ad04ef8dd84b3")
+
+    def test_no_em_or_en_dashes(self):
+        for name in ("benchmarks.html", "benchmarks-suites.css", "AGENTS.md"):
+            text = html.unescape((ROOT / name).read_text())
+            self.assertNotIn(chr(0x2014), text, name)
+            self.assertNotIn(chr(0x2013), text, name)
 
     def test_every_displayed_result_matches_sources(self):
         expected_keys = {(model, effort) for model in ("astra", "fable") for effort in EFFORTS}
