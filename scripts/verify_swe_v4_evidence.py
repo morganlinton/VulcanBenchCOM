@@ -1,10 +1,10 @@
 """Independently check the public evidence without private files or model calls."""
 
-from collections import Counter, defaultdict
 import json
 import math
-from pathlib import Path
 import statistics
+from collections import Counter, defaultdict
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1] / "assets/data/swe-v4-astra-fable51"
 

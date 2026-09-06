@@ -3,9 +3,9 @@
 import csv
 import hashlib
 import html
+import unittest
 from html.parser import HTMLParser
 from pathlib import Path
-import unittest
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -100,7 +100,7 @@ class BenchmarkIndexTests(unittest.TestCase):
                          "138c96d9fdffab4845d1b373c035b71d180272a9901fcb98bb7ad04ef8dd84b3")
 
     def test_no_em_or_en_dashes(self):
-        for name in ("benchmarks.html", "benchmarks-suites.css", "AGENTS.md"):
+        for name in ("benchmarks.html", "benchmarks-suites.css", "AGENTS.md", "README.md"):
             text = html.unescape((ROOT / name).read_text())
             self.assertNotIn(chr(0x2014), text, name)
             self.assertNotIn(chr(0x2013), text, name)

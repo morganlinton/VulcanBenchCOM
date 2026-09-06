@@ -1,0 +1,11 @@
+{
+  "artifact": "assets/reports/vulcanbench-swe-v4-astra-fable51-report.pdf",
+  "sha256": "a1bcb29e5decdef4734ea093539f1f4353a90338e55069245ed1ef541993da7b",
+  "pages": 7,
+  "visual_review": "All seven final rendered pages inspected. Readable text, no overlap or clipping, corrected short task labels, consistent headers and footers, original card retained on a landscape appendix page.",
+  "calculation_review": "All 230 task scores checked in extracted PDF text. Public checks independently reproduce panel means, all total scores, ten group means and standard errors, task coverage, selected-call bindings and cost totals.",
+  "punctuation_review": "No em or en dash characters in extracted PDF text, benchmark index, page stylesheet, current README, agent instructions or public evidence bundle. HTML entities are decoded before page checks.",
+  "sources": "Public measurement record at commit 9bc9a25cf7d26d75ed5b8f5fa9ccd472bf093c8d, in assets/data/swe-v4-astra-fable51.",
+  "publication_scope": "230 run records, 1380 selected ratings, 1386 reviewer-call dispositions, costs, general review protocols and provenance. Hidden task material, patches, raw trajectories, rationales and host identifiers are withheld.",
+  "limitations": "Arithmetic and hash checks are not independent proof of no contamination, prohibited access or judge bias. No benchmark reruns or grading changes were performed. Historical archived PDFs were not rewritten."
+}
