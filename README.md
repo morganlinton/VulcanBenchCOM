@@ -4,7 +4,7 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 
 ## Pages
 - `index.html` — homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
-- `benchmarks.html` — index of every published report, newest first
+- `benchmarks.html`: suite-separated results, with the current SWE v4 comparison first and all earlier reports in a labeled archive
 - `benchmarks/NN-*.html` — one journal-style page per report (abstract, findings, table, figure, downloads)
 - `leaderboard.html`: the Eval Suite 3 board: every model on the current suite, ranked by pass@1 at its best-scoring effort, with speed, cost, and effort-curve cards
 - `methodology.html` — how VulcanBench measures (decontamination, grading, metrics, sandbox, effort, economics)
@@ -33,6 +33,11 @@ domain changes.**
 ## Local preview
     python3 -m http.server 8899
 Then open http://localhost:8899
+
+The benchmark index uses `benchmarks-suites.css` for page-scoped styles.
+Keep new suite results in their own section, never in a pooled ranking with
+older suites. Use the original report links and scoring conventions in the
+archive. Run `python3 scripts/check_benchmark_index.py` after index edits.
 
 Pure static HTML/CSS/JS, no build step. Deploys as-is to Netlify, Vercel, GitHub Pages, or any static host
 (the root `404.html` is picked up automatically by all three).
