@@ -78,64 +78,15 @@
     </header>
     <p class="suite-description">23 behavioral-reconstruction tasks. Total score combines functional correctness (50%), automated quality (15%), security (15%) and Code quality (20%). Time and cost are reported separately.</p>
 
-    <article class="suite-feature" aria-labelledby="astra-fable-heading">
-      <header>
+    <article class="suite-feature suite-preview" aria-labelledby="astra-fable-heading">
+      <div>
         <p class="suite-label">September 6, 2026 &middot; 230 runs &middot; 5 effort levels per model</p>
-        <h3 id="astra-fable-heading">GPT-6 Astra vs. Fable 5.1 with fallbacks</h3>
-        <p>Codex and Claude Code, evaluated on the same tasks from low through max effort.</p>
-      </header>
-      <figure class="suite-card">
-        <a href="assets/cards/swe-v4-astra-fable51.png" aria-label="Open the Astra and Fable 5.1 model card at full resolution">
-          <img src="assets/cards/swe-v4-astra-fable51.png" width="2400" height="1620" fetchpriority="high" alt="Astra and Fable 5.1 across five effort levels. Total scores range from 90.97% to 92.90%. Astra has lower mean runtime and estimated API cost at every matched effort. Exact values and limitations follow below.">
-        </a>
-        <figcaption>Total score uses a focused scale; runtime starts at zero. Whiskers show &plusmn;1 task standard error, not statistical significance. <a href="assets/cards/swe-v4-astra-fable51.png">Open full-size card</a>.</figcaption>
-      </figure>
-      <div class="suite-downloads">
-        <a href="assets/reports/vulcanbench-swe-v4-astra-fable51-report.pdf">Read the full report (PDF)</a>
-        <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/9bc9a25cf7d26d75ed5b8f5fa9ccd472bf093c8d/assets/data/swe-v4-astra-fable51">Run records &amp; methodology on GitHub</a>
-        <a href="assets/cards/swe-v4-astra-fable51.png" download>Download model card</a>
-        <a href="assets/data/swe-v4-astra-fable51-scores.csv" download>Scores CSV</a>
-        <a href="assets/data/swe-v4-astra-fable51-costs.csv" download>API costs CSV</a>
+        <h3 id="astra-fable-heading"><a href="benchmarks/swe-v4-astra-fable51.html">GPT-6 Astra vs. Fable 5.1 with fallbacks</a></h3>
+        <p>Codex and Claude Code on 23 matched tasks. Total scores, effort tradeoffs, runtime, estimated API costs and reviewer sensitivity.</p>
+        <p>Astra uses less mean time and estimated cost at every matched effort. Fable Max has the highest observed total score. Close scores do not establish a definitive winner.</p>
+        <div class="suite-downloads"><a href="benchmarks/swe-v4-astra-fable51.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-astra-fable51-report.pdf">Full PDF</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/9bc9a25cf7d26d75ed5b8f5fa9ccd472bf093c8d/assets/data/swe-v4-astra-fable51">GitHub evidence</a></div>
       </div>
-      <p class="suite-reading">Total scores are close. Astra has lower mean runtime and estimated API cost at every matched effort; Fable at max has the highest observed total score. These runs compare model-and-harness combinations, not isolated base models.</p>
-
-      <details class="suite-details" open>
-        <summary>Scores, time and cost by effort</summary>
-        <p id="effort-table-note">n=23 at every effort. Total score includes all four metrics. Code quality is the model-reviewed component, scored out of 100. Runtime, tokens and API costs are means per task.</p>
-        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
-          <table class="suite-results" aria-describedby="effort-table-note">
-            <caption>VulcanBench-SWE v4: matched effort results</caption>
-            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Total score</th><th scope="col">Code quality</th><th scope="col">Min/task</th><th scope="col">Tokens/task</th><th scope="col">API $/task</th></tr></thead>
-            <tbody>
-              <tr data-model="astra" data-effort="low"><th scope="row">Astra / Codex</th><td>Low</td><td>91.60%</td><td>81.89</td><td>4.2</td><td>0.89M</td><td>$1.72</td></tr>
-              <tr data-model="astra" data-effort="medium"><th scope="row">Astra / Codex</th><td>Medium</td><td>91.73%</td><td>83.04</td><td>3.8</td><td>0.68M</td><td>$1.48</td></tr>
-              <tr data-model="astra" data-effort="high"><th scope="row">Astra / Codex</th><td>High</td><td>91.59%</td><td>85.18</td><td>4.9</td><td>0.77M</td><td>$1.71</td></tr>
-              <tr data-model="astra" data-effort="extra-high"><th scope="row">Astra / Codex</th><td>Extra-high</td><td>92.39%</td><td>86.17</td><td>8.1</td><td>0.93M</td><td>$2.30</td></tr>
-              <tr data-model="astra" data-effort="max"><th scope="row">Astra / Codex</th><td>Max</td><td>92.25%</td><td>86.54</td><td>10.3</td><td>0.95M</td><td>$2.57</td></tr>
-            </tbody>
-            <tbody>
-              <tr data-model="fable" data-effort="low"><th scope="row">Fable 5.1* / Claude Code</th><td>Low</td><td>91.04%</td><td>80.72</td><td>26.9</td><td>4.38M</td><td>$7.96</td></tr>
-              <tr data-model="fable" data-effort="medium"><th scope="row">Fable 5.1* / Claude Code</th><td>Medium</td><td>91.56%</td><td>82.43</td><td>31.7</td><td>6.97M</td><td>$9.19</td></tr>
-              <tr data-model="fable" data-effort="high"><th scope="row">Fable 5.1* / Claude Code</th><td>High</td><td>90.97%</td><td>83.81</td><td>28.8</td><td>5.49M</td><td>$9.70</td></tr>
-              <tr data-model="fable" data-effort="extra-high"><th scope="row">Fable 5.1* / Claude Code</th><td>Extra-high</td><td>91.53%</td><td>84.96</td><td>38.8</td><td>11.44M</td><td>$14.49</td></tr>
-              <tr data-model="fable" data-effort="max"><th scope="row">Fable 5.1* / Claude Code</th><td>Max</td><td>92.90%</td><td>85.36</td><td>27.1</td><td>3.82M</td><td>$9.06</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
-      <div class="suite-notes">
-        <p><strong>API-equivalent estimates, not subscription charges.</strong> Standard USD rates checked September 6, 2026; cache-aware, with exposed auxiliary and fallback usage included. Judging and local infrastructure are excluded. Raw tokens include cache reads and are not cost-weighted.</p>
-        <p><strong>*Fallbacks:</strong> 11 of 115 Fable runs include Opus fallback usage. Code quality uses an equal average of Astra and Claude reviewer panels, each with correctness, readability and maintainability personas. Review was retrospective; 10 of 690 Claude ratings used Opus 4.8. LLM bias remains possible.</p>
-      </div>
-      <details class="suite-details">
-        <summary>Cost assumptions and evaluation scope</summary>
-        <div class="suite-notes">
-          <p>Astra&rsquo;s central estimate assumes requests of at most 272,000 input tokens. Per-request sizes were not logged. Its full-sweep estimate is $225.04, with a conservative long-context upper bound of $419.42, versus $1,159.10 for Fable with fallbacks. Astra remains cheaper at each matched effort under that bound. These are estimates from exposed CLI receipts, not reconstructed API invoices.</p>
-          <p>Price sources: <a href="https://developers.openai.com/api/docs/models/gpt-6-astra">OpenAI Astra pricing</a> and <a href="https://platform.claude.com/docs/en/about-claude/pricing">Anthropic pricing</a>. The costs CSV includes per-effort totals and Astra&rsquo;s long-context sensitivity bound.</p>
-          <p>Each run repairs a Python replacement for a C-built binary. There is one attempt per task and effort, with a 10-hour per-task limit. Effort labels are harness-specific, not equal compute budgets. Reviewer tools were disabled and solver identity labels were omitted. Review did not change the original submissions or functional grades.</p>
-          <p>Code quality here is the 20% model-based review factor called human-like review in the <a href="methodology.html">methodology</a>. Automated quality is a separate 15% factor. All comparisons on this card use the same 50/15/15/20 weights and equal-panel review protocol.</p>
-        </div>
-      </details>
+      <a href="benchmarks/swe-v4-astra-fable51.html" aria-label="Read the Astra and Fable effort comparison"><img src="assets/cards/swe-v4-astra-fable51.png" width="2400" height="1620" alt="Preview of the comparison card. Open the study for readable charts and tables."></a>
     </article>
   </section>
 
@@ -378,7 +329,7 @@
 <footer>
   <div class="rule"></div>
   <div class="inner">
-    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
     <nav class="fnav">
       <a href="benchmarks.html">Benchmarks</a>
       <a href="methodology.html">Methodology</a>

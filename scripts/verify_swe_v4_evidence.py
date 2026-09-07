@@ -6,6 +6,8 @@ import statistics
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from verify_swe_v4_costs import verify as verify_costs
+
 ROOT = Path(__file__).resolve().parents[1] / "assets/data/swe-v4-astra-fable51"
 
 
@@ -23,7 +25,12 @@ def main():
     assert len({r["task"] for r in rows}) == 23
     rated = defaultdict(list)
     for vote in votes:
+        assert math.isfinite(vote["score"]) and 0 <= vote["score"] <= 100
         rated[vote["solver"], vote["effort"], vote["run_id"], vote["reviewer"]].append(vote)
+        call = next(c for c in calls if c["sha256"] == vote["raw_stream_sha256"])
+        assert call["included_in_score"]
+        assert all(call[k] == vote[k] for k in ("solver", "effort", "run_id", "reviewer", "format_recovered"))
+        assert call["artifact"].startswith(vote["persona"] + ".")
     selected = {c["sha256"] for c in calls if c["included_in_score"]}
     assert len(selected) == 1380 and selected == {v["raw_stream_sha256"] for v in votes}
     assert sum(c["fallback"] and c["included_in_score"] for c in calls) == 10
@@ -32,6 +39,9 @@ def main():
         ("astra", "astra"): 345, ("astra", "claude"): 345,
         ("fable", "astra"): 345, ("fable", "claude"): 345}
     for row in rows:
+        for metric in ("functional", "quality", "security", "astra", "claude", "panel", "combined"):
+            assert math.isfinite(row[metric]) and 0 <= row[metric] <= 1
+        assert math.isfinite(row["duration_s"]) and row["duration_s"] >= 0
         for reviewer in ("astra", "claude"):
             panel = rated[row["model"], row["effort"], row["run_id"], reviewer]
             assert {v["persona"] for v in panel} == {"correctness", "readability", "maintainability"}
@@ -42,6 +52,7 @@ def main():
         assert math.isclose(panel, row["panel"], abs_tol=1e-12)
         assert math.isclose(score + .2 * panel, row["combined"], abs_tol=1e-12)
     assert len(groups) == 10
+    assert len({(g["model"], g["effort"]) for g in groups}) == 10
     tasks = {r["task"] for r in rows}
     for group in groups:
         subset = [r for r in rows if (r["model"], r["effort"]) == (group["model"], group["effort"])]
@@ -56,6 +67,7 @@ def main():
     for model in ("astra", "fable"):
         total = sum(c["estimated_usd"] for c in costs["rows"] if c["model"] == model)
         assert math.isclose(total, costs["totals_usd"][model], abs_tol=1e-8)
+    verify_costs(costs, rows)
     for path in ROOT.iterdir():
         if path.suffix in {".json", ".md"}:
             text = path.read_text()

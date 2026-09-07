@@ -54,6 +54,7 @@ def main():
     groups = json.loads((DATA / "groups.json").read_text())
     cost = json.loads((DATA / "costs.json").read_text())
     calls = json.loads((DATA / "reviewer-calls.json").read_text())
+    sensitivity = json.loads((DATA / "sensitivity.json").read_text())
     cg = {(r["model"], r["effort"]): r for r in cost["groups"]}
     styles = {
         "body": ParagraphStyle("body", fontName="Body", fontSize=10.2, leading=14.4, textColor=INK, spaceAfter=9),
@@ -180,8 +181,10 @@ def main():
       'color="#171917"><u>Anthropic pricing</u></link>, checked September 6, 2026.', "small")
     p("Fable costs use final cumulative modelUsage receipts per session, not the sum of repeated "
       "cumulative snapshots. Actual Fable, Opus and Haiku rates are used for 252 model-level "
-      "entries. Of these, 251 independently reconcile to cache-duration evidence; one internal "
+      "entries. Of these, 251 reconcile to the published cache policy and CLI list receipt; one internal "
       "Opus 5 receipt ($0.40398125) lacks that trace and matches five-minute cache pricing.")
+    p("Final receipts own write totals: observed five-minute writes use that rate; the remainder uses one hour. "
+      "Thirteen entries have different stream TTL counts, which are not added to receipt totals.", "small")
     heading("Table 6. Solver time, hours")
     timings = []
     for model in ("astra", "fable"):
@@ -222,7 +225,7 @@ def main():
       "is selected and the later retry (72) is excluded. Selection was not based on a higher score.")
     heading("What the checks do and do not establish")
     p("The export verified saved hashes for all 230 solver streams and 1,386 reviewer streams. "
-      "Public checks recompute scores, panel means, task aggregates, standard errors and cost totals. "
+      "Public checks recompute scores, panel means, task aggregates, standard errors and token-based cost formulas. "
       "Hash consistency does not prove absence of prohibited access, cheating or training-data "
       "overlap. Astra's stream reports the requested model only, not a returned model identity.")
     p("One attempt per cell cannot establish run-to-run reliability. Task SE is not reviewer "
@@ -237,6 +240,78 @@ def main():
     p("Use these results to shortlist an effort setting, then validate it on your own workload. "
       "A stronger follow-up would repeat paired runs with fixed CLI versions, returned model "
       "identities, per-request token accounting and independently audited confinement.", "small")
+
+    story.append(PageBreak())
+    p("Appendix. Score sensitivity", "h1")
+    p("All five exploratory paired intervals include zero. These results do not establish a clear "
+      "matched-effort score winner; this does not prove equivalence. Official scores, all 23 task "
+      "pairs and the fixed 20% Code quality weight remain unchanged.")
+    heading("Table 7. Fable minus Astra, total-score points")
+    table(["Effort", "Observed difference", "Exploratory 95% paired interval"],
+          [[r["effort"].title(), f'{r["fable_minus_astra_points"]:+.2f}',
+            f'{r["paired_bootstrap_95_low"]:+.2f} to {r["paired_bootstrap_95_high"]:+.2f}']
+           for r in sensitivity["rows"]], [110, 170, 231], padding=3)
+    p("20,000 paired task bootstrap resamples per effort, with replacement; seed 20260906. "
+      "Percentile endpoints use linear interpolation at 2.5% and 97.5%. This is task-sampling "
+      "sensitivity, not repeated-run or judge uncertainty. Intervals have no multiple-comparison "
+      "adjustment, and curated tasks are not a random sample of all software work.")
+    heading("Table 8. Alternative totals, Fable minus Astra points")
+    table(["Effort", "Astra-only judge", "Claude-only judge", "Nonfallback pairs", "Pairs"],
+          [[r["effort"].title(), f'{r["fable_astra_only"]-r["astra_astra_only"]:+.2f}',
+            f'{r["fable_claude_only"]-r["astra_claude_only"]:+.2f}',
+            f'{r["fable_matched_nonfallback"]-r["astra_matched_nonfallback"]:+.2f}',
+            str(r["matched_nonfallback_n"])] for r in sensitivity["rows"]], [90, 108, 108, 135, 70], padding=3)
+    p("The Medium ordering reverses under Claude-only review. Reviewer-only variants substitute "
+      "one panel for the Code quality factor while keeping its 20% weight. Nonfallback results "
+      "remove the same task pairs from both models at each effort, retaining equal-panel review. "
+      "Those subsets are post-hoc, change by effort and are not unbiased pure-model estimates.")
+    heading("Table 9. Median runtime, minutes per task")
+    table(["Effort", "Astra", "Fable with fallbacks"],
+          [[r["effort"].title(), f'{r["astra_median_minutes"]:.2f}', f'{r["fable_median_minutes"]:.2f}']
+           for r in sensitivity["rows"]], [151, 160, 200], padding=3)
+    p("Astra is faster in medians at every matched effort, as well as in means. The mean-runtime "
+      "difference is not solely a consequence of Fable outliers. Timing still measures each "
+      "model-and-harness combination under its observed execution conditions.")
+    p("Source: public sensitivity.json, deterministically generated from runs.json. The public "
+      "script records task order, seed, sample count, aggregation and excluded task identifiers.", "small")
+
+    story.append(PageBreak())
+    p("Appendix. Review and reproduction", "h1")
+    heading("What the existing Code quality scores mean")
+    p("The actual rubric asks how human-like and high-quality the solution is on a 0 to 100 scale. "
+      "Correctness, readability and maintainability personas each provide one score per reviewer "
+      "model. It has no anchored score bands: a 90 is a model judgment, not a calibrated measure "
+      "of engineering value, human authorship or production readiness.")
+    p("The report retains the exact original prompts and ratings. Equal panel weights reduce "
+      "reliance on one reviewer but do not eliminate calibration differences or possible "
+      "self-preference. The public review-protocols.json contains the general instructions "
+      "and personas; the rating ledger preserves every selected numerical vote.")
+    heading("An anchored rubric is a proposed follow-up")
+    p("The linked calibration plan proposes observable criteria and score anchors, from major "
+      "defects through strong implementations with minor concerns. Before adoption, qualified "
+      "engineers should independently score a separate calibration set with model and effort "
+      "labels withheld. Compare agreement, absolute error and ordering stability on held-out "
+      "examples, then freeze the protocol before scoring a new sweep.")
+    p("That proposal was not used here and does not change the 20% weight or any published score. "
+      "Do not calibrate to a desired leaderboard spread or pool new-protocol scores with this study.")
+    heading("What readers can reproduce")
+    p(f'<link href="{escape(args.github_url)}/REPRODUCING.md" color="#171917"><u>The reproduction guide</u></link> '
+      "provides verification commands and pinned suite, harness and automated-evaluator source links. "
+      "All 23 task definitions at the pinned suite commit match the recorded task hashes. "
+      "Original solver summaries did not record the harness Git commit; the public harness "
+      "snapshot is a source reference, not a verified lockfile for each invocation.")
+    p("The new flat runs.csv contains all 230 runs with factor percentages, reviewer means, "
+      "runtime, raw tokens, estimated API cost, fallback flags and source hashes. Public checks "
+      "need no model access. They verify arithmetic and receipt consistency, not independently "
+      "observed provider metering or the contents of withheld raw artifacts.")
+    heading("Stronger evidence for the next study")
+    p("Repeat paired runs with fixed CLI versions and counterbalanced task and effort order. "
+      "Record host load, returned model identities and per-request usage, preserve audit-ready "
+      "artifacts, and independently test the execution boundary. Use human calibration to test "
+      "whether Code quality predicts useful engineering outcomes.")
+    p("Open questions: how stable are scores across repeated runs and reviewer versions, and how "
+      "well do these ratings predict maintenance effort on other workloads? This study cannot "
+      "settle those questions.", "small")
 
     for model in ("astra", "fable"):
         story.append(PageBreak())
@@ -289,7 +364,7 @@ def main():
         canvas.setFillColor(GREY)
         canvas.setFont("Body", 8.5)
         canvas.drawString(44, 19, "vulcanbench.com | Astra and Fable 5.1 with fallbacks")
-        canvas.drawRightString(width - 44, 19, f"{doc.page} / 7")
+        canvas.drawRightString(width - 44, 19, f"{doc.page} / 9")
         canvas.restoreState()
 
     doc = BaseDocTemplate(str(OUTPUT), pagesize=A4, title="VulcanBench-SWE v4: GPT-6 Astra and Fable 5.1",

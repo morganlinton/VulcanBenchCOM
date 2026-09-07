@@ -5,8 +5,9 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 ## Pages
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
 - `benchmarks.html`: suite-separated results, with the current SWE v4 comparison first and all earlier reports in a labeled archive
+- `benchmarks/swe-v4-astra-fable51.html`: dedicated effort comparison with readable results, sensitivity analysis, PDF and evidence links
 - `benchmarks/NN-*.html`: one journal-style page per report (abstract, findings, table, figure, downloads)
-- `leaderboard.html`: the Eval Suite 3 board: every model on the current suite, ranked by pass@1 at its best-scoring effort, with speed, cost, and effort-curve cards
+- `leaderboard.html`: directs readers to suite-specific results and the frozen earlier-suite archive
 - `methodology.html`: how VulcanBench measures (decontamination, grading, metrics, sandbox, effort, economics)
 - `404.html`: styled not-found page
 - `style.css`: shared stylesheet (serif journal look with an ember accent)
@@ -45,12 +46,24 @@ Petch and IBM Plex Mono TTF files already used by the harness chart generator:
 
 ```sh
 python3 scripts/verify_swe_v4_evidence.py
+python3 scripts/derive_swe_v4_sensitivity.py --check
+python3 scripts/check_benchmark_index.py
+python3 -m unittest discover -s scripts -p 'test_*.py'
+python3 scripts/check_writing.py --base origin/main
 python3 scripts/render_swe_v4_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/9bc9a25cf7d26d75ed5b8f5fa9ccd472bf093c8d/assets/data/swe-v4-astra-fable51
 ```
 
-Use `pdftoppm` to inspect all seven rendered pages and check extracted text for
+Use `pdftoppm` to inspect all nine rendered pages and check extracted text for
 forbidden dash characters before publishing a regenerated PDF. The selected
 model card is preserved as a full-page appendix, without image edits.
+
+The public evidence includes a flat 230-run CSV, deterministic sensitivity
+analysis, a reproduction guide with pinned sources and explicit execution
+limits, and a proposed future review-calibration plan. The plan is not used
+to score this comparison. Keep the agreed 20% Code quality weight unchanged.
+Publication CI validates the evidence, prices token receipts, tests negative
+cases, checks the PDF, and rejects new forbidden dash characters or entities.
+Historical archived reports are not rewritten by the writing guard.
 
 Pure static HTML/CSS/JS, no build step. Deploys as-is to Netlify, Vercel, GitHub Pages, or any static host
 (the root `404.html` is picked up automatically by all three).

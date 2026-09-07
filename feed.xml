@@ -4,8 +4,15 @@
     <title>VulcanBench Reports</title>
     <link>https://vulcanbench.com/</link>
     <atom:link href="https://vulcanbench.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>Technical reports from VulcanBench: frontier models measured on real engineering work, graded by deterministic hidden tests, with cost, tokens, and time as first-class results.</description>
+    <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
+    <item>
+      <title>GPT-6 Astra and Fable 5.1 with fallbacks | VulcanBench-SWE v4</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-astra-fable51.html</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-astra-fable51.html</guid>
+      <pubDate>Sun, 06 Sep 2026 23:00:00 +0000</pubDate>
+      <description>230 matched runs across five effort levels. Total scores include 20% Code quality. Astra has lower observed mean runtime and estimated API cost at every matched effort; Fable Max has the highest observed total score. Includes reviewer sensitivity, a full PDF and public measurement records. Close scores do not establish a definitive winner.</description>
+    </item>
     <item>
       <title>Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels</title>
       <link>https://vulcanbench.com/blog/01-why-i-started-vulcanbench.html</link>

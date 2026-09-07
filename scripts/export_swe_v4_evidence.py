@@ -68,8 +68,11 @@ def main():
         for call in value["calls"]:
             path = Path(call["path"])
             assert digest(path) == call["sha256"]
-            calls.append({"solver": solver, "reviewer": reviewer, "effort": path.parent.parent.name,
-                          "run_id": path.parent.name, "artifact": path.name,
+            relative = path.relative_to(root / PANELS[solver][0 if reviewer == "astra" else 1])
+            assert relative.parts[0] in {"low", "medium", "high", "extra-high", "max"}
+            calls.append({"solver": solver, "reviewer": reviewer, "effort": relative.parts[0],
+                          "run_id": relative.parts[1], "artifact": path.name,
+                          "artifact_relative": Path(*relative.parts[2:]).as_posix(),
                           **{k: v for k, v in call.items() if k not in {"path", "session_id"}}})
         protocol = read(root / PANELS[solver][0 if reviewer == "astra" else 1] / "protocol.json")
         protocols[panel_key] = {key: protocol[key] for key in

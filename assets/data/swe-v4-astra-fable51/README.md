@@ -10,6 +10,10 @@ fallbacks. This is not a comparison of isolated base models.
 | File | What readers can inspect |
 |---|---|
 | [runs.json](runs.json) | Every run: task, effort, all four score factors, two reviewer-panel means, total score, timing, CLI version, usage and source hashes |
+| [runs.csv](runs.csv) | Flat, spreadsheet-ready records for all 230 runs, including component percentages, timing, cost and fallback labels |
+| [sensitivity.json](sensitivity.json) | Paired task bootstrap intervals, reviewer-only variants, matched nonfallback subsets and median runtime |
+| [REPRODUCING.md](REPRODUCING.md) | Public verification commands, pinned suite and evaluator sources, pricing policy and execution-reproduction limits |
+| [REVIEW-CALIBRATION-PLAN.md](REVIEW-CALIBRATION-PLAN.md) | Proposed anchored rubric and human calibration plan, not used for these published scores |
 | [groups.json](groups.json) | Ten model/effort aggregates, sample standard errors, tokens and fallback counts |
 | [ratings.json](ratings.json) | All 1,380 selected persona ratings, requested judge, effort, prompt/response hashes and format recovery flags |
 | [reviewer-calls.json](reviewer-calls.json) | All 1,386 reviewer calls, including six excluded calls, selection flags, usage, fallback identities and hashes |
@@ -88,7 +92,10 @@ Astra input already includes cached input, and output already includes
 reasoning. Fable raw token totals include cache reads and writes. Its old
 summary units were cache-price-weighted, not raw tokens. The published costs
 use final cumulative per-session modelUsage receipts, with actual per-model
-rates and observed cache durations. Earlier cumulative receipts are not added
+rates, observed five-minute writes and remaining writes priced at one hour.
+Thirteen reconciled model receipts have stream TTL counts that differ from
+final write totals; the final cumulative receipts own those totals, and the
+recalculated costs match the CLI list receipts. Earlier cumulative receipts are not added
 again. Fable auxiliary and fallback calls are included. One internal Opus 5
 call lacks cache-duration trace evidence; its saved $0.40398125 list receipt
 matches the five-minute cache-write rate and is explicitly retained.
@@ -99,12 +106,14 @@ From a checkout of this repository, with Python 3.10 or newer:
 
 ```sh
 python3 scripts/verify_swe_v4_evidence.py
+python3 scripts/verify_swe_v4_costs.py
+python3 scripts/derive_swe_v4_sensitivity.py --check
 python3 scripts/check_benchmark_index.py
 ```
 
 The verifier recomputes all total scores, reviewer means, group means and
 standard errors; checks task/effort coverage, selected-call bindings and cost
-totals; and scans the public bundle for forbidden dash characters and host
+formulas and totals; and scans the public bundle for forbidden dash characters and host
 paths. It makes no model calls and needs no private run directory.
 
 `scripts/export_swe_v4_evidence.py` documents the allowlisted transformation

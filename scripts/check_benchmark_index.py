@@ -66,6 +66,9 @@ class BenchmarkIndexTests(unittest.TestCase):
         cls.html = (ROOT / "benchmarks.html").read_text()
         cls.page = IndexParser()
         cls.page.feed(cls.html)
+        cls.report_html = (ROOT / "benchmarks/swe-v4-astra-fable51.html").read_text()
+        cls.report = IndexParser()
+        cls.report.feed(cls.report_html)
         with (ROOT / "assets/data/swe-v4-astra-fable51-scores.csv").open(newline="") as source:
             cls.scores = list(csv.DictReader(source))
         with (ROOT / "assets/data/swe-v4-astra-fable51-costs.csv").open(newline="") as source:
@@ -85,14 +88,23 @@ class BenchmarkIndexTests(unittest.TestCase):
         self.assertEqual({int(Path(p).name[:2]) for p in self.page.reports}, set(range(1, 21)))
 
     def test_local_links_and_anchor_targets(self):
-        for link in self.page.links:
-            parsed = urlsplit(link)
-            if parsed.scheme or parsed.netloc:
-                continue
-            if parsed.path:
-                self.assertTrue((ROOT / unquote(parsed.path).lstrip("/")).is_file(), link)
-            elif parsed.fragment:
-                self.assertIn(parsed.fragment, self.page.ids)
+        for page in (self.page, self.report):
+            self.assertEqual(page.structure_errors, [])
+            self.assertEqual(page.structure, [])
+            self.assertEqual(len(page.ids), len(set(page.ids)))
+            for link in page.links:
+                parsed = urlsplit(link)
+                if parsed.scheme or parsed.netloc:
+                    continue
+                if parsed.path:
+                    target = ROOT / unquote(parsed.path).lstrip("/")
+                    self.assertTrue(target.is_file(), link)
+                    if parsed.fragment and target.suffix == ".html":
+                        linked = IndexParser()
+                        linked.feed(target.read_text())
+                        self.assertIn(parsed.fragment, linked.ids)
+                elif parsed.fragment:
+                    self.assertIn(parsed.fragment, page.ids)
 
     def test_exact_user_selected_card(self):
         card = ROOT / "assets/cards/swe-v4-astra-fable51.png"
@@ -100,14 +112,14 @@ class BenchmarkIndexTests(unittest.TestCase):
                          "138c96d9fdffab4845d1b373c035b71d180272a9901fcb98bb7ad04ef8dd84b3")
 
     def test_no_em_or_en_dashes(self):
-        for name in ("benchmarks.html", "benchmarks-suites.css", "AGENTS.md", "README.md"):
+        for name in ("benchmarks.html", "benchmarks/swe-v4-astra-fable51.html", "benchmarks-suites.css", "AGENTS.md", "README.md", "index.html", "methodology.html", "leaderboard.html", "llms.txt"):
             text = html.unescape((ROOT / name).read_text())
             self.assertNotIn(chr(0x2014), text, name)
             self.assertNotIn(chr(0x2013), text, name)
 
     def test_every_displayed_result_matches_sources(self):
         expected_keys = {(model, effort) for model in ("astra", "fable") for effort in EFFORTS}
-        self.assertEqual(set(self.page.rows), expected_keys)
+        self.assertEqual(set(self.report.rows), expected_keys)
         self.assertEqual(set(self.costs), expected_keys)
         self.assertEqual(len(self.scores), 10)
         for row in self.scores:
@@ -116,7 +128,7 @@ class BenchmarkIndexTests(unittest.TestCase):
             cost = self.costs[key]
             self.assertEqual(int(row["n"]), 23)
             self.assertEqual(int(cost["n"]), 23)
-            actual = self.page.rows[key][2:]
+            actual = self.report.rows[key][2:]
             expected = [f'{float(row["combined"]):.2f}%',
                         f'{float(row["code_quality"]):.2f}',
                         f'{float(row["mean_minutes"]):.1f}',
