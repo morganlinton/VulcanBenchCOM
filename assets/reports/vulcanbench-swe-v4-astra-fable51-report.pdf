@@ -71,7 +71,7 @@ endobj
 9 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/morganlinton/VulcanBenchCOM/tree/9bc9a25cf7d26d75ed5b8f5fa9ccd472bf093c8d/assets/data/swe-v4-astra-fable51)
+/S /URI /Type /Action /URI (https://github.com/morganlinton/VulcanBenchCOM/tree/0dbceea3b80a61d9756e74adc06bdbd4ac340d16/assets/data/swe-v4-astra-fable51)
 >> /Border [ 0 0 0 ] /Rect [ 44 122.8498 227.4572 135.0898 ] /Subtype /Link /Type /Annot
 >>
 endobj
@@ -102,7 +102,7 @@ endobj
 12 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/morganlinton/VulcanBenchCOM/tree/9bc9a25cf7d26d75ed5b8f5fa9ccd472bf093c8d/assets/data/swe-v4-astra-fable51/REPRODUCING.md)
+/S /URI /Type /Action /URI (https://github.com/morganlinton/VulcanBenchCOM/blob/0dbceea3b80a61d9756e74adc06bdbd4ac340d16/assets/data/swe-v4-astra-fable51/REPRODUCING.md)
 >> /Border [ 0 0 0 ] /Rect [ 44 403.0498 153.7112 415.2898 ] /Subtype /Link /Type /Annot
 >>
 endobj
@@ -353,7 +353,7 @@ endobj
 endobj
 32 0 obj
 <<
-/Author (VulcanBench) /CreationDate (D:20260906165744-07'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260906165744-07'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+/Author (VulcanBench) /CreationDate (D:20260906170439-07'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260906170439-07'00') /Producer (ReportLab PDF Library - \(opensource\)) 
   /Subject (Effort, total score, Code quality, runtime and API-equivalent cost) /Title (VulcanBench-SWE v4: GPT-6 Astra and Fable 5.1) /Trapped /False
 >>
 endobj
@@ -473,7 +473,7 @@ xref
 trailer
 <<
 /ID 
-[<976b4c90aafc6612f8b6354e1a374cae><976b4c90aafc6612f8b6354e1a374cae>]
+[<c99d2ed0d87fe192d7dd8029410619ec><c99d2ed0d87fe192d7dd8029410619ec>]
 % ReportLab generated PDF document -- digest (opensource)
 
 /Info 32 0 R

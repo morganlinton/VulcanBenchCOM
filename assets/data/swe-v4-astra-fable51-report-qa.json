@@ -1,11 +1,11 @@
 {
   "artifact": "assets/reports/vulcanbench-swe-v4-astra-fable51-report.pdf",
-  "sha256": "a1bcb29e5decdef4734ea093539f1f4353a90338e55069245ed1ef541993da7b",
-  "pages": 7,
-  "visual_review": "All seven final rendered pages inspected. Readable text, no overlap or clipping, corrected short task labels, consistent headers and footers, original card retained on a landscape appendix page.",
-  "calculation_review": "All 230 task scores checked in extracted PDF text. Public checks independently reproduce panel means, all total scores, ten group means and standard errors, task coverage, selected-call bindings and cost totals.",
-  "punctuation_review": "No em or en dash characters in extracted PDF text, benchmark index, page stylesheet, current README, agent instructions or public evidence bundle. HTML entities are decoded before page checks.",
-  "sources": "Public measurement record at commit 9bc9a25cf7d26d75ed5b8f5fa9ccd472bf093c8d, in assets/data/swe-v4-astra-fable51.",
+  "sha256": "392b0aa4d7eb7ad8cb1a38c937f3307b3716c08de1974e80141330604c1e4b2e",
+  "pages": 9,
+  "visual_review": "All nine rendered pages inspected. Final link-only update re-rendered and inspected on page six. No overlap or clipping; original card retained on a landscape appendix page. Dedicated study and compact index inspected in the browser; 390px phone-width study has no document overflow, while data tables scroll within labeled regions.",
+  "calculation_review": "All 230 task-to-effort score bindings checked in PDF text, not only a score multiset. Public checks reproduce panel means, fixed total scores, ten group means and standard errors, task coverage, selected-call bindings and token-based pricing. All 23 task definitions match recorded hashes. Deterministic paired sensitivity and 230 flat CSV rows regenerate exactly. Negative pricing tests reject altered receipts or rates.",
+  "punctuation_review": "No forbidden dash characters in extracted PDF text or current publication text. CI checks new tracked text lines and decoded HTML entities without rewriting archived reports.",
+  "sources": "Public measurement record at commit 0dbceea3b80a61d9756e74adc06bdbd4ac340d16, in assets/data/swe-v4-astra-fable51.",
   "publication_scope": "230 run records, 1380 selected ratings, 1386 reviewer-call dispositions, costs, general review protocols and provenance. Hidden task material, patches, raw trajectories, rationales and host identifiers are withheld.",
-  "limitations": "Arithmetic and hash checks are not independent proof of no contamination, prohibited access or judge bias. No benchmark reruns or grading changes were performed. Historical archived PDFs were not rewritten."
+  "limitations": "Arithmetic and hash checks are not independent proof of no contamination, prohibited access or judge bias. No benchmark reruns or grading changes were performed. Historical archived PDFs were not rewritten. Original harness commit identities were not logged. Proposed anchored rubric is a follow-up plan, not the protocol used for these scores."
 }

@@ -9,7 +9,7 @@ from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[1]
 PDF = ROOT / "assets/reports/vulcanbench-swe-v4-astra-fable51-report.pdf"
-GITHUB = "https://github.com/morganlinton/VulcanBenchCOM/tree/9bc9a25cf7d26d75ed5b8f5fa9ccd472bf093c8d/assets/data/swe-v4-astra-fable51"
+GITHUB = "https://github.com/morganlinton/VulcanBenchCOM/tree/0dbceea3b80a61d9756e74adc06bdbd4ac340d16/assets/data/swe-v4-astra-fable51"
 
 
 def main():

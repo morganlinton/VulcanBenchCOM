@@ -68,10 +68,10 @@
       </header>
       <div class="suite-downloads" aria-label="Report and evidence downloads">
         <a href="/assets/reports/vulcanbench-swe-v4-astra-fable51-report.pdf">Read the full report (PDF)</a>
-        <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/9bc9a25cf7d26d75ed5b8f5fa9ccd472bf093c8d/assets/data/swe-v4-astra-fable51">Run records &amp; methodology on GitHub</a>
+        <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/0dbceea3b80a61d9756e74adc06bdbd4ac340d16/assets/data/swe-v4-astra-fable51">Run records &amp; methodology on GitHub</a>
         <a href="/assets/cards/swe-v4-astra-fable51.png" download>Download model card</a>
         <a href="/assets/data/swe-v4-astra-fable51/runs.csv" download>All 230 runs CSV</a>
-        <a href="/assets/data/swe-v4-astra-fable51/REPRODUCING.md">Reproduction guide</a>
+        <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/0dbceea3b80a61d9756e74adc06bdbd4ac340d16/assets/data/swe-v4-astra-fable51/REPRODUCING.md">Reproduction guide</a>
         <a href="/assets/data/swe-v4-astra-fable51-scores.csv" download>Scores CSV</a>
         <a href="/assets/data/swe-v4-astra-fable51-costs.csv" download>API costs CSV</a>
       </div>
@@ -149,11 +149,11 @@
         <h2 id="code-quality-heading">What Code quality measures</h2>
         <p>Each solution receives three Astra and three Claude reviews at medium effort, using correctness, readability and maintainability personas. Each panel's mean is rounded to four decimal places on a 0 to 1 scale; the two panels receive equal weight. The original issue, complete saved patch and verifier outcome are provided; solver labels are omitted and tools are disabled.</p>
         <p>The actual rubric asks how human-like and high-quality the solution is on a 0 to 100 scale. It has no anchored score bands. These are model judgments, not human validation, authorship detection or an objective production-readiness scale. Different reviewer calibration can change close rankings.</p>
-        <p><a href="/assets/data/swe-v4-astra-fable51/review-protocols.json">Exact general prompts and personas</a> &middot; <a href="/assets/data/swe-v4-astra-fable51/REVIEW-CALIBRATION-PLAN.md">Proposed future calibration protocol</a>. The proposal was not used for these scores.</p>
+        <p><a href="/assets/data/swe-v4-astra-fable51/review-protocols.json">Exact general prompts and personas</a> &middot; <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/0dbceea3b80a61d9756e74adc06bdbd4ac340d16/assets/data/swe-v4-astra-fable51/REVIEW-CALIBRATION-PLAN.md">Proposed future calibration protocol</a>. The proposal was not used for these scores.</p>
       </section>
       <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
         <h2 id="reproduce-heading">Evidence and reproduction</h2>
-        <p>Public files contain all 230 run measurements, 1,380 selected ratings and 1,386 reviewer-call dispositions. Verification recomputes the fixed score formula and prices exposed token receipts against the frozen rate snapshot. The <a href="/assets/data/swe-v4-astra-fable51/REPRODUCING.md">reproduction guide</a> links pinned task, harness and grader sources and distinguishes public arithmetic checks from a new model run.</p>
+        <p>Public files contain all 230 run measurements, 1,380 selected ratings and 1,386 reviewer-call dispositions. Verification recomputes the fixed score formula and prices exposed token receipts against the frozen rate snapshot. The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/0dbceea3b80a61d9756e74adc06bdbd4ac340d16/assets/data/swe-v4-astra-fable51/REPRODUCING.md">reproduction guide</a> links pinned task, harness and grader sources and distinguishes public arithmetic checks from a new model run.</p>
         <p>All 23 task definitions match recorded task hashes. Original harness commit identities were not logged; the linked harness commit is a reference snapshot, not a verified execution lockfile. Raw trajectories, patches and task-specific reviewer evidence for these runs are not published. Hash checks do not prove no cheating, prohibited access or training-data overlap.</p>
         <p>Summed solver time was 70.75 hours: 12.00 for Astra and 58.75 for Fable. First-start to last-finish spans were 12.01 and 80.32 hours respectively; gaps and overlap mean those spans must not be added. Judging is excluded.</p>
         <p>For a stronger follow-up, freeze and calibrate an anchored rubric before evaluation, repeat paired runs with fixed CLI versions, counterbalance execution order, and record request-level model identity, usage and host load. Do not treat extra score separation as a calibration goal.</p>

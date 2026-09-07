@@ -295,7 +295,8 @@ def main():
     p("That proposal was not used here and does not change the 20% weight or any published score. "
       "Do not calibrate to a desired leaderboard spread or pool new-protocol scores with this study.")
     heading("What readers can reproduce")
-    p(f'<link href="{escape(args.github_url)}/REPRODUCING.md" color="#171917"><u>The reproduction guide</u></link> '
+    guide_url = args.github_url.replace("/tree/", "/blob/", 1) + "/REPRODUCING.md"
+    p(f'<link href="{escape(guide_url)}" color="#171917"><u>The reproduction guide</u></link> '
       "provides verification commands and pinned suite, harness and automated-evaluator source links. "
       "All 23 task definitions at the pinned suite commit match the recorded task hashes. "
       "Original solver summaries did not record the harness Git commit; the public harness "

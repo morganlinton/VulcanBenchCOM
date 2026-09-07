@@ -50,7 +50,7 @@ python3 scripts/derive_swe_v4_sensitivity.py --check
 python3 scripts/check_benchmark_index.py
 python3 -m unittest discover -s scripts -p 'test_*.py'
 python3 scripts/check_writing.py --base origin/main
-python3 scripts/render_swe_v4_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/9bc9a25cf7d26d75ed5b8f5fa9ccd472bf093c8d/assets/data/swe-v4-astra-fable51
+python3 scripts/render_swe_v4_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/0dbceea3b80a61d9756e74adc06bdbd4ac340d16/assets/data/swe-v4-astra-fable51
 ```
 
 Use `pdftoppm` to inspect all nine rendered pages and check extracted text for
