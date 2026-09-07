@@ -54,7 +54,7 @@ def derive():
               "security_pct", "code_quality_pct", "astra_reviewer_pct", "claude_reviewer_pct", "solver_fallback",
               "duration_s", "raw_tokens", "estimated_api_usd", "astra_long_context_upper_usd", "started_at",
               "finished_at", "solver_cli_version", "solver_stream_sha256", "patch_sha256"]
-    writer = csv.DictWriter(buffer, fieldnames=fields)
+    writer = csv.DictWriter(buffer, fieldnames=fields, lineterminator="\n")
     writer.writeheader()
     for r in rows:
         c = costs[r["model"], r["run_id"]]
