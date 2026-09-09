@@ -6,7 +6,6 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
 - `benchmarks.html`: suite-separated results, with the current SWE v4 comparison first and all earlier reports in a labeled archive
 - `benchmarks/swe-v4-astra-fable51-v34.html`: the same runs rescored under Code quality protocol v3.4 (33% weight, neutral Muse Spark 1.3 and Grok 4.6 panel), with PDF, calibration record and evidence links
-- `benchmarks/swe-v4-astra-fable51.html`: dedicated effort comparison with readable results, sensitivity analysis, PDF and evidence links
 - `benchmarks/NN-*.html`: one journal-style page per report (abstract, findings, table, figure, downloads)
 - `leaderboard.html`: directs readers to suite-specific results and the frozen earlier-suite archive
 - `methodology.html`: how VulcanBench measures (decontamination, grading, metrics, sandbox, effort, economics)
@@ -41,32 +40,23 @@ Keep new suite results in their own section, never in a pooled ranking with
 older suites. Use the original report links and scoring conventions in the
 archive. Run `python3 scripts/check_benchmark_index.py` after index edits.
 
-The SWE v4 PDF is generated directly from the public measurement record in
-`assets/data/swe-v4-astra-fable51/`. It uses ReportLab and the Geist, Chakra
-Petch and IBM Plex Mono TTF files already used by the harness chart generator:
+The SWE v4 report PDF is generated directly from the public record in
+`assets/data/swe-v4-astra-fable51-v34/`, which `scripts/export_swe_v4_v34_evidence.py
+--harness-root ../VulcanBench` exports from the frozen harness results. The renderer
+uses ReportLab and the Geist, Chakra Petch and IBM Plex Mono TTF files already used
+by the harness chart generator:
 
 ```sh
-python3 scripts/verify_swe_v4_evidence.py
-python3 scripts/derive_swe_v4_sensitivity.py --check
 python3 scripts/check_benchmark_index.py
 python3 -m unittest discover -s scripts -p 'test_*.py'
 python3 scripts/check_writing.py --base origin/main
-python3 scripts/render_swe_v4_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/0dbceea3b80a61d9756e74adc06bdbd4ac340d16/assets/data/swe-v4-astra-fable51
-```
-
-Use `pdftoppm` to inspect all nine rendered pages and check extracted text for
-forbidden dash characters before publishing a regenerated PDF. The selected
-model card is preserved as a full-page appendix, without image edits.
-
-The v3.4 neutral-panel report follows the same pattern from the public record
-in `assets/data/swe-v4-astra-fable51-v34/`, exported from the frozen harness
-results by `scripts/export_swe_v4_v34_evidence.py --harness-root ../VulcanBench`:
-
-```sh
-python3 -m unittest scripts/test_swe_v4_v34.py
 python3 scripts/render_swe_v4_v34_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-astra-fable51-v34
 python3 scripts/verify_swe_v4_v34_pdf.py
 ```
+
+Rasterise all eight rendered pages and check the extracted text for forbidden
+dash characters before publishing a regenerated PDF. The model card is
+preserved as a full-page appendix, without image edits.
 
 The public evidence includes a flat 230-run CSV, deterministic sensitivity
 analysis, a reproduction guide with pinned sources and explicit execution

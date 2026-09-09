@@ -64,7 +64,7 @@
       <header>
         <p class="suite-label">September 9, 2026 &middot; 230 runs rescored &middot; Code quality protocol v3.4</p>
         <h1 id="astra-fable-v34-heading">GPT-6 Astra vs. Fable 5.1 under a neutral Code quality panel</h1>
-        <p>The same 230 runs as the <a href="/benchmarks/swe-v4-astra-fable51.html">September 6 effort comparison</a>, rescored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6.</p>
+        <p>230 runs from the September 2026 effort sweep, 23 tasks at five effort levels for each model, scored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6.</p>
       </header>
       <div class="suite-downloads" aria-label="Report and evidence downloads">
         <a href="/assets/reports/vulcanbench-swe-v4-astra-fable51-v34-report.pdf">Read the full report (PDF)</a>
@@ -78,14 +78,14 @@
 
       <section class="report-section" id="what-changed" aria-labelledby="what-changed-heading">
         <h2 id="what-changed-heading">What changed</h2>
-        <p>No solver ran again. Every functional, automated quality and security measurement is the same as on September 6. What changed is the Code quality factor: its weight rose from 20% to 33%, its rubric now scores six dimensions for a named human reader, it includes a ground-truth intent-recovery probe, and the judges come from labs with no model on this board. Combined score weights are 50% functional correctness, 8.5% automated quality, 8.5% security and 33% Code quality.</p>
+        <p>No solver ran for this report. Every functional, automated quality and security measurement comes from the original effort sweep, one attempt per task and effort. What changed is the Code quality factor: its weight rose from 20% to 33%, its rubric now scores six dimensions for a named human reader, it includes a ground-truth intent-recovery probe, and the judges come from labs with no model on this board. Combined score weights are 50% functional correctness, 8.5% automated quality, 8.5% security and 33% Code quality.</p>
         <div class="effort-choices">
           <div><h3>Fable 5.1 Max</h3><p>91.84 combined &middot; 82.43 Code quality &middot; 27.1 min</p><p>Highest combined score and highest Code quality of the ten settings.</p></div>
           <div><h3>Astra Max</h3><p>89.30 combined &middot; 76.26 Code quality &middot; 10.3 min</p><p>Astra's highest combined score. Astra is faster at every matched effort.</p></div>
           <div><h3>Human readability</h3><p>80.8 vs. 69.1 at Max</p><p>The widest gap between the models is on naming, presentation and stated intent.</p></div>
           <div><h3>Intent recovery</h3><p>81.8 vs. 81.1 at Max</p><p>The ground-truth layer is close: both models teach the real contract about equally well.</p></div>
         </div>
-        <p>Under the September 6 protocol, in which Astra and an Anthropic model judged the same code, Astra led Code quality at all five efforts. The reversal comes from who judges and what the rubric asks, not from the weight change alone: applying the prior 50/15/15/20 profile to the new Code quality scores still puts Fable ahead at every effort. The card and all ten settings follow.</p>
+        <p>Under the earlier three-persona protocol, in which Astra and an Anthropic model judged the same code, Astra led Code quality at all five efforts. The reversal comes from who judges and what the rubric asks, not from the weight change alone: applying the prior 50/15/15/20 profile to the new Code quality scores still puts Fable ahead at every effort. The card and all ten settings follow.</p>
       </section>
       <figure class="suite-card">
         <a href="/assets/cards/swe-v4-astra-fable51-v34.png" aria-label="Open the Astra and Fable 5.1 neutral-panel model card at full resolution">
@@ -120,8 +120,8 @@
         </div>
       </details>
       <div class="suite-notes">
-        <p><strong>*Fallbacks:</strong> 11 of 115 Fable solver runs include Opus 4.8 fallback usage, the same runs flagged in the September 6 report. They remain in the population and are labeled in the run records. Neither judge produced a reviewer fallback on any of the 230 submissions.</p>
-        <p><strong>SE</strong> is one sample standard error of the combined score across 23 tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. Estimated API costs are unchanged from the September 6 report and are not repeated here.</p>
+        <p><strong>*Fallbacks:</strong> 11 of 115 Fable solver runs include Opus 4.8 fallback usage. They remain in the population and are labeled in the run records. Neither judge produced a reviewer fallback on any of the 230 submissions.</p>
+        <p><strong>SE</strong> is one sample standard error of the combined score across 23 tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test.</p>
       </div>
 
       <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">

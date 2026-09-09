@@ -158,7 +158,7 @@ class NeutralPanelBundleTests(unittest.TestCase):
         card = ROOT / "assets/cards/swe-v4-astra-fable51-v34.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), CARD_SHA256)
         self.assertGreater((ROOT / "assets/reports/vulcanbench-swe-v4-astra-fable51-v34-report.pdf").stat().st_size, 100_000)
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "methodology.html", "benchmarks/swe-v4-astra-fable51.html"):
+        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "methodology.html", "leaderboard.html"):
             text = html.unescape((ROOT / name).read_text())
             self.assertIn("swe-v4-astra-fable51-v34.html", text, name)
             if name != "feed.xml":  # feed.xml keeps historical item text as published
