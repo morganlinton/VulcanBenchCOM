@@ -11,7 +11,7 @@
       <link>https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html</guid>
       <pubDate>Wed, 09 Sep 2026 12:00:00 +0000</pubDate>
-      <description>230 runs from the September 2026 effort sweep, 23 tasks at five effort levels per model, scored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6 under a frozen, calibrated six-dimension rubric with an intent-recovery probe. Fable 5.1 has the higher combined score and Code quality at every matched effort (91.84 vs. 89.30 at Max); Astra is faster at every effort. Includes the calibration record, every protocol amendment, operator interventions, a full PDF and public run records.</description>
+      <description>230 runs from the September 2026 effort sweep, 23 tasks at five effort levels per model, scored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6 under a frozen, calibrated six-dimension rubric with an intent-recovery probe. Fable 5.1 has the higher combined score and Code quality at every effort level (combined 89.12 to 91.84 against 87.43 to 89.30 from Low to Max); Astra is faster at every effort. Includes the calibration record, every protocol amendment, operator interventions, a full PDF and public run records.</description>
     </item>
     <item>
       <title>Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels</title>
