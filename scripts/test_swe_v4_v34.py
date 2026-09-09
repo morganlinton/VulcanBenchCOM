@@ -106,6 +106,21 @@ class NeutralPanelBundleTests(unittest.TestCase):
                              ("Standard error of Code quality", f'<td>{a["code_quality"]["se"]:.2f}</td><td>{f["code_quality"]["se"]:.2f}</td>')):
             self.assertIn(f'<th scope="row">{label}</th>{value}', self.page_html, label)
 
+    def test_across_efforts_table(self):
+        def cells(model, key, digits):
+            return "".join(f"<td>{self.groups[model, e][key]['mean']:.{digits}f}</td>" for e in EFFORTS)
+
+        def diffs(key):
+            return "".join(f"<td>{round(self.groups['fable', e][key]['mean'], 2) - round(self.groups['astra', e][key]['mean'], 2):+.2f}</td>" for e in EFFORTS)
+
+        for label, html_cells in (("Astra combined score", cells("astra", "combined_33", 2)), ("Fable 5.1 combined score", cells("fable", "combined_33", 2)),
+                                  ("Fable minus Astra, combined", diffs("combined_33")), ("Astra Code quality", cells("astra", "code_quality", 2)),
+                                  ("Fable 5.1 Code quality", cells("fable", "code_quality", 2)), ("Fable minus Astra, Code quality", diffs("code_quality")),
+                                  ("Astra minutes per task", cells("astra", "minutes", 1)), ("Fable 5.1 minutes per task", cells("fable", "minutes", 1))):
+            self.assertIn(f'<th scope="row">{label}</th>{html_cells}', self.page_html, label)
+        low, high = self.groups["astra", "low"], self.groups["astra", "max"]
+        self.assertIn(f'Astra {low["combined_33"]["mean"]:.2f} to {high["combined_33"]["mean"]:.2f}', self.page_html)
+
     def test_comparative_claims(self):
         for effort in EFFORTS:
             a, f = self.groups["astra", effort], self.groups["fable", effort]
