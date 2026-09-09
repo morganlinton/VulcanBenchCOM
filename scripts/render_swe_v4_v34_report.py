@@ -22,12 +22,13 @@ from reportlab.platypus import BaseDocTemplate, Frame, Image, NextPageTemplate, 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "assets/data/swe-v4-astra-fable51-v34"
 CARD = ROOT / "assets/cards/swe-v4-astra-fable51-v34.png"
+ECONOMICS_CARD = ROOT / "assets/cards/swe-v4-astra-fable51-v34-economics.png"
 OUTPUT = ROOT / "assets/reports/vulcanbench-swe-v4-astra-fable51-v34-report.pdf"
 EFFORTS = ("low", "medium", "high", "extra-high", "max")
 INK = colors.HexColor("#171917")
 GREY = colors.HexColor("#555551")
 RULE = colors.HexColor("#ccccc4")
-PAGES = 8
+PAGES = 10
 
 
 def main():  # noqa: PLR0915, one linear document
@@ -44,6 +45,8 @@ def main():  # noqa: PLR0915, one linear document
     calibration = json.loads((DATA / "calibration.json").read_text())
     protocols = json.loads((DATA / "judge-protocols.json").read_text())
     provenance = json.loads((DATA / "provenance.json").read_text())
+    econ = json.loads((DATA / "economics.json").read_text())
+    eg = {(r["model"], r["effort"]): r for r in econ["groups"]}
     g = {(r["model"], r["effort"]): r for r in groups}
     styles = {
         "body": ParagraphStyle("body", fontName="Body", fontSize=10.2, leading=14.4, textColor=INK, spaceAfter=9),
@@ -199,7 +202,33 @@ def main():  # noqa: PLR0915, one linear document
     p("Functional scores retain partial credit and are the same values as the earlier report. Automated quality and security are "
       "unchanged measurements; only their weights moved. Code quality is the new protocol's score.", "small")
 
-    # Page 5: history of the run
+    # Page 5: cost and tokens
+    story.append(PageBreak())
+    p("Cost and tokens across effort levels", "h1")
+    p("The same 230 runs priced from their solver receipts at list API rates, cache-aware, solver inference only, judging excluded. "
+      "Both models ran on subscriptions, so these are API-equivalent estimates rather than bills. Astra is cheaper at every effort; its cost "
+      "rises with effort while Fable's does not track the effort label.")
+    heading("Table 6. API-equivalent cost, raw tokens and runtime by effort")
+    et = econ["totals"]
+    records = [[e.replace("-", " ").title(), f'${eg["astra", e]["usd"]["mean"]:.2f}', f'${eg["astra", e]["long_context_upper_usd"]["mean"]:.2f}',
+                f'${eg["fable", e]["usd"]["mean"]:.2f}', f'{eg["fable", e]["usd"]["mean"] / eg["astra", e]["usd"]["mean"]:.1f}x',
+                f'{eg["astra", e]["raw_tokens"]["mean"] / 1e6:.2f}M', f'{eg["fable", e]["raw_tokens"]["mean"] / 1e6:.2f}M',
+                f'{eg["astra", e]["minutes"]["mean"]:.1f}', f'{eg["fable", e]["minutes"]["mean"]:.1f}'] for e in EFFORTS]
+    records.append(["Full sweep", f'${et["astra"]["usd"]:,.2f}', f'${et["astra"]["long_context_upper_usd"]:,.2f}', f'${et["fable"]["usd"]:,.2f}',
+                    f'{et["fable"]["usd"] / et["astra"]["usd"]:.1f}x', f'{et["astra"]["raw_tokens"] / 1e6:,.0f}M', f'{et["fable"]["raw_tokens"] / 1e6:,.0f}M',
+                    f'{et["astra"]["solver_hours"]:.1f} h', f'{et["fable"]["solver_hours"]:.1f} h'])
+    table(["Effort", "Astra $/task", "Astra bound", "Fable $/task", "Ratio", "Astra tokens", "Fable tokens", "Astra min", "Fable min"],
+          records, [58, 60, 58, 60, 40, 62, 62, 48, 48], size=8.6, padding=3)
+    p(f"Rates checked {econ['pricing_verified']}. Astra input includes cache reads and output includes reasoning; Claude pricing covers observed "
+      "five-minute and one-hour cache writes, Fable, Opus 5, Opus 4.8 fallback and auxiliary Haiku usage. Astra's receipts do not record per-request "
+      "sizes, so the central estimate uses standard rates and the bound prices every run that exceeded 272k cumulative input tokens at the long-context "
+      "tier; Astra stays cheaper at every effort under that bound. Tokens are raw solver totals including cache reads, which makes Fable's token count a "
+      "poor cost proxy. The sweep totals, per-run estimates and rate tables are in economics.json and runs.csv.", "small")
+    heading("Limitations recorded with the ledger")
+    for item in econ["limitations"]:
+        p("\u2022 " + item, "small")
+
+    # Page 6: history of the run
     story.append(PageBreak())
     p("How the run actually went", "h1")
     p("Every protocol version was frozen by hash before its first counted call, and each older panel ran from a git worktree pinned "
@@ -233,7 +262,8 @@ def main():  # noqa: PLR0915, one linear document
     p(f"Public files: <font name='Mono'>runs.json</font> and <font name='Mono'>runs.csv</font> with every run's factors, both judges' "
       f"six-dimension sub-scores and intent recovery; <font name='Mono'>groups.json</font>; <font name='Mono'>calibration.json</font> with "
       f"every gate value and control mean; <font name='Mono'>judge-protocols.json</font> with the exact rubric, system text, probe and "
-      f"match instructions, schemas and weights; and <font name='Mono'>provenance.json</font> with source hashes. "
+      f"match instructions, schemas and weights; <font name='Mono'>economics.json</font> with cost and token aggregates, rate tables and pricing limitations; "
+      f"and <font name='Mono'>provenance.json</font> with source hashes. "
       f"<link href='{escape(args.github_url)}' color='#10A37F'>{escape(args.github_url)}</link>")
     p("Withheld: " + "; ".join(provenance["withheld"]) + ".")
     heading("Recompute the published numbers")
@@ -261,6 +291,8 @@ def main():  # noqa: PLR0915, one linear document
 
     story.extend([NextPageTemplate("card"), PageBreak()])
     story.append(Image(str(CARD), width=680, height=488.75))
+    story.append(PageBreak())
+    story.append(Image(str(ECONOMICS_CARD), width=680, height=488.75))
 
     def furniture(canvas, doc):
         width, height = canvas._pagesize

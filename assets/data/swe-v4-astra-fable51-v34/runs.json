@@ -10,6 +10,10 @@
     "l1": 0.24,
     "l2": 0.09
   },
+  "token_fields": {
+    "raw_tokens": "solver CLI raw total including cache reads",
+    "cli_summary_units": "the CLI's own summary count; for Claude Code these are cache-price-weighted units, not tokens"
+  },
   "rows": [
     {
       "model": "astra",
@@ -44,7 +48,18 @@
         }
       },
       "duration_s": 164.289,
-      "reported_tokens": 404405,
+      "raw_tokens": 404405,
+      "token_usage": {
+        "input_tokens": 400220,
+        "cached_input_tokens": 355328,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4185,
+        "reasoning_output_tokens": 203
+      },
+      "cli_summary_units": 404405,
+      "estimated_usd": 1.013498,
+      "long_context_upper_usd": 1.922371,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:53:34.109295+00:00",
       "finished_at": "2026-09-05T00:56:18.402675+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -83,7 +98,18 @@
         }
       },
       "duration_s": 257.333,
-      "reported_tokens": 1275502,
+      "raw_tokens": 1275502,
+      "token_usage": {
+        "input_tokens": 1268790,
+        "cached_input_tokens": 1178624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6712,
+        "reasoning_output_tokens": 1227
+      },
+      "cli_summary_units": 1275502,
+      "estimated_usd": 2.4158839999999997,
+      "long_context_upper_usd": 4.663968,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T01:14:15.962275+00:00",
       "finished_at": "2026-09-05T01:18:33.301558+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -122,7 +148,18 @@
         }
       },
       "duration_s": 213.298,
-      "reported_tokens": 565858,
+      "raw_tokens": 565858,
+      "token_usage": {
+        "input_tokens": 560425,
+        "cached_input_tokens": 516864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5433,
+        "reasoning_output_tokens": 487
+      },
+      "cli_summary_units": 565858,
+      "estimated_usd": 1.224124,
+      "long_context_upper_usd": 2.312423,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:23:29.782200+00:00",
       "finished_at": "2026-09-05T00:27:03.084934+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -161,7 +198,18 @@
         }
       },
       "duration_s": 220.836,
-      "reported_tokens": 1143288,
+      "raw_tokens": 1143288,
+      "token_usage": {
+        "input_tokens": 1137799,
+        "cached_input_tokens": 1052928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5489,
+        "reasoning_output_tokens": 577
+      },
+      "cli_summary_units": 1143288,
+      "estimated_usd": 2.176088,
+      "long_context_upper_usd": 4.214951,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T01:06:28.019923+00:00",
       "finished_at": "2026-09-05T01:10:08.861708+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -200,7 +248,18 @@
         }
       },
       "duration_s": 161.683,
-      "reported_tokens": 346617,
+      "raw_tokens": 346617,
+      "token_usage": {
+        "input_tokens": 342423,
+        "cached_input_tokens": 304768,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4194,
+        "reasoning_output_tokens": 282
+      },
+      "cli_summary_units": 346617,
+      "estimated_usd": 0.891018,
+      "long_context_upper_usd": 1.6771859999999998,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:20:47.961336+00:00",
       "finished_at": "2026-09-05T00:23:29.649949+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -239,7 +298,18 @@
         }
       },
       "duration_s": 459.851,
-      "reported_tokens": 2377282,
+      "raw_tokens": 2377282,
+      "token_usage": {
+        "input_tokens": 2364679,
+        "cached_input_tokens": 2237696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12603,
+        "reasoning_output_tokens": 3948
+      },
+      "cli_summary_units": 2377282,
+      "estimated_usd": 4.137676,
+      "long_context_upper_usd": 7.960277,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:58:48.021130+00:00",
       "finished_at": "2026-09-05T01:06:27.878855+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -278,7 +348,18 @@
         }
       },
       "duration_s": 208.996,
-      "reported_tokens": 579364,
+      "raw_tokens": 579364,
+      "token_usage": {
+        "input_tokens": 573996,
+        "cached_input_tokens": 534016,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5368,
+        "reasoning_output_tokens": 368
+      },
+      "cli_summary_units": 579364,
+      "estimated_usd": 1.202216,
+      "long_context_upper_usd": 2.270232,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:37:02.725225+00:00",
       "finished_at": "2026-09-05T00:40:31.725718+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -317,7 +398,18 @@
         }
       },
       "duration_s": 246.805,
-      "reported_tokens": 1296678,
+      "raw_tokens": 1296678,
+      "token_usage": {
+        "input_tokens": 1290712,
+        "cached_input_tokens": 1196032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5966,
+        "reasoning_output_tokens": 461
+      },
+      "cli_summary_units": 1296678,
+      "estimated_usd": 2.4411319999999996,
+      "long_context_upper_usd": 4.733114,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T01:10:09.012025+00:00",
       "finished_at": "2026-09-05T01:14:15.822958+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -356,7 +448,18 @@
         }
       },
       "duration_s": 164.558,
-      "reported_tokens": 496375,
+      "raw_tokens": 496375,
+      "token_usage": {
+        "input_tokens": 492438,
+        "cached_input_tokens": 450944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3937,
+        "reasoning_output_tokens": 207
+      },
+      "cli_summary_units": 496375,
+      "estimated_usd": 1.062734,
+      "long_context_upper_usd": 2.027043,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:09:36.554583+00:00",
       "finished_at": "2026-09-05T00:12:21.117326+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -395,7 +498,18 @@
         }
       },
       "duration_s": 142.095,
-      "reported_tokens": 278076,
+      "raw_tokens": 278076,
+      "token_usage": {
+        "input_tokens": 274899,
+        "cached_input_tokens": 223104,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3177,
+        "reasoning_output_tokens": 143
+      },
+      "cli_summary_units": 278076,
+      "estimated_usd": 0.899904,
+      "long_context_upper_usd": 1.720383,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:18:25.654647+00:00",
       "finished_at": "2026-09-05T00:20:47.755091+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -434,7 +548,18 @@
         }
       },
       "duration_s": 153.67,
-      "reported_tokens": 311139,
+      "raw_tokens": 311139,
+      "token_usage": {
+        "input_tokens": 307092,
+        "cached_input_tokens": 268672,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4047,
+        "reasoning_output_tokens": 261
+      },
+      "cli_summary_units": 311139,
+      "estimated_usd": 0.855222,
+      "long_context_upper_usd": 1.609269,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:51:00.307110+00:00",
       "finished_at": "2026-09-05T00:53:33.981625+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -473,7 +598,18 @@
         }
       },
       "duration_s": 1525.72,
-      "reported_tokens": 6777579,
+      "raw_tokens": 6777579,
+      "token_usage": {
+        "input_tokens": 6739418,
+        "cached_input_tokens": 6577152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 38161,
+        "reasoning_output_tokens": 16492
+      },
+      "cli_summary_units": 6777579,
+      "estimated_usd": 10.107861999999999,
+      "long_context_upper_usd": 19.261699,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T01:18:33.448000+00:00",
       "finished_at": "2026-09-05T01:43:59.178042+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -512,7 +648,18 @@
         }
       },
       "duration_s": 146.852,
-      "reported_tokens": 284674,
+      "raw_tokens": 284674,
+      "token_usage": {
+        "input_tokens": 281273,
+        "cached_input_tokens": 211968,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3401,
+        "reasoning_output_tokens": 91
+      },
+      "cli_summary_units": 284674,
+      "estimated_usd": 1.075068,
+      "long_context_upper_usd": 2.065111,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:15:58.651611+00:00",
       "finished_at": "2026-09-05T00:18:25.508558+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -551,7 +698,18 @@
         }
       },
       "duration_s": 217.253,
-      "reported_tokens": 377070,
+      "raw_tokens": 377070,
+      "token_usage": {
+        "input_tokens": 371302,
+        "cached_input_tokens": 334720,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5768,
+        "reasoning_output_tokens": 469
+      },
+      "cli_summary_units": 377070,
+      "estimated_usd": 0.98894,
+      "long_context_upper_usd": 1.8336800000000002,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:12:21.256737+00:00",
       "finished_at": "2026-09-05T00:15:58.514481+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -590,7 +748,18 @@
         }
       },
       "duration_s": 161.808,
-      "reported_tokens": 348164,
+      "raw_tokens": 348164,
+      "token_usage": {
+        "input_tokens": 344012,
+        "cached_input_tokens": 313856,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4152,
+        "reasoning_output_tokens": 181
+      },
+      "cli_summary_units": 348164,
+      "estimated_usd": 0.823016,
+      "long_context_upper_usd": 1.5422319999999998,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:34:20.734466+00:00",
       "finished_at": "2026-09-05T00:37:02.547525+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -629,7 +798,18 @@
         }
       },
       "duration_s": 144.378,
-      "reported_tokens": 342718,
+      "raw_tokens": 342718,
+      "token_usage": {
+        "input_tokens": 339216,
+        "cached_input_tokens": 306816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3502,
+        "reasoning_output_tokens": 109
+      },
+      "cli_summary_units": 342718,
+      "estimated_usd": 0.8059160000000001,
+      "long_context_upper_usd": 1.5242820000000001,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:27:03.227497+00:00",
       "finished_at": "2026-09-05T00:29:27.610216+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -668,7 +848,18 @@
         }
       },
       "duration_s": 198.422,
-      "reported_tokens": 420020,
+      "raw_tokens": 420020,
+      "token_usage": {
+        "input_tokens": 414904,
+        "cached_input_tokens": 379136,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5116,
+        "reasoning_output_tokens": 476
+      },
+      "cli_summary_units": 420020,
+      "estimated_usd": 0.992616,
+      "long_context_upper_usd": 1.857332,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:44:49.762638+00:00",
       "finished_at": "2026-09-05T00:48:08.190013+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -707,7 +898,18 @@
         }
       },
       "duration_s": 257.698,
-      "reported_tokens": 498604,
+      "raw_tokens": 498604,
+      "token_usage": {
+        "input_tokens": 491607,
+        "cached_input_tokens": 441600,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6997,
+        "reasoning_output_tokens": 798
+      },
+      "cli_summary_units": 498604,
+      "estimated_usd": 1.29152,
+      "long_context_upper_usd": 2.408115,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:40:31.872648+00:00",
       "finished_at": "2026-09-05T00:44:49.575495+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -746,7 +948,18 @@
         }
       },
       "duration_s": 162.516,
-      "reported_tokens": 427113,
+      "raw_tokens": 427113,
+      "token_usage": {
+        "input_tokens": 423215,
+        "cached_input_tokens": 384128,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3898,
+        "reasoning_output_tokens": 354
+      },
+      "cli_summary_units": 427113,
+      "estimated_usd": 0.9698979999999999,
+      "long_context_upper_usd": 1.842346,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:06:53.895092+00:00",
       "finished_at": "2026-09-05T00:09:36.416025+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -785,7 +998,18 @@
         }
       },
       "duration_s": 171.109,
-      "reported_tokens": 557185,
+      "raw_tokens": 557185,
+      "token_usage": {
+        "input_tokens": 552972,
+        "cached_input_tokens": 502144,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4213,
+        "reasoning_output_tokens": 184
+      },
+      "cli_summary_units": 557185,
+      "estimated_usd": 1.221074,
+      "long_context_upper_usd": 2.336823,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:29:27.757253+00:00",
       "finished_at": "2026-09-05T00:32:18.870861+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -824,7 +1048,18 @@
         }
       },
       "duration_s": 149.336,
-      "reported_tokens": 321544,
+      "raw_tokens": 321544,
+      "token_usage": {
+        "input_tokens": 317684,
+        "cached_input_tokens": 281472,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3860,
+        "reasoning_output_tokens": 436
+      },
+      "cli_summary_units": 321544,
+      "estimated_usd": 0.836592,
+      "long_context_upper_usd": 1.5766840000000002,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:56:18.543904+00:00",
       "finished_at": "2026-09-05T00:58:47.885216+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -863,7 +1098,18 @@
         }
       },
       "duration_s": 171.84,
-      "reported_tokens": 695589,
+      "raw_tokens": 695589,
+      "token_usage": {
+        "input_tokens": 691674,
+        "cached_input_tokens": 640896,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3915,
+        "reasoning_output_tokens": 112
+      },
+      "cli_summary_units": 695589,
+      "estimated_usd": 1.3444260000000001,
+      "long_context_upper_usd": 2.590977,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:48:08.322241+00:00",
       "finished_at": "2026-09-05T00:51:00.167706+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -902,7 +1148,18 @@
         }
       },
       "duration_s": 121.452,
-      "reported_tokens": 349850,
+      "raw_tokens": 349850,
+      "token_usage": {
+        "input_tokens": 347166,
+        "cached_input_tokens": 309248,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2684,
+        "reasoning_output_tokens": 183
+      },
+      "cli_summary_units": 349850,
+      "estimated_usd": 0.822628,
+      "long_context_upper_usd": 1.5781560000000001,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T00:32:19.005301+00:00",
       "finished_at": "2026-09-05T00:34:20.462270+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -941,7 +1198,18 @@
         }
       },
       "duration_s": 186.385,
-      "reported_tokens": 545851,
+      "raw_tokens": 545851,
+      "token_usage": {
+        "input_tokens": 541355,
+        "cached_input_tokens": 486784,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4496,
+        "reasoning_output_tokens": 281
+      },
+      "cli_summary_units": 545851,
+      "estimated_usd": 1.257294,
+      "long_context_upper_usd": 2.402188,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:39:38.711781+00:00",
       "finished_at": "2026-09-05T02:42:45.101114+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -980,7 +1248,18 @@
         }
       },
       "duration_s": 269.928,
-      "reported_tokens": 956139,
+      "raw_tokens": 956139,
+      "token_usage": {
+        "input_tokens": 948871,
+        "cached_input_tokens": 867840,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7268,
+        "reasoning_output_tokens": 1427
+      },
+      "cli_summary_units": 956139,
+      "estimated_usd": 2.04155,
+      "long_context_upper_usd": 3.9014,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:00:57.180250+00:00",
       "finished_at": "2026-09-05T03:05:27.114111+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1019,7 +1298,18 @@
         }
       },
       "duration_s": 156.4,
-      "reported_tokens": 379243,
+      "raw_tokens": 379243,
+      "token_usage": {
+        "input_tokens": 375111,
+        "cached_input_tokens": 330112,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4132,
+        "reasoning_output_tokens": 361
+      },
+      "cli_summary_units": 379243,
+      "estimated_usd": 0.986702,
+      "long_context_upper_usd": 1.870104,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:03:40.465941+00:00",
       "finished_at": "2026-09-05T02:06:16.870114+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1058,7 +1348,18 @@
         }
       },
       "duration_s": 287.363,
-      "reported_tokens": 1017935,
+      "raw_tokens": 1017935,
+      "token_usage": {
+        "input_tokens": 1010591,
+        "cached_input_tokens": 931968,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7344,
+        "reasoning_output_tokens": 1232
+      },
+      "cli_summary_units": 1017935,
+      "estimated_usd": 2.085398,
+      "long_context_upper_usd": 3.987196,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:52:12.808052+00:00",
       "finished_at": "2026-09-05T02:57:00.175307+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1097,7 +1398,18 @@
         }
       },
       "duration_s": 175.902,
-      "reported_tokens": 331980,
+      "raw_tokens": 331980,
+      "token_usage": {
+        "input_tokens": 327233,
+        "cached_input_tokens": 293760,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4747,
+        "reasoning_output_tokens": 583
+      },
+      "cli_summary_units": 331980,
+      "estimated_usd": 0.8658399999999999,
+      "long_context_upper_usd": 1.613005,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:00:44.428044+00:00",
       "finished_at": "2026-09-05T02:03:40.334313+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1136,7 +1448,18 @@
         }
       },
       "duration_s": 391.519,
-      "reported_tokens": 1851645,
+      "raw_tokens": 1851645,
+      "token_usage": {
+        "input_tokens": 1841154,
+        "cached_input_tokens": 1718656,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10491,
+        "reasoning_output_tokens": 2117
+      },
+      "cli_summary_units": 1851645,
+      "estimated_usd": 3.468186,
+      "long_context_upper_usd": 6.674097,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:45:41.122519+00:00",
       "finished_at": "2026-09-05T02:52:12.650860+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1175,7 +1498,18 @@
         }
       },
       "duration_s": 273.554,
-      "reported_tokens": 545167,
+      "raw_tokens": 545167,
+      "token_usage": {
+        "input_tokens": 537942,
+        "cached_input_tokens": 459008,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7225,
+        "reasoning_output_tokens": 410
+      },
+      "cli_summary_units": 545167,
+      "estimated_usd": 1.609598,
+      "long_context_upper_usd": 3.038571,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:19:32.811426+00:00",
       "finished_at": "2026-09-05T02:24:06.369481+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1214,7 +1548,18 @@
         }
       },
       "duration_s": 236.687,
-      "reported_tokens": 1220405,
+      "raw_tokens": 1220405,
+      "token_usage": {
+        "input_tokens": 1214519,
+        "cached_input_tokens": 1126016,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5886,
+        "reasoning_output_tokens": 444
+      },
+      "cli_summary_units": 1220405,
+      "estimated_usd": 2.305346,
+      "long_context_upper_usd": 4.4635419999999995,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:57:00.347105+00:00",
       "finished_at": "2026-09-05T03:00:57.039566+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1253,7 +1598,18 @@
         }
       },
       "duration_s": 203.429,
-      "reported_tokens": 475250,
+      "raw_tokens": 475250,
+      "token_usage": {
+        "input_tokens": 470087,
+        "cached_input_tokens": 428288,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5163,
+        "reasoning_output_tokens": 644
+      },
+      "cli_summary_units": 475250,
+      "estimated_usd": 1.104428,
+      "long_context_upper_usd": 2.079781,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T01:47:59.593668+00:00",
       "finished_at": "2026-09-05T01:51:23.028117+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1292,7 +1648,18 @@
         }
       },
       "duration_s": 183.288,
-      "reported_tokens": 307556,
+      "raw_tokens": 307556,
+      "token_usage": {
+        "input_tokens": 302805,
+        "cached_input_tokens": 271744,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4751,
+        "reasoning_output_tokens": 524
+      },
+      "cli_summary_units": 307556,
+      "estimated_usd": 0.8199040000000001,
+      "long_context_upper_usd": 1.521033,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T01:57:40.996716+00:00",
       "finished_at": "2026-09-05T02:00:44.288578+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1331,7 +1698,18 @@
         }
       },
       "duration_s": 197.596,
-      "reported_tokens": 620765,
+      "raw_tokens": 620765,
+      "token_usage": {
+        "input_tokens": 615827,
+        "cached_input_tokens": 562432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4938,
+        "reasoning_output_tokens": 531
+      },
+      "cli_summary_units": 620765,
+      "estimated_usd": 1.3432819999999999,
+      "long_context_upper_usd": 2.563114,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:36:20.978076+00:00",
       "finished_at": "2026-09-05T02:39:38.579236+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1370,7 +1748,18 @@
         }
       },
       "duration_s": 391.323,
-      "reported_tokens": 1887877,
+      "raw_tokens": 1887877,
+      "token_usage": {
+        "input_tokens": 1878378,
+        "cached_input_tokens": 1762688,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9499,
+        "reasoning_output_tokens": 2654
+      },
+      "cli_summary_units": 1887877,
+      "estimated_usd": 3.394538,
+      "long_context_upper_usd": 6.551601,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:05:27.286872+00:00",
       "finished_at": "2026-09-05T03:11:58.616570+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1409,7 +1798,18 @@
         }
       },
       "duration_s": 181.901,
-      "reported_tokens": 352596,
+      "raw_tokens": 352596,
+      "token_usage": {
+        "input_tokens": 347880,
+        "cached_input_tokens": 317312,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4716,
+        "reasoning_output_tokens": 269
+      },
+      "cli_summary_units": 352596,
+      "estimated_usd": 0.858792,
+      "long_context_upper_usd": 1.5996839999999999,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T01:54:38.930093+00:00",
       "finished_at": "2026-09-05T01:57:40.835259+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1448,7 +1848,18 @@
         }
       },
       "duration_s": 195.588,
-      "reported_tokens": 426267,
+      "raw_tokens": 426267,
+      "token_usage": {
+        "input_tokens": 420996,
+        "cached_input_tokens": 377728,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5271,
+        "reasoning_output_tokens": 332
+      },
+      "cli_summary_units": 426267,
+      "estimated_usd": 1.073958,
+      "long_context_upper_usd": 2.016141,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T01:51:23.192713+00:00",
       "finished_at": "2026-09-05T01:54:38.786534+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1487,7 +1898,18 @@
         }
       },
       "duration_s": 288.701,
-      "reported_tokens": 611006,
+      "raw_tokens": 611006,
+      "token_usage": {
+        "input_tokens": 603476,
+        "cached_input_tokens": 560896,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7530,
+        "reasoning_output_tokens": 831
+      },
+      "cli_summary_units": 611006,
+      "estimated_usd": 1.363196,
+      "long_context_upper_usd": 2.538142,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:14:43.963427+00:00",
       "finished_at": "2026-09-05T02:19:32.669699+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1526,7 +1948,18 @@
         }
       },
       "duration_s": 156.225,
-      "reported_tokens": 257562,
+      "raw_tokens": 257562,
+      "token_usage": {
+        "input_tokens": 253466,
+        "cached_input_tokens": 231296,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4096,
+        "reasoning_output_tokens": 241
+      },
+      "cli_summary_units": 257562,
+      "estimated_usd": 0.657796,
+      "long_context_upper_usd": 0.657796,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:06:17.013823+00:00",
       "finished_at": "2026-09-05T02:08:53.242182+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1565,7 +1998,18 @@
         }
       },
       "duration_s": 240.761,
-      "reported_tokens": 585638,
+      "raw_tokens": 585638,
+      "token_usage": {
+        "input_tokens": 579437,
+        "cached_input_tokens": 541568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6201,
+        "reasoning_output_tokens": 844
+      },
+      "cli_summary_units": 585638,
+      "estimated_usd": 1.230308,
+      "long_context_upper_usd": 2.305591,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:28:32.804703+00:00",
       "finished_at": "2026-09-05T02:32:33.570611+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1604,7 +2048,18 @@
         }
       },
       "duration_s": 266.168,
-      "reported_tokens": 743493,
+      "raw_tokens": 743493,
+      "token_usage": {
+        "input_tokens": 736453,
+        "cached_input_tokens": 682112,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7040,
+        "reasoning_output_tokens": 906
+      },
+      "cli_summary_units": 743493,
+      "estimated_usd": 1.577522,
+      "long_context_upper_usd": 2.979044,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:24:06.505462+00:00",
       "finished_at": "2026-09-05T02:28:32.678784+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1643,7 +2098,18 @@
         }
       },
       "duration_s": 239.406,
-      "reported_tokens": 506320,
+      "raw_tokens": 506320,
+      "token_usage": {
+        "input_tokens": 500688,
+        "cached_input_tokens": 450944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5632,
+        "reasoning_output_tokens": 986
+      },
+      "cli_summary_units": 506320,
+      "estimated_usd": 1.229984,
+      "long_context_upper_usd": 2.319168,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T01:44:00.047135+00:00",
       "finished_at": "2026-09-05T01:47:59.458590+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1682,7 +2148,18 @@
         }
       },
       "duration_s": 179.691,
-      "reported_tokens": 425930,
+      "raw_tokens": 425930,
+      "token_usage": {
+        "input_tokens": 421272,
+        "cached_input_tokens": 380928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4658,
+        "reasoning_output_tokens": 410
+      },
+      "cli_summary_units": 425930,
+      "estimated_usd": 1.017268,
+      "long_context_upper_usd": 1.918086,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:08:53.373863+00:00",
       "finished_at": "2026-09-05T02:11:53.069483+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1721,7 +2198,18 @@
         }
       },
       "duration_s": 175.723,
-      "reported_tokens": 463392,
+      "raw_tokens": 463392,
+      "token_usage": {
+        "input_tokens": 458953,
+        "cached_input_tokens": 416640,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4439,
+        "reasoning_output_tokens": 637
+      },
+      "cli_summary_units": 463392,
+      "estimated_usd": 1.06172,
+      "long_context_upper_usd": 2.012465,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:42:45.234161+00:00",
       "finished_at": "2026-09-05T02:45:40.962524+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1760,7 +2248,18 @@
         }
       },
       "duration_s": 227.128,
-      "reported_tokens": 814581,
+      "raw_tokens": 814581,
+      "token_usage": {
+        "input_tokens": 808762,
+        "cached_input_tokens": 740352,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5819,
+        "reasoning_output_tokens": 539
+      },
+      "cli_summary_units": 814581,
+      "estimated_usd": 1.715402,
+      "long_context_upper_usd": 3.285329,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:32:33.715619+00:00",
       "finished_at": "2026-09-05T02:36:20.848615+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1799,7 +2298,18 @@
         }
       },
       "duration_s": 170.574,
-      "reported_tokens": 410325,
+      "raw_tokens": 410325,
+      "token_usage": {
+        "input_tokens": 405925,
+        "cached_input_tokens": 364032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4400,
+        "reasoning_output_tokens": 413
+      },
+      "cli_summary_units": 410325,
+      "estimated_usd": 1.0029620000000001,
+      "long_context_upper_usd": 1.8959240000000002,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T02:11:53.212488+00:00",
       "finished_at": "2026-09-05T02:14:43.791310+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1838,7 +2348,18 @@
         }
       },
       "duration_s": 292.462,
-      "reported_tokens": 800548,
+      "raw_tokens": 800548,
+      "token_usage": {
+        "input_tokens": 792370,
+        "cached_input_tokens": 737536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8178,
+        "reasoning_output_tokens": 1297
+      },
+      "cli_summary_units": 800548,
+      "estimated_usd": 1.694776,
+      "long_context_upper_usd": 3.185102,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:24:00.645473+00:00",
       "finished_at": "2026-09-05T04:28:53.111709+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1877,7 +2398,18 @@
         }
       },
       "duration_s": 298.957,
-      "reported_tokens": 1349467,
+      "raw_tokens": 1349467,
+      "token_usage": {
+        "input_tokens": 1341494,
+        "cached_input_tokens": 1246080,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7973,
+        "reasoning_output_tokens": 1491
+      },
+      "cli_summary_units": 1349467,
+      "estimated_usd": 2.59887,
+      "long_context_upper_usd": 4.998415,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:53:13.943903+00:00",
       "finished_at": "2026-09-05T04:58:12.907036+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1916,7 +2448,18 @@
         }
       },
       "duration_s": 273.485,
-      "reported_tokens": 558659,
+      "raw_tokens": 558659,
+      "token_usage": {
+        "input_tokens": 550804,
+        "cached_input_tokens": 499712,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7855,
+        "reasoning_output_tokens": 1596
+      },
+      "cli_summary_units": 558659,
+      "estimated_usd": 1.403382,
+      "long_context_upper_usd": 2.610389,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:40:05.810997+00:00",
       "finished_at": "2026-09-05T03:44:39.300677+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1955,7 +2498,18 @@
         }
       },
       "duration_s": 342.582,
-      "reported_tokens": 1084301,
+      "raw_tokens": 1084301,
+      "token_usage": {
+        "input_tokens": 1074785,
+        "cached_input_tokens": 994560,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9516,
+        "reasoning_output_tokens": 2293
+      },
+      "cli_summary_units": 1084301,
+      "estimated_usd": 2.2726100000000002,
+      "long_context_upper_usd": 4.30732,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:41:38.832788+00:00",
       "finished_at": "2026-09-05T04:47:21.420740+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -1994,7 +2548,18 @@
         }
       },
       "duration_s": 286.216,
-      "reported_tokens": 463246,
+      "raw_tokens": 463246,
+      "token_usage": {
+        "input_tokens": 455109,
+        "cached_input_tokens": 422656,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8137,
+        "reasoning_output_tokens": 1607
+      },
+      "cli_summary_units": 463246,
+      "estimated_usd": 1.154036,
+      "long_context_upper_usd": 2.104647,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:35:19.453920+00:00",
       "finished_at": "2026-09-05T03:40:05.674305+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2033,7 +2598,18 @@
         }
       },
       "duration_s": 474.858,
-      "reported_tokens": 2096020,
+      "raw_tokens": 2096020,
+      "token_usage": {
+        "input_tokens": 2082878,
+        "cached_input_tokens": 1965440,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13142,
+        "reasoning_output_tokens": 3871
+      },
+      "cli_summary_units": 2096020,
+      "estimated_usd": 3.79692,
+      "long_context_upper_usd": 7.265289999999999,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:33:43.822224+00:00",
       "finished_at": "2026-09-05T04:41:38.687256+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2072,7 +2648,18 @@
         }
       },
       "duration_s": 338.473,
-      "reported_tokens": 649633,
+      "raw_tokens": 649633,
+      "token_usage": {
+        "input_tokens": 639826,
+        "cached_input_tokens": 591872,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9807,
+        "reasoning_output_tokens": 1755
+      },
+      "cli_summary_units": 649633,
+      "estimated_usd": 1.561762,
+      "long_context_upper_usd": 2.878349,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:00:37.327657+00:00",
       "finished_at": "2026-09-05T04:06:15.803077+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2111,7 +2698,18 @@
         }
       },
       "duration_s": 352.193,
-      "reported_tokens": 1962329,
+      "raw_tokens": 1962329,
+      "token_usage": {
+        "input_tokens": 1952570,
+        "cached_input_tokens": 1815040,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9759,
+        "reasoning_output_tokens": 2281
+      },
+      "cli_summary_units": 1962329,
+      "estimated_usd": 3.67829,
+      "long_context_upper_usd": 7.112605,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:47:21.598684+00:00",
       "finished_at": "2026-09-05T04:53:13.797679+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2150,7 +2748,18 @@
         }
       },
       "duration_s": 286.607,
-      "reported_tokens": 585714,
+      "raw_tokens": 585714,
+      "token_usage": {
+        "input_tokens": 577658,
+        "cached_input_tokens": 534528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8056,
+        "reasoning_output_tokens": 954
+      },
+      "cli_summary_units": 585714,
+      "estimated_usd": 1.368628,
+      "long_context_upper_usd": 2.535856,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:17:25.386659+00:00",
       "finished_at": "2026-09-05T03:22:11.998753+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2189,7 +2798,18 @@
         }
       },
       "duration_s": 236.394,
-      "reported_tokens": 557506,
+      "raw_tokens": 557506,
+      "token_usage": {
+        "input_tokens": 551041,
+        "cached_input_tokens": 494336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6465,
+        "reasoning_output_tokens": 741
+      },
+      "cli_summary_units": 557506,
+      "estimated_usd": 1.384636,
+      "long_context_upper_usd": 2.607647,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:31:22.764030+00:00",
       "finished_at": "2026-09-05T03:35:19.163207+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2228,7 +2848,18 @@
         }
       },
       "duration_s": 260.636,
-      "reported_tokens": 591320,
+      "raw_tokens": 591320,
+      "token_usage": {
+        "input_tokens": 584074,
+        "cached_input_tokens": 535680,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7246,
+        "reasoning_output_tokens": 1026
+      },
+      "cli_summary_units": 591320,
+      "estimated_usd": 1.38192,
+      "long_context_upper_usd": 2.58269,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:19:39.814793+00:00",
       "finished_at": "2026-09-05T04:24:00.454510+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2267,7 +2898,18 @@
         }
       },
       "duration_s": 391.697,
-      "reported_tokens": 1440792,
+      "raw_tokens": 1440792,
+      "token_usage": {
+        "input_tokens": 1430247,
+        "cached_input_tokens": 1332096,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10545,
+        "reasoning_output_tokens": 2482
+      },
+      "cli_summary_units": 1440792,
+      "estimated_usd": 2.840856,
+      "long_context_upper_usd": 5.418087,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:58:13.053785+00:00",
       "finished_at": "2026-09-05T05:04:44.758348+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2306,7 +2948,18 @@
         }
       },
       "duration_s": 288.046,
-      "reported_tokens": 393056,
+      "raw_tokens": 393056,
+      "token_usage": {
+        "input_tokens": 384653,
+        "cached_input_tokens": 348672,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8403,
+        "reasoning_output_tokens": 1391
+      },
+      "cli_summary_units": 393056,
+      "estimated_usd": 1.128632,
+      "long_context_upper_usd": 2.047189,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:26:34.569931+00:00",
       "finished_at": "2026-09-05T03:31:22.620651+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2345,7 +2998,18 @@
         }
       },
       "duration_s": 262.295,
-      "reported_tokens": 407226,
+      "raw_tokens": 407226,
+      "token_usage": {
+        "input_tokens": 400088,
+        "cached_input_tokens": 311936,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7138,
+        "reasoning_output_tokens": 882
+      },
+      "cli_summary_units": 407226,
+      "estimated_usd": 1.550356,
+      "long_context_upper_usd": 2.922262,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:22:12.139374+00:00",
       "finished_at": "2026-09-05T03:26:34.439620+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2384,7 +3048,18 @@
         }
       },
       "duration_s": 262.702,
-      "reported_tokens": 406390,
+      "raw_tokens": 406390,
+      "token_usage": {
+        "input_tokens": 398972,
+        "cached_input_tokens": 363904,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7418,
+        "reasoning_output_tokens": 931
+      },
+      "cli_summary_units": 406390,
+      "estimated_usd": 1.0854840000000001,
+      "long_context_upper_usd": 1.985518,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:56:14.492862+00:00",
       "finished_at": "2026-09-05T04:00:37.199269+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2423,7 +3098,18 @@
         }
       },
       "duration_s": 225.117,
-      "reported_tokens": 334022,
+      "raw_tokens": 334022,
+      "token_usage": {
+        "input_tokens": 327660,
+        "cached_input_tokens": 295808,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6362,
+        "reasoning_output_tokens": 1023
+      },
+      "cli_summary_units": 334022,
+      "estimated_usd": 0.932428,
+      "long_context_upper_usd": 1.705806,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:44:39.452347+00:00",
       "finished_at": "2026-09-05T03:48:24.573204+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2462,7 +3148,18 @@
         }
       },
       "duration_s": 244.338,
-      "reported_tokens": 424628,
+      "raw_tokens": 424628,
+      "token_usage": {
+        "input_tokens": 417806,
+        "cached_input_tokens": 380544,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6822,
+        "reasoning_output_tokens": 836
+      },
+      "cli_summary_units": 424628,
+      "estimated_usd": 1.094264,
+      "long_context_upper_usd": 2.017978,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:11:31.246830+00:00",
       "finished_at": "2026-09-05T04:15:35.587939+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2501,7 +3198,18 @@
         }
       },
       "duration_s": 315.18,
-      "reported_tokens": 696963,
+      "raw_tokens": 696963,
+      "token_usage": {
+        "input_tokens": 688214,
+        "cached_input_tokens": 638336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8749,
+        "reasoning_output_tokens": 1324
+      },
+      "cli_summary_units": 696963,
+      "estimated_usd": 1.574566,
+      "long_context_upper_usd": 2.9304069999999998,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:06:15.930720+00:00",
       "finished_at": "2026-09-05T04:11:31.114853+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2540,7 +3248,18 @@
         }
       },
       "duration_s": 325.87,
-      "reported_tokens": 577969,
+      "raw_tokens": 577969,
+      "token_usage": {
+        "input_tokens": 568529,
+        "cached_input_tokens": 520064,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9440,
+        "reasoning_output_tokens": 2575
+      },
+      "cli_summary_units": 577969,
+      "estimated_usd": 1.476714,
+      "long_context_upper_usd": 2.717428,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:11:59.368716+00:00",
       "finished_at": "2026-09-05T03:17:25.241173+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2579,7 +3298,18 @@
         }
       },
       "duration_s": 249.088,
-      "reported_tokens": 605162,
+      "raw_tokens": 605162,
+      "token_usage": {
+        "input_tokens": 598372,
+        "cached_input_tokens": 548992,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6790,
+        "reasoning_output_tokens": 661
+      },
+      "cli_summary_units": 605162,
+      "estimated_usd": 1.382292,
+      "long_context_upper_usd": 2.5948339999999996,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:48:24.698527+00:00",
       "finished_at": "2026-09-05T03:52:33.788847+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2618,7 +3348,18 @@
         }
       },
       "duration_s": 290.414,
-      "reported_tokens": 482906,
+      "raw_tokens": 482906,
+      "token_usage": {
+        "input_tokens": 474748,
+        "cached_input_tokens": 432256,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8158,
+        "reasoning_output_tokens": 1694
+      },
+      "cli_summary_units": 482906,
+      "estimated_usd": 1.265076,
+      "long_context_upper_usd": 2.3262020000000003,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:28:53.254102+00:00",
       "finished_at": "2026-09-05T04:33:43.672075+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2657,7 +3398,18 @@
         }
       },
       "duration_s": 243.942,
-      "reported_tokens": 725530,
+      "raw_tokens": 725530,
+      "token_usage": {
+        "input_tokens": 719058,
+        "cached_input_tokens": 662144,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6472,
+        "reasoning_output_tokens": 647
+      },
+      "cli_summary_units": 725530,
+      "estimated_usd": 1.554884,
+      "long_context_upper_usd": 2.947968,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T04:15:35.721665+00:00",
       "finished_at": "2026-09-05T04:19:39.666392+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2696,7 +3448,18 @@
         }
       },
       "duration_s": 220.318,
-      "reported_tokens": 459386,
+      "raw_tokens": 459386,
+      "token_usage": {
+        "input_tokens": 453292,
+        "cached_input_tokens": 407168,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6094,
+        "reasoning_output_tokens": 652
+      },
+      "cli_summary_units": 459386,
+      "estimated_usd": 1.173108,
+      "long_context_upper_usd": 2.193866,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T03:52:33.933958+00:00",
       "finished_at": "2026-09-05T03:56:14.255517+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2735,7 +3498,18 @@
         }
       },
       "duration_s": 380.17,
-      "reported_tokens": 631018,
+      "raw_tokens": 631018,
+      "token_usage": {
+        "input_tokens": 619813,
+        "cached_input_tokens": 558208,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 11205,
+        "reasoning_output_tokens": 3149
+      },
+      "cli_summary_units": 631018,
+      "estimated_usd": 1.734508,
+      "long_context_upper_usd": 3.188891,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T06:57:50.417790+00:00",
       "finished_at": "2026-09-05T07:04:10.591888+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2774,7 +3548,18 @@
         }
       },
       "duration_s": 1156.938,
-      "reported_tokens": 2473792,
+      "raw_tokens": 2473792,
+      "token_usage": {
+        "input_tokens": 2442300,
+        "cached_input_tokens": 2298624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31492,
+        "reasoning_output_tokens": 15033
+      },
+      "cli_summary_units": 2473792,
+      "estimated_usd": 5.309984,
+      "long_context_upper_usd": 9.832668,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T07:42:02.669455+00:00",
       "finished_at": "2026-09-05T08:01:19.614377+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2813,7 +3598,18 @@
         }
       },
       "duration_s": 417.879,
-      "reported_tokens": 690203,
+      "raw_tokens": 690203,
+      "token_usage": {
+        "input_tokens": 677573,
+        "cached_input_tokens": 620416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12630,
+        "reasoning_output_tokens": 3723
+      },
+      "cli_summary_units": 690203,
+      "estimated_usd": 1.823486,
+      "long_context_upper_usd": 3.331222,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T05:48:05.696665+00:00",
       "finished_at": "2026-09-05T05:55:03.579622+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2852,7 +3648,18 @@
         }
       },
       "duration_s": 653.385,
-      "reported_tokens": 2069966,
+      "raw_tokens": 2069966,
+      "token_usage": {
+        "input_tokens": 2052864,
+        "cached_input_tokens": 1849216,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17102,
+        "reasoning_output_tokens": 6989
+      },
+      "cli_summary_units": 2069966,
+      "estimated_usd": 4.740796,
+      "long_context_upper_usd": 9.054041999999999,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T07:21:45.396186+00:00",
       "finished_at": "2026-09-05T07:32:38.788180+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2891,7 +3698,18 @@
         }
       },
       "duration_s": 432.863,
-      "reported_tokens": 452828,
+      "raw_tokens": 452828,
+      "token_usage": {
+        "input_tokens": 439815,
+        "cached_input_tokens": 399360,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13013,
+        "reasoning_output_tokens": 4640
+      },
+      "cli_summary_units": 452828,
+      "estimated_usd": 1.4545599999999999,
+      "long_context_upper_usd": 2.583795,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T05:40:52.690036+00:00",
       "finished_at": "2026-09-05T05:48:05.556913+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2930,7 +3748,18 @@
         }
       },
       "duration_s": 650.331,
-      "reported_tokens": 2214499,
+      "raw_tokens": 2214499,
+      "token_usage": {
+        "input_tokens": 2195316,
+        "cached_input_tokens": 2057088,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19183,
+        "reasoning_output_tokens": 6372
+      },
+      "cli_summary_units": 2214499,
+      "estimated_usd": 4.398518,
+      "long_context_upper_usd": 8.317461,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T07:10:54.900337+00:00",
       "finished_at": "2026-09-05T07:21:45.235951+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -2969,7 +3798,18 @@
         }
       },
       "duration_s": 458.595,
-      "reported_tokens": 574876,
+      "raw_tokens": 574876,
+      "token_usage": {
+        "input_tokens": 561332,
+        "cached_input_tokens": 507520,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13544,
+        "reasoning_output_tokens": 3051
+      },
+      "cli_summary_units": 574876,
+      "estimated_usd": 1.72284,
+      "long_context_upper_usd": 3.10708,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T06:20:24.746938+00:00",
       "finished_at": "2026-09-05T06:28:03.427548+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3008,7 +3848,18 @@
         }
       },
       "duration_s": 563.591,
-      "reported_tokens": 1912502,
+      "raw_tokens": 1912502,
+      "token_usage": {
+        "input_tokens": 1896802,
+        "cached_input_tokens": 1769216,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15700,
+        "reasoning_output_tokens": 5634
+      },
+      "cli_summary_units": 1912502,
+      "estimated_usd": 3.830076,
+      "long_context_upper_usd": 7.267652,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T07:32:38.928428+00:00",
       "finished_at": "2026-09-05T07:42:02.525071+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3047,7 +3898,18 @@
         }
       },
       "duration_s": 449.5,
-      "reported_tokens": 655080,
+      "raw_tokens": 655080,
+      "token_usage": {
+        "input_tokens": 642014,
+        "cached_input_tokens": 575616,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13066,
+        "reasoning_output_tokens": 2705
+      },
+      "cli_summary_units": 655080,
+      "estimated_usd": 1.892896,
+      "long_context_upper_usd": 3.459142,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T05:12:32.106584+00:00",
       "finished_at": "2026-09-05T05:20:01.612371+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3086,7 +3948,18 @@
         }
       },
       "duration_s": 384.062,
-      "reported_tokens": 434237,
+      "raw_tokens": 434237,
+      "token_usage": {
+        "input_tokens": 422778,
+        "cached_input_tokens": 385536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 11459,
+        "reasoning_output_tokens": 3952
+      },
+      "cli_summary_units": 434237,
+      "estimated_usd": 1.330906,
+      "long_context_upper_usd": 2.375337,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T05:34:28.470171+00:00",
       "finished_at": "2026-09-05T05:40:52.537141+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3125,7 +3998,18 @@
         }
       },
       "duration_s": 427.794,
-      "reported_tokens": 701960,
+      "raw_tokens": 701960,
+      "token_usage": {
+        "input_tokens": 689606,
+        "cached_input_tokens": 623616,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12354,
+        "reasoning_output_tokens": 3486
+      },
+      "cli_summary_units": 701960,
+      "estimated_usd": 1.9012160000000002,
+      "long_context_upper_usd": 3.493582,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T06:50:42.459419+00:00",
       "finished_at": "2026-09-05T06:57:50.258556+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3164,7 +4048,18 @@
         }
       },
       "duration_s": 574.547,
-      "reported_tokens": 1670706,
+      "raw_tokens": 1670706,
+      "token_usage": {
+        "input_tokens": 1655086,
+        "cached_input_tokens": 1546752,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15620,
+        "reasoning_output_tokens": 6377
+      },
+      "cli_summary_units": 1670706,
+      "estimated_usd": 3.411092,
+      "long_context_upper_usd": 6.431684,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T08:01:19.795909+00:00",
       "finished_at": "2026-09-05T08:10:54.349192+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3203,7 +4098,18 @@
         }
       },
       "duration_s": 440.829,
-      "reported_tokens": 406800,
+      "raw_tokens": 406800,
+      "token_usage": {
+        "input_tokens": 393327,
+        "cached_input_tokens": 352512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13473,
+        "reasoning_output_tokens": 4997
+      },
+      "cli_summary_units": 406800,
+      "estimated_usd": 1.4343119999999998,
+      "long_context_upper_usd": 2.531799,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T05:27:07.488396+00:00",
       "finished_at": "2026-09-05T05:34:28.321469+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3242,7 +4148,18 @@
         }
       },
       "duration_s": 425.528,
-      "reported_tokens": 516833,
+      "raw_tokens": 516833,
+      "token_usage": {
+        "input_tokens": 504065,
+        "cached_input_tokens": 418688,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12768,
+        "reasoning_output_tokens": 3504
+      },
+      "cli_summary_units": 516833,
+      "estimated_usd": 1.9108580000000002,
+      "long_context_upper_usd": 3.502516,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T05:20:01.805836+00:00",
       "finished_at": "2026-09-05T05:27:07.341481+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3281,7 +4198,18 @@
         }
       },
       "duration_s": 424.784,
-      "reported_tokens": 615173,
+      "raw_tokens": 615173,
+      "token_usage": {
+        "input_tokens": 603064,
+        "cached_input_tokens": 541056,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12109,
+        "reasoning_output_tokens": 3170
+      },
+      "cli_summary_units": 615173,
+      "estimated_usd": 1.766586,
+      "long_context_upper_usd": 3.230447,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T06:13:19.825553+00:00",
       "finished_at": "2026-09-05T06:20:24.614462+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3320,7 +4248,18 @@
         }
       },
       "duration_s": 340.565,
-      "reported_tokens": 323968,
+      "raw_tokens": 323968,
+      "token_usage": {
+        "input_tokens": 313843,
+        "cached_input_tokens": 282752,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10125,
+        "reasoning_output_tokens": 2648
+      },
+      "cli_summary_units": 323968,
+      "estimated_usd": 1.099912,
+      "long_context_upper_usd": 1.946699,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T05:55:03.760412+00:00",
       "finished_at": "2026-09-05T06:00:44.329913+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3359,7 +4298,18 @@
         }
       },
       "duration_s": 418.309,
-      "reported_tokens": 563366,
+      "raw_tokens": 563366,
+      "token_usage": {
+        "input_tokens": 551071,
+        "cached_input_tokens": 483712,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12295,
+        "reasoning_output_tokens": 3564
+      },
+      "cli_summary_units": 563366,
+      "estimated_usd": 1.772052,
+      "long_context_upper_usd": 3.2367290000000004,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T06:36:28.129680+00:00",
       "finished_at": "2026-09-05T06:43:26.443515+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3398,7 +4348,18 @@
         }
       },
       "duration_s": 504.386,
-      "reported_tokens": 908043,
+      "raw_tokens": 908043,
+      "token_usage": {
+        "input_tokens": 892987,
+        "cached_input_tokens": 830720,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15056,
+        "reasoning_output_tokens": 4463
+      },
+      "cli_summary_units": 908043,
+      "estimated_usd": 2.20619,
+      "long_context_upper_usd": 4.03598,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T06:28:03.597316+00:00",
       "finished_at": "2026-09-05T06:36:27.988944+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3437,7 +4398,18 @@
         }
       },
       "duration_s": 466.062,
-      "reported_tokens": 623084,
+      "raw_tokens": 623084,
+      "token_usage": {
+        "input_tokens": 609124,
+        "cached_input_tokens": 555776,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13960,
+        "reasoning_output_tokens": 4181
+      },
+      "cli_summary_units": 623084,
+      "estimated_usd": 1.787256,
+      "long_context_upper_usd": 3.225512,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T05:04:45.783046+00:00",
       "finished_at": "2026-09-05T05:12:31.850011+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3476,7 +4448,18 @@
         }
       },
       "duration_s": 379.234,
-      "reported_tokens": 858969,
+      "raw_tokens": 858969,
+      "token_usage": {
+        "input_tokens": 848168,
+        "cached_input_tokens": 770432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10801,
+        "reasoning_output_tokens": 2474
+      },
+      "cli_summary_units": 858969,
+      "estimated_usd": 2.087842,
+      "long_context_upper_usd": 3.905659,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T06:00:44.464320+00:00",
       "finished_at": "2026-09-05T06:07:03.703591+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3515,7 +4498,18 @@
         }
       },
       "duration_s": 403.997,
-      "reported_tokens": 611771,
+      "raw_tokens": 611771,
+      "token_usage": {
+        "input_tokens": 599912,
+        "cached_input_tokens": 546432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 11859,
+        "reasoning_output_tokens": 3074
+      },
+      "cli_summary_units": 611771,
+      "estimated_usd": 1.674182,
+      "long_context_upper_usd": 3.051889,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T07:04:10.749030+00:00",
       "finished_at": "2026-09-05T07:10:54.747599+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3554,7 +4548,18 @@
         }
       },
       "duration_s": 435.712,
-      "reported_tokens": 953216,
+      "raw_tokens": 953216,
+      "token_usage": {
+        "input_tokens": 941015,
+        "cached_input_tokens": 867328,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12201,
+        "reasoning_output_tokens": 4014
+      },
+      "cli_summary_units": 953216,
+      "estimated_usd": 2.214248,
+      "long_context_upper_usd": 4.123471,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T06:43:26.590513+00:00",
       "finished_at": "2026-09-05T06:50:42.306470+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3593,7 +4598,18 @@
         }
       },
       "duration_s": 375.825,
-      "reported_tokens": 469022,
+      "raw_tokens": 469022,
+      "token_usage": {
+        "input_tokens": 457717,
+        "cached_input_tokens": 411136,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 11305,
+        "reasoning_output_tokens": 3274
+      },
+      "cli_summary_units": 469022,
+      "estimated_usd": 1.442196,
+      "long_context_upper_usd": 2.601767,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T06:07:03.845463+00:00",
       "finished_at": "2026-09-05T06:13:19.675915+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3632,7 +4648,18 @@
         }
       },
       "duration_s": 714.239,
-      "reported_tokens": 814763,
+      "raw_tokens": 814763,
+      "token_usage": {
+        "input_tokens": 798427,
+        "cached_input_tokens": 723840,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 16336,
+        "reasoning_output_tokens": 6346
+      },
+      "cli_summary_units": 814763,
+      "estimated_usd": 2.28651,
+      "long_context_upper_usd": 4.16462,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T10:37:37.221835+00:00",
       "finished_at": "2026-09-05T10:49:31.463640+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3671,7 +4698,18 @@
         }
       },
       "duration_s": 693.092,
-      "reported_tokens": 1420598,
+      "raw_tokens": 1420598,
+      "token_usage": {
+        "input_tokens": 1399475,
+        "cached_input_tokens": 1287424,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 21123,
+        "reasoning_output_tokens": 8971
+      },
+      "cli_summary_units": 1420598,
+      "estimated_usd": 3.4640839999999997,
+      "long_context_upper_usd": 6.400093,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T11:42:12.919508+00:00",
       "finished_at": "2026-09-05T11:53:46.017083+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3710,7 +4748,18 @@
         }
       },
       "duration_s": 526.333,
-      "reported_tokens": 723780,
+      "raw_tokens": 723780,
+      "token_usage": {
+        "input_tokens": 707837,
+        "cached_input_tokens": 643840,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15943,
+        "reasoning_output_tokens": 6870
+      },
+      "cli_summary_units": 723780,
+      "estimated_usd": 2.08096,
+      "long_context_upper_usd": 3.7633449999999997,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T09:10:43.662736+00:00",
       "finished_at": "2026-09-05T09:19:30.001063+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3749,7 +4798,18 @@
         }
       },
       "duration_s": 858.083,
-      "reported_tokens": 1571012,
+      "raw_tokens": 1571012,
+      "token_usage": {
+        "input_tokens": 1545741,
+        "cached_input_tokens": 1272576,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 25271,
+        "reasoning_output_tokens": 12137
+      },
+      "cli_summary_units": 1571012,
+      "estimated_usd": 5.267776,
+      "long_context_upper_usd": 9.903777,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T11:15:13.978950+00:00",
       "finished_at": "2026-09-05T11:29:32.066635+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3788,7 +4848,18 @@
         }
       },
       "duration_s": 555.468,
-      "reported_tokens": 435522,
+      "raw_tokens": 435522,
+      "token_usage": {
+        "input_tokens": 418803,
+        "cached_input_tokens": 364160,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 16719,
+        "reasoning_output_tokens": 6548
+      },
+      "cli_summary_units": 435522,
+      "estimated_usd": 1.74654,
+      "long_context_upper_usd": 3.0751049999999998,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T09:01:28.036398+00:00",
       "finished_at": "2026-09-05T09:10:43.510325+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3827,7 +4898,18 @@
         }
       },
       "duration_s": 1035.501,
-      "reported_tokens": 4036677,
+      "raw_tokens": 4036677,
+      "token_usage": {
+        "input_tokens": 4006313,
+        "cached_input_tokens": 3835648,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30364,
+        "reasoning_output_tokens": 14529
+      },
+      "cli_summary_units": 4036677,
+      "estimated_usd": 7.060498,
+      "long_context_upper_usd": 13.361896,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T10:57:58.327716+00:00",
       "finished_at": "2026-09-05T11:15:13.835333+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3866,7 +4948,18 @@
         }
       },
       "duration_s": 531.35,
-      "reported_tokens": 730848,
+      "raw_tokens": 730848,
+      "token_usage": {
+        "input_tokens": 714992,
+        "cached_input_tokens": 649984,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15856,
+        "reasoning_output_tokens": 4510
+      },
+      "cli_summary_units": 730848,
+      "estimated_usd": 2.092864,
+      "long_context_upper_usd": 3.7893280000000003,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T09:55:06.297541+00:00",
       "finished_at": "2026-09-05T10:03:57.652374+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3905,7 +4998,18 @@
         }
       },
       "duration_s": 760.554,
-      "reported_tokens": 1584764,
+      "raw_tokens": 1584764,
+      "token_usage": {
+        "input_tokens": 1561765,
+        "cached_input_tokens": 1431296,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 22999,
+        "reasoning_output_tokens": 9302
+      },
+      "cli_summary_units": 1584764,
+      "estimated_usd": 3.885936,
+      "long_context_upper_usd": 7.196897,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T11:29:32.209943+00:00",
       "finished_at": "2026-09-05T11:42:12.770312+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3944,7 +5048,18 @@
         }
       },
       "duration_s": 716.243,
-      "reported_tokens": 583570,
+      "raw_tokens": 583570,
+      "token_usage": {
+        "input_tokens": 567724,
+        "cached_input_tokens": 505728,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15846,
+        "reasoning_output_tokens": 4230
+      },
+      "cli_summary_units": 583570,
+      "estimated_usd": 1.917988,
+      "long_context_upper_usd": 3.439826,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T08:20:38.115234+00:00",
       "finished_at": "2026-09-05T08:32:34.363264+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -3983,7 +5098,18 @@
         }
       },
       "duration_s": 513.721,
-      "reported_tokens": 566437,
+      "raw_tokens": 566437,
+      "token_usage": {
+        "input_tokens": 551244,
+        "cached_input_tokens": 510080,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15193,
+        "reasoning_output_tokens": 6533
+      },
+      "cli_summary_units": 566437,
+      "estimated_usd": 1.68137,
+      "long_context_upper_usd": 2.982915,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T08:52:54.167212+00:00",
       "finished_at": "2026-09-05T09:01:27.892698+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4022,7 +5148,18 @@
         }
       },
       "duration_s": 489.769,
-      "reported_tokens": 729615,
+      "raw_tokens": 729615,
+      "token_usage": {
+        "input_tokens": 714985,
+        "cached_input_tokens": 656256,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14630,
+        "reasoning_output_tokens": 5577
+      },
+      "cli_summary_units": 729615,
+      "estimated_usd": 1.975046,
+      "long_context_upper_usd": 3.5843420000000004,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T10:29:27.304351+00:00",
       "finished_at": "2026-09-05T10:37:37.078802+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4061,7 +5198,18 @@
         }
       },
       "duration_s": 819.427,
-      "reported_tokens": 1934938,
+      "raw_tokens": 1934938,
+      "token_usage": {
+        "input_tokens": 1911866,
+        "cached_input_tokens": 1778176,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 23072,
+        "reasoning_output_tokens": 10558
+      },
+      "cli_summary_units": 1934938,
+      "estimated_usd": 4.268676,
+      "long_context_upper_usd": 7.960552,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T11:53:46.160062+00:00",
       "finished_at": "2026-09-05T12:07:25.591696+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4100,7 +5248,18 @@
         }
       },
       "duration_s": 668.2,
-      "reported_tokens": 687740,
+      "raw_tokens": 687740,
+      "token_usage": {
+        "input_tokens": 667813,
+        "cached_input_tokens": 621440,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19927,
+        "reasoning_output_tokens": 8108
+      },
+      "cli_summary_units": 687740,
+      "estimated_usd": 2.08152,
+      "long_context_upper_usd": 3.664865,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T08:41:45.800603+00:00",
       "finished_at": "2026-09-05T08:52:54.005886+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4139,7 +5298,18 @@
         }
       },
       "duration_s": 551.134,
-      "reported_tokens": 479896,
+      "raw_tokens": 479896,
+      "token_usage": {
+        "input_tokens": 465577,
+        "cached_input_tokens": 410880,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14319,
+        "reasoning_output_tokens": 4836
+      },
+      "cli_summary_units": 479896,
+      "estimated_usd": 1.6738,
+      "long_context_upper_usd": 2.989625,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T08:32:34.502124+00:00",
       "finished_at": "2026-09-05T08:41:45.640324+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4178,7 +5348,18 @@
         }
       },
       "duration_s": 615.164,
-      "reported_tokens": 550495,
+      "raw_tokens": 550495,
+      "token_usage": {
+        "input_tokens": 531434,
+        "cached_input_tokens": 483456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19061,
+        "reasoning_output_tokens": 8961
+      },
+      "cli_summary_units": 550495,
+      "estimated_usd": 1.916286,
+      "long_context_upper_usd": 3.356047,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T09:44:50.988647+00:00",
       "finished_at": "2026-09-05T09:55:06.159057+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4217,7 +5398,18 @@
         }
       },
       "duration_s": 469.331,
-      "reported_tokens": 374523,
+      "raw_tokens": 374523,
+      "token_usage": {
+        "input_tokens": 360434,
+        "cached_input_tokens": 292480,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14089,
+        "reasoning_output_tokens": 4969
+      },
+      "cli_summary_units": 374523,
+      "estimated_usd": 1.6764700000000001,
+      "long_context_upper_usd": 3.000715,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T09:19:30.136877+00:00",
       "finished_at": "2026-09-05T09:27:19.471918+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4256,7 +5448,18 @@
         }
       },
       "duration_s": 440.078,
-      "reported_tokens": 607820,
+      "raw_tokens": 607820,
+      "token_usage": {
+        "input_tokens": 594743,
+        "cached_input_tokens": 539904,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13077,
+        "reasoning_output_tokens": 4636
+      },
+      "cli_summary_units": 607820,
+      "estimated_usd": 1.7421440000000001,
+      "long_context_upper_usd": 3.157363,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T10:13:37.088216+00:00",
       "finished_at": "2026-09-05T10:20:57.172317+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4295,7 +5498,18 @@
         }
       },
       "duration_s": 579.129,
-      "reported_tokens": 527754,
+      "raw_tokens": 527754,
+      "token_usage": {
+        "input_tokens": 509872,
+        "cached_input_tokens": 459264,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17882,
+        "reasoning_output_tokens": 8944
+      },
+      "cli_summary_units": 527754,
+      "estimated_usd": 1.8594439999999999,
+      "long_context_upper_usd": 3.271838,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T10:03:57.805795+00:00",
       "finished_at": "2026-09-05T10:13:36.939228+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4334,7 +5548,18 @@
         }
       },
       "duration_s": 582.829,
-      "reported_tokens": 592728,
+      "raw_tokens": 592728,
+      "token_usage": {
+        "input_tokens": 575153,
+        "cached_input_tokens": 496256,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17575,
+        "reasoning_output_tokens": 7344
+      },
+      "cli_summary_units": 592728,
+      "estimated_usd": 2.163976,
+      "long_context_upper_usd": 3.8885769999999997,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T08:10:55.145878+00:00",
       "finished_at": "2026-09-05T08:20:37.979241+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4373,7 +5598,18 @@
         }
       },
       "duration_s": 607.775,
-      "reported_tokens": 889329,
+      "raw_tokens": 889329,
+      "token_usage": {
+        "input_tokens": 871068,
+        "cached_input_tokens": 790016,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 18261,
+        "reasoning_output_tokens": 6545
+      },
+      "cli_summary_units": 889329,
+      "estimated_usd": 2.513586,
+      "long_context_upper_usd": 4.570647,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T09:27:19.626970+00:00",
       "finished_at": "2026-09-05T09:37:27.407090+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4412,7 +5648,18 @@
         }
       },
       "duration_s": 506.587,
-      "reported_tokens": 673836,
+      "raw_tokens": 673836,
+      "token_usage": {
+        "input_tokens": 658467,
+        "cached_input_tokens": 597504,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15369,
+        "reasoning_output_tokens": 5846
+      },
+      "cli_summary_units": 673836,
+      "estimated_usd": 1.975584,
+      "long_context_upper_usd": 3.5669429999999998,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T10:49:31.596174+00:00",
       "finished_at": "2026-09-05T10:57:58.187820+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4451,7 +5698,18 @@
         }
       },
       "duration_s": 509.837,
-      "reported_tokens": 831768,
+      "raw_tokens": 831768,
+      "token_usage": {
+        "input_tokens": 816946,
+        "cached_input_tokens": 751744,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14822,
+        "reasoning_output_tokens": 5248
+      },
+      "cli_summary_units": 831768,
+      "estimated_usd": 2.144864,
+      "long_context_upper_usd": 3.919178,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T10:20:57.323823+00:00",
       "finished_at": "2026-09-05T10:29:27.165300+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4490,7 +5748,18 @@
         }
       },
       "duration_s": 443.301,
-      "reported_tokens": 498990,
+      "raw_tokens": 498990,
+      "token_usage": {
+        "input_tokens": 485869,
+        "cached_input_tokens": 435968,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13121,
+        "reasoning_output_tokens": 4410
+      },
+      "cli_summary_units": 498990,
+      "estimated_usd": 1.591028,
+      "long_context_upper_usd": 2.854031,
+      "pricing_method": "Standard rates; per-request long-context tier unavailable",
       "started_at": "2026-09-05T09:37:27.553718+00:00",
       "finished_at": "2026-09-05T09:44:50.859420+00:00",
       "solver_cli_version": "codex-cli 0.153.4",
@@ -4529,7 +5798,17 @@
         }
       },
       "duration_s": 425.5,
-      "reported_tokens": 142545,
+      "raw_tokens": 585690,
+      "token_usage": {
+        "input_tokens": 562,
+        "cache_read_input_tokens": 509128,
+        "cache_creation_input_tokens": 60282,
+        "output_tokens": 15718
+      },
+      "cli_summary_units": 142545,
+      "estimated_usd": 2.1261810000000003,
+      "long_context_upper_usd": 2.1261810000000003,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T07:02:37.537342+00:00",
       "finished_at": "2026-09-03T07:09:43.040397+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4568,7 +5847,17 @@
         }
       },
       "duration_s": 4535.52,
-      "reported_tokens": 1540360,
+      "raw_tokens": 10454935,
+      "token_usage": {
+        "input_tokens": 3620,
+        "cache_read_input_tokens": 9983128,
+        "cache_creation_input_tokens": 280960,
+        "output_tokens": 187227
+      },
+      "cli_summary_units": 1540360,
+      "estimated_usd": 17.514192,
+      "long_context_upper_usd": 17.514192,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T11:53:58.994344+00:00",
       "finished_at": "2026-09-03T13:09:34.525638+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4607,7 +5896,17 @@
         }
       },
       "duration_s": 804.206,
-      "reported_tokens": 278003,
+      "raw_tokens": 1479260,
+      "token_usage": {
+        "input_tokens": 1353,
+        "cache_read_input_tokens": 1356976,
+        "cache_creation_input_tokens": 80087,
+        "output_tokens": 40844
+      },
+      "cli_summary_units": 278003,
+      "estimated_usd": 3.998179,
+      "long_context_upper_usd": 3.998179,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T04:47:31.921665+00:00",
       "finished_at": "2026-09-03T05:00:56.132606+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4646,7 +5945,17 @@
         }
       },
       "duration_s": 7965.282,
-      "reported_tokens": 4850583,
+      "raw_tokens": 36967983,
+      "token_usage": {
+        "input_tokens": 7104,
+        "cache_read_input_tokens": 35856453,
+        "cache_creation_input_tokens": 613631,
+        "output_tokens": 490795
+      },
+      "cli_summary_units": 4850583,
+      "estimated_usd": 45.84916425,
+      "long_context_upper_usd": 45.84916425,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T09:06:23.473276+00:00",
       "finished_at": "2026-09-03T11:19:08.779935+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4685,7 +5994,17 @@
         }
       },
       "duration_s": 911.381,
-      "reported_tokens": 358735,
+      "raw_tokens": 1714769,
+      "token_usage": {
+        "input_tokens": 1290,
+        "cache_read_input_tokens": 1537433,
+        "cache_creation_input_tokens": 110624,
+        "output_tokens": 65422
+      },
+      "cli_summary_units": 358735,
+      "estimated_usd": 5.88218325,
+      "long_context_upper_usd": 5.88218325,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T04:32:20.406889+00:00",
       "finished_at": "2026-09-03T04:47:31.793958+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4724,7 +6043,17 @@
         }
       },
       "duration_s": 6743.688,
-      "reported_tokens": 2981072,
+      "raw_tokens": 19875699,
+      "token_usage": {
+        "input_tokens": 3010,
+        "cache_read_input_tokens": 18927525,
+        "cache_creation_input_tokens": 560581,
+        "output_tokens": 384583
+      },
+      "cli_summary_units": 2981072,
+      "estimated_usd": 31.892919,
+      "long_context_upper_usd": 31.892919,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T07:13:59.634136+00:00",
       "finished_at": "2026-09-03T09:06:23.336632+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4763,7 +6092,17 @@
         }
       },
       "duration_s": 1053.964,
-      "reported_tokens": 336679,
+      "raw_tokens": 1653781,
+      "token_usage": {
+        "input_tokens": 1488,
+        "cache_read_input_tokens": 1489948,
+        "cache_creation_input_tokens": 95404,
+        "output_tokens": 66941
+      },
+      "cli_summary_units": 336679,
+      "estimated_usd": 5.644126,
+      "long_context_upper_usd": 5.644126,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T05:58:55.191562+00:00",
       "finished_at": "2026-09-03T06:16:29.161644+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4802,7 +6141,17 @@
         }
       },
       "duration_s": 2089.923,
-      "reported_tokens": 788147,
+      "raw_tokens": 4058103,
+      "token_usage": {
+        "input_tokens": 2418,
+        "cache_read_input_tokens": 3704343,
+        "cache_creation_input_tokens": 255812,
+        "output_tokens": 95530
+      },
+      "cli_summary_units": 788147,
+      "estimated_usd": 10.844601749999999,
+      "long_context_upper_usd": 10.844601749999999,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T11:19:08.925122+00:00",
       "finished_at": "2026-09-03T11:53:58.854470+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4841,7 +6190,17 @@
         }
       },
       "duration_s": 910.015,
-      "reported_tokens": 317863,
+      "raw_tokens": 1842805,
+      "token_usage": {
+        "input_tokens": 1738,
+        "cache_read_input_tokens": 1715799,
+        "cache_creation_input_tokens": 77109,
+        "output_tokens": 48159
+      },
+      "cli_summary_units": 317863,
+      "estimated_usd": 4.39778675,
+      "long_context_upper_usd": 4.39778675,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T02:57:08.474853+00:00",
       "finished_at": "2026-09-03T03:12:18.497048+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4880,7 +6239,17 @@
         }
       },
       "duration_s": 693.431,
-      "reported_tokens": 209453,
+      "raw_tokens": 1121527,
+      "token_usage": {
+        "input_tokens": 1124,
+        "cache_read_input_tokens": 1029383,
+        "cache_creation_input_tokens": 57482,
+        "output_tokens": 33538
+      },
+      "cli_summary_units": 209453,
+      "estimated_usd": 2.71887475,
+      "long_context_upper_usd": 2.71887475,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T03:35:26.595413+00:00",
       "finished_at": "2026-09-03T03:47:00.030007+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4919,7 +6288,17 @@
         }
       },
       "duration_s": 413.327,
-      "reported_tokens": 147534,
+      "raw_tokens": 633708,
+      "token_usage": {
+        "input_tokens": 714,
+        "cache_read_input_tokens": 556630,
+        "cache_creation_input_tokens": 59172,
+        "output_tokens": 17192
+      },
+      "cli_summary_units": 147534,
+      "estimated_usd": 2.1910705000000004,
+      "long_context_upper_usd": 2.1910705000000004,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T06:55:44.078697+00:00",
       "finished_at": "2026-09-03T07:02:37.408955+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4958,7 +6337,17 @@
         }
       },
       "duration_s": 2274.113,
-      "reported_tokens": 1151315,
+      "raw_tokens": 7916410,
+      "token_usage": {
+        "input_tokens": 7173,
+        "cache_read_input_tokens": 7577674,
+        "cache_creation_input_tokens": 219245,
+        "output_tokens": 112318
+      },
+      "cli_summary_units": 1151315,
+      "estimated_usd": 11.9687315,
+      "long_context_upper_usd": 11.9687315,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T15:53:12.871163+00:00",
       "finished_at": "2026-09-03T16:31:06.992076+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -4997,7 +6386,17 @@
         }
       },
       "duration_s": 771.339,
-      "reported_tokens": 364057,
+      "raw_tokens": 2136938,
+      "token_usage": {
+        "input_tokens": 1880,
+        "cache_read_input_tokens": 1994592,
+        "cache_creation_input_tokens": 89007,
+        "output_tokens": 51459
+      },
+      "cli_summary_units": 364057,
+      "estimated_usd": 4.563269,
+      "long_context_upper_usd": 4.563269,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T03:22:35.116363+00:00",
       "finished_at": "2026-09-03T03:35:26.461350+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5036,7 +6435,17 @@
         }
       },
       "duration_s": 616.34,
-      "reported_tokens": 160653,
+      "raw_tokens": 747796,
+      "token_usage": {
+        "input_tokens": 928,
+        "cache_read_input_tokens": 666123,
+        "cache_creation_input_tokens": 49470,
+        "output_tokens": 31275
+      },
+      "cli_summary_units": 160653,
+      "estimated_usd": 2.7302897500000003,
+      "long_context_upper_usd": 2.7302897500000003,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T03:12:18.643722+00:00",
       "finished_at": "2026-09-03T03:22:34.987829+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5075,7 +6484,17 @@
         }
       },
       "duration_s": 1218.772,
-      "reported_tokens": 285172,
+      "raw_tokens": 1349955,
+      "token_usage": {
+        "input_tokens": 1264,
+        "cache_read_input_tokens": 1206037,
+        "cache_creation_input_tokens": 82600,
+        "output_tokens": 60054
+      },
+      "cli_summary_units": 285172,
+      "estimated_usd": 4.97031325,
+      "long_context_upper_usd": 4.97031325,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T05:38:36.288947+00:00",
       "finished_at": "2026-09-03T05:58:55.065774+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5114,7 +6533,17 @@
         }
       },
       "duration_s": 919.246,
-      "reported_tokens": 164925,
+      "raw_tokens": 777383,
+      "token_usage": {
+        "input_tokens": 1070,
+        "cache_read_input_tokens": 693929,
+        "cache_creation_input_tokens": 48311,
+        "output_tokens": 34073
+      },
+      "cli_summary_units": 164925,
+      "estimated_usd": 2.85549625,
+      "long_context_upper_usd": 2.85549625,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T05:00:56.260454+00:00",
       "finished_at": "2026-09-03T05:16:15.510473+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5153,7 +6582,17 @@
         }
       },
       "duration_s": 652.249,
-      "reported_tokens": 186966,
+      "raw_tokens": 927287,
+      "token_usage": {
+        "input_tokens": 1096,
+        "cache_read_input_tokens": 837500,
+        "cache_creation_input_tokens": 53717,
+        "output_tokens": 34974
+      },
+      "cli_summary_units": 186966,
+      "estimated_usd": 3.044991,
+      "long_context_upper_usd": 3.044991,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T06:27:19.661103+00:00",
       "finished_at": "2026-09-03T06:38:11.914174+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5192,7 +6631,17 @@
         }
       },
       "duration_s": 650.248,
-      "reported_tokens": 174857,
+      "raw_tokens": 835590,
+      "token_usage": {
+        "input_tokens": 1040,
+        "cache_read_input_tokens": 748802,
+        "cache_creation_input_tokens": 52757,
+        "output_tokens": 32991
+      },
+      "cli_summary_units": 174857,
+      "estimated_usd": 2.9037824999999997,
+      "long_context_upper_usd": 2.9037824999999997,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T06:16:29.287030+00:00",
       "finished_at": "2026-09-03T06:27:19.539651+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5231,7 +6680,17 @@
         }
       },
       "duration_s": 820.754,
-      "reported_tokens": 304710,
+      "raw_tokens": 1587637,
+      "token_usage": {
+        "input_tokens": 1234,
+        "cache_read_input_tokens": 1451685,
+        "cache_creation_input_tokens": 94356,
+        "output_tokens": 40362
+      },
+      "cli_summary_units": 304710,
+      "estimated_usd": 4.28181325,
+      "long_context_upper_usd": 4.28181325,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T02:43:27.583125+00:00",
       "finished_at": "2026-09-03T02:57:08.344491+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5270,7 +6729,17 @@
         }
       },
       "duration_s": 838.783,
-      "reported_tokens": 248120,
+      "raw_tokens": 1267526,
+      "token_usage": {
+        "input_tokens": 1377,
+        "cache_read_input_tokens": 1153008,
+        "cache_creation_input_tokens": 73205,
+        "output_tokens": 39936
+      },
+      "cli_summary_units": 248120,
+      "estimated_usd": 3.764498,
+      "long_context_upper_usd": 3.764498,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T05:16:15.632486+00:00",
       "finished_at": "2026-09-03T05:30:14.419034+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5309,7 +6778,17 @@
         }
       },
       "duration_s": 256.334,
-      "reported_tokens": 120486,
+      "raw_tokens": 477787,
+      "token_usage": {
+        "input_tokens": 618,
+        "cache_read_input_tokens": 411395,
+        "cache_creation_input_tokens": 51817,
+        "output_tokens": 13957
+      },
+      "cli_summary_units": 120486,
+      "estimated_usd": 1.8450417499999998,
+      "long_context_upper_usd": 1.8450417499999998,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T07:09:43.171602+00:00",
       "finished_at": "2026-09-03T07:13:59.509165+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5348,7 +6827,17 @@
         }
       },
       "duration_s": 1051.913,
-      "reported_tokens": 321690,
+      "raw_tokens": 1717253,
+      "token_usage": {
+        "input_tokens": 1570,
+        "cache_read_input_tokens": 1575965,
+        "cache_creation_input_tokens": 91223,
+        "output_tokens": 48495
+      },
+      "cli_summary_units": 321690,
+      "estimated_usd": 4.66053225,
+      "long_context_upper_usd": 4.66053225,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T06:38:12.040116+00:00",
       "finished_at": "2026-09-03T06:55:43.958290+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5387,7 +6876,17 @@
         }
       },
       "duration_s": 501.6,
-      "reported_tokens": 153899,
+      "raw_tokens": 703812,
+      "token_usage": {
+        "input_tokens": 898,
+        "cache_read_input_tokens": 625219,
+        "cache_creation_input_tokens": 51137,
+        "output_tokens": 26558
+      },
+      "cli_summary_units": 153899,
+      "estimated_usd": 2.51750375,
+      "long_context_upper_usd": 2.51750375,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T05:30:14.551518+00:00",
       "finished_at": "2026-09-03T05:38:36.155359+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5426,7 +6925,17 @@
         }
       },
       "duration_s": 1051.219,
-      "reported_tokens": 311299,
+      "raw_tokens": 1708032,
+      "token_usage": {
+        "input_tokens": 932,
+        "cache_read_input_tokens": 1574323,
+        "cache_creation_input_tokens": 80631,
+        "output_tokens": 52146
+      },
+      "cli_summary_units": 311299,
+      "estimated_usd": 4.62457975,
+      "long_context_upper_usd": 4.62457975,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T02:48:03.986064+00:00",
       "finished_at": "2026-09-04T03:05:35.210647+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -5465,7 +6974,17 @@
         }
       },
       "duration_s": 1339.223,
-      "reported_tokens": 613569,
+      "raw_tokens": 3043906,
+      "token_usage": {
+        "input_tokens": 1058,
+        "cache_read_input_tokens": 2756184,
+        "cache_creation_input_tokens": 200916,
+        "output_tokens": 85748
+      },
+      "cli_summary_units": 613569,
+      "estimated_usd": 9.006976,
+      "long_context_upper_usd": 9.006976,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T09:47:39.351827+00:00",
       "finished_at": "2026-09-04T10:09:58.583206+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -5504,7 +7023,17 @@
         }
       },
       "duration_s": 962.534,
-      "reported_tokens": 34837,
+      "raw_tokens": 2225418,
+      "token_usage": {
+        "input_tokens": 1807,
+        "cache_read_input_tokens": 2087147,
+        "cache_creation_input_tokens": 87990,
+        "output_tokens": 48474
+      },
+      "cli_summary_units": 34837,
+      "estimated_usd": 4.1189842500000005,
+      "long_context_upper_usd": 4.1189842500000005,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T22:18:50.115331+00:00",
       "finished_at": "2026-09-03T22:34:52.656249+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5543,7 +7072,17 @@
         }
       },
       "duration_s": 10023.073,
-      "reported_tokens": 7217883,
+      "raw_tokens": 60089044,
+      "token_usage": {
+        "input_tokens": 1780,
+        "cache_read_input_tokens": 58922336,
+        "cache_creation_input_tokens": 635765,
+        "output_tokens": 529163
+      },
+      "cli_summary_units": 7217883,
+      "estimated_usd": 55.316139750000005,
+      "long_context_upper_usd": 55.316139750000005,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T06:15:12.953110+00:00",
       "finished_at": "2026-09-04T09:02:16.050989+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -5582,7 +7121,17 @@
         }
       },
       "duration_s": 767.734,
-      "reported_tokens": 299009,
+      "raw_tokens": 1458594,
+      "token_usage": {
+        "input_tokens": 1346,
+        "cache_read_input_tokens": 1313908,
+        "cache_creation_input_tokens": 91730,
+        "output_tokens": 51610
+      },
+      "cli_summary_units": 299009,
+      "estimated_usd": 4.123227,
+      "long_context_upper_usd": 4.123227,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T22:06:02.248868+00:00",
       "finished_at": "2026-09-03T22:18:49.989361+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5621,7 +7170,17 @@
         }
       },
       "duration_s": 10508.787,
-      "reported_tokens": 6109379,
+      "raw_tokens": 52811752,
+      "token_usage": {
+        "input_tokens": 522,
+        "cache_read_input_tokens": 52015125,
+        "cache_creation_input_tokens": 444958,
+        "output_tokens": 351147
+      },
+      "cli_summary_units": 6109379,
+      "estimated_usd": 39.4079325,
+      "long_context_upper_usd": 39.4079325,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T03:20:04.002454+00:00",
       "finished_at": "2026-09-04T06:15:12.802830+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -5660,7 +7219,17 @@
         }
       },
       "duration_s": 1399.318,
-      "reported_tokens": 518374,
+      "raw_tokens": 2799830,
+      "token_usage": {
+        "input_tokens": 1026,
+        "cache_read_input_tokens": 2573424,
+        "cache_creation_input_tokens": 138502,
+        "output_tokens": 86878
+      },
+      "cli_summary_units": 518374,
+      "estimated_usd": 7.769185,
+      "long_context_upper_usd": 7.769185,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T00:49:43.590916+00:00",
       "finished_at": "2026-09-04T01:13:02.916110+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -5699,7 +7268,17 @@
         }
       },
       "duration_s": 2722.986,
-      "reported_tokens": 1137540,
+      "raw_tokens": 7635609,
+      "token_usage": {
+        "input_tokens": 1988,
+        "cache_read_input_tokens": 7278177,
+        "cache_creation_input_tokens": 209162,
+        "output_tokens": 146282
+      },
+      "cli_summary_units": 1137540,
+      "estimated_usd": 16.30045625,
+      "long_context_upper_usd": 16.30045625,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T09:02:16.191670+00:00",
       "finished_at": "2026-09-04T09:47:39.191022+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -5738,7 +7317,17 @@
         }
       },
       "duration_s": 758.185,
-      "reported_tokens": 230468,
+      "raw_tokens": 1044431,
+      "token_usage": {
+        "input_tokens": 1096,
+        "cache_read_input_tokens": 925417,
+        "cache_creation_input_tokens": 75651,
+        "output_tokens": 42267
+      },
+      "cli_summary_units": 230468,
+      "estimated_usd": 3.87001625,
+      "long_context_upper_usd": 3.87001625,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T16:51:09.596433+00:00",
       "finished_at": "2026-09-03T17:03:47.787866+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5777,7 +7366,17 @@
         }
       },
       "duration_s": 390.665,
-      "reported_tokens": 103975,
+      "raw_tokens": 435845,
+      "token_usage": {
+        "input_tokens": 618,
+        "cache_read_input_tokens": 379588,
+        "cache_creation_input_tokens": 39038,
+        "output_tokens": 16601
+      },
+      "cli_summary_units": 103975,
+      "estimated_usd": 1.4739434999999999,
+      "long_context_upper_usd": 1.4739434999999999,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T21:59:31.437332+00:00",
       "finished_at": "2026-09-03T22:06:02.106391+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5816,7 +7415,17 @@
         }
       },
       "duration_s": 368.127,
-      "reported_tokens": 138473,
+      "raw_tokens": 578791,
+      "token_usage": {
+        "input_tokens": 418,
+        "cache_read_input_tokens": 504753,
+        "cache_creation_input_tokens": 55838,
+        "output_tokens": 17782
+      },
+      "cli_summary_units": 138473,
+      "estimated_usd": 2.13796125,
+      "long_context_upper_usd": 2.13796125,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T02:41:55.722630+00:00",
       "finished_at": "2026-09-04T02:48:03.854954+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -5855,7 +7464,17 @@
         }
       },
       "duration_s": 1216.168,
-      "reported_tokens": 813215,
+      "raw_tokens": 4890328,
+      "token_usage": {
+        "input_tokens": 1220,
+        "cache_read_input_tokens": 4590086,
+        "cache_creation_input_tokens": 215857,
+        "output_tokens": 83165
+      },
+      "cli_summary_units": 813215,
+      "estimated_usd": 9.6368845,
+      "long_context_upper_usd": 9.6368845,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T10:09:58.729397+00:00",
       "finished_at": "2026-09-04T10:30:14.903416+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -5894,7 +7513,17 @@
         }
       },
       "duration_s": 338.652,
-      "reported_tokens": 111902,
+      "raw_tokens": 459268,
+      "token_usage": {
+        "input_tokens": 648,
+        "cache_read_input_tokens": 397811,
+        "cache_creation_input_tokens": 42655,
+        "output_tokens": 18154
+      },
+      "cli_summary_units": 111902,
+      "estimated_usd": 1.6016537499999999,
+      "long_context_upper_usd": 1.6016537499999999,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T21:53:52.652471+00:00",
       "finished_at": "2026-09-03T21:59:31.307812+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5933,7 +7562,17 @@
         }
       },
       "duration_s": 677.563,
-      "reported_tokens": 232782,
+      "raw_tokens": 1181192,
+      "token_usage": {
+        "input_tokens": 1208,
+        "cache_read_input_tokens": 1072191,
+        "cache_creation_input_tokens": 66249,
+        "output_tokens": 41544
+      },
+      "cli_summary_units": 232782,
+      "estimated_usd": 3.6836367500000002,
+      "long_context_upper_usd": 3.6836367500000002,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T17:03:47.927737+00:00",
       "finished_at": "2026-09-03T17:15:05.497907+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -5972,7 +7611,17 @@
         }
       },
       "duration_s": 1679.384,
-      "reported_tokens": 296385,
+      "raw_tokens": 1193954,
+      "token_usage": {
+        "input_tokens": 1208,
+        "cache_read_input_tokens": 1030934,
+        "cache_creation_input_tokens": 121086,
+        "output_tokens": 40726
+      },
+      "cli_summary_units": 296385,
+      "estimated_usd": 3.8753975,
+      "long_context_upper_usd": 3.8753975,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T23:21:38.629358+00:00",
       "finished_at": "2026-09-03T23:49:38.019169+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -6011,7 +7660,17 @@
         }
       },
       "duration_s": 1179.026,
-      "reported_tokens": 367530,
+      "raw_tokens": 2179129,
+      "token_usage": {
+        "input_tokens": 1860,
+        "cache_read_input_tokens": 2036791,
+        "cache_creation_input_tokens": 86053,
+        "output_tokens": 54425
+      },
+      "cli_summary_units": 367530,
+      "estimated_usd": 4.38013175,
+      "long_context_upper_usd": 4.38013175,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T22:34:52.785709+00:00",
       "finished_at": "2026-09-03T22:54:31.817199+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -6050,7 +7709,17 @@
         }
       },
       "duration_s": 995.413,
-      "reported_tokens": 344484,
+      "raw_tokens": 1806938,
+      "token_usage": {
+        "input_tokens": 770,
+        "cache_read_input_tokens": 1650542,
+        "cache_creation_input_tokens": 92136,
+        "output_tokens": 63490
+      },
+      "cli_summary_units": 344484,
+      "estimated_usd": 5.4391815,
+      "long_context_upper_usd": 5.4391815,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T01:39:45.625412+00:00",
       "finished_at": "2026-09-04T01:56:21.043796+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6089,7 +7758,17 @@
         }
       },
       "duration_s": 1602.413,
-      "reported_tokens": 460928,
+      "raw_tokens": 2546571,
+      "token_usage": {
+        "input_tokens": 966,
+        "cache_read_input_tokens": 2349478,
+        "cache_creation_input_tokens": 115549,
+        "output_tokens": 80578
+      },
+      "cli_summary_units": 460928,
+      "estimated_usd": 6.9384014999999994,
+      "long_context_upper_usd": 6.9384014999999994,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T01:13:03.063159+00:00",
       "finished_at": "2026-09-04T01:39:45.485114+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6128,7 +7807,17 @@
         }
       },
       "duration_s": 1196.774,
-      "reported_tokens": 424769,
+      "raw_tokens": 2114794,
+      "token_usage": {
+        "input_tokens": 1544,
+        "cache_read_input_tokens": 1915226,
+        "cache_creation_input_tokens": 134715,
+        "output_tokens": 63309
+      },
+      "cli_summary_units": 424769,
+      "estimated_usd": 6.3553235,
+      "long_context_upper_usd": 6.3553235,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T16:31:12.669560+00:00",
       "finished_at": "2026-09-03T16:51:09.452086+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -6167,7 +7856,17 @@
         }
       },
       "duration_s": 897.466,
-      "reported_tokens": 319956,
+      "raw_tokens": 1779229,
+      "token_usage": {
+        "input_tokens": 1544,
+        "cache_read_input_tokens": 1646324,
+        "cache_creation_input_tokens": 89675,
+        "output_tokens": 41686
+      },
+      "cli_summary_units": 319956,
+      "estimated_usd": 3.6887495,
+      "long_context_upper_usd": 3.6887495,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T22:54:31.965034+00:00",
       "finished_at": "2026-09-03T23:09:29.440046+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -6206,7 +7905,17 @@
         }
       },
       "duration_s": 868.527,
-      "reported_tokens": 343350,
+      "raw_tokens": 1484614,
+      "token_usage": {
+        "input_tokens": 256,
+        "cache_read_input_tokens": 1304015,
+        "cache_creation_input_tokens": 129397,
+        "output_tokens": 50946
+      },
+      "cli_summary_units": 343350,
+      "estimated_usd": 3.4451509999999996,
+      "long_context_upper_usd": 3.4451509999999996,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T03:05:35.335035+00:00",
       "finished_at": "2026-09-04T03:20:03.868262+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6245,7 +7954,17 @@
         }
       },
       "duration_s": 2103.223,
-      "reported_tokens": 930077,
+      "raw_tokens": 6126142,
+      "token_usage": {
+        "input_tokens": 1794,
+        "cache_read_input_tokens": 5821930,
+        "cache_creation_input_tokens": 174687,
+        "output_tokens": 127731
+      },
+      "cli_summary_units": 930077,
+      "estimated_usd": 11.3553385,
+      "long_context_upper_usd": 11.3553385,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T02:06:52.355227+00:00",
       "finished_at": "2026-09-04T02:41:55.587481+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6284,7 +8003,17 @@
         }
       },
       "duration_s": 728.888,
-      "reported_tokens": 171244,
+      "raw_tokens": 766689,
+      "token_usage": {
+        "input_tokens": 932,
+        "cache_read_input_tokens": 676651,
+        "cache_creation_input_tokens": 54163,
+        "output_tokens": 34943
+      },
+      "cli_summary_units": 171244,
+      "estimated_usd": 2.728971,
+      "long_context_upper_usd": 2.728971,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-03T23:09:29.590096+00:00",
       "finished_at": "2026-09-03T23:21:38.485546+00:00",
       "solver_cli_version": "2.1.259 (Claude Code)",
@@ -6323,7 +8052,17 @@
         }
       },
       "duration_s": 697.556,
-      "reported_tokens": 178848,
+      "raw_tokens": 662060,
+      "token_usage": {
+        "input_tokens": 386,
+        "cache_read_input_tokens": 557707,
+        "cache_creation_input_tokens": 74896,
+        "output_tokens": 29071
+      },
+      "cli_summary_units": 178848,
+      "estimated_usd": 3.0964957500000003,
+      "long_context_upper_usd": 3.0964957500000003,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T14:55:16.115041+00:00",
       "finished_at": "2026-09-04T15:06:53.677002+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6362,7 +8101,17 @@
         }
       },
       "duration_s": 1573.21,
-      "reported_tokens": 504111,
+      "raw_tokens": 2436974,
+      "token_usage": {
+        "input_tokens": 834,
+        "cache_read_input_tokens": 2187312,
+        "cache_creation_input_tokens": 142871,
+        "output_tokens": 105957
+      },
+      "cli_summary_units": 504111,
+      "estimated_usd": 8.712068,
+      "long_context_upper_usd": 8.712068,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T21:01:33.214244+00:00",
       "finished_at": "2026-09-04T21:27:46.433157+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6401,7 +8150,17 @@
         }
       },
       "duration_s": 796.892,
-      "reported_tokens": 375115,
+      "raw_tokens": 2053173,
+      "token_usage": {
+        "input_tokens": 930,
+        "cache_read_input_tokens": 1893021,
+        "cache_creation_input_tokens": 102644,
+        "output_tokens": 56578
+      },
+      "cli_summary_units": 375115,
+      "estimated_usd": 5.36581025,
+      "long_context_upper_usd": 5.36581025,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T11:34:51.989888+00:00",
       "finished_at": "2026-09-04T11:48:08.890579+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6440,7 +8199,17 @@
         }
       },
       "duration_s": 2447.066,
-      "reported_tokens": 1323813,
+      "raw_tokens": 8164786,
+      "token_usage": {
+        "input_tokens": 1474,
+        "cache_read_input_tokens": 7686625,
+        "cache_creation_input_tokens": 307960,
+        "output_tokens": 168727
+      },
+      "cli_summary_units": 1323813,
+      "estimated_usd": 16.53358725,
+      "long_context_upper_usd": 16.53358725,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T18:23:06.493798+00:00",
       "finished_at": "2026-09-04T19:03:53.573229+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6479,7 +8248,17 @@
         }
       },
       "duration_s": 305.348,
-      "reported_tokens": 106527,
+      "raw_tokens": 403806,
+      "token_usage": {
+        "input_tokens": 322,
+        "cache_read_input_tokens": 342073,
+        "cache_creation_input_tokens": 42348,
+        "output_tokens": 19063
+      },
+      "cli_summary_units": 106527,
+      "estimated_usd": 1.8901882499999998,
+      "long_context_upper_usd": 1.8901882499999998,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T11:29:46.502990+00:00",
       "finished_at": "2026-09-04T11:34:51.855640+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6518,7 +8297,17 @@
         }
       },
       "duration_s": 3549.256,
-      "reported_tokens": 1301468,
+      "raw_tokens": 8036432,
+      "token_usage": {
+        "input_tokens": 1602,
+        "cache_read_input_tokens": 7557234,
+        "cache_creation_input_tokens": 266188,
+        "output_tokens": 211408
+      },
+      "cli_summary_units": 1301468,
+      "estimated_usd": 18.079101,
+      "long_context_upper_usd": 18.079101,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T17:23:57.078014+00:00",
       "finished_at": "2026-09-04T18:23:06.351743+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6557,7 +8346,17 @@
         }
       },
       "duration_s": 1510.308,
-      "reported_tokens": 500748,
+      "raw_tokens": 2627937,
+      "token_usage": {
+        "input_tokens": 868,
+        "cache_read_input_tokens": 2399639,
+        "cache_creation_input_tokens": 129945,
+        "output_tokens": 97485
+      },
+      "cli_summary_units": 500748,
+      "estimated_usd": 8.08336875,
+      "long_context_upper_usd": 8.08336875,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T13:09:44.707296+00:00",
       "finished_at": "2026-09-04T13:34:55.022805+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6596,7 +8395,17 @@
         }
       },
       "duration_s": 7059.332,
-      "reported_tokens": 5010389,
+      "raw_tokens": 40378924,
+      "token_usage": {
+        "input_tokens": 2134,
+        "cache_read_input_tokens": 39443893,
+        "cache_creation_input_tokens": 523874,
+        "output_tokens": 409023
+      },
+      "cli_summary_units": 5010389,
+      "estimated_usd": 40.2475325,
+      "long_context_upper_usd": 40.2475325,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T19:03:53.708854+00:00",
       "finished_at": "2026-09-04T21:01:33.065071+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6635,7 +8444,17 @@
         }
       },
       "duration_s": 521.254,
-      "reported_tokens": 229870,
+      "raw_tokens": 849677,
+      "token_usage": {
+        "input_tokens": 358,
+        "cache_read_input_tokens": 714987,
+        "cache_creation_input_tokens": 94727,
+        "output_tokens": 39605
+      },
+      "cli_summary_units": 229870,
+      "estimated_usd": 4.0584437499999995,
+      "long_context_upper_usd": 4.0584437499999995,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T10:47:58.395444+00:00",
       "finished_at": "2026-09-04T10:56:39.654594+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6674,7 +8493,17 @@
         }
       },
       "duration_s": 607.503,
-      "reported_tokens": 198134,
+      "raw_tokens": 801497,
+      "token_usage": {
+        "input_tokens": 450,
+        "cache_read_input_tokens": 690217,
+        "cache_creation_input_tokens": 71330,
+        "output_tokens": 39500
+      },
+      "cli_summary_units": 198134,
+      "estimated_usd": 3.58005825,
+      "long_context_upper_usd": 3.58005825,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T11:19:38.871760+00:00",
       "finished_at": "2026-09-04T11:29:46.380464+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6713,7 +8542,17 @@
         }
       },
       "duration_s": 1505.873,
-      "reported_tokens": 494316,
+      "raw_tokens": 2497339,
+      "token_usage": {
+        "input_tokens": 898,
+        "cache_read_input_tokens": 2263186,
+        "cache_creation_input_tokens": 135378,
+        "output_tokens": 97877
+      },
+      "cli_summary_units": 494316,
+      "estimated_usd": 8.1779195,
+      "long_context_upper_usd": 8.1779195,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T14:30:10.111714+00:00",
       "finished_at": "2026-09-04T14:55:15.991859+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6752,7 +8591,17 @@
         }
       },
       "duration_s": 7958.244,
-      "reported_tokens": 5195896,
+      "raw_tokens": 40165461,
+      "token_usage": {
+        "input_tokens": 1440,
+        "cache_read_input_tokens": 39028532,
+        "cache_creation_input_tokens": 624455,
+        "output_tokens": 511034
+      },
+      "cli_summary_units": 5195896,
+      "estimated_usd": 47.172853,
+      "long_context_upper_usd": 47.172853,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T21:27:46.562550+00:00",
       "finished_at": "2026-09-04T23:40:24.827053+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6791,7 +8640,17 @@
         }
       },
       "duration_s": 481.645,
-      "reported_tokens": 184837,
+      "raw_tokens": 794961,
+      "token_usage": {
+        "input_tokens": 482,
+        "cache_read_input_tokens": 695993,
+        "cache_creation_input_tokens": 65080,
+        "output_tokens": 33406
+      },
+      "cli_summary_units": 184837,
+      "estimated_usd": 3.15211925,
+      "long_context_upper_usd": 3.15211925,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T11:11:37.085126+00:00",
       "finished_at": "2026-09-04T11:19:38.736889+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6830,7 +8689,17 @@
         }
       },
       "duration_s": 897.155,
-      "reported_tokens": 284013,
+      "raw_tokens": 1213960,
+      "token_usage": {
+        "input_tokens": 674,
+        "cache_read_input_tokens": 1057956,
+        "cache_creation_input_tokens": 88855,
+        "output_tokens": 66475
+      },
+      "cli_summary_units": 284013,
+      "estimated_usd": 5.373403000000001,
+      "long_context_upper_usd": 5.373403000000001,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T10:56:39.787186+00:00",
       "finished_at": "2026-09-04T11:11:36.947884+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6869,7 +8738,17 @@
         }
       },
       "duration_s": 1641.547,
-      "reported_tokens": 520713,
+      "raw_tokens": 2959641,
+      "token_usage": {
+        "input_tokens": 1060,
+        "cache_read_input_tokens": 2745480,
+        "cache_creation_input_tokens": 128015,
+        "output_tokens": 85086
+      },
+      "cli_summary_units": 520713,
+      "estimated_usd": 7.513034,
+      "long_context_upper_usd": 7.513034,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T12:42:23.008056+00:00",
       "finished_at": "2026-09-04T13:09:44.563859+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6908,7 +8787,17 @@
         }
       },
       "duration_s": 916.543,
-      "reported_tokens": 300530,
+      "raw_tokens": 1367098,
+      "token_usage": {
+        "input_tokens": 674,
+        "cache_read_input_tokens": 1210599,
+        "cache_creation_input_tokens": 91884,
+        "output_tokens": 63941
+      },
+      "cli_summary_units": 300530,
+      "estimated_usd": 5.34556875,
+      "long_context_upper_usd": 5.34556875,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T11:48:09.021654+00:00",
       "finished_at": "2026-09-04T12:03:25.571161+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6947,7 +8836,17 @@
         }
       },
       "duration_s": 1321.489,
-      "reported_tokens": 358143,
+      "raw_tokens": 1519635,
+      "token_usage": {
+        "input_tokens": 706,
+        "cache_read_input_tokens": 1323124,
+        "cache_creation_input_tokens": 117277,
+        "output_tokens": 78528
+      },
+      "cli_summary_units": 358143,
+      "estimated_usd": 6.611397,
+      "long_context_upper_usd": 6.611397,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T13:57:33.945823+00:00",
       "finished_at": "2026-09-04T14:19:35.439882+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -6986,7 +8885,17 @@
         }
       },
       "duration_s": 1358.643,
-      "reported_tokens": 375939,
+      "raw_tokens": 1753548,
+      "token_usage": {
+        "input_tokens": 834,
+        "cache_read_input_tokens": 1562642,
+        "cache_creation_input_tokens": 115076,
+        "output_tokens": 74996
+      },
+      "cli_summary_units": 375939,
+      "estimated_usd": 6.4518125,
+      "long_context_upper_usd": 6.4518125,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T13:34:55.172153+00:00",
       "finished_at": "2026-09-04T13:57:33.821418+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7025,7 +8934,17 @@
         }
       },
       "duration_s": 1058.461,
-      "reported_tokens": 431396,
+      "raw_tokens": 2188202,
+      "token_usage": {
+        "input_tokens": 866,
+        "cache_read_input_tokens": 1990597,
+        "cache_creation_input_tokens": 138925,
+        "output_tokens": 57814
+      },
+      "cli_summary_units": 431396,
+      "estimated_usd": 6.17684125,
+      "long_context_upper_usd": 6.17684125,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T10:30:19.775777+00:00",
       "finished_at": "2026-09-04T10:47:58.244431+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7064,7 +8983,17 @@
         }
       },
       "duration_s": 1303.271,
-      "reported_tokens": 365065,
+      "raw_tokens": 1732130,
+      "token_usage": {
+        "input_tokens": 738,
+        "cache_read_input_tokens": 1552613,
+        "cache_creation_input_tokens": 121147,
+        "output_tokens": 57632
+      },
+      "cli_summary_units": 365065,
+      "estimated_usd": 5.70164925,
+      "long_context_upper_usd": 5.70164925,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T12:03:25.704354+00:00",
       "finished_at": "2026-09-04T12:25:08.981735+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7103,7 +9032,17 @@
         }
       },
       "duration_s": 511.948,
-      "reported_tokens": 162696,
+      "raw_tokens": 666853,
+      "token_usage": {
+        "input_tokens": 356,
+        "cache_read_input_tokens": 577953,
+        "cache_creation_input_tokens": 64003,
+        "output_tokens": 24541
+      },
+      "cli_summary_units": 162696,
+      "estimated_usd": 2.65698125,
+      "long_context_upper_usd": 2.65698125,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T15:06:53.820821+00:00",
       "finished_at": "2026-09-04T15:15:25.776107+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7142,7 +9081,17 @@
         }
       },
       "duration_s": 634.397,
-      "reported_tokens": 226972,
+      "raw_tokens": 1043286,
+      "token_usage": {
+        "input_tokens": 546,
+        "cache_read_input_tokens": 929140,
+        "cache_creation_input_tokens": 79647,
+        "output_tokens": 33953
+      },
+      "cli_summary_units": 226972,
+      "estimated_usd": 3.529951,
+      "long_context_upper_usd": 3.529951,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T14:19:35.574875+00:00",
       "finished_at": "2026-09-04T14:30:09.977588+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7181,7 +9130,17 @@
         }
       },
       "duration_s": 1033.758,
-      "reported_tokens": 361778,
+      "raw_tokens": 1912923,
+      "token_usage": {
+        "input_tokens": 898,
+        "cache_read_input_tokens": 1750385,
+        "cache_creation_input_tokens": 96804,
+        "output_tokens": 64836
+      },
+      "cli_summary_units": 361778,
+      "estimated_usd": 5.62603525,
+      "long_context_upper_usd": 5.62603525,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-04T12:25:09.111612+00:00",
       "finished_at": "2026-09-04T12:42:22.877222+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7220,7 +9179,17 @@
         }
       },
       "duration_s": 630.79,
-      "reported_tokens": 295382,
+      "raw_tokens": 1466162,
+      "token_usage": {
+        "input_tokens": 674,
+        "cache_read_input_tokens": 1327580,
+        "cache_creation_input_tokens": 96167,
+        "output_tokens": 41741
+      },
+      "cli_summary_units": 295382,
+      "estimated_usd": 4.350774,
+      "long_context_upper_usd": 4.350774,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-06T01:39:05.449812+00:00",
       "finished_at": "2026-09-06T01:49:36.243578+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -7259,7 +9228,17 @@
         }
       },
       "duration_s": 1358.742,
-      "reported_tokens": 936986,
+      "raw_tokens": 5602409,
+      "token_usage": {
+        "input_tokens": 1382,
+        "cache_read_input_tokens": 5253609,
+        "cache_creation_input_tokens": 251300,
+        "output_tokens": 96118
+      },
+      "cli_summary_units": 936986,
+      "estimated_usd": 11.16075225,
+      "long_context_upper_usd": 11.16075225,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-06T07:43:41.716177+00:00",
       "finished_at": "2026-09-06T08:06:20.465005+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -7298,7 +9277,17 @@
         }
       },
       "duration_s": 824.279,
-      "reported_tokens": 268394,
+      "raw_tokens": 963939,
+      "token_usage": {
+        "input_tokens": 546,
+        "cache_read_input_tokens": 802048,
+        "cache_creation_input_tokens": 105194,
+        "output_tokens": 56151
+      },
+      "cli_summary_units": 268394,
+      "estimated_usd": 5.118877,
+      "long_context_upper_usd": 5.118877,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T14:55:52.713337+00:00",
       "finished_at": "2026-09-05T15:09:36.997348+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7337,7 +9326,17 @@
         }
       },
       "duration_s": 10060.986,
-      "reported_tokens": 63447,
+      "raw_tokens": 73076102,
+      "token_usage": {
+        "input_tokens": 1454,
+        "cache_read_input_tokens": 71755954,
+        "cache_creation_input_tokens": 718431,
+        "output_tokens": 600263
+      },
+      "cli_summary_units": 63447,
+      "estimated_usd": 63.172166000000004,
+      "long_context_upper_usd": 63.172166000000004,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-06T04:29:31.501626+00:00",
       "finished_at": "2026-09-06T07:17:12.510157+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -7376,7 +9375,17 @@
         }
       },
       "duration_s": 1084.245,
-      "reported_tokens": 360164,
+      "raw_tokens": 1528729,
+      "token_usage": {
+        "input_tokens": 674,
+        "cache_read_input_tokens": 1330070,
+        "cache_creation_input_tokens": 113993,
+        "output_tokens": 83992
+      },
+      "cli_summary_units": 360164,
+      "estimated_usd": 6.8200575,
+      "long_context_upper_usd": 6.8200575,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T14:37:48.336788+00:00",
       "finished_at": "2026-09-05T14:55:52.587140+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7415,7 +9424,17 @@
         }
       },
       "duration_s": 8922.121,
-      "reported_tokens": 176241,
+      "raw_tokens": 71424879,
+      "token_usage": {
+        "input_tokens": 1522,
+        "cache_read_input_tokens": 70119383,
+        "cache_creation_input_tokens": 793021,
+        "output_tokens": 510953
+      },
+      "cli_summary_units": 176241,
+      "estimated_usd": 61.47305275,
+      "long_context_upper_usd": 61.47305275,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-06T02:00:49.213254+00:00",
       "finished_at": "2026-09-06T04:29:31.360424+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -7454,7 +9473,17 @@
         }
       },
       "duration_s": 851.198,
-      "reported_tokens": 302852,
+      "raw_tokens": 1309723,
+      "token_usage": {
+        "input_tokens": 578,
+        "cache_read_input_tokens": 1147037,
+        "cache_creation_input_tokens": 101850,
+        "output_tokens": 60258
+      },
+      "cli_summary_units": 302852,
+      "estimated_usd": 5.34408325,
+      "long_context_upper_usd": 5.34408325,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T16:43:38.785221+00:00",
       "finished_at": "2026-09-05T16:57:49.995483+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7493,7 +9522,17 @@
         }
       },
       "duration_s": 1588.916,
-      "reported_tokens": 778364,
+      "raw_tokens": 4094568,
+      "token_usage": {
+        "input_tokens": 1282,
+        "cache_read_input_tokens": 3753943,
+        "cache_creation_input_tokens": 249377,
+        "output_tokens": 89966
+      },
+      "cli_summary_units": 778364,
+      "estimated_usd": 10.438721750000001,
+      "long_context_upper_usd": 10.438721750000001,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-06T07:17:12.650374+00:00",
       "finished_at": "2026-09-06T07:43:41.576464+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -7532,7 +9571,17 @@
         }
       },
       "duration_s": 1134.256,
-      "reported_tokens": 356324,
+      "raw_tokens": 1707897,
+      "token_usage": {
+        "input_tokens": 676,
+        "cache_read_input_tokens": 1533470,
+        "cache_creation_input_tokens": 114199,
+        "output_tokens": 59552
+      },
+      "cli_summary_units": 356324,
+      "estimated_usd": 5.653039499999999,
+      "long_context_upper_usd": 5.653039499999999,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T13:30:00.823415+00:00",
       "finished_at": "2026-09-05T13:48:55.084762+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7571,7 +9620,17 @@
         }
       },
       "duration_s": 996.332,
-      "reported_tokens": 298772,
+      "raw_tokens": 1258463,
+      "token_usage": {
+        "input_tokens": 674,
+        "cache_read_input_tokens": 1093895,
+        "cache_creation_input_tokens": 99260,
+        "output_tokens": 64634
+      },
+      "cli_summary_units": 298772,
+      "estimated_usd": 5.49851275,
+      "long_context_upper_usd": 5.49851275,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T14:21:11.859801+00:00",
       "finished_at": "2026-09-05T14:37:48.197109+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7610,7 +9669,17 @@
         }
       },
       "duration_s": 1007.976,
-      "reported_tokens": 281612,
+      "raw_tokens": 1179138,
+      "token_usage": {
+        "input_tokens": 482,
+        "cache_read_input_tokens": 1025061,
+        "cache_creation_input_tokens": 100116,
+        "output_tokens": 53479
+      },
+      "cli_summary_units": 281612,
+      "estimated_usd": 4.93908825,
+      "long_context_upper_usd": 4.93908825,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-06T01:22:17.337299+00:00",
       "finished_at": "2026-09-06T01:39:05.317030+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -7649,7 +9718,17 @@
         }
       },
       "duration_s": 10576.801,
-      "reported_tokens": 8863954,
+      "raw_tokens": 72351055,
+      "token_usage": {
+        "input_tokens": 1436,
+        "cache_read_input_tokens": 70775830,
+        "cache_creation_input_tokens": 844584,
+        "output_tokens": 729205
+      },
+      "cli_summary_units": 8863954,
+      "estimated_usd": 71.2738495,
+      "long_context_upper_usd": 71.2738495,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-06T08:06:20.601798+00:00",
       "finished_at": "2026-09-06T11:02:37.431038+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -7688,7 +9767,17 @@
         }
       },
       "duration_s": 1022.321,
-      "reported_tokens": 449160,
+      "raw_tokens": 2395258,
+      "token_usage": {
+        "input_tokens": 962,
+        "cache_read_input_tokens": 2196756,
+        "cache_creation_input_tokens": 123930,
+        "output_tokens": 73610
+      },
+      "cli_summary_units": 449160,
+      "estimated_usd": 6.719315,
+      "long_context_upper_usd": 6.719315,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T14:04:09.364670+00:00",
       "finished_at": "2026-09-05T14:21:11.690877+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7727,7 +9816,17 @@
         }
       },
       "duration_s": 913.984,
-      "reported_tokens": 297759,
+      "raw_tokens": 1381041,
+      "token_usage": {
+        "input_tokens": 738,
+        "cache_read_input_tokens": 1227487,
+        "cache_creation_input_tokens": 85824,
+        "output_tokens": 66992
+      },
+      "cli_summary_units": 297759,
+      "estimated_usd": 5.38166075,
+      "long_context_upper_usd": 5.38166075,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T13:48:55.233414+00:00",
       "finished_at": "2026-09-05T14:04:09.221748+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7766,7 +9865,17 @@
         }
       },
       "duration_s": 1805.248,
-      "reported_tokens": 625589,
+      "raw_tokens": 3651697,
+      "token_usage": {
+        "input_tokens": 1124,
+        "cache_read_input_tokens": 3402541,
+        "cache_creation_input_tokens": 144716,
+        "output_tokens": 103316
+      },
+      "cli_summary_units": 625589,
+      "estimated_usd": 8.92345425,
+      "long_context_upper_usd": 8.92345425,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T16:13:33.402874+00:00",
       "finished_at": "2026-09-05T16:43:38.648053+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7805,7 +9914,17 @@
         }
       },
       "duration_s": 1471.191,
-      "reported_tokens": 497983,
+      "raw_tokens": 2741682,
+      "token_usage": {
+        "input_tokens": 996,
+        "cache_read_input_tokens": 2527808,
+        "cache_creation_input_tokens": 125314,
+        "output_tokens": 87564
+      },
+      "cli_summary_units": 497983,
+      "estimated_usd": 7.527836000000001,
+      "long_context_upper_usd": 7.527836000000001,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T15:09:37.124814+00:00",
       "finished_at": "2026-09-05T15:34:08.320563+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7844,7 +9963,17 @@
         }
       },
       "duration_s": 1870.143,
-      "reported_tokens": 482070,
+      "raw_tokens": 2455784,
+      "token_usage": {
+        "input_tokens": 898,
+        "cache_read_input_tokens": 2229402,
+        "cache_creation_input_tokens": 130993,
+        "output_tokens": 94491
+      },
+      "cli_summary_units": 482070,
+      "estimated_usd": 7.9123715,
+      "long_context_upper_usd": 7.9123715,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-06T00:31:08.405761+00:00",
       "finished_at": "2026-09-06T01:02:18.556119+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -7883,7 +10012,17 @@
         }
       },
       "duration_s": 2235.719,
-      "reported_tokens": 63293,
+      "raw_tokens": 5799474,
+      "token_usage": {
+        "input_tokens": 1386,
+        "cache_read_input_tokens": 5494884,
+        "cache_creation_input_tokens": 186475,
+        "output_tokens": 116729
+      },
+      "cli_summary_units": 63293,
+      "estimated_usd": 10.955017999999999,
+      "long_context_upper_usd": 10.955017999999999,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T23:53:52.548775+00:00",
       "finished_at": "2026-09-06T00:31:08.276159+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -7922,7 +10061,17 @@
         }
       },
       "duration_s": 915.955,
-      "reported_tokens": 314900,
+      "raw_tokens": 1287413,
+      "token_usage": {
+        "input_tokens": 578,
+        "cache_read_input_tokens": 1111730,
+        "cache_creation_input_tokens": 112177,
+        "output_tokens": 62928
+      },
+      "cli_summary_units": 314900,
+      "estimated_usd": 5.6749995,
+      "long_context_upper_usd": 5.6749995,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T13:14:44.733266+00:00",
       "finished_at": "2026-09-05T13:30:00.694744+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -7961,7 +10110,17 @@
         }
       },
       "duration_s": 1282.928,
-      "reported_tokens": 488168,
+      "raw_tokens": 2825743,
+      "token_usage": {
+        "input_tokens": 1252,
+        "cache_read_input_tokens": 2630296,
+        "cache_creation_input_tokens": 118767,
+        "output_tokens": 75428
+      },
+      "cli_summary_units": 488168,
+      "estimated_usd": 6.81841,
+      "long_context_upper_usd": 6.81841,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T15:34:08.452978+00:00",
       "finished_at": "2026-09-05T15:55:31.389198+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8000,7 +10159,17 @@
         }
       },
       "duration_s": 672.699,
-      "reported_tokens": 219970,
+      "raw_tokens": 854083,
+      "token_usage": {
+        "input_tokens": 482,
+        "cache_read_input_tokens": 727982,
+        "cache_creation_input_tokens": 84284,
+        "output_tokens": 41335
+      },
+      "cli_summary_units": 219970,
+      "estimated_usd": 3.9410635000000003,
+      "long_context_upper_usd": 3.9410635000000003,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-06T01:49:36.365501+00:00",
       "finished_at": "2026-09-06T02:00:49.068710+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -8039,7 +10208,17 @@
         }
       },
       "duration_s": 1198.51,
-      "reported_tokens": 473178,
+      "raw_tokens": 2207121,
+      "token_usage": {
+        "input_tokens": 676,
+        "cache_read_input_tokens": 1967826,
+        "cache_creation_input_tokens": 148402,
+        "output_tokens": 90217
+      },
+      "cli_summary_units": 473178,
+      "estimated_usd": 7.9792375,
+      "long_context_upper_usd": 7.9792375,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-06T01:02:18.680732+00:00",
       "finished_at": "2026-09-06T01:22:17.198673+00:00",
       "solver_cli_version": "2.1.261 (Claude Code)",
@@ -8078,7 +10257,17 @@
         }
       },
       "duration_s": 1081.744,
-      "reported_tokens": 328535,
+      "raw_tokens": 1451361,
+      "token_usage": {
+        "input_tokens": 738,
+        "cache_read_input_tokens": 1275347,
+        "cache_creation_input_tokens": 99945,
+        "output_tokens": 75331
+      },
+      "cli_summary_units": 328535,
+      "estimated_usd": 6.09326575,
+      "long_context_upper_usd": 6.09326575,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T15:55:31.524416+00:00",
       "finished_at": "2026-09-05T16:13:33.274184+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8117,7 +10306,17 @@
         }
       },
       "duration_s": 1524.529,
-      "reported_tokens": 314045,
+      "raw_tokens": 1231912,
+      "token_usage": {
+        "input_tokens": 578,
+        "cache_read_input_tokens": 1054605,
+        "cache_creation_input_tokens": 125110,
+        "output_tokens": 51619
+      },
+      "cli_summary_units": 314045,
+      "estimated_usd": 5.35432025,
+      "long_context_upper_usd": 5.35432025,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T07:07:59.025713+00:00",
       "finished_at": "2026-09-05T07:33:23.559570+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8156,7 +10355,17 @@
         }
       },
       "duration_s": 2443.849,
-      "reported_tokens": 919807,
+      "raw_tokens": 5089106,
+      "token_usage": {
+        "input_tokens": 470,
+        "cache_read_input_tokens": 4698866,
+        "cache_creation_input_tokens": 238722,
+        "output_tokens": 151048
+      },
+      "cli_summary_units": 919807,
+      "estimated_usd": 8.95716225,
+      "long_context_upper_usd": 8.95716225,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T09:13:31.376129+00:00",
       "finished_at": "2026-09-05T09:54:15.233453+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8195,7 +10404,17 @@
         }
       },
       "duration_s": 1293.644,
-      "reported_tokens": 441183,
+      "raw_tokens": 1648469,
+      "token_usage": {
+        "input_tokens": 642,
+        "cache_read_input_tokens": 1386747,
+        "cache_creation_input_tokens": 163145,
+        "output_tokens": 97935
+      },
+      "cli_summary_units": 441183,
+      "estimated_usd": 8.51423675,
+      "long_context_upper_usd": 8.51423675,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T02:04:54.804646+00:00",
       "finished_at": "2026-09-05T02:26:28.458063+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8234,7 +10453,17 @@
         }
       },
       "duration_s": 1244.906,
-      "reported_tokens": 620686,
+      "raw_tokens": 2582072,
+      "token_usage": {
+        "input_tokens": 738,
+        "cache_read_input_tokens": 2246830,
+        "cache_creation_input_tokens": 243042,
+        "output_tokens": 91462
+      },
+      "cli_summary_units": 620686,
+      "estimated_usd": 10.0046785,
+      "long_context_upper_usd": 10.0046785,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T08:17:49.828599+00:00",
       "finished_at": "2026-09-05T08:38:34.744035+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8273,7 +10502,17 @@
         }
       },
       "duration_s": 1795.645,
-      "reported_tokens": 783376,
+      "raw_tokens": 4667445,
+      "token_usage": {
+        "input_tokens": 1538,
+        "cache_read_input_tokens": 4362311,
+        "cache_creation_input_tokens": 168044,
+        "output_tokens": 135552
+      },
+      "cli_summary_units": 783376,
+      "estimated_usd": 11.24577775,
+      "long_context_upper_usd": 11.24577775,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T01:34:59.030766+00:00",
       "finished_at": "2026-09-05T02:04:54.682573+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8312,7 +10551,17 @@
         }
       },
       "duration_s": 1779.287,
-      "reported_tokens": 782323,
+      "raw_tokens": 3608095,
+      "token_usage": {
+        "input_tokens": 898,
+        "cache_read_input_tokens": 3216711,
+        "cache_creation_input_tokens": 277072,
+        "output_tokens": 113414
+      },
+      "cli_summary_units": 782323,
+      "estimated_usd": 12.02702375,
+      "long_context_upper_usd": 12.02702375,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T07:48:10.382494+00:00",
       "finished_at": "2026-09-05T08:17:49.677918+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8351,7 +10600,17 @@
         }
       },
       "duration_s": 921.125,
-      "reported_tokens": 333935,
+      "raw_tokens": 1322740,
+      "token_usage": {
+        "input_tokens": 578,
+        "cache_read_input_tokens": 1132571,
+        "cache_creation_input_tokens": 122037,
+        "output_tokens": 67554
+      },
+      "cli_summary_units": 333935,
+      "estimated_usd": 6.10899175,
+      "long_context_upper_usd": 6.10899175,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T05:25:41.418006+00:00",
       "finished_at": "2026-09-05T05:41:02.548776+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8390,7 +10649,17 @@
         }
       },
       "duration_s": 2096.338,
-      "reported_tokens": 1387919,
+      "raw_tokens": 9405900,
+      "token_usage": {
+        "input_tokens": 1860,
+        "cache_read_input_tokens": 8989256,
+        "cache_creation_input_tokens": 289397,
+        "output_tokens": 125387
+      },
+      "cli_summary_units": 1387919,
+      "estimated_usd": 14.3248,
+      "long_context_upper_usd": 14.3248,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T08:38:34.882927+00:00",
       "finished_at": "2026-09-05T09:13:31.232853+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8429,7 +10698,17 @@
         }
       },
       "duration_s": 966.381,
-      "reported_tokens": 320103,
+      "raw_tokens": 1302142,
+      "token_usage": {
+        "input_tokens": 642,
+        "cache_read_input_tokens": 1123157,
+        "cache_creation_input_tokens": 115211,
+        "output_tokens": 63132
+      },
+      "cli_summary_units": 320103,
+      "estimated_usd": 5.74935625,
+      "long_context_upper_usd": 5.74935625,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T00:29:59.049815+00:00",
       "finished_at": "2026-09-05T00:46:05.437397+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8468,7 +10747,17 @@
         }
       },
       "duration_s": 1034.674,
-      "reported_tokens": 336401,
+      "raw_tokens": 1743236,
+      "token_usage": {
+        "input_tokens": 834,
+        "cache_read_input_tokens": 1589072,
+        "cache_creation_input_tokens": 93319,
+        "output_tokens": 60011
+      },
+      "cli_summary_units": 336401,
+      "estimated_usd": 5.273947,
+      "long_context_upper_usd": 5.273947,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T01:17:44.223952+00:00",
       "finished_at": "2026-09-05T01:34:58.904458+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8507,7 +10796,17 @@
         }
       },
       "duration_s": 1083.17,
-      "reported_tokens": 400354,
+      "raw_tokens": 2129276,
+      "token_usage": {
+        "input_tokens": 866,
+        "cache_read_input_tokens": 1952541,
+        "cache_creation_input_tokens": 113461,
+        "output_tokens": 62408
+      },
+      "cli_summary_units": 400354,
+      "estimated_usd": 5.88814325,
+      "long_context_upper_usd": 5.88814325,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T06:49:55.713552+00:00",
       "finished_at": "2026-09-05T07:07:58.890161+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8546,7 +10845,17 @@
         }
       },
       "duration_s": 1846.457,
-      "reported_tokens": 1258176,
+      "raw_tokens": 8330815,
+      "token_usage": {
+        "input_tokens": 1602,
+        "cache_read_input_tokens": 7933749,
+        "cache_creation_input_tokens": 270942,
+        "output_tokens": 124522
+      },
+      "cli_summary_units": 1258176,
+      "estimated_usd": 13.646165250000001,
+      "long_context_upper_usd": 13.646165250000001,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T09:54:15.392279+00:00",
       "finished_at": "2026-09-05T10:25:01.862777+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8585,7 +10894,17 @@
         }
       },
       "duration_s": 990.858,
-      "reported_tokens": 315657,
+      "raw_tokens": 1505022,
+      "token_usage": {
+        "input_tokens": 706,
+        "cache_read_input_tokens": 1347725,
+        "cache_creation_input_tokens": 94351,
+        "output_tokens": 62240
+      },
+      "cli_summary_units": 315657,
+      "estimated_usd": 5.34441225,
+      "long_context_upper_usd": 5.34441225,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T01:01:13.235740+00:00",
       "finished_at": "2026-09-05T01:17:44.099975+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8624,7 +10943,17 @@
         }
       },
       "duration_s": 907.511,
-      "reported_tokens": 379481,
+      "raw_tokens": 1664830,
+      "token_usage": {
+        "input_tokens": 612,
+        "cache_read_input_tokens": 1464492,
+        "cache_creation_input_tokens": 130777,
+        "output_tokens": 68949
+      },
+      "cli_summary_units": 379481,
+      "estimated_usd": 6.4365570000000005,
+      "long_context_upper_usd": 6.4365570000000005,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T00:46:05.570959+00:00",
       "finished_at": "2026-09-05T01:01:13.089440+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8663,7 +10992,17 @@
         }
       },
       "duration_s": 6085.819,
-      "reported_tokens": 2508748,
+      "raw_tokens": 18050369,
+      "token_usage": {
+        "input_tokens": 580,
+        "cache_read_input_tokens": 17370637,
+        "cache_creation_input_tokens": 367808,
+        "output_tokens": 311344
+      },
+      "cli_summary_units": 2508748,
+      "estimated_usd": 22.6886455,
+      "long_context_upper_usd": 22.6886455,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T03:44:15.439146+00:00",
       "finished_at": "2026-09-05T05:25:41.271420+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8702,7 +11041,17 @@
         }
       },
       "duration_s": 1868.771,
-      "reported_tokens": 577422,
+      "raw_tokens": 2713586,
+      "token_usage": {
+        "input_tokens": 834,
+        "cache_read_input_tokens": 2420758,
+        "cache_creation_input_tokens": 170072,
+        "output_tokens": 121922
+      },
+      "cli_summary_units": 577422,
+      "estimated_usd": 10.112513499999999,
+      "long_context_upper_usd": 10.112513499999999,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T02:26:28.602735+00:00",
       "finished_at": "2026-09-05T02:57:37.381376+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8741,7 +11090,17 @@
         }
       },
       "duration_s": 1177.96,
-      "reported_tokens": 351579,
+      "raw_tokens": 1642102,
+      "token_usage": {
+        "input_tokens": 674,
+        "cache_read_input_tokens": 1464694,
+        "cache_creation_input_tokens": 110807,
+        "output_tokens": 65927
+      },
+      "cli_summary_units": 351579,
+      "estimated_usd": 5.8870295,
+      "long_context_upper_usd": 5.8870295,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T06:17:49.157231+00:00",
       "finished_at": "2026-09-05T06:37:27.123218+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8780,7 +11139,17 @@
         }
       },
       "duration_s": 2206.328,
-      "reported_tokens": 890468,
+      "raw_tokens": 5224752,
+      "token_usage": {
+        "input_tokens": 1218,
+        "cache_read_input_tokens": 4872173,
+        "cache_creation_input_tokens": 202685,
+        "output_tokens": 148676
+      },
+      "cli_summary_units": 890468,
+      "estimated_usd": 12.71921025,
+      "long_context_upper_usd": 12.71921025,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T05:41:02.680632+00:00",
       "finished_at": "2026-09-05T06:17:49.018796+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8819,7 +11188,17 @@
         }
       },
       "duration_s": 1693.265,
-      "reported_tokens": 837148,
+      "raw_tokens": 5266495,
+      "token_usage": {
+        "input_tokens": 1570,
+        "cache_read_input_tokens": 4971303,
+        "cache_creation_input_tokens": 179301,
+        "output_tokens": 114321
+      },
+      "cli_summary_units": 837148,
+      "estimated_usd": 10.561927749999999,
+      "long_context_upper_usd": 10.561927749999999,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T00:01:45.636763+00:00",
       "finished_at": "2026-09-05T00:29:58.913911+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8858,7 +11237,17 @@
         }
       },
       "duration_s": 1129.013,
-      "reported_tokens": 487140,
+      "raw_tokens": 2384603,
+      "token_usage": {
+        "input_tokens": 866,
+        "cache_read_input_tokens": 2150045,
+        "cache_creation_input_tokens": 150311,
+        "output_tokens": 83381
+      },
+      "cli_summary_units": 487140,
+      "estimated_usd": 7.72302225,
+      "long_context_upper_usd": 7.72302225,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T02:57:37.511269+00:00",
       "finished_at": "2026-09-05T03:16:26.532262+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8897,7 +11286,17 @@
         }
       },
       "duration_s": 886.506,
-      "reported_tokens": 301283,
+      "raw_tokens": 1148067,
+      "token_usage": {
+        "input_tokens": 546,
+        "cache_read_input_tokens": 972509,
+        "cache_creation_input_tokens": 113897,
+        "output_tokens": 61115
+      },
+      "cli_summary_units": 301283,
+      "estimated_usd": 5.58410025,
+      "long_context_upper_usd": 5.58410025,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T07:33:23.704838+00:00",
       "finished_at": "2026-09-05T07:48:10.218224+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8936,7 +11335,17 @@
         }
       },
       "duration_s": 748.304,
-      "reported_tokens": 315810,
+      "raw_tokens": 1393058,
+      "token_usage": {
+        "input_tokens": 642,
+        "cache_read_input_tokens": 1227575,
+        "cache_creation_input_tokens": 110277,
+        "output_tokens": 54564
+      },
+      "cli_summary_units": 315810,
+      "estimated_usd": 5.24867475,
+      "long_context_upper_usd": 5.24867475,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T06:37:27.255557+00:00",
       "finished_at": "2026-09-05T06:49:55.566008+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",
@@ -8975,7 +11384,17 @@
         }
       },
       "duration_s": 1668.631,
-      "reported_tokens": 669253,
+      "raw_tokens": 3882115,
+      "token_usage": {
+        "input_tokens": 1282,
+        "cache_read_input_tokens": 3617424,
+        "cache_creation_input_tokens": 171278,
+        "output_tokens": 92131
+      },
+      "cli_summary_units": 669253,
+      "estimated_usd": 8.95086,
+      "long_context_upper_usd": 8.95086,
+      "pricing_method": "Final per-session modelUsage, cache-aware list rates",
       "started_at": "2026-09-05T03:16:26.662640+00:00",
       "finished_at": "2026-09-05T03:44:15.302776+00:00",
       "solver_cli_version": "2.1.260 (Claude Code)",

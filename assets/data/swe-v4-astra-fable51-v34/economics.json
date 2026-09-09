@@ -1,0 +1,361 @@
+{
+  "scope": "Solver inference only; not subscription cash, excludes post-hoc judges and local infrastructure",
+  "pricing_verified": "2026-09-06",
+  "sources": {
+    "astra": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+    "claude": "https://platform.claude.com/docs/en/about-claude/pricing",
+    "fable": "https://platform.claude.com/docs/en/models/fable-5-1/overview"
+  },
+  "astra_rates_per_million": {
+    "input": 10,
+    "cache_read": 1,
+    "cache_write": 12.5,
+    "output": 50
+  },
+  "claude_rates_columns": [
+    "input",
+    "cache_read",
+    "cache_write_5m",
+    "cache_write_1h",
+    "output"
+  ],
+  "claude_rates_per_million": {
+    "claude-fable-5-1": [
+      10,
+      0.25,
+      12.5,
+      20,
+      50
+    ],
+    "claude-opus-5": [
+      5,
+      0.5,
+      6.25,
+      10,
+      25
+    ],
+    "claude-opus-4-8": [
+      5,
+      0.5,
+      6.25,
+      10,
+      25
+    ],
+    "claude-haiku-4-5-20251001": [
+      1,
+      0.1,
+      1.25,
+      2,
+      5
+    ]
+  },
+  "groups": [
+    {
+      "model": "astra",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.7216979130434782,
+        "se": 0.41419451147245395
+      },
+      "usd_total": 39.599052,
+      "long_context_upper_usd": {
+        "n": 23,
+        "mean": 3.2838545217391304,
+        "se": 0.791587613085265
+      },
+      "raw_tokens": {
+        "n": 23,
+        "mean": 890204.0869565217,
+        "se": 286126.0660811088
+      },
+      "raw_tokens_total": 20474694,
+      "minutes": {
+        "n": 23,
+        "mean": 4.218694202898551,
+        "se": 0.9936658732225679
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "astra",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.481346695652174,
+        "se": 0.15597833408641493
+      },
+      "usd_total": 34.070974,
+      "long_context_upper_usd": {
+        "n": 23,
+        "mean": 2.791000086956522,
+        "se": 0.31068572288799884
+      },
+      "raw_tokens": {
+        "n": 23,
+        "mean": 684214.0434782609,
+        "se": 92675.32940257298
+      },
+      "raw_tokens_total": 15736923,
+      "minutes": {
+        "n": 23,
+        "mean": 3.8226376811594203,
+        "se": 0.22960227650142065
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "astra",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.7110647826086958,
+        "se": 0.1651317145058697
+      },
+      "usd_total": 39.35449,
+      "long_context_upper_usd": {
+        "n": 23,
+        "mean": 3.217211086956522,
+        "se": 0.3238075532802952
+      },
+      "raw_tokens": {
+        "n": 23,
+        "mean": 767511.8695652174,
+        "se": 102296.90403344225
+      },
+      "raw_tokens_total": 17652773,
+      "minutes": {
+        "n": 23,
+        "mean": 4.899905797101449,
+        "se": 0.2037660640563361
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "astra",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.302022260869565,
+        "se": 0.24434849380850918
+      },
+      "usd_total": 52.946512,
+      "long_context_upper_usd": {
+        "n": 23,
+        "mean": 4.253696695652174,
+        "se": 0.4698076783233316
+      },
+      "raw_tokens": {
+        "n": 23,
+        "mean": 927474.4347826086,
+        "se": 134692.7174052377
+      },
+      "raw_tokens_total": 21331912,
+      "minutes": {
+        "n": 23,
+        "mean": 8.090497101449275,
+        "se": 0.5844684964850173
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "astra",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.5681282608695652,
+        "se": 0.2838587216870519
+      },
+      "usd_total": 59.06695,
+      "long_context_upper_usd": {
+        "n": 23,
+        "mean": 4.689675,
+        "se": 0.5469322520411882
+      },
+      "raw_tokens": {
+        "n": 23,
+        "mean": 949887.0869565217,
+        "se": 164669.8492142527
+      },
+      "raw_tokens_total": 21847403,
+      "minutes": {
+        "n": 23,
+        "mean": 10.280539855072464,
+        "se": 0.514791796730318
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "fable",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 7.963719152173913,
+        "se": 2.2181124769527103
+      },
+      "usd_total": 183.1655405,
+      "long_context_upper_usd": {
+        "n": 23,
+        "mean": 7.963719152173913,
+        "se": 2.2181124769527103
+      },
+      "raw_tokens": {
+        "n": 23,
+        "mean": 4384071.043478261,
+        "se": 1743553.3787619104
+      },
+      "raw_tokens_total": 100833634,
+      "minutes": {
+        "n": 23,
+        "mean": 26.89704927536232,
+        "se": 7.04209649833395
+      },
+      "solver_fallback_runs": 1
+    },
+    {
+      "model": "fable",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 9.186009663043478,
+        "se": 2.6597248801056277
+      },
+      "usd_total": 211.27822225,
+      "long_context_upper_usd": {
+        "n": 23,
+        "mean": 9.186009663043478,
+        "se": 2.6597248801056277
+      },
+      "raw_tokens": {
+        "n": 23,
+        "mean": 6972178.260869565,
+        "se": 3284332.3078388483
+      },
+      "raw_tokens_total": 160360100,
+      "minutes": {
+        "n": 23,
+        "mean": 31.72126666666667,
+        "se": 9.371995047031866
+      },
+      "solver_fallback_runs": 3
+    },
+    {
+      "model": "fable",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 9.70157472826087,
+        "se": 2.390256854448269
+      },
+      "usd_total": 223.13621875,
+      "long_context_upper_usd": {
+        "n": 23,
+        "mean": 9.70157472826087,
+        "se": 2.390256854448269
+      },
+      "raw_tokens": {
+        "n": 23,
+        "mean": 5488274.043478261,
+        "se": 2326401.70373681
+      },
+      "raw_tokens_total": 126230303,
+      "minutes": {
+        "n": 23,
+        "mean": 28.76137608695652,
+        "se": 6.825142829108844
+      },
+      "solver_fallback_runs": 2
+    },
+    {
+      "model": "fable",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 14.485635054347826,
+        "se": 4.229534846712801
+      },
+      "usd_total": 333.16960625,
+      "long_context_upper_usd": {
+        "n": 23,
+        "mean": 14.485635054347826,
+        "se": 4.229534846712801
+      },
+      "raw_tokens": {
+        "n": 23,
+        "mean": 11435379.173913043,
+        "se": 5032567.610691632
+      },
+      "raw_tokens_total": 263013721,
+      "minutes": {
+        "n": 23,
+        "mean": 38.77324927536232,
+        "se": 10.483612671413571
+      },
+      "solver_fallback_runs": 3
+    },
+    {
+      "model": "fable",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 9.058763293478261,
+        "se": 0.869992849218678
+      },
+      "usd_total": 208.35155575,
+      "long_context_upper_usd": {
+        "n": 23,
+        "mean": 9.058763293478261,
+        "se": 0.869992849218678
+      },
+      "raw_tokens": {
+        "n": 23,
+        "mean": 3823313.347826087,
+        "se": 800507.0608390414
+      },
+      "raw_tokens_total": 87936207,
+      "minutes": {
+        "n": 23,
+        "mean": 27.09635579710145,
+        "se": 3.764144230041088
+      },
+      "solver_fallback_runs": 2
+    }
+  ],
+  "totals": {
+    "astra": {
+      "runs": 115,
+      "usd": 225.037978,
+      "long_context_upper_usd": 419.41506,
+      "raw_tokens": 97043705,
+      "solver_hours": 12.00303861111111
+    },
+    "fable": {
+      "runs": 115,
+      "usd": 1159.1011435,
+      "long_context_upper_usd": 1159.1011435,
+      "raw_tokens": 738373965,
+      "solver_hours": 58.74556388888889
+    }
+  },
+  "limitations": [
+    "Astra input includes cache reads; output includes reasoning. Neither is counted twice.",
+    "Astra records zero cache writes. Per-request input sizes are absent in ephemeral CLI logs.",
+    "Astra central estimate assumes standard short-context rates, no Batch/Flex/Fast discounts or premiums.",
+    "Astra bound applies 2x input/cache and 1.5x output to all usage in runs exceeding 272k cumulative input; actual per-request premiums may be lower.",
+    "Claude includes observed 5m/1h caches, Fable, Opus 5, Opus 4.8 and auxiliary Haiku usage.",
+    "One internal Opus 5 receipt lacks a model-specific cache TTL; its list cost matches the 5m rate and is retained.",
+    "CLI auxiliary accounting differs. Estimates cover exposed receipts, not an independently observed API invoice."
+  ],
+  "ledger_sha256": "7fa4c18e7c8045b74a9b06527d30c38a0d652d2f7fbeff3029e0e4a3fdf15883",
+  "note": "Per-run estimates are in runs.json (estimated_usd, long_context_upper_usd, raw_tokens, token_usage). Judging is excluded."
+}

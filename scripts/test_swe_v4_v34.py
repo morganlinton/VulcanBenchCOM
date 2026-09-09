@@ -18,6 +18,7 @@ URL = "https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html"
 EFFORTS = ("low", "medium", "high", "extra-high", "max")
 PANELS = ("muse", "grok")
 CARD_SHA256 = "81015c5ac4e1055ce4fa5896a4a9416494ba9ac0f8fed0aacada7b245ac96dbb"
+ECONOMICS_CARD_SHA256 = "dc73f8c8b64f06a1b7c6d85608c5badf85de78680d6c06af062ad30b6069de22"
 
 
 def mean_se(values):
@@ -121,6 +122,34 @@ class NeutralPanelBundleTests(unittest.TestCase):
         low, high = self.groups["astra", "low"], self.groups["astra", "max"]
         self.assertIn(f'Astra {low["combined_33"]["mean"]:.2f} to {high["combined_33"]["mean"]:.2f}', self.page_html)
 
+    def test_economics_table_and_card(self):
+        econ = json.loads((DATA / "economics.json").read_text())
+        eg = {(r["model"], r["effort"]): r for r in econ["groups"]}
+        for e in EFFORTS:
+            a, f = eg["astra", e], eg["fable", e]
+            rs = [r for r in self.rows if r["effort"] == e]
+            self.assertAlmostEqual(a["usd"]["mean"], statistics.mean(r["estimated_usd"] for r in rs if r["model"] == "astra"), places=9)
+            self.assertAlmostEqual(f["raw_tokens"]["mean"], statistics.mean(r["raw_tokens"] for r in rs if r["model"] == "fable"), places=6)
+            self.assertLess(a["usd"]["mean"], f["usd"]["mean"], e)
+            self.assertLess(a["long_context_upper_usd"]["mean"], f["usd"]["mean"], e)
+            cells = (f'<td>${a["usd"]["mean"]:.2f}</td><td>${a["long_context_upper_usd"]["mean"]:.2f}</td><td>${f["usd"]["mean"]:.2f}</td>'
+                     f'<td>{f["usd"]["mean"] / a["usd"]["mean"]:.1f}x</td><td>{a["raw_tokens"]["mean"] / 1e6:.2f}M</td><td>{f["raw_tokens"]["mean"] / 1e6:.2f}M</td>'
+                     f'<td>{a["minutes"]["mean"]:.1f}</td><td>{f["minutes"]["mean"]:.1f}</td>')
+            self.assertIn(f'<tr data-econ-effort="{e}"><th scope="row">{e.replace("-", " ").capitalize().replace("Extra high", "Extra-high")}</th>{cells}</tr>', self.page_html, e)
+        t = econ["totals"]
+        for m in ("astra", "fable"):
+            self.assertAlmostEqual(t[m]["usd"], sum(r["estimated_usd"] for r in self.rows if r["model"] == m), places=6)
+            self.assertEqual(t[m]["raw_tokens"], sum(r["raw_tokens"] for r in self.rows if r["model"] == m))
+        self.assertIn(f'<td>${t["astra"]["usd"]:,.2f}</td><td>${t["astra"]["long_context_upper_usd"]:,.2f}</td><td>${t["fable"]["usd"]:,.2f}</td>', self.page_html)
+        self.assertEqual(f'{t["astra"]["usd"]:.2f}', "225.04")
+        self.assertEqual(f'{t["fable"]["usd"]:,.2f}', "1,159.10")
+        self.assertEqual(f'{t["astra"]["long_context_upper_usd"]:.2f}', "419.42")
+        card = ROOT / "assets/cards/swe-v4-astra-fable51-v34-economics.png"
+        self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), ECONOMICS_CARD_SHA256)
+        for r in self.rows:
+            self.assertGreaterEqual(r["long_context_upper_usd"], r["estimated_usd"])
+            self.assertGreater(r["raw_tokens"], 0)
+
     def test_comparative_claims(self):
         for effort in EFFORTS:
             a, f = self.groups["astra", effort], self.groups["fable", effort]
@@ -152,7 +181,7 @@ class NeutralPanelBundleTests(unittest.TestCase):
         self.assertEqual(self.protocols["protocol_ids"], {"muse": "code-quality-maintenance-v3.4", "grok": "code-quality-maintenance-v3.3"})
         self.assertEqual(set(self.protocols["scored_panel"]), set(PANELS))
         self.assertEqual(self.protocols["repeats"], 5)
-        for name in ("runs.json", "groups.json", "calibration.json", "judge-protocols.json", "provenance.json", "README.md", "REPRODUCING.md"):
+        for name in ("runs.json", "groups.json", "calibration.json", "judge-protocols.json", "economics.json", "provenance.json", "README.md", "REPRODUCING.md"):
             text = (DATA / name).read_text()
             for mark in (chr(0x2014), chr(0x2013), "/Users/", "/home/"):
                 self.assertNotIn(mark, text, name)

@@ -70,11 +70,12 @@
         <a href="/assets/reports/vulcanbench-swe-v4-astra-fable51-v34-report.pdf">Read the full report (PDF)</a>
         <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-astra-fable51-v34">Run records &amp; judge protocol on GitHub</a>
         <a href="/assets/cards/swe-v4-astra-fable51-v34.png" download>Download model card</a>
+        <a href="/assets/cards/swe-v4-astra-fable51-v34-economics.png" download>Download cost and tokens card</a>
         <a href="/assets/data/swe-v4-astra-fable51-v34/runs.csv" download>All 230 runs CSV</a>
         <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-astra-fable51-v34/REPRODUCING.md">Reproduction guide</a>
         <a href="/assets/data/swe-v4-astra-fable51-v34-scores.csv" download>Scores CSV</a>
       </div>
-      <nav class="report-jumps" aria-label="Study sections"><a href="#what-changed">Across efforts</a><a href="#results">All results</a><a href="#code-quality">Code quality</a><a href="#judges">Judges and calibration</a><a href="#run-history">How the run went</a><a href="#reproduce">Reproduction</a></nav>
+      <nav class="report-jumps" aria-label="Study sections"><a href="#what-changed">Across efforts</a><a href="#results">All results</a><a href="#cost">Cost and tokens</a><a href="#code-quality">Code quality</a><a href="#judges">Judges and calibration</a><a href="#run-history">How the run went</a><a href="#reproduce">Reproduction</a></nav>
 
       <section class="report-section" id="what-changed" aria-labelledby="what-changed-heading">
         <h2 id="what-changed-heading">Across five effort levels</h2>
@@ -125,6 +126,23 @@
         <p><strong>SE</strong> is one sample standard error of the combined score across 23 tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test.</p>
       </div>
 
+      <section class="report-section" id="cost" aria-labelledby="cost-heading">
+        <h2 id="cost-heading">Cost and tokens across effort levels</h2>
+        <p>The same 230 runs priced from their solver receipts at list API rates, cache-aware, with judging excluded. These are API-equivalent estimates, not subscription charges: both models ran on subscriptions, and what a plan actually bills is not observable from the receipts. Astra is cheaper at every effort, by 3.5 to 6.3 times per task, and its cost rises with effort while Fable's does not track it.</p>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-astra-fable51-v34-economics.png" aria-label="Open the cost and tokens card at full resolution">
+            <img src="/assets/cards/swe-v4-astra-fable51-v34-economics.png" width="2400" height="1725" loading="lazy" alt="Astra and Fable 5.1 API-equivalent cost per task and raw tokens per task at five effort levels, with a table of cost, cost ratio and tokens at each effort and for the full sweep. Exact values are in the adjacent accessible table.">
+          </a>
+          <figcaption>Ticks above Astra's bars mark its long-context upper bound; whiskers show &plusmn;1 task standard error. <a href="/assets/cards/swe-v4-astra-fable51-v34-economics.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <div class="suite-table-scroll" role="region" aria-label="Cost, tokens and runtime at each effort level" tabindex="0"><table class="suite-results">
+        <caption>API-equivalent cost, raw tokens and runtime at each effort level, n=23 per cell</caption><thead><tr><th scope="col">Effort</th><th scope="col">Astra $/task</th><th scope="col">Astra upper bound</th><th scope="col">Fable $/task</th><th scope="col">Cost ratio</th><th scope="col">Astra tokens/task</th><th scope="col">Fable tokens/task</th><th scope="col">Astra min/task</th><th scope="col">Fable min/task</th></tr></thead><tbody><tr data-econ-effort="low"><th scope="row">Low</th><td>$1.72</td><td>$3.28</td><td>$7.96</td><td>4.6x</td><td>0.89M</td><td>4.38M</td><td>4.2</td><td>26.9</td></tr><tr data-econ-effort="medium"><th scope="row">Medium</th><td>$1.48</td><td>$2.79</td><td>$9.19</td><td>6.2x</td><td>0.68M</td><td>6.97M</td><td>3.8</td><td>31.7</td></tr><tr data-econ-effort="high"><th scope="row">High</th><td>$1.71</td><td>$3.22</td><td>$9.70</td><td>5.7x</td><td>0.77M</td><td>5.49M</td><td>4.9</td><td>28.8</td></tr><tr data-econ-effort="extra-high"><th scope="row">Extra-high</th><td>$2.30</td><td>$4.25</td><td>$14.49</td><td>6.3x</td><td>0.93M</td><td>11.44M</td><td>8.1</td><td>38.8</td></tr><tr data-econ-effort="max"><th scope="row">Max</th><td>$2.57</td><td>$4.69</td><td>$9.06</td><td>3.5x</td><td>0.95M</td><td>3.82M</td><td>10.3</td><td>27.1</td></tr></tbody><tbody><tr data-econ-effort="sweep"><th scope="row">Full sweep, 115 runs each</th><td>$225.04</td><td>$419.42</td><td>$1,159.10</td><td>5.2x</td><td>97M</td><td>738M</td><td>12.0 h</td><td>58.7 h</td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Pricing.</strong> Rates checked 2026-09-06 from <a href="https://developers.openai.com/api/docs/models/gpt-6-astra">OpenAI</a> and <a href="https://platform.claude.com/docs/en/about-claude/pricing">Anthropic</a>. Astra input includes cache reads and output includes reasoning; Claude pricing covers observed five-minute and one-hour cache writes, Fable, Opus 5, Opus 4.8 fallback and auxiliary Haiku usage. Astra's receipts do not record per-request sizes, so the central estimate uses standard rates and the upper bound prices every run that exceeded 272k cumulative input tokens at the long-context tier. Astra stays cheaper at every effort under that bound.</p>
+          <p><strong>Tokens</strong> are the solver CLI's raw totals including cache reads. Fable's cached prefixes make its token count a poor cost proxy: its tokens are 4 to 12 times Astra's while its cost is 3.5 to 6.3 times. Per-run estimates, token usage breakdowns and the rate tables are in <a href="/assets/data/swe-v4-astra-fable51-v34/economics.json">economics.json</a> and <a href="/assets/data/swe-v4-astra-fable51-v34/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
       <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
         <h2 id="code-quality-heading">What Code quality measures now</h2>
         <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
@@ -154,7 +172,7 @@
 
       <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
         <h2 id="reproduce-heading">Evidence and reproduction</h2>
-        <p>Public files contain all 230 run measurements, both judges' six-dimension sub-scores and intent-recovery scores per run, ten aggregates, every calibration gate value, the exact judge protocol text and source hashes. Each run's Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-astra-fable51-v34/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the protocol documents, controls, runner and operator wrapper.</p>
+        <p>Public files contain all 230 run measurements, both judges' six-dimension sub-scores and intent-recovery scores per run, raw tokens and API-equivalent cost estimates per run, ten aggregates, every calibration gate value, the exact judge protocol text and source hashes. Each run's Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-astra-fable51-v34/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the protocol documents, controls, runner and operator wrapper.</p>
         <p>Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, and the retired Astra and Opus 5 reviews. Summed solver time is unchanged at 70.75 hours; judging is excluded.</p>
       </section>
     </article>

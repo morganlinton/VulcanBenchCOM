@@ -59,6 +59,9 @@ def main():
     manifest = {r["id"]: r for r in read(v34 / "private-manifest.json")}
     protocol = read(v34 / "protocol.json")
     grok_protocol = read(v33 / "protocol.json")
+    ledger_path = root / "docs/results/swe-v4-astra-fable51-2026-09/api-equivalent-costs.json"
+    ledger = read(ledger_path)
+    priced = {r["run_id"]: r for r in ledger["rows"]}
     assert summary["ready_for_publication"] and summary["published_submissions"] == 230
     assert summary["passing_panels"] == ["muse", "grok"]
     DEST.mkdir(parents=True, exist_ok=True)
@@ -66,6 +69,10 @@ def main():
     rows = []
     for entry in summary["rows"]:
         run = manifest[entry["id"]]
+        cost = priced[run["run_id"]]
+        receipt = run["solver_receipt"]
+        assert cost["model"] == entry["model"] and cost["effort"] == entry["effort"]
+        assert type(receipt["raw_tokens"]) is int
         panels = entry["panels"]
         assert all(panels[p]["l1"] is not None and panels[p]["l2"] is not None for p in PANELS)
         l1 = statistics.mean(panels[p]["l1"]["score"] for p in PANELS)
@@ -83,27 +90,36 @@ def main():
                            "reviewed_score": panels[p]["l1"]["score"], "intent_recovery": panels[p]["l2"],
                            "scored_quirks": panels[p]["l2_denominator"], "reviewer_fallback": panels[p]["reviewer_fallback"]}
                        for p in PANELS},
-            "duration_s": run["duration_s"], "reported_tokens": run.get("reported_tokens"),
+            "duration_s": run["duration_s"],
+            "raw_tokens": receipt["raw_tokens"], "token_usage": receipt["usage"],
+            "cli_summary_units": run.get("reported_tokens"),
+            "estimated_usd": cost["estimated_usd"],
+            "long_context_upper_usd": cost.get("long_context_upper_usd", cost["estimated_usd"]),
+            "pricing_method": cost["method"],
             "started_at": run["started_at"], "finished_at": run["finished_at"],
             "solver_cli_version": run.get("solver_cli_version"),
             "evidence_sha256": run["evidence_sha256"],
         })
         assert abs(rows[-1]["combined_33"] - entry["published"]["composite_v3"]) < 1e-9
     rows.sort(key=lambda r: (r["model"], EFFORTS.index(r["effort"]), r["task"]))
-    save("runs.json", {"runs": len(rows), "weights": WEIGHTS, "code_quality_split": SPLIT_WITHOUT_L3, "rows": rows})
+    save("runs.json", {"runs": len(rows), "weights": WEIGHTS, "code_quality_split": SPLIT_WITHOUT_L3,
+                       "token_fields": {"raw_tokens": "solver CLI raw total including cache reads",
+                                        "cli_summary_units": "the CLI's own summary count; for Claude Code these are cache-price-weighted units, not tokens"},
+                       "rows": rows})
     with (DEST / "runs.csv").open("w", newline="") as handle:
         writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(["model", "effort", "task", "run_id", "combined_33", "combined_20_profile", "functional_pct", "automated_quality_pct",
                          "security_pct", "code_quality", "reviewed_score", "intent_recovery", "muse_reviewed", "muse_readability",
                          "muse_maintainability", "muse_intent_recovery", "grok_reviewed", "grok_readability", "grok_maintainability",
-                         "grok_intent_recovery", "solver_fallback", "duration_s", "reported_tokens", "started_at", "finished_at",
-                         "solver_cli_version", "evidence_sha256"])
+                         "grok_intent_recovery", "solver_fallback", "duration_s", "raw_tokens", "estimated_usd", "long_context_upper_usd",
+                         "started_at", "finished_at", "solver_cli_version", "evidence_sha256"])
         for r in rows:
             writer.writerow([r["model"], r["effort"], r["task"], r["run_id"], f'{r["combined_33"]:.4f}', f'{r["combined_20_profile"]:.4f}',
                              f'{100 * r["functional"]:.2f}', f'{100 * r["automated_quality"]:.2f}', f'{100 * r["security"]:.2f}',
                              f'{r["code_quality"]:.4f}', f'{r["reviewed_score"]:.4f}', f'{r["intent_recovery"]:.4f}',
                              *[f'{r["panels"][p][k]:.4f}' for p in PANELS for k in ("reviewed_score", "readability", "maintainability", "intent_recovery")],
-                             r["solver_fallback"], r["duration_s"], r["reported_tokens"], r["started_at"], r["finished_at"],
+                             r["solver_fallback"], r["duration_s"], r["raw_tokens"], f'{r["estimated_usd"]:.6f}',
+                             f'{r["long_context_upper_usd"]:.6f}', r["started_at"], r["finished_at"],
                              r["solver_cli_version"], r["evidence_sha256"]])
 
     groups = []
@@ -122,13 +138,17 @@ def main():
                 "functional": mean_se(100 * r["functional"] for r in rs), "automated_quality": mean_se(100 * r["automated_quality"] for r in rs),
                 "security": mean_se(100 * r["security"] for r in rs), "passed": sum(r["functional"] == 1 for r in rs),
                 "minutes": mean_se(r["duration_s"] / 60 for r in rs), "solver_fallback_runs": sum(r["solver_fallback"] for r in rs),
+                "raw_tokens": mean_se(r["raw_tokens"] for r in rs), "raw_tokens_total": sum(r["raw_tokens"] for r in rs),
+                "usd": mean_se(r["estimated_usd"] for r in rs), "usd_total": sum(r["estimated_usd"] for r in rs),
+                "long_context_upper_usd": mean_se(r["long_context_upper_usd"] for r in rs),
             })
     save("groups.json", groups)
     with (SITE / "assets/data/swe-v4-astra-fable51-v34-scores.csv").open("w", newline="") as handle:
         writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(["model", "effort", "n", "combined_33", "combined_33_se", "combined_20_profile", "code_quality", "code_quality_se",
                          "reviewed_score", "intent_recovery", "readability", "maintainability", "muse_reviewed", "grok_reviewed",
-                         "functional", "automated_quality", "security", "passed", "mean_minutes", "solver_fallback_runs"])
+                         "functional", "automated_quality", "security", "passed", "mean_minutes", "solver_fallback_runs",
+                         "mean_raw_tokens", "mean_usd", "total_usd", "long_context_upper_mean_usd"])
         for g in groups:
             writer.writerow(["GPT-6 Astra" if g["model"] == "astra" else "Fable 5.1", g["effort"], g["n"],
                              f'{g["combined_33"]["mean"]:.4f}', f'{g["combined_33"]["se"]:.4f}', f'{g["combined_20_profile"]["mean"]:.4f}',
@@ -136,7 +156,27 @@ def main():
                              f'{g["intent_recovery"]["mean"]:.4f}', f'{g["readability"]["mean"]:.4f}', f'{g["maintainability"]["mean"]:.4f}',
                              f'{g["by_panel"]["muse"]["mean"]:.4f}', f'{g["by_panel"]["grok"]["mean"]:.4f}', f'{g["functional"]["mean"]:.4f}',
                              f'{g["automated_quality"]["mean"]:.4f}', f'{g["security"]["mean"]:.4f}', g["passed"], f'{g["minutes"]["mean"]:.4f}',
-                             g["solver_fallback_runs"]])
+                             g["solver_fallback_runs"], f'{g["raw_tokens"]["mean"]:.1f}', f'{g["usd"]["mean"]:.6f}', f'{g["usd_total"]:.6f}',
+                             f'{g["long_context_upper_usd"]["mean"]:.6f}'])
+    totals = {m: {"runs": sum(1 for r in rows if r["model"] == m),
+                  "usd": sum(r["estimated_usd"] for r in rows if r["model"] == m),
+                  "long_context_upper_usd": sum(r["long_context_upper_usd"] for r in rows if r["model"] == m),
+                  "raw_tokens": sum(r["raw_tokens"] for r in rows if r["model"] == m),
+                  "solver_hours": sum(r["duration_s"] for r in rows if r["model"] == m) / 3600}
+              for m in ("astra", "fable")}
+    assert abs(totals["astra"]["usd"] - ledger["totals_usd"]["astra"]) < 1e-6 and abs(totals["fable"]["usd"] - ledger["totals_usd"]["fable"]) < 1e-6
+    save("economics.json", {
+        "scope": ledger["scope"], "pricing_verified": ledger["pricing_verified"], "sources": ledger["sources"],
+        "astra_rates_per_million": ledger["astra_rates_per_million"], "claude_rates_columns": ledger["claude_rates_columns"],
+        "claude_rates_per_million": ledger["claude_rates_per_million"],
+        "groups": [{"model": g["model"], "effort": g["effort"], "n": g["n"], "usd": g["usd"], "usd_total": g["usd_total"],
+                    "long_context_upper_usd": g["long_context_upper_usd"], "raw_tokens": g["raw_tokens"],
+                    "raw_tokens_total": g["raw_tokens_total"], "minutes": g["minutes"], "solver_fallback_runs": g["solver_fallback_runs"]}
+                   for g in groups],
+        "totals": totals, "limitations": ledger["limitations"],
+        "ledger_sha256": digest(ledger_path),
+        "note": "Per-run estimates are in runs.json (estimated_usd, long_context_upper_usd, raw_tokens, token_usage). Judging is excluded.",
+    })
 
     calibration = {}
     for panel, run_dir in (("muse", v34), ("grok", v33), ("glm", v33)):
@@ -168,10 +208,12 @@ def main():
             "v3.4/summary.json": digest(v34 / "summary.json"), "v3.4/protocol.json": digest(v34 / "protocol.json"),
             "v3.4/private-manifest.json": digest(v34 / "private-manifest.json"), "v3.3/protocol.json": digest(v33 / "protocol.json"),
             "v3.3/calibration-grok.json": digest(v33 / "calibration-grok.json"), "v3.4/calibration-muse.json": digest(v34 / "calibration-muse.json"),
+            "api-equivalent-costs.json": digest(ledger_path),
         },
         "export_checks": ["230 published submissions", "both scored panels passed calibration", "every row has both panels' reviewed and intent-recovery scores",
-                          "per-row Code quality and combined score recomputed and matched to the frozen summary", "no dashes or host paths in exported text"],
-        "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means.",
+                          "per-row Code quality and combined score recomputed and matched to the frozen summary",
+                          "every run priced in the read-only cost ledger; sweep totals match the ledger", "no dashes or host paths in exported text"],
+        "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, raw tokens and API-equivalent cost estimates.",
         "withheld": ["raw prompts and responses", "submitted patches and reconstructed sources", "quirk answer keys (they describe hidden-test behaviour)",
                      "reviewer session identifiers and usage receipts", "the retired Astra and Opus 5 reviews"],
         "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists.",
