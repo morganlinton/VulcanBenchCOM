@@ -5,16 +5,18 @@
     "v3.4/private-manifest.json": "d9df5e4eac55f1d0e3ec4ce904c76593bb876a02612deefe63b14fa568859172",
     "v3.3/protocol.json": "b82da5987bb555443c9006e51e5a4d555c41858dc710140f0571bd90ed8a5eec",
     "v3.3/calibration-grok.json": "4671f64ed9acbab677a4dd6ff9c3af44fced06653a473ca38d8a2f583a3d0745",
-    "v3.4/calibration-muse.json": "d9b990248a5a553a2a5a7c68aadf128eb64aa89e0c161de97f0af9a9856b6ecf"
+    "v3.4/calibration-muse.json": "d9b990248a5a553a2a5a7c68aadf128eb64aa89e0c161de97f0af9a9856b6ecf",
+    "api-equivalent-costs.json": "7fa4c18e7c8045b74a9b06527d30c38a0d652d2f7fbeff3029e0e4a3fdf15883"
   },
   "export_checks": [
     "230 published submissions",
     "both scored panels passed calibration",
     "every row has both panels' reviewed and intent-recovery scores",
     "per-row Code quality and combined score recomputed and matched to the frozen summary",
+    "every run priced in the read-only cost ledger; sweep totals match the ledger",
     "no dashes or host paths in exported text"
   ],
-  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means.",
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, raw tokens and API-equivalent cost estimates.",
   "withheld": [
     "raw prompts and responses",
     "submitted patches and reconstructed sources",

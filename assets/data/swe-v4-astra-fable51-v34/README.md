@@ -11,11 +11,12 @@ functional, automated quality and security measurements come from the sweep.
 
 | File | What readers can inspect |
 |---|---|
-| [runs.json](runs.json) | Every run: task, effort, the four score factors, both judges' reviewed score, human readability, maintainability and intent recovery, the combined score under the 33% and prior 20% profiles, timing, CLI version, fallback flag and evidence hash |
+| [runs.json](runs.json) | Every run: task, effort, the four score factors, both judges' reviewed score, human readability, maintainability and intent recovery, the combined score under the 33% and prior 20% profiles, timing, raw tokens and token usage, API-equivalent cost with Astra's long-context upper bound, CLI version, fallback flag and evidence hash |
 | [runs.csv](runs.csv) | The same 230 records flat for spreadsheets |
 | [groups.json](groups.json) | Ten model/effort aggregates with sample standard errors, per-judge means, pass counts, runtime and fallback counts |
 | [calibration.json](calibration.json) | Each judge's calibration verdict, every gate value, control means and the operator record; GLM 5.3's failed attempt is included |
 | [judge-protocols.json](judge-protocols.json) | The exact system text, rubric, pair instruction, probe and match instructions, schemas, weights, repeats, seed, allowance rule and control source hashes for both frozen protocol versions |
+| [economics.json](economics.json) | API-equivalent cost and raw-token aggregates per model and effort, sweep totals, the rate tables, sources and pricing limitations |
 | [provenance.json](provenance.json) | Frozen source hashes, export checks and publication limits |
 | [REPRODUCING.md](REPRODUCING.md) | Public arithmetic checks and links to the protocol documents, controls, runner and operator wrapper |
 | [Scores CSV](../swe-v4-astra-fable51-v34-scores.csv) | Aggregate values for spreadsheets |
@@ -46,6 +47,16 @@ the specification and the code alone, matched against a frozen answer key, with
 the denominator limited to departures the submission actually passed tests for.
 The designed measured-maintenance layer (12 of the 33 points) is not built; the
 pre-registered fallback split of 24 reviewed plus 9 intent recovery is in force.
+
+## Cost and tokens
+
+Each run carries `raw_tokens` (the solver CLI's total including cache reads),
+`token_usage` (the receipt's breakdown), `estimated_usd` and, for Astra,
+`long_context_upper_usd`. Prices are list API rates checked on the date in
+`economics.json`, cache-aware, solver inference only; judging is excluded and
+subscription bills are not observable. `cli_summary_units` keeps the CLI's own
+summary count, which for Claude Code is cache-price-weighted units rather than
+tokens; do not treat it as a token count.
 
 ## Judges
 
