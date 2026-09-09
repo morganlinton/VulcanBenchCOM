@@ -18,6 +18,7 @@ result is not a perfect total score.
 ## Key pages
 
 - [Current results and archive](https://vulcanbench.com/benchmarks.html): compare only within the same task suite and scoring protocol.
+- [Astra vs. Fable 5.1 under a neutral Code quality panel](https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html): the same 230 runs rescored with Code quality at 33%, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under a frozen, calibrated protocol. Includes PDF, per-run CSV with both judges' sub-scores, calibration record and public evidence links.
 - [Astra and Fable 5.1 effort comparison](https://vulcanbench.com/benchmarks/swe-v4-astra-fable51.html): 230 runs at five effort levels, with Fable solver fallbacks labeled. Includes PDF, per-run CSV, reviewer sensitivity and public evidence links.
 - [Methodology](https://vulcanbench.com/methodology.html): task admission, execution boundaries, four-factor scoring and evidence limits.
 - [Blog](https://vulcanbench.com/blog.html): benchmark design and effort observations.

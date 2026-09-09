@@ -5,6 +5,7 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 ## Pages
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
 - `benchmarks.html`: suite-separated results, with the current SWE v4 comparison first and all earlier reports in a labeled archive
+- `benchmarks/swe-v4-astra-fable51-v34.html`: the same runs rescored under Code quality protocol v3.4 (33% weight, neutral Muse Spark 1.3 and Grok 4.6 panel), with PDF, calibration record and evidence links
 - `benchmarks/swe-v4-astra-fable51.html`: dedicated effort comparison with readable results, sensitivity analysis, PDF and evidence links
 - `benchmarks/NN-*.html`: one journal-style page per report (abstract, findings, table, figure, downloads)
 - `leaderboard.html`: directs readers to suite-specific results and the frozen earlier-suite archive
@@ -56,6 +57,16 @@ python3 scripts/render_swe_v4_report.py --fonts /path/to/VulcanBench/scripts/ran
 Use `pdftoppm` to inspect all nine rendered pages and check extracted text for
 forbidden dash characters before publishing a regenerated PDF. The selected
 model card is preserved as a full-page appendix, without image edits.
+
+The v3.4 neutral-panel report follows the same pattern from the public record
+in `assets/data/swe-v4-astra-fable51-v34/`, exported from the frozen harness
+results by `scripts/export_swe_v4_v34_evidence.py --harness-root ../VulcanBench`:
+
+```sh
+python3 -m unittest scripts/test_swe_v4_v34.py
+python3 scripts/render_swe_v4_v34_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-astra-fable51-v34
+python3 scripts/verify_swe_v4_v34_pdf.py
+```
 
 The public evidence includes a flat 230-run CSV, deterministic sensitivity
 analysis, a reproduction guide with pinned sources and explicit execution

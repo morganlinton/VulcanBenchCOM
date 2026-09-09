@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astra vs. Fable 5.1 under a neutral Code quality panel | VulcanBench</title>
+<meta name="description" content="VulcanBench-SWE v4: the same 230 runs rescored with Code quality at 33%, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under a frozen, calibrated protocol.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Astra vs. Fable 5.1 under a neutral Code quality panel | VulcanBench">
+<meta property="og:description" content="VulcanBench-SWE v4: the same 230 runs rescored with Code quality at 33%, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under a frozen, calibrated protocol.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-astra-fable51-v34.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1725">
+<meta property="og:image:alt" content="VulcanBench-SWE v4: Astra vs. Fable 5.1, combined score and runtime at every effort level, with a Code quality table">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Astra vs. Fable 5.1 under a neutral Code quality panel | VulcanBench">
+<meta name="twitter:description" content="VulcanBench-SWE v4: the same 230 runs rescored with Code quality at 33%, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under a frozen, calibrated protocol.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-astra-fable51-v34.png">
+<meta name="twitter:image:alt" content="VulcanBench-SWE v4: Astra vs. Fable 5.1, combined score and runtime at every effort level, with a Code quality table">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=1">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">Custom evals</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench-SWE v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="astra-fable-v34-heading">
+      <header>
+        <p class="suite-label">September 9, 2026 &middot; 230 runs rescored &middot; Code quality protocol v3.4</p>
+        <h1 id="astra-fable-v34-heading">GPT-6 Astra vs. Fable 5.1 under a neutral Code quality panel</h1>
+        <p>The same 230 runs as the <a href="/benchmarks/swe-v4-astra-fable51.html">September 6 effort comparison</a>, rescored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6.</p>
+      </header>
+      <div class="suite-downloads" aria-label="Report and evidence downloads">
+        <a href="/assets/reports/vulcanbench-swe-v4-astra-fable51-v34-report.pdf">Read the full report (PDF)</a>
+        <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-astra-fable51-v34">Run records &amp; judge protocol on GitHub</a>
+        <a href="/assets/cards/swe-v4-astra-fable51-v34.png" download>Download model card</a>
+        <a href="/assets/data/swe-v4-astra-fable51-v34/runs.csv" download>All 230 runs CSV</a>
+        <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-astra-fable51-v34/REPRODUCING.md">Reproduction guide</a>
+        <a href="/assets/data/swe-v4-astra-fable51-v34-scores.csv" download>Scores CSV</a>
+      </div>
+      <nav class="report-jumps" aria-label="Study sections"><a href="#what-changed">What changed</a><a href="#results">All results</a><a href="#code-quality">Code quality</a><a href="#judges">Judges and calibration</a><a href="#run-history">How the run went</a><a href="#reproduce">Reproduction</a></nav>
+
+      <section class="report-section" id="what-changed" aria-labelledby="what-changed-heading">
+        <h2 id="what-changed-heading">What changed</h2>
+        <p>No solver ran again. Every functional, automated quality and security measurement is the same as on September 6. What changed is the Code quality factor: its weight rose from 20% to 33%, its rubric now scores six dimensions for a named human reader, it includes a ground-truth intent-recovery probe, and the judges come from labs with no model on this board. Combined score weights are 50% functional correctness, 8.5% automated quality, 8.5% security and 33% Code quality.</p>
+        <div class="effort-choices">
+          <div><h3>Fable 5.1 Max</h3><p>91.84 combined &middot; 82.43 Code quality &middot; 27.1 min</p><p>Highest combined score and highest Code quality of the ten settings.</p></div>
+          <div><h3>Astra Max</h3><p>89.30 combined &middot; 76.26 Code quality &middot; 10.3 min</p><p>Astra's highest combined score. Astra is faster at every matched effort.</p></div>
+          <div><h3>Human readability</h3><p>80.8 vs. 69.1 at Max</p><p>The widest gap between the models is on naming, presentation and stated intent.</p></div>
+          <div><h3>Intent recovery</h3><p>81.8 vs. 81.1 at Max</p><p>The ground-truth layer is close: both models teach the real contract about equally well.</p></div>
+        </div>
+        <p>Under the September 6 protocol, in which Astra and an Anthropic model judged the same code, Astra led Code quality at all five efforts. The reversal comes from who judges and what the rubric asks, not from the weight change alone: applying the prior 50/15/15/20 profile to the new Code quality scores still puts Fable ahead at every effort. The card and all ten settings follow.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-astra-fable51-v34.png" aria-label="Open the Astra and Fable 5.1 neutral-panel model card at full resolution">
+          <img src="/assets/cards/swe-v4-astra-fable51-v34.png" width="2400" height="1725" fetchpriority="high" alt="Astra and Fable 5.1 across five effort levels under the v3.4 Code quality protocol. Combined scores range from 87.43 to 91.84. Fable has the higher combined score at every matched effort; Astra has the lower mean runtime at every matched effort. A table shows Code quality components at each model's best effort. Exact values and limitations are provided in the adjacent accessible tables.">
+        </a>
+        <figcaption>Combined score uses a focused scale; runtime starts at zero. Whiskers show &plusmn;1 task standard error, not statistical significance. <a href="/assets/cards/swe-v4-astra-fable51-v34.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">Fable 5.1 has the higher combined score and the higher Code quality at every matched effort. Astra has the lower mean runtime at every matched effort. Both judges agree on every ranking. These runs compare model-and-harness combinations, not isolated base models.</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">n=23 at every effort. Combined (33%) is the published score. Combined (20% profile) applies the prior 50/15/15/20 weights to the same new Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the two judges. Runtime is solver wall-clock per task.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench-SWE v4: matched effort results under Code quality protocol v3.4</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="astra" data-effort="low"><th scope="row">Astra / Codex</th><td>Low</td><td>87.43</td><td>0.51</td><td>89.29</td><td>70.31</td><td>61.0</td><td>72.9</td><td>79.3</td><td>4.2</td></tr>
+              <tr data-model="astra" data-effort="medium"><th scope="row">Astra / Codex</th><td>Medium</td><td>87.73</td><td>0.32</td><td>89.36</td><td>71.19</td><td>61.7</td><td>74.0</td><td>80.1</td><td>3.8</td></tr>
+              <tr data-model="astra" data-effort="high"><th scope="row">Astra / Codex</th><td>High</td><td>88.16</td><td>0.42</td><td>89.24</td><td>73.48</td><td>63.9</td><td>77.2</td><td>81.2</td><td>4.9</td></tr>
+              <tr data-model="astra" data-effort="extra-high"><th scope="row">Astra / Codex</th><td>Extra-high</td><td>89.16</td><td>0.30</td><td>90.25</td><td>75.47</td><td>67.8</td><td>78.4</td><td>81.8</td><td>8.1</td></tr>
+              <tr data-model="astra" data-effort="max"><th scope="row">Astra / Codex</th><td>Max</td><td>89.30</td><td>0.37</td><td>90.20</td><td>76.26</td><td>69.1</td><td>79.8</td><td>81.1</td><td>10.3</td></tr>
+            </tbody>
+            <tbody>
+              <tr data-model="fable" data-effort="low"><th scope="row">Fable 5.1* / Claude Code</th><td>Low</td><td>89.12</td><td>1.15</td><td>90.56</td><td>78.36</td><td>76.9</td><td>79.7</td><td>78.5</td><td>26.9</td></tr>
+              <tr data-model="fable" data-effort="medium"><th scope="row">Fable 5.1* / Claude Code</th><td>Medium</td><td>90.13</td><td>0.94</td><td>91.10</td><td>80.14</td><td>78.8</td><td>81.5</td><td>80.1</td><td>31.7</td></tr>
+              <tr data-model="fable" data-effort="high"><th scope="row">Fable 5.1* / Claude Code</th><td>High</td><td>90.07</td><td>0.78</td><td>90.38</td><td>80.86</td><td>79.8</td><td>82.9</td><td>79.6</td><td>28.8</td></tr>
+              <tr data-model="fable" data-effort="extra-high"><th scope="row">Fable 5.1* / Claude Code</th><td>Extra-high</td><td>90.75</td><td>0.82</td><td>90.92</td><td>81.93</td><td>80.9</td><td>83.9</td><td>80.7</td><td>38.8</td></tr>
+              <tr data-model="fable" data-effort="max"><th scope="row">Fable 5.1* / Claude Code</th><td>Max</td><td>91.84</td><td>0.47</td><td>92.31</td><td>82.43</td><td>80.8</td><td>84.5</td><td>81.8</td><td>27.1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>*Fallbacks:</strong> 11 of 115 Fable solver runs include Opus 4.8 fallback usage, the same runs flagged in the September 6 report. They remain in the population and are labeled in the run records. Neither judge produced a reviewer fallback on any of the 230 submissions.</p>
+        <p><strong>SE</strong> is one sample standard error of the combined score across 23 tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. Estimated API costs are unchanged from the September 6 report and are not repeated here.</p>
+      </div>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures now</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel above carries 24 points. An intent-recovery probe carries 9: every task in this suite is a rewrite of a retired binary whose real behaviour departs from its written specification in documented ways, and the judge, given only the specification and the code, must list where the code departs from the specification. A separate call matches that list against a frozen answer key. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force and is stated on the card.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at Max effort" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each model's best effort (Max for both)</caption><thead><tr><th scope="col">Component</th><th scope="col">GPT-6 Astra</th><th scope="col">Fable 5.1</th><th scope="col">Fable minus Astra</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>76.26</td><td>82.43</td><td>+6.17</td></tr><tr><th scope="row">Human readability</th><td>69.1</td><td>80.8</td><td>+11.7</td></tr><tr><th scope="row">Maintainability</th><td>79.8</td><td>84.5</td><td>+4.7</td></tr><tr><th scope="row">Intent recovery</th><td>81.1</td><td>81.8</td><td>+0.8</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>73.6</td><td>83.4</td><td>+9.9</td></tr><tr><th scope="row">Rated by Grok 4.6</th><td>75.4</td><td>81.9</td><td>+6.5</td></tr><tr><th scope="row">Standard error of Code quality</th><td>0.88</td><td>1.10</td><td></td></tr></tbody></table></div>
+        <p>Both judges agree on every ranking and differ by a few points on levels. The largest gap between the models is human readability. Intent recovery, the only layer with ground truth, is close. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-astra-fable51-v34/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-astra-fable51-v34/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p>The scored panel is Muse Spark 1.3 (Meta) through the Muse CLI on its Standard tier, and Grok 4.6 (xAI) through the Cursor CLI at medium effort, with equal weight. Neither lab has a model on this board, so neither judge grades a relative. Every session is fresh, tools are disabled, the workspace is empty, model identity is checked per call from the CLI's own records, and solver labels are withheld. Astra and Claude Opus 5 also passed the calibration exam under an earlier protocol version but were retired from the score by the benchmark owner, because Astra would otherwise have judged its own code while Fable never did.</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification: clear, compressed, compressed then auto-formatted, verbose with duplicated policy, needlessly abstracted, misleadingly commented, narrated with a comment on every line, a documented legacy quirk, an embedded instruction to give full marks, and hidden module state. Each program is reviewed five times in a seeded order. Twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.4</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr><tr><th scope="row">Grok 4.6</th><td>code-quality-maintenance-v3.3</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr><tr><th scope="row">GLM 5.3</th><td>code-quality-maintenance-v3.3</td><td>3</td><td>failed</td><td>n/a</td><td>g01_validity</td></tr></tbody></table></div>
+        <p>GLM 5.3 was tried first and failed on validity after fabricating an excerpt in both attempts on one control; Muse Spark 1.3 replaced it under amendment v3.4. Both scored judges separate the clear program from the compressed one by more than two points on naming and presentation, credit formatting on presentation but not on naming, penalise misleading comments on intent, and penalise hidden state on verifiability. Every gate value and control mean is in <a href="/assets/data/swe-v4-astra-fable51-v34/calibration.json">calibration.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="run-history" aria-labelledby="run-history-heading">
+        <h2 id="run-history-heading">How the run actually went</h2>
+        <p>Every protocol version was frozen by hash before its first counted call, and each older panel ran from a git worktree pinned to its own freeze commit once the runner had moved on. The freeze history is part of the record.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Protocol amendments" tabindex="0"><table class="suite-results">
+        <caption>Protocol amendments, all on September 7 to 9, 2026</caption><thead><tr><th scope="col">Version</th><th scope="col">Change</th><th scope="col">Outcome</th></tr></thead><tbody><tr><th scope="row">v3</th><td>Three repeats, exact-excerpt rule, verifiability gate with a naming clause</td><td>Reader passed; Astra failed repeatability and the naming clause; Opus 5 stopped on non-verbatim excerpts</td></tr><tr><th scope="row">v3.1</th><td>Line-level excerpt rule; naming clause dropped</td><td>Astra failed a different single gate; Opus 5 stopped on a dots-only elision line</td></tr><tr><th scope="row">v3.2</th><td>Five repeats; one-gate allowance of 0.5; elision markers</td><td>Astra and Opus 5 passed with no allowance; a small Haiku comprehension reader failed its gate by one answer and was dropped</td></tr><tr><th scope="row">v3.3</th><td>Neutral panel: GLM 5.3 and Grok 4.6</td><td>Grok passed with no allowance; GLM failed on a fabricated excerpt</td></tr><tr><th scope="row">v3.4</th><td>Muse Spark 1.3 replaces GLM 5.3</td><td>Muse passed with no allowance; both neutral judges completed all 230 submissions</td></tr></tbody></table></div>
+        <p>A wrapper outside the frozen code applied a small set of documented rules when a judge call stopped, and halted for a person on anything else. Every application is printed to the run log and recorded inside the receipt it touched, with the original response preserved. The rules: one fresh attempt after a CLI structured-output failure; re-wrapping an excerpt to the source's own line breaks when every fragment is verbatim; normalising decorated quirk identifiers; one fresh attempt after an outside SIGTERM; and archive-and-resume with backoff after a transport rate limit. Fabricated text never recovers. Muse needed two excerpt recoveries and one SIGTERM retry across 690 calls; Grok needed five excerpt recoveries and six rate-limit resumes across 960 calls.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Runs were not repeated, CLI versions were not held fixed across weeks, and effort labels are harness-specific. Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists.</p>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 230 run measurements, both judges' six-dimension sub-scores and intent-recovery scores per run, ten aggregates, every calibration gate value, the exact judge protocol text and source hashes. Each run's Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-astra-fable51-v34/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the protocol documents, controls, runner and operator wrapper.</p>
+        <p>Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, and the retired Astra and Opus 5 reviews. Summed solver time is unchanged at 70.75 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+</body>
+</html>
