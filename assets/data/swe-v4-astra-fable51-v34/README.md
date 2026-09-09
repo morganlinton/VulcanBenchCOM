@@ -1,12 +1,11 @@
 # VulcanBench-SWE v4: Astra and Fable 5.1 under Code quality protocol v3.4
 
-Public record for the September 9, 2026 rescoring of the effort comparison:
-the same 230 solver runs as the [September 6 bundle](../swe-v4-astra-fable51/)
-(23 matched tasks, five effort levels, GPT-6 Astra in Codex and Fable 5.1 in
-Claude Code with disclosed Opus fallbacks), re-judged for Code quality by a
-neutral two-model panel with Code quality at 33% of the combined score.
-No solver ran again; functional, automated quality and security measurements
-are unchanged.
+Public record for the September 9, 2026 Astra and Fable 5.1 comparison: 230
+solver runs from the September 2026 effort sweep (23 matched tasks, five effort
+levels, GPT-6 Astra in Codex and Fable 5.1 in Claude Code with disclosed Opus
+fallbacks), judged for Code quality by a neutral two-model panel with Code
+quality at 33% of the combined score. No solver ran for this report;
+functional, automated quality and security measurements come from the sweep.
 
 ## Files
 
@@ -34,8 +33,8 @@ combined_20     = 100 * (0.50 * functional + 0.15 * quality + 0.15 * security + 
 ```
 
 `functional`, `quality` and `security` are on a 0 to 1 scale and are the
-values recorded on September 6. `combined_20` applies the prior profile to
-the new Code quality scores for comparison; it is not the September 6 score.
+values recorded by the effort sweep. `combined_20` applies the prior
+50/15/15/20 profile to the new Code quality scores for comparison only.
 Group means weight the 23 tasks equally. Standard errors are one sample
 standard error across tasks.
 

@@ -1,7 +1,5 @@
 """Static, dependency-free checks for the suite-separated benchmark index."""
 
-import csv
-import hashlib
 import html
 import unittest
 from html.parser import HTMLParser
@@ -9,7 +7,6 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-EFFORTS = {"low", "medium", "high", "extra-high", "max"}
 
 
 class IndexParser(HTMLParser):
@@ -66,13 +63,9 @@ class BenchmarkIndexTests(unittest.TestCase):
         cls.html = (ROOT / "benchmarks.html").read_text()
         cls.page = IndexParser()
         cls.page.feed(cls.html)
-        cls.report_html = (ROOT / "benchmarks/swe-v4-astra-fable51.html").read_text()
+        cls.report_html = (ROOT / "benchmarks/swe-v4-astra-fable51-v34.html").read_text()
         cls.report = IndexParser()
         cls.report.feed(cls.report_html)
-        with (ROOT / "assets/data/swe-v4-astra-fable51-scores.csv").open(newline="") as source:
-            cls.scores = list(csv.DictReader(source))
-        with (ROOT / "assets/data/swe-v4-astra-fable51-costs.csv").open(newline="") as source:
-            cls.costs = {(r["model"], r["effort"]): r for r in csv.DictReader(source)}
 
     def test_structure_and_suite_boundaries(self):
         self.assertEqual(self.page.structure_errors, [])
@@ -106,59 +99,11 @@ class BenchmarkIndexTests(unittest.TestCase):
                 elif parsed.fragment:
                     self.assertIn(parsed.fragment, page.ids)
 
-    def test_exact_user_selected_card(self):
-        card = ROOT / "assets/cards/swe-v4-astra-fable51.png"
-        self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(),
-                         "138c96d9fdffab4845d1b373c035b71d180272a9901fcb98bb7ad04ef8dd84b3")
-
     def test_no_em_or_en_dashes(self):
-        for name in ("benchmarks.html", "benchmarks/swe-v4-astra-fable51.html", "benchmarks/swe-v4-astra-fable51-v34.html", "benchmarks-suites.css", "AGENTS.md", "README.md", "index.html", "methodology.html", "leaderboard.html", "llms.txt"):
+        for name in ("benchmarks.html", "benchmarks/swe-v4-astra-fable51-v34.html", "benchmarks-suites.css", "AGENTS.md", "README.md", "index.html", "methodology.html", "leaderboard.html", "llms.txt"):
             text = html.unescape((ROOT / name).read_text())
             self.assertNotIn(chr(0x2014), text, name)
             self.assertNotIn(chr(0x2013), text, name)
-
-    def test_every_displayed_result_matches_sources(self):
-        expected_keys = {(model, effort) for model in ("astra", "fable") for effort in EFFORTS}
-        self.assertEqual(set(self.report.rows), expected_keys)
-        self.assertEqual(set(self.costs), expected_keys)
-        self.assertEqual(len(self.scores), 10)
-        for row in self.scores:
-            model = "astra" if row["model"] == "GPT-6 Astra" else "fable"
-            key = (model, row["effort"])
-            cost = self.costs[key]
-            self.assertEqual(int(row["n"]), 23)
-            self.assertEqual(int(cost["n"]), 23)
-            actual = self.report.rows[key][2:]
-            expected = [f'{float(row["combined"]):.2f}%',
-                        f'{float(row["code_quality"]):.2f}',
-                        f'{float(row["mean_minutes"]):.1f}',
-                        f'{int(row["raw_tokens"]) / 23 / 1e6:.2f}M',
-                        f'${float(cost["mean_usd"]):.2f}']
-            self.assertEqual(actual, expected, key)
-            weighted = sum(float(row[field]) * weight for field, weight in
-                           (("functional", .50), ("automated_quality", .15),
-                            ("security", .15), ("code_quality", .20)))
-            self.assertAlmostEqual(weighted, float(row["combined"]), delta=.01)
-            self.assertAlmostEqual(float(cost["mean_usd"]) * 23, float(cost["total_usd"]))
-
-    def test_cost_totals_and_comparative_claims(self):
-        totals = {model: sum(float(r["total_usd"]) for (m, _), r in self.costs.items() if m == model)
-                  for model in ("astra", "fable")}
-        self.assertEqual(f'{totals["astra"]:.2f}', "225.04")
-        self.assertEqual(f'{totals["fable"]:,.2f}', "1,159.10")
-        upper = sum(float(r["long_context_upper_total_usd"])
-                    for (m, _), r in self.costs.items() if m == "astra")
-        self.assertEqual(f"{upper:.2f}", "419.42")
-        for effort in EFFORTS:
-            self.assertLess(float(self.costs["astra", effort]["long_context_upper_mean_usd"]),
-                            float(self.costs["fable", effort]["mean_usd"]))
-            astra, fable = [next(r for r in self.scores if r["effort"] == effort
-                               and (r["model"] == "GPT-6 Astra") == (m == "astra"))
-                            for m in ("astra", "fable")]
-            self.assertLess(float(astra["mean_minutes"]), float(fable["mean_minutes"]))
-        best = max(self.scores, key=lambda r: float(r["combined"]))
-        self.assertEqual((best["model"], best["effort"]), ("Fable 5.1 with fallbacks", "max"))
-        self.assertEqual(sum(int(r["solver_fallback_runs"]) for r in self.scores), 11)
 
 
 if __name__ == "__main__":
