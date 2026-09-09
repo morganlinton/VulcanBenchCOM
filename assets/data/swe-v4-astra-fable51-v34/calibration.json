@@ -1,0 +1,367 @@
+{
+  "muse": {
+    "passed": true,
+    "failing_gates": [],
+    "call_count": 80,
+    "protocol_sha256": "1d80e0974526f8d825f14921c9102c8eda47ec312a0981783475149e31fd8524",
+    "allowance_used": false,
+    "gates": {
+      "g01_validity": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g02_clear_anchor": {
+        "passed": true,
+        "shortfall": -0.85
+      },
+      "g03_compression_sensitivity": {
+        "passed": true,
+        "shortfall": -1.2
+      },
+      "g04_formatting_is_presentation": {
+        "passed": true,
+        "shortfall": -0.2
+      },
+      "g05_formatting_not_enough": {
+        "passed": true,
+        "shortfall": -1.5
+      },
+      "g06_duplication_sensitivity": {
+        "passed": true,
+        "shortfall": -2.0
+      },
+      "g07_abstraction_not_rewarded": {
+        "passed": true,
+        "shortfall": -1.8
+      },
+      "g08_misleading_comments": {
+        "passed": true,
+        "shortfall": -2.7
+      },
+      "g09_narration_not_rewarded": {
+        "passed": true,
+        "shortfall": -0.5
+      },
+      "g10_quirk_tolerance": {
+        "passed": true,
+        "shortfall": -0.5
+      },
+      "g11_repeatability": {
+        "passed": true,
+        "shortfall": -0.02
+      },
+      "g12_instruction_isolation": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g13_verifiability": {
+        "passed": true,
+        "shortfall": -1.3
+      },
+      "g15_naming_tracks_names": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g14_pair_0_1": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g14_pair_2_1": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g14_pair_0_3": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g14_pair_0_6": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g14_pair_0_9": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g16_probe_recovers_documented_intent": {
+        "passed": true,
+        "shortfall": 0.0
+      }
+    },
+    "control_means": {
+      "0": {
+        "naming": 4.0,
+        "presentation": 4.0,
+        "intent": 3.4,
+        "structure": 4.0,
+        "changeability": 4.0,
+        "verifiability": 3.7
+      },
+      "1": {
+        "naming": 1.2,
+        "presentation": 1.8,
+        "intent": 1.1,
+        "structure": 3.7,
+        "changeability": 2.9,
+        "verifiability": 3.0
+      },
+      "2": {
+        "naming": 1.3,
+        "presentation": 3.4,
+        "intent": 1.4,
+        "structure": 3.8,
+        "changeability": 3.1,
+        "verifiability": 3.1
+      },
+      "3": {
+        "naming": 2.9,
+        "presentation": 3.1,
+        "intent": 1.1,
+        "structure": 1.6,
+        "changeability": 1.5,
+        "verifiability": 2.0
+      },
+      "4": {
+        "naming": 2.9,
+        "presentation": 2.4,
+        "intent": 1.5,
+        "structure": 2.2,
+        "changeability": 3.0,
+        "verifiability": 2.9
+      },
+      "5": {
+        "naming": 4.0,
+        "presentation": 3.9,
+        "intent": 0.2,
+        "structure": 3.8,
+        "changeability": 2.0,
+        "verifiability": 3.4
+      },
+      "6": {
+        "naming": 1.1,
+        "presentation": 2.6,
+        "intent": 1.0,
+        "structure": 3.8,
+        "changeability": 2.6,
+        "verifiability": 3.0
+      },
+      "7": {
+        "naming": 3.9,
+        "presentation": 3.9,
+        "intent": 3.6,
+        "structure": 4.0,
+        "changeability": 4.0,
+        "verifiability": 3.7
+      },
+      "8": {
+        "naming": 4.0,
+        "presentation": 3.8,
+        "intent": 3.3,
+        "structure": 4.0,
+        "changeability": 4.0,
+        "verifiability": 4.0
+      },
+      "9": {
+        "naming": 2.7,
+        "presentation": 3.2,
+        "intent": 2.1,
+        "structure": 1.8,
+        "changeability": 2.7,
+        "verifiability": 1.9
+      }
+    },
+    "operator_record": null
+  },
+  "grok": {
+    "passed": true,
+    "failing_gates": [],
+    "call_count": 80,
+    "protocol_sha256": "b82da5987bb555443c9006e51e5a4d555c41858dc710140f0571bd90ed8a5eec",
+    "allowance_used": false,
+    "gates": {
+      "g01_validity": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g02_clear_anchor": {
+        "passed": true,
+        "shortfall": -0.65
+      },
+      "g03_compression_sensitivity": {
+        "passed": true,
+        "shortfall": -1.0
+      },
+      "g04_formatting_is_presentation": {
+        "passed": true,
+        "shortfall": -0.2
+      },
+      "g05_formatting_not_enough": {
+        "passed": true,
+        "shortfall": -0.9
+      },
+      "g06_duplication_sensitivity": {
+        "passed": true,
+        "shortfall": -1.5
+      },
+      "g07_abstraction_not_rewarded": {
+        "passed": true,
+        "shortfall": -1.7
+      },
+      "g08_misleading_comments": {
+        "passed": true,
+        "shortfall": -1.8
+      },
+      "g09_narration_not_rewarded": {
+        "passed": true,
+        "shortfall": -0.4
+      },
+      "g10_quirk_tolerance": {
+        "passed": true,
+        "shortfall": -0.4833
+      },
+      "g11_repeatability": {
+        "passed": true,
+        "shortfall": -0.14
+      },
+      "g12_instruction_isolation": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g13_verifiability": {
+        "passed": true,
+        "shortfall": -0.8
+      },
+      "g15_naming_tracks_names": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g14_pair_0_1": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g14_pair_2_1": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g14_pair_0_3": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g14_pair_0_6": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g14_pair_0_9": {
+        "passed": true,
+        "shortfall": 0.0
+      },
+      "g16_probe_recovers_documented_intent": {
+        "passed": true,
+        "shortfall": 0.0
+      }
+    },
+    "control_means": {
+      "0": {
+        "naming": 3.6,
+        "presentation": 3.5,
+        "intent": 3.4,
+        "structure": 4.0,
+        "changeability": 4.0,
+        "verifiability": 3.4
+      },
+      "1": {
+        "naming": 1.4,
+        "presentation": 1.5,
+        "intent": 1.2,
+        "structure": 3.1,
+        "changeability": 2.7,
+        "verifiability": 3.0
+      },
+      "2": {
+        "naming": 1.7,
+        "presentation": 2.6,
+        "intent": 1.5,
+        "structure": 3.3,
+        "changeability": 3.0,
+        "verifiability": 3.0
+      },
+      "3": {
+        "naming": 2.8,
+        "presentation": 2.6,
+        "intent": 1.7,
+        "structure": 2.0,
+        "changeability": 2.0,
+        "verifiability": 2.2
+      },
+      "4": {
+        "naming": 3.0,
+        "presentation": 2.4,
+        "intent": 2.0,
+        "structure": 2.3,
+        "changeability": 3.1,
+        "verifiability": 3.0
+      },
+      "5": {
+        "naming": 3.5,
+        "presentation": 3.4,
+        "intent": 1.1,
+        "structure": 3.5,
+        "changeability": 2.3,
+        "verifiability": 3.0
+      },
+      "6": {
+        "naming": 1.4,
+        "presentation": 2.0,
+        "intent": 1.6,
+        "structure": 3.2,
+        "changeability": 2.9,
+        "verifiability": 3.0
+      },
+      "7": {
+        "naming": 3.8,
+        "presentation": 3.5,
+        "intent": 3.5,
+        "structure": 4.0,
+        "changeability": 3.8,
+        "verifiability": 3.4
+      },
+      "8": {
+        "naming": 3.6,
+        "presentation": 3.6,
+        "intent": 3.6,
+        "structure": 4.0,
+        "changeability": 4.0,
+        "verifiability": 3.5
+      },
+      "9": {
+        "naming": 2.9,
+        "presentation": 2.9,
+        "intent": 2.4,
+        "structure": 2.0,
+        "changeability": 3.2,
+        "verifiability": 2.1
+      }
+    },
+    "operator_record": null
+  },
+  "glm": {
+    "passed": false,
+    "failing_gates": [
+      "g01_validity"
+    ],
+    "call_count": 3,
+    "protocol_sha256": "b82da5987bb555443c9006e51e5a4d555c41858dc710140f0571bd90ed8a5eec",
+    "allowance_used": null,
+    "gates": {
+      "g01_validity": {
+        "passed": false,
+        "shortfall": null
+      }
+    },
+    "control_means": null,
+    "operator_record": {
+      "at": "2026-09-08T14:21:03.880765+00:00",
+      "finding": "Control 0 repeat 2: both attempts contained fabricated excerpts (a constant misquoted as 25 where the file says 30; a dictionary that exists in no file). Gate 1 validity fails after the single permitted retry.",
+      "decision": "Owner chose a different second judge on September 8, 2026. GLM 5.3 is recorded as failed calibration; its three completed reviews and both failed attempts are retained."
+    }
+  }
+}

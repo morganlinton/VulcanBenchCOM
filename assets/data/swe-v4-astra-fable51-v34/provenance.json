@@ -1,0 +1,26 @@
+{
+  "source_artifacts_sha256": {
+    "v3.4/summary.json": "e0d51a74c7e6e0c4c1656e1c87b16d14b24edfbafd7b69035b5db41201786a62",
+    "v3.4/protocol.json": "1d80e0974526f8d825f14921c9102c8eda47ec312a0981783475149e31fd8524",
+    "v3.4/private-manifest.json": "d9df5e4eac55f1d0e3ec4ce904c76593bb876a02612deefe63b14fa568859172",
+    "v3.3/protocol.json": "b82da5987bb555443c9006e51e5a4d555c41858dc710140f0571bd90ed8a5eec",
+    "v3.3/calibration-grok.json": "4671f64ed9acbab677a4dd6ff9c3af44fced06653a473ca38d8a2f583a3d0745",
+    "v3.4/calibration-muse.json": "d9b990248a5a553a2a5a7c68aadf128eb64aa89e0c161de97f0af9a9856b6ecf"
+  },
+  "export_checks": [
+    "230 published submissions",
+    "both scored panels passed calibration",
+    "every row has both panels' reviewed and intent-recovery scores",
+    "per-row Code quality and combined score recomputed and matched to the frozen summary",
+    "no dashes or host paths in exported text"
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts",
+    "the retired Astra and Opus 5 reviews"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}

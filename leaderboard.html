@@ -13,13 +13,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leaderboard paused | VulcanBench</title>
-<meta name="description" content="The VulcanBench leaderboard is offline while a new eval suite is built. Eval Suite 3 is frozen; the published reports carry every measurement behind it.">
+<meta name="description" content="VulcanBench reports results separately by evaluation suite. Eval Suite 3 is frozen; the published reports carry every measurement behind it.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="Leaderboard paused | VulcanBench">
-<meta property="og:description" content="The VulcanBench leaderboard is offline while a new eval suite is built.">
+<meta property="og:description" content="VulcanBench reports results separately by evaluation suite.">
 <meta property="og:url" content="https://vulcanbench.com/leaderboard.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
 <meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Leaderboard paused | VulcanBench">
-<meta name="twitter:description" content="The VulcanBench leaderboard is offline while a new eval suite is built.">
+<meta name="twitter:description" content="VulcanBench reports results separately by evaluation suite.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,26 +58,20 @@
 
 <div class="wrap">
   <div class="article-head" style="padding-bottom:6px;">
-    <div class="rno">Between suites</div>
-    <h1>The board is paused.</h1>
-    <p class="byline">A new eval suite is being built, so the combined leaderboard is offline rather than ranking models on a suite that is on its way out.</p>
+    <div class="rno">Results by suite</div>
+    <h1>Compare within a suite.</h1>
+    <p class="byline">VulcanBench-SWE v4 results are available in the benchmark reports. Earlier suite scores remain separate.</p>
   </div>
 
   <div class="prose">
-    <p>Eval Suite 3 is frozen. Its measurements are not going anywhere: every model that ran on it, at every reasoning-effort
-    level, is documented in the published reports, and the underlying run data stays in the repository. What is gone for now is
-    the single combined table, because a board is only worth reading when the suite behind it is the one being measured.</p>
-    <p>Ranking on a saturated suite is the failure mode this project exists to avoid. Twelve of the fifteen models on the final
-    Eval Suite 3 board sat within one standard error of the leader, which is a polite way of saying the order at the top was not
-    supported by the data. The new suite gates tasks on measured difficulty before they are admitted, and the board comes back
-    once enough columns have run on it to rank anything honestly.</p>
-    <p>In the meantime, the reports carry the per-task detail, cost, speed, and effort curves for every measurement, and the
-    methodology page describes how the new suite is built and gated.</p>
+    <p><a href="benchmarks/swe-v4-astra-fable51.html">Read the Astra and Fable 5.1 effort comparison</a> for SWE v4 total scores, runtime, estimated API costs and Code quality sensitivity. It compares model-and-harness combinations on 23 matched tasks at five effort levels.</p>
+    <p>Eval Suite 3 is frozen. Its reports and underlying measurements remain available in the <a href="benchmarks.html#archive">earlier suites archive</a>. Its scores are not directly comparable to SWE v4.</p>
+    <p>Close observed scores do not establish a definitive ranking. Use the task set, scoring protocol and uncertainty disclosed in each report, then validate a candidate configuration on your own workload.</p>
   </div>
 
   <div class="dl-row" style="margin-top:30px;">
     <a class="btn primary" href="benchmarks.html">Read the reports</a>
-    <a class="btn" href="methodology.html">How the new suite is built</a>
+    <a class="btn" href="methodology.html">Suite methodology</a>
     <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
   </div>
 </div>
@@ -85,7 +79,7 @@
 <footer>
   <div class="rule"></div>
   <div class="inner">
-    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
     <nav class="fnav">
       <a href="benchmarks.html">Benchmarks</a>
       <a href="methodology.html">Methodology</a>

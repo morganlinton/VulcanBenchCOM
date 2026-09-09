@@ -13,12 +13,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Methodology | VulcanBench</title>
-<meta name="description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks, graded by deterministic hidden tests, run under a disclosed execution boundary, with cost, time and tokens as first-class results.">
+<meta name="description" content="How VulcanBench measures task correctness, automated quality, security and model-reviewed Code quality, with time, tokens and estimated API cost reported separately.">
 <link rel="canonical" href="https://vulcanbench.com/methodology.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="Methodology | VulcanBench">
-<meta property="og:description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks, graded by deterministic hidden tests, with cost, time and tokens as first-class results.">
+<meta property="og:description" content="VulcanBench-SWE v4 uses four score factors, with Code quality at 33% from September 2026. Time and estimated API cost are separate.">
 <meta property="og:url" content="https://vulcanbench.com/methodology.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -26,7 +26,7 @@
 <meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Methodology | VulcanBench">
-<meta name="twitter:description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks, graded by deterministic hidden tests.">
+<meta name="twitter:description" content="VulcanBench-SWE v4: task grading, Code quality review, execution boundaries and evidence limits.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -154,7 +154,7 @@
       when its functional score is 1.0. Subjective review cannot turn a failed task into a functional pass.</p>
       <p>The default correctness grader is deterministic. Tasks may explicitly opt into an independent model grader
       for hidden acceptance criteria; those results must identify that exception and its validation.
-      This is separate from the human-like review metric described below.</p>
+      This is separate from the Code quality metric described below.</p>
       <h3 id="refusals">Failures, timeouts, and missing results</h3>
       <ul>
         <li><strong>Refusals:</strong> a refusal that leaves the task unsolved counts as an unsuccessful attempt.</li>
@@ -179,38 +179,56 @@
       With one attempt per task, it is tasks solved divided by tasks scored. With repeated attempts, the harness
       averages each task's success rate across tasks, giving tasks equal weight.</p>
       <p><strong>The combined score</strong> measures functional correctness, static quality, security, and
-      human-like code review. Passing every task does not imply a combined score of 100.
-      Functional correctness retains half the weight; review contributes 20%.</p>
-      <p>Human-like judging assesses the code beyond test outcomes:
-      whether a change is clear, well structured, and maintainable. It supplements functional grading rather
+      Code quality. Passing every task does not imply a combined score of 100.
+      Functional correctness retains half the weight; Code quality contributes a third.</p>
+      <p>Code quality assesses the code beyond test outcomes: whether a person who has never seen it could
+      read it, learn the real contract from it, and change it safely. It supplements functional grading rather
       than changing which tasks count as solved.</p>
-      <h3>Combined score weights</h3>
+      <h3>Combined score weights (from September 2026)</h3>
     </div>
-    <div class="metric-weights" aria-label="Combined score weights: functional 50%, quality 15%, security 15%, human-like review 20%">
+    <div class="metric-weights" aria-label="Combined score weights: functional 50%, quality 8.5%, security 8.5%, Code quality 33%">
       <div class="mw-row"><div class="mw-label">Functional<span>hidden tests</span></div><div class="mw-track"><div class="mw-fill" style="width:50%"></div></div><div class="mw-pct">50%</div></div>
-      <div class="mw-row"><div class="mw-label">Quality<span>lint · complexity · maintainability</span></div><div class="mw-track"><div class="mw-fill accent" style="width:15%"></div></div><div class="mw-pct">15%</div></div>
-      <div class="mw-row"><div class="mw-label">Security<span>static analysis</span></div><div class="mw-track"><div class="mw-fill accent" style="width:15%"></div></div><div class="mw-pct">15%</div></div>
-      <div class="mw-row"><div class="mw-label">Human-like review<span>model-based code review</span></div><div class="mw-track"><div class="mw-fill accent" style="width:20%"></div></div><div class="mw-pct">20%</div></div>
+      <div class="mw-row"><div class="mw-label">Quality<span>lint · complexity · maintainability</span></div><div class="mw-track"><div class="mw-fill accent" style="width:8.5%"></div></div><div class="mw-pct">8.5%</div></div>
+      <div class="mw-row"><div class="mw-label">Security<span>static analysis</span></div><div class="mw-track"><div class="mw-fill accent" style="width:8.5%"></div></div><div class="mw-pct">8.5%</div></div>
+      <div class="mw-row"><div class="mw-label">Code quality<span>reviewed 15 · intent recovery 6 · measured maintenance 12</span></div><div class="mw-track"><div class="mw-fill accent" style="width:33%"></div></div><div class="mw-pct">33%</div></div>
     </div>
     <div class="prose" style="margin-top:24px;">
       <p>Bars use a shared 0% to 100% scale. For each run, the combined score is
-      <code>100 × (0.50F + 0.15Q + 0.15S + 0.20H)</code>, with each factor on a 0 to 1 scale.
+      <code>100 × (0.50F + 0.085Q + 0.085S + 0.33C)</code>, with each factor on a 0 to 1 scale.
       F is the partial-credit functional score, not the binary solved indicator used by pass@1.
-      Reports average attempts within each task, then average tasks equally. All four factors must be present;
+      C is Code quality, composed of three layers: a reviewed panel score (15 points), an intent recovery
+      probe scored against each task's known spec departures (6 points), and a measured maintenance test in
+      which a fixed agent applies a follow-up change and regenerated hidden tests check it (12 points). Until the
+      measured layer is built, the reviewed and intent layers carry 24 and 9 points, disclosed on each card.
+      Reports average attempts within each task, then average tasks equally. All factors must be present;
       a missing factor makes this combined score unavailable rather than silently changing its weights.</p>
-      <p>Twenty percent is a benchmark policy choice, not an empirically calibrated measure of engineering value.
-      Review provides a code-quality perspective, but overlaps with static
-      quality and correctness. It cannot replace acceptance tests or establish production readiness.</p>
-      <h3>Human-like review</h3>
-      <p>This is model-based code review, not a human rating or a detector of human authorship. Each solution
-      receives three separate review sessions, with correctness, readability, and
-      maintainability personas. Their 0 to 100 ratings are averaged and divided by 100 to obtain H.</p>
-      <p>Reviewers receive the issue, complete saved patch, and test outcome. Solver model and effort labels are
-      omitted; tools and external access are disabled. All three valid ratings are required. Reports disclose
-      the judge model, effort, rubric, prompt coverage, and whether review happened during or after the run.</p>
-      <p>Review does not modify the submitted solution or its functional result.
-      Three personas using the same model are not three independent models. Same-model preference and rubric
-      sensitivity remain limitations; these ratings should not be treated as independent human validation.</p>
+      <p>Weight moved from the automated quality metric because the maintainability index rewards fewer lines and
+      per-function complexity stays low when each dense line does something different, so compressed code scored
+      higher than the same logic written for a reader. A third is a benchmark policy choice, locked before any
+      submission was rescored. Reports published before September 2026 used a 20% Code quality weight with a
+      50/15/15/20 split and are not rewritten; new cards report both profiles side by side.</p>
+      <h3>Code quality</h3>
+      <p>This is model-based code review, not a human rating. The rubric is identical for every task and frozen by
+      hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it
+      without running it, and must make a correct change in one sitting. It scores six dimensions from 0 to 4 with
+      written anchors: naming, presentation, and intent form a human readability sub-score; structure, changeability,
+      and verifiability form a maintainability sub-score. Every score must cite an exact excerpt and a concrete
+      consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+      <p>The scored panel is drawn from labs with no model on the board being compared, so no judge grades its own
+      relative. Models from the labs being compared may also review every submission, but only as disclosed
+      sensitivity panels outside the combined score; their gap against the neutral panel on their own family's code
+      is published as a self-preference estimate.</p>
+      <p>Before a judge scores a single submission it takes a calibration exam on ten held-out programs that all do
+      the same thing, from clear to compressed to over-engineered to deceptively commented, five reviews each, against
+      twenty gates fixed in advance. A judge that fails is published as failed. Reviewers receive the issue, the
+      complete saved patch, and the reconstructed final source; solver model and effort labels are omitted; tools and
+      external access are disabled; every raw prompt, response, and receipt is kept.</p>
+      <p>Review does not modify the submitted solution or its functional result. These ratings are reviewed for a
+      human reader by a blinded model panel; they are not human validation. The
+      <a href="benchmarks/swe-v4-astra-fable51-v34.html#judges">report for each comparison</a> names the exact
+      protocol version, judges, calibration outcome, and every operator intervention. The first results under the
+      September 2026 protocol are the Astra and Fable 5.1 rescoring of September 9, 2026; cards published earlier
+      describe the prior three-persona review.</p>
       <h3>Independent reviewer validation</h3>
       <p>Independent reviewer validation uses a different model with the same rubric, full patches, and test
       evidence. Reviewers do not receive the solver identity, effort, or previous reviewer scores.
@@ -324,7 +342,7 @@
 <footer>
   <div class="rule"></div>
   <div class="inner">
-    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
     <nav class="fnav">
       <a href="benchmarks.html">Benchmarks</a>
       <a href="methodology.html">Methodology</a>

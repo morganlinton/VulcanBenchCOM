@@ -14,13 +14,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="msvalidate.01" content="6F77AF64FA6EF59BA44CCE117545199C">
 <title>VulcanBench | an open-source coding benchmark for frontier models</title>
-<meta name="description" content="VulcanBench evaluates frontier language models on real engineering work: merged open-source pull requests graded by deterministic hidden tests. Cost, latency, and tokens are first-class results.">
+<meta name="description" content="VulcanBench compares coding models and harnesses across effort levels. SWE v4 reports total scores, Code quality, runtime, tokens and estimated API costs.">
 <link rel="canonical" href="https://vulcanbench.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="VulcanBench: an open-source coding benchmark for frontier models">
-<meta property="og:description" content="VulcanBench evaluates frontier language models on real engineering work: merged open-source pull requests graded by deterministic hidden tests. Cost, latency, and tokens are first-class results.">
+<meta property="og:description" content="VulcanBench compares coding models and harnesses across effort levels. SWE v4 reports total scores, Code quality, runtime, tokens and estimated API costs.">
 <meta property="og:url" content="https://vulcanbench.com/">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -28,7 +28,7 @@
 <meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="VulcanBench: an open-source coding benchmark for frontier models">
-<meta name="twitter:description" content="VulcanBench evaluates frontier language models on real engineering work: merged open-source pull requests graded by deterministic hidden tests. Cost, latency, and tokens are first-class results.">
+<meta name="twitter:description" content="VulcanBench compares coding models and harnesses across effort levels. SWE v4 reports total scores, Code quality, runtime, tokens and estimated API costs.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,7 +54,7 @@
       "name": "VulcanBench",
       "url": "https://vulcanbench.com/",
       "publisher": {"@id": "https://vulcanbench.com/#org"},
-      "description": "An open-source coding benchmark that evaluates frontier language models on real, decontaminated engineering tasks graded by deterministic hidden tests, with cost and tokens as first-class results."
+      "description": "An open-source benchmark with suite-specific grading, effort comparisons, runtime, tokens and estimated API costs."
     }
   ]
 }
@@ -128,10 +128,9 @@
       might actually produce the same accuracy on regular every day engineering tasks.</p>
       <p>And what started as a bunch of Python scripts I was piecing together to test different models for my team,
       turned into fully open source benchmarking software, and open, transparent evals.</p>
-      <p>Every single benchmark you see on here you can run yourself. You can see every eval and all the source code
-      for VulcanBench itself. When I publish a benchmark, it will never just look at model accuracy, while that is
-      critically important, it will also look at how many tokens the models used to complete the tasks, what the
-      cost was, and how long it took.</p>
+      <p>The harness and published task suites are open source. Each report links its evidence and explains
+      what can be independently checked, what is withheld, and what would be needed to reproduce a run.
+      Alongside scores, I report token use, estimated API cost and time to complete tasks.</p>
       <p>My goal is simple: let's build better benchmarks that represent the real work engineering teams do, and
       that go beyond scores, showing things like token use, cost, and time to complete a task.</p>
       <p>Live long and benchmark 🖖</p>
@@ -140,19 +139,17 @@
 
   <section class="reveal">
     <div class="section-label">How it is measured</div>
-    <h2>Three rules, no exceptions.</h2>
+    <h2>What every comparison makes clear.</h2>
     <div class="cols3">
       <div class="feature">
         <div class="n">01</div>
-        <h3>Deterministic grading</h3>
-        <p>Each task's pass or fail is decided by hidden tests validated to fail on the base commit and pass on the merged fix.
-        No model judges another model.</p>
+        <h3>Suite-specific scoring</h3>
+        <p>Functional outcomes come from deterministic tests. SWE v4 total scores also include automated quality, security and 20% model-reviewed Code quality. Earlier reports retain their own scoring methods.</p>
       </div>
       <div class="feature">
         <div class="n">02</div>
-        <h3>Decontaminated tasks</h3>
-        <p>Every pull request was merged after the evaluated models' training cutoffs, so no model has seen the solution.
-        Memorization cannot help.</p>
+        <h3>Disclosed evidence</h3>
+        <p>Reports identify tasks, models, harnesses, fallbacks and audit limits. Post-cutoff dates and source hashes alone cannot prove training-data absence or rule out prohibited access.</p>
       </div>
       <div class="feature">
         <div class="n">03</div>
@@ -165,8 +162,22 @@
 
   <section class="reveal">
     <div class="section-label">The latest measurements</div>
-    <h2>Our last three reports.</h2>
+    <h2>Recent reports by suite.</h2>
     <div class="report-list">
+    <a class="report-row" href="benchmarks/swe-v4-astra-fable51-v34.html">
+      <div class="no">Suite<b>v4</b></div>
+      <div><div class="rtitle">GPT-6 Astra vs. Fable 5.1 under a neutral Code quality panel</div>
+      <div class="rsub">The same 230 runs rescored with Code quality at 33%, judged for a human reader by Muse Spark 1.3 and Grok 4.6. Fable leads combined score and Code quality at every effort; Astra is faster at every effort.</div>
+      <div class="meta">September 9, 2026 &middot; 23 matched tasks &middot; 230 runs &middot; VulcanBench-SWE v4 &middot; Code quality protocol v3.4</div></div>
+      <div class="arrow">&rarr;</div>
+    </a>
+    <a class="report-row" href="benchmarks/swe-v4-astra-fable51.html">
+      <div class="no">Suite<b>v4</b></div>
+      <div><div class="rtitle">GPT-6 Astra and Fable 5.1 with fallbacks</div>
+      <div class="rsub">Five effort levels: total scores, Code quality, runtime and estimated API costs, with reviewer sensitivity and public run records.</div>
+      <div class="meta">September 6, 2026 &middot; 23 matched tasks &middot; 230 runs &middot; VulcanBench-SWE v4</div></div>
+      <div class="arrow">&rarr;</div>
+    </a>
     <a class="report-row" href="benchmarks/20-musespark-pi-harness.html">
       <div class="no">Report<b>20</b></div>
       <div>
@@ -267,7 +278,7 @@
 <footer>
   <div class="rule"></div>
   <div class="inner">
-    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
     <nav class="fnav">
       <a href="benchmarks.html">Benchmarks</a>
       <a href="methodology.html">Methodology</a>
