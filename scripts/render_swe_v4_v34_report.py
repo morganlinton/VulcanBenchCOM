@@ -28,7 +28,7 @@ EFFORTS = ("low", "medium", "high", "extra-high", "max")
 INK = colors.HexColor("#171917")
 GREY = colors.HexColor("#555551")
 RULE = colors.HexColor("#ccccc4")
-PAGES = 10
+PAGES = 9
 
 
 def main():  # noqa: PLR0915, one linear document
@@ -95,9 +95,8 @@ def main():  # noqa: PLR0915, one linear document
       f"{fable_max['combined_33']['mean']:.2f} and {astra_max['combined_33']['mean']:.2f}; Code quality is "
       f"{fable_max['code_quality']['mean']:.2f} against {astra_max['code_quality']['mean']:.2f}, with the widest gap on human "
       f"readability ({fable_max['readability']['mean']:.1f} against {astra_max['readability']['mean']:.1f}).")
-    p("Under the earlier published protocol, in which Astra and an Anthropic model judged the same code, Astra led Code quality at "
-      "all five efforts. The reversal comes from who judges and what the rubric asks, not from the weight change alone: under "
-      "the old 20% weight and the new judges Fable still leads at every effort.")
+    p("Under the prior 50/15/15/20 profile applied to the same Code quality scores, Fable still leads at every effort, so the "
+      "ranking does not depend on the weight change.")
     heading("Table 1. Combined score, Code quality and runtime by effort")
     records = [[name(m), e.replace("-", " ").title(), f'{g[m, e]["combined_33"]["mean"]:.2f}', f'{g[m, e]["combined_33"]["se"]:.2f}',
                 f'{g[m, e]["combined_20_profile"]["mean"]:.2f}', f'{g[m, e]["code_quality"]["mean"]:.2f}', f'{g[m, e]["minutes"]["mean"]:.1f}',
@@ -228,34 +227,6 @@ def main():  # noqa: PLR0915, one linear document
     for item in econ["limitations"]:
         p("\u2022 " + item, "small")
 
-    # Page 6: history of the run
-    story.append(PageBreak())
-    p("How the run actually went", "h1")
-    p("Every protocol version was frozen by hash before its first counted call, and each older panel ran from a git worktree pinned "
-      "to its own freeze commit once the runner had moved on. The freeze history is part of the published record.")
-    table(["Version", "Change", "Outcome"], [
-        ["v3", "Three repeats, exact-excerpt rule, verifiability gate with a naming clause", "Reader passed; Astra failed repeatability and the naming clause; Opus 5 stopped on non-verbatim excerpts"],
-        ["v3.1", "Line-level excerpt rule; naming clause dropped", "Astra failed a different single gate; Opus 5 stopped on a dots-only elision line"],
-        ["v3.2", "Five repeats; one-gate allowance of 0.5; elision markers", "Astra and Opus 5 passed with no allowance; the Haiku reader failed its gate by one answer"],
-        ["v3.3", "Neutral panel: GLM 5.3 and Grok 4.6", "Grok passed with no allowance; GLM failed on a fabricated excerpt"],
-        ["v3.4", "Muse Spark 1.3 replaces GLM 5.3", "Muse passed with no allowance; both neutral judges completed all 230 submissions"],
-    ], [48, 196, 236], size=8.4, padding=3, wrap=True)
-    heading("Operator interventions")
-    p("A wrapper outside the frozen code applied a small set of documented rules when a judge call stopped, and halted for a person "
-      "on anything else. Every application is printed to the run log and recorded inside the receipt it touched, with the "
-      "original response preserved. The rules: one fresh attempt after a CLI structured-output failure; re-wrapping an excerpt to "
-      "the source's own line breaks when every fragment is verbatim, including quotes that start mid-line, drop Markdown code marks, "
-      "omit a receiver or index, or decode an escape into a control character; normalising decorated quirk identifiers; one fresh "
-      "attempt after an outside SIGTERM; and archive-and-resume with backoff after a transport rate limit. Fabricated text never "
-      "recovers. Muse needed two excerpt recoveries and one SIGTERM retry across 690 calls; Grok needed five excerpt recoveries and "
-      "six rate-limit resumes across 960 calls. Neither judge produced a reviewer fallback.")
-    heading("What this report does not claim")
-    p("No human rated anything; the scores are model judgment for a human reader, not human validation. Standard errors describe "
-      "task sampling only. The measured-maintenance layer is unbuilt, so the 33 points are 24 reviewed plus 9 intent recovery. "
-      "Runs were not repeated, CLI versions were not held fixed across weeks, and effort labels are harness-specific. The 11 Fable "
-      "runs that fell back to Opus 4.8 remain in the population and are flagged in the run records. Hash checks bind the export to "
-      "frozen files; they do not prove that judges were unbiased or that no training overlap exists.")
-
     # Page 6: reproduction and evidence
     story.append(PageBreak())
     p("Evidence and reproduction", "h1")
@@ -271,6 +242,12 @@ def main():  # noqa: PLR0915, one linear document
       "the two judges. The combined score is 100 x (0.50 F + 0.085 Q + 0.085 S + 0.33 C / 100) with F, Q, S on a 0 to 1 scale. "
       "Group means weight the 23 tasks equally. The export script recomputes every row from the frozen summary and refuses to "
       "write if any value differs.")
+    heading("What this report does not claim")
+    p("No human rated anything; the scores are model judgment for a human reader, not human validation. Standard errors describe "
+      "task sampling only. The measured-maintenance layer is unbuilt, so the 33 points are 24 reviewed plus 9 intent recovery. "
+      "Runs were not repeated, CLI versions were not held fixed across weeks, and effort labels are harness-specific. The 11 Fable "
+      "runs that fell back to Opus 4.8 remain in the population and are flagged in the run records. Hash checks bind the export to "
+      "frozen files; they do not prove that judges were unbiased or that no training overlap exists.")
     heading("Source hashes")
     table(["Frozen artifact", "SHA-256"], [[k, v[:32] + "..."] for k, v in provenance["source_artifacts_sha256"].items()], [190, 300], size=8.2, padding=3)
     p("The protocol documents, controls, quirk-key format, runner and operator wrapper are in the VulcanBench repository under "
