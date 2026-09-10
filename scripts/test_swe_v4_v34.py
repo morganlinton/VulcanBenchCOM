@@ -144,6 +144,10 @@ class NeutralPanelBundleTests(unittest.TestCase):
         self.assertEqual(f'{t["astra"]["usd"]:.2f}', "225.04")
         self.assertEqual(f'{t["fable"]["usd"]:,.2f}', "1,159.10")
         self.assertEqual(f'{t["astra"]["long_context_upper_usd"]:.2f}', "419.42")
+        astra_costs = [eg["astra", e]["usd"]["mean"] for e in EFFORTS]
+        fable_costs = [eg["fable", e]["usd"]["mean"] for e in EFFORTS]
+        index = (ROOT / "benchmarks.html").read_text()
+        self.assertIn(f"Astra costs ${min(astra_costs):.2f} to ${max(astra_costs):.2f} per task against Fable's ${min(fable_costs):.2f} to ${max(fable_costs):.2f}", index)
         card = ROOT / "assets/cards/swe-v4-astra-fable51-v34-economics.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), ECONOMICS_CARD_SHA256)
         for r in self.rows:
