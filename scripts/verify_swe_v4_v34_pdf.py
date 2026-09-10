@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PDF = ROOT / "assets/reports/vulcanbench-swe-v4-astra-fable51-v34-report.pdf"
 GITHUB = "https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-astra-fable51-v34"
 EFFORTS = ("low", "medium", "high", "extra-high", "max")
-PAGES = 10
+PAGES = 9
 
 
 def main():
