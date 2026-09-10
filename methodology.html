@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Methodology | VulcanBench</title>
-<meta name="description" content="How VulcanBench measures task correctness, automated quality, security and model-reviewed Code quality, with time, tokens and estimated API cost reported separately.">
+<meta name="description" content="How VulcanBench measures task correctness, lint and complexity, security and model-reviewed Code quality, with time, tokens and estimated API cost reported separately.">
 <link rel="canonical" href="https://vulcanbench.com/methodology.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="VulcanBench">
@@ -178,7 +178,7 @@
       <p><strong>Functional pass@1</strong> measures how often a task is fully solved in one attempt.
       With one attempt per task, it is tasks solved divided by tasks scored. With repeated attempts, the harness
       averages each task's success rate across tasks, giving tasks equal weight.</p>
-      <p><strong>The combined score</strong> measures functional correctness, static quality, security, and
+      <p><strong>The combined score</strong> measures functional correctness, lint and complexity, security, and
       Code quality. Passing every task does not imply a combined score of 100.
       Functional correctness retains half the weight; Code quality contributes a third.</p>
       <p>Code quality assesses the code beyond test outcomes: whether a person who has never seen it could
@@ -186,23 +186,24 @@
       than changing which tasks count as solved.</p>
       <h3>Combined score weights (from September 2026)</h3>
     </div>
-    <div class="metric-weights" aria-label="Combined score weights: functional 50%, quality 8.5%, security 8.5%, Code quality 33%">
+    <div class="metric-weights" aria-label="Combined score weights: functional 50%, lint and complexity 8.5%, security 8.5%, Code quality 33%">
       <div class="mw-row"><div class="mw-label">Functional<span>hidden tests</span></div><div class="mw-track"><div class="mw-fill" style="width:50%"></div></div><div class="mw-pct">50%</div></div>
-      <div class="mw-row"><div class="mw-label">Quality<span>lint · complexity · maintainability</span></div><div class="mw-track"><div class="mw-fill accent" style="width:8.5%"></div></div><div class="mw-pct">8.5%</div></div>
+      <div class="mw-row"><div class="mw-label">Lint and complexity<span>ruff, radon: static checks</span></div><div class="mw-track"><div class="mw-fill accent" style="width:8.5%"></div></div><div class="mw-pct">8.5%</div></div>
       <div class="mw-row"><div class="mw-label">Security<span>static analysis</span></div><div class="mw-track"><div class="mw-fill accent" style="width:8.5%"></div></div><div class="mw-pct">8.5%</div></div>
       <div class="mw-row"><div class="mw-label">Code quality<span>reviewed 15 · intent recovery 6 · measured maintenance 12</span></div><div class="mw-track"><div class="mw-fill accent" style="width:33%"></div></div><div class="mw-pct">33%</div></div>
     </div>
     <div class="prose" style="margin-top:24px;">
       <p>Bars use a shared 0% to 100% scale. For each run, the combined score is
       <code>100 × (0.50F + 0.085Q + 0.085S + 0.33C)</code>, with each factor on a 0 to 1 scale.
-      F is the partial-credit functional score, not the binary solved indicator used by pass@1.
+      F is the partial-credit functional score, not the binary solved indicator used by pass@1. Q is the lint and
+      complexity score from static tools (ruff and radon for Python) and S is the security scan.
       C is Code quality, composed of three layers: a reviewed panel score (15 points), an intent recovery
       probe scored against each task's known spec departures (6 points), and a measured maintenance test in
       which a fixed agent applies a follow-up change and regenerated hidden tests check it (12 points). Until the
       measured layer is built, the reviewed and intent layers carry 24 and 9 points, disclosed on each card.
       Reports average attempts within each task, then average tasks equally. All factors must be present;
       a missing factor makes this combined score unavailable rather than silently changing its weights.</p>
-      <p>Weight moved from the automated quality metric because the maintainability index rewards fewer lines and
+      <p>Weight moved from the lint and complexity metric because its maintainability index rewards fewer lines and
       per-function complexity stays low when each dense line does something different, so compressed code scored
       higher than the same logic written for a reader. A third is a benchmark policy choice, locked before any
       submission was rescored. Reports published before September 2026 used a 20% Code quality weight with a
