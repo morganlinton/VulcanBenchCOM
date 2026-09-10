@@ -154,6 +154,19 @@ class NeutralPanelBundleTests(unittest.TestCase):
             self.assertGreaterEqual(r["long_context_upper_usd"], r["estimated_usd"])
             self.assertGreater(r["raw_tokens"], 0)
 
+    def test_model_pages(self):
+        for slug, model in (("gpt-6-astra", "astra"), ("fable-5-1", "fable")):
+            page = (ROOT / f"models/{slug}.html").read_text()
+            self.assertIn("../benchmarks/swe-v4-astra-fable51-v34.html", page)
+            combined = [self.groups[model, e]["combined_33"]["mean"] for e in EFFORTS]
+            quality = [self.groups[model, e]["code_quality"]["mean"] for e in EFFORTS]
+            self.assertIn(f"combined score {min(combined):.2f} to {max(combined):.2f}", page)
+            self.assertIn(f"Code quality {min(quality):.2f} to {max(quality):.2f}", page)
+            self.assertNotIn(chr(0x2014), html.unescape(page))
+            self.assertIn(f'href="models/{slug}.html"', (ROOT / "benchmarks.html").read_text())
+        self.assertIn('href="/models/gpt-6-astra.html"', self.page_html)
+        self.assertIn('href="/models/fable-5-1.html"', self.page_html)
+
     def test_comparative_claims(self):
         for effort in EFFORTS:
             a, f = self.groups["astra", effort], self.groups["fable", effort]
