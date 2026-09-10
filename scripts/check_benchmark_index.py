@@ -100,10 +100,12 @@ class BenchmarkIndexTests(unittest.TestCase):
                     self.assertIn(parsed.fragment, page.ids)
 
     def test_no_em_or_en_dashes(self):
-        for name in ("benchmarks.html", "benchmarks/swe-v4-astra-fable51-v34.html", "benchmarks-suites.css", "AGENTS.md", "README.md", "index.html", "methodology.html", "leaderboard.html", "llms.txt"):
-            text = html.unescape((ROOT / name).read_text())
-            self.assertNotIn(chr(0x2014), text, name)
-            self.assertNotIn(chr(0x2013), text, name)
+        for path in sorted(ROOT.rglob("*")):
+            if path.suffix not in (".html", ".xml", ".txt", ".md", ".css", ".js") or ".git" in path.parts or "node_modules" in path.parts:
+                continue
+            text = html.unescape(path.read_text(errors="ignore"))
+            self.assertNotIn(chr(0x2014), text, str(path))
+            self.assertNotIn(chr(0x2013), text, str(path))
 
 
 if __name__ == "__main__":

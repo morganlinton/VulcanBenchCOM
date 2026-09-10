@@ -1,4 +1,4 @@
-/* VulcanBench — terminal run animation + scroll reveals + CTA analytics + nav affordance. No dependencies. */
+/* VulcanBench: terminal run animation + scroll reveals + CTA analytics + nav affordance. No dependencies. */
 (function () {
   "use strict";
 
@@ -61,7 +61,7 @@
   var N = 26;
   var NAME_W = 26;
 
-  /* [name, pass, time, cost] — real v1-micro run, Sonnet 5 (low), 2026-07-03:
+  /* [name, pass, time, cost]: real v1-micro run, Sonnet 5 (low), 2026-07-03:
      25/26 pass, $0.82, pass@1 0.9615. Harvested from the run summary.json files. */
   var TASKS = [
     ["go-stack-pop-bug",        true,  "1m02s", "$0.02"],

@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Muse Spark 1.2 across the effort knob | Report 19 | VulcanBench</title>
-<meta name="description" content="Meta's Muse Spark 1.2 on VulcanBench v3: the steepest effort inversion measured on the suite. 87.0% pass@1 at low reasoning effort, 52.2% at xhigh, and every failure at rising effort a wall-clock timeout rather than a wrong answer.">
+<meta name="description" content="Muse Spark 1.2 on VulcanBench v3: the steepest effort inversion on the suite, 87.0% pass@1 at low and 52.2% at xhigh.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/19-musespark-effort.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
@@ -37,7 +37,7 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Muse Spark 1.2 across the effort knob | Report 19",
-  "description": "Meta's Muse Spark 1.2 on VulcanBench v3: the steepest effort inversion measured on the suite. 87.0% pass@1 at low reasoning effort, 52.2% at xhigh, and every failure at rising effort a wall-clock timeout rather than a wrong answer.",
+  "description": "Muse Spark 1.2 on VulcanBench v3: the steepest effort inversion on the suite, 87.0% pass@1 at low and 52.2% at xhigh.",
   "url": "https://vulcanbench.com/benchmarks/19-musespark-effort.html",
   "mainEntityOfPage": "https://vulcanbench.com/benchmarks/19-musespark-effort.html",
   "image": "https://vulcanbench.com/assets/cards/report19-musespark.png",
@@ -100,7 +100,7 @@
     <div class="section-label">Results</div>
     <h2>Effort buys timeouts, not answers.</h2>
     <div class="table-scroll compact" role="region" aria-label="Effort results" tabindex="0">
-    <table class="data">
+    <table class="data"><caption class="sr-only">Effort buys timeouts, not answers</caption>
       <thead><tr><th>Effort</th><th>pass@1</th><th>Solved</th><th>Wrong</th><th>Timeouts</th><th>Median time/task</th><th>$/solved</th></tr></thead>
       <tbody>
         <tr><td class="model">low</td><td class="win">87.0% &plusmn;7.0</td><td class="win">20/23</td><td>3</td><td class="win">0</td><td class="win">3.2 min</td><td class="win">$0.41</td></tr>
@@ -128,7 +128,7 @@
     <div class="section-label">Breakdown</div>
     <h2>The backward knob, across the board.</h2>
     <div class="table-scroll compact" role="region" aria-label="Cross-model effort comparison" tabindex="0">
-    <table class="data">
+    <table class="data"><caption class="sr-only">The backward knob, across the board</caption>
       <thead><tr><th>Model (report)</th><th>best</th><th>worst</th><th>drop</th><th>failure mode at the top</th></tr></thead>
       <tbody>
         <tr><td class="model">Muse Spark 1.2 (No. 19)</td><td>87.0% low</td><td>52.2% xhigh</td><td>&minus;34.8</td><td>10 of 11 failures are timeouts</td></tr>

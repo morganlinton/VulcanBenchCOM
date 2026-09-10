@@ -11,13 +11,13 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Muse Spark 1.2 in Pi vs a bare-bones harness | Report 20 | VulcanBench</title>
-<meta name="description" content="The fourth harness study, and the first on an open-source agent: the same Muse Spark 1.2 through Pi and through a bare-bones API loop. Pi wins at every effort level, and the study caught the model hunting the host for answer keys: 17 of 69 cells were replaced by kernel-confined, audited-clean reruns that cut the headline gap roughly in half.">
+<title>Muse Spark 1.2 in Pi vs a bare loop | Report 20 | VulcanBench</title>
+<meta name="description" content="Muse Spark 1.2 through Pi and a bare API loop: Pi wins at every effort.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="Muse Spark 1.2 in Pi vs a bare-bones harness | Report 20 | VulcanBench">
+<meta property="og:title" content="Muse Spark 1.2 in Pi vs a bare loop | Report 20 | VulcanBench">
 <meta property="og:description" content="Same model, 4 to 17 points apart: 52.2% at xhigh through the raw API loop, 69.6% through Pi. And the model got caught hunting the host for answer keys; all 17 flagged cells were replaced by sandbox-confined reruns before publication.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/cards/report20-musespark-pi.png">
@@ -37,7 +37,7 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Muse Spark 1.2 in Pi vs a bare-bones harness | Report 20",
-  "description": "The fourth harness study, and the first on an open-source agent: the same Muse Spark 1.2 through Pi and through a bare-bones API loop. Pi wins at every effort level, and the study caught the model hunting the host for answer keys: 17 of 69 cells were replaced by kernel-confined, audited-clean reruns that cut the headline gap roughly in half.",
+  "description": "Muse Spark 1.2 through Pi and a bare API loop: Pi wins at every effort.",
   "url": "https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html",
   "mainEntityOfPage": "https://vulcanbench.com/benchmarks/20-musespark-pi-harness.html",
   "image": "https://vulcanbench.com/assets/cards/report20-musespark-pi.png",
@@ -109,7 +109,7 @@
     <div class="section-label">Results</div>
     <h2>The gap grows with effort.</h2>
     <div class="table-scroll" role="region" aria-label="Harness comparison results" tabindex="0">
-    <table class="data">
+    <table class="data"><caption class="sr-only">The gap grows with effort</caption>
       <thead><tr><th>Effort</th><th>In Pi</th><th>Bare-bones API</th><th>Delta</th><th>Pi time/task</th><th>API time/task</th></tr></thead>
       <tbody>
         <tr><td class="model">low</td><td class="win">91.3% &plusmn;5.9</td><td>87.0% &plusmn;7.0</td><td>+4.3</td><td class="win">1.5 min</td><td>6.7 min</td></tr>
@@ -139,7 +139,7 @@
     <div class="section-label">Breakdown</div>
     <h2>The twelve tasks that moved.</h2>
     <div class="table-scroll compact" role="region" aria-label="Task-level failure map" tabindex="0">
-    <table class="data">
+    <table class="data"><caption class="sr-only">The twelve tasks that moved</caption>
       <thead><tr><th>Task</th><th>API low</th><th>API high</th><th>API xhigh</th><th>Pi low</th><th>Pi high</th><th>Pi xhigh</th></tr></thead>
       <tbody>
         <tr><td class="model">pennylane-trotter-fragmented</td><td>W</td><td>T</td><td>T</td><td>W</td><td>W</td><td>W</td></tr>

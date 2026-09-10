@@ -12,19 +12,19 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kimi K3 vs Grok 4.5, Claude Fable 5 &amp; GPT-5.6 Sol benchmark | Report 08 | VulcanBench</title>
-<meta name="description" content="Kimi K3 joins the VulcanBench v3 field: Grok 4.5 leads all eleven configurations at 91.3% with the lowest cost per solved task; K3 debuts at 74%, rising to 87% under an extended-budget ablation.">
+<title>Kimi K3 vs Grok 4.5, Fable 5 and Sol | Report 08 | VulcanBench</title>
+<meta name="description" content="Kimi K3 joins VulcanBench v3: Grok 4.5 leads all eleven configurations at 91.3% at the lowest cost per solve; K3 debuts at 74%, 87% with an extended budget.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/08-kimi-k3.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="Kimi K3 vs Grok 4.5, Claude Fable 5 &amp; GPT-5.6 Sol benchmark | Report 08 | VulcanBench">
-<meta property="og:description" content="Kimi K3 joins the VulcanBench v3 field: Grok 4.5 leads all eleven configurations at 91.3% with the lowest cost per solved task; K3 debuts at 74%, rising to 87% under an extended-budget ablation.">
+<meta property="og:title" content="Kimi K3 vs Grok 4.5, Fable 5 and Sol | Report 08 | VulcanBench">
+<meta property="og:description" content="Kimi K3 joins VulcanBench v3: Grok 4.5 leads all eleven configurations at 91.3% at the lowest cost per solve; K3 debuts at 74%, 87% with an extended budget.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/08-kimi-k3.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/cards/report8-kimi-k3.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kimi K3 vs Grok 4.5, Claude Fable 5 &amp; GPT-5.6 Sol benchmark | Report 08 | VulcanBench">
-<meta name="twitter:description" content="Kimi K3 joins the VulcanBench v3 field: Grok 4.5 leads all eleven configurations at 91.3% with the lowest cost per solved task; K3 debuts at 74%, rising to 87% under an extended-budget ablation.">
+<meta name="twitter:title" content="Kimi K3 vs Grok 4.5, Fable 5 and Sol | Report 08 | VulcanBench">
+<meta name="twitter:description" content="Kimi K3 joins VulcanBench v3: Grok 4.5 leads all eleven configurations at 91.3% at the lowest cost per solve; K3 debuts at 74%, 87% with an extended budget.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report8-kimi-k3.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Kimi K3 vs Grok 4.5, Claude Fable 5 & GPT-5.6 Sol benchmark | Report 08",
-  "description": "Kimi K3 joins the VulcanBench v3 field: Grok 4.5 leads all eleven configurations at 91.3% with the lowest cost per solved task; K3 debuts at 74%, rising to 87% under an extended-budget ablation.",
+  "description": "Kimi K3 joins VulcanBench v3: Grok 4.5 leads all eleven configurations at 91.3% at the lowest cost per solve; K3 debuts at 74%, 87% with an extended budget.",
   "url": "https://vulcanbench.com/benchmarks/08-kimi-k3.html",
   "mainEntityOfPage": "https://vulcanbench.com/benchmarks/08-kimi-k3.html",
   "image": "https://vulcanbench.com/assets/cards/report8-kimi-k3.png",
@@ -91,19 +91,18 @@
   <div class="abstract-box">
     <span class="lbl">Abstract.</span>
     <p><strong>Grok 4.5 leads all eleven configurations at 21/23 (91.3%) with the lowest cost per solved task ($0.32).</strong>
-    Kimi K3 debuts at 17/23 (74%) in its standard configuration and 20/23 (87%) under an extended-budget ablation &mdash;
-    level with the best Fable 5 and Sol configurations. The two hardest v3 tasks remain unsolved by every model.</p>
+    Kimi K3 debuts at 17/23 (74%) in its standard configuration and 20/23 (87%) under an extended-budget ablation, level with the best Fable 5 and Sol configurations. The two hardest v3 tasks remain unsolved by every model.</p>
   </div>
 
   <figure>
     <img src="../assets/cards/report8-kimi-k3.webp" alt="Model card: Kimi K3 at 30-minute and 2-hour budgets vs Grok 4.5, Claude Fable 5, and GPT-5.6 Sol across effort levels on 23 v3 tasks" width="1600" height="900" loading="lazy" decoding="async">
-    <figcaption><b>Card.</b> All eleven configurations. Brown = Grok 4.5, blue = Claude Fable 5, gray = GPT-5.6 Sol, teal = Kimi K3; shades darken low &rarr; medium &rarr; high effort &mdash; for Kimi, 30-minute &rarr; 2-hour budget.</figcaption>
+    <figcaption><b>Card.</b> All eleven configurations. Brown = Grok 4.5, blue = Claude Fable 5, gray = GPT-5.6 Sol, teal = Kimi K3; shades darken low &rarr; medium &rarr; high effort, for Kimi, 30-minute &rarr; 2-hour budget.</figcaption>
   </figure>
 
   <section style="padding-top:20px;">
     <div class="section-label">Results</div>
     <h2>Grok 4.5 tops the field on accuracy and cost; Kimi K3 lands mid-pack.</h2>
-    <table class="data">
+    <table class="data"><caption class="sr-only">Grok 4.5 tops the field on accuracy and cost; Kimi K3 lands mid-pack</caption>
       <thead><tr><th>Model (effort)</th><th>Score</th><th>pass@1</th><th>Cost</th><th>Tokens/task</th><th>Time/task</th><th>$/solved</th></tr></thead>
       <tbody>
         <tr><td class="model">Grok 4.5 (medium)</td><td class="win">21/23</td><td class="win">91.3%</td><td>$6.67</td><td>106 K</td><td>3.9 min</td><td class="win">$0.32</td></tr>
@@ -119,19 +118,19 @@
         <tr><td class="model">Kimi K3 (max, 30-min budget)</td><td>17/23</td><td>73.9%</td><td>$16.84</td><td>134 K</td><td>18.1 min</td><td>$0.99</td></tr>
       </tbody>
     </table>
-    <p class="prose" style="margin-top:10px;font-size:15px;"><sup>&Dagger;</sup> 2-hour row: the five tasks that did not finish within the 30-minute budget were re-run with exact budgets of 2 h / 400 steps / $4 per run (runs marked <span style="font-family:var(--mono);font-size:15px;">budget_override</span>); the other 18 runs are unchanged. It is an ablation, not a leaderboard config &mdash; every other model ran under the standard budget. <sup>&dagger;</sup> Fable 5 ran with Opus 4.8 refusal fallback (see Report 07). Grok/Fable/Sol rows reproduced from Report 07. Tokens are billed tokens; time is sandbox wall-clock.</p>
+    <p class="prose" style="margin-top:10px;font-size:15px;"><sup>&Dagger;</sup> 2-hour row: the five tasks that did not finish within the 30-minute budget were re-run with exact budgets of 2 h / 400 steps / $4 per run (runs marked <span style="font-family:var(--mono);font-size:15px;">budget_override</span>); the other 18 runs are unchanged. It is an ablation, not a leaderboard config: every other model ran under the standard budget. <sup>&dagger;</sup> Fable 5 ran with Opus 4.8 refusal fallback (see Report 07). Grok/Fable/Sol rows reproduced from Report 07. Tokens are billed tokens; time is sandbox wall-clock.</p>
 
     <div class="findings-list">
-      <div class="finding"><div class="fn">1.</div><p><strong>Grok 4.5 wins on accuracy and economics.</strong> 21/23 (91.3%) at $0.32 per solved task &mdash; no other configuration matches either number. Its medium and high efforts tie, keeping medium the efficiency frontier of the board.</p></div>
-      <div class="finding"><div class="fn">2.</div><p><strong>Kimi K3 debuts mid-pack and closes with budget.</strong> 17/23 in its standard configuration; the extended-budget ablation converts aiohttp, NetworkX-Leiden, and jiff-strftime for +$10.59, reaching 20/23 &mdash; matching the best Fable 5 and Sol configurations.</p></div>
-      <div class="finding"><div class="fn">3.</div><p><strong>The v3 difficulty ceiling held.</strong> PennyLane Trotter fragmentation (0.2 partial) and SQLGlot internal-name canonicalization (0.17 partial) remain unsolved by every configuration ever run &mdash; 0-for-27 in Report 07, and K3&rsquo;s extended attempts didn&rsquo;t crack them either.</p></div>
+      <div class="finding"><div class="fn">1.</div><p><strong>Grok 4.5 wins on accuracy and economics.</strong> 21/23 (91.3%) at $0.32 per solved task: no other configuration matches either number. Its medium and high efforts tie, keeping medium the efficiency frontier of the board.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Kimi K3 debuts mid-pack and closes with budget.</strong> 17/23 in its standard configuration; the extended-budget ablation converts aiohttp, NetworkX-Leiden, and jiff-strftime for +$10.59, reaching 20/23, matching the best Fable 5 and Sol configurations.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>The v3 difficulty ceiling held.</strong> PennyLane Trotter fragmentation (0.2 partial) and SQLGlot internal-name canonicalization (0.17 partial) remain unsolved by every configuration ever run: 0-for-27 in Report 07, and K3&rsquo;s extended attempts didn&rsquo;t crack them either.</p></div>
     </div>
   </section>
 
   <section style="padding-top:8px;">
     <div class="section-label">Extended-budget ablation</div>
     <h2>Three more solves under the extended budget.</h2>
-    <table class="data">
+    <table class="data"><caption class="sr-only">Three more solves under the extended budget</caption>
       <thead><tr><th>Task</th><th>30-min budget</th><th>2-h budget</th><th>Time</th><th>Cost</th></tr></thead>
       <tbody>
         <tr><td class="model">aiohttp-upgrade-deferred</td><td>&times; did not finish</td><td>&#10003; solved</td><td>64 min</td><td>$2.66</td></tr>
@@ -139,7 +138,7 @@
         <tr><td class="model">jiff-strftime-negpad</td><td>&times; did not finish</td><td>&#10003; solved</td><td>21 min</td><td>$1.14</td></tr>
         <tr><td class="model">pennylane-trotter-fragmented</td><td>&times; did not finish</td><td>partial (0.2), $4 cap</td><td>100 min</td><td>$4.78</td></tr>
         <tr><td class="model">sqlglot-canonicalize-internal-names</td><td>&times; did not finish</td><td>partial (0.17), $4 cap</td><td>94 min</td><td>$4.12</td></tr>
-        <tr><td class="model">sqlglot-iso8601-nanos</td><td>partial (0.7)</td><td>&mdash; not re-run</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td class="model">sqlglot-iso8601-nanos</td><td>partial (0.7)</td><td>, not re-run</td><td>, </td><td>, </td></tr>
       </tbody>
     </table>
     <p class="prose" style="margin-top:10px;font-size:15px;">The two remaining tasks ended at the $4 per-run cost cap with partial progress.</p>

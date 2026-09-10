@@ -1,4 +1,4 @@
-# VulcanBench — everything here is meant to be read, indexed, and cited.
+# VulcanBench: everything here is meant to be read, indexed, and cited.
 User-agent: *
 Allow: /
 
@@ -12,7 +12,7 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# AI answer engines and training crawlers — explicitly welcome
+# AI answer engines and training crawlers: explicitly welcome
 User-agent: GPTBot
 Allow: /
 
