@@ -103,20 +103,20 @@ def main():  # noqa: PLR0915, one linear document
                 f'{g[m, e]["passed"]}/23'] for m in ("astra", "fable") for e in EFFORTS]
     table(["Model", "Effort", "Combined (33%)", "SE", "Combined (20%)", "Code quality", "Min/task", "Passed"],
           records, [52, 62, 78, 40, 78, 70, 52, 48], size=8.9)
-    p("Combined (33%) = 0.50 functional + 0.085 automated quality + 0.085 security + 0.33 Code quality. Combined (20%) applies the "
+    p("Combined (33%) = 0.50 functional + 0.085 lint and complexity + 0.085 security + 0.33 Code quality. Combined (20%) applies the "
       "prior 50/15/15/20 profile to the same new Code quality scores for comparison. SE is one sample standard error across 23 "
       "tasks, not judge uncertainty or a significance test. Runtime is solver wall-clock per task; judging is excluded.", "small")
 
     # Page 2: what changed and why
     story.append(PageBreak())
     p("Why the protocol changed", "h1")
-    p("Two failure modes motivated the revision. First, the automated quality metric rewards compression: the maintainability "
+    p("Two failure modes motivated the revision. First, the lint and complexity metric rewards compression: the maintainability "
       "index carries a lines-of-code term and per-function complexity stays low when each dense line does something different, "
       "so five statements on a line with names like x and k can outscore the same logic written for a person. Second, a large "
       "model reading compressed code pays almost nothing to parse it; when a frontier model was calibrated as a readability "
       "judge, it rated a squashed six-line function the same as its formatted copy.")
     p("Weight moved from the automated metric to a reviewed score: Code quality rose from 20% to 33% of the combined score, "
-      "locked on September 7, 2026 before any submission was rescored. Both automated quality and security fell to 8.5%. The "
+      "locked on September 7, 2026 before any submission was rescored. Both lint and complexity and security fell to 8.5%. The "
       "prior profile is reported beside the new one on every table.")
     heading("The rubric")
     p("Every judge receives the same instructions, frozen by hash before any review. The prompt names the reader it scores for: "
@@ -195,10 +195,10 @@ def main():  # noqa: PLR0915, one linear document
       "readability; intent recovery, the ground-truth layer, is close, which says both models teach the next maintainer the real "
       "contract about equally well and differ in how readable the code is for a person.")
     heading("Table 5. Four factors by effort, mean score out of 100")
-    table(["Model", "Effort", "Functional", "Auto quality", "Security", "Code quality"],
+    table(["Model", "Effort", "Functional", "Lint, complexity", "Security", "Code quality"],
           [[name(m), e.replace("-", " ").title(), *[f'{g[m, e][k]["mean"]:.2f}' for k in ("functional", "automated_quality", "security", "code_quality")]]
            for m in ("astra", "fable") for e in EFFORTS], [60, 73, 91, 91, 73, 92], size=8.8, padding=3)
-    p("Functional scores retain partial credit and are the same values as the earlier report. Automated quality and security are "
+    p("Functional scores retain partial credit and are the same values as the earlier report. Lint and complexity and security are "
       "unchanged measurements; only their weights moved. Code quality is the new protocol's score.", "small")
 
     # Page 5: cost and tokens

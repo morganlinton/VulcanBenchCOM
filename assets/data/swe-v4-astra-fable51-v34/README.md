@@ -5,7 +5,7 @@ solver runs from the September 2026 effort sweep (23 matched tasks, five effort
 levels, GPT-6 Astra in Codex and Fable 5.1 in Claude Code with disclosed Opus
 fallbacks), judged for Code quality by a neutral two-model panel with Code
 quality at 33% of the combined score. No solver ran for this report;
-functional, automated quality and security measurements come from the sweep.
+functional, lint and complexity, and security measurements come from the sweep.
 
 ## Files
 
@@ -33,7 +33,7 @@ combined_33     = 100 * (0.50 * functional + 0.085 * quality + 0.085 * security 
 combined_20     = 100 * (0.50 * functional + 0.15 * quality + 0.15 * security + 0.20 * code_quality / 100)
 ```
 
-`functional`, `quality` and `security` are on a 0 to 1 scale and are the
+`functional`, `quality` (lint and complexity, stored as `automated_quality`) and `security` are on a 0 to 1 scale and are the
 values recorded by the effort sweep. `combined_20` applies the prior
 50/15/15/20 profile to the new Code quality scores for comparison only.
 Group means weight the 23 tasks equally. Standard errors are one sample
