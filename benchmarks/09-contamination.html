@@ -12,19 +12,19 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude Opus 5 benchmark: does contamination move the score? | Report 09 | VulcanBench</title>
-<meta name="description" content="A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. Result: 11/13 vs 12/13, one genuine miss each — no detectable effect.">
+<title>Does contamination move Opus 5's score? | Report 09 | VulcanBench</title>
+<meta name="description" content="A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. 11/13 vs 12/13: no detectable effect.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/09-contamination.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="Claude Opus 5 benchmark: does contamination move the score? | Report 09 | VulcanBench">
-<meta property="og:description" content="A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. Result: 11/13 vs 12/13, one genuine miss each — no detectable effect.">
+<meta property="og:title" content="Does contamination move Opus 5's score? | Report 09 | VulcanBench">
+<meta property="og:description" content="A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. 11/13 vs 12/13: no detectable effect.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/09-contamination.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/cards/report9-contamination.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Claude Opus 5 benchmark: does contamination move the score? | Report 09 | VulcanBench">
-<meta name="twitter:description" content="A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. Result: 11/13 vs 12/13, one genuine miss each — no detectable effect.">
+<meta name="twitter:title" content="Does contamination move Opus 5's score? | Report 09 | VulcanBench">
+<meta name="twitter:description" content="A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. 11/13 vs 12/13: no detectable effect.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report9-contamination.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Claude Opus 5 benchmark: does contamination move the score? | Report 09",
-  "description": "A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. Result: 11/13 vs 12/13, one genuine miss each — no detectable effect.",
+  "description": "A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. 11/13 vs 12/13: no detectable effect.",
   "url": "https://vulcanbench.com/benchmarks/09-contamination.html",
   "mainEntityOfPage": "https://vulcanbench.com/benchmarks/09-contamination.html",
   "image": "https://vulcanbench.com/assets/cards/report9-contamination.png",
@@ -90,9 +90,9 @@
 
   <div class="abstract-box">
     <span class="lbl">Abstract.</span>
-    <p><strong>No detectable contamination effect: the arm Opus 5 could have memorised scores 11/13; the arm it cannot have seen scores 12/13 &mdash; one genuine wrong answer each.</strong>
-    The visible one-task gap is repo-scale composition, not memory. At 11&ndash;12 of 13 the model is near ceiling, so this rules
-    out a large effect, not a small one &mdash; and getting to the null took four harness fixes that had been masquerading as signal.</p>
+    <p><strong>No detectable contamination effect: the arm Opus 5 could have memorised scores 11/13; the arm it cannot have seen scores 12/13: one genuine wrong answer each.</strong>
+    The visible one-task gap is repo-scale composition, not memory. At 11 to 12 of 13 the model is near ceiling, so this rules
+    out a large effect, not a small one, and getting to the null took four harness fixes that had been masquerading as signal.</p>
   </div>
 
   <figure>
@@ -110,13 +110,13 @@
         <tr><td class="model">Contaminated (pre-cutoff)</td><td>11/13</td><td>84.6%</td><td>1</td><td>1</td><td>$16.36</td><td>121 K</td><td>9.4 min</td><td>$1.49</td></tr>
       </tbody>
     </table>
-    <p class="prose" style="margin-top:10px;font-size:15px;">Claude Opus 5, medium effort, one attempt per task. Genuine misses completed and produced a wrong patch; hit wall-clock = still working productively when the budget expired &mdash; a different failure mode, not a statement about capability.</p>
+    <p class="prose" style="margin-top:10px;font-size:15px;">Claude Opus 5, medium effort, one attempt per task. Genuine misses completed and produced a wrong patch; hit wall-clock = still working productively when the budget expired, a different failure mode, not a statement about capability.</p>
 
     <div class="findings-list">
       <div class="finding"><div class="fn">1.</div><p><strong>No detectable contamination effect.</strong> Genuine capability misses are 1 versus 1. The headline gap is a single task (7.7 pp), inside the noise floor at n=13. Memorisation of the upstream fix did not measurably help.</p></div>
-      <div class="finding"><div class="fn">2.</div><p><strong>The visible gap is repo-scale composition, not memorisation.</strong> The contaminated arm carries 11/13 large-or-xlarge repositories against the clean arm&rsquo;s 8/13 &mdash; which is why the same 13-task shape cost 3.6&times; more and ran 2&times; longer per task, and why the one wall-clock loss landed there. Cross-suite comparisons must report scale mix alongside score.</p></div>
-      <div class="finding"><div class="fn">3.</div><p><strong>Evidence against a large effect, not proof of none.</strong> At 11&ndash;12 of 13 the model is near ceiling, and a ceiling leaves memorisation little room to show itself. A sharper test needs harder tasks or a weaker model, not more tasks at this difficulty.</p></div>
-      <div class="finding"><div class="fn">4.</div><p><strong>Most of the apparent signal was harness bugs.</strong> Before fixing them, the same comparison read 7/13 vs 12/13 &mdash; a large gap pointing the <em>wrong</em> way for contamination, produced by stalled HTTP requests scored as failures. Each of four fixes moved the arms closer together; the sequence ran 7/13 &rarr; 10/13 &rarr; 11/13 against an unchanging 12/13.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>The visible gap is repo-scale composition, not memorisation.</strong> The contaminated arm carries 11/13 large-or-xlarge repositories against the clean arm&rsquo;s 8/13, which is why the same 13-task shape cost 3.6&times; more and ran 2&times; longer per task, and why the one wall-clock loss landed there. Cross-suite comparisons must report scale mix alongside score.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Evidence against a large effect, not proof of none.</strong> At 11 to 12 of 13 the model is near ceiling, and a ceiling leaves memorisation little room to show itself. A sharper test needs harder tasks or a weaker model, not more tasks at this difficulty.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>Most of the apparent signal was harness bugs.</strong> Before fixing them, the same comparison read 7/13 vs 12/13, a large gap pointing the <em>wrong</em> way for contamination, produced by stalled HTTP requests scored as failures. Each of four fixes moved the arms closer together; the sequence ran 7/13 &rarr; 10/13 &rarr; 11/13 against an unchanging 12/13.</p></div>
     </div>
   </section>
 
@@ -132,7 +132,7 @@
         <tr><td class="model" style="text-align:left">large and xlarge repos shared an 1800 s budget</td><td style="text-align:left">Neither tier could spend its step allowance; now 2700 s / 3600 s</td></tr>
       </tbody>
     </table>
-    <p class="prose" style="margin-top:10px;font-size:15px;">These changed scoring behaviour. Results published before them &mdash; including Reports 04 and 08 &mdash; were produced under the old semantics and are not directly comparable to this report.</p>
+    <p class="prose" style="margin-top:10px;font-size:15px;">These changed scoring behaviour. Results published before them, including Reports 04 and 08, were produced under the old semantics and are not directly comparable to this report.</p>
   </section>
 
   <section style="padding-top:8px;">
@@ -142,7 +142,7 @@
       gold = 1.0, unpatched = 0.0. The arms are committed suite manifests
       (<span style="font-family:var(--mono);font-size:15px;">pre-2026-05</span> in tasks/v3,
       <span style="font-family:var(--mono);font-size:15px;">new_in_v4</span> in tasks/v4), and every task records its upstream
-      merge date, so the clean/contaminated split can be recomputed against any future model&rsquo;s cutoff &mdash; v4 is clean
+      merge date, so the clean/contaminated split can be recomputed against any future model&rsquo;s cutoff: v4 is clean
       for a May 2026 cutoff specifically, not indefinitely. Caveats: n=13 per arm (one task is 7.7 pp), single attempts, one
       model; wall-clock inflated ~2&times; by amd64 emulation on an arm64 host (scores unaffected).</p>
     </div>

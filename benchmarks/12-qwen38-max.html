@@ -13,13 +13,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Qwen3.8-Max reasoning-effort benchmark | Report 12 | VulcanBench</title>
-<meta name="description" content="Qwen3.8-Max debuts on VulcanBench v3 with an effort knob that runs backwards: 81.2% at low, 71.0% at medium, 55.1% at its shipped default. Every failure at medium and xhigh is an unfinished run, not a wrong answer.">
+<meta name="description" content="Qwen3.8-Max on VulcanBench v3: an effort knob that runs backwards, 81.2% at low, 71.0% at medium, 55.1% at its default. Every added failure is unfinished.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/12-qwen38-max.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="Qwen3.8-Max reasoning-effort benchmark | Report 12 | VulcanBench">
-<meta property="og:description" content="Qwen3.8-Max debuts on VulcanBench v3 with an effort knob that runs backwards: 81.2% at low, 71.0% at medium, 55.1% at its shipped default. Every failure at medium and xhigh is an unfinished run, not a wrong answer.">
+<meta property="og:description" content="Qwen3.8-Max on VulcanBench v3: an effort knob that runs backwards, 81.2% at low, 71.0% at medium, 55.1% at its default. Every added failure is unfinished.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/12-qwen38-max.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/cards/report12-qwen38-max.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Qwen3.8-Max reasoning-effort benchmark | Report 12",
-  "description": "Qwen3.8-Max debuts on VulcanBench v3 with an effort knob that runs backwards: 81.2% at low, 71.0% at medium, 55.1% at its shipped default. Every failure at medium and xhigh is an unfinished run, not a wrong answer.",
+  "description": "Qwen3.8-Max on VulcanBench v3: an effort knob that runs backwards, 81.2% at low, 71.0% at medium, 55.1% at its default. Every added failure is unfinished.",
   "url": "https://vulcanbench.com/benchmarks/12-qwen38-max.html",
   "mainEntityOfPage": "https://vulcanbench.com/benchmarks/12-qwen38-max.html",
   "image": "https://vulcanbench.com/assets/cards/report12-qwen38-max.png",
@@ -94,7 +94,7 @@
     That is a 26-point fall to the lowest column on the v3 board, and because xhigh is the API default, an untuned integration gets the worst setting.
     The deficit is unfinished work, not bad work: wrong answers vanish (3 &rarr; 0 &rarr; 0) while runs that never finish climb from 14% to 41%.
     The three tasks it cannot solve fail at every setting; six that low solves 3-for-3 account for 83% of the drop.
-    At $126.25 against DeepSeek V4-Flash&rsquo;s $13.60 on the same suite, and 19.6&ndash;25.5 minutes per task, it is the most expensive and slowest model on the board.</p>
+    At $126.25 against DeepSeek V4-Flash&rsquo;s $13.60 on the same suite, and 19.6 to 25.5 minutes per task, it is the most expensive and slowest model on the board.</p>
   </div>
 
   <figure>
@@ -113,14 +113,14 @@
         <tr><td class="model">xhigh (default)</td><td>55.1%</td><td>38/64</td><td class="win">0</td><td>26</td><td>$45.35</td><td>208 K</td><td>25.5 min</td><td>$1.19</td></tr>
       </tbody>
     </table>
-    <p class="prose" style="margin-top:10px;font-size:15px;">pass@1 is the mean per-task success rate across attempts, so uneven attempt counts do not bias it. Wrong = a finished run that failed the hidden tests; unfinished = cut off at the wall-clock or step budget. The xhigh column has 64 runs rather than 69 because five died on 600-second provider-side API read timeouts and are excluded rather than scored zero. Qwen&rsquo;s documented effort enum is low/medium/xhigh &mdash; there is no <em>high</em> &mdash; and xhigh is what the API uses when the field is unset.</p>
+    <p class="prose" style="margin-top:10px;font-size:15px;">pass@1 is the mean per-task success rate across attempts, so uneven attempt counts do not bias it. Wrong = a finished run that failed the hidden tests; unfinished = cut off at the wall-clock or step budget. The xhigh column has 64 runs rather than 69 because five died on 600-second provider-side API read timeouts and are excluded rather than scored zero. Qwen&rsquo;s documented effort enum is low/medium/xhigh, there is no <em>high</em>, and xhigh is what the API uses when the field is unset.</p>
 
     <div class="findings-list">
       <div class="finding"><div class="fn">1.</div><p><strong>The knob runs backwards, and steeply.</strong> Low leads xhigh by 26 points, more than triple the 9-point inversion Report No. 10 recorded for Claude Opus 5, and far outside the noise: standard errors are &plusmn;7.8, &plusmn;9.4 and &plusmn;9.7 points, and low-vs-xhigh does not overlap.</p></div>
-      <div class="finding"><div class="fn">2.</div><p><strong>Effort converts wrong answers into unfinished runs.</strong> Wrong answers fall to zero (3 &rarr; 0 &rarr; 0) while runs that hit a budget climb (10 &rarr; 20 &rarr; 26). At medium and xhigh <em>every single failure</em> is an incomplete run. Failed runs burn roughly five times the completion tokens of successful ones and three times the clock &mdash; work cut off mid-flight, not sloppy attempts.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Effort converts wrong answers into unfinished runs.</strong> Wrong answers fall to zero (3 &rarr; 0 &rarr; 0) while runs that hit a budget climb (10 &rarr; 20 &rarr; 26). At medium and xhigh <em>every single failure</em> is an incomplete run. Failed runs burn roughly five times the completion tokens of successful ones and three times the clock: work cut off mid-flight, not sloppy attempts.</p></div>
       <div class="finding"><div class="fn">3.</div><p><strong>The regression sits in solvable work.</strong> Three tasks score zero at every setting and extra reasoning rescues none of them. Of the nine that regress from low to xhigh, the six that low solves 3-for-3 account for 83% of the drop, three collapsing to zero. It is not losing the hard problems; it is losing the ones it already knows how to do.</p></div>
-      <div class="finding"><div class="fn">4.</div><p><strong>Most expensive, slowest, and beaten on every axis.</strong> The sweep cost $126.25 against $13.60 for DeepSeek V4-Flash on the identical suite. Every DeepSeek column (88.4 / 87.3 / 85.5) outscores every Qwen column (81.2 / 71.0 / 55.1) with no overlap, at $0.08 per solved task against $0.75&ndash;1.19. At 19.6&ndash;25.5 min/task it is the slowest model measured on v3, ahead of Kimi K3 at 17.2.</p></div>
-      <div class="finding"><div class="fn">5.</div><p><strong>A second clock, imposed by the provider.</strong> Five xhigh runs on the suite&rsquo;s heaviest repositories failed with 600-second read timeouts from the DashScope endpoint &mdash; a single request exceeding ten minutes, well inside the harness&rsquo;s own 45- and 60-minute budgets. No previous report has recorded this. At its default effort, the model can exceed its own provider&rsquo;s response window.</p></div>
+      <div class="finding"><div class="fn">4.</div><p><strong>Most expensive, slowest, and beaten on every axis.</strong> The sweep cost $126.25 against $13.60 for DeepSeek V4-Flash on the identical suite. Every DeepSeek column (88.4 / 87.3 / 85.5) outscores every Qwen column (81.2 / 71.0 / 55.1) with no overlap, at $0.08 per solved task against $0.75 to 1.19. At 19.6 to 25.5 min/task it is the slowest model measured on v3, ahead of Kimi K3 at 17.2.</p></div>
+      <div class="finding"><div class="fn">5.</div><p><strong>A second clock, imposed by the provider.</strong> Five xhigh runs on the suite&rsquo;s heaviest repositories failed with 600-second read timeouts from the DashScope endpoint: a single request exceeding ten minutes, well inside the harness&rsquo;s own 45- and 60-minute budgets. No previous report has recorded this. At its default effort, the model can exceed its own provider&rsquo;s response window.</p></div>
     </div>
   </section>
 
@@ -148,8 +148,7 @@
     <div class="section-label">Method &amp; notes</div>
     <div class="prose">
       <p>VulcanBench v3: 23 tasks from real merged post-cutoff PRs (Python 9, TypeScript 4, Rust 4, Go 3, JavaScript 3), network-isolated
-      Docker sandboxes, deterministic hidden-test grading, three attempts per task per configuration. Budgets scale with repository size
-      &mdash; 50&ndash;200 steps and 5&ndash;60 minutes &mdash; identical for every model on the board and unchanged since Report No.&nbsp;07.
+      Docker sandboxes, deterministic hidden-test grading, three attempts per task per configuration. Budgets scale with repository size, 50 to 200 steps and 5 to 60 minutes, identical for every model on the board and unchanged since Report No.&nbsp;07.
       Qwen3.8-Max priced at $2/$6 per million tokens on the international (Singapore) endpoint. <strong>Caveats:</strong> with an unlimited
       budget xhigh might close some of the gap, so this measures capability under a fixed budget rather than a capability ceiling; Qwen also
       exposes a <code>thinking_budget</code> cap that was not tested, because its API rejects that parameter alongside

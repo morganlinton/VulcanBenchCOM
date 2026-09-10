@@ -95,7 +95,7 @@
       <link>https://vulcanbench.com/benchmarks/09-contamination.html</link>
       <guid>https://vulcanbench.com/benchmarks/09-contamination.html</guid>
       <pubDate>Wed, 29 Jul 2026 12:00:00 +0000</pubDate>
-      <description>A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. Result: 11/13 vs 12/13, one genuine miss each — no detectable effect.</description>
+      <description>A controlled A/B on training-data contamination: 13 tasks Claude Opus 5 could have memorised vs 13 it cannot have seen. Result: 11/13 vs 12/13, one genuine miss each: no detectable effect.</description>
     </item>
     <item>
       <title>Claude Opus 5 reasoning-effort benchmark | Report 10</title>

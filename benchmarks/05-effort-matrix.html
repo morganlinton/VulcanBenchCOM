@@ -12,18 +12,18 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude Fable 5 vs Opus 4.8 frontier-hard benchmark | Report 05 | VulcanBench</title>
+<title>Fable 5 vs Opus 4.8, frontier-hard | Report 05 | VulcanBench</title>
 <meta name="description" content="Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/05-effort-matrix.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="Claude Fable 5 vs Opus 4.8 frontier-hard benchmark | Report 05 | VulcanBench">
+<meta property="og:title" content="Fable 5 vs Opus 4.8, frontier-hard | Report 05 | VulcanBench">
 <meta property="og:description" content="Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/05-effort-matrix.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/cards/report5-effort-matrix.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Claude Fable 5 vs Opus 4.8 frontier-hard benchmark | Report 05 | VulcanBench">
+<meta name="twitter:title" content="Fable 5 vs Opus 4.8, frontier-hard | Report 05 | VulcanBench">
 <meta name="twitter:description" content="Two models, two effort levels, on a suite with five frontier-hard tasks. Binary pass@1 is a four-way tie; effort helps Opus and backfires for Fable.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report5-effort-matrix.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,7 +121,7 @@
     <div class="findings-list">
       <div class="finding"><div class="fn">1.</div><p><strong>Frontier pass rates have converged to a literal tie.</strong> All four configurations score 7/13, passing the same seven tasks and failing the same six. An eval reporting only binary pass@1 would call these configurations identical, which is precisely why a harder tier and a partial-credit metric are needed.</p></div>
       <div class="finding"><div class="fn">2.</div><p><strong>Reasoning effort is a one-way lever.</strong> More thinking compounds for Opus (hard-tier score 0.26&nbsp;&rarr;&nbsp;0.42; its best task climbs from 1/6 to 5/6 of hidden tests) and backfires for Fable (0.17&nbsp;&rarr;&nbsp;0.00). At high effort Fable exhausted its output budget deliberating and produced <em>no implementation</em> on every hard task. "More effort" is a model-specific behavior, not a universal upgrade.</p></div>
-      <div class="finding"><div class="fn">3.</div><p><strong>At equal accuracy, the efficiency gap is ~3x.</strong> Opus matches Fable's score at a third of the cost ($6.95&ndash;$12.77 vs $22.35&ndash;$26.27) and about half the wall-clock. When correctness ties, cost and latency <em>are</em> the benchmark.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>At equal accuracy, the efficiency gap is ~3x.</strong> Opus matches Fable's score at a third of the cost ($6.95 to $12.77 vs $22.35 to $26.27) and about half the wall-clock. When correctness ties, cost and latency <em>are</em> the benchmark.</p></div>
       <div class="finding"><div class="fn">4.</div><p><strong>Safety guardrails masquerade as capability loss.</strong> Fable refused two legitimate tasks, an HTTP-upgrade handler and an <span style="font-family:var(--mono);font-size:15px;">io.Tee</span> bug, as cyber-risk false positives; Opus refused none. On raw scores that reads as "Fable failed two tasks." Refusal-adjusted scoring should be table stakes for systems and networking code.</p></div>
       <div class="finding"><div class="fn">5.</div><p><strong>Models follow training priors over explicit instructions.</strong> On the Leiden task the objective function is spelled out in the prompt, formula included, with a literal "this is CPM, not modularity" warning. The model implemented modularity anyway, scoring far below threshold. Tasks graded against a specified-but-unusual convention expose an instruction-versus-prior failure mode standard benchmarks never touch.</p></div>
     </div>

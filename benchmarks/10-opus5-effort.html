@@ -12,19 +12,19 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude Opus 5 reasoning-effort benchmark | Report 10 | VulcanBench</title>
-<meta name="description" content="First measurement of Claude Opus 5 on the full VulcanBench v3 suite: its cheapest setting wins at 20/23 and $0.70 per solved task; score falls at every step up the effort knob while cost triples.">
+<title>Claude Opus 5 across effort levels | Report 10 | VulcanBench</title>
+<meta name="description" content="Claude Opus 5 on the full VulcanBench v3 suite: the cheapest setting wins at 20/23 and $0.70 per solve; score falls at every step up the knob as cost triples.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/10-opus5-effort.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="Claude Opus 5 reasoning-effort benchmark | Report 10 | VulcanBench">
-<meta property="og:description" content="First measurement of Claude Opus 5 on the full VulcanBench v3 suite: its cheapest setting wins at 20/23 and $0.70 per solved task; score falls at every step up the effort knob while cost triples.">
+<meta property="og:title" content="Claude Opus 5 across effort levels | Report 10 | VulcanBench">
+<meta property="og:description" content="Claude Opus 5 on the full VulcanBench v3 suite: the cheapest setting wins at 20/23 and $0.70 per solve; score falls at every step up the knob as cost triples.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/10-opus5-effort.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/cards/report10-opus5-effort.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Claude Opus 5 reasoning-effort benchmark | Report 10 | VulcanBench">
-<meta name="twitter:description" content="First measurement of Claude Opus 5 on the full VulcanBench v3 suite: its cheapest setting wins at 20/23 and $0.70 per solved task; score falls at every step up the effort knob while cost triples.">
+<meta name="twitter:title" content="Claude Opus 5 across effort levels | Report 10 | VulcanBench">
+<meta name="twitter:description" content="Claude Opus 5 on the full VulcanBench v3 suite: the cheapest setting wins at 20/23 and $0.70 per solve; score falls at every step up the knob as cost triples.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/cards/report10-opus5-effort.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Claude Opus 5 reasoning-effort benchmark | Report 10",
-  "description": "First measurement of Claude Opus 5 on the full VulcanBench v3 suite: its cheapest setting wins at 20/23 and $0.70 per solved task; score falls at every step up the effort knob while cost triples.",
+  "description": "Claude Opus 5 on the full VulcanBench v3 suite: the cheapest setting wins at 20/23 and $0.70 per solve; score falls at every step up the knob as cost triples.",
   "url": "https://vulcanbench.com/benchmarks/10-opus5-effort.html",
   "mainEntityOfPage": "https://vulcanbench.com/benchmarks/10-opus5-effort.html",
   "image": "https://vulcanbench.com/assets/cards/report10-opus5-effort.png",
@@ -91,13 +91,13 @@
   <div class="abstract-box">
     <span class="lbl">Abstract.</span>
     <p><strong>Claude Opus 5&rsquo;s cheapest setting is its best: 20/23 (87.0%) at $0.70 per solved task on low effort.</strong>
-    Score falls at every step up the knob &mdash; 20 &rarr; 19 &rarr; 18 &mdash; while suite cost triples. The deficit is unfinished
+    Score falls at every step up the knob, 20 &rarr; 19 &rarr; 18, while suite cost triples. The deficit is unfinished
     work, not bad work: high effort returns the fewest wrong answers of any setting and the most wall-clock timeouts, so even granted
     unlimited time its ceiling is a tie, at 3.1&times; the cost.</p>
   </div>
 
   <figure>
-    <img src="../assets/cards/report10-opus5-effort.webp" alt="Model card: Claude Opus 5 at low, medium, and high effort on 23 v3 tasks — the low-effort configuration leads at 20/23 and $0.70 per solved task" width="1600" height="900" loading="lazy" decoding="async">
+    <img src="../assets/cards/report10-opus5-effort.webp" alt="Model card: Claude Opus 5 at low, medium, and high effort on 23 v3 tasks: the low-effort configuration leads at 20/23 and $0.70 per solved task" width="1600" height="900" loading="lazy" decoding="async">
     <figcaption><b>Card.</b> All three configurations, with the accuracy and economy curves moving in opposite directions and the seven tasks that moved between settings.</figcaption>
   </figure>
 
@@ -115,9 +115,9 @@
     <p class="prose" style="margin-top:10px;font-size:15px;">Wrong = a finished run that failed the hidden tests; timed out = cut off at the 45-minute (large-repository) or 60-minute (xlarge) wall-clock budget, unchanged from Reports 07 and 08. Tokens are billed tokens; time is sandbox wall-clock.</p>
 
     <div class="findings-list">
-      <div class="finding"><div class="fn">1.</div><p><strong>Low is never worse than high, and costs a third as much.</strong> Measured, low leads 20 to 18. Two of high&rsquo;s three regressions are budget cutoffs on tasks it solves at low &mdash; grant it unlimited time on both and it reaches 20/23, a tie, at 3.1&times; the cost. No reading of the sweep has paying for effort winning.</p></div>
-      <div class="finding"><div class="fn">2.</div><p><strong>Effort trades wrong answers for unfinished runs.</strong> Wrong answers fall (3 &rarr; 3 &rarr; 1); runs that never finish climb (0 &rarr; 1 &rarr; 4). High spends 3&times; the tokens and 2.6&times; the clock per task, then times out on the biggest repositories &mdash; networkx-leiden was cut off at 60 minutes after solving in 11.6 at low. The one regression the clock does not explain is flask-teardown-robust: it finished, and returned a worse patch.</p></div>
-      <div class="finding"><div class="fn">3.</div><p><strong>Effort buys exactly one task.</strong> itertools-strip-prefix is a genuine wrong answer at low and medium and solved at high &mdash; the same task GPT-5.6 Sol went 0-for-3 on in Report 07. One task, for an extra $29.53 of suite spend.</p></div>
+      <div class="finding"><div class="fn">1.</div><p><strong>Low is never worse than high, and costs a third as much.</strong> Measured, low leads 20 to 18. Two of high&rsquo;s three regressions are budget cutoffs on tasks it solves at low: grant it unlimited time on both and it reaches 20/23, a tie, at 3.1&times; the cost. No reading of the sweep has paying for effort winning.</p></div>
+      <div class="finding"><div class="fn">2.</div><p><strong>Effort trades wrong answers for unfinished runs.</strong> Wrong answers fall (3 &rarr; 3 &rarr; 1); runs that never finish climb (0 &rarr; 1 &rarr; 4). High spends 3&times; the tokens and 2.6&times; the clock per task, then times out on the biggest repositories: networkx-leiden was cut off at 60 minutes after solving in 11.6 at low. The one regression the clock does not explain is flask-teardown-robust: it finished, and returned a worse patch.</p></div>
+      <div class="finding"><div class="fn">3.</div><p><strong>Effort buys exactly one task.</strong> itertools-strip-prefix is a genuine wrong answer at low and medium and solved at high, the same task GPT-5.6 Sol went 0-for-3 on in Report 07. One task, for an extra $29.53 of suite spend.</p></div>
       <div class="finding"><div class="fn">4.</div><p><strong>First crack in a wall.</strong> pennylane-trotter-fragmented had never scored above zero for any model on v3. At low effort Opus 5 finishes it with a 0.40 partial; at medium and high it runs the full 60 minutes and scores nothing. Report 07&rsquo;s effort-discriminator inverts too: flask-teardown-robust, which every earlier model needed high effort to solve, falls to Opus 5 at low.</p></div>
     </div>
   </section>
@@ -146,10 +146,10 @@
     <div class="prose">
       <p>Five of six unfinished runs in the first high-effort pass died on a hardcoded 16,000-token output cap in the harness:
       thinking bills against <span style="font-family:var(--mono);font-size:15px;">max_tokens</span>, so raising effort raised the
-      truncation rate, and the harness scored each empty patch as a failed attempt &mdash; indistinguishable from a wrong answer.
+      truncation rate, and the harness scored each empty patch as a failed attempt, indistinguishable from a wrong answer.
       The cap now scales with effort (32 K &rarr; 128 K) and a truncated response raises instead of failing silently. Every run in
       this report was produced under the fix. It reaches past this report: every prior VulcanBench result ran under the 16 K cap,
-      and any run that hit it was scored as a wrong answer. Reports 07 and 08 cannot be re-checked &mdash; their raw runs have
+      and any run that hit it was scored as a wrong answer. Reports 07 and 08 cannot be re-checked: their raw runs have
       rotated out of retention.</p>
     </div>
   </section>
@@ -159,8 +159,7 @@
     <div class="prose">
       <p>Same 23 v3 tasks as Reports 07 and 08 (real merged post-cutoff PRs across Python, Rust, TypeScript, JavaScript, Go),
       graded by deterministic hidden tests in a network-isolated Docker sandbox, one attempt per task per configuration.
-      Claude Opus 5 at $5 / $25 per million tokens. Caveats: single attempts &mdash; a one-task difference is within noise &mdash;
-      and four of high&rsquo;s five failures are wall-clock cutoffs, so its ceiling here is partly the budget, not the model.
+      Claude Opus 5 at $5 / $25 per million tokens. Caveats: single attempts, a one-task difference is within noise, and four of high&rsquo;s five failures are wall-clock cutoffs, so its ceiling here is partly the budget, not the model.
       An extended-budget ablation would separate the two.</p>
     </div>
     <div class="dl-row">
