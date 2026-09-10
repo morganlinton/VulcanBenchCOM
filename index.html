@@ -14,13 +14,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="msvalidate.01" content="6F77AF64FA6EF59BA44CCE117545199C">
 <title>VulcanBench | an open-source coding benchmark for frontier models</title>
-<meta name="description" content="VulcanBench compares coding models and harnesses across effort levels. SWE v4 reports total scores, Code quality, runtime, tokens and estimated API costs.">
+<meta name="description" content="VulcanBench compares coding models and harnesses across effort levels. SWE v4 reports combined scores, Code quality, runtime, tokens and API-equivalent costs across effort levels.">
 <link rel="canonical" href="https://vulcanbench.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="VulcanBench: an open-source coding benchmark for frontier models">
-<meta property="og:description" content="VulcanBench compares coding models and harnesses across effort levels. SWE v4 reports total scores, Code quality, runtime, tokens and estimated API costs.">
+<meta property="og:description" content="VulcanBench compares coding models and harnesses across effort levels. SWE v4 reports combined scores, Code quality, runtime, tokens and API-equivalent costs across effort levels.">
 <meta property="og:url" content="https://vulcanbench.com/">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -28,7 +28,7 @@
 <meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="VulcanBench: an open-source coding benchmark for frontier models">
-<meta name="twitter:description" content="VulcanBench compares coding models and harnesses across effort levels. SWE v4 reports total scores, Code quality, runtime, tokens and estimated API costs.">
+<meta name="twitter:description" content="VulcanBench compares coding models and harnesses across effort levels. SWE v4 reports combined scores, Code quality, runtime, tokens and API-equivalent costs across effort levels.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,6 +73,7 @@
     <nav class="nav">
       <a href="index.html" class="active">Home</a>
       <a href="benchmarks.html">Benchmarks</a>
+      <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
       <a href="benchmark-your-stack.html">Custom evals</a>
       <a href="blog.html">Blog</a>
@@ -85,7 +86,7 @@
   <div class="hero">
     <div class="eyebrow">Open-source coding benchmark</div>
     <h1>Benchmarking models<br>on real engineering work.</h1>
-    <p class="tagline">Merged open-source pull requests, graded by deterministic hidden tests.</p>
+    <p class="tagline">Real engineering tasks, from rebuilding retired legacy binaries to merged open-source pull requests, graded by deterministic hidden tests.</p>
     <div class="cta">
       <a class="btn primary" href="benchmarks.html">Read the benchmarks</a>
       <a class="btn" href="methodology.html">How it works</a>
@@ -167,7 +168,7 @@
     <a class="report-row" href="benchmarks/swe-v4-astra-fable51-v34.html">
       <div class="no">Suite<b>v4</b></div>
       <div><div class="rtitle">GPT-6 Astra vs. Fable 5.1 under a neutral Code quality panel</div>
-      <div class="rsub">The same 230 runs rescored with Code quality at 33%, judged for a human reader by Muse Spark 1.3 and Grok 4.6. Fable leads combined score and Code quality at every effort; Astra is faster at every effort.</div>
+      <div class="rsub">230 runs from the September 2026 effort sweep, scored with Code quality at 33% and judged for a human reader by Muse Spark 1.3 and Grok 4.6. Fable leads combined score and Code quality at every effort; Astra is faster at every effort.</div>
       <div class="meta">September 9, 2026 &middot; 23 matched tasks &middot; 230 runs &middot; VulcanBench-SWE v4 &middot; Code quality protocol v3.4</div></div>
       <div class="arrow">&rarr;</div>
     </a>
