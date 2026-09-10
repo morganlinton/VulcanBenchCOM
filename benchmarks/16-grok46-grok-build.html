@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grok 4.6 in Grok Build vs Cursor | Report 16 | VulcanBench</title>
-<meta name="description" content="A three-way model x harness study: the same Grok 4.6, the same 23 tasks, three delivery systems. Inside xAI's own harness the effort knob is monotone and reaches 92.8%, the best result this suite has recorded for the model.">
+<meta name="description" content="Grok 4.6 through Grok Build, Cursor and a bare loop on the same 23 tasks. Inside xAI&#x27;s own harness the effort knob climbs at every step to 92.8%, its best here.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/16-grok46-grok-build.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
@@ -37,7 +37,7 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Grok 4.6 in Grok Build vs Cursor vs a bare-bones harness | Report 16",
-  "description": "A three-way model x harness study: the same Grok 4.6, the same 23 tasks, three delivery systems. Inside xAI's own harness the effort knob is monotone and reaches 92.8%, the best result this suite has recorded for the model.",
+  "description": "Grok 4.6 through Grok Build, Cursor and a bare loop on the same 23 tasks. Inside xAI's own harness the effort knob climbs at every step to 92.8%, its best here.",
   "url": "https://vulcanbench.com/benchmarks/16-grok46-grok-build.html",
   "mainEntityOfPage": "https://vulcanbench.com/benchmarks/16-grok46-grok-build.html",
   "image": "https://vulcanbench.com/assets/cards/report16-grok46-grok-build.png",
@@ -110,7 +110,7 @@
     <div class="section-label">Results</div>
     <h2>The only knob that goes straight up.</h2>
     <div class="table-scroll" role="region" aria-label="Three-harness comparison results" tabindex="0">
-    <table class="data">
+    <table class="data"><caption class="sr-only">The only knob that goes straight up</caption>
       <thead><tr><th>Effort</th><th>Grok Build</th><th>In Cursor</th><th>Bare-bones API</th><th>Grok Build time/task</th><th>API time/task</th></tr></thead>
       <tbody>
         <tr><td class="model">low</td><td>84.1% &plusmn;6.9</td><td>84.1% &plusmn;7.5</td><td>82.6% &plusmn;8.1</td><td class="win">2.4 min</td><td>4.8 min</td></tr>
@@ -142,7 +142,7 @@
     <div class="section-label">Breakdown</div>
     <h2>What the extra effort costs.</h2>
     <div class="table-scroll" role="region" aria-label="Cost and token use by effort level" tabindex="0">
-    <table class="data">
+    <table class="data"><caption class="sr-only">What the extra effort costs</caption>
       <thead><tr><th>Effort</th><th>pass@1</th><th>pass@3</th><th>Prompt tokens</th><th>Completion</th><th>API-equivalent</th></tr></thead>
       <tbody>
         <tr><td class="model">low</td><td>84.1%</td><td>91.3%</td><td>40.4M</td><td>454K</td><td>$28.93</td></tr>
@@ -158,7 +158,7 @@
     VulcanBench has measured that reports enough per-run detail to price at all; Cursor reported none.</p>
 
     <div class="table-scroll compact" role="region" aria-label="Task consistency" tabindex="0">
-    <table class="data">
+    <table class="data"><caption class="sr-only">What the extra effort costs, table 2</caption>
       <thead><tr><th>Effort</th><th>Solved every attempt</th><th>Mixed</th><th>Never solved</th></tr></thead>
       <tbody>
         <tr><td class="model">low</td><td>18/23</td><td>3</td><td>2</td></tr>

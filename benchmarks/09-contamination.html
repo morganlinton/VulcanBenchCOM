@@ -103,7 +103,7 @@
   <section style="padding-top:20px;">
     <div class="section-label">Results</div>
     <h2>One genuine miss per arm; the rest of the gap is infrastructure and repo size.</h2>
-    <table class="data">
+    <table class="data"><caption class="sr-only">One genuine miss per arm; the rest of the gap is infrastructure and repo size</caption>
       <thead><tr><th>Arm</th><th>Score</th><th>pass@1</th><th>Genuine misses</th><th>Hit wall-clock</th><th>Cost</th><th>Tokens/task</th><th>Time/task</th><th>$/solved</th></tr></thead>
       <tbody>
         <tr><td class="model">Clean (post-cutoff)</td><td class="win">12/13</td><td class="win">92.3%</td><td>1</td><td class="win">0</td><td class="win">$4.58</td><td>38 K</td><td>4.7 min</td><td class="win">$0.38</td></tr>
@@ -123,7 +123,7 @@
   <section style="padding-top:8px;">
     <div class="section-label">Harness defects</div>
     <h2>Four scoring bugs found and fixed on the way to the null result.</h2>
-    <table class="data">
+    <table class="data"><caption class="sr-only">Four scoring bugs found and fixed on the way to the null result</caption>
       <thead><tr><th style="text-align:left">Defect</th><th style="text-align:left">Effect on scores</th></tr></thead>
       <tbody>
         <tr><td class="model" style="text-align:left">Run budget passed as the per-request socket timeout, disabling retries</td><td style="text-align:left">One stalled request consumed a whole task and scored it 0; six of 13 first-run tasks died this way</td></tr>

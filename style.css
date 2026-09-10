@@ -1,4 +1,4 @@
-/* VulcanBench.com — scientific-journal styling with a forge-lab edge. */
+/* VulcanBench.com: scientific-journal styling with a forge-lab edge. */
 :root {
   --paper: #f7f4ee;
   --paper-2: #efebe2;
@@ -807,3 +807,6 @@ section[id] { scroll-margin-top: 90px; }
 .lb-upcoming h2 { margin: 6px 0 10px; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.25; }
 .lb-upcoming p { font-size: 17px; line-height: 1.6; max-width: 80ch; margin: 0; }
 .lb-upcoming a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* visually hidden text for assistive technology */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grok 4.6 in Cursor vs a bare loop | Report 15 | VulcanBench</title>
-<meta name="description" content="The first model x harness study on VulcanBench: the same Grok 4.6, the same 23 tasks, two delivery systems. The harness is worth 14.5 points at high effort and nothing measurable elsewhere; every run is integrity-audited.">
+<meta name="description" content="The first model x harness study: the same Grok 4.6 and 23 tasks through Cursor and a bare loop. The harness is worth 14.5 points at high effort and nothing e.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
@@ -37,7 +37,7 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Grok 4.6 in Cursor vs a bare-bones harness | Report 15",
-  "description": "The first model x harness study on VulcanBench: the same Grok 4.6, the same 23 tasks, two delivery systems. The harness is worth 14.5 points at high effort and nothing measurable elsewhere; every run is integrity-audited.",
+  "description": "The first model x harness study: the same Grok 4.6 and 23 tasks through Cursor and a bare loop. The harness is worth 14.5 points at high effort and nothing e.",
   "url": "https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html",
   "mainEntityOfPage": "https://vulcanbench.com/benchmarks/15-grok46-cursor-harness.html",
   "image": "https://vulcanbench.com/assets/cards/report15-grok46-cursor.png",
@@ -108,7 +108,7 @@
     <div class="section-label">Results</div>
     <h2>The gap is one level wide.</h2>
     <div class="table-scroll" role="region" aria-label="Harness comparison results" tabindex="0">
-    <table class="data">
+    <table class="data"><caption class="sr-only">The gap is one level wide</caption>
       <thead><tr><th>Effort</th><th>In Cursor</th><th>Bare-bones API</th><th>Delta</th><th>Cursor time/task</th><th>API time/task</th></tr></thead>
       <tbody>
         <tr><td class="model">low</td><td>84.1% &plusmn;7.5</td><td>82.6% &plusmn;8.1</td><td>+1.5</td><td>3.5 min</td><td class="win">4.8 min</td></tr>
@@ -138,7 +138,7 @@
     <div class="section-label">Breakdown</div>
     <h2>Task-level consistency inside Cursor.</h2>
     <div class="table-scroll compact" role="region" aria-label="Task consistency" tabindex="0">
-    <table class="data">
+    <table class="data"><caption class="sr-only">Task-level consistency inside Cursor</caption>
       <thead><tr><th>Effort</th><th>Solved every attempt</th><th>Mixed</th><th>Never solved</th></tr></thead>
       <tbody>
         <tr><td class="model">low</td><td>19/23</td><td>2</td><td>2</td></tr>

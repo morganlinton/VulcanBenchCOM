@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Methodology technical notes | VulcanBench</title>
-<meta name="description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks, graded by deterministic hidden tests, run under a disclosed execution boundary, with cost, time and tokens as first-class results.">
+<meta name="description" content="How VulcanBench measures: post-cutoff pull requests and binary-parity tasks graded by hidden tests under a disclosed execution boundary.">
 <link rel="canonical" href="https://vulcanbench.com/methodology-notes.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="VulcanBench">
@@ -72,7 +72,7 @@
       historical context rather than a fully specified benchmark result.</p>
     </div>
     <div class="table-scroll compact">
-      <table class="data">
+      <table class="data"><caption class="sr-only">Historical reference measurements</caption>
         <thead><tr><th>Model (harness)</th><th>Full budget</th><th>@10 min</th><th>@30 min</th><th>Median tokens/run</th></tr></thead>
         <tbody>
           <tr><td class="model">Claude Opus 5 (Claude Code CLI)</td><td class="win">85.6%</td><td>5.9%</td><td>77.4%</td><td>0.57M</td></tr>
