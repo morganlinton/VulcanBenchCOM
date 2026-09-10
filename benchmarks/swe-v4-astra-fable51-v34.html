@@ -37,7 +37,7 @@
 <link rel="apple-touch-icon" href="/assets/logo.png">
 <link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
 <link rel="stylesheet" href="/style.css?v=30">
-<link rel="stylesheet" href="/benchmarks-suites.css?v=2">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=3">
 </head>
 <body>
 
@@ -66,16 +66,25 @@
         <h1 id="astra-fable-v34-heading">GPT-6 Astra vs. Fable 5.1 under a neutral Code quality panel</h1>
         <p>230 runs from the September 2026 effort sweep, 23 tasks at five effort levels for each model, scored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6.</p>
       </header>
-      <div class="suite-downloads" aria-label="Report and evidence downloads">
-        <a href="/assets/reports/vulcanbench-swe-v4-astra-fable51-v34-report.pdf">Read the full report (PDF)</a>
-        <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-astra-fable51-v34">Run records &amp; judge protocol on GitHub</a>
-        <a href="/assets/cards/swe-v4-astra-fable51-v34.png" download>Download model card</a>
-        <a href="/assets/cards/swe-v4-astra-fable51-v34-economics.png" download>Download cost and tokens card</a>
-        <a href="/assets/data/swe-v4-astra-fable51-v34/runs.csv" download>All 230 runs CSV</a>
-        <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-astra-fable51-v34/REPRODUCING.md">Reproduction guide</a>
-        <a href="/assets/data/swe-v4-astra-fable51-v34-scores.csv" download>Scores CSV</a>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/reports/vulcanbench-swe-v4-astra-fable51-v34-report.pdf"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">PDF, 10 pages</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-astra-fable51-v34.png" download><span class="resource-kind">Card</span><span class="resource-title">Score card</span><span class="resource-meta">PNG, combined score and Code quality by effort</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-astra-fable51-v34-economics.png" download><span class="resource-kind">Card</span><span class="resource-title">Cost and tokens card</span><span class="resource-meta">PNG, API-equivalent cost and tokens by effort</span></a>
+        <a class="resource" href="/assets/data/swe-v4-astra-fable51-v34/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 230 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores</span></a>
+        <a class="resource" href="/assets/data/swe-v4-astra-fable51-v34-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, ten model and effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-astra-fable51-v34"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-astra-fable51-v34/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
       </div>
-      <nav class="report-jumps" aria-label="Study sections"><a href="#what-changed">Across efforts</a><a href="#results">All results</a><a href="#cost">Cost and tokens</a><a href="#code-quality">Code quality</a><a href="#judges">Judges and calibration</a><a href="#run-history">How the run went</a><a href="#reproduce">Reproduction</a></nav>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#what-changed"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#cost"><span class="n">03</span>Cost and tokens</a>
+        <a href="#code-quality"><span class="n">04</span>Code quality</a>
+        <a href="#judges"><span class="n">05</span>Judges and calibration</a>
+        <a href="#run-history"><span class="n">06</span>How the run went</a>
+        <a href="#reproduce"><span class="n">07</span>Reproduction</a>
+      </nav>
 
       <section class="report-section" id="what-changed" aria-labelledby="what-changed-heading">
         <h2 id="what-changed-heading">Across five effort levels</h2>
