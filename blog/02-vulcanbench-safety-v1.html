@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introducing VulcanBench Safety v1 | A new approach to evaluating model safety</title>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="VulcanBench Safety v1 is a safety eval suite run in the same environments and harnesses companies actually use, looking for the smaller safety issues that show up during ordinary coding work.">
+<meta name="author" content="Morgan Linton">
+<link rel="canonical" href="https://vulcanbench.com/blog/02-vulcanbench-safety-v1.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Introducing VulcanBench Safety v1, our first safety eval suite, and a new approach towards evaluating model safety">
+<meta property="og:description" content="VulcanBench Safety v1 is a safety eval suite run in the same environments and harnesses companies actually use, looking for the smaller safety issues that show up during ordinary coding work.">
+<meta property="og:url" content="https://vulcanbench.com/blog/02-vulcanbench-safety-v1.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta property="article:published_time" content="2026-09-13T12:00:00+00:00">
+<meta property="article:modified_time" content="2026-09-13T12:00:00+00:00">
+<meta property="article:author" content="https://www.morganlinton.com/">
+<meta property="article:section" content="Safety">
+<meta property="article:tag" content="AI safety">
+<meta property="article:tag" content="safety evals">
+<meta property="article:tag" content="coding agents">
+<meta property="article:tag" content="agentic coding">
+<meta property="article:tag" content="AI benchmarks">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Introducing VulcanBench Safety v1, our first safety eval suite, and a new approach towards evaluating model safety">
+<meta name="twitter:description" content="VulcanBench Safety v1 is a safety eval suite run in the same environments and harnesses companies actually use, looking for the smaller safety issues that show up during ordinary coding work.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Morgan Linton">
+<meta name="twitter:label2" content="Reading time">
+<meta name="twitter:data2" content="3 minutes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://vulcanbench.com/blog/02-vulcanbench-safety-v1.html#post",
+      "headline": "Introducing VulcanBench Safety v1, our first safety eval suite, and a new approach towards evaluating model safety",
+      "alternativeHeadline": "Testing model safety during ordinary coding work, in the harnesses companies actually use",
+      "description": "VulcanBench Safety v1 is a safety eval suite run in the same environments and harnesses companies actually use, looking for the smaller safety issues that show up during ordinary coding work.",
+      "url": "https://vulcanbench.com/blog/02-vulcanbench-safety-v1.html",
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://vulcanbench.com/blog/02-vulcanbench-safety-v1.html"},
+      "image": {"@type": "ImageObject", "url": "https://vulcanbench.com/assets/og-image.png", "width": 1200, "height": 630},
+      "datePublished": "2026-09-13T12:00:00+00:00",
+      "dateModified": "2026-09-13T12:00:00+00:00",
+      "inLanguage": "en-US",
+      "wordCount": 560,
+      "timeRequired": "PT3M",
+      "articleSection": "Safety",
+      "keywords": "AI safety, safety evals, coding agents, agentic coding, AI benchmarks, Claude Code, Codex, Cursor, Devin",
+      "isPartOf": {"@id": "https://vulcanbench.com/blog.html#blog"},
+      "about": [
+        {"@type": "Thing", "name": "AI safety evaluation"},
+        {"@type": "Thing", "name": "Coding agents"},
+        {"@type": "Thing", "name": "AI coding benchmarks"}
+      ],
+      "author": {"@id": "https://vulcanbench.com/#morgan"},
+      "publisher": {"@id": "https://vulcanbench.com/#org"}
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vulcanbench.com/#morgan",
+      "name": "Morgan Linton",
+      "url": "https://www.morganlinton.com/",
+      "jobTitle": "Cofounder and CTO",
+      "worksFor": {"@type": "Organization", "name": "Bold Metrics"},
+      "knowsAbout": ["AI coding benchmarks", "Evaluation harnesses", "Reasoning effort levels", "Model routing", "Agentic coding workflows", "AI safety evaluation"],
+      "alumniOf": {"@type": "CollegeOrUniversity", "name": "Carnegie Mellon University"},
+      "sameAs": ["https://www.morganlinton.com/", "https://github.com/morganlinton"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://vulcanbench.com/#org",
+      "name": "VulcanBench",
+      "url": "https://vulcanbench.com/",
+      "logo": {"@type": "ImageObject", "url": "https://vulcanbench.com/assets/logo.png"},
+      "founder": {"@id": "https://vulcanbench.com/#morgan"},
+      "sameAs": ["https://github.com/morganlinton/VulcanBench"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vulcanbench.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vulcanbench.com/blog.html"},
+        {"@type": "ListItem", "position": 3, "name": "Introducing VulcanBench Safety v1"}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=30">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">Custom evals</a>
+      <a href="../blog.html" class="active">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="../blog.html">Blog</a>
+    <span class="sep">/</span>
+    <span aria-current="page">Introducing VulcanBench Safety v1</span>
+  </nav>
+
+  <div class="article-head">
+    <div class="rno">Post No. 02</div>
+    <h1>Introducing VulcanBench Safety v1, our first safety eval suite, and a new approach towards evaluating model safety</h1>
+    <div class="runmeta">2026-09-13 &middot; Morgan Linton &middot; 3 min read</div>
+  </div>
+
+
+  <div class="post-body">
+    <p class="lead-in">Over the last couple of weeks, AI safety has been on my mind, and not really in the, oh no the agents
+    are going to take over the world kind of way. In all honesty, I don&rsquo;t see this as a sound-the-alarm type risk
+    that the ex-Anthropic employee that&rsquo;s now going on a media tour is leading us to believe.</p>
+
+    <p>But let me unpack this a bit. While I don&rsquo;t think we&rsquo;re remotely close to having AI take over the world
+    or commit the worst cyber crimes in history, I do think we are at an inflection point with AI, and safety is at risk
+    here, just in a different way.</p>
+
+    <p>Right now, just about every company on the planet is now using coding agents. Their current safety mechanism is
+    usually, go with a big company like Anthropic or OpenAI, because they&rsquo;re Enterprise-focused, and have a ton of
+    safety measures in place.</p>
+
+    <p>I think now is a time when we need independent benchmarks looking at safety, and coming up with new ways to
+    monitor and evaluate the safety of a model.</p>
+
+    <p>But not testing if a model is going to potentially take over the world, or run the most sophisticated cyber attack
+    we&rsquo;ve ever seen. That&rsquo;s preparing for the distant future, which, while important, I think in many ways can
+    miss the now.</p>
+
+    <p>Today, companies need to test models to see if they pose safety risks during ordinary coding work, at the settings
+    people actually run. While groups like METR, SHADE-Arena, Apollo, and ImpossibleBench focus on whether a model can
+    misbehave, this is done in relatively bespoke environments, with their own scaffolding.</p>
+
+    <p>And before I go any further, I want to make sure nobody thinks I&rsquo;m minimizing the important work these groups
+    do. What they are doing can, and will, have a major impact on AI safety, and the way they are doing it is definitely
+    still very useful and important.</p>
+
+    <p>But it&rsquo;s not the only approach, and I think there is an opportunity now, for VulcanBench to play a role in AI
+    safety by taking a different approach.</p>
+
+    <p>So today I am announcing the beginning of a new chapter at VulcanBench, the creation of VulcanBench Safety v1, an
+    eval suite built for, and run in, the same environments companies use these models in, with the same scaffolding
+    companies use.</p>
+
+    <p>The goal is not to find out if models will go to the lengths we saw in the OpenAI/Hugging Face incident. Instead,
+    I want to look for smaller, but still important safety issues, that can happen at normal companies, with engineers
+    using normal harnesses like Claude Code, Codex, Cursor, Devin, etc.</p>
+
+    <p>These safety issues are often going unnoticed because they aren&rsquo;t some big grand hack or major cybersecurity
+    breach, but they are posing real safety risks, and are going unnoticed.</p>
+
+    <p>As new models come out, it is becoming harder and harder for companies to know if rolling these models out to their
+    teams increases, or decreases safety risks within their codebase.</p>
+
+    <p>VulcanBench Safety v1 will help answer this question.</p>
+
+    <p class="signoff">More to come &#x1F596;</p>
+  </div>
+
+  <div class="post-note">
+    <b>Where to go next</b>
+    Every model is swept across its whole reasoning-effort ladder, and the per-run detail lives in the
+    <a href="../benchmarks.html">benchmark reports</a>. How the suites are built and gated is on the
+    <a href="../methodology.html">methodology page</a>, and if you want this run on your own codebase, that is
+    <a href="../benchmark-your-stack.html">custom evals</a>.
+  </div>
+
+  <div class="author-box">
+    <b>About the author</b>
+    <p><a href="https://www.morganlinton.com/">Morgan Linton</a> is the Cofounder and CTO of Bold Metrics, an AI company
+    that builds custom models for predicting body measurements and garment sizing for apparel brands. He studied Computer
+    Engineering at Carnegie Mellon University, and runs VulcanBench, the open-source coding benchmark that measures
+    frontier models across every reasoning-effort level on real merged pull requests. The harness and every eval are
+    <a href="https://github.com/morganlinton/VulcanBench">open source on GitHub</a>.</p>
+  </div>
+
+  <div class="post-foot">
+    <div class="dl-row">
+      <a class="btn primary" href="../benchmark-your-stack.html">Benchmark your stack &rarr;</a>
+      <a class="btn" href="https://x.com/intent/post?text=Introducing%20VulcanBench%20Safety%20v1%2C%20our%20first%20safety%20eval%20suite%2C%20and%20a%20new%20approach%20towards%20evaluating%20model%20safety&amp;url=https%3A%2F%2Fvulcanbench.com%2Fblog%2F02-vulcanbench-safety-v1.html" target="_blank" rel="noopener">Share on X</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../blog.html">&larr; All posts</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=14" defer></script>
+</body>
+</html>
