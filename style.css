@@ -382,6 +382,19 @@ table.data .win { font-weight: 700; color: var(--ember); }
 .table-scroll table.data { min-width: 820px; }
 .table-scroll.compact table.data { min-width: 560px; }
 
+/* ---- table share button ---- */
+.table-share-wrap { display: flex; justify-content: flex-end; margin-bottom: 6px; }
+.table-share-btn {
+  font-family: var(--display); font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 1.8px; color: var(--faint);
+  background: none; border: 1px solid var(--hairline);
+  padding: 7px 14px 7px 12px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 7px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.table-share-btn:hover { color: var(--ember); border-color: var(--ember); }
+.card-share-wrap { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+
 .dl-row { display: flex; gap: 16px; margin-top: 26px; flex-wrap: wrap; }
 
 .back {
