@@ -12,22 +12,22 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GPT-5.5 coding benchmark results | VulcanBench</title>
-<meta name="description" content="Every VulcanBench measurement of GPT-5.5: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.">
-<link rel="canonical" href="https://vulcanbench.com/models/gpt-5-5.html">
+<title>GPT-5.6 Luna coding benchmark results | VulcanBench</title>
+<meta name="description" content="Every VulcanBench measurement of GPT-5.6 Luna: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.">
+<link rel="canonical" href="https://vulcanbench.com/models/gpt-5-6-luna.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="GPT-5.5 coding benchmark results | VulcanBench">
-<meta property="og:description" content="Every VulcanBench measurement of GPT-5.5: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.">
-<meta property="og:url" content="https://vulcanbench.com/models/gpt-5-5.html">
+<meta property="og:title" content="GPT-5.6 Luna coding benchmark results | VulcanBench">
+<meta property="og:description" content="Every VulcanBench measurement of GPT-5.6 Luna: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.">
+<meta property="og:url" content="https://vulcanbench.com/models/gpt-5-6-luna.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GPT-5.5 coding benchmark results | VulcanBench">
-<meta name="twitter:description" content="Every VulcanBench measurement of GPT-5.5: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.">
+<meta name="twitter:title" content="GPT-5.6 Luna coding benchmark results | VulcanBench">
+<meta name="twitter:description" content="Every VulcanBench measurement of GPT-5.6 Luna: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,9 +39,9 @@
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "GPT-5.5 coding benchmark results",
-  "description": "Every VulcanBench measurement of GPT-5.5: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.",
-  "url": "https://vulcanbench.com/models/gpt-5-5.html",
+  "name": "GPT-5.6 Luna coding benchmark results",
+  "description": "Every VulcanBench measurement of GPT-5.6 Luna: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.",
+  "url": "https://vulcanbench.com/models/gpt-5-6-luna.html",
   "publisher": {
     "@type": "Organization",
     "name": "VulcanBench",
@@ -79,8 +79,8 @@
 <div class="wrap">
   <div class="article-head">
     <div class="rno">Model results &middot; OpenAI</div>
-    <h1>GPT-5.5</h1>
-    <p class="byline">Every published VulcanBench measurement of GPT-5.5, newest first: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level, graded by deterministic hidden tests on real tasks. The SWE v4 runs went through the Codex CLI on a ChatGPT subscription.</p>
+    <h1>GPT-5.6 Luna</h1>
+    <p class="byline">Every published VulcanBench measurement of GPT-5.6 Luna, newest first: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level, graded by deterministic hidden tests on real tasks. Measured through the Codex CLI on a ChatGPT subscription.</p>
   </div>
 
   <div class="report-list">
@@ -88,8 +88,8 @@
       <div class="no">Suite<b>v4</b></div>
       <div>
         <div class="rtitle">GPT-5.5 vs. GPT-5.6 Luna across every effort level</div>
-        <div class="rsub">In Codex across four effort levels: combined score 49.80 to 78.46 from Low to Extra-high and Code quality 61.75 to 67.67. Ahead of Luna at Low and Medium, behind by less than one standard error at High and Extra-high; its API has no Max level. 1 to 11 of 23 tasks passed, at 8.2 to 20.8 minutes per task.</div>
-        <div class="meta">September 15, 2026 &middot; 23 tasks &middot; 4 effort levels &middot; 92 runs of GPT-5.5 &middot; VulcanBench-SWE v4</div>
+        <div class="rsub">In Codex across five effort levels: combined score 41.29 to 84.15 from Low to Max and Code quality 65.35 to 71.73. Behind GPT-5.5 at Low and Medium, ahead by less than one standard error at High and Extra-high, and the top cell on the board at Max with 19 of 23 tasks passed. Rated higher on Code quality at every matched effort. 2.7 to 44.1 minutes per task.</div>
+        <div class="meta">September 15, 2026 &middot; 23 tasks &middot; 5 effort levels &middot; 115 runs of GPT-5.6 Luna &middot; VulcanBench-SWE v4</div>
       </div>
       <div class="arrow">&rarr;</div>
     </a>
@@ -97,17 +97,8 @@
       <div class="no">Suite<b>v4</b></div>
       <div>
         <div class="rtitle">Cost and tokens across effort levels</div>
-        <div class="rsub">$1.79 to $4.56 per task at list API rates and 1.72M to 4.72M raw tokens per task across the four effort levels; 17 to 75 times Luna's cost at matched effort.</div>
+        <div class="rsub">$0.02 to $0.45 per task at list API rates and 0.42M to 11.88M raw tokens per task across the five effort levels; 17 to 75 times cheaper than GPT-5.5 at matched effort.</div>
         <div class="meta">September 15, 2026 &middot; API-equivalent estimates at list rates, solver inference only &middot; VulcanBench-SWE v4</div>
-      </div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="../benchmarks/04-fable-opus-gpt55.html">
-      <div class="no">Report<b>04</b></div>
-      <div>
-        <div class="rtitle">Claude Fable 5 vs Opus 4.8 vs GPT-5.5 benchmark</div>
-        <div class="rsub">Four frontier configurations on 15 real engineering evals. All score 14/15 but each misses a different task; cost spans 4x.</div>
-        <div class="meta">2026-07-02</div>
       </div>
       <div class="arrow">&rarr;</div>
     </a>
@@ -115,9 +106,9 @@
 
   <section>
     <div class="section-label">Next</div>
-    <h2>How would GPT-5.5 do on your stack?</h2>
+    <h2>How would GPT-5.6 Luna do on your stack?</h2>
     <div class="prose">
-      <p>Public results answer "which model is stronger on this suite." Whether GPT-5.5 belongs in
+      <p>Public results answer "which model is stronger on this suite." Whether GPT-5.6 Luna belongs in
       <em>your</em> routing table depends on your languages, your codebases, and your task mix, that gets measured, not
       guessed. Grading rules are in the <a href="../methodology.html">methodology</a>.</p>
     </div>
