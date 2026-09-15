@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>GPT-5.5 vs. GPT-5.6 Luna across every effort level | VulcanBench-SWE v4</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-gpt55-luna-v35.html</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-gpt55-luna-v35.html</guid>
+      <pubDate>Tue, 15 Sep 2026 12:00:00 +0000</pubDate>
+      <description>207 runs through the Codex CLI on a ChatGPT subscription, 23 tasks at every effort level each API offers (four for GPT-5.5, five for GPT-5.6 Luna), scored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the frozen v3.5 protocol. GPT-5.5 leads at Low and Medium (combined 49.80 to 78.46 from Low to Extra-high against Luna's 41.29 to 84.15 from Low to Max); Luna edges ahead at High and Extra-high and its Max level is the top cell with 19 of 23 tasks passed. Luna is rated higher on Code quality at every matched effort and costs 17 to 75 times less per task at list API rates. Includes the calibration record, operator record, a full PDF and public run records.</description>
+    </item>
+    <item>
       <title>GPT-6 Astra vs. Fable 5.1 under a neutral Code quality panel | VulcanBench-SWE v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html</guid>

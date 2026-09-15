@@ -1,0 +1,251 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; both models ran on a ChatGPT subscription through Codex, so these are estimates, not bills. Judging and local infrastructure are excluded.",
+  "pricing_verified": "2026-09-11",
+  "sources": {
+    "openai": "https://developers.openai.com/api/docs/pricing"
+  },
+  "rates_per_million": {
+    "gpt55": {
+      "input": 5.0,
+      "cached_input": 0.5,
+      "output": 30.0
+    },
+    "luna": {
+      "input": 0.2,
+      "cached_input": 0.02,
+      "output": 1.2
+    }
+  },
+  "groups": [
+    {
+      "model": "gpt55",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.7947075652173912,
+        "se": 0.1926970452424152
+      },
+      "usd_total": 41.278273999999996,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1715428.347826087,
+        "se": 232298.7180522651
+      },
+      "raw_tokens_total": 39454852,
+      "minutes": {
+        "n": 23,
+        "mean": 8.210286231884059,
+        "se": 0.8665636722344808
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt55",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.708066043478261,
+        "se": 0.5016670652294555
+      },
+      "usd_total": 62.285519,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2740785.652173913,
+        "se": 635095.1076762121
+      },
+      "raw_tokens_total": 63038070,
+      "minutes": {
+        "n": 23,
+        "mean": 12.403088405797101,
+        "se": 1.9385437189805725
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt55",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 4.197308130434783,
+        "se": 0.764545759697286
+      },
+      "usd_total": 96.538087,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 4516861,
+        "se": 1005272.6914506525
+      },
+      "raw_tokens_total": 103887803,
+      "minutes": {
+        "n": 23,
+        "mean": 18.245584782608695,
+        "se": 2.4628805564760197
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt55",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 4.562569521739131,
+        "se": 0.5698215364584018
+      },
+      "usd_total": 104.939099,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 4718556.173913044,
+        "se": 744132.3102685512
+      },
+      "raw_tokens_total": 108526792,
+      "minutes": {
+        "n": 23,
+        "mean": 20.783839855072465,
+        "se": 2.067568406636599
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "luna",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.023995782608695653,
+        "se": 0.0012330916060532804
+      },
+      "usd_total": 0.551903,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 422906.2173913043,
+        "se": 28475.850213735237
+      },
+      "raw_tokens_total": 9726843,
+      "minutes": {
+        "n": 23,
+        "mean": 2.662527536231884,
+        "se": 0.10900985778255687
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "luna",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.06639808695652175,
+        "se": 0.00437247942519653
+      },
+      "usd_total": 1.527156,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1347575.1739130435,
+        "se": 119662.27067229344
+      },
+      "raw_tokens_total": 30994229,
+      "minutes": {
+        "n": 23,
+        "mean": 7.397060144927536,
+        "se": 0.40243248052154174
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "luna",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.21676852173913044,
+        "se": 0.029096109421329557
+      },
+      "usd_total": 4.985676,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 5889062.130434782,
+        "se": 990551.6134088954
+      },
+      "raw_tokens_total": 135448429,
+      "minutes": {
+        "n": 23,
+        "mean": 20.99510579710145,
+        "se": 2.0721589235938365
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "luna",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.2747059565217391,
+        "se": 0.03819344758449075
+      },
+      "usd_total": 6.318237,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 7581839,
+        "se": 1337409.5792276198
+      },
+      "raw_tokens_total": 174382297,
+      "minutes": {
+        "n": 23,
+        "mean": 25.42935579710145,
+        "se": 2.6095592085448867
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "luna",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.448386,
+        "se": 0.12004178943637486
+      },
+      "usd_total": 10.312878,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 11882951.652173912,
+        "se": 3482159.2859923877
+      },
+      "raw_tokens_total": 273307888,
+      "minutes": {
+        "n": 23,
+        "mean": 44.09918623188406,
+        "se": 10.719661343012751
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "gpt55": {
+      "runs": 92,
+      "usd": 305.040979,
+      "raw_tokens": 314907517,
+      "solver_hours": 22.863073055555553
+    },
+    "luna": {
+      "runs": 115,
+      "usd": 23.69585,
+      "raw_tokens": 623859686,
+      "solver_hours": 38.55690694444444
+    }
+  },
+  "limitations": [
+    "Codex receipts report input, cached input, output and reasoning tokens per run; cached input is billed at the cache-read rate and the rest of the input at the standard rate. Cache writes are free on this API and are not modelled.",
+    "Standard tier, short-context rates. Per-request context sizes are not exposed by the receipts, so no long-context premium is applied.",
+    "No Batch, Flex, Fast or priority pricing is applied.",
+    "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
+    "One GPT-5.5 extra-high run (paddockcore) was re-run after the first attempt overran its cap under a harness fault; the re-run is the priced and judged run and the capped attempt is excluded."
+  ],
+  "comparison_sha256": "cc114b736cbdad27595c1a9154ab042acfa3239f373726aabe59f88fa0531b38",
+  "note": "Per-run estimates are in runs.json (estimated_usd, raw_tokens, token_usage). Judging is excluded."
+}

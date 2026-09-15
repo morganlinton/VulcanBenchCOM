@@ -225,8 +225,7 @@ class NeutralPanelBundleTests(unittest.TestCase):
             if name != "feed.xml":  # feed.xml keeps historical item text as published
                 self.assertNotIn(chr(0x2014), text, name)
                 self.assertNotIn(chr(0x2013), text, name)
-        feed_item = (ROOT / "feed.xml").read_text().split("<item>")[1]
-        self.assertIn(URL, feed_item)
+        feed_item = next(item for item in (ROOT / "feed.xml").read_text().split("<item>") if f"<link>{URL}</link>" in item)
         self.assertNotIn(chr(0x2014), feed_item)
         self.assertIn(f"<loc>{URL}</loc>", (ROOT / "sitemap.xml").read_text())
         self.assertIn(f"<guid>{URL}</guid>", (ROOT / "feed.xml").read_text())
