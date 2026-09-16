@@ -1,0 +1,27 @@
+{
+  "source_artifacts_sha256": {
+    "v3.6/summary.json": "e3ddd51feb26ec3a0808c83d7461ff041a05b9d72dad8f156030c9dc399e050f",
+    "v3.6/protocol.json": "f6214c5c99d75e61a5803811700cec86ddbcd3c0ef727d1af5d276c2998ac486",
+    "v3.6/private-manifest.json": "7a094a6b4e063cd608b7c42ecf1090c3930a3528eda0ff62fa73a04fc53b4b20",
+    "v3.6/calibration-muse.json": "e5da52d79e6dc06761758e8892abea443c6f66b8e876fb0ae4531b58934624ad",
+    "v3.6/calibration-grok.json": "df81d4be726cda10d303d64f7f7dab134514c11493d1a717436b3df24a8b2dc3",
+    "comparison.json": "5834b8e04f2cf92bc8bea24858ab3e6cb96fd58019d3cc7bfbc3a3891f5ff2d9"
+  },
+  "export_checks": [
+    "114 published submissions across five effort cells, none excluded, one recorded as missing",
+    "both scored panels passed calibration under v3.6",
+    "every row has both panels' reviewed scores; intent recovery is null only where the submission passed no quirk family",
+    "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
+    "every run's API-equivalent cost recomputed from its Codex receipt at the published list rates and matched to the re-priced run summary",
+    "the population record's hash matches the one frozen in the protocol",
+    "no dashes or host paths in exported text"
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, raw tokens and API-equivalent cost estimates.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}

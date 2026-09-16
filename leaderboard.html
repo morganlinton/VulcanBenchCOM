@@ -110,17 +110,60 @@
 
 <div class="wrap">
   <div class="article-head" style="padding-bottom:6px;">
-    <div class="rno">VulcanBench-SWE v3 &middot; retired in August 2026</div>
+    <div class="rno">VulcanBench-SWE v4 &middot; current suite</div>
     <h1>Leaderboard</h1>
-    <p class="byline">The final VulcanBench-SWE v3 board, frozen when the suite retired in August 2026. Every model measured on it, ranked by pass@1. Fifteen models, twenty-three frontier-hard tasks from real merged open-source PRs. Every model is swept across its whole reasoning-effort ladder, and the board shows all 42 model&times;effort columns, nothing collapsed, nothing hidden.</p>
-    <div class="runmeta">Updated 2026-08-25 &middot; 23 tasks &middot; 15 models &middot; 42 model&times;effort columns &middot; 1,651 runs &middot; v3 suite</div>
+    <p class="byline">Every model measured on VulcanBench-SWE v4, ranked by combined score at every reasoning-effort level it ran. Twenty-three behavioural-reconstruction tasks, functional correctness graded by hidden tests, Code quality judged for a human reader by a calibrated panel from labs with no model on the board, and runtime and API-equivalent cost beside the score. Every column is on the board: a model appears once per effort level, nothing collapsed. The retired SWE v3 board follows below.</p>
+    <div class="runmeta">Updated 2026-09-16 &middot; 23 tasks &middot; 5 models &middot; 24 model&times;effort columns &middot; 551 runs &middot; v4 suite</div>
   </div>
 
 
-  <section class="lb-upcoming" aria-labelledby="v4-board-heading">
-    <div class="section-label">VulcanBench-SWE v4</div>
-    <h2 id="v4-board-heading">The SWE v4 leaderboard is coming soon.</h2>
-    <p>It will rank model-and-harness columns on the current suite by combined score at every effort level, with Code quality judged by a calibrated panel from labs with no model on the board, and runtime, tokens and API-equivalent cost beside the score. Until it is up, the SWE v4 results are in the <a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1 report</a> and the <a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. GPT-5.6 Luna report</a>. SWE v3 scores below are not comparable with SWE v4.</p>
+  <section class="lb-section" id="swe-v4-board" aria-labelledby="v4-board-heading">
+    <div class="lb-shead">
+      <h2 id="v4-board-heading">VulcanBench-SWE v4</h2>
+    </div>
+<!-- swe-v4-board:start -->
+<p class="lb-context">5 models, 24 model&times;effort columns, 551 runs. Combined score is 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under one frozen protocol (v3.4 to v3.6 apply the same rubric, controls, gates and judges to each population). SE is one task standard error of the combined score. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription. The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model's highest-scoring effort level.</p>
+<div class="lb-scroll">
+<table class="lb" id="v4board">
+<caption class="sr-only">VulcanBench-SWE v4 board: every model and effort level, ranked by combined score</caption>
+<thead><tr><th class="l" scope="col">#</th><th class="l" scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Code quality</th><th scope="col">Passed</th><th scope="col">Min/task</th><th scope="col">$/task</th></tr></thead>
+<tbody>
+<tr class="leader"><td class="l lb-rank">1</td><td class="l"><a class="lb-model" href="models/fable-5-1.html">Fable 5.1</a> <span class="lb-harness">Claude Code</span><span class="fb-best">best</span></td><td class="fb-eff">max&dagger;</td><td class="lb-win">91.84</td><td>0.47</td><td>82.43</td><td>23/23</td><td>27.1</td><td>$9.06</td></tr>
+<tr><td class="l lb-rank">2</td><td class="l"><a class="lb-model" href="models/fable-5-1.html">Fable 5.1</a> <span class="lb-harness">Claude Code</span></td><td class="fb-eff">extra-high&dagger;</td><td class="lb-win">90.75</td><td>0.82</td><td>81.93</td><td>22/23</td><td>38.8</td><td>$14.49</td></tr>
+<tr><td class="l lb-rank">3</td><td class="l"><a class="lb-model" href="models/fable-5-1.html">Fable 5.1</a> <span class="lb-harness">Claude Code</span></td><td class="fb-eff">medium&dagger;</td><td class="lb-win">90.13</td><td>0.94</td><td>80.14</td><td>20/23</td><td>31.7</td><td>$9.19</td></tr>
+<tr><td class="l lb-rank">4</td><td class="l"><a class="lb-model" href="models/fable-5-1.html">Fable 5.1</a> <span class="lb-harness">Claude Code</span></td><td class="fb-eff">high&dagger;</td><td class="lb-win">90.07</td><td>0.78</td><td>80.86</td><td>20/23</td><td>28.8</td><td>$9.70</td></tr>
+<tr><td class="l lb-rank">5</td><td class="l"><a class="lb-model" href="models/gpt-5-6-terra.html">GPT-5.6 Terra</a> <span class="lb-harness">Codex</span><span class="fb-best">best</span></td><td class="fb-eff">max&Dagger;</td><td class="lb-win">89.46</td><td>0.62</td><td>73.58</td><td>22/22</td><td>18.6</td><td>$1.72</td></tr>
+<tr><td class="l lb-rank">6</td><td class="l"><a class="lb-model" href="models/gpt-6-astra.html">GPT-6 Astra</a> <span class="lb-harness">Codex</span><span class="fb-best">best</span></td><td class="fb-eff">max</td><td class="lb-win">89.30</td><td>0.37</td><td>76.26</td><td>23/23</td><td>10.3</td><td>$2.57</td></tr>
+<tr><td class="l lb-rank">7</td><td class="l"><a class="lb-model" href="models/gpt-6-astra.html">GPT-6 Astra</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">extra-high</td><td class="lb-win">89.16</td><td>0.30</td><td>75.47</td><td>23/23</td><td>8.1</td><td>$2.30</td></tr>
+<tr><td class="l lb-rank">8</td><td class="l"><a class="lb-model" href="models/fable-5-1.html">Fable 5.1</a> <span class="lb-harness">Claude Code</span></td><td class="fb-eff">low&dagger;</td><td class="lb-win">89.12</td><td>1.15</td><td>78.36</td><td>19/23</td><td>26.9</td><td>$7.96</td></tr>
+<tr><td class="l lb-rank">9</td><td class="l"><a class="lb-model" href="models/gpt-6-astra.html">GPT-6 Astra</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">high</td><td class="lb-win">88.16</td><td>0.42</td><td>73.48</td><td>23/23</td><td>4.9</td><td>$1.71</td></tr>
+<tr><td class="l lb-rank">10</td><td class="l"><a class="lb-model" href="models/gpt-6-astra.html">GPT-6 Astra</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">medium</td><td class="lb-win">87.73</td><td>0.32</td><td>71.19</td><td>23/23</td><td>3.8</td><td>$1.48</td></tr>
+<tr><td class="l lb-rank">11</td><td class="l"><a class="lb-model" href="models/gpt-6-astra.html">GPT-6 Astra</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">low</td><td class="lb-win">87.43</td><td>0.51</td><td>70.31</td><td>22/23</td><td>4.2</td><td>$1.72</td></tr>
+<tr><td class="l lb-rank">12</td><td class="l"><a class="lb-model" href="models/gpt-5-6-luna.html">GPT-5.6 Luna</a> <span class="lb-harness">Codex</span><span class="fb-best">best</span></td><td class="fb-eff">max</td><td class="lb-win">84.15</td><td>1.35</td><td>65.35</td><td>19/23</td><td>44.1</td><td>$0.45</td></tr>
+<tr><td class="l lb-rank">13</td><td class="l"><a class="lb-model" href="models/gpt-5-6-terra.html">GPT-5.6 Terra</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">extra-high</td><td class="lb-win">83.46</td><td>2.72</td><td>73.13</td><td>14/23</td><td>19.2</td><td>$2.12</td></tr>
+<tr><td class="l lb-rank">14</td><td class="l"><a class="lb-model" href="models/gpt-5-6-luna.html">GPT-5.6 Luna</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">extra-high</td><td class="lb-win">79.11</td><td>3.07</td><td>68.05</td><td>13/23</td><td>25.4</td><td>$0.27</td></tr>
+<tr><td class="l lb-rank">15</td><td class="l"><a class="lb-model" href="models/gpt-5-5.html">GPT-5.5</a> <span class="lb-harness">Codex</span><span class="fb-best">best</span></td><td class="fb-eff">extra-high</td><td class="lb-win">78.46</td><td>2.51</td><td>67.67</td><td>11/23</td><td>20.8</td><td>$4.56</td></tr>
+<tr><td class="l lb-rank">16</td><td class="l"><a class="lb-model" href="models/gpt-5-6-terra.html">GPT-5.6 Terra</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">high</td><td class="lb-win">76.68</td><td>3.47</td><td>73.90</td><td>11/23</td><td>12.6</td><td>$1.18</td></tr>
+<tr><td class="l lb-rank">17</td><td class="l"><a class="lb-model" href="models/gpt-5-6-luna.html">GPT-5.6 Luna</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">high</td><td class="lb-win">71.22</td><td>3.71</td><td>65.79</td><td>9/23</td><td>21.0</td><td>$0.22</td></tr>
+<tr><td class="l lb-rank">18</td><td class="l"><a class="lb-model" href="models/gpt-5-5.html">GPT-5.5</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">high</td><td class="lb-win">69.92</td><td>3.81</td><td>62.93</td><td>7/23</td><td>18.2</td><td>$4.20</td></tr>
+<tr><td class="l lb-rank">19</td><td class="l"><a class="lb-model" href="models/gpt-5-6-terra.html">GPT-5.6 Terra</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">medium</td><td class="lb-win">66.35</td><td>3.82</td><td>70.93</td><td>5/23</td><td>7.9</td><td>$0.69</td></tr>
+<tr><td class="l lb-rank">20</td><td class="l"><a class="lb-model" href="models/gpt-5-5.html">GPT-5.5</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">medium</td><td class="lb-win">63.54</td><td>3.84</td><td>64.65</td><td>3/23</td><td>12.4</td><td>$2.71</td></tr>
+<tr><td class="l lb-rank">21</td><td class="l"><a class="lb-model" href="models/gpt-5-6-terra.html">GPT-5.6 Terra</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">low</td><td class="lb-win">59.70</td><td>3.43</td><td>72.31</td><td>2/23</td><td>6.7</td><td>$0.58</td></tr>
+<tr><td class="l lb-rank">22</td><td class="l"><a class="lb-model" href="models/gpt-5-6-luna.html">GPT-5.6 Luna</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">medium</td><td class="lb-win">53.28</td><td>2.94</td><td>65.58</td><td>1/23</td><td>7.4</td><td>$0.07</td></tr>
+<tr><td class="l lb-rank">23</td><td class="l"><a class="lb-model" href="models/gpt-5-5.html">GPT-5.5</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">low</td><td class="lb-win">49.80</td><td>2.93</td><td>61.75</td><td>1/23</td><td>8.2</td><td>$1.79</td></tr>
+<tr><td class="l lb-rank">24</td><td class="l"><a class="lb-model" href="models/gpt-5-6-luna.html">GPT-5.6 Luna</a> <span class="lb-harness">Codex</span></td><td class="fb-eff">low</td><td class="lb-win">41.29</td><td>0.96</td><td>71.73</td><td>0/23</td><td>2.7</td><td>$0.02</td></tr>
+</tbody>
+</table>
+</div>
+<p class="lb-context">&dagger; Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population. &Dagger; GPT-5.6 Terra at max holds 22 runs: one task waits for the Codex quota window and will be judged as a top-up. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: <a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, <a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>.</p>
+<!-- swe-v4-board:end -->
+  </section>
+
+  <section class="lb-section" id="swe-v3-board" aria-labelledby="v3-board-heading" style="margin-top:40px;">
+    <div class="lb-shead">
+      <h2 id="v3-board-heading">VulcanBench-SWE v3 (retired in August 2026)</h2>
+    </div>
+    <p class="lb-context">The final SWE v3 board, frozen when the suite retired. Fifteen models, twenty-three frontier-hard tasks from real merged open-source PRs, ranked by pass@1, all 42 model&times;effort columns shown. SWE v3 scores are not comparable with SWE v4.</p>
   </section>
 
   <div class="lb-note">

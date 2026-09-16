@@ -1,0 +1,25 @@
+rank,model,lab,harness,effort,best_effort,n,combined_33,combined_33_se,code_quality,passed,mean_minutes,mean_usd,mean_raw_tokens,report,protocol
+1,Fable 5.1,Anthropic,Claude Code,max,True,23,91.8365,0.4651,82.4337,23,27.0964,9.058763,3823313.3,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+2,Fable 5.1,Anthropic,Claude Code,extra-high,False,23,90.7543,0.8210,81.9336,22,38.7732,14.485635,11435379.2,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+3,Fable 5.1,Anthropic,Claude Code,medium,False,23,90.1293,0.9394,80.1382,20,31.7213,9.186010,6972178.3,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+4,Fable 5.1,Anthropic,Claude Code,high,False,23,90.0689,0.7822,80.8610,20,28.7614,9.701575,5488274.0,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+5,GPT-5.6 Terra,OpenAI,Codex,max,True,22,89.4584,0.6153,73.5803,22,18.6014,1.716542,4182694.3,benchmarks/swe-v4-terra-v36.html,code-quality-maintenance-v3.6
+6,GPT-6 Astra,OpenAI,Codex,max,True,23,89.3033,0.3663,76.2645,23,10.2805,2.568128,949887.1,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+7,GPT-6 Astra,OpenAI,Codex,extra-high,False,23,89.1616,0.2971,75.4749,23,8.0905,2.302022,927474.4,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+8,Fable 5.1,Anthropic,Claude Code,low,False,23,89.1225,1.1538,78.3565,19,26.8970,7.963719,4384071.0,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+9,GPT-6 Astra,OpenAI,Codex,high,False,23,88.1580,0.4248,73.4751,23,4.8999,1.711065,767511.9,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+10,GPT-6 Astra,OpenAI,Codex,medium,False,23,87.7262,0.3185,71.1864,23,3.8226,1.481347,684214.0,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+11,GPT-6 Astra,OpenAI,Codex,low,False,23,87.4325,0.5104,70.3092,22,4.2187,1.721698,890204.1,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+12,GPT-5.6 Luna,OpenAI,Codex,max,True,23,84.1469,1.3494,65.3505,19,44.0992,0.448386,11882951.7,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5
+13,GPT-5.6 Terra,OpenAI,Codex,extra-high,False,23,83.4578,2.7227,73.1344,14,19.2392,2.117749,5855559.1,benchmarks/swe-v4-terra-v36.html,code-quality-maintenance-v3.6
+14,GPT-5.6 Luna,OpenAI,Codex,extra-high,False,23,79.1139,3.0681,68.0512,13,25.4294,0.274706,7581839.0,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5
+15,GPT-5.5,OpenAI,Codex,extra-high,True,23,78.4562,2.5078,67.6666,11,20.7838,4.562570,4718556.2,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5
+16,GPT-5.6 Terra,OpenAI,Codex,high,False,23,76.6793,3.4669,73.8953,11,12.5891,1.183321,2860571.2,benchmarks/swe-v4-terra-v36.html,code-quality-maintenance-v3.6
+17,GPT-5.6 Luna,OpenAI,Codex,high,False,23,71.2160,3.7140,65.7877,9,20.9951,0.216769,5889062.1,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5
+18,GPT-5.5,OpenAI,Codex,high,False,23,69.9215,3.8102,62.9335,7,18.2456,4.197308,4516861.0,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5
+19,GPT-5.6 Terra,OpenAI,Codex,medium,False,23,66.3480,3.8156,70.9261,5,7.8757,0.686316,1450843.8,benchmarks/swe-v4-terra-v36.html,code-quality-maintenance-v3.6
+20,GPT-5.5,OpenAI,Codex,medium,False,23,63.5399,3.8413,64.6546,3,12.4031,2.708066,2740785.7,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5
+21,GPT-5.6 Terra,OpenAI,Codex,low,False,23,59.6999,3.4294,72.3150,2,6.6732,0.576358,1212177.6,benchmarks/swe-v4-terra-v36.html,code-quality-maintenance-v3.6
+22,GPT-5.6 Luna,OpenAI,Codex,medium,False,23,53.2781,2.9402,65.5829,1,7.3971,0.066398,1347575.2,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5
+23,GPT-5.5,OpenAI,Codex,low,False,23,49.8034,2.9303,61.7538,1,8.2103,1.794708,1715428.3,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5
+24,GPT-5.6 Luna,OpenAI,Codex,low,False,23,41.2869,0.9566,71.7276,0,2.6625,0.023996,422906.2,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5
