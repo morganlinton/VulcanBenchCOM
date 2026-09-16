@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPT-5.6 Terra across effort levels | VulcanBench</title>
+<meta name="description" content="SWE v4: 114 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score climbs from 59.70 at Low to 89.46 at Max.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-terra-v36.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="GPT-5.6 Terra across effort levels | VulcanBench">
+<meta property="og:description" content="SWE v4: 114 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score climbs from 59.70 at Low to 89.46 at Max.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-terra-v36.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-terra-v36.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1725">
+<meta property="og:image:alt" content="VulcanBench-SWE v4: GPT-5.6 Terra, combined score and runtime at every effort level, with a Code quality table by effort">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPT-5.6 Terra across effort levels | VulcanBench">
+<meta name="twitter:description" content="SWE v4: 114 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score climbs from 59.70 at Low to 89.46 at Max.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-terra-v36.png">
+<meta name="twitter:image:alt" content="VulcanBench-SWE v4: GPT-5.6 Terra, combined score and runtime at every effort level, with a Code quality table by effort">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=3">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">Custom evals</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench-SWE v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="terra-v36-heading">
+      <header>
+        <p class="suite-label">September 16, 2026 &middot; 114 runs &middot; Code quality protocol v3.6</p>
+        <h1 id="terra-v36-heading">GPT-5.6 Terra across every effort level</h1>
+        <p>114 runs through the Codex CLI on a ChatGPT subscription, 23 tasks at each of the five effort levels the API offers, with one Max task still waiting for the Codex quota window. Scored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the other SWE v4 reports, so Terra takes its place on the <a href="/leaderboard.html">SWE v4 leaderboard</a> beside GPT-5.5, Luna, Astra and Fable 5.1.</p>
+      </header>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/reports/vulcanbench-swe-v4-terra-v36-report.pdf"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">PDF, 9 pages</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-terra-v36.png" download><span class="resource-kind">Card</span><span class="resource-title">Score card</span><span class="resource-meta">PNG, combined score and Code quality by effort</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-terra-v36-economics.png" download><span class="resource-kind">Card</span><span class="resource-title">Cost and tokens card</span><span class="resource-meta">PNG, API-equivalent cost and tokens by effort</span></a>
+        <a class="resource" href="/assets/data/swe-v4-terra-v36/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 114 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores</span></a>
+        <a class="resource" href="/assets/data/swe-v4-terra-v36-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, five effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-terra-v36"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-terra-v36/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#cost"><span class="n">03</span>Cost and tokens</a>
+        <a href="#code-quality"><span class="n">04</span>Code quality</a>
+        <a href="#judges"><span class="n">05</span>Judges and calibration</a>
+        <a href="#reproduce"><span class="n">06</span>Reproduction</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>Terra ran every task once at each of its five effort levels, 23 tasks per cell, through the Codex CLI on a ChatGPT subscription. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a named human reader by Muse Spark 1.3 and Grok 4.6, two judges from labs with no model on this board, with a ground-truth intent-recovery probe. The Max cell holds 22 runs: paddockcore never started because the subscription's quota window closed until September 19, and it will be judged as a top-up.</p>
+        <div class="effort-choices">
+          <div><h3>Combined score</h3><p>59.70 at Low to 89.46 at Max</p><p>The steepest effort curve on the SWE v4 board so far: every step up the ladder adds points, 6.6 from Low to Medium, 10.3 to High, 6.8 to Extra-high and 6.0 to Max.</p></div>
+          <div><h3>Tasks passed</h3><p>2 of 23 at Low to 22 of 22 at Max</p><p>Functional correctness drives the curve. Terra passes every judged task at Max and 14 of 23 at Extra-high, but fewer than half below High.</p></div>
+          <div><h3>Code quality</h3><p>70.93 to 73.90</p><p>Flat across the ladder: the judges rate Terra's code about the same at every effort, within three points. The effort knob buys correctness, not readability.</p></div>
+          <div><h3>Runtime and cost</h3><p>6.7 to 19.2 min &middot; $0.58 to $2.12 per task</p><p>Time and API-equivalent cost climb to Extra-high and ease slightly at Max, which finishes faster (18.6 minutes) and cheaper ($1.72) than Extra-high while passing more tasks.</p></div>
+        </div>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score, tasks passed, Code quality and runtime at each effort level" tabindex="0"><table class="suite-results"><caption>Combined score, tasks passed, Code quality and runtime at each effort level, n=23 per cell and 22 at Max</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>59.70</td><td>66.35</td><td>76.68</td><td>83.46</td><td>89.46</td></tr><tr><th scope="row">Standard error</th><td>3.43</td><td>3.82</td><td>3.47</td><td>2.72</td><td>0.62</td></tr><tr><th scope="row">Tasks passed</th><td>2/23</td><td>5/23</td><td>11/23</td><td>14/23</td><td>22/22</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>72.31</td><td>70.93</td><td>73.90</td><td>73.13</td><td>73.58</td></tr><tr><th scope="row">Human readability</th><td>68.3</td><td>67.1</td><td>70.0</td><td>67.9</td><td>68.0</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>6.7</td><td>7.9</td><td>12.6</td><td>19.2</td><td>18.6</td></tr><tr><th scope="row">API-equivalent $ per task</th><td>$0.58</td><td>$0.69</td><td>$1.18</td><td>$2.12</td><td>$1.72</td></tr></tbody></table></div>
+        <p>Under the prior 50/15/15/20 profile applied to the same Code quality scores the ladder is the same, 62.03 to 91.50. The card and the full per-effort table follow.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-terra-v36.png" aria-label="Open the GPT-5.6 Terra model card at full resolution">
+          <img src="/assets/cards/swe-v4-terra-v36.png" width="2400" height="1725" fetchpriority="high" alt="GPT-5.6 Terra across five effort levels under the v3.6 Code quality protocol. Combined scores rise from 59.70 at Low to 89.46 at Max. Mean runtime rises from 6.7 to 19.2 minutes per task. A table shows Code quality components at every effort. Exact values and limitations are provided in the adjacent accessible tables.">
+        </a>
+        <figcaption>Combined score uses a focused scale; runtime starts at zero. Whiskers show &plusmn;1 task standard error, not statistical significance. <a href="/assets/cards/swe-v4-terra-v36.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">Terra's combined score rises at every step of the effort ladder and its Max level passes every judged task. Code quality does not move with effort. These runs compare a model-and-harness combination, not an isolated base model; the <a href="/leaderboard.html">SWE v4 leaderboard</a> places every Terra effort level beside the other models judged under the same protocol.</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">n=23 at every effort except Max, which has 22. Combined (33%) is the published score. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the two judges. Passed counts tasks with a perfect functional score. Runtime is solver wall-clock per task.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench-SWE v4: GPT-5.6 Terra effort results under Code quality protocol v3.6</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="terra" data-effort="low"><th scope="row"><a href="/models/gpt-5-6-terra.html">GPT-5.6 Terra</a> / Codex</th><td>Low</td><td>59.70</td><td>3.43</td><td>62.03</td><td>72.31</td><td>68.3</td><td>73.2</td><td>76.2*</td><td>2/23</td><td>6.7</td></tr>
+              <tr data-model="terra" data-effort="medium"><th scope="row"><a href="/models/gpt-5-6-terra.html">GPT-5.6 Terra</a> / Codex</th><td>Medium</td><td>66.35</td><td>3.82</td><td>68.89</td><td>70.93</td><td>67.1</td><td>71.0</td><td>75.9</td><td>5/23</td><td>7.9</td></tr>
+              <tr data-model="terra" data-effort="high"><th scope="row"><a href="/models/gpt-5-6-terra.html">GPT-5.6 Terra</a> / Codex</th><td>High</td><td>76.68</td><td>3.47</td><td>78.78</td><td>73.90</td><td>70.0</td><td>74.1</td><td>78.7*</td><td>11/23</td><td>12.6</td></tr>
+              <tr data-model="terra" data-effort="extra-high"><th scope="row"><a href="/models/gpt-5-6-terra.html">GPT-5.6 Terra</a> / Codex</th><td>Extra-high</td><td>83.46</td><td>2.72</td><td>85.62</td><td>73.13</td><td>67.9</td><td>74.3</td><td>78.5</td><td>14/23</td><td>19.2</td></tr>
+              <tr data-model="terra" data-effort="max"><th scope="row"><a href="/models/gpt-5-6-terra.html">GPT-5.6 Terra</a> / Codex</th><td>Max</td><td>89.46</td><td>0.62</td><td>91.50</td><td>73.58</td><td>68.0</td><td>73.9</td><td>80.7</td><td>22/22</td><td>18.6</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>*Intent recovery</strong> is scored over the specification departures a submission actually passed tests for. One Low run (granarycore) and one High run (schedcore) passed none, so they have no intent-recovery score and their Code quality is the reviewed score alone; the starred means cover the remaining runs.</p>
+        <p><strong>SE</strong> is one sample standard error of the combined score across the cell's tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. No solver fallback occurred, and neither judge produced a reviewer fallback on any of the 114 submissions.</p>
+      </div>
+
+      <section class="report-section" id="cost" aria-labelledby="cost-heading">
+        <h2 id="cost-heading">Cost and tokens across effort levels</h2>
+        <p>The same 114 runs priced from their Codex receipts at list API rates, cache-aware, with judging excluded. These are API-equivalent estimates, not subscription charges: Terra ran on a ChatGPT subscription, and what the plan actually bills is not observable from the receipts. Cost per task rises from $0.58 at Low to $2.12 at Extra-high, then eases to $1.72 at Max; the whole sweep comes to $142.73 for 114 runs.</p>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-terra-v36-economics.png" aria-label="Open the cost and tokens card at full resolution">
+            <img src="/assets/cards/swe-v4-terra-v36-economics.png" width="2400" height="1725" loading="lazy" alt="GPT-5.6 Terra API-equivalent cost per task and raw tokens per task at every effort level, with a table of cost, level totals, tokens and runtime at each effort and for the full sweep. Exact values are in the adjacent accessible table.">
+          </a>
+          <figcaption>Whiskers show &plusmn;1 task standard error. <a href="/assets/cards/swe-v4-terra-v36-economics.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <div class="suite-table-scroll" role="region" aria-label="Cost, tokens and runtime at each effort level" tabindex="0"><table class="suite-results">
+        <caption>API-equivalent cost, raw tokens and runtime at each effort level</caption><thead><tr><th scope="col">Effort</th><th scope="col">Runs</th><th scope="col">$/task</th><th scope="col">Level total</th><th scope="col">Tokens/task</th><th scope="col">Min/task</th></tr></thead><tbody><tr data-econ-effort="low"><th scope="row">Low</th><td>23</td><td>$0.58</td><td>$13.26</td><td>1.21M</td><td>6.7</td></tr><tr data-econ-effort="medium"><th scope="row">Medium</th><td>23</td><td>$0.69</td><td>$15.79</td><td>1.45M</td><td>7.9</td></tr><tr data-econ-effort="high"><th scope="row">High</th><td>23</td><td>$1.18</td><td>$27.22</td><td>2.86M</td><td>12.6</td></tr><tr data-econ-effort="extra-high"><th scope="row">Extra-high</th><td>23</td><td>$2.12</td><td>$48.71</td><td>5.86M</td><td>19.2</td></tr><tr data-econ-effort="max"><th scope="row">Max</th><td>22</td><td>$1.72</td><td>$37.76</td><td>4.18M</td><td>18.6</td></tr><tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>114</td><td>$1.25</td><td>$142.73</td><td>354M</td><td>24.6 h</td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Pricing.</strong> Rates checked 2026-09-11 from <a href="https://developers.openai.com/api/docs/pricing">OpenAI</a>: Terra at $2 input, $0.20 cached input and $12 output per million tokens. Codex receipts report input, cached input, output and reasoning tokens per run, so cached input is billed at the cache-read rate and the rest at the standard rate. Per-request context sizes are not exposed, so no long-context premium is applied. The sweep had stamped each run at a stale list price; every run was re-priced from its receipt and the frozen record's original stamp is kept per run as frozen_record_usd.</p>
+          <p><strong>Tokens</strong> are Codex's raw totals including cache reads. Per-run estimates, token usage breakdowns and the rate table are in <a href="/assets/data/swe-v4-terra-v36/economics.json">economics.json</a> and <a href="/assets/data/swe-v4-terra-v36/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel carries 24 points. An intent-recovery probe carries 9: every task in this suite is a rewrite of a retired binary whose real behaviour departs from its written specification in documented ways, and the judge, given only the specification and the code, must list where the code departs from the specification. A separate call matches that list against a frozen answer key, over the departures the submission passed tests for. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force and is stated on the card.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each effort level, out of 100, mean of both judges</caption><thead><tr><th scope="col">Component</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>72.31</td><td>70.93</td><td>73.90</td><td>73.13</td><td>73.58</td></tr><tr><th scope="row">Human readability</th><td>68.3</td><td>67.1</td><td>70.0</td><td>67.9</td><td>68.0</td></tr><tr><th scope="row">Maintainability</th><td>73.2</td><td>71.0</td><td>74.1</td><td>74.3</td><td>73.9</td></tr><tr><th scope="row">Intent recovery</th><td>76.2</td><td>75.9</td><td>78.7</td><td>78.5</td><td>80.7</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>69.4</td><td>67.9</td><td>71.9</td><td>70.9</td><td>71.1</td></tr><tr><th scope="row">Rated by Grok 4.6</th><td>72.1</td><td>70.2</td><td>72.2</td><td>71.3</td><td>70.7</td></tr><tr><th scope="row">Standard error of Code quality</th><td>1.54</td><td>1.54</td><td>1.50</td><td>1.76</td><td>1.76</td></tr></tbody></table></div>
+        <p>Code quality sits between 70.93 and 73.90 at every effort, with the two judges within about three points of each other in every cell. Intent recovery, the ground-truth layer, edges up with effort as more of the hidden contract is implemented; human readability and maintainability do not. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-terra-v36/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-terra-v36/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p>The scored panel is Muse Spark 1.3 (Meta) through the Muse CLI on its Standard tier, and Grok 4.6 (xAI) through the Cursor CLI at medium effort, with equal weight. Neither lab has a model on this board, so neither judge grades a relative. Every session is fresh, tools are disabled, the workspace is empty, model identity is checked per call from the CLI's own records, and solver labels are withheld. Protocol v3.6 changes nothing in the rubric, controls, gates, repeats, seed or judge settings from v3.5; it applies the protocol to this population, and both judges retook the calibration exam under it before any counted call.</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification: clear, compressed, compressed then auto-formatted, verbose with duplicated policy, needlessly abstracted, misleadingly commented, narrated with a comment on every line, a documented legacy quirk, an embedded instruction to give full marks, and hidden module state. Each program is reviewed five times in a seeded order. Twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.6</td><td>80</td><td>passed</td><td>yes, g11 by 0.02</td><td>g11_repeatability</td></tr><tr><th scope="row">Grok 4.6</th><td>code-quality-maintenance-v3.6</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr></tbody></table></div>
+        <p>Muse Spark 1.3 used the pre-registered allowance, as it did under v3.5: its five repeats on one control spread 0.02 of a point more than gate 11 permits, within the half-point allowance, and every other gate passed. Grok 4.6 passed every gate. Both judges separate the clear program from the compressed one by more than two points on naming and by 1.6 to 2.2 points on presentation, credit formatting mainly on presentation, penalise misleading comments on intent, and penalise hidden state on verifiability. Every gate value and control mean is in <a href="/assets/data/swe-v4-terra-v36/calibration.json">calibration.json</a>.</p>
+        <p>Each judge made 437 calls: 80 in calibration, 114 primary reviews, 5 repeats, 10 pairwise checks, 114 intent probes and 114 answer-key matches. Muse needed a second attempt on six calls, all for an unsupported excerpt; on one of them both attempts quoted the same line with its whitespace collapsed, and the first response was selected with the excerpt re-wrapped to the source under the standing recovery rule. Grok needed a second attempt on eight: five unsupported excerpts, one match that cited a departure not on its own list, and two transport faults when the Cursor CLI could not resolve its API host, each retried under the network-fault rule. Every attempt is archived beside its replacement in the harness run directory.</p>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 114 run measurements, both judges' six-dimension sub-scores and intent-recovery scores per run, raw tokens and API-equivalent cost estimates per run, five aggregates, every calibration gate value, the exact judge protocol text and source hashes. Each run's Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges, or the reviewed score alone where intent recovery has no denominator. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-terra-v36/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the protocol documents, controls, runner and operator wrapper.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Runs were not repeated, and effort labels are Codex's own. Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists.</p>
+        <p>Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), and reviewer session identifiers and usage receipts. Summed solver time is 24.60 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+</body>
+</html>

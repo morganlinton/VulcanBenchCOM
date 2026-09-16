@@ -1,0 +1,145 @@
+"""Build the VulcanBench-SWE v4 leaderboard from the published evidence bundles.
+
+Every model-and-harness column at every effort level it ran, ranked by
+combined score, with Code quality, tasks passed, runtime and API-equivalent
+cost beside it. Reads only the public bundles under assets/data/ and writes
+assets/data/swe-v4-board.json, assets/data/swe-v4-board.csv and the table
+block between the markers in leaderboard.html.
+
+    python3 scripts/build_swe_v4_board.py            # rewrite the outputs
+    python3 scripts/build_swe_v4_board.py --check    # exit 1 if any output is stale
+"""
+
+import argparse
+import csv
+import io
+import json
+import sys
+from html import escape
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+PAGE = ROOT / "leaderboard.html"
+START, END = "<!-- swe-v4-board:start -->", "<!-- swe-v4-board:end -->"
+EFFORTS = ("low", "medium", "high", "extra-high", "max")
+LABEL = {"low": "low", "medium": "medium", "high": "high", "extra-high": "extra-high", "max": "max"}
+SOURCES = [
+    {"bundle": "swe-v4-astra-fable51-v34", "report": "benchmarks/swe-v4-astra-fable51-v34.html", "protocol": "v3.4",
+     "models": {"astra": ("GPT-6 Astra", "Codex", "gpt-6-astra", "OpenAI"), "fable": ("Fable 5.1", "Claude Code", "fable-5-1", "Anthropic")}},
+    {"bundle": "swe-v4-gpt55-luna-v35", "report": "benchmarks/swe-v4-gpt55-luna-v35.html", "protocol": "v3.5",
+     "models": {"gpt55": ("GPT-5.5", "Codex", "gpt-5-5", "OpenAI"), "luna": ("GPT-5.6 Luna", "Codex", "gpt-5-6-luna", "OpenAI")}},
+    {"bundle": "swe-v4-terra-v36", "report": "benchmarks/swe-v4-terra-v36.html", "protocol": "v3.6",
+     "models": {"terra": ("GPT-5.6 Terra", "Codex", "gpt-5-6-terra", "OpenAI")}},
+]
+FOOTNOTES = {
+    "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
+    "terra": "GPT-5.6 Terra at max holds 22 runs: one task waits for the Codex quota window and will be judged as a top-up.",
+}
+
+
+def read(name):
+    return json.loads((ROOT / "assets/data" / name).read_text())
+
+
+def rows():
+    out = []
+    for source in SOURCES:
+        groups = read(f"{source['bundle']}/groups.json")
+        econ = {(g["model"], g["effort"]): g for g in read(f"{source['bundle']}/economics.json")["groups"]}
+        for g in groups:
+            name, harness, slug, lab = source["models"][g["model"]]
+            e = econ[g["model"], g["effort"]]
+            out.append({
+                "model": name, "lab": lab, "harness": harness, "slug": slug, "key": g["model"], "effort": g["effort"], "n": g["n"],
+                "combined": g["combined_33"]["mean"], "combined_se": g["combined_33"]["se"], "code_quality": g["code_quality"]["mean"],
+                "passed": g["passed"], "minutes": g["minutes"]["mean"], "usd": e["usd"]["mean"], "raw_tokens": e["raw_tokens"]["mean"],
+                "report": source["report"], "protocol": f"code-quality-maintenance-{source['protocol']}",
+            })
+    out.sort(key=lambda r: (-r["combined"], r["usd"], r["model"], EFFORTS.index(r["effort"])))
+    best = {}
+    for r in out:
+        best.setdefault(r["key"], r["effort"])  # first row per model in ranked order is its best effort
+    for i, r in enumerate(out, 1):
+        r["rank"] = i
+        r["best"] = best[r["key"]] == r["effort"]
+    return out
+
+
+def table_html(board):
+    lines = ['<div class="lb-scroll">', '<table class="lb" id="v4board">',
+             '<caption class="sr-only">VulcanBench-SWE v4 board: every model and effort level, ranked by combined score</caption>',
+             '<thead><tr><th class="l" scope="col">#</th><th class="l" scope="col">Model / harness</th><th scope="col">Effort</th>'
+             '<th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Code quality</th><th scope="col">Passed</th>'
+             '<th scope="col">Min/task</th><th scope="col">$/task</th></tr></thead>', "<tbody>"]
+    for r in board:
+        cls = ' class="leader"' if r["rank"] == 1 else ""
+        tag = '<span class="fb-best">best</span>' if r["best"] else ""
+        mark = "&dagger;" if r["key"] == "fable" else ("&Dagger;" if r["key"] == "terra" and r["effort"] == "max" else "")
+        lines.append(
+            f'<tr{cls}><td class="l lb-rank">{r["rank"]}</td>'
+            f'<td class="l"><a class="lb-model" href="models/{r["slug"]}.html">{escape(r["model"])}</a> <span class="lb-harness">{escape(r["harness"])}</span>{tag}</td>'
+            f'<td class="fb-eff">{LABEL[r["effort"]]}{mark}</td><td class="lb-win">{r["combined"]:.2f}</td><td>{r["combined_se"]:.2f}</td>'
+            f'<td>{r["code_quality"]:.2f}</td><td>{r["passed"]}/{r["n"]}</td><td>{r["minutes"]:.1f}</td><td>${r["usd"]:.2f}</td></tr>')
+    lines += ["</tbody>", "</table>", "</div>"]
+    return "\n".join(lines)
+
+
+def render(board):
+    models = sorted({r["model"] for r in board})
+    runs = sum(r["n"] for r in board)
+    return (f"{START}\n"
+            f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
+            "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
+            "under one frozen protocol (v3.4 to v3.6 apply the same rubric, controls, gates and judges to each population). SE is one task "
+            "standard error of the combined score. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a "
+            'subscription. The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model\'s highest-scoring effort level.</p>\n'
+            f"{table_html(board)}\n"
+            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) +
+            ' Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. Per-run records, judge sub-scores and '
+            'pricing are in each report&rsquo;s evidence bundle: <a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
+            '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>.</p>\n'
+            f"{END}")
+
+
+def csv_text(board):
+    buffer = io.StringIO()
+    writer = csv.writer(buffer, lineterminator="\n")
+    writer.writerow(["rank", "model", "lab", "harness", "effort", "best_effort", "n", "combined_33", "combined_33_se", "code_quality", "passed",
+                     "mean_minutes", "mean_usd", "mean_raw_tokens", "report", "protocol"])
+    for r in board:
+        writer.writerow([r["rank"], r["model"], r["lab"], r["harness"], r["effort"], r["best"], r["n"], f'{r["combined"]:.4f}', f'{r["combined_se"]:.4f}',
+                         f'{r["code_quality"]:.4f}', r["passed"], f'{r["minutes"]:.4f}', f'{r["usd"]:.6f}', f'{r["raw_tokens"]:.1f}', r["report"], r["protocol"]])
+    return buffer.getvalue()
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args()
+    board = rows()
+    block = render(board)
+    for text in (block, csv_text(board)):
+        assert chr(0x2014) not in text and chr(0x2013) not in text
+    page = PAGE.read_text()
+    assert page.count(START) == 1 and page.count(END) == 1, "leaderboard.html needs exactly one swe-v4-board block"
+    head, rest = page.split(START, 1)
+    _, tail = rest.split(END, 1)
+    new_page = head + block + tail
+    outputs = {
+        PAGE: new_page,
+        ROOT / "assets/data/swe-v4-board.json": json.dumps({"columns": board, "sources": SOURCES}, indent=2, ensure_ascii=False) + "\n",
+        ROOT / "assets/data/swe-v4-board.csv": csv_text(board),
+    }
+    stale = [p for p, text in outputs.items() if not p.exists() or p.read_text() != text]
+    if args.check:
+        for p in stale:
+            print(f"stale: {p.relative_to(ROOT)}")
+        print("SWE v4 board is current" if not stale else f"{len(stale)} stale output(s)")
+        sys.exit(1 if stale else 0)
+    for p, text in outputs.items():
+        p.write_text(text)
+    print(f"{len(board)} columns, {len({r['model'] for r in board})} models; wrote {', '.join(p.name for p in outputs)}")
+
+
+if __name__ == "__main__":
+    main()

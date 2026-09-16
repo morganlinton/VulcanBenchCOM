@@ -1,0 +1,149 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a ChatGPT subscription through Codex, so these are estimates, not bills. Judging and local infrastructure are excluded.",
+  "pricing_verified": "2026-09-11",
+  "sources": {
+    "openai": "https://developers.openai.com/api/docs/pricing"
+  },
+  "rates_per_million": {
+    "terra": {
+      "input": 2.0,
+      "cached_input": 0.2,
+      "output": 12.0
+    }
+  },
+  "groups": [
+    {
+      "model": "terra",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.5763577391304348,
+        "se": 0.040297850786128735
+      },
+      "usd_total": 13.256228,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1212177.5652173914,
+        "se": 108495.71563717998
+      },
+      "raw_tokens_total": 27880084,
+      "minutes": {
+        "n": 23,
+        "mean": 6.673165217391304,
+        "se": 0.3917252333498973
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "terra",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.6863160434782609,
+        "se": 0.03814553311700528
+      },
+      "usd_total": 15.785269,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1450843.7826086956,
+        "se": 110275.5545174821
+      },
+      "raw_tokens_total": 33369407,
+      "minutes": {
+        "n": 23,
+        "mean": 7.875719565217391,
+        "se": 0.41981658234059566
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "terra",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.1833212608695651,
+        "se": 0.1310120400055502
+      },
+      "usd_total": 27.216389,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2860571.217391304,
+        "se": 431910.8986347876
+      },
+      "raw_tokens_total": 65793138,
+      "minutes": {
+        "n": 23,
+        "mean": 12.589148550724637,
+        "se": 0.992314585833726
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "terra",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.117749043478261,
+        "se": 0.5862233203743749
+      },
+      "usd_total": 48.708228,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 5855559.0869565215,
+        "se": 1979086.0768579112
+      },
+      "raw_tokens_total": 134677859,
+      "minutes": {
+        "n": 23,
+        "mean": 19.239158695652176,
+        "se": 4.118069822370688
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "terra",
+      "effort": "max",
+      "n": 22,
+      "usd": {
+        "n": 22,
+        "mean": 1.7165422727272728,
+        "se": 0.31100768999859935
+      },
+      "usd_total": 37.76393,
+      "raw_tokens": {
+        "n": 22,
+        "mean": 4182694.272727273,
+        "se": 1052347.4174441977
+      },
+      "raw_tokens_total": 92019274,
+      "minutes": {
+        "n": 22,
+        "mean": 18.601418939393938,
+        "se": 2.041039049263792
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "terra": {
+      "runs": 114,
+      "usd": 142.730044,
+      "raw_tokens": 353739762,
+      "solver_hours": 24.598443888888887
+    }
+  },
+  "limitations": [
+    "Codex receipts report input, cached input, output and reasoning tokens per run; cached input is billed at the cache-read rate and the rest of the input at the standard rate. Cache writes are free on this API and are not modelled.",
+    "Standard tier, short-context rates. Per-request context sizes are not exposed by the receipts, so no long-context premium is applied.",
+    "No Batch, Flex, Fast or priority pricing is applied.",
+    "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
+    "Max covers 22 runs: paddockcore never started because the Codex subscription quota window closed until September 19, 2026; it will be run and judged as a top-up.",
+    "The sweep stamped each run at run time with a stale Terra list price ($2.50 input, $0.20 cached, $15 output); the frozen population record carries those stamps (frozen_record_usd per run). Every run was re-priced from its receipt at the 2026-09-11 list on 2026-09-16, and estimated_usd is the re-priced value."
+  ],
+  "comparison_sha256": "5834b8e04f2cf92bc8bea24858ab3e6cb96fd58019d3cc7bfbc3a3891f5ff2d9",
+  "note": "Per-run estimates are in runs.json (estimated_usd, raw_tokens, token_usage). Judging is excluded."
+}

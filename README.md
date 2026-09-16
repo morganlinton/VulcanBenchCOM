@@ -5,6 +5,7 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 ## Pages
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
 - `benchmarks.html`: suite-separated results, with the current SWE v4 comparison first and all earlier reports in a labeled archive
+- `benchmarks/swe-v4-terra-v36.html`: GPT-5.6 Terra through Codex at every effort level under Code quality protocol v3.6, with PDF, calibration record and evidence links
 - `benchmarks/swe-v4-gpt55-luna-v35.html`: GPT-5.5 vs. GPT-5.6 Luna through Codex at every effort level under Code quality protocol v3.5, with PDF, calibration record and evidence links
 - `benchmarks/swe-v4-astra-fable51-v34.html`: the same runs rescored under Code quality protocol v3.4 (33% weight, neutral Muse Spark 1.3 and Grok 4.6 panel), with PDF, calibration record and evidence links
 - `benchmarks/NN-*.html`: one journal-style page per report (abstract, findings, table, figure, downloads)
@@ -42,8 +43,8 @@ older suites. Use the original report links and scoring conventions in the
 archive. Run `python3 scripts/check_benchmark_index.py` after index edits.
 
 Each SWE v4 report PDF is generated directly from its public record in
-`assets/data/swe-v4-astra-fable51-v34/` and `assets/data/swe-v4-gpt55-luna-v35/`,
-which `scripts/export_swe_v4_v34_evidence.py` and `scripts/export_swe_v4_v35_evidence.py`
+`assets/data/swe-v4-astra-fable51-v34/`, `assets/data/swe-v4-gpt55-luna-v35/` and
+`assets/data/swe-v4-terra-v36/`, which the matching `scripts/export_swe_v4_v3N_evidence.py`
 (`--harness-root ../VulcanBench`) export from the frozen harness results. The renderers
 use ReportLab and the Geist, Chakra Petch and IBM Plex Mono TTF files already used
 by the harness chart generator:
@@ -56,6 +57,8 @@ python3 scripts/render_swe_v4_v34_report.py --fonts /path/to/VulcanBench/scripts
 python3 scripts/verify_swe_v4_v34_pdf.py
 python3 scripts/render_swe_v4_v35_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt55-luna-v35
 python3 scripts/verify_swe_v4_v35_pdf.py
+python3 scripts/render_swe_v4_v36_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-terra-v36
+python3 scripts/verify_swe_v4_v36_pdf.py
 ```
 
 Rasterise all rendered pages and check the extracted text for forbidden
