@@ -60,6 +60,28 @@ class BoardTests(unittest.TestCase):
                 if r["report"] == source["report"]:
                     self.assertAlmostEqual(r["output_tokens_median"], tokens[r["key"], r["effort"]]["median"], places=6)
 
+    def test_suggestions_follow_the_rule(self):
+        sug = self.json["suggestions"]
+        self.assertEqual(sug, board.suggestions(self.rows))
+        self.assertEqual(self.json["tolerances"], {"critical": 1.0, "routine": 3.0, "rough": 5.0})
+        by_model = {}
+        for r in self.rows:
+            by_model.setdefault(r["key"], []).append(r)
+        for key, entry in sug.items():
+            levels = by_model[key]
+            best = max(levels, key=lambda r: r["combined"])
+            self.assertEqual(entry["best_effort"], best["effort"])
+            self.assertEqual(entry["shape"], "flat" if entry["spread"] <= 3 else "steep")
+            for name, tol in self.json["tolerances"].items():
+                pick = next(r for r in levels if r["effort"] == entry[name]["effort"])
+                self.assertLessEqual(best["combined"] - pick["combined"], tol)
+                for r in levels:  # nothing cheaper qualifies
+                    if best["combined"] - r["combined"] <= tol:
+                        self.assertGreaterEqual((r["usd"], r["minutes"]), (pick["usd"], pick["minutes"]))
+        self.assertEqual({k: v["routine"]["effort"] for k, v in sug.items()},
+                         {"fable": "low", "astra": "medium", "terra": "max", "luna": "max", "gpt55": "extra-high"})
+        self.assertEqual({k: v["shape"] for k, v in sug.items()}, {"fable": "flat", "astra": "flat", "terra": "steep", "luna": "steep", "gpt55": "steep"})
+
     def test_page_writing_and_structure(self):
         text = html.unescape(self.page)
         self.assertNotIn(chr(0x2014), text)

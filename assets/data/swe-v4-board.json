@@ -581,5 +581,182 @@
         ]
       }
     }
-  ]
+  ],
+  "tolerances": {
+    "critical": 1.0,
+    "routine": 3.0,
+    "rough": 5.0
+  },
+  "suggestions": {
+    "fable": {
+      "model": "Fable 5.1",
+      "best_effort": "max",
+      "best_combined": 91.83648928028492,
+      "spread": 2.714039028362933,
+      "shape": "flat",
+      "critical": {
+        "effort": "max",
+        "combined": 91.83648928028492,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 23,
+        "n": 23
+      },
+      "routine": {
+        "effort": "low",
+        "combined": 89.12245025192199,
+        "gap": 2.714039028362933,
+        "usd_vs_best": 0.8791177000846561,
+        "minutes_vs_best": 0.9926445266946027,
+        "passed": 19,
+        "n": 23
+      },
+      "rough": {
+        "effort": "low",
+        "combined": 89.12245025192199,
+        "gap": 2.714039028362933,
+        "usd_vs_best": 0.8791177000846561,
+        "minutes_vs_best": 0.9926445266946027,
+        "passed": 19,
+        "n": 23
+      }
+    },
+    "astra": {
+      "model": "GPT-6 Astra",
+      "best_effort": "max",
+      "best_combined": 89.30329386483082,
+      "spread": 1.8707616622507999,
+      "shape": "flat",
+      "critical": {
+        "effort": "extra-high",
+        "combined": 89.16155930591148,
+        "gap": 0.14173455891933884,
+        "usd_vs_best": 0.8963813435432165,
+        "minutes_vs_best": 0.7869720088150223,
+        "passed": 23,
+        "n": 23
+      },
+      "routine": {
+        "effort": "medium",
+        "combined": 87.72616663988185,
+        "gap": 1.577127224948967,
+        "usd_vs_best": 0.576819592005343,
+        "minutes_vs_best": 0.3718323877002737,
+        "passed": 23,
+        "n": 23
+      },
+      "rough": {
+        "effort": "medium",
+        "combined": 87.72616663988185,
+        "gap": 1.577127224948967,
+        "usd_vs_best": 0.576819592005343,
+        "minutes_vs_best": 0.3718323877002737,
+        "passed": 23,
+        "n": 23
+      }
+    },
+    "terra": {
+      "model": "GPT-5.6 Terra",
+      "best_effort": "max",
+      "best_combined": 89.05345625895843,
+      "spread": 29.353593836598186,
+      "shape": "steep",
+      "critical": {
+        "effort": "max",
+        "combined": 89.05345625895843,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 23,
+        "n": 23
+      },
+      "routine": {
+        "effort": "max",
+        "combined": 89.05345625895843,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 23,
+        "n": 23
+      },
+      "rough": {
+        "effort": "max",
+        "combined": 89.05345625895843,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 23,
+        "n": 23
+      }
+    },
+    "luna": {
+      "model": "GPT-5.6 Luna",
+      "best_effort": "max",
+      "best_combined": 84.14689600616774,
+      "spread": 42.860009049645996,
+      "shape": "steep",
+      "critical": {
+        "effort": "max",
+        "combined": 84.14689600616774,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 19,
+        "n": 23
+      },
+      "routine": {
+        "effort": "max",
+        "combined": 84.14689600616774,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 19,
+        "n": 23
+      },
+      "rough": {
+        "effort": "max",
+        "combined": 84.14689600616774,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 19,
+        "n": 23
+      }
+    },
+    "gpt55": {
+      "model": "GPT-5.5",
+      "best_effort": "extra-high",
+      "best_combined": 78.45621023107327,
+      "spread": 28.65280557268818,
+      "shape": "steep",
+      "critical": {
+        "effort": "extra-high",
+        "combined": 78.45621023107327,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 11,
+        "n": 23
+      },
+      "routine": {
+        "effort": "extra-high",
+        "combined": 78.45621023107327,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 11,
+        "n": 23
+      },
+      "rough": {
+        "effort": "extra-high",
+        "combined": 78.45621023107327,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 11,
+        "n": 23
+      }
+    }
+  }
 }
