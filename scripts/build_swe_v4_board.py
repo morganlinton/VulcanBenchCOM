@@ -65,6 +65,9 @@ def rows():
     return out
 
 
+COLORS = {"fable": "#D97757", "astra": "#10A37F", "terra": "#0F5E4F", "luna": "#5EC59B", "gpt55": "#6B6B66"}
+
+
 def table_html(board):
     lines = ['<div class="lb-scroll">', '<table class="lb" id="v4board">',
              '<caption class="sr-only">VulcanBench-SWE v4 board: every model and effort level, ranked by combined score</caption>',
@@ -72,12 +75,12 @@ def table_html(board):
              '<th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Code quality</th><th scope="col">Passed</th>'
              '<th scope="col">Min/task</th><th scope="col">$/task</th></tr></thead>', "<tbody>"]
     for r in board:
-        cls = ' class="leader"' if r["rank"] == 1 else ""
+        cls = " leader" if r["rank"] == 1 else ""
         tag = '<span class="fb-best">best</span>' if r["best"] else ""
         mark = "&dagger;" if r["key"] == "fable" else ("&Dagger;" if r["key"] == "terra" and r["effort"] == "max" else "")
         lines.append(
-            f'<tr{cls}><td class="l lb-rank">{r["rank"]}</td>'
-            f'<td class="l"><a class="lb-model" href="models/{r["slug"]}.html">{escape(r["model"])}</a> <span class="lb-harness">{escape(r["harness"])}</span>{tag}</td>'
+            f'<tr class="v4row{cls}" data-model="{r["key"]}" data-effort="{r["effort"]}" data-best="{int(r["best"])}"><td class="l lb-rank">{r["rank"]}</td>'
+            f'<td class="l"><span class="v4dot" style="background:{COLORS[r["key"]]}"></span><a class="lb-model" href="models/{r["slug"]}.html">{escape(r["model"])}</a> <span class="lb-harness">{escape(r["harness"])}</span>{tag}</td>'
             f'<td class="fb-eff">{LABEL[r["effort"]]}{mark}</td><td class="lb-win">{r["combined"]:.2f}</td><td>{r["combined_se"]:.2f}</td>'
             f'<td>{r["code_quality"]:.2f}</td><td>{r["passed"]}/{r["n"]}</td><td>{r["minutes"]:.1f}</td><td>${r["usd"]:.2f}</td></tr>')
     lines += ["</tbody>", "</table>", "</div>"]
@@ -87,17 +90,28 @@ def table_html(board):
 def render(board):
     models = sorted({r["model"] for r in board})
     runs = sum(r["n"] for r in board)
+    data = {"columns": [{k: r[k] for k in ("model", "lab", "harness", "slug", "key", "effort", "n", "combined", "combined_se", "code_quality",
+                                            "passed", "minutes", "usd", "raw_tokens", "rank", "best")} for r in board],
+            "colors": COLORS, "efforts": list(EFFORTS)}
+    payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    assert "</script" not in payload
     return (f"{START}\n"
+            f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.6 apply the same rubric, controls, gates and judges to each population). SE is one task "
-            "standard error of the combined score. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a "
-            'subscription. The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model\'s highest-scoring effort level.</p>\n'
+            "under one frozen protocol (v3.4 to v3.6 apply the same rubric, controls, gates and judges to each population). Pick the models "
+            "and the effort level you care about; every chart, the frontier plot and the table below follow the same selection. "
+            "$/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription.</p>\n"
+            '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
+            '<noscript><p class="lb-context">The interactive charts need JavaScript; the full table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
             '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) +
-            ' Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. Per-run records, judge sub-scores and '
-            'pricing are in each report&rsquo;s evidence bundle: <a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
-            '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>.</p>\n'
+            ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
+            'The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model&rsquo;s highest-scoring effort level. '
+            'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
+            '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
+            '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>. '
+            '<a href="assets/data/swe-v4-board.csv" download>Download the board as CSV</a>.</p>\n'
             f"{END}")
 
 
