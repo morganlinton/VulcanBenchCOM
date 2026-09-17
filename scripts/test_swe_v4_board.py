@@ -32,7 +32,7 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(sum(1 for r in self.rows if r["best"]), 5)
         self.assertEqual([r["rank"] for r in self.rows], list(range(1, 25)))
         self.assertEqual([r["combined"] for r in self.rows], sorted((r["combined"] for r in self.rows), reverse=True))
-        self.assertEqual(sum(r["n"] for r in self.rows), 551)
+        self.assertEqual(sum(r["n"] for r in self.rows), 552)
         for r in self.rows:
             self.assertTrue((ROOT / f"models/{r['slug']}.html").is_file(), r["slug"])
             self.assertTrue((ROOT / r["report"]).is_file(), r["report"])
@@ -40,7 +40,7 @@ class BoardTests(unittest.TestCase):
             self.assertGreater(r["output_tokens_median"], 0)
             self.assertGreater(r["output_tokens_mean"], 0)
         terra_max = next(r for r in self.rows if r["key"] == "terra" and r["effort"] == "max")
-        self.assertEqual(terra_max["n"], 22)
+        self.assertEqual(terra_max["n"], 23)
         self.assertEqual(len(self.csv), 24)
         self.assertEqual(self.csv[0]["rank"], "1")
 

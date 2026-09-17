@@ -23,11 +23,11 @@ these commands contacts a provider.
 
 All of the following live in the VulcanBench harness repository:
 
-- [Protocol document with amendments v3.1 to v3.6](https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/code-quality-maintenance-v3.md)
+- [Protocol document with amendments v3.1 to v3.6.1](https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/code-quality-maintenance-v3.md)
 - [Operations log: every freeze, calibration verdict and operator intervention](https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/maintenance-v3-operations.md)
 - [Plain-language system summary](https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/maintenance-v3-system-summary.md)
 - [The ten calibration controls and their verifier](https://github.com/morganlinton/VulcanBench/tree/main/docs/judging/controls-v3)
-- [v3.6 runner](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v36.py), which reuses the frozen [v3 implementation](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3.py), and the [operator wrapper](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3_resume.py)
+- [v3.6 runner](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v36.py) and [v3.6.1 top-up runner](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v361.py), which reuse the frozen [v3 implementation](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3.py), and the [operator wrapper](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3_resume.py)
 - [Population record and card generators](https://github.com/morganlinton/VulcanBench/tree/main/docs/results/swe-v4-terra-2026-09)
 - [Score composition](https://github.com/morganlinton/VulcanBench/blob/main/harness/evaluator/reviewed_score.py)
 
@@ -53,6 +53,12 @@ VB_MAINT_MODULE=harness.maintenance_review_v36 python3 -m harness.maintenance_re
 VB_MAINT_MODULE=harness.maintenance_review_v36 python3 -m harness.maintenance_review_v3_resume run --panel grok
 VB_MAINT_MODULE=harness.maintenance_review_v36 python3 -m harness.maintenance_review_v3_resume probe --panel grok
 python3 -m harness.maintenance_review_v36 summarize
+python3 -m harness.maintenance_review_v361 prepare
+VB_MAINT_MODULE=harness.maintenance_review_v361 python3 -m harness.maintenance_review_v3_resume run --panel muse
+VB_MAINT_MODULE=harness.maintenance_review_v361 python3 -m harness.maintenance_review_v3_resume probe --panel muse
+VB_MAINT_MODULE=harness.maintenance_review_v361 python3 -m harness.maintenance_review_v3_resume run --panel grok
+VB_MAINT_MODULE=harness.maintenance_review_v361 python3 -m harness.maintenance_review_v3_resume probe --panel grok
+python3 -m harness.maintenance_review_v361 summarize
 ```
 
 The runner refuses to start unless the code and protocol document hashes match

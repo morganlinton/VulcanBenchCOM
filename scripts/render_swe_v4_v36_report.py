@@ -97,11 +97,11 @@ def main():  # noqa: PLR0915, one linear document
     p("VulcanBench-SWE v4 | Code quality protocol v3.6 | September 2026", "small")
     heading("Abstract")
     p(f"GPT-5.6 Terra ran the 23-task VulcanBench-SWE v4 suite through the Codex CLI on a ChatGPT subscription, once per task at "
-      f"each of the five effort levels its API offers, 114 runs in all; the Max cell holds 22 because one task could not start "
-      f"before the subscription's quota window closed. Code quality carries 33% of the combined score and is judged for a named "
+      f"each of the five effort levels its API offers, 115 runs in all. One Max run could not start before the subscription's "
+      f"quota window closed; it ran on September 17 on a second ChatGPT account and was judged under the v3.6.1 top-up. Code quality carries 33% of the combined score and is judged for a named "
       f"human reader by Muse Spark 1.3 (Meta) and Grok 4.6 (xAI) under the same frozen protocol as the other SWE v4 reports, with "
       f"a ground-truth intent-recovery probe. The combined score rises at every step of the ladder, from {comb[0]:.2f} at Low to "
-      f"{comb[4]:.2f} at Max, where Terra passes all {t['max']['passed']} judged tasks. Code quality stays between {min(cq):.2f} "
+      f"{comb[4]:.2f} at Max, where Terra passes {t['max']['passed']} of 23 tasks. Code quality stays between {min(cq):.2f} "
       f"and {max(cq):.2f} at every effort: the knob buys correctness, not readability. Cost per task rises from "
       f"${et['low']['usd']['mean']:.2f} at Low to ${et['extra-high']['usd']['mean']:.2f} at Extra-high and eases to "
       f"${et['max']['usd']['mean']:.2f} at Max.")
@@ -129,8 +129,9 @@ def main():  # noqa: PLR0915, one linear document
       "and complexity and security carry 8.5% each. The prior profile is reported beside the new one on every table.")
     p("Protocol v3.6 is the same protocol applied to this population. Nothing in the rubric, controls, quirk keys, gates, repeats, seed or "
       "judge settings changed; both judges retook the calibration exam under v3.6 before any counted call. A task and level with no "
-      "attempt is recorded as missing with its reason and the cell freezes with the submissions it has; the missing run is judged later "
-      "as a separate top-up freeze under the same calibration, and this record is not rewritten.")
+      "attempt is recorded as missing with its reason and the cell freezes with the submissions it has; the missing run was judged under "
+      "the v3.6.1 top-up, which reuses both judges' v3.6 verdicts and pins the v3.6 protocol, summary, manifest and calibration by hash. "
+      "The v3.6 record is not rewritten; this report merges the two.")
     heading("The rubric")
     p("Every judge receives the same instructions, frozen by hash before any review. The prompt names the reader it scores for: "
       "an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one "
@@ -151,7 +152,7 @@ def main():  # noqa: PLR0915, one linear document
       "text, and lists where the code departs from the specification; a separate call matches that list against the frozen "
       "answer key. The denominator is the quirks the submission actually passed tests for, so a functional failure is not "
       "punished twice; a submission that passed none has no intent-recovery score and its Code quality is the reviewed score alone, "
-      "which happened on one Low run and one High run. "
+      "which happened on a handful of runs listed in the bundle. "
       "<b>Measured maintenance, designed for 12 points, not yet built.</b> Until it exists the pre-registered "
       "split above is in force and is stated on the card.")
 
@@ -214,12 +215,20 @@ def main():  # noqa: PLR0915, one linear document
     p("Functional scores retain partial credit. Lint and complexity and security are the sweep's automated measurements. Code quality is "
       "the protocol's score, the reviewed score alone where a submission passed no quirk family.", "small")
 
+    heading("Operator record")
+    p("Under v3.6 each judge made 437 calls: 80 in calibration, 114 primary reviews, 5 repeats, 10 pairwise checks, 114 intent probes and 114 "
+      "answer-key matches. Muse needed a second attempt on six calls, all for an unsupported excerpt; on one of them both attempts quoted "
+      "the same line with its whitespace collapsed, and the first response was selected with the excerpt re-wrapped to the source under "
+      "the standing recovery rule. Grok needed a second attempt on eight: five unsupported excerpts, one match that cited a departure "
+      "not on its own list, and two transport faults when the Cursor CLI could not resolve its API host, each retried under the "
+      "network-fault rule. The v3.6.1 top-up added four calls per judge for paddockcore at Max. Neither judge produced a reviewer "
+      "fallback. Every attempt is archived beside its replacement in the harness run directory.", "small")
     # Page 5: cost and tokens
     story.append(PageBreak())
     p("Cost and tokens across effort levels", "h1")
-    p("The same 114 runs priced from their Codex receipts at list API rates, cache-aware, solver inference only, judging excluded. "
-      "Terra ran on a ChatGPT subscription, so these are API-equivalent estimates rather than bills. Cost and tokens climb to Extra-high "
-      "and ease slightly at Max, which finishes faster and cheaper than Extra-high while passing more tasks.")
+    p("The same 115 runs priced from their Codex receipts at list API rates, cache-aware, solver inference only, judging excluded. "
+      "Terra ran on a ChatGPT subscription, so these are API-equivalent estimates rather than bills. Cost and tokens peak at Extra-high "
+      "and are lower at Max, which passes more tasks; runtime levels off between the two.")
     heading("Table 6. API-equivalent cost, raw tokens and runtime by effort")
     records = [[label(e), str(et[e]["n"]), f'${et[e]["usd"]["mean"]:.2f}', f'${et[e]["usd_total"]:.2f}',
                 f'{et[e]["raw_tokens"]["mean"] / 1e6:.2f}M', f'{et[e]["minutes"]["mean"]:.1f}'] for e in EFFORTS]
@@ -255,17 +264,9 @@ def main():  # noqa: PLR0915, one linear document
     heading("What this report does not claim")
     p("No human rated anything; the scores are model judgment for a human reader, not human validation. Standard errors describe "
       "task sampling only. The measured-maintenance layer is unbuilt, so the 33 points are 24 reviewed plus 9 intent recovery. "
-      "Runs were not repeated and effort labels are Codex's own. The Max cell holds 22 runs until paddockcore can run and is judged "
-      "as a top-up. Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training "
+      "Runs were not repeated and effort labels are Codex's own. The paddockcore Max run went through a second ChatGPT account, the "
+      "only difference from the rest of the sweep. Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training "
       "overlap exists.")
-    heading("Operator record")
-    p("Each judge made 437 calls: 80 in calibration, 114 primary reviews, 5 repeats, 10 pairwise checks, 114 intent probes and 114 "
-      "answer-key matches. Muse needed a second attempt on six calls, all for an unsupported excerpt; on one of them both attempts quoted "
-      "the same line with its whitespace collapsed, and the first response was selected with the excerpt re-wrapped to the source under "
-      "the standing recovery rule. Grok needed a second attempt on eight: five unsupported excerpts, one match that cited a departure "
-      "not on its own list, and two transport faults when the Cursor CLI could not resolve its API host, each retried under the "
-      "network-fault rule. Neither judge produced a reviewer fallback. Every attempt is archived beside its replacement in the harness "
-      "run directory.", "small")
     heading("Source hashes")
     table(["Frozen artifact", "SHA-256"], [[k, v[:32] + "..."] for k, v in provenance["source_artifacts_sha256"].items()], [190, 300], size=8.2, padding=3)
     p("The protocol documents, controls, quirk-key format, runner and operator wrapper are in the VulcanBench repository under "
@@ -282,7 +283,7 @@ def main():  # noqa: PLR0915, one linear document
         records.append([task.replace("legacy-", "").replace("-binary-parity", "").replace("-parity", ""), f'{lo["code_quality"]:.1f}',
                         f'{hi["code_quality"]:.1f}' if hi else "not run", f'{lo["combined_33"]:.2f}', f'{hi["combined_33"]:.2f}' if hi else "not run"])
     table(["Task", "Low CQ", "Max CQ", "Low combined", "Max combined"], records, [150, 70, 70, 90, 90], size=8.4, padding=2.6)
-    p("Per-task values from runs.json. Task names are shortened for width. Paddockcore at Max waits for the Codex quota window.", "small")
+    p("Per-task values from runs.json. Task names are shortened for width.", "small")
 
     story.extend([NextPageTemplate("card"), PageBreak()])
     story.append(Image(str(CARD), width=680, height=488.75))

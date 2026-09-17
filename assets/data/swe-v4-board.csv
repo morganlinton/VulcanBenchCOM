@@ -3,10 +3,10 @@ rank,model,lab,harness,effort,best_effort,n,combined_33,combined_33_se,code_qual
 2,Fable 5.1,Anthropic,Claude Code,extra-high,False,23,90.7543,0.8210,81.9336,22,38.7732,14.485635,11435379.2,75428.0,144967.5,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
 3,Fable 5.1,Anthropic,Claude Code,medium,False,23,90.1293,0.9394,80.1382,20,31.7213,9.186010,6972178.3,52146.0,92556.3,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
 4,Fable 5.1,Anthropic,Claude Code,high,False,23,90.0689,0.7822,80.8610,20,28.7614,9.701575,5488274.0,64836.0,105501.6,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
-5,GPT-5.6 Terra,OpenAI,Codex,max,True,22,89.4584,0.6153,73.5803,22,18.6014,1.716542,4182694.3,41950.0,50712.6,benchmarks/swe-v4-terra-v36.html,code-quality-maintenance-v3.6
-6,GPT-6 Astra,OpenAI,Codex,max,True,23,89.3033,0.3663,76.2645,23,10.2805,2.568128,949887.1,16336.0,17863.3,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
-7,GPT-6 Astra,OpenAI,Codex,extra-high,False,23,89.1616,0.2971,75.4749,23,8.0905,2.302022,927474.4,12768.0,14013.9,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
-8,Fable 5.1,Anthropic,Claude Code,low,False,23,89.1225,1.1538,78.3565,19,26.8970,7.963719,4384071.0,40844.0,85756.6,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+5,GPT-6 Astra,OpenAI,Codex,max,True,23,89.3033,0.3663,76.2645,23,10.2805,2.568128,949887.1,16336.0,17863.3,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+6,GPT-6 Astra,OpenAI,Codex,extra-high,False,23,89.1616,0.2971,75.4749,23,8.0905,2.302022,927474.4,12768.0,14013.9,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+7,Fable 5.1,Anthropic,Claude Code,low,False,23,89.1225,1.1538,78.3565,19,26.8970,7.963719,4384071.0,40844.0,85756.6,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
+8,GPT-5.6 Terra,OpenAI,Codex,max,True,23,89.0535,0.7139,72.5197,23,19.7351,1.882200,4682504.4,42084.0,53547.2,benchmarks/swe-v4-terra-v36.html,code-quality-maintenance-v3.6
 9,GPT-6 Astra,OpenAI,Codex,high,False,23,88.1580,0.4248,73.4751,23,4.8999,1.711065,767511.9,8056.0,8196.7,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
 10,GPT-6 Astra,OpenAI,Codex,medium,False,23,87.7262,0.3185,71.1864,23,3.8226,1.481347,684214.0,5271.0,5901.8,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4
 11,GPT-6 Astra,OpenAI,Codex,low,False,23,87.4325,0.5104,70.3092,22,4.2187,1.721698,890204.1,4194.0,6381.7,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4

@@ -89,28 +89,6 @@
       "best": false
     },
     {
-      "model": "GPT-5.6 Terra",
-      "lab": "OpenAI",
-      "harness": "Codex",
-      "slug": "gpt-5-6-terra",
-      "key": "terra",
-      "effort": "max",
-      "n": 22,
-      "combined": 89.45842732267732,
-      "combined_se": 0.6152994094605826,
-      "code_quality": 73.58025497230042,
-      "passed": 22,
-      "minutes": 18.601418939393938,
-      "usd": 1.7165422727272728,
-      "raw_tokens": 4182694.272727273,
-      "output_tokens_median": 41950.0,
-      "output_tokens_mean": 50712.63636363636,
-      "report": "benchmarks/swe-v4-terra-v36.html",
-      "protocol": "code-quality-maintenance-v3.6",
-      "rank": 5,
-      "best": true
-    },
-    {
       "model": "GPT-6 Astra",
       "lab": "OpenAI",
       "harness": "Codex",
@@ -129,7 +107,7 @@
       "output_tokens_mean": 17863.260869565216,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 6,
+      "rank": 5,
       "best": true
     },
     {
@@ -151,7 +129,7 @@
       "output_tokens_mean": 14013.91304347826,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 7,
+      "rank": 6,
       "best": false
     },
     {
@@ -173,8 +151,30 @@
       "output_tokens_mean": 85756.56521739131,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 8,
+      "rank": 7,
       "best": false
+    },
+    {
+      "model": "GPT-5.6 Terra",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-5-6-terra",
+      "key": "terra",
+      "effort": "max",
+      "n": 23,
+      "combined": 89.05345625895843,
+      "combined_se": 0.7139143952236725,
+      "code_quality": 72.51973569908351,
+      "passed": 23,
+      "minutes": 19.7351,
+      "usd": 1.8822,
+      "raw_tokens": 4682504.434782608,
+      "output_tokens_median": 42084,
+      "output_tokens_mean": 53547.17391304348,
+      "report": "benchmarks/swe-v4-terra-v36.html",
+      "protocol": "code-quality-maintenance-v3.6",
+      "rank": 8,
+      "best": true
     },
     {
       "model": "GPT-6 Astra",
