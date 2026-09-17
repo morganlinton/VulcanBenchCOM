@@ -8,11 +8,13 @@
   var LABEL = { low: "Low", medium: "Medium", high: "High", "extra-high": "Extra-high", max: "Max" };
   var MODELS = [];
   COLS.forEach(function (c) { if (!MODELS.some(function (m) { return m.key === c.key; })) MODELS.push({ key: c.key, name: c.model, harness: c.harness, slug: c.slug }); });
-  var state = { models: {}, mode: "best", metric: "combined" };
+  var state = { models: {}, mode: "best", metric: "combined", tolerance: "routine" };
+  var TOL = DATA.tolerances || { critical: 1, routine: 3, rough: 5 };
+  var TOL_LABEL = { routine: "Routine tasks", critical: "Critical work", rough: "Rough passes" };
   MODELS.forEach(function (m) { state.models[m.key] = true; });
   try {
     var saved = JSON.parse(localStorage.getItem("vb_v4_board") || "null");
-    if (saved && saved.models && saved.mode) { state.mode = saved.mode; MODELS.forEach(function (m) { if (m.key in saved.models) state.models[m.key] = !!saved.models[m.key]; }); }
+    if (saved && saved.models && saved.mode) { state.mode = saved.mode; if (saved.tolerance in TOL) state.tolerance = saved.tolerance; MODELS.forEach(function (m) { if (m.key in saved.models) state.models[m.key] = !!saved.models[m.key]; }); }
   } catch (e) { /* storage unavailable */ }
 
   var METRICS = [
@@ -47,14 +49,15 @@
     });
   }
   function save() {
-    try { localStorage.setItem("vb_v4_board", JSON.stringify({ models: state.models, mode: state.mode })); } catch (e) { /* ignore */ }
+    try { localStorage.setItem("vb_v4_board", JSON.stringify({ models: state.models, mode: state.mode, tolerance: state.tolerance })); } catch (e) { /* ignore */ }
   }
 
   function controls() {
     var chips = MODELS.map(function (m) {
       var on = state.models[m.key];
-      return '<button type="button" class="v4chip' + (on ? " on" : "") + '" data-model="' + m.key + '" aria-pressed="' + (on ? "true" : "false") + '">' +
-        '<span class="v4dot" style="background:' + COLORS[m.key] + '"></span>' + esc(m.name) + ' <span class="v4h">' + esc(m.harness) + "</span></button>";
+      var shape = ladder(m.key).shape;
+      return '<button type="button" class="v4chip' + (on ? " on" : "") + '" data-model="' + m.key + '" aria-pressed="' + (on ? "true" : "false") + '" title="' + (shape === "flat" ? "effort-flat: its best level is within 3 points of Low" : "effort-steep: Low trails its best level by more than 3 points") + '">' +
+        '<span class="v4dot" style="background:' + COLORS[m.key] + '"></span>' + esc(m.name) + ' <span class="v4h">' + esc(m.harness) + '</span><span class="v4shape ' + shape + '">' + (shape === "flat" ? "effort-flat" : "effort-steep") + "</span></button>";
     }).join("");
     var modes = [["best", "Best level per model"]].concat(EFFORTS.map(function (e) { return [e, LABEL[e]]; })).concat([["all", "All levels"]]);
     var tabs = modes.map(function (m) {
@@ -72,6 +75,69 @@
     if (state.mode === "best") return name + ' <span class="eff">&middot; ' + LABEL[r.effort] + "</span>";
     if (state.mode === "all") return name + ' <span class="eff">&middot; ' + LABEL[r.effort] + "</span>" + (r.best ? '<span class="bst">best</span>' : "");
     return name;
+  }
+
+  function ladder(key) {
+    var levels = COLS.filter(function (c) { return c.key === key; }).sort(function (a, b) { return EFFORTS.indexOf(a.effort) - EFFORTS.indexOf(b.effort); });
+    var best = levels.reduce(function (a, b) { return b.combined > a.combined ? b : a; });
+    var low = levels[0];
+    return { levels: levels, best: best, low: low, spread: best.combined - low.combined, shape: best.combined - low.combined <= 3 ? "flat" : "steep" };
+  }
+  function suggest(key, tolerance) {
+    var l = ladder(key), tol = TOL[tolerance];
+    var ok = l.levels.filter(function (r) { return l.best.combined - r.combined <= tol; });
+    var pick = ok.slice().sort(function (a, b) { return a.usd - b.usd || a.minutes - b.minutes; })[0];
+    return { pick: pick, best: l.best, gap: l.best.combined - pick.combined, usdRatio: pick.usd / l.best.usd, minRatio: pick.minutes / l.best.minutes, ladder: l };
+  }
+  function pct(ratio) { return Math.round(ratio * 100) + "%"; }
+  function ladderStrip(l, pickEffort) {
+    // Dots on one scale: the model's Low score at the left edge, its best at the right edge, so a flat model bunches and a steep one spreads.
+    var lo = Math.min.apply(null, l.levels.map(function (r) { return r.combined; })), hi = l.best.combined;
+    var W = 100, span = Math.max(hi - lo, 0.001);
+    var xs = l.levels.map(function (r) { return 4 + 92 * (r.combined - lo) / span; });
+    var html = l.levels.map(function (r, i) {
+      var x = xs[i];
+      var picked = r.effort === pickEffort;
+      // Labels drop to a second row when the previous label sits within 14% of this one, so flat ladders stay legible.
+      var row = i > 0 && Math.abs(xs[i] - xs[i - 1]) < 14 && !(i > 1 && Math.abs(xs[i - 1] - xs[i - 2]) < 14 && i % 2 === 0) ? 1 : 0;
+      return '<span class="v4lad-dot' + (picked ? " pick" : "") + '" style="left:' + x.toFixed(1) + '%;background:' + shade(r.key, r.effort) + '" title="' + LABEL[r.effort] + ": " + r.combined.toFixed(2) + '"></span>' +
+        '<span class="v4lad-lab' + (picked ? " pick" : "") + (row ? " row2" : "") + '" style="left:' + x.toFixed(1) + '%">' + LABEL[r.effort] + "</span>";
+    }).join("");
+    return '<div class="v4lad"><div class="v4lad-line"></div>' + html + '</div><div class="v4lad-axis"><span>' + lo.toFixed(1) + "</span><span>" + hi.toFixed(1) + "</span></div>";
+  }
+  function suggestionSection() {
+    var picked = MODELS.filter(function (m) { return state.models[m.key]; });
+    var tabs = Object.keys(TOL).map(function (k) {
+      return '<button type="button" role="tab" class="' + (state.tolerance === k ? "active" : "") + '" aria-selected="' + (state.tolerance === k ? "true" : "false") + '" data-tolerance="' + k + '">' + TOL_LABEL[k] + ' <span class="n">within ' + TOL[k] + (TOL[k] === 1 ? " pt" : " pts") + "</span></button>";
+    }).join("");
+    var cards = picked.map(function (m) {
+      var sg = suggest(m.key, state.tolerance), p = sg.pick, l = sg.ladder;
+      var saving = p.effort === sg.best.effort
+        ? "No cheaper level stays within " + TOL[state.tolerance] + " points of its best: Low gives up " + l.spread.toFixed(1) + " points" + (l.levels.length > 2 ? " and " + LABEL[l.levels[l.levels.length - 2].effort] + " gives up " + (l.best.combined - l.levels[l.levels.length - 2].combined).toFixed(1) : "") + "."
+        : pct(sg.usdRatio) + " of the cost and " + pct(sg.minRatio) + " of the time of " + LABEL[sg.best.effort] + ", for " + sg.gap.toFixed(1) + " points less.";
+      var steps = l.levels.map(function (r, i) {
+        if (!i) return "";
+        var prev = l.levels[i - 1], dScore = r.combined - prev.combined, dUsd = r.usd - prev.usd;
+        return '<div class="v4step"><span class="v4step-from">' + LABEL[prev.effort] + " &rarr; " + LABEL[r.effort] + "</span>" +
+          '<span class="v4step-bar"><span style="width:' + Math.min(100, Math.abs(dScore) / 45 * 100).toFixed(1) + '%;background:' + (dScore >= 0 ? COLORS[r.key] : "#b4490c") + '"></span></span>' +
+          '<span class="v4step-val">' + (dScore >= 0 ? "+" : "") + dScore.toFixed(1) + " pts for " + (dUsd >= 0 ? "+" : "&minus;") + "$" + Math.abs(dUsd).toFixed(2) + "</span></div>";
+      }).join("");
+      return '<div class="v4sug">' +
+        '<div class="v4sug-head"><span class="v4dot" style="background:' + COLORS[m.key] + '"></span><b>' + esc(m.name) + '</b><span class="v4h">' + esc(m.harness) + '</span><span class="v4shape ' + l.shape + '">effort-' + l.shape + "</span></div>" +
+        '<div class="v4sug-pick"><span class="v4k">Run it at</span><span class="v4sug-level">' + LABEL[p.effort] + "</span>" +
+        '<span class="v4sug-meta">' + p.combined.toFixed(2) + " combined &middot; " + p.passed + "/" + p.n + " passed &middot; $" + p.usd.toFixed(2) + " &middot; " + p.minutes.toFixed(1) + " min per task</span></div>" +
+        '<p class="v4sug-why">' + saving + "</p>" +
+        ladderStrip(l, p.effort) +
+        '<details class="v4steps"><summary>What each step up buys</summary>' + steps + "</details>" +
+        "</div>";
+    }).join("");
+    return '<section class="v4need" aria-labelledby="v4need-heading">' +
+      '<div class="v4need-head"><h3 id="v4need-heading">Suggested for routine tasks</h3>' +
+      '<p>Sure, Max scores best. The question is how much better, and at what price. For each model this picks the cheapest effort level whose combined score sits within your tolerance of that model&rsquo;s best, and shows what it saves. The dot strip is the model&rsquo;s effort ladder on one scale, Low at the left, best at the right: bunched dots mean effort barely matters, spread dots mean it matters a lot.</p></div>' +
+      '<div class="v4group"><span class="v4label">Tolerance</span><div class="lb-toggle chart-toggle on v4modes" role="tablist" aria-label="Score tolerance">' + tabs + "</div></div>" +
+      '<div class="v4sugs">' + (cards || '<div class="bc-empty">No models picked.</div>') + "</div>" +
+      '<p class="lb-context">These are 23 hard behavioural-reconstruction tasks. A model that is effort-flat here is flat on hard work; on routine edits the case for its lower levels is stronger still. Suggestions follow the chosen models and update with the tolerance; the effort selector above does not affect them.</p>' +
+      "</section>";
   }
 
   function barCard(metric, rows) {
@@ -163,7 +229,7 @@
         '<figure class="v4card v4wide"><figcaption><b>Score against completion tokens</b><span>combined score against median output tokens per task, reasoning included, log scale. The dashed line is the frontier: nothing that writes fewer tokens scores higher, and ringed points sit on it' + (state.mode === "all" ? "; thin lines join each model’s effort ladder from Low to Max, hover any point" : "") + "</span></figcaption>" + scatter(rows, "output_tokens_median", "Median completion tokens per task", true, true) + "</figure>" +
         '<figure class="v4card v4wide"><figcaption><b>Score against cost</b><span>combined score against API-equivalent $ per task, log scale; the dashed line is the cost frontier' + (state.mode === "all" ? "; thin lines join each model’s effort ladder from Low to Max, hover any point" : "") + "</span></figcaption>" + scatter(rows, "usd", "API-equivalent $ per task", true, true) + "</figure>" +
         '<figure class="v4card v4wide"><figcaption><b>Score against runtime</b><span>combined score against minutes per task' + (state.mode === "all" ? "; thin lines join each model’s effort ladder from Low to Max, hover any point" : "") + "</span></figcaption>" + scatter(rows, "minutes", "Minutes per task", false, false) + "</figure></div>";
-      app.innerHTML = head + strip + '<div class="v4grid">' + cards + "</div>" + plots;
+      app.innerHTML = head + strip + suggestionSection() + '<h3 class="v4sub">Every model at the effort you picked</h3><div class="v4grid">' + cards + "</div>" + plots;
     }
     var shown = {};
     rows.forEach(function (r) { shown[r.key + "/" + r.effort] = true; });
@@ -179,6 +245,7 @@
     if (el.hasAttribute("data-model")) { var k = el.getAttribute("data-model"); state.models[k] = !state.models[k]; }
     else if (el.hasAttribute("data-act")) { var on = el.getAttribute("data-act") === "all"; MODELS.forEach(function (m) { state.models[m.key] = on; }); }
     else if (el.hasAttribute("data-mode")) { state.mode = el.getAttribute("data-mode"); }
+    else if (el.hasAttribute("data-tolerance")) { state.tolerance = el.getAttribute("data-tolerance"); }
     else return;
     render();
     if (typeof window.gtag === "function") window.gtag("event", "lb_v4_filter", { mode: state.mode, models: MODELS.filter(function (m) { return state.models[m.key]; }).length });

@@ -34,7 +34,7 @@ SOURCES = [
 ]
 FOOTNOTES = {
     "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
-    "terra": "GPT-5.6 Terra at max holds 22 runs: one task waits for the Codex quota window and will be judged as a top-up.",
+    "terra": "GPT-5.6 Terra at max includes paddockcore, run on September 17 on a second ChatGPT account after the first hit its quota window and judged under the v3.6.1 top-up with the same judges and calibration.",
 }
 
 
@@ -80,6 +80,29 @@ def rows():
 COLORS = {"fable": "#D97757", "astra": "#10A37F", "terra": "#0F5E4F", "luna": "#5EC59B", "gpt55": "#6B6B66"}
 
 
+TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
+
+
+def suggestions(board):
+    """Per model and tolerance: the cheapest level (then fastest) within that many points of the model's best score."""
+    out = {}
+    by_model = {}
+    for r in board:
+        by_model.setdefault(r["key"], []).append(r)
+    for key, levels in by_model.items():
+        best = max(levels, key=lambda r: r["combined"])
+        low = next(r for r in levels if r["effort"] == "low")
+        entry = {"model": best["model"], "best_effort": best["effort"], "best_combined": best["combined"],
+                 "spread": best["combined"] - low["combined"], "shape": "flat" if best["combined"] - low["combined"] <= 3 else "steep"}
+        for name, tol in TOLERANCES.items():
+            ok = [r for r in levels if best["combined"] - r["combined"] <= tol]
+            pick = min(ok, key=lambda r: (r["usd"], r["minutes"]))
+            entry[name] = {"effort": pick["effort"], "combined": pick["combined"], "gap": best["combined"] - pick["combined"],
+                           "usd_vs_best": pick["usd"] / best["usd"], "minutes_vs_best": pick["minutes"] / best["minutes"], "passed": pick["passed"], "n": pick["n"]}
+        out[key] = entry
+    return out
+
+
 def table_html(board):
     lines = ['<div class="lb-scroll">', '<table class="lb" id="v4board">',
              '<caption class="sr-only">VulcanBench-SWE v4 board: every model and effort level, ranked by combined score</caption>',
@@ -104,7 +127,7 @@ def render(board):
     runs = sum(r["n"] for r in board)
     data = {"columns": [{k: r[k] for k in ("model", "lab", "harness", "slug", "key", "effort", "n", "combined", "combined_se", "code_quality",
                                             "passed", "minutes", "usd", "raw_tokens", "output_tokens_median", "output_tokens_mean", "rank", "best")} for r in board],
-            "colors": COLORS, "efforts": list(EFFORTS)}
+            "colors": COLORS, "efforts": list(EFFORTS), "tolerances": TOLERANCES, "suggestions": suggestions(board)}
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     assert "</script" not in payload
     return (f"{START}\n"
@@ -154,7 +177,8 @@ def main():
     new_page = head + block + tail
     outputs = {
         PAGE: new_page,
-        ROOT / "assets/data/swe-v4-board.json": json.dumps({"columns": board, "sources": SOURCES}, indent=2, ensure_ascii=False) + "\n",
+        ROOT / "assets/data/swe-v4-board.json": json.dumps({"columns": board, "sources": SOURCES, "tolerances": TOLERANCES,
+                                                             "suggestions": suggestions(board)}, indent=2, ensure_ascii=False) + "\n",
         ROOT / "assets/data/swe-v4-board.csv": csv_text(board),
     }
     stale = [p for p, text in outputs.items() if not p.exists() or p.read_text() != text]
