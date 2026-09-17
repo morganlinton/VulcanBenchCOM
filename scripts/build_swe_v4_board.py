@@ -14,6 +14,7 @@ import argparse
 import csv
 import io
 import json
+import statistics
 import sys
 from html import escape
 from pathlib import Path
@@ -41,18 +42,29 @@ def read(name):
     return json.loads((ROOT / "assets/data" / name).read_text())
 
 
+def output_tokens(bundle):
+    """Median and mean completion tokens per task for every model and effort cell of a bundle."""
+    cells = {}
+    for r in read(f"{bundle}/runs.json")["rows"]:
+        cells.setdefault((r["model"], r["effort"]), []).append(r["token_usage"]["output_tokens"])
+    return {key: {"median": statistics.median(v), "mean": statistics.mean(v)} for key, v in cells.items()}
+
+
 def rows():
     out = []
     for source in SOURCES:
         groups = read(f"{source['bundle']}/groups.json")
         econ = {(g["model"], g["effort"]): g for g in read(f"{source['bundle']}/economics.json")["groups"]}
+        tokens = output_tokens(source["bundle"])
         for g in groups:
             name, harness, slug, lab = source["models"][g["model"]]
             e = econ[g["model"], g["effort"]]
+            t = tokens[g["model"], g["effort"]]
             out.append({
                 "model": name, "lab": lab, "harness": harness, "slug": slug, "key": g["model"], "effort": g["effort"], "n": g["n"],
                 "combined": g["combined_33"]["mean"], "combined_se": g["combined_33"]["se"], "code_quality": g["code_quality"]["mean"],
                 "passed": g["passed"], "minutes": g["minutes"]["mean"], "usd": e["usd"]["mean"], "raw_tokens": e["raw_tokens"]["mean"],
+                "output_tokens_median": t["median"], "output_tokens_mean": t["mean"],
                 "report": source["report"], "protocol": f"code-quality-maintenance-{source['protocol']}",
             })
     out.sort(key=lambda r: (-r["combined"], r["usd"], r["model"], EFFORTS.index(r["effort"])))
@@ -91,7 +103,7 @@ def render(board):
     models = sorted({r["model"] for r in board})
     runs = sum(r["n"] for r in board)
     data = {"columns": [{k: r[k] for k in ("model", "lab", "harness", "slug", "key", "effort", "n", "combined", "combined_se", "code_quality",
-                                            "passed", "minutes", "usd", "raw_tokens", "rank", "best")} for r in board],
+                                            "passed", "minutes", "usd", "raw_tokens", "output_tokens_median", "output_tokens_mean", "rank", "best")} for r in board],
             "colors": COLORS, "efforts": list(EFFORTS)}
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     assert "</script" not in payload
@@ -101,7 +113,7 @@ def render(board):
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
             "under one frozen protocol (v3.4 to v3.6 apply the same rubric, controls, gates and judges to each population). Pick the models "
             "and the effort level you care about; every chart, the frontier plot and the table below follow the same selection. "
-            "$/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription.</p>\n"
+            "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
             '<noscript><p class="lb-context">The interactive charts need JavaScript; the full table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
@@ -119,10 +131,11 @@ def csv_text(board):
     buffer = io.StringIO()
     writer = csv.writer(buffer, lineterminator="\n")
     writer.writerow(["rank", "model", "lab", "harness", "effort", "best_effort", "n", "combined_33", "combined_33_se", "code_quality", "passed",
-                     "mean_minutes", "mean_usd", "mean_raw_tokens", "report", "protocol"])
+                     "mean_minutes", "mean_usd", "mean_raw_tokens", "median_output_tokens", "mean_output_tokens", "report", "protocol"])
     for r in board:
         writer.writerow([r["rank"], r["model"], r["lab"], r["harness"], r["effort"], r["best"], r["n"], f'{r["combined"]:.4f}', f'{r["combined_se"]:.4f}',
-                         f'{r["code_quality"]:.4f}', r["passed"], f'{r["minutes"]:.4f}', f'{r["usd"]:.6f}', f'{r["raw_tokens"]:.1f}', r["report"], r["protocol"]])
+                         f'{r["code_quality"]:.4f}', r["passed"], f'{r["minutes"]:.4f}', f'{r["usd"]:.6f}', f'{r["raw_tokens"]:.1f}',
+                         f'{r["output_tokens_median"]:.1f}', f'{r["output_tokens_mean"]:.1f}', r["report"], r["protocol"]])
     return buffer.getvalue()
 
 
