@@ -20,8 +20,17 @@
     { key: "code_quality", title: "Code quality", sub: "out of 100, judged by Muse Spark 1.3 and Grok 4.6", fmt: function (r) { return r.code_quality.toFixed(2); }, val: function (r) { return r.code_quality; }, max: 100 },
     { key: "passed", title: "Tasks passed", sub: "perfect functional score, share of the cell", fmt: function (r) { return r.passed + "/" + r.n; }, val: function (r) { return 100 * r.passed / r.n; }, max: 100 },
     { key: "minutes", title: "Runtime", sub: "minutes per task, lower is better", fmt: function (r) { return r.minutes.toFixed(1) + " min"; }, val: function (r) { return r.minutes; }, lower: true },
-    { key: "usd", title: "API-equivalent cost", sub: "USD per task at list rates, lower is better", fmt: function (r) { return "$" + r.usd.toFixed(2); }, val: function (r) { return r.usd; }, lower: true }
+    { key: "usd", title: "API-equivalent cost", sub: "USD per task at list rates, lower is better", fmt: function (r) { return "$" + r.usd.toFixed(2); }, val: function (r) { return r.usd; }, lower: true },
+    { key: "tokens", title: "Completion tokens", sub: "median output tokens per task, reasoning included, lower is better", fmt: function (r) { return fmtTokens(r.output_tokens_median); }, val: function (r) { return r.output_tokens_median; }, lower: true }
   ];
+  function fmtTokens(v) { return v >= 1e6 ? (v / 1e6).toFixed(2) + "M" : v >= 1e3 ? (v / 1e3).toFixed(1) + "k" : String(Math.round(v)); }
+  function frontier(rows, xKey) {
+    // Pareto frontier for "highest score at no more x": sort by x ascending, keep points that beat every cheaper one.
+    var sorted = rows.slice().sort(function (a, b) { return a[xKey] - b[xKey] || b.combined - a.combined; });
+    var best = -Infinity, out = [];
+    sorted.forEach(function (r) { if (r.combined > best) { best = r.combined; out.push(r); } });
+    return out;
+  }
 
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
   function shade(key, effort) {
@@ -78,8 +87,9 @@
       '<div class="bc-chart">' + html + "</div></figure>";
   }
 
-  function scatter(rows, xKey, xLabel, log) {
+  function scatter(rows, xKey, xLabel, log, withFrontier) {
     var W = 720, H = 400, L = 56, R = 24, T = 18, B = 48;
+    function fx(t) { return xKey === "usd" ? "$" + (t < 1 ? t.toFixed(2) : t) : xKey === "output_tokens_median" ? fmtTokens(t) : t; }
     var xs = rows.map(function (r) { return r[xKey]; }), ys = rows.map(function (r) { return r.combined; });
     var xmin = Math.min.apply(null, xs), xmax = Math.max.apply(null, xs);
     if (log) { xmin = Math.pow(10, Math.floor(Math.log10(xmin))); xmax = Math.pow(10, Math.ceil(Math.log10(xmax))); }
@@ -92,7 +102,7 @@
     var ticks = [];
     if (log) { for (var p = Math.log10(xmin); p <= Math.log10(xmax); p++) ticks.push(Math.pow(10, p)); }
     else { for (var t = xmin; t <= xmax; t += 10) ticks.push(t); }
-    ticks.forEach(function (t) { g += '<line x1="' + X(t).toFixed(1) + '" y1="' + T + '" x2="' + X(t).toFixed(1) + '" y2="' + (H - B) + '" stroke="#1c1a17" stroke-opacity="0.06"/><text x="' + X(t).toFixed(1) + '" y="' + (H - B + 16) + '" text-anchor="middle" font-size="11" fill="#6f6a62">' + (xKey === "usd" ? "$" + (t < 1 ? t.toFixed(2) : t) : t) + "</text>"; });
+    ticks.forEach(function (t) { g += '<line x1="' + X(t).toFixed(1) + '" y1="' + T + '" x2="' + X(t).toFixed(1) + '" y2="' + (H - B) + '" stroke="#1c1a17" stroke-opacity="0.06"/><text x="' + X(t).toFixed(1) + '" y="' + (H - B + 16) + '" text-anchor="middle" font-size="11" fill="#6f6a62">' + fx(t) + "</text>"; });
     g += '<text x="' + ((L + W - R) / 2).toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="12" fill="#3a362f">' + xLabel + "</text>";
     g += '<text transform="translate(14 ' + ((T + H - B) / 2).toFixed(1) + ') rotate(-90)" text-anchor="middle" font-size="12" fill="#3a362f">Combined score</text>';
     if (state.mode === "all") {
@@ -101,17 +111,34 @@
         if (pts.length > 1) g += '<polyline fill="none" stroke="' + COLORS[m.key] + '" stroke-width="1.6" stroke-opacity="0.7" points="' + pts.map(function (r) { return X(r[xKey]).toFixed(1) + "," + Y(r.combined).toFixed(1); }).join(" ") + '"/>';
       });
     }
+    var onFrontier = {}, frontierEnd = {};
+    if (withFrontier) {
+      var f = frontier(rows, xKey);
+      f.forEach(function (r) { onFrontier[r.key + "/" + r.effort] = true; });
+      if (f.length) { frontierEnd[f[0].key + "/" + f[0].effort] = true; frontierEnd[f[f.length - 1].key + "/" + f[f.length - 1].effort] = true; }
+      var d = "";
+      f.forEach(function (r, i) {
+        var x = X(r[xKey]).toFixed(1), y = Y(r.combined).toFixed(1);
+        d += (i ? " H " + x + " V " + y : "M " + x + " " + y);  // step: hold the score until the next point that beats it
+      });
+      if (f.length) d += " H " + (W - R);
+      g += '<path d="' + d + '" fill="none" stroke="#b4490c" stroke-width="1.4" stroke-dasharray="5 4" stroke-opacity="0.85"/>';
+      g += '<text x="' + (W - R) + '" y="' + (T + 12) + '" text-anchor="end" font-size="11" fill="#b4490c">frontier: nothing to the left scores higher</text>';
+    }
     var placed = [];
     rows.slice().sort(function (a, b) { return b.combined - a.combined; }).forEach(function (r) {
       var x = X(r[xKey]), y = Y(r.combined);
-      var tip = esc(r.model) + " " + LABEL[r.effort] + ": " + r.combined.toFixed(2) + ", " + (xKey === "usd" ? "$" + r.usd.toFixed(2) : r.minutes.toFixed(1) + " min") + " per task";
-      g += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="5.5" fill="' + shade(r.key, r.effort) + '" stroke="#1c1a17" stroke-width="0.8"><title>' + tip + "</title></circle>";
-      if (state.mode === "all" && !r.best) return;  // one label per model on the ladder view; every point keeps its tooltip
-      var text = state.mode === "best" || state.mode === "all" ? esc(r.model) : esc(r.model) + " " + LABEL[r.effort].toLowerCase();
+      var xv = xKey === "usd" ? "$" + r.usd.toFixed(2) : xKey === "output_tokens_median" ? fmtTokens(r.output_tokens_median) + " tokens" : r.minutes.toFixed(1) + " min";
+      var here = onFrontier[r.key + "/" + r.effort];
+      var tip = esc(r.model) + " " + LABEL[r.effort] + ": " + r.combined.toFixed(2) + ", " + xv + " per task" + (here ? " (on the frontier)" : "");
+      var ring = here ? '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="9" fill="none" stroke="#b4490c" stroke-width="1.4"/>' : "";
+      g += ring + '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="5.5" fill="' + shade(r.key, r.effort) + '" stroke="#1c1a17" stroke-width="0.8"><title>' + tip + "</title></circle>";
+      if (state.mode === "all" && !r.best && !frontierEnd[r.key + "/" + r.effort]) return;  // ladder view: label best levels and the frontier's ends; every point keeps its tooltip
+      var text = state.mode === "all" ? esc(r.model) + " " + LABEL[r.effort].toLowerCase() : state.mode === "best" ? esc(r.model) : esc(r.model) + " " + LABEL[r.effort].toLowerCase();
       var ty = y - 9, tx = x;
       var anchor = x > W - 150 ? "end" : "start";
       if (anchor === "start") tx = x + 8; else tx = x - 8;
-      while (placed.some(function (q) { return Math.abs(q[0] - tx) < 90 && Math.abs(q[1] - ty) < 12; })) ty += 12;
+      while (placed.some(function (q) { return Math.abs(q[0] - tx) < 130 && Math.abs(q[1] - ty) < 12; })) ty += 12;
       placed.push([tx, ty]);
       g += '<text x="' + tx.toFixed(1) + '" y="' + ty.toFixed(1) + '" text-anchor="' + anchor + '" font-size="11" fill="#1c1a17">' + text + "</text>";
     });
@@ -133,8 +160,9 @@
         '<div><span class="v4k">Cheapest per task</span><b>' + esc(cheapest.model) + " " + LABEL[cheapest.effort] + "</b><span>$" + cheapest.usd.toFixed(2) + "</span></div>" +
         '<div><span class="v4k">Fastest per task</span><b>' + esc(fastest.model) + " " + LABEL[fastest.effort] + "</b><span>" + fastest.minutes.toFixed(1) + " min</span></div></div>";
       var plots = '<div class="v4plots">' +
-        '<figure class="v4card v4wide"><figcaption><b>Score against cost</b><span>combined score against API-equivalent $ per task, log scale' + (state.mode === "all" ? "; a line joins each model’s effort ladder from Low to Max, the label sits on its best level, hover any point" : "") + "</span></figcaption>" + scatter(rows, "usd", "API-equivalent $ per task", true) + "</figure>" +
-        '<figure class="v4card v4wide"><figcaption><b>Score against runtime</b><span>combined score against minutes per task' + (state.mode === "all" ? "; a line joins each model’s effort ladder from Low to Max, the label sits on its best level, hover any point" : "") + "</span></figcaption>" + scatter(rows, "minutes", "Minutes per task", false) + "</figure></div>";
+        '<figure class="v4card v4wide"><figcaption><b>Score against completion tokens</b><span>combined score against median output tokens per task, reasoning included, log scale. The dashed line is the frontier: nothing that writes fewer tokens scores higher, and ringed points sit on it' + (state.mode === "all" ? "; thin lines join each model’s effort ladder from Low to Max, hover any point" : "") + "</span></figcaption>" + scatter(rows, "output_tokens_median", "Median completion tokens per task", true, true) + "</figure>" +
+        '<figure class="v4card v4wide"><figcaption><b>Score against cost</b><span>combined score against API-equivalent $ per task, log scale; the dashed line is the cost frontier' + (state.mode === "all" ? "; thin lines join each model’s effort ladder from Low to Max, hover any point" : "") + "</span></figcaption>" + scatter(rows, "usd", "API-equivalent $ per task", true, true) + "</figure>" +
+        '<figure class="v4card v4wide"><figcaption><b>Score against runtime</b><span>combined score against minutes per task' + (state.mode === "all" ? "; thin lines join each model’s effort ladder from Low to Max, hover any point" : "") + "</span></figcaption>" + scatter(rows, "minutes", "Minutes per task", false, false) + "</figure></div>";
       app.innerHTML = head + strip + '<div class="v4grid">' + cards + "</div>" + plots;
     }
     var shown = {};

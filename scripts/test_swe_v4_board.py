@@ -37,6 +37,8 @@ class BoardTests(unittest.TestCase):
             self.assertTrue((ROOT / f"models/{r['slug']}.html").is_file(), r["slug"])
             self.assertTrue((ROOT / r["report"]).is_file(), r["report"])
             self.assertGreater(r["usd"], 0)
+            self.assertGreater(r["output_tokens_median"], 0)
+            self.assertGreater(r["output_tokens_mean"], 0)
         terra_max = next(r for r in self.rows if r["key"] == "terra" and r["effort"] == "max")
         self.assertEqual(terra_max["n"], 22)
         self.assertEqual(len(self.csv), 24)
@@ -53,6 +55,10 @@ class BoardTests(unittest.TestCase):
                 self.assertAlmostEqual(r["code_quality"], g["code_quality"]["mean"], places=9)
                 self.assertEqual(r["passed"], g["passed"])
                 self.assertEqual(r["n"], g["n"])
+            tokens = board.output_tokens(source["bundle"])
+            for r in self.rows:
+                if r["report"] == source["report"]:
+                    self.assertAlmostEqual(r["output_tokens_median"], tokens[r["key"], r["effort"]]["median"], places=6)
 
     def test_page_writing_and_structure(self):
         text = html.unescape(self.page)
