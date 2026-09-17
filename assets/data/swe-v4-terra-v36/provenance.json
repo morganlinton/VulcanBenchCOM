@@ -5,15 +5,19 @@
     "v3.6/private-manifest.json": "7a094a6b4e063cd608b7c42ecf1090c3930a3528eda0ff62fa73a04fc53b4b20",
     "v3.6/calibration-muse.json": "e5da52d79e6dc06761758e8892abea443c6f66b8e876fb0ae4531b58934624ad",
     "v3.6/calibration-grok.json": "df81d4be726cda10d303d64f7f7dab134514c11493d1a717436b3df24a8b2dc3",
-    "comparison.json": "5834b8e04f2cf92bc8bea24858ab3e6cb96fd58019d3cc7bfbc3a3891f5ff2d9"
+    "comparison.json": "5834b8e04f2cf92bc8bea24858ab3e6cb96fd58019d3cc7bfbc3a3891f5ff2d9",
+    "v3.6.1/summary.json": "1618fa700ca78131bd583c3e83d035b67bdba946d584395861d122cf57c0dbad",
+    "v3.6.1/protocol.json": "72f79a5afb5a3b5a413c08c57cbeaff8195d944e7f12e7147f70b50e988fc49a",
+    "v3.6.1/private-manifest.json": "eacddd3271bad18bcd19675f78fecced73319dcb4329762cfe66a8513b0a480f",
+    "comparison-topup.json": "c108da749ef061e43dcb1a8370a5c35cc64f947911aa3a07de8c2640c9af00b4"
   },
   "export_checks": [
-    "114 published submissions across five effort cells, none excluded, one recorded as missing",
+    "115 published submissions across five effort cells: 114 under v3.6 plus the v3.6.1 top-up of the one run v3.6 recorded missing",
     "both scored panels passed calibration under v3.6",
     "every row has both panels' reviewed scores; intent recovery is null only where the submission passed no quirk family",
     "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
     "every run's API-equivalent cost recomputed from its Codex receipt at the published list rates and matched to the re-priced run summary",
-    "the population record's hash matches the one frozen in the protocol",
+    "both population records' hashes match the ones frozen in their protocols, and the top-up protocol pins the v3.6 protocol, summary, manifest and calibration hashes",
     "no dashes or host paths in exported text"
   ],
   "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, raw tokens and API-equivalent cost estimates.",

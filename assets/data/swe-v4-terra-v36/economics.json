@@ -107,33 +107,33 @@
     {
       "model": "terra",
       "effort": "max",
-      "n": 22,
+      "n": 23,
       "usd": {
-        "n": 22,
-        "mean": 1.7165422727272728,
-        "se": 0.31100768999859935
+        "n": 23,
+        "mean": 1.8822,
+        "se": 0.3402312862899848
       },
-      "usd_total": 37.76393,
+      "usd_total": 43.2906,
       "raw_tokens": {
-        "n": 22,
-        "mean": 4182694.272727273,
-        "se": 1052347.4174441977
+        "n": 23,
+        "mean": 4682504.434782608,
+        "se": 1122918.7779522322
       },
-      "raw_tokens_total": 92019274,
+      "raw_tokens_total": 107697602,
       "minutes": {
-        "n": 22,
-        "mean": 18.601418939393938,
-        "se": 2.041039049263792
+        "n": 23,
+        "mean": 19.7351,
+        "se": 2.255842671029675
       },
       "solver_fallback_runs": 0
     }
   ],
   "totals": {
     "terra": {
-      "runs": 114,
-      "usd": 142.730044,
-      "raw_tokens": 353739762,
-      "solver_hours": 24.598443888888887
+      "runs": 115,
+      "usd": 148.256714,
+      "raw_tokens": 369418090,
+      "solver_hours": 25.34304527777778
     }
   },
   "limitations": [
@@ -141,7 +141,7 @@
     "Standard tier, short-context rates. Per-request context sizes are not exposed by the receipts, so no long-context premium is applied.",
     "No Batch, Flex, Fast or priority pricing is applied.",
     "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
-    "Max covers 22 runs: paddockcore never started because the Codex subscription quota window closed until September 19, 2026; it will be run and judged as a top-up.",
+    "Paddockcore at max ran on September 17, 2026 on a second ChatGPT account after the first account's quota window closed; it is priced like every other run and judged under the v3.6.1 top-up.",
     "The sweep stamped each run at run time with a stale Terra list price ($2.50 input, $0.20 cached, $15 output); the frozen population record carries those stamps (frozen_record_usd per run). Every run was re-priced from its receipt at the 2026-09-11 list on 2026-09-16, and estimated_usd is the re-priced value."
   ],
   "comparison_sha256": "5834b8e04f2cf92bc8bea24858ab3e6cb96fd58019d3cc7bfbc3a3891f5ff2d9",

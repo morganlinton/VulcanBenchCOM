@@ -19,7 +19,6 @@ DEST = SITE / "assets/data/swe-v4-terra-v36"
 LEVELS = {"terra": ("low", "medium", "high", "extra-high", "max")}
 EFFORTS = LEVELS["terra"]
 NAMES = {"terra": "GPT-5.6 Terra"}
-EXPECTED = {("terra", "max"): 22}  # paddockcore at max waits for the Codex quota window
 PANELS = ("muse", "grok")
 WEIGHTS = {"functional": 0.50, "quality": 0.085, "security": 0.085, "code_quality": 0.33}
 SPLIT_WITHOUT_L3 = {"l1": 0.24, "l2": 0.09}
@@ -65,6 +64,7 @@ def main():  # noqa: PLR0915, one linear export
     args = parser.parse_args()
     root = args.harness_root.resolve()
     v35 = root / "runs-code-quality-maintenance-v3.6"
+    v361 = root / "runs-code-quality-maintenance-v3.6.1"
     summary = read(v35 / "summary.json")
     manifest = {r["id"]: r for r in read(v35 / "private-manifest.json")}
     protocol = read(v35 / "protocol.json")
@@ -76,11 +76,27 @@ def main():  # noqa: PLR0915, one linear export
     missing = comparison["missing"]
     assert [(m["model"], m["effort"], m["task"]) for m in missing] == [("terra", "max", "legacy-paddockcore-binary-parity")]
     assert digest(comparison_path) == protocol["source_comparison_sha256"]
+    # v3.6.1: the run v3.6 recorded missing, judged under the v3.6 calibration once it existed.
+    topup = read(v361 / "summary.json")
+    topup_protocol = read(v361 / "protocol.json")
+    topup_path = root / "docs/results/swe-v4-terra-2026-09/comparison-topup.json"
+    assert topup["ready_for_publication"] and topup["published_submissions"] == 1 and topup["protocol"] == "code-quality-maintenance-v3.6.1"
+    assert topup["passing_panels"] == ["muse", "grok"]
+    assert topup_protocol["top_up_of"]["protocol_sha256"] == digest(v35 / "protocol.json")
+    assert topup_protocol["top_up_of"]["summary_sha256"] == digest(v35 / "summary.json")
+    assert all(topup_protocol["top_up_of"]["calibration"][p]["sha256"] == digest(v35 / f"calibration-{p}.json") for p in PANELS)
+    assert digest(topup_path) == topup_protocol["source_comparison_sha256"]
+    assert read(topup_path)["missing"] == [] and read(topup_path)["excluded"] == []
+    for r in read(v361 / "private-manifest.json"):
+        manifest["topup:" + r["id"]] = r
+    entries = summary["rows"] + [{**r, "id": "topup:" + r["id"]} for r in topup["rows"]]
+    assert [(r["model"], r["effort"], r["task"]) for r in topup["rows"]] == [("terra", "max", "legacy-paddockcore-binary-parity")]
     DEST.mkdir(parents=True, exist_ok=True)
 
     rows = []
-    for entry in summary["rows"]:
+    for entry in entries:
         run = manifest[entry["id"]]
+        entry_protocol = "code-quality-maintenance-v3.6.1" if entry["id"].startswith("topup:") else "code-quality-maintenance-v3.6"
         receipt = run["solver_receipt"]
         assert type(receipt["raw_tokens"]) is int and receipt["raw_tokens"] > 0
         # The frozen record's cost stamp used a stale Terra list price; the run summaries were re-priced at the
@@ -102,6 +118,7 @@ def main():  # noqa: PLR0915, one linear export
         assert abs(code_quality - entry["published"]["code_quality"]) < 1e-9
         rows.append({
             "model": entry["model"], "effort": entry["effort"], "task": entry["task"], "run_id": run["run_id"],
+            "judged_under": entry_protocol,
             "solver_fallback": bool(run.get("fallback")),
             "functional": run["functional"], "automated_quality": run["quality"], "security": run["security"],
             "reviewed_score": l1, "intent_recovery": l2, "intent_recovery_redistributed": redistributed, "code_quality": code_quality,
@@ -135,7 +152,7 @@ def main():  # noqa: PLR0915, one linear export
                        "rows": rows})
     with (DEST / "runs.csv").open("w", newline="") as handle:
         writer = csv.writer(handle, lineterminator="\n")
-        writer.writerow(["model", "effort", "task", "run_id", "combined_33", "combined_20_profile", "functional_pct", "automated_quality_pct",
+        writer.writerow(["model", "effort", "task", "run_id", "judged_under", "combined_33", "combined_20_profile", "functional_pct", "automated_quality_pct",
                          "security_pct", "code_quality", "reviewed_score", "intent_recovery", "intent_recovery_redistributed", "muse_reviewed",
                          "muse_readability", "muse_maintainability", "muse_intent_recovery", "grok_reviewed", "grok_readability", "grok_maintainability",
                          "grok_intent_recovery", "passed_quirk_families", "duration_s", "raw_tokens", "estimated_usd",
@@ -145,7 +162,7 @@ def main():  # noqa: PLR0915, one linear export
             return "" if value is None else f"{value:.4f}"
 
         for r in rows:
-            writer.writerow([r["model"], r["effort"], r["task"], r["run_id"], f'{r["combined_33"]:.4f}', f'{r["combined_20_profile"]:.4f}',
+            writer.writerow([r["model"], r["effort"], r["task"], r["run_id"], r["judged_under"], f'{r["combined_33"]:.4f}', f'{r["combined_20_profile"]:.4f}',
                              f'{100 * r["functional"]:.2f}', f'{100 * r["automated_quality"]:.2f}', f'{100 * r["security"]:.2f}',
                              f'{r["code_quality"]:.4f}', f'{r["reviewed_score"]:.4f}', fmt(r["intent_recovery"]), r["intent_recovery_redistributed"],
                              *[fmt(r["panels"][p][k]) for p in PANELS for k in ("reviewed_score", "readability", "maintainability", "intent_recovery")],
@@ -156,7 +173,7 @@ def main():  # noqa: PLR0915, one linear export
     for model, levels in LEVELS.items():
         for effort in levels:
             rs = [r for r in rows if r["model"] == model and r["effort"] == effort]
-            assert len(rs) == EXPECTED.get((model, effort), 23)
+            assert len(rs) == 23
             scored = [r for r in rs if r["intent_recovery"] is not None]
             groups.append({
                 "model": model, "effort": effort, "n": len(rs),
@@ -173,10 +190,15 @@ def main():  # noqa: PLR0915, one linear export
                 "raw_tokens": mean_se(r["raw_tokens"] for r in rs), "raw_tokens_total": sum(r["raw_tokens"] for r in rs),
                 "usd": mean_se(r["estimated_usd"] for r in rs), "usd_total": sum(r["estimated_usd"] for r in rs),
             })
-            entry = summary["groups"][f"{model}/{effort}"]
-            assert abs(groups[-1]["combined_33"]["mean"] - entry["composite_v3"]["mean"]) < 1e-9
-            assert abs(groups[-1]["code_quality"]["mean"] - entry["code_quality"]["mean"]) < 1e-9
-            assert groups[-1]["intent_recovery_redistributed_runs"] == entry["l2_redistributed"]
+            if (model, effort) != ("terra", "max"):
+                entry = summary["groups"][f"{model}/{effort}"]
+                assert abs(groups[-1]["combined_33"]["mean"] - entry["composite_v3"]["mean"]) < 1e-9
+                assert abs(groups[-1]["code_quality"]["mean"] - entry["code_quality"]["mean"]) < 1e-9
+                assert groups[-1]["intent_recovery_redistributed_runs"] == entry["l2_redistributed"]
+            else:  # the max cell merges the 22 v3.6 rows with the v3.6.1 top-up
+                base, extra = summary["groups"]["terra/max"], topup["groups"]["terra/max"]
+                merged = (base["composite_v3"]["mean"] * base["n"] + extra["composite_v3"]["mean"] * extra["n"]) / (base["n"] + extra["n"])
+                assert abs(groups[-1]["combined_33"]["mean"] - merged) < 1e-9
     save("groups.json", groups)
     with (SITE / "assets/data/swe-v4-terra-v36-scores.csv").open("w", newline="") as handle:
         writer = csv.writer(handle, lineterminator="\n")
@@ -213,8 +235,8 @@ def main():  # noqa: PLR0915, one linear export
             "Standard tier, short-context rates. Per-request context sizes are not exposed by the receipts, so no long-context premium is applied.",
             "No Batch, Flex, Fast or priority pricing is applied.",
             "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
-            "Max covers 22 runs: paddockcore never started because the Codex subscription quota window closed until "
-            "September 19, 2026; it will be run and judged as a top-up.",
+            "Paddockcore at max ran on September 17, 2026 on a second ChatGPT account after the first account's quota window "
+            "closed; it is priced like every other run and judged under the v3.6.1 top-up.",
             "The sweep stamped each run at run time with a stale Terra list price ($2.50 input, $0.20 cached, $15 output); the frozen "
             "population record carries those stamps (frozen_record_usd per run). Every run was re-priced from its receipt at the "
             "2026-09-11 list on 2026-09-16, and estimated_usd is the re-priced value.",
@@ -238,6 +260,9 @@ def main():  # noqa: PLR0915, one linear export
         "scored_panel": {p: public_reviewer(protocol["reviewers"][p]) for p in PANELS},
         "protocol_ids": {p: protocol["id"] for p in PANELS},
         "protocol_sha256": {p: digest(v35 / "protocol.json") for p in PANELS},
+        "top_up": {"protocol_id": topup_protocol["id"], "protocol_sha256": digest(v361 / "protocol.json"),
+                   "rows": [(r["effort"], r["task"]) for r in topup["rows"]], "rule": topup_protocol["top_up_of"]["rule"],
+                   "population": topup_protocol["population"]},
         "amends": protocol["amends"],
         "system": protocol["system"], "rubric": protocol["rubric"], "pair_instruction": protocol["pair_instruction"],
         "probe_instruction": protocol["probe_instruction"], "match_instruction": protocol["match_instruction"],
@@ -245,7 +270,7 @@ def main():  # noqa: PLR0915, one linear export
         "repeats": protocol["repeats"], "seed": protocol["seed"], "single_panel_rule": protocol["single_panel_rule"],
         "control_source_hashes": protocol["control_source_hashes"],
         "population": protocol["population"],
-        "missing": missing,
+        "missing_at_v36": missing,
     })
     save("provenance.json", {
         "source_artifacts_sha256": {
@@ -253,12 +278,14 @@ def main():  # noqa: PLR0915, one linear export
             "v3.6/private-manifest.json": digest(v35 / "private-manifest.json"),
             "v3.6/calibration-muse.json": digest(v35 / "calibration-muse.json"), "v3.6/calibration-grok.json": digest(v35 / "calibration-grok.json"),
             "comparison.json": digest(comparison_path),
+            "v3.6.1/summary.json": digest(v361 / "summary.json"), "v3.6.1/protocol.json": digest(v361 / "protocol.json"),
+            "v3.6.1/private-manifest.json": digest(v361 / "private-manifest.json"), "comparison-topup.json": digest(topup_path),
         },
-        "export_checks": ["114 published submissions across five effort cells, none excluded, one recorded as missing", "both scored panels passed calibration under v3.6",
+        "export_checks": ["115 published submissions across five effort cells: 114 under v3.6 plus the v3.6.1 top-up of the one run v3.6 recorded missing", "both scored panels passed calibration under v3.6",
                           "every row has both panels' reviewed scores; intent recovery is null only where the submission passed no quirk family",
                           "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
                           "every run's API-equivalent cost recomputed from its Codex receipt at the published list rates and matched to the re-priced run summary",
-                          "the population record's hash matches the one frozen in the protocol", "no dashes or host paths in exported text"],
+                          "both population records' hashes match the ones frozen in their protocols, and the top-up protocol pins the v3.6 protocol, summary, manifest and calibration hashes", "no dashes or host paths in exported text"],
         "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, raw tokens and API-equivalent cost estimates.",
         "withheld": ["raw prompts and responses", "submitted patches and reconstructed sources", "quirk answer keys (they describe hidden-test behaviour)",
                      "reviewer session identifiers and usage receipts"],

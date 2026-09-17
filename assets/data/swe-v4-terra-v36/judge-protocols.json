@@ -31,6 +31,25 @@
     "muse": "f6214c5c99d75e61a5803811700cec86ddbcd3c0ef727d1af5d276c2998ac486",
     "grok": "f6214c5c99d75e61a5803811700cec86ddbcd3c0ef727d1af5d276c2998ac486"
   },
+  "top_up": {
+    "protocol_id": "code-quality-maintenance-v3.6.1",
+    "protocol_sha256": "72f79a5afb5a3b5a413c08c57cbeaff8195d944e7f12e7147f70b50e988fc49a",
+    "rows": [
+      [
+        "max",
+        "legacy-paddockcore-binary-parity"
+      ]
+    ],
+    "rule": "The v3.6 calibration verdicts gate this top-up; no new calibration calls. Publication merges the two directories; the v3.6 record is not rewritten.",
+    "population": {
+      "description": "Top-up to the v3.6 GPT-5.6 Terra population: the run recorded missing under v3.6, made once the Codex quota window reopened",
+      "cells": {
+        "terra/max": 1
+      },
+      "excluded": [],
+      "missing": []
+    }
+  },
   "amends": {
     "v3": "runs-code-quality-maintenance-v3",
     "v3.1": "runs-code-quality-maintenance-v3.1",
@@ -474,7 +493,7 @@
       }
     ]
   },
-  "missing": [
+  "missing_at_v36": [
     {
       "effort": "max",
       "model": "terra",
