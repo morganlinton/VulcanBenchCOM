@@ -90,7 +90,7 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(self.page.count(board.END), 1)
         self.assertIn("VulcanBench-SWE v3 (retired in August 2026)", self.page)
         self.assertLess(self.page.index('id="swe-v4-board"'), self.page.index('id="swe-v3-board"'))
-        self.assertLess(self.page.index('id="swe-v3-board"'), self.page.index('id="fullboard"'))
+        self.assertNotIn('id="fullboard"', self.page)  # the retired v3 board is JSON only; the page keeps one chart
 
 
 if __name__ == "__main__":
