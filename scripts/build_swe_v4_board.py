@@ -77,7 +77,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#F5A524", "astra": "#4C9BFF", "terra": "#B48CFF", "luna": "#3DDC97", "gpt55": "#FF6B6B"}
+COLORS = {"fable": "#FF7A3D", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573"}  # Anthropic orange; OpenAI greens, brightest for the newest
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}

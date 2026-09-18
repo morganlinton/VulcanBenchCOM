@@ -861,7 +861,7 @@ section[id] { scroll-margin-top: 90px; }
 .v4se::before, .v4se::after { content: ""; position: absolute; top: -4px; width: 1px; height: 9px; background: #1c1a17; }
 .v4se::before { left: -1px; } .v4se::after { right: -1px; }
 #v4board tr[hidden] { display: none; }
-.v4chart { margin-top: 14px; padding: 12px 12px 14px; background: #131210; border-color: #131210; border-radius: 10px; }
+.v4chart { margin-top: 14px; padding: 12px 12px 14px; background: #0e0e0c; border-color: #0e0e0c; border-radius: 10px; }
 .v4chart svg { border-radius: 6px; }
 .v4chart figcaption { margin-top: 10px; }
 .v4chart figcaption span { color: #a8a39a; }
