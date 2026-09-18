@@ -23,7 +23,7 @@
   }
 
   function chart() {
-    var W = 960, H = 520, L = 64, R = 170, T = 22, B = 56, ax = AXES[xKey];
+    var size = window.VB_V4_SIZE || {}, W = size.W || 960, H = size.H || 520, L = 64, R = 170, T = 22, B = 56, ax = AXES[xKey];
     var xs = COLS.map(function (r) { return r[xKey]; }), ys = COLS.map(function (r) { return r.combined; });
     var step = niceStep(Math.max.apply(null, xs));
     var xmax = Math.ceil(Math.max.apply(null, xs) * 1.04 / step) * step;
