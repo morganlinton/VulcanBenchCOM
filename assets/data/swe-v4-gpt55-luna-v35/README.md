@@ -1,4 +1,4 @@
-# VulcanBench-SWE v4: GPT-5.5 and GPT-5.6 Luna under Code quality protocol v3.5
+# VulcanBench Frontier v4: GPT-5.5 and GPT-5.6 Luna under Code quality protocol v3.5
 
 Public record for the September 15, 2026 GPT-5.5 and GPT-5.6 Luna comparison:
 207 solver runs from the September 2026 Codex effort sweeps (23 tasks, one

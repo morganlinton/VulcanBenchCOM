@@ -96,9 +96,9 @@ def main():  # noqa: PLR0915, one linear document
 
     # Page 1: abstract and headline table
     p("GPT-5.5 vs. GPT-5.6 Luna across every effort level", "h1")
-    p("VulcanBench-SWE v4 | Code quality protocol v3.5 | September 2026", "small")
+    p("VulcanBench Frontier v4 | Code quality protocol v3.5 | September 2026", "small")
     heading("Abstract")
-    p(f"GPT-5.5 and GPT-5.6 Luna ran the 23-task VulcanBench-SWE v4 suite through the Codex CLI on a ChatGPT subscription, once per task "
+    p(f"GPT-5.5 and GPT-5.6 Luna ran the 23-task VulcanBench Frontier v4 suite through the Codex CLI on a ChatGPT subscription, once per task "
       f"at every effort level each API accepts: four levels for GPT-5.5 and five for Luna, 207 runs in all. Code quality carries 33% of the "
       f"combined score and is judged for a named human reader by Muse Spark 1.3 (Meta) and Grok 4.6 (xAI) under the same frozen protocol as "
       f"the Astra and Fable 5.1 report, with a ground-truth intent-recovery probe. The effort knob decides the comparison: GPT-5.5 leads at "
@@ -317,7 +317,7 @@ def main():  # noqa: PLR0915, one linear document
         canvas.setFont("Display", 13)
         canvas.drawString(74, height - 35, "VulcanBench")
         canvas.setFont("Body", 8.5)
-        canvas.drawRightString(width - 44, height - 33, "Technical report | SWE v4 | Code quality protocol v3.5 | September 2026")
+        canvas.drawRightString(width - 44, height - 33, "Technical report | Frontier v4 | Code quality protocol v3.5 | September 2026")
         canvas.setStrokeColor(RULE)
         canvas.line(44, height - 49, width - 44, height - 49)
         canvas.line(44, 32, width - 44, 32)
@@ -327,7 +327,7 @@ def main():  # noqa: PLR0915, one linear document
         canvas.drawRightString(width - 44, 19, f"{doc.page} / {PAGES}")
         canvas.restoreState()
 
-    doc = BaseDocTemplate(str(OUTPUT), pagesize=A4, title="VulcanBench-SWE v4: GPT-5.5 vs. GPT-5.6 Luna across every effort level",
+    doc = BaseDocTemplate(str(OUTPUT), pagesize=A4, title="VulcanBench Frontier v4: GPT-5.5 vs. GPT-5.6 Luna across every effort level",
                           author="VulcanBench", subject="Code quality protocol v3.5: neutral judges, 33% weight, Codex effort sweeps")
     doc.addPageTemplates([
         PageTemplate(id="report", frames=Frame(44, 40, A4[0] - 88, A4[1] - 102, leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0),

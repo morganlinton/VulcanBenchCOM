@@ -4,7 +4,7 @@
     python3 scripts/build_sitemap.py --check    # exit 1 if sitemap.xml is stale
 
 A page with uncommitted changes is dated today. Priorities: the homepage 1.0,
-the benchmarks index, methodology and SWE v4 reports 0.9, archive reports and
+the benchmarks index, methodology and Frontier v4 reports 0.9, archive reports and
 the leaderboard 0.8, everything else 0.7. 404.html is never listed.
 """
 

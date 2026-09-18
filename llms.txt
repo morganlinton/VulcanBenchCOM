@@ -4,7 +4,7 @@
 > across reasoning effort, total score, runtime, tokens and estimated API cost.
 
 VulcanBench is run by Morgan Linton, Cofounder and CTO of Bold Metrics.
-The current VulcanBench-SWE v4 suite uses 23 behavioral-reconstruction tasks:
+The current VulcanBench Frontier v4 suite uses 23 behavioral-reconstruction tasks:
 Python replacements for opaque C-built binaries. From September 2026 its
 combined score weights are 50% functional correctness, 8.5% lint and
 complexity, 8.5% security and 33% Code quality. Time, tokens and
@@ -39,7 +39,7 @@ Effort labels are harness-specific, not equal compute budgets. One attempt
 per cell does not establish run-to-run reliability.
 
 Historical suites and reports retain their original metrics. Do not pool
-Eval Suite 3 pass rates with SWE v4 total scores. Costs are hypothetical API
+Eval Suite 3 pass rates with Frontier v4 total scores. Costs are hypothetical API
 charges from a frozen rate snapshot, not subscription cash charges.
 
 ## Evidence and limits

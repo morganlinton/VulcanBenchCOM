@@ -8,4 +8,4 @@ README lists each file. `swe-v4-astra-fable51-v34-scores.csv` holds the ten
 model/effort aggregates for spreadsheets.
 
 Earlier suite results live in their own report pages and keep their original
-scoring conventions; do not pool them with SWE v4.
+scoring conventions; do not pool them with Frontier v4.

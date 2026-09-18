@@ -94,12 +94,12 @@ def main():  # noqa: PLR0915, one linear document
 
     # Page 1: abstract and headline table
     p("GPT-5.6 Terra across every effort level", "h1")
-    p("VulcanBench-SWE v4 | Code quality protocol v3.6 | September 2026", "small")
+    p("VulcanBench Frontier v4 | Code quality protocol v3.6 | September 2026", "small")
     heading("Abstract")
-    p(f"GPT-5.6 Terra ran the 23-task VulcanBench-SWE v4 suite through the Codex CLI on a ChatGPT subscription, once per task at "
+    p(f"GPT-5.6 Terra ran the 23-task VulcanBench Frontier v4 suite through the Codex CLI on a ChatGPT subscription, once per task at "
       f"each of the five effort levels its API offers, 115 runs in all. One Max run could not start before the subscription's "
       f"quota window closed; it ran on September 17 on a second ChatGPT account and was judged under the v3.6.1 top-up. Code quality carries 33% of the combined score and is judged for a named "
-      f"human reader by Muse Spark 1.3 (Meta) and Grok 4.6 (xAI) under the same frozen protocol as the other SWE v4 reports, with "
+      f"human reader by Muse Spark 1.3 (Meta) and Grok 4.6 (xAI) under the same frozen protocol as the other Frontier v4 reports, with "
       f"a ground-truth intent-recovery probe. The combined score rises at every step of the ladder, from {comb[0]:.2f} at Low to "
       f"{comb[4]:.2f} at Max, where Terra passes {t['max']['passed']} of 23 tasks. Code quality stays between {min(cq):.2f} "
       f"and {max(cq):.2f} at every effort: the knob buys correctness, not readability. Cost per task rises from "
@@ -303,7 +303,7 @@ def main():  # noqa: PLR0915, one linear document
         canvas.setFont("Display", 13)
         canvas.drawString(74, height - 35, "VulcanBench")
         canvas.setFont("Body", 8.5)
-        canvas.drawRightString(width - 44, height - 33, "Technical report | SWE v4 | Code quality protocol v3.6 | September 2026")
+        canvas.drawRightString(width - 44, height - 33, "Technical report | Frontier v4 | Code quality protocol v3.6 | September 2026")
         canvas.setStrokeColor(RULE)
         canvas.line(44, height - 49, width - 44, height - 49)
         canvas.line(44, 32, width - 44, 32)
@@ -313,7 +313,7 @@ def main():  # noqa: PLR0915, one linear document
         canvas.drawRightString(width - 44, 19, f"{doc.page} / {PAGES}")
         canvas.restoreState()
 
-    doc = BaseDocTemplate(str(OUTPUT), pagesize=A4, title="VulcanBench-SWE v4: GPT-5.6 Terra across every effort level",
+    doc = BaseDocTemplate(str(OUTPUT), pagesize=A4, title="VulcanBench Frontier v4: GPT-5.6 Terra across every effort level",
                           author="VulcanBench", subject="Code quality protocol v3.6: neutral judges, 33% weight, Codex effort sweep")
     doc.addPageTemplates([
         PageTemplate(id="report", frames=Frame(44, 40, A4[0] - 88, A4[1] - 102, leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0),

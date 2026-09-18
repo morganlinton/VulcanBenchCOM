@@ -1,4 +1,4 @@
-# VulcanBench-SWE v4: Astra and Fable 5.1 under Code quality protocol v3.4
+# VulcanBench Frontier v4: Astra and Fable 5.1 under Code quality protocol v3.4
 
 Public record for the September 9, 2026 Astra and Fable 5.1 comparison: 230
 solver runs from the September 2026 effort sweep (23 matched tasks, five effort

@@ -1,4 +1,4 @@
-"""Build the VulcanBench-SWE v4 leaderboard from the published evidence bundles.
+"""Build the VulcanBench Frontier v4 leaderboard from the published evidence bundles.
 
 Every model-and-harness column at every effort level it ran, ranked by
 combined score, with Code quality, tasks passed, runtime and API-equivalent
@@ -105,7 +105,7 @@ def suggestions(board):
 
 def table_html(board):
     lines = ['<div class="lb-scroll">', '<table class="lb" id="v4board">',
-             '<caption class="sr-only">VulcanBench-SWE v4 board: every model and effort level, ranked by combined score</caption>',
+             '<caption class="sr-only">VulcanBench Frontier v4 board: every model and effort level, ranked by combined score</caption>',
              '<thead><tr><th class="l" scope="col">#</th><th class="l" scope="col">Model / harness</th><th scope="col">Effort</th>'
              '<th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Code quality</th><th scope="col">Passed</th>'
              '<th scope="col">Min/task</th><th scope="col">$/task</th></tr></thead>', "<tbody>"]
@@ -185,7 +185,7 @@ def main():
     if args.check:
         for p in stale:
             print(f"stale: {p.relative_to(ROOT)}")
-        print("SWE v4 board is current" if not stale else f"{len(stale)} stale output(s)")
+        print("Frontier v4 board is current" if not stale else f"{len(stale)} stale output(s)")
         sys.exit(1 if stale else 0)
     for p, text in outputs.items():
         p.write_text(text)

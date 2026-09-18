@@ -1,4 +1,4 @@
-"""The SWE v4 leaderboard block, JSON and CSV are generated from the bundles and current."""
+"""The Frontier v4 leaderboard block, JSON and CSV are generated from the bundles and current."""
 
 import csv
 import html

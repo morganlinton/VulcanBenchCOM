@@ -13,23 +13,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GPT-5.6 Terra across effort levels | VulcanBench</title>
-<meta name="description" content="SWE v4: 115 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score climbs from 59.70 at Low to 89.05 at Max.">
+<meta name="description" content="Frontier v4: 115 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score climbs from 59.70 at Low to 89.05 at Max.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-terra-v36.html">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
 <meta property="og:title" content="GPT-5.6 Terra across effort levels | VulcanBench">
-<meta property="og:description" content="SWE v4: 115 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score climbs from 59.70 at Low to 89.05 at Max.">
+<meta property="og:description" content="Frontier v4: 115 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score climbs from 59.70 at Low to 89.05 at Max.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-terra-v36.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-terra-v36.png">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1725">
-<meta property="og:image:alt" content="VulcanBench-SWE v4: GPT-5.6 Terra, combined score and runtime at every effort level, with a Code quality table by effort">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: GPT-5.6 Terra, combined score and runtime at every effort level, with a Code quality table by effort">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GPT-5.6 Terra across effort levels | VulcanBench">
-<meta name="twitter:description" content="SWE v4: 115 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score climbs from 59.70 at Low to 89.05 at Max.">
+<meta name="twitter:description" content="Frontier v4: 115 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score climbs from 59.70 at Low to 89.05 at Max.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-terra-v36.png">
-<meta name="twitter:image:alt" content="VulcanBench-SWE v4: GPT-5.6 Terra, combined score and runtime at every effort level, with a Code quality table by effort">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: GPT-5.6 Terra, combined score and runtime at every effort level, with a Code quality table by effort">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -60,12 +60,12 @@
 </header>
 
 <main class="wrap-wide benchmark-report">
-<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench-SWE v4 reports</a></p>
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
     <article class="suite-feature" aria-labelledby="terra-v36-heading">
       <header>
         <p class="suite-label">September 17, 2026 &middot; 115 runs &middot; Code quality protocol v3.6 with the v3.6.1 top-up</p>
         <h1 id="terra-v36-heading">GPT-5.6 Terra across every effort level</h1>
-        <p>115 runs through the Codex CLI on a ChatGPT subscription, 23 tasks at each of the five effort levels the API offers. Scored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the other SWE v4 reports, so Terra takes its place on the <a href="/leaderboard.html">SWE v4 leaderboard</a> beside GPT-5.5, Luna, Astra and Fable 5.1.</p>
+        <p>115 runs through the Codex CLI on a ChatGPT subscription, 23 tasks at each of the five effort levels the API offers. Scored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the other Frontier v4 reports, so Terra takes its place on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> beside GPT-5.5, Luna, Astra and Fable 5.1.</p>
       </header>
       <div class="report-resources" aria-label="Report and evidence downloads">
         <a class="resource" href="/assets/reports/vulcanbench-swe-v4-terra-v36-report.pdf"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">PDF, 9 pages</span></a>
@@ -90,7 +90,7 @@
         <h2 id="across-efforts-heading">Across every effort level</h2>
         <p>Terra ran every task once at each of its five effort levels, 23 tasks per cell, through the Codex CLI on a ChatGPT subscription. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a named human reader by Muse Spark 1.3 and Grok 4.6, two judges from labs with no model on this board, with a ground-truth intent-recovery probe. One Max run, paddockcore, could not start before the subscription's quota window closed; it ran on September 17 on a second ChatGPT account and was judged under the v3.6.1 top-up with the same judges and their v3.6 calibration.</p>
         <div class="effort-choices">
-          <div><h3>Combined score</h3><p>59.70 at Low to 89.05 at Max</p><p>The steepest effort curve on the SWE v4 board so far: every step up the ladder adds points, 6.6 from Low to Medium, 10.3 to High, 6.8 to Extra-high and 5.6 to Max.</p></div>
+          <div><h3>Combined score</h3><p>59.70 at Low to 89.05 at Max</p><p>The steepest effort curve on the Frontier v4 board so far: every step up the ladder adds points, 6.6 from Low to Medium, 10.3 to High, 6.8 to Extra-high and 5.6 to Max.</p></div>
           <div><h3>Tasks passed</h3><p>2 of 23 at Low to 23 of 23 at Max</p><p>Functional correctness drives the curve. Terra passes 23 of 23 at Max and 14 of 23 at Extra-high, but fewer than half below High.</p></div>
           <div><h3>Code quality</h3><p>70.93 to 73.90</p><p>Flat across the ladder: the judges rate Terra's code about the same at every effort, within three points. The effort knob buys correctness, not readability.</p></div>
           <div><h3>Runtime and cost</h3><p>6.7 to 19.7 min &middot; $0.58 to $2.12 per task</p><p>Runtime climbs with effort and levels off from Extra-high (19.2 minutes) to Max (19.7). API-equivalent cost peaks at Extra-high ($2.12) and is lower at Max ($1.88), which passes more tasks.</p></div>
@@ -104,14 +104,14 @@
         </a>
         <figcaption>Combined score uses a focused scale; runtime starts at zero. Whiskers show &plusmn;1 task standard error, not statistical significance. <a href="/assets/cards/swe-v4-terra-v36.png">Open full-size card</a>.</figcaption>
       </figure>
-      <p class="suite-reading">Terra's combined score rises at every step of the effort ladder and its Max level passes every judged task. Code quality does not move with effort. These runs compare a model-and-harness combination, not an isolated base model; the <a href="/leaderboard.html">SWE v4 leaderboard</a> places every Terra effort level beside the other models judged under the same protocol.</p>
+      <p class="suite-reading">Terra's combined score rises at every step of the effort ladder and its Max level passes every judged task. Code quality does not move with effort. These runs compare a model-and-harness combination, not an isolated base model; the <a href="/leaderboard.html">Frontier v4 leaderboard</a> places every Terra effort level beside the other models judged under the same protocol.</p>
 
       <details class="suite-details" id="results" open>
         <summary>Combined score and Code quality by effort</summary>
         <p id="effort-table-note">n=23 at every effort. Combined (33%) is the published score. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the two judges. Passed counts tasks with a perfect functional score. Runtime is solver wall-clock per task.</p>
         <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
           <table class="suite-results" aria-describedby="effort-table-note">
-            <caption>VulcanBench-SWE v4: GPT-5.6 Terra effort results under Code quality protocol v3.6</caption>
+            <caption>VulcanBench Frontier v4: GPT-5.6 Terra effort results under Code quality protocol v3.6</caption>
             <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
             <tbody>
               <tr data-model="terra" data-effort="low"><th scope="row"><a href="/models/gpt-5-6-terra.html">GPT-5.6 Terra</a> / Codex</th><td>Low</td><td>59.70</td><td>3.43</td><td>62.03</td><td>72.31</td><td>68.3</td><td>73.2</td><td>76.2*</td><td>2/23</td><td>6.7</td></tr>
