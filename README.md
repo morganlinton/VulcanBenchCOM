@@ -4,7 +4,7 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 
 ## Pages
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
-- `benchmarks.html`: suite-separated results, with the current SWE v4 comparison first and all earlier reports in a labeled archive
+- `benchmarks.html`: suite-separated results, with the current Frontier v4 comparison first and all earlier reports in a labeled archive
 - `benchmarks/swe-v4-terra-v36.html`: GPT-5.6 Terra through Codex at every effort level under Code quality protocol v3.6, with PDF, calibration record and evidence links
 - `benchmarks/swe-v4-gpt55-luna-v35.html`: GPT-5.5 vs. GPT-5.6 Luna through Codex at every effort level under Code quality protocol v3.5, with PDF, calibration record and evidence links
 - `benchmarks/swe-v4-astra-fable51-v34.html`: the same runs rescored under Code quality protocol v3.4 (33% weight, neutral Muse Spark 1.3 and Grok 4.6 panel), with PDF, calibration record and evidence links
@@ -42,7 +42,7 @@ Keep new suite results in their own section, never in a pooled ranking with
 older suites. Use the original report links and scoring conventions in the
 archive. Run `python3 scripts/check_benchmark_index.py` after index edits.
 
-Each SWE v4 report PDF is generated directly from its public record in
+Each Frontier v4 report PDF is generated directly from its public record in
 `assets/data/swe-v4-astra-fable51-v34/`, `assets/data/swe-v4-gpt55-luna-v35/` and
 `assets/data/swe-v4-terra-v36/`, which the matching `scripts/export_swe_v4_v3N_evidence.py`
 (`--harness-root ../VulcanBench`) export from the frozen harness results. The renderers

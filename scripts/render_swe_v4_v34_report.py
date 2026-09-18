@@ -85,7 +85,7 @@ def main():  # noqa: PLR0915, one linear document
 
     # Page 1: abstract and headline table
     p("GPT-6 Astra vs. Fable 5.1 under a neutral Code quality panel", "h1")
-    p("VulcanBench-SWE v4 | Code quality protocol v3.4 | September 2026", "small")
+    p("VulcanBench Frontier v4 | Code quality protocol v3.4 | September 2026", "small")
     heading("Abstract")
     p(f"The same 230 runs from the September 2026 effort comparison, 23 tasks at five effort levels for each model, are rescored "
       f"under a revised Code quality protocol. Code quality now carries 33% of the combined score, is judged for a named human "
@@ -284,7 +284,7 @@ def main():  # noqa: PLR0915, one linear document
         canvas.setFont("Display", 13)
         canvas.drawString(74, height - 35, "VulcanBench")
         canvas.setFont("Body", 8.5)
-        canvas.drawRightString(width - 44, height - 33, "Technical report | SWE v4 | Code quality protocol v3.4 | September 2026")
+        canvas.drawRightString(width - 44, height - 33, "Technical report | Frontier v4 | Code quality protocol v3.4 | September 2026")
         canvas.setStrokeColor(RULE)
         canvas.line(44, height - 49, width - 44, height - 49)
         canvas.line(44, 32, width - 44, 32)
@@ -294,7 +294,7 @@ def main():  # noqa: PLR0915, one linear document
         canvas.drawRightString(width - 44, 19, f"{doc.page} / {PAGES}")
         canvas.restoreState()
 
-    doc = BaseDocTemplate(str(OUTPUT), pagesize=A4, title="VulcanBench-SWE v4: Astra vs. Fable 5.1 under a neutral Code quality panel",
+    doc = BaseDocTemplate(str(OUTPUT), pagesize=A4, title="VulcanBench Frontier v4: Astra vs. Fable 5.1 under a neutral Code quality panel",
                           author="VulcanBench", subject="Code quality protocol v3.4: neutral judges, 33% weight, effort sweep")
     doc.addPageTemplates([
         PageTemplate(id="report", frames=Frame(44, 40, A4[0] - 88, A4[1] - 102, leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0),

@@ -1,4 +1,4 @@
-/* VulcanBench-SWE v4 board: pick models and an effort level; charts, frontier and table follow. */
+/* VulcanBench Frontier v4 board: pick models and an effort level; charts, frontier and table follow. */
 (function () {
   "use strict";
   var DATA = window.VB_V4;

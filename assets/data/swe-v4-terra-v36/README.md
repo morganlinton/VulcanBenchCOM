@@ -1,4 +1,4 @@
-# VulcanBench-SWE v4: GPT-5.6 Terra under Code quality protocol v3.6
+# VulcanBench Frontier v4: GPT-5.6 Terra under Code quality protocol v3.6
 
 Public record for the September 2026 GPT-5.6 Terra report: 115 solver
 runs from the September 2026 Codex effort sweep (23 tasks, one attempt per

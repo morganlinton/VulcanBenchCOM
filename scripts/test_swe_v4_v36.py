@@ -20,8 +20,8 @@ EFFORTS = LEVELS["terra"]
 PANELS = ("muse", "grok")
 NAMES = {"terra": "GPT-5.6 Terra"}
 REDISTRIBUTED = [("high", "legacy-schedcore-binary-parity"), ("low", "legacy-granarycore-binary-parity")]
-CARD_SHA256 = "e77a9913e323abde77e37dc2619847d52f877739e995366c5e187825b2da76f3"
-ECONOMICS_CARD_SHA256 = "e5f2e424253ae5611cca3040ddfeb423375872593bf39dbc292315a330d97b5a"
+CARD_SHA256 = "d93c3e582a331b8ecbdfea6224e09a26238c7a59bdc2beb256a280716f56f6be"
+ECONOMICS_CARD_SHA256 = "020c7bda1b2a616d825bd824291370768e20cd5dd69e6ca6c8d3c35cb9df7d5d"
 
 
 def mean_se(values):

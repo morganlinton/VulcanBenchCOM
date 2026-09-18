@@ -17,8 +17,8 @@ PAGE = ROOT / "benchmarks/swe-v4-astra-fable51-v34.html"
 URL = "https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html"
 EFFORTS = ("low", "medium", "high", "extra-high", "max")
 PANELS = ("muse", "grok")
-CARD_SHA256 = "81015c5ac4e1055ce4fa5896a4a9416494ba9ac0f8fed0aacada7b245ac96dbb"
-ECONOMICS_CARD_SHA256 = "dc73f8c8b64f06a1b7c6d85608c5badf85de78680d6c06af062ad30b6069de22"
+CARD_SHA256 = "1834b08e2cec2be55de3510c41378716f5401c1780b706945e5d1dfd0f7ffd8c"
+ECONOMICS_CARD_SHA256 = "99dc63c7cb5f5fe4e8a3352376af605561b3b8ddbc4a821c8566d4b63bc51ff4"
 
 
 def mean_se(values):
