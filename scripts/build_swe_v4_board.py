@@ -77,7 +77,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#D97757", "astra": "#10A37F", "terra": "#0F5E4F", "luna": "#5EC59B", "gpt55": "#6B6B66"}
+COLORS = {"fable": "#F5A524", "astra": "#4C9BFF", "terra": "#B48CFF", "luna": "#3DDC97", "gpt55": "#FF6B6B"}
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}

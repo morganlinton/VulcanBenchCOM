@@ -31,25 +31,25 @@
     var ymin = Math.max(0, Math.floor((Math.min.apply(null, ys) - 4) / 10) * 10), ymax = 100;
     function X(v) { return L + (1 - v / xmax) * (W - L - R); }
     function Y(v) { return T + (1 - (v - ymin) / (ymax - ymin)) * (H - T - B); }
-    var g = "";
+    var g = '<rect x="0" y="0" width="' + W + '" height="' + H + '" fill="#131210"/>';
     for (var y = ymin; y <= ymax; y += 10) {
-      g += '<line x1="' + L + '" y1="' + Y(y).toFixed(1) + '" x2="' + (W - R) + '" y2="' + Y(y).toFixed(1) + '" stroke="#1c1a17" stroke-opacity="0.1"/>';
-      g += '<text x="' + (L - 10) + '" y="' + (Y(y) + 4).toFixed(1) + '" text-anchor="end" font-size="12" fill="#6f6a62">' + y + "</text>";
+      g += '<line x1="' + L + '" y1="' + Y(y).toFixed(1) + '" x2="' + (W - R) + '" y2="' + Y(y).toFixed(1) + '" stroke="#f7f4ee" stroke-opacity="0.12"/>';
+      g += '<text x="' + (L - 10) + '" y="' + (Y(y) + 4).toFixed(1) + '" text-anchor="end" font-size="12" fill="#a8a39a">' + y + "</text>";
     }
     for (var t = 0; t <= xmax + 1e-9; t += step) {
-      g += '<line x1="' + X(t).toFixed(1) + '" y1="' + T + '" x2="' + X(t).toFixed(1) + '" y2="' + (H - B) + '" stroke="#1c1a17" stroke-opacity="0.1"/>';
-      g += '<text x="' + X(t).toFixed(1) + '" y="' + (H - B + 20) + '" text-anchor="middle" font-size="12" fill="#6f6a62">' + ax.fmt(t) + "</text>";
+      g += '<line x1="' + X(t).toFixed(1) + '" y1="' + T + '" x2="' + X(t).toFixed(1) + '" y2="' + (H - B) + '" stroke="#f7f4ee" stroke-opacity="0.12"/>';
+      g += '<text x="' + X(t).toFixed(1) + '" y="' + (H - B + 20) + '" text-anchor="middle" font-size="12" fill="#a8a39a">' + ax.fmt(t) + "</text>";
     }
-    g += '<text x="' + L + '" y="' + (T - 14) + '" font-size="13" font-weight="600" fill="#1c1a17">VulcanBench Frontier v4 score</text>';
-    g += '<text x="' + ((L + W - R) / 2).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="12.5" fill="#3a362f">' + esc(ax.label) + "</text>";
+    g += '<text x="' + L + '" y="' + (T - 14) + '" font-size="13" font-weight="600" fill="#f7f4ee">VulcanBench Frontier v4 score</text>';
+    g += '<text x="' + ((L + W - R) / 2).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="12.5" fill="#d8d3c8">' + esc(ax.label) + "</text>";
     var labels = [];
     MODELS.forEach(function (m) {
       var pts = COLS.filter(function (r) { return r.key === m.key; }).sort(function (a, b) { return EFFORTS.indexOf(a.effort) - EFFORTS.indexOf(b.effort); });
-      var col = COLORS[m.key] || "#1c1a17";
+      var col = COLORS[m.key] || "#f7f4ee";
       if (pts.length > 1) g += '<polyline fill="none" stroke="' + col + '" stroke-width="1.6" stroke-linejoin="round" points="' + pts.map(function (r) { return X(r[xKey]).toFixed(1) + "," + Y(r.combined).toFixed(1); }).join(" ") + '"/>';
       pts.forEach(function (r) {
         var tip = r.model + " " + LABEL[r.effort] + ": " + r.combined.toFixed(1) + ", " + ax.tip(r);
-        g += '<circle cx="' + X(r[xKey]).toFixed(1) + '" cy="' + Y(r.combined).toFixed(1) + '" r="4.5" fill="' + col + '" stroke="#f7f4ee" stroke-width="1.2"><title>' + esc(tip) + "</title></circle>";
+        g += '<circle cx="' + X(r[xKey]).toFixed(1) + '" cy="' + Y(r.combined).toFixed(1) + '" r="4.5" fill="' + col + '" stroke="#131210" stroke-width="1.5"><title>' + esc(tip) + "</title></circle>";
       });
       var end = pts.reduce(function (a, b) { return b[xKey] < a[xKey] ? b : a; });  // cheapest level sits at the right end of the line
       labels.push({ x: X(end[xKey]) + 10, y: Y(end.combined) + 4, text: m.name, col: col });
