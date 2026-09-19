@@ -31,10 +31,13 @@ SOURCES = [
      "models": {"gpt55": ("GPT-5.5", "Codex", "gpt-5-5", "OpenAI"), "luna": ("GPT-5.6 Luna", "Codex", "gpt-5-6-luna", "OpenAI")}},
     {"bundle": "swe-v4-terra-v36", "report": "benchmarks/swe-v4-terra-v36.html", "protocol": "v3.6",
      "models": {"terra": ("GPT-5.6 Terra", "Codex", "gpt-5-6-terra", "OpenAI")}},
+    {"bundle": "swe-v4-sol-v37", "report": "benchmarks/swe-v4-sol-v37.html", "protocol": "v3.7",
+     "models": {"sol": ("GPT-5.6 Sol", "Codex", "gpt-5-6-sol", "OpenAI")}},
 ]
 FOOTNOTES = {
     "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
     "terra": "GPT-5.6 Terra at max includes paddockcore, run on September 17 on a second ChatGPT account after the first hit its quota window and judged under the v3.6.1 top-up with the same judges and calibration.",
+    "sol": "GPT-5.6 Sol at max is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts, so the v3.7 protocol publishes no Code quality score for that run; the run passed its tests and is priced.",
 }
 
 
@@ -77,7 +80,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#D97757", "astra": "#10A37F", "terra": "#0F5E4F", "luna": "#5EC59B", "gpt55": "#6B6B66"}
+COLORS = {"fable": "#D97757", "astra": "#10A37F", "terra": "#0F5E4F", "luna": "#5EC59B", "gpt55": "#6B6B66", "sol": "#7A9A2E"}
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
@@ -112,7 +115,7 @@ def table_html(board):
     for r in board:
         cls = " leader" if r["rank"] == 1 else ""
         tag = '<span class="fb-best">best</span>' if r["best"] else ""
-        mark = "&dagger;" if r["key"] == "fable" else ("&Dagger;" if r["key"] == "terra" and r["effort"] == "max" else "")
+        mark = "&dagger;" if r["key"] == "fable" else ("&Dagger;" if r["key"] == "terra" and r["effort"] == "max" else ("&sect;" if r["key"] == "sol" and r["effort"] == "max" else ""))
         lines.append(
             f'<tr class="v4row{cls}" data-model="{r["key"]}" data-effort="{r["effort"]}" data-best="{int(r["best"])}"><td class="l lb-rank">{r["rank"]}</td>'
             f'<td class="l"><span class="v4dot" style="background:{COLORS[r["key"]]}"></span><a class="lb-model" href="models/{r["slug"]}.html">{escape(r["model"])}</a> <span class="lb-harness">{escape(r["harness"])}</span>{tag}</td>'
@@ -134,18 +137,19 @@ def render(board):
             f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.6 apply the same rubric, controls, gates and judges to each population). Pick the models "
+            "under one frozen protocol (v3.4 to v3.7 apply the same rubric, controls, gates and judges to each population). Pick the models "
             "and the effort level you care about; every chart, the frontier plot and the table below follow the same selection. "
             "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
             '<noscript><p class="lb-context">The interactive charts need JavaScript; the full table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
-            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) +
+            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) +
             ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
             'The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model&rsquo;s highest-scoring effort level. '
             'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
             '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
-            '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>. '
+            '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>, '
+            '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>. '
             '<a href="assets/data/swe-v4-board.csv" download>Download the board as CSV</a>.</p>\n'
             f"{END}")
 

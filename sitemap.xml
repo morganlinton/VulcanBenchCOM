@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vulcanbench.com/</loc><lastmod>2026-09-18</lastmod><priority>1.0</priority></url>
-  <url><loc>https://vulcanbench.com/benchmarks.html</loc><lastmod>2026-09-18</lastmod><priority>0.9</priority></url>
-  <url><loc>https://vulcanbench.com/leaderboard.html</loc><lastmod>2026-09-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://vulcanbench.com/</loc><lastmod>2026-09-19</lastmod><priority>1.0</priority></url>
+  <url><loc>https://vulcanbench.com/benchmarks.html</loc><lastmod>2026-09-19</lastmod><priority>0.9</priority></url>
+  <url><loc>https://vulcanbench.com/leaderboard.html</loc><lastmod>2026-09-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://vulcanbench.com/methodology.html</loc><lastmod>2026-09-18</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/methodology-notes.html</loc><lastmod>2026-09-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/benchmark-your-stack.html</loc><lastmod>2026-09-10</lastmod><priority>0.7</priority></url>
@@ -11,6 +11,7 @@
   <url><loc>https://vulcanbench.com/blog.html</loc><lastmod>2026-09-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html</loc><lastmod>2026-09-18</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-gpt55-luna-v35.html</loc><lastmod>2026-09-18</lastmod><priority>0.9</priority></url>
+  <url><loc>https://vulcanbench.com/benchmarks/swe-v4-sol-v37.html</loc><lastmod>2026-09-19</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-terra-v36.html</loc><lastmod>2026-09-18</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/01-cost-pilot.html</loc><lastmod>2026-09-10</lastmod><priority>0.8</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/02-effort-sweep.html</loc><lastmod>2026-09-10</lastmod><priority>0.8</priority></url>
@@ -46,7 +47,7 @@
   <url><loc>https://vulcanbench.com/models/glm-5-3.html</loc><lastmod>2026-09-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/gpt-5-5.html</loc><lastmod>2026-09-18</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/gpt-5-6-luna.html</loc><lastmod>2026-09-18</lastmod><priority>0.7</priority></url>
-  <url><loc>https://vulcanbench.com/models/gpt-5-6-sol.html</loc><lastmod>2026-09-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://vulcanbench.com/models/gpt-5-6-sol.html</loc><lastmod>2026-09-19</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/gpt-5-6-terra.html</loc><lastmod>2026-09-18</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/gpt-6-astra.html</loc><lastmod>2026-09-18</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/gpt-realtime.html</loc><lastmod>2026-09-10</lastmod><priority>0.7</priority></url>
