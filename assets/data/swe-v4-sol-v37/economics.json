@@ -1,0 +1,148 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a ChatGPT subscription through Codex, so these are estimates, not bills. Judging and local infrastructure are excluded. Every run in the sweep is priced, including the one Max run whose Code quality score is unpublished.",
+  "pricing_verified": "2026-09-11",
+  "sources": {
+    "openai": "https://developers.openai.com/api/docs/pricing"
+  },
+  "rates_per_million": {
+    "sol": {
+      "input": 4.0,
+      "cached_input": 0.4,
+      "output": 20.0
+    }
+  },
+  "groups": [
+    {
+      "model": "sol",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.3591678695652174,
+        "se": 0.1430501817414369
+      },
+      "usd_total": 31.260861,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1793981.4782608696,
+        "se": 257898.41940332763
+      },
+      "raw_tokens_total": 41261574,
+      "minutes": {
+        "n": 23,
+        "mean": 9.775197101449276,
+        "se": 1.1392878044828727
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "sol",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.7151938695652174,
+        "se": 0.26025884464319954
+      },
+      "usd_total": 39.449459,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2257648.913043478,
+        "se": 431596.0961804603
+      },
+      "raw_tokens_total": 51925925,
+      "minutes": {
+        "n": 23,
+        "mean": 11.051054347826087,
+        "se": 1.5394926257119426
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "sol",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.045315652173913,
+        "se": 0.4848889937807314
+      },
+      "usd_total": 47.04226,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2828812.3913043477,
+        "se": 838679.5902327559
+      },
+      "raw_tokens_total": 65062685,
+      "minutes": {
+        "n": 23,
+        "mean": 12.015965217391305,
+        "se": 2.596821842769139
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "sol",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.6091715652173912,
+        "se": 0.2013867239560599
+      },
+      "usd_total": 37.010946,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1912564.1739130435,
+        "se": 348559.51112695504
+      },
+      "raw_tokens_total": 43988976,
+      "minutes": {
+        "n": 23,
+        "mean": 10.619051449275362,
+        "se": 0.6488265306456645
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "sol",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.7735256521739131,
+        "se": 0.18446994169064573
+      },
+      "usd_total": 40.79109,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2111816.695652174,
+        "se": 309113.11167406646
+      },
+      "raw_tokens_total": 48571784,
+      "minutes": {
+        "n": 23,
+        "mean": 11.605152173913043,
+        "se": 0.5389363147377524
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "sol": {
+      "runs": 115,
+      "usd": 195.554616,
+      "raw_tokens": 250810944,
+      "solver_hours": 21.108794444444445
+    }
+  },
+  "limitations": [
+    "Codex receipts report input, cached input, output and reasoning tokens per run; cached input is billed at the cache-read rate and the rest of the input at the standard rate. Cache writes are free on this API and are not modelled.",
+    "Standard tier, short-context rates. Per-request context sizes are not exposed by the receipts, so no long-context premium is applied.",
+    "No Batch, Flex, Fast or priority pricing is applied.",
+    "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
+    "The sweep stamped each run at run time at the published Sol list rates; the export recomputes every run from its receipt and matched every stamp."
+  ],
+  "comparison_sha256": "d87d8e8ab958c098908078fe1edc3afe84786ec6ef34413e70715a613394427a",
+  "note": "Per-run estimates are in runs.json (estimated_usd, raw_tokens, token_usage). Judging is excluded."
+}
