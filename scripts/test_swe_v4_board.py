@@ -99,7 +99,7 @@ class BoardTests(unittest.TestCase):
         self.assertIn('<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>', self.page)
         self.assertEqual(len(set(board.COLORS.values())), len(board.COLORS))
         self.assertLess(self.page.index('id="swe-v4-board"'), self.page.index('id="swe-v3-board"'))
-        self.assertLess(self.page.index('id="swe-v3-board"'), self.page.index('id="fullboard"'))
+        self.assertNotIn('id="fullboard"', self.page)  # the retired v3 board is JSON only; the page keeps one chart
 
 
 if __name__ == "__main__":

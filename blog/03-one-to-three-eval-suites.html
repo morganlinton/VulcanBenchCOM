@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VulcanBench is moving from one to three eval suites</title>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="VulcanBench now has three eval suites: Frontier v4 for what the best models can barely do, Routine v1 for the cheapest effort level that is good enough for everyday tickets, and Safety v1 for how likely a model is to misbehave.">
+<meta name="author" content="Morgan Linton">
+<link rel="canonical" href="https://vulcanbench.com/blog/03-one-to-three-eval-suites.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="VulcanBench is moving from one to three eval suites">
+<meta property="og:description" content="VulcanBench now has three eval suites: Frontier v4 for what the best models can barely do, Routine v1 for the cheapest effort level that is good enough for everyday tickets, and Safety v1 for how likely a model is to misbehave.">
+<meta property="og:url" content="https://vulcanbench.com/blog/03-one-to-three-eval-suites.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta property="article:published_time" content="2026-09-18T12:00:00+00:00">
+<meta property="article:modified_time" content="2026-09-18T12:00:00+00:00">
+<meta property="article:author" content="https://www.morganlinton.com/">
+<meta property="article:section" content="Benchmarking">
+<meta property="article:tag" content="AI benchmarks">
+<meta property="article:tag" content="eval suites">
+<meta property="article:tag" content="reasoning effort">
+<meta property="article:tag" content="model routing">
+<meta property="article:tag" content="AI safety">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VulcanBench is moving from one to three eval suites">
+<meta name="twitter:description" content="VulcanBench now has three eval suites: Frontier v4 for what the best models can barely do, Routine v1 for the cheapest effort level that is good enough for everyday tickets, and Safety v1 for how likely a model is to misbehave.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Morgan Linton">
+<meta name="twitter:label2" content="Reading time">
+<meta name="twitter:data2" content="2 minutes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://vulcanbench.com/blog/03-one-to-three-eval-suites.html#post",
+      "headline": "VulcanBench is moving from one to three eval suites",
+      "alternativeHeadline": "Frontier, Routine, and Safety: the three questions an engineering leader needs answered",
+      "description": "VulcanBench now has three eval suites: Frontier v4 for what the best models can barely do, Routine v1 for the cheapest effort level that is good enough for everyday tickets, and Safety v1 for how likely a model is to misbehave.",
+      "url": "https://vulcanbench.com/blog/03-one-to-three-eval-suites.html",
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://vulcanbench.com/blog/03-one-to-three-eval-suites.html"},
+      "image": {"@type": "ImageObject", "url": "https://vulcanbench.com/assets/og-image.png", "width": 1200, "height": 630},
+      "datePublished": "2026-09-18T12:00:00+00:00",
+      "dateModified": "2026-09-18T12:00:00+00:00",
+      "inLanguage": "en-US",
+      "wordCount": 340,
+      "timeRequired": "PT2M",
+      "articleSection": "Benchmarking",
+      "keywords": "AI coding benchmarks, eval suites, reasoning effort levels, model routing, AI safety evals, VulcanBench Frontier, VulcanBench Routine, VulcanBench Safety",
+      "isPartOf": {"@id": "https://vulcanbench.com/blog.html#blog"},
+      "about": [
+        {"@type": "Thing", "name": "AI coding benchmarks"},
+        {"@type": "Thing", "name": "Reasoning effort levels"},
+        {"@type": "Thing", "name": "AI safety evaluation"}
+      ],
+      "author": {"@id": "https://vulcanbench.com/#morgan"},
+      "publisher": {"@id": "https://vulcanbench.com/#org"}
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vulcanbench.com/#morgan",
+      "name": "Morgan Linton",
+      "url": "https://www.morganlinton.com/",
+      "jobTitle": "Cofounder and CTO",
+      "worksFor": {"@type": "Organization", "name": "Bold Metrics"},
+      "knowsAbout": ["AI coding benchmarks", "Evaluation harnesses", "Reasoning effort levels", "Model routing", "Agentic coding workflows", "AI safety evaluation"],
+      "alumniOf": {"@type": "CollegeOrUniversity", "name": "Carnegie Mellon University"},
+      "sameAs": ["https://www.morganlinton.com/", "https://github.com/morganlinton"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://vulcanbench.com/#org",
+      "name": "VulcanBench",
+      "url": "https://vulcanbench.com/",
+      "logo": {"@type": "ImageObject", "url": "https://vulcanbench.com/assets/logo.png"},
+      "founder": {"@id": "https://vulcanbench.com/#morgan"},
+      "sameAs": ["https://github.com/morganlinton/VulcanBench"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vulcanbench.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vulcanbench.com/blog.html"},
+        {"@type": "ListItem", "position": 3, "name": "From one to three eval suites"}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=30">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">Custom evals</a>
+      <a href="../blog.html" class="active">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="../blog.html">Blog</a>
+    <span class="sep">/</span>
+    <span aria-current="page">From one to three eval suites</span>
+  </nav>
+
+  <div class="article-head">
+    <div class="rno">Post No. 03</div>
+    <h1>VulcanBench is moving from one to three eval suites</h1>
+    <div class="runmeta">2026-09-18 &middot; Morgan Linton &middot; 2 min read</div>
+  </div>
+
+
+  <div class="post-body">
+    <p class="lead-in">As I continue to evolve VulcanBench, I am starting to create more eval suites, and I also just renamed
+    my primary one.</p>
+
+    <p>What I realized, at a high level is that as an engineering leader myself, trying to help my team figure out what
+    model and effort level to use, there&rsquo;s kinda three things I want to know.</p>
+
+    <p>First, the same thing most benchmarks focus on, which frontier model is the best.</p>
+
+    <p>Then, okay, but we don&rsquo;t need to use the best frontier model for all of our daily routine tasks, so what
+    model and effort level do we need for those?</p>
+
+    <p>And last but not least, and probably should go first actually, Safety. Which model is going to be the safest to
+    use today, in its current form, and in the harness we use it in.</p>
+
+    <p>Two out of three eval suites are done, working on the third now. Everything you have seen from VulcanBench so far
+    comes from what I am now calling VulcanBench Frontier, in the past it was called VulcanBench-SWE.</p>
+
+    <p>Here&rsquo;s a rundown of the suites:</p>
+
+    <ul>
+      <li><strong>VulcanBench Frontier v4:</strong> 23 hard tasks that ask a model to rebuild a retired program whose real
+      behaviour drifted from its written spec, so it measures what the best models can barely do and how much effort it
+      takes.</li>
+      <li><strong>VulcanBench Routine v1:</strong> 12 everyday tickets on small codebases, the kind an engineer closes
+      several times a day, the goal is to measure the cheapest effort level that is good enough for ordinary work.</li>
+      <li><strong>VulcanBench Safety v1:</strong> the Frontier tasks with planted traps such as prompt injections and a
+      stray secrets file, designed to determine how likely a model is to misbehave.</li>
+    </ul>
+
+    <p>VulcanBench Frontier v4 and VulcanBench Safety v1 are done, building VulcanBench Routine v1 right now.</p>
+  </div>
+
+  <div class="post-foot">
+    <div class="dl-row">
+      <a class="btn primary" href="../benchmark-your-stack.html">Benchmark your stack &rarr;</a>
+      <a class="btn" href="https://x.com/intent/post?text=VulcanBench%20is%20moving%20from%20one%20to%20three%20eval%20suites&amp;url=https%3A%2F%2Fvulcanbench.com%2Fblog%2F03-one-to-three-eval-suites.html" target="_blank" rel="noopener">Share on X</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../blog.html">&larr; All posts</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=14" defer></script>
+</body>
+</html>

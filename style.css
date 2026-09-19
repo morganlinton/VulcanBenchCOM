@@ -762,6 +762,8 @@ section[id] { scroll-margin-top: 90px; }
 .post-body { max-width: 760px; margin: 0 auto; }
 .post-body p { font-size: 19px; line-height: 1.74; margin-top: 22px; }
 .post-body p.lead-in { font-size: 21px; line-height: 1.66; margin-top: 0; }
+.post-body ul { font-size: 19px; line-height: 1.74; margin-top: 22px; padding-left: 28px; }
+.post-body li { margin-top: 10px; }
 .post-body p.signoff { font-size: 21px; font-style: italic; color: var(--soft); margin-top: 34px; }
 .post-body h2 {
   font-size: 27px; font-weight: 600; letter-spacing: -0.2px; line-height: 1.22;
@@ -859,6 +861,11 @@ section[id] { scroll-margin-top: 90px; }
 .v4se::before, .v4se::after { content: ""; position: absolute; top: -4px; width: 1px; height: 9px; background: #1c1a17; }
 .v4se::before { left: -1px; } .v4se::after { right: -1px; }
 #v4board tr[hidden] { display: none; }
+.v4chart { margin-top: 14px; padding: 12px 12px 14px; background: #0e0e0c; border-color: #0e0e0c; border-radius: 10px; }
+.v4chart svg { border-radius: 6px; }
+.v4chart figcaption { margin-top: 10px; }
+.v4chart figcaption span { color: #a8a39a; }
+.v4app .v4group { margin-top: 4px; }
 @media (max-width: 760px) {
   .v4grid, .v4strip { grid-template-columns: 1fr; }
   .v4card .bc-row { grid-template-columns: 1fr; }

@@ -80,7 +80,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#D97757", "astra": "#10A37F", "terra": "#0F5E4F", "luna": "#5EC59B", "gpt55": "#6B6B66", "sol": "#7A9A2E"}
+COLORS = {"fable": "#FF7A3D", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573", "sol": "#D4FF3F"}  # Anthropic orange; OpenAI greens, brightest for the newest
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
@@ -137,11 +137,10 @@ def render(board):
             f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.7 apply the same rubric, controls, gates and judges to each population). Pick the models "
-            "and the effort level you care about; every chart, the frontier plot and the table below follow the same selection. "
+            "under one frozen protocol (v3.4 to v3.7 apply the same rubric, controls, gates and judges to each population). The chart plots combined score against cost per task, most expensive on the left, one line per model from Max to Low; the table below carries every column. "
             "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
-            '<noscript><p class="lb-context">The interactive charts need JavaScript; the full table below carries every column.</p></noscript>\n'
+            '<noscript><p class="lb-context">The chart needs JavaScript; the table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
             '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) +
             ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '

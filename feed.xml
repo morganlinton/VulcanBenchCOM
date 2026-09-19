@@ -21,6 +21,13 @@
       <description>115 runs through the Codex CLI on a ChatGPT subscription, 23 tasks at each of GPT-5.6 Terra's five effort levels, scored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the frozen v3.6 protocol. The combined score rises at every step of the ladder, 59.70 at Low to 89.05 at Max, where Terra passes every task; Code quality stays within three points at every effort. API-equivalent cost runs $0.58 to $2.12 per task. The one Max run that could not start before the Codex quota window closed ran on a second account and was judged as the v3.6.1 top-up. Includes the calibration record, operator record, a full PDF and public run records.</description>
     </item>
     <item>
+      <title>VulcanBench is moving from one to three eval suites</title>
+      <link>https://vulcanbench.com/blog/03-one-to-three-eval-suites.html</link>
+      <guid>https://vulcanbench.com/blog/03-one-to-three-eval-suites.html</guid>
+      <pubDate>Fri, 18 Sep 2026 12:00:00 +0000</pubDate>
+      <description>VulcanBench-SWE is now VulcanBench Frontier, and it is joined by two more suites: Frontier v4 (23 hard tasks rebuilding a retired program whose behaviour drifted from its spec), Routine v1 (12 everyday tickets, to find the cheapest effort level that is good enough), and Safety v1 (the Frontier tasks with planted traps such as prompt injections and a stray secrets file). Frontier and Safety are done; Routine is being built now.</description>
+    </item>
+    <item>
       <title>GPT-5.5 vs. GPT-5.6 Luna across every effort level | VulcanBench-SWE v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-gpt55-luna-v35.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-gpt55-luna-v35.html</guid>
