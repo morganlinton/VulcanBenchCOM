@@ -27,12 +27,12 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(board.csv_text(self.rows), (ROOT / "assets/data/swe-v4-board.csv").read_text())
 
     def test_every_column_is_on_the_board(self):
-        self.assertEqual(len(self.rows), 24)
-        self.assertEqual({r["model"] for r in self.rows}, {"GPT-6 Astra", "Fable 5.1", "GPT-5.5", "GPT-5.6 Luna", "GPT-5.6 Terra"})
-        self.assertEqual(sum(1 for r in self.rows if r["best"]), 5)
-        self.assertEqual([r["rank"] for r in self.rows], list(range(1, 25)))
+        self.assertEqual(len(self.rows), 29)
+        self.assertEqual({r["model"] for r in self.rows}, {"GPT-6 Astra", "Fable 5.1", "GPT-5.5", "GPT-5.6 Luna", "GPT-5.6 Terra", "GPT-5.6 Sol"})
+        self.assertEqual(sum(1 for r in self.rows if r["best"]), 6)
+        self.assertEqual([r["rank"] for r in self.rows], list(range(1, 30)))
         self.assertEqual([r["combined"] for r in self.rows], sorted((r["combined"] for r in self.rows), reverse=True))
-        self.assertEqual(sum(r["n"] for r in self.rows), 552)
+        self.assertEqual(sum(r["n"] for r in self.rows), 666)
         for r in self.rows:
             self.assertTrue((ROOT / f"models/{r['slug']}.html").is_file(), r["slug"])
             self.assertTrue((ROOT / r["report"]).is_file(), r["report"])
@@ -41,7 +41,11 @@ class BoardTests(unittest.TestCase):
             self.assertGreater(r["output_tokens_mean"], 0)
         terra_max = next(r for r in self.rows if r["key"] == "terra" and r["effort"] == "max")
         self.assertEqual(terra_max["n"], 23)
-        self.assertEqual(len(self.csv), 24)
+        sol_max = next(r for r in self.rows if r["key"] == "sol" and r["effort"] == "max")
+        self.assertEqual(sol_max["n"], 22)
+        self.assertEqual(sol_max["passed"], 21)
+        self.assertTrue(all(r["n"] == 23 for r in self.rows if r["key"] == "sol" and r["effort"] != "max"))
+        self.assertEqual(len(self.csv), 29)
         self.assertEqual(self.csv[0]["rank"], "1")
 
     def test_board_matches_the_bundles(self):
@@ -79,8 +83,8 @@ class BoardTests(unittest.TestCase):
                     if best["combined"] - r["combined"] <= tol:
                         self.assertGreaterEqual((r["usd"], r["minutes"]), (pick["usd"], pick["minutes"]))
         self.assertEqual({k: v["routine"]["effort"] for k, v in sug.items()},
-                         {"fable": "low", "astra": "medium", "terra": "max", "luna": "max", "gpt55": "extra-high"})
-        self.assertEqual({k: v["shape"] for k, v in sug.items()}, {"fable": "flat", "astra": "flat", "terra": "steep", "luna": "steep", "gpt55": "steep"})
+                         {"fable": "low", "astra": "medium", "terra": "max", "luna": "max", "gpt55": "extra-high", "sol": "extra-high"})
+        self.assertEqual({k: v["shape"] for k, v in sug.items()}, {"fable": "flat", "astra": "flat", "terra": "steep", "luna": "steep", "gpt55": "steep", "sol": "steep"})
 
     def test_page_writing_and_structure(self):
         text = html.unescape(self.page)
@@ -89,6 +93,11 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(self.page.count(board.START), 1)
         self.assertEqual(self.page.count(board.END), 1)
         self.assertIn("VulcanBench-SWE v3 (retired in August 2026)", self.page)
+        self.assertIn("&sect; GPT-5.6 Sol at max is judged on 22 of 23 tasks", self.page)
+        self.assertIn('data-model="sol" data-effort="max"', self.page)
+        self.assertIn("<td class=\"fb-eff\">max&sect;</td>", self.page)
+        self.assertIn('<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>', self.page)
+        self.assertEqual(len(set(board.COLORS.values())), len(board.COLORS))
         self.assertLess(self.page.index('id="swe-v4-board"'), self.page.index('id="swe-v3-board"'))
         self.assertNotIn('id="fullboard"', self.page)  # the retired v3 board is JSON only; the page keeps one chart
 

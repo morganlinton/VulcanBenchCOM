@@ -1,0 +1,34 @@
+{
+  "source_artifacts_sha256": {
+    "v3.7/summary.json": "042ed949f87f33f4a79347fc4c183eae1910aea34c7be007a800dfbcf6ea1ce9",
+    "v3.7/protocol.json": "6f78884f8164f60ad93e3f981cf61fb6edb91882c2fdad3416112f520468e771",
+    "v3.7/private-manifest.json": "c22c68d47b339a8cc50f479d350fda4a50f3cca1b38c8989ca577e9858d6353d",
+    "v3.7/calibration-muse.json": "274549630d7372653e53dca8ddcbcd3a02cfd15105ea6ba74b04d60036520e50",
+    "v3.7/calibration-grok.json": "da500c1fd8a1c7d96792d87064ff59194cf61ad0d7a5a7589991f95d2b5a732e",
+    "v3.7/calls/grok/probe/submission-023/operator-invalid.json": "3762293d4d4268021c1c74b6bfccae6be711f25720772975e6ef253d1403e0e4",
+    "comparison.json": "d87d8e8ab958c098908078fe1edc3afe84786ec6ef34413e70715a613394427a"
+  },
+  "export_checks": [
+    "115 runs across five complete effort cells, none missing or excluded; 114 carry a published Code quality score",
+    "the one unpublished row is exactly the submission whose Grok probe folder carries the operator-invalid marker",
+    "both scored panels passed calibration under v3.7 with no allowance used",
+    "every published row has both panels' reviewed scores and intent recovery; no row passed zero quirk families",
+    "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
+    "five-cell means and standard errors matched to the frozen summary's groups",
+    "every run's API-equivalent cost recomputed from its Codex receipt at the published list rates and matched to the population record's run-time stamp",
+    "the population record's hash matches the one frozen in the protocol",
+    "no dashes or host paths in exported text"
+  ],
+  "limits": [
+    "The Max cell's Code quality and combined score cover 22 of its 23 runs: the codeccore run has no published score because Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts and the frozen protocol accepts no invented characters. The run passed its tests; its runtime, tokens and cost are included in every economics figure.",
+    "The frozen summary's ready_for_publication flag is false only because of that strict count (114 of 115); the export asserts the shortfall is exactly that row."
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, raw tokens and API-equivalent cost estimates.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}

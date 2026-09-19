@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>GPT-5.6 Sol across every effort level | VulcanBench Frontier v4</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-sol-v37.html</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-sol-v37.html</guid>
+      <pubDate>Sat, 19 Sep 2026 12:00:00 +0000</pubDate>
+      <description>115 runs through the Codex CLI on a ChatGPT Pro subscription, 23 tasks at each of GPT-5.6 Sol's five effort levels, scored with Code quality at 33% of the combined score and judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the frozen v3.7 protocol. Most of the effort curve is one step: combined score 69.05 at Low, 82.56 at Medium, then 85.76 to 87.18 from High to Max, where Sol passes 21 of 22 judged tasks; Code quality stays within about three points at every effort. API-equivalent cost runs $1.36 to $2.05 per task, with High the most expensive level. One Max run has no published Code quality score after an invalid judge probe and is disclosed with the excerpt. Includes the calibration record, operator record, a full PDF and public run records.</description>
+    </item>
+    <item>
       <title>GPT-5.6 Terra across every effort level | VulcanBench-SWE v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-terra-v36.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-terra-v36.html</guid>
