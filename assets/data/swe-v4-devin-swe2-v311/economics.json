@@ -1,0 +1,108 @@
+{
+  "scope": "Solver inference only, over the 68 finished runs of the sweep. SWE-2 is free on Devin's plans, so cost per task is $0 and there is no rate table to apply. Judging and local infrastructure are excluded.",
+  "cost": "SWE-2 is listed in Devin's catalog at cost tier Free and the sweep ran on a Devin subscription; the receipts' own credit and ACU counters read zero on every run.",
+  "sources": {
+    "devin": "Devin CLI receipts (the per-request usage records in the CLI's agent stream)"
+  },
+  "rates_per_million": {
+    "swe2": {
+      "input": 0.0,
+      "cached_input": 0.0,
+      "output": 0.0
+    }
+  },
+  "groups": [
+    {
+      "model": "swe2",
+      "effort": "medium",
+      "n": 23,
+      "runs_attempted": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.0,
+        "se": 0.0
+      },
+      "usd_total": 0.0,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 16802267.652173914,
+        "se": 4729670.587117841
+      },
+      "raw_tokens_total": 386452156,
+      "minutes": {
+        "n": 23,
+        "mean": 49.778971014492754,
+        "se": 9.590646328891255
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "swe2",
+      "effort": "high",
+      "n": 22,
+      "runs_attempted": 23,
+      "usd": {
+        "n": 22,
+        "mean": 0.0,
+        "se": 0.0
+      },
+      "usd_total": 0.0,
+      "raw_tokens": {
+        "n": 22,
+        "mean": 7526272.954545454,
+        "se": 944121.6128164232
+      },
+      "raw_tokens_total": 165578005,
+      "minutes": {
+        "n": 22,
+        "mean": 35.08740681818182,
+        "se": 4.571588221704351
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "swe2",
+      "effort": "max",
+      "n": 23,
+      "runs_attempted": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.0,
+        "se": 0.0
+      },
+      "usd_total": 0.0,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 9730538,
+        "se": 1185163.8018067444
+      },
+      "raw_tokens_total": 223802374,
+      "minutes": {
+        "n": 23,
+        "mean": 56.64182536231884,
+        "se": 6.4667329492261585
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "swe2": {
+      "runs_attempted": 69,
+      "runs": 68,
+      "usd": 0.0,
+      "raw_tokens": 775832535,
+      "output_tokens": 12007069,
+      "solver_hours": 53.660021111111114
+    }
+  },
+  "limitations": [
+    "SWE-2 is free on Devin's plans (catalog cost tier Free), so cost per task is $0; the sweep ran on a Devin subscription.",
+    "Tokens are the Devin CLI's per-request usage receipts, deduplicated by request id: uncached input, cache reads and output.",
+    "Devin's own credit and ACU counters are recorded from the receipts and were zero for every run of this sweep.",
+    "The 68 finished runs are all counted here, the three that changed no source file included. The one run that did not finish has no receipt and is listed separately; its 3.0 hours of wall clock are not in these totals.",
+    "Runtime is solver wall clock as the harness recorded it, judging excluded."
+  ],
+  "comparison_sha256": "9473e196c55443be8daab9cd1cbdd97597dc124bf6903df2924589d86209bb68",
+  "comparison_judged_sha256": "e93d351eb4a2257d015c3e329ed6ecacc9b95b2e436c2a3df279b90f621c6f31",
+  "note": "Per-run records are in runs.json (raw_tokens, token_usage, devin_credits, devin_acu). Judging is excluded."
+}

@@ -1,0 +1,4 @@
+model,effort,n,runs_finished,runs_attempted,combined_33,combined_33_se,combined_20_profile,code_quality,code_quality_se,reviewed_score,intent_recovery,intent_recovery_redistributed_runs,readability,maintainability,muse_reviewed,functional,automated_quality,security,passed,mean_minutes,mean_raw_tokens,mean_usd,total_usd
+Devin SWE-2,medium,23,23,23,82.4310,2.0016,85.4588,65.1387,1.8087,60.8696,76.5230,0,54.3478,67.3913,60.8696,91.8043,79.4678,97.3913,15,49.7790,16802267.7,0.00,0.00
+Devin SWE-2,high,20,22,23,81.4226,2.9811,84.0101,66.2644,2.4862,62.7083,76.4445,1,57.9167,67.5000,62.7083,89.8135,79.0865,93.2500,15,35.0874,7526273.0,0.00,0.00
+Devin SWE-2,max,22,23,23,86.1393,1.3101,88.1010,69.1682,2.9123,66.0985,77.3540,0,61.3636,70.8333,66.0985,97.9800,77.8336,90.6818,21,56.6418,9730538.0,0.00,0.00
