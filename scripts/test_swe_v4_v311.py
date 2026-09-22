@@ -24,7 +24,7 @@ EXCLUDED = [("high", "legacy-cellarcore-binary-parity"), ("high", "legacy-snapco
             ("high", "legacy-vaultcore-binary-parity"), ("max", "legacy-freightcore-binary-parity")]
 JUDGED = {"medium": 23, "high": 20, "max": 22}
 FINISHED = {"medium": 23, "high": 22, "max": 23}
-CARD_SHA256 = "8b938688b63878c60e43249fc8825ab4949d8829dd7a91f0b6bde0861c63f606"
+CARD_SHA256 = "d34551494195c25fcb9cabbb0981398c8d223894e153002a1511d08cf68db2a6"
 ECONOMICS_CARD_SHA256 = "7e45c6ca75ed114c597db783f6fa9f9283a9eb93001e6ce2268b09e8b6de1543"
 
 
