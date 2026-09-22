@@ -1,0 +1,1387 @@
+{
+ "suite": "VulcanBench Routine v1",
+ "suite_id": "routine-v1",
+ "tasks": 12,
+ "publication": "aggregate only; task content is private",
+ "scores": "deterministic factors and the no-judges total; Code quality joins from the judging record",
+ "cost": {
+  "basis": "API-equivalent at list prices, solver inference only; subscription bills differ",
+  "astra_rates_per_million": {
+   "input": 10,
+   "cache_read": 1,
+   "cache_write": 12.5,
+   "output": 50
+  },
+  "astra_rates_check": "matches harness/api_equivalent_costs.py",
+  "unpriced": "Devin SWE-2 has no public per-token price"
+ },
+ "code_quality": {
+  "status": "judged",
+  "protocol": "code-quality-maintenance-v3.8",
+  "passing_panels": [
+   "muse",
+   "grok"
+  ],
+  "failed_panels": [],
+  "published_submissions": 384,
+  "expected_submissions": 384,
+  "ready_for_publication": true,
+  "comparability": "Routine Code quality is the L1 reviewed score alone (no legacy quirks exist to recover); it is not comparable with Frontier v4 Code quality."
+ },
+ "duplicate_runs_dropped": 0,
+ "task_hash_drift": 0,
+ "cells": [
+  {
+   "model_key": "astra",
+   "model": "GPT-6 Astra",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "low",
+   "effort_sent": [
+    "low"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8621,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.8992,
+   "median_duration_s": 75.4,
+   "mean_duration_s": 73.8186,
+   "max_duration_s": 87.178,
+   "mean_prompt_tokens": 89258.75,
+   "mean_completion_tokens": 1568.75,
+   "mean_cached_input_tokens": 79104.0,
+   "mean_cost_usd": 0.2591,
+   "cost_basis": [
+    "astra-standard-rates"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 87.76,
+   "se_code_quality": 1.96,
+   "mean_combined": 94.79,
+   "se_combined": 0.66
+  },
+  {
+   "model_key": "astra",
+   "model": "GPT-6 Astra",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "medium",
+   "effort_sent": [
+    "medium"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8598,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.8989,
+   "median_duration_s": 74.1,
+   "mean_duration_s": 75.6865,
+   "max_duration_s": 91.503,
+   "mean_prompt_tokens": 83446.25,
+   "mean_completion_tokens": 1637.1667,
+   "mean_cached_input_tokens": 72405.3333,
+   "mean_cost_usd": 0.2647,
+   "cost_basis": [
+    "astra-standard-rates"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 85.85,
+   "se_code_quality": 1.99,
+   "mean_combined": 94.14,
+   "se_combined": 0.68
+  },
+  {
+   "model_key": "astra",
+   "model": "GPT-6 Astra",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "high",
+   "effort_sent": [
+    "high"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8684,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9003,
+   "median_duration_s": 81.6,
+   "mean_duration_s": 85.4995,
+   "max_duration_s": 111.104,
+   "mean_prompt_tokens": 92095.75,
+   "mean_completion_tokens": 1914.0833,
+   "mean_cached_input_tokens": 82218.6667,
+   "mean_cost_usd": 0.2767,
+   "cost_basis": [
+    "astra-standard-rates"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 88.28,
+   "se_code_quality": 1.3,
+   "mean_combined": 95.01,
+   "se_combined": 0.44
+  },
+  {
+   "model_key": "astra",
+   "model": "GPT-6 Astra",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "extra-high",
+   "effort_sent": [
+    "xhigh"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8713,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9008,
+   "median_duration_s": 121.7,
+   "mean_duration_s": 120.9838,
+   "max_duration_s": 147.439,
+   "mean_prompt_tokens": 112315.25,
+   "mean_completion_tokens": 3030.5833,
+   "mean_cached_input_tokens": 95509.3333,
+   "mean_cost_usd": 0.4151,
+   "cost_basis": [
+    "astra-standard-rates"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 88.72,
+   "se_code_quality": 1.79,
+   "mean_combined": 95.18,
+   "se_combined": 0.59
+  },
+  {
+   "model_key": "astra",
+   "model": "GPT-6 Astra",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "max",
+   "effort_sent": [
+    "max"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8728,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.901,
+   "median_duration_s": 182.4,
+   "mean_duration_s": 177.1002,
+   "max_duration_s": 244.714,
+   "mean_prompt_tokens": 143214.5,
+   "mean_completion_tokens": 4752.4167,
+   "mean_cached_input_tokens": 122880.0,
+   "mean_cost_usd": 0.5638,
+   "cost_basis": [
+    "astra-standard-rates"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 87.33,
+   "se_code_quality": 1.26,
+   "mean_combined": 94.74,
+   "se_combined": 0.42
+  },
+  {
+   "model_key": "terra",
+   "model": "GPT-5.6 Terra",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "low",
+   "effort_sent": [
+    "low"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8722,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9009,
+   "median_duration_s": 96.7,
+   "mean_duration_s": 101.8007,
+   "max_duration_s": 154.682,
+   "mean_prompt_tokens": 106737.25,
+   "mean_completion_tokens": 2089.75,
+   "mean_cached_input_tokens": 91221.3333,
+   "mean_cost_usd": 0.0744,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 82.47,
+   "se_code_quality": 2.53,
+   "mean_combined": 93.13,
+   "se_combined": 0.84
+  },
+  {
+   "model_key": "terra",
+   "model": "GPT-5.6 Terra",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "medium",
+   "effort_sent": [
+    "medium"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8701,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9006,
+   "median_duration_s": 111.3,
+   "mean_duration_s": 112.2322,
+   "max_duration_s": 164.341,
+   "mean_prompt_tokens": 107939.8333,
+   "mean_completion_tokens": 2338.9167,
+   "mean_cached_input_tokens": 93269.3333,
+   "mean_cost_usd": 0.0761,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 85.16,
+   "se_code_quality": 2.24,
+   "mean_combined": 94.0,
+   "se_combined": 0.74
+  },
+  {
+   "model_key": "terra",
+   "model": "GPT-5.6 Terra",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "high",
+   "effort_sent": [
+    "high"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8476,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.8968,
+   "median_duration_s": 116.6,
+   "mean_duration_s": 125.9543,
+   "max_duration_s": 210.943,
+   "mean_prompt_tokens": 114423.9167,
+   "mean_completion_tokens": 2685.25,
+   "mean_cached_input_tokens": 98986.6667,
+   "mean_cost_usd": 0.0829,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 86.72,
+   "se_code_quality": 2.18,
+   "mean_combined": 94.32,
+   "se_combined": 0.85
+  },
+  {
+   "model_key": "terra",
+   "model": "GPT-5.6 Terra",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "extra-high",
+   "effort_sent": [
+    "xhigh"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8695,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9005,
+   "median_duration_s": 151.7,
+   "mean_duration_s": 160.9283,
+   "max_duration_s": 249.458,
+   "mean_prompt_tokens": 121499.75,
+   "mean_completion_tokens": 3619.25,
+   "mean_cached_input_tokens": 103061.3333,
+   "mean_cost_usd": 0.1009,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 86.37,
+   "se_code_quality": 2.29,
+   "mean_combined": 94.39,
+   "se_combined": 0.77
+  },
+  {
+   "model_key": "terra",
+   "model": "GPT-5.6 Terra",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "max",
+   "effort_sent": [
+    "max"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8706,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9007,
+   "median_duration_s": 231.8,
+   "mean_duration_s": 235.5212,
+   "max_duration_s": 544.902,
+   "mean_prompt_tokens": 149139.6667,
+   "mean_completion_tokens": 5495.3333,
+   "mean_cached_input_tokens": 129728.0,
+   "mean_cost_usd": 0.1307,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 86.72,
+   "se_code_quality": 1.69,
+   "mean_combined": 94.52,
+   "se_combined": 0.56
+  },
+  {
+   "model_key": "luna",
+   "model": "GPT-5.6 Luna",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "low",
+   "effort_sent": [
+    "low"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8627,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.8993,
+   "median_duration_s": 55.0,
+   "mean_duration_s": 59.8975,
+   "max_duration_s": 108.827,
+   "mean_prompt_tokens": 91256.8333,
+   "mean_completion_tokens": 1595.5,
+   "mean_cached_input_tokens": 76096.0,
+   "mean_cost_usd": 0.0065,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 80.82,
+   "se_code_quality": 2.27,
+   "mean_combined": 92.5,
+   "se_combined": 0.86
+  },
+  {
+   "model_key": "luna",
+   "model": "GPT-5.6 Luna",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "medium",
+   "effort_sent": [
+    "medium"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8549,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.898,
+   "median_duration_s": 74.0,
+   "mean_duration_s": 90.1438,
+   "max_duration_s": 186.954,
+   "mean_prompt_tokens": 94697.75,
+   "mean_completion_tokens": 2486.25,
+   "mean_cached_input_tokens": 76842.6667,
+   "mean_cost_usd": 0.0081,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 79.6,
+   "se_code_quality": 2.73,
+   "mean_combined": 92.03,
+   "se_combined": 1.03
+  },
+  {
+   "model_key": "luna",
+   "model": "GPT-5.6 Luna",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "high",
+   "effort_sent": [
+    "high"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8571,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.8984,
+   "median_duration_s": 97.1,
+   "mean_duration_s": 110.2102,
+   "max_duration_s": 171.723,
+   "mean_prompt_tokens": 98104.8333,
+   "mean_completion_tokens": 3451.25,
+   "mean_cached_input_tokens": 79210.6667,
+   "mean_cost_usd": 0.0095,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 82.03,
+   "se_code_quality": 2.46,
+   "mean_combined": 92.86,
+   "se_combined": 0.94
+  },
+  {
+   "model_key": "luna",
+   "model": "GPT-5.6 Luna",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "extra-high",
+   "effort_sent": [
+    "xhigh"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8593,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.8988,
+   "median_duration_s": 152.7,
+   "mean_duration_s": 145.9624,
+   "max_duration_s": 251.176,
+   "mean_prompt_tokens": 100817.0,
+   "mean_completion_tokens": 4158.75,
+   "mean_cached_input_tokens": 81770.6667,
+   "mean_cost_usd": 0.0104,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 81.42,
+   "se_code_quality": 2.08,
+   "mean_combined": 92.67,
+   "se_combined": 0.81
+  },
+  {
+   "model_key": "luna",
+   "model": "GPT-5.6 Luna",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "max",
+   "effort_sent": [
+    "max"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8705,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9006,
+   "median_duration_s": 158.0,
+   "mean_duration_s": 174.6142,
+   "max_duration_s": 296.288,
+   "mean_prompt_tokens": 119998.9167,
+   "mean_completion_tokens": 5578.5,
+   "mean_cached_input_tokens": 97344.0,
+   "mean_cost_usd": 0.0132,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 82.38,
+   "se_code_quality": 2.43,
+   "mean_combined": 93.08,
+   "se_combined": 0.9
+  },
+  {
+   "model_key": "sol",
+   "model": "GPT-5.6 Sol",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "low",
+   "effort_sent": [
+    "low"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8686,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9003,
+   "median_duration_s": 116.2,
+   "mean_duration_s": 118.212,
+   "max_duration_s": 144.637,
+   "mean_prompt_tokens": 105116.0833,
+   "mean_completion_tokens": 2111.0,
+   "mean_cached_input_tokens": 92842.6667,
+   "mean_cost_usd": 0.1285,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 86.37,
+   "se_code_quality": 2.3,
+   "mean_combined": 94.39,
+   "se_combined": 0.79
+  },
+  {
+   "model_key": "sol",
+   "model": "GPT-5.6 Sol",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "medium",
+   "effort_sent": [
+    "medium"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8753,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9014,
+   "median_duration_s": 126.7,
+   "mean_duration_s": 137.1036,
+   "max_duration_s": 216.334,
+   "mean_prompt_tokens": 119303.4167,
+   "mean_completion_tokens": 2846.25,
+   "mean_cached_input_tokens": 106709.3333,
+   "mean_cost_usd": 0.15,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 85.59,
+   "se_code_quality": 2.03,
+   "mean_combined": 94.18,
+   "se_combined": 0.67
+  },
+  {
+   "model_key": "sol",
+   "model": "GPT-5.6 Sol",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "high",
+   "effort_sent": [
+    "high"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8744,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9013,
+   "median_duration_s": 149.3,
+   "mean_duration_s": 160.8499,
+   "max_duration_s": 286.79,
+   "mean_prompt_tokens": 138397.75,
+   "mean_completion_tokens": 3390.5833,
+   "mean_cached_input_tokens": 122666.6667,
+   "mean_cost_usd": 0.1798,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 86.72,
+   "se_code_quality": 1.75,
+   "mean_combined": 94.55,
+   "se_combined": 0.6
+  },
+  {
+   "model_key": "sol",
+   "model": "GPT-5.6 Sol",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "extra-high",
+   "effort_sent": [
+    "xhigh"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8587,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.8987,
+   "median_duration_s": 181.7,
+   "mean_duration_s": 215.9892,
+   "max_duration_s": 535.522,
+   "mean_prompt_tokens": 139089.25,
+   "mean_completion_tokens": 4008.9167,
+   "mean_cached_input_tokens": 126080.0,
+   "mean_cost_usd": 0.1826,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 85.85,
+   "se_code_quality": 2.08,
+   "mean_combined": 94.13,
+   "se_combined": 0.77
+  },
+  {
+   "model_key": "sol",
+   "model": "GPT-5.6 Sol",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "max",
+   "effort_sent": [
+    "max"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8658,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.8999,
+   "median_duration_s": 247.8,
+   "mean_duration_s": 225.7957,
+   "max_duration_s": 336.253,
+   "mean_prompt_tokens": 138916.1667,
+   "mean_completion_tokens": 5354.1667,
+   "mean_cached_input_tokens": 125578.6667,
+   "mean_cost_usd": 0.2107,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 86.81,
+   "se_code_quality": 1.84,
+   "mean_combined": 94.51,
+   "se_combined": 0.66
+  },
+  {
+   "model_key": "gpt55",
+   "model": "GPT-5.5",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "low",
+   "effort_sent": [
+    "low"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8705,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9007,
+   "median_duration_s": 78.5,
+   "mean_duration_s": 75.7371,
+   "max_duration_s": 88.306,
+   "mean_prompt_tokens": 123073.5833,
+   "mean_completion_tokens": 2633.75,
+   "mean_cached_input_tokens": 108650.6667,
+   "mean_cost_usd": 0.2055,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 87.76,
+   "se_code_quality": 2.15,
+   "mean_combined": 94.86,
+   "se_combined": 0.75
+  },
+  {
+   "model_key": "gpt55",
+   "model": "GPT-5.5",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "medium",
+   "effort_sent": [
+    "medium"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8676,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9002,
+   "median_duration_s": 85.2,
+   "mean_duration_s": 83.6067,
+   "max_duration_s": 117.724,
+   "mean_prompt_tokens": 127849.3333,
+   "mean_completion_tokens": 2966.8333,
+   "mean_cached_input_tokens": 113322.6667,
+   "mean_cost_usd": 0.2183,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 87.85,
+   "se_code_quality": 1.86,
+   "mean_combined": 94.86,
+   "se_combined": 0.62
+  },
+  {
+   "model_key": "gpt55",
+   "model": "GPT-5.5",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "high",
+   "effort_sent": [
+    "high"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8664,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9,
+   "median_duration_s": 87.8,
+   "mean_duration_s": 89.8608,
+   "max_duration_s": 132.779,
+   "mean_prompt_tokens": 125813.0,
+   "mean_completion_tokens": 3427.4167,
+   "mean_cached_input_tokens": 111381.3333,
+   "mean_cost_usd": 0.2307,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 88.54,
+   "se_code_quality": 1.9,
+   "mean_combined": 95.08,
+   "se_combined": 0.64
+  },
+  {
+   "model_key": "gpt55",
+   "model": "GPT-5.5",
+   "lab": "OpenAI",
+   "harness": "Codex CLI",
+   "effort": "extra-high",
+   "effort_sent": [
+    "xhigh"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8712,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9007,
+   "median_duration_s": 103.7,
+   "mean_duration_s": 110.167,
+   "max_duration_s": 165.389,
+   "mean_prompt_tokens": 136599.5,
+   "mean_completion_tokens": 4511.5833,
+   "mean_cached_input_tokens": 121461.3333,
+   "mean_cost_usd": 0.2718,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "codex-cli 0.153.4"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 88.89,
+   "se_code_quality": 1.83,
+   "mean_combined": 95.24,
+   "se_combined": 0.63
+  },
+  {
+   "model_key": "fable",
+   "model": "Claude Fable 5.1",
+   "lab": "Anthropic",
+   "harness": "Claude Code",
+   "effort": "low",
+   "effort_sent": [
+    "low"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8848,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9551,
+   "median_duration_s": 38.0,
+   "mean_duration_s": 39.5002,
+   "max_duration_s": 56.199,
+   "mean_prompt_tokens": 14337.0833,
+   "mean_completion_tokens": 1451.25,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": 0.2159,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2.1.261 (Claude Code)"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 85.5,
+   "se_code_quality": 2.22,
+   "mean_combined": 94.24,
+   "se_combined": 0.75
+  },
+  {
+   "model_key": "fable",
+   "model": "Claude Fable 5.1",
+   "lab": "Anthropic",
+   "harness": "Claude Code",
+   "effort": "medium",
+   "effort_sent": [
+    "medium"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.888,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9518,
+   "median_duration_s": 46.0,
+   "mean_duration_s": 44.9756,
+   "max_duration_s": 52.468,
+   "mean_prompt_tokens": 16060.6667,
+   "mean_completion_tokens": 2038.75,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": 0.2625,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2.1.261 (Claude Code)"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 86.98,
+   "se_code_quality": 1.49,
+   "mean_combined": 94.75,
+   "se_combined": 0.51
+  },
+  {
+   "model_key": "fable",
+   "model": "Claude Fable 5.1",
+   "lab": "Anthropic",
+   "harness": "Claude Code",
+   "effort": "high",
+   "effort_sent": [
+    "high"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8844,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9461,
+   "median_duration_s": 46.1,
+   "mean_duration_s": 52.9763,
+   "max_duration_s": 76.704,
+   "mean_prompt_tokens": 18531.4167,
+   "mean_completion_tokens": 2756.3333,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": 0.3231,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2.1.261 (Claude Code)"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 90.02,
+   "se_code_quality": 1.65,
+   "mean_combined": 95.72,
+   "se_combined": 0.56
+  },
+  {
+   "model_key": "fable",
+   "model": "Claude Fable 5.1",
+   "lab": "Anthropic",
+   "harness": "Claude Code",
+   "effort": "extra-high",
+   "effort_sent": [
+    "xhigh"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8816,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9228,
+   "median_duration_s": 105.7,
+   "mean_duration_s": 106.8902,
+   "max_duration_s": 175.592,
+   "mean_prompt_tokens": 30114.0833,
+   "mean_completion_tokens": 6625.8333,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": 0.6324,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2.1.261 (Claude Code)"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 92.19,
+   "se_code_quality": 1.64,
+   "mean_combined": 96.42,
+   "se_combined": 0.54
+  },
+  {
+   "model_key": "fable",
+   "model": "Claude Fable 5.1",
+   "lab": "Anthropic",
+   "harness": "Claude Code",
+   "effort": "max",
+   "effort_sent": [
+    "max"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8747,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.8981,
+   "median_duration_s": 222.5,
+   "mean_duration_s": 241.9409,
+   "max_duration_s": 350.605,
+   "mean_prompt_tokens": 54099.6667,
+   "mean_completion_tokens": 18445.0,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": 1.4632,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2.1.261 (Claude Code)"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 93.84,
+   "se_code_quality": 1.01,
+   "mean_combined": 96.9,
+   "se_combined": 0.32
+  },
+  {
+   "model_key": "swe2",
+   "model": "SWE-2",
+   "lab": "Cognition",
+   "harness": "Devin CLI",
+   "effort": "medium",
+   "effort_sent": [
+    "medium"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8904,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.902,
+   "median_duration_s": 49.3,
+   "mean_duration_s": 56.5744,
+   "max_duration_s": 83.188,
+   "mean_prompt_tokens": 79429.6667,
+   "mean_completion_tokens": 1535.5833,
+   "mean_cached_input_tokens": 66154.5833,
+   "mean_cost_usd": null,
+   "cost_basis": [
+    "unavailable-no-public-price"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "devin 3000.10.31 (b98cc431)"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 82.73,
+   "se_code_quality": 2.28,
+   "mean_combined": 93.37,
+   "se_combined": 0.72
+  },
+  {
+   "model_key": "swe2",
+   "model": "SWE-2",
+   "lab": "Cognition",
+   "harness": "Devin CLI",
+   "effort": "high",
+   "effort_sent": [
+    "high"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8911,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9019,
+   "median_duration_s": 75.8,
+   "mean_duration_s": 79.5981,
+   "max_duration_s": 134.162,
+   "mean_prompt_tokens": 96564.0833,
+   "mean_completion_tokens": 3354.0,
+   "mean_cached_input_tokens": 79245.5833,
+   "mean_cost_usd": null,
+   "cost_basis": [
+    "unavailable-no-public-price"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "devin 3000.10.31 (b98cc431)"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 83.94,
+   "se_code_quality": 1.79,
+   "mean_combined": 93.78,
+   "se_combined": 0.6
+  },
+  {
+   "model_key": "swe2",
+   "model": "SWE-2",
+   "lab": "Cognition",
+   "harness": "Devin CLI",
+   "effort": "max",
+   "effort_sent": [
+    "max"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8997,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9032,
+   "median_duration_s": 90.5,
+   "mean_duration_s": 104.4891,
+   "max_duration_s": 201.339,
+   "mean_prompt_tokens": 115665.8333,
+   "mean_completion_tokens": 5110.4167,
+   "mean_cached_input_tokens": 95455.8333,
+   "mean_cost_usd": null,
+   "cost_basis": [
+    "unavailable-no-public-price"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "devin 3000.10.31 (b98cc431)"
+   ],
+   "judged_submissions": 12,
+   "mean_code_quality": 85.68,
+   "se_code_quality": 1.89,
+   "mean_combined": 94.42,
+   "se_combined": 0.61
+  }
+ ],
+ "cheapest_adequate_effort": [
+  {
+   "model_key": "astra",
+   "model": "GPT-6 Astra",
+   "effort": "low",
+   "metric": "mean_combined",
+   "value": 94.79,
+   "best": 95.18,
+   "tolerance_points": 3.0,
+   "basis": "combined score (50/8.5/8.5/33) under Code quality v3.8"
+  },
+  {
+   "model_key": "terra",
+   "model": "GPT-5.6 Terra",
+   "effort": "low",
+   "metric": "mean_combined",
+   "value": 93.13,
+   "best": 94.52,
+   "tolerance_points": 3.0,
+   "basis": "combined score (50/8.5/8.5/33) under Code quality v3.8"
+  },
+  {
+   "model_key": "luna",
+   "model": "GPT-5.6 Luna",
+   "effort": "low",
+   "metric": "mean_combined",
+   "value": 92.5,
+   "best": 93.08,
+   "tolerance_points": 3.0,
+   "basis": "combined score (50/8.5/8.5/33) under Code quality v3.8"
+  },
+  {
+   "model_key": "sol",
+   "model": "GPT-5.6 Sol",
+   "effort": "low",
+   "metric": "mean_combined",
+   "value": 94.39,
+   "best": 94.55,
+   "tolerance_points": 3.0,
+   "basis": "combined score (50/8.5/8.5/33) under Code quality v3.8"
+  },
+  {
+   "model_key": "gpt55",
+   "model": "GPT-5.5",
+   "effort": "low",
+   "metric": "mean_combined",
+   "value": 94.86,
+   "best": 95.24,
+   "tolerance_points": 3.0,
+   "basis": "combined score (50/8.5/8.5/33) under Code quality v3.8"
+  },
+  {
+   "model_key": "fable",
+   "model": "Claude Fable 5.1",
+   "effort": "low",
+   "metric": "mean_combined",
+   "value": 94.24,
+   "best": 96.9,
+   "tolerance_points": 3.0,
+   "basis": "combined score (50/8.5/8.5/33) under Code quality v3.8"
+  },
+  {
+   "model_key": "swe2",
+   "model": "SWE-2",
+   "effort": "medium",
+   "metric": "mean_combined",
+   "value": 93.37,
+   "best": 94.42,
+   "tolerance_points": 3.0,
+   "basis": "combined score (50/8.5/8.5/33) under Code quality v3.8"
+  }
+ ]
+}

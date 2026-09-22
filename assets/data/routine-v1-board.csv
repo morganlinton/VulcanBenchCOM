@@ -1,0 +1,33 @@
+model,lab,harness,effort,suggested_for_routine,n,passed,combined_33,combined_33_se,code_quality_l1,mean_seconds,mean_usd,mean_completion_tokens,protocol
+Fable 5.1,Anthropic,Claude Code,low,True,12,12,94.2400,0.7500,85.5000,39.5,0.215900,1451.2,code-quality-maintenance-v3.8
+Fable 5.1,Anthropic,Claude Code,medium,False,12,12,94.7500,0.5100,86.9800,45.0,0.262500,2038.8,code-quality-maintenance-v3.8
+Fable 5.1,Anthropic,Claude Code,high,False,12,12,95.7200,0.5600,90.0200,53.0,0.323100,2756.3,code-quality-maintenance-v3.8
+Fable 5.1,Anthropic,Claude Code,extra-high,False,12,12,96.4200,0.5400,92.1900,106.9,0.632400,6625.8,code-quality-maintenance-v3.8
+Fable 5.1,Anthropic,Claude Code,max,False,12,12,96.9000,0.3200,93.8400,241.9,1.463200,18445.0,code-quality-maintenance-v3.8
+GPT-6 Astra,OpenAI,Codex,low,True,12,12,94.7900,0.6600,87.7600,73.8,0.259100,1568.8,code-quality-maintenance-v3.8
+GPT-6 Astra,OpenAI,Codex,medium,False,12,12,94.1400,0.6800,85.8500,75.7,0.264700,1637.2,code-quality-maintenance-v3.8
+GPT-6 Astra,OpenAI,Codex,high,False,12,12,95.0100,0.4400,88.2800,85.5,0.276700,1914.1,code-quality-maintenance-v3.8
+GPT-6 Astra,OpenAI,Codex,extra-high,False,12,12,95.1800,0.5900,88.7200,121.0,0.415100,3030.6,code-quality-maintenance-v3.8
+GPT-6 Astra,OpenAI,Codex,max,False,12,12,94.7400,0.4200,87.3300,177.1,0.563800,4752.4,code-quality-maintenance-v3.8
+GPT-5.6 Terra,OpenAI,Codex,low,True,12,12,93.1300,0.8400,82.4700,101.8,0.074400,2089.8,code-quality-maintenance-v3.8
+GPT-5.6 Terra,OpenAI,Codex,medium,False,12,12,94.0000,0.7400,85.1600,112.2,0.076100,2338.9,code-quality-maintenance-v3.8
+GPT-5.6 Terra,OpenAI,Codex,high,False,12,12,94.3200,0.8500,86.7200,126.0,0.082900,2685.2,code-quality-maintenance-v3.8
+GPT-5.6 Terra,OpenAI,Codex,extra-high,False,12,12,94.3900,0.7700,86.3700,160.9,0.100900,3619.2,code-quality-maintenance-v3.8
+GPT-5.6 Terra,OpenAI,Codex,max,False,12,12,94.5200,0.5600,86.7200,235.5,0.130700,5495.3,code-quality-maintenance-v3.8
+GPT-5.6 Sol,OpenAI,Codex,low,True,12,12,94.3900,0.7900,86.3700,118.2,0.128500,2111.0,code-quality-maintenance-v3.8
+GPT-5.6 Sol,OpenAI,Codex,medium,False,12,12,94.1800,0.6700,85.5900,137.1,0.150000,2846.2,code-quality-maintenance-v3.8
+GPT-5.6 Sol,OpenAI,Codex,high,False,12,12,94.5500,0.6000,86.7200,160.8,0.179800,3390.6,code-quality-maintenance-v3.8
+GPT-5.6 Sol,OpenAI,Codex,extra-high,False,12,12,94.1300,0.7700,85.8500,216.0,0.182600,4008.9,code-quality-maintenance-v3.8
+GPT-5.6 Sol,OpenAI,Codex,max,False,12,12,94.5100,0.6600,86.8100,225.8,0.210700,5354.2,code-quality-maintenance-v3.8
+GPT-5.6 Luna,OpenAI,Codex,low,True,12,12,92.5000,0.8600,80.8200,59.9,0.006500,1595.5,code-quality-maintenance-v3.8
+GPT-5.6 Luna,OpenAI,Codex,medium,False,12,12,92.0300,1.0300,79.6000,90.1,0.008100,2486.2,code-quality-maintenance-v3.8
+GPT-5.6 Luna,OpenAI,Codex,high,False,12,12,92.8600,0.9400,82.0300,110.2,0.009500,3451.2,code-quality-maintenance-v3.8
+GPT-5.6 Luna,OpenAI,Codex,extra-high,False,12,12,92.6700,0.8100,81.4200,146.0,0.010400,4158.8,code-quality-maintenance-v3.8
+GPT-5.6 Luna,OpenAI,Codex,max,False,12,12,93.0800,0.9000,82.3800,174.6,0.013200,5578.5,code-quality-maintenance-v3.8
+GPT-5.5,OpenAI,Codex,low,True,12,12,94.8600,0.7500,87.7600,75.7,0.205500,2633.8,code-quality-maintenance-v3.8
+GPT-5.5,OpenAI,Codex,medium,False,12,12,94.8600,0.6200,87.8500,83.6,0.218300,2966.8,code-quality-maintenance-v3.8
+GPT-5.5,OpenAI,Codex,high,False,12,12,95.0800,0.6400,88.5400,89.9,0.230700,3427.4,code-quality-maintenance-v3.8
+GPT-5.5,OpenAI,Codex,extra-high,False,12,12,95.2400,0.6300,88.8900,110.2,0.271800,4511.6,code-quality-maintenance-v3.8
+SWE-2,Cognition,Devin CLI,medium,True,12,12,93.3700,0.7200,82.7300,56.6,,1535.6,code-quality-maintenance-v3.8
+SWE-2,Cognition,Devin CLI,high,False,12,12,93.7800,0.6000,83.9400,79.6,,3354.0,code-quality-maintenance-v3.8
+SWE-2,Cognition,Devin CLI,max,False,12,12,94.4200,0.6100,85.6800,104.5,,5110.4,code-quality-maintenance-v3.8
