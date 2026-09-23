@@ -21,14 +21,14 @@
 <meta property="og:title" content="Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench">
 <meta property="og:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. Its probabilities never cross 0.5, but the ranking underneath scores 0.69 AUROC, and it agrees with a code-quality panel on 89.7% of style pairs.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/verdict-v1-jev.html">
-<meta property="og:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=2">
 <meta property="og:image:width" content="2560">
 <meta property="og:image:height" content="1440">
 <meta property="og:image:alt" content="VulcanBench Verdict v1: Jev accuracy against the majority-answer floor on four question families, the distribution of the probabilities it produced, and its AUROC per family">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench">
 <meta name="twitter:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. Its probabilities never cross 0.5, but the ranking underneath scores 0.69 AUROC, and it agrees with a code-quality panel on 89.7% of style pairs.">
-<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=2">
 <meta name="twitter:image:alt" content="VulcanBench Verdict v1: Jev accuracy against the majority-answer floor on four question families, the distribution of the probabilities it produced, and its AUROC per family">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,7 +69,7 @@
         <p><strong>Correction, September 23, 2026.</strong> The first version of this report scored yes or no questions at a 0.5 cutoff. Jev's probability that a patch passes never exceeds 0.42, so that cutoff sat outside its output range and no item could be answered "passes". Those figures were an artifact of the decision rule, not of the model. This version reports the ranking, which needs no cutoff, alongside accuracy at a cutoff fitted on the development split. Two claims did not survive and are withdrawn; see <a href="#correction">what changed</a>.</p>
       </header>
       <div class="report-resources" aria-label="Report and evidence downloads">
-        <a class="resource" href="/assets/cards/verdict-v1-jev.png" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, accuracy, probabilities and ranking</span></a>
+        <a class="resource" href="/assets/cards/verdict-v1-jev.png?v=2" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, accuracy, probabilities and ranking</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by family</span><span class="resource-meta">CSV, Jev and the majority floor</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/results.json"><span class="resource-kind">Data</span><span class="resource-title">Every published number</span><span class="resource-meta">JSON, metrics, confusion counts and the probe</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/report.md"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">Markdown, findings, method and limits</span></a>
@@ -99,10 +99,10 @@
         <p>A fifth family, picking which file the fix belongs in, is kept only as a wiring probe. Jev answered 19 of 19 correctly, and then we checked the items: every issue names the answer file's stem in its own text, so the question is string matching. It supports no claim about ability. Items are split by task, so no task appears in both the development and test splits, and the test split is what is published here.</p>
       </section>
       <figure class="suite-card">
-        <a href="/assets/cards/verdict-v1-jev.png" aria-label="Open the Jev results card at full resolution">
-          <img src="/assets/cards/verdict-v1-jev.png" width="2560" height="1440" fetchpriority="high" alt="VulcanBench Verdict v1 results for Jev. At a cutoff fitted on held-out items, Jev matches the majority-answer floor on whether a patch passes, 63 against 63, and on whether it breaks a test, 93 against 94; it scores 50 against 63 on the four-way outcome and 90 against 58 on which patch is more maintainable. A second panel shows every stated probability falling between 0.09 and 0.42, well short of the 0.5 mark where a yes would begin. A third panel shows AUROC of 0.69, 0.65, 0.65 and 0.96 across the four questions, all above the 0.5 coin-flip line. Exact values are in the tables on this page.">
+        <a href="/assets/cards/verdict-v1-jev.png?v=2" aria-label="Open the Jev results card at full resolution">
+          <img src="/assets/cards/verdict-v1-jev.png?v=2" width="2560" height="1440" fetchpriority="high" alt="VulcanBench Verdict v1 results for Jev. At a cutoff fitted on held-out items, Jev matches the majority-answer floor on whether a patch passes, 63 against 63, and on whether it breaks a test, 93 against 94; it scores 50 against 63 on the four-way outcome and 90 against 58 on which patch is more maintainable. A second panel shows every stated probability falling between 0.09 and 0.42, well short of the 0.5 mark where a yes would begin. A third panel shows AUROC of 0.69, 0.65, 0.65 and 0.96 across the four questions, all above the 0.5 coin-flip line. Exact values are in the tables on this page.">
         </a>
-        <figcaption>Accuracy bars use a cutoff fitted on the development split, because Jev's own probabilities never cross 0.5. The style family, marked with an asterisk, scores agreement with a code-quality judge panel, not ground truth. <a href="/assets/cards/verdict-v1-jev.png">Open full-size card</a>.</figcaption>
+        <figcaption>Accuracy bars use a cutoff fitted on the development split, because Jev's own probabilities never cross 0.5. The style family, marked with an asterisk, scores agreement with a code-quality judge panel, not ground truth. <a href="/assets/cards/verdict-v1-jev.png?v=2">Open full-size card</a>.</figcaption>
       </figure>
 
       <section class="report-section" id="results" aria-labelledby="results-heading">
