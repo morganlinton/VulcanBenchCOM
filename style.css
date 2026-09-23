@@ -904,3 +904,37 @@ section[id] { scroll-margin-top: 90px; }
 .v4step-val { font-family: var(--mono); font-size: 11.5px; text-align: right; white-space: nowrap; }
 .v4sub { margin: 26px 0 0; font-size: 20px; }
 @media (max-width: 760px) { .v4step { grid-template-columns: 1fr; gap: 3px; } .v4step-val { text-align: left; } }
+
+/* ---- for-teams page: fit lists, questions, intake form ---- */
+.fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 26px; }
+.fit { border: 1px solid var(--hairline); border-top: 3px solid var(--ink); padding: 22px 24px 24px; }
+.fit h3 { font-size: 19px; margin-top: 0; }
+.fit ul { margin: 10px 0 0 18px; }
+.fit li { font-size: 16px; color: var(--soft); line-height: 1.55; margin-top: 8px; }
+.fit a { text-decoration: underline; text-underline-offset: 3px; }
+.faq h3 { font-size: 19px; margin-top: 26px; }
+.faq h3:first-child { margin-top: 6px; }
+.faq p { margin-top: 6px; }
+.intake {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px 22px;
+  max-width: 860px; margin: 26px auto 0;
+  border: 1px solid var(--hairline); background: var(--paper-2); padding: 26px 28px;
+}
+.intake label {
+  display: flex; flex-direction: column; gap: 7px;
+  font-family: var(--display); font-size: 11.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1.6px; color: var(--soft);
+}
+.intake .wide { grid-column: 1 / -1; }
+.intake input, .intake select, .intake textarea {
+  font-family: var(--serif); font-size: 16px; text-transform: none; letter-spacing: 0; font-weight: 400;
+  color: var(--ink); background: var(--paper); border: 1px solid var(--hairline);
+  padding: 10px 12px; border-radius: 0; width: 100%;
+}
+.intake input::placeholder, .intake textarea::placeholder { color: var(--faint); font-style: italic; }
+.intake input:focus, .intake select:focus, .intake textarea:focus { outline: 2px solid var(--ember); outline-offset: -1px; border-color: var(--ember); }
+.intake .dl-row { margin-top: 4px; }
+@media (max-width: 720px) {
+  .fit-grid, .intake { grid-template-columns: 1fr; }
+  .intake { padding: 20px 18px; }
+}
