@@ -12,7 +12,7 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Model routing and evals on your codebase | VulcanBench</title>
+<title>Which model does your team need? Routing and evals on your codebase | VulcanBench</title>
 <meta name="description" content="A private eval suite built from your repositories and real pull requests, run across models and effort levels, returned as a routing policy you can deploy.">
 <link rel="canonical" href="https://vulcanbench.com/benchmark-your-stack.html">
 <meta property="og:type" content="website">
@@ -36,7 +36,7 @@
 <link rel="icon" href="assets/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/logo.png">
 <link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
-<link rel="stylesheet" href="style.css?v=30">
+<link rel="stylesheet" href="style.css?v=31">
 </head>
 <body>
 
@@ -51,7 +51,7 @@
       <a href="benchmarks.html">Benchmarks</a>
       <a href="leaderboard.html">Leaderboard</a>
       <a href="methodology.html">Methodology</a>
-      <a href="benchmark-your-stack.html" class="active">Custom evals</a>
+      <a href="benchmark-your-stack.html" class="active">For teams</a>
       <a href="blog.html">Blog</a>
     </nav>
   </div>
@@ -61,8 +61,12 @@
 <div class="wrap">
   <div class="article-head" style="padding-bottom:6px;">
     <div class="rno">For engineering teams</div>
-    <h1>Model routing and eval suites built on your codebase.</h1>
+    <h1>Which model, at which effort, does your team actually need?</h1>
     <p class="byline">We build a private eval suite from your repositories and the pull requests your engineers actually ship, run it across models and effort levels, and turn the results into a routing policy your team can deploy.</p>
+    <div class="dl-row" style="justify-content:center;">
+      <a class="btn primary" href="#start">Tell me about your stack</a>
+      <a class="btn" href="#policy-sample">See a sample policy</a>
+    </div>
   </div>
 
   <div class="prose" style="max-width:820px; margin-top:30px;">
@@ -73,6 +77,30 @@
     patterns hold on a Go monorepo with a custom ORM, or a Rails app with fifteen years of history, is a separate
     question, and the only way to answer it is to measure on that codebase. This work started on my own team&rsquo;s codebase, for exactly this reason: <a href="blog/01-why-i-started-vulcanbench.html">how a $300,000 model bill turned into a benchmark</a>.</p>
   </div>
+
+  <section>
+    <div class="section-label">Who it&rsquo;s for</div>
+    <h2>Worth it for some teams, not for every team.</h2>
+    <div class="fit-grid">
+      <div class="fit">
+        <h3>A good fit</h3>
+        <ul>
+          <li>Your model spend is large enough that moving part of it to a cheaper route would matter to your budget.</li>
+          <li>Your engineers default to one model and one effort level for everything, and nobody has measured whether that default is right for each kind of work.</li>
+          <li>You have a history of merged pull requests with tests in them, which is what the suite is built from.</li>
+          <li>You want the answer as something you can deploy and rerun, not a one-off opinion.</li>
+        </ul>
+      </div>
+      <div class="fit">
+        <h3>Probably not yet</h3>
+        <ul>
+          <li>Your model spend is small. The <a href="leaderboard.html">public leaderboard</a> and <a href="benchmarks.html">reports</a> will likely answer your question for free, and an engagement would cost more than it could save.</li>
+          <li>Your code has very little test coverage. A suite can still be built from matched equivalents, but the result says less about your own work.</li>
+          <li>You need the answer by next week. Building the suite properly takes time, and a rushed suite gives a confident answer to the wrong question.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <section>
     <div class="section-label">The suite</div>
@@ -201,29 +229,120 @@
     </div>
   </section>
 
-  <section style="padding-top:8px;">
-    <div class="section-label">What it costs</div>
-    <h2>Scoped to the suite.</h2>
+  <section style="padding-top:8px;" id="engagements">
+    <div class="section-label">Engagements and cost</div>
+    <h2>Build it once, rerun it when the models change.</h2>
+    <div class="cols3">
+      <div class="feature">
+        <div class="n">01</div>
+        <h3>The assessment</h3>
+        <p>Scoping, the suite build, the full matrix, the routing policy, and a walkthrough with your team. A focused
+        engagement (one codebase, a handful of task classes, a four-model matrix) starts in the mid four figures.
+        Larger matrices and more task classes cost more; another team on a different stack adds a suite build, not a
+        second engagement.</p>
+      </div>
+      <div class="feature">
+        <div class="n">02</div>
+        <h3>Reruns when models ship</h3>
+        <p>Optional, after the assessment. When a new frontier model ships or a vendor changes pricing, your suite is
+        rerun against it and you get an updated policy with a short note on what changed and whether it&rsquo;s worth
+        switching. Priced per rerun or as a quarterly plan, at a fraction of the initial build, because the suite
+        already exists.</p>
+      </div>
+      <div class="feature">
+        <div class="n">03</div>
+        <h3>Or rerun it yourself</h3>
+        <p>The suite, the hidden tests, and the harness are yours after the assessment. If your team would rather
+        rerun the matrix in house, nothing stops you, and you don&rsquo;t owe anything for it. The rerun plan is there
+        for teams that would rather not spend engineering time on it.</p>
+      </div>
+    </div>
     <div class="prose">
-      <p>A focused engagement, one codebase, a handful of task classes, and a four-model matrix, starts in the mid four
-      figures. Larger matrices and more task classes cost more; additional teams on different stacks add a suite build,
-      not a second engagement. Compute is metered and itemized the same way it is in the public reports, and reruns on
-      an existing suite are a fraction of the initial build.</p>
+      <p>Compute is metered and itemized the same way it is in the public reports, so you can see what the matrix
+      itself cost separately from the engineering time.</p>
     </div>
   </section>
 
   <section style="padding-top:8px;">
+    <div class="section-label">Where things stand</div>
+    <div class="abstract-box" style="margin-top:26px;">
+      <span class="lbl">A new offering, held to the public standard</span>
+      <p>Private engagements are new, so there are no case studies on this page yet. Until there are, the public
+      reports are the track record: each one publishes its method, its costs, and its raw data, and a private
+      engagement is held to exactly the same standard. If you want to judge the work before talking, start with
+      the <a href="methodology.html">methodology</a> and any report on the <a href="benchmarks.html">benchmarks</a>
+      page.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="section-label">Common questions</div>
+    <div class="prose faq">
+      <h3>Does our code have to leave our environment?</h3>
+      <p>The suite is built against a copy of your repositories under whatever access arrangement your security team
+      needs. Tasks built from your code are never published, never reused in another engagement, and never appear on
+      the leaderboard.</p>
+      <h3>Whose API keys does the matrix run on?</h3>
+      <p>Usually yours, so the spend lands on your own bills and under the vendor agreements you already have. If that
+      doesn&rsquo;t work for you, the compute can be run separately and billed as itemized cost instead.</p>
+      <h3>Our engineers work in Cursor, Claude Code, or an internal agent. Does that matter?</h3>
+      <p>Yes, because the harness changes the results. The matrix can run through the tool your engineers actually use
+      rather than a reference loop, so the policy reflects how the work really gets done.</p>
+      <h3>How long does it take?</h3>
+      <p>It depends mostly on the size of the suite and the matrix. The reply to your first message includes a proposed
+      schedule along with the suite shape and the price.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;" id="start">
     <div class="section-label">Get started</div>
     <h2>Tell me about your stack.</h2>
     <div class="prose">
-      <p>A few sentences is enough: the languages and frameworks, which model and effort your engineers default to and
-      through what tools, and roughly how much you&rsquo;re spending. We&rsquo;ll come back with a proposed suite shape,
-      a matrix, and a price. If you&rsquo;re building a model rather than choosing between them, see
-      <a href="benchmark-your-model.html">benchmark your model</a>.</p>
+      <p>A few answers is enough to come back with a proposed suite shape, a matrix, and a price. Every field is
+      optional. Nothing is sent from this page: the button opens an email in your own mail client with your answers
+      filled in, and you can edit it before sending.</p>
     </div>
-    <div class="dl-row">
-      <a class="btn primary" href="mailto:hello@vulcanbench.com?subject=Model%20routing%20for%20our%20stack">Start a conversation</a>
-      <a class="btn" href="https://github.com/morganlinton/VulcanBench/discussions">Open a discussion on GitHub</a>
+    <form class="intake" id="intake" action="mailto:hello@vulcanbench.com" method="post" enctype="text/plain">
+      <label>Company or team
+        <input type="text" name="team" autocomplete="organization">
+      </label>
+      <label>Languages and frameworks
+        <input type="text" name="stack" placeholder="Go monorepo, a Rails app, TypeScript frontends">
+      </label>
+      <label>How your engineers use models today
+        <input type="text" name="tools" placeholder="Claude Code at high effort, Cursor with its default model">
+      </label>
+      <label>Engineers using AI coding tools
+        <select name="engineers">
+          <option value="">Choose one</option>
+          <option>Fewer than 10</option>
+          <option>10 to 50</option>
+          <option>50 to 200</option>
+          <option>More than 200</option>
+        </select>
+      </label>
+      <label>Approximate monthly model spend
+        <select name="spend">
+          <option value="">Choose one</option>
+          <option>Under $5k</option>
+          <option>$5k to $25k</option>
+          <option>$25k to $100k</option>
+          <option>Over $100k</option>
+          <option>Not sure</option>
+        </select>
+      </label>
+      <label class="wide">What do you want to find out?
+        <textarea name="question" rows="4" placeholder="Whether we can move routine fixes off the frontier model without losing quality"></textarea>
+      </label>
+      <div class="dl-row wide">
+        <button class="btn primary" type="submit">Write the email</button>
+        <a class="btn" href="https://github.com/morganlinton/VulcanBench/discussions">Open a discussion on GitHub</a>
+      </div>
+    </form>
+    <div class="prose">
+      <p>Or email <a href="mailto:hello@vulcanbench.com?subject=Model%20routing%20for%20our%20stack">hello@vulcanbench.com</a>
+      directly. If you&rsquo;re building a model rather than choosing between them, see
+      <a href="benchmark-your-model.html">benchmark your model</a>.</p>
     </div>
   </section>
 </div>
@@ -244,5 +363,26 @@
 </footer>
 
 <script src="site.js?v=14" defer></script>
+<script>
+(function () {
+  var form = document.getElementById('intake');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var lines = [];
+    form.querySelectorAll('input, select, textarea').forEach(function (el) {
+      var v = (el.value || '').trim();
+      if (!v) return;
+      var label = el.closest('label').childNodes[0].textContent.trim();
+      lines.push(label + (/[?:]$/.test(label) ? '' : ':') + '\n' + v + '\n');
+    });
+    var team = form.elements.team.value.trim();
+    var subject = 'Model routing for ' + (team || 'our stack');
+    var body = lines.length ? lines.join('\n') : 'A few sentences about our stack:\n\n';
+    window.location.href = 'mailto:hello@vulcanbench.com?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+})();
+</script>
 </body>
 </html>
