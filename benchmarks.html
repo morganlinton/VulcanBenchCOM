@@ -153,13 +153,13 @@
 
     <article class="suite-feature suite-preview" aria-labelledby="verdict-jev-preview-heading">
       <div>
-        <p class="suite-label">September 22, 2026, corrected September 23 &middot; 2,641 queries &middot; jev-1.13.0</p>
+        <p class="suite-label">September 22, 2026 &middot; results withheld pending a control run &middot; jev-1.13.0</p>
         <h3 id="verdict-jev-preview-heading"><a href="benchmarks/verdict-v1-jev.html">Jev 1.13.0 on VulcanBench Verdict v1</a></h3>
-        <p>The first measurement of TypeSafe AI's Jev on software engineering. Jev is a System One model: it returns a typed decision in a single parallel pass and generates no text, so it was asked to judge 745 patches that frontier coding agents had already written, each one graded by hidden tests.</p>
-        <p>Its stated probability that a patch passes never rises above 0.42, on a population where 63% of them pass, which is a large calibration failure. The ranking underneath is sounder: AUROC 0.69 on that question, and at a cutoff fitted on held-out items its accuracy draws level with the majority answer rather than beating it. On which of two patches a code-quality panel preferred, it agrees 89.7% of the time at AUROC 0.962, for 328 ms and $0.15 per 1,000 decisions. Corrected on September 23 after the first version scored these questions at a cutoff the model never crosses. A control with GPT-6 Astra on the same inputs shows the questions are answerable; its run on the published fixes is still in progress.</p>
-        <div class="suite-downloads"><a href="benchmarks/verdict-v1-jev.html">Read the study</a><a href="assets/data/verdict-v1-jev/report.md">Full report</a><a href="assets/data/verdict-v1-jev/scores.csv">Scores CSV</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict">Suite code</a></div>
+        <p>VulcanBench Verdict v1 asks models that judge code, rather than write it, questions about 745 fixes that frontier coding agents wrote, with the answers taken from each task's hidden tests. TypeSafe AI's Jev is the first model measured.</p>
+        <p>Results are withheld while a control run finishes: GPT-6 Astra is answering the same questions from the same inputs, and its early results changed how Jev's numbers should be read. The results and the model card will be published together when it is done.</p>
+        <div class="suite-downloads"><a href="benchmarks/verdict-v1-jev.html">How the test works</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict">Suite code</a></div>
       </div>
-      <div class="status-box" role="status"><span class="status-label">Update in progress</span><h3>Results card being updated</h3><p>A control run on the published fixes is still in progress. <a href="benchmarks/verdict-v1-jev.html">Read the study</a> for Jev's full results.</p></div>
+      <div class="status-box" role="status"><span class="status-label">Update in progress</span><h3>Results withheld</h3><p>A control run on the published fixes is still in progress. <a href="benchmarks/verdict-v1-jev.html">See how the test works</a>.</p></div>
     </article>
   </section>
 
