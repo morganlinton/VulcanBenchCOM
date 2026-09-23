@@ -21,15 +21,15 @@
 <meta property="og:title" content="Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench">
 <meta property="og:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. Its probabilities never cross 0.5, but the ranking underneath scores 0.69 AUROC, and it agrees with a code-quality panel on 89.7% of style pairs.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/verdict-v1-jev.html">
-<meta property="og:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=4">
-<meta property="og:image:width" content="2400">
-<meta property="og:image:height" content="1725">
-<meta property="og:image:alt" content="VulcanBench Verdict v1 model card for Jev 1.13.0: accuracy against always guessing for every question, Jev's confidence that a fix works, and a table of ranking quality and calibration">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench">
 <meta name="twitter:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. Its probabilities never cross 0.5, but the ranking underneath scores 0.69 AUROC, and it agrees with a code-quality panel on 89.7% of style pairs.">
-<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=4">
-<meta name="twitter:image:alt" content="VulcanBench Verdict v1 model card for Jev 1.13.0: accuracy against always guessing for every question, Jev's confidence that a fix works, and a table of ranking quality and calibration">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
 <link rel="apple-touch-icon" href="/assets/logo.png">
 <link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
 <link rel="stylesheet" href="/style.css?v=30">
-<link rel="stylesheet" href="/benchmarks-suites.css?v=4">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
 </head>
 <body>
 
@@ -79,7 +79,6 @@
         <p>Every fix yields three questions about its test results, plus a separate question comparing two fixes for the same task on how well they are written, which is checked against AI reviewers rather than tests. 2,163 questions in all. For yes or no questions, the probability Jev needs to count as "yes" is chosen on a separate set of fixes that are never scored, so Jev is judged at its best cutoff without seeing the answers.</p>
       </section>
       <div class="report-resources" aria-label="Report and evidence downloads">
-        <a class="resource" href="/assets/cards/verdict-v1-jev.png?v=4" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, accuracy, confidence and every question</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by family</span><span class="resource-meta">CSV, Jev and the majority floor</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/results.json"><span class="resource-kind">Data</span><span class="resource-title">Every published number</span><span class="resource-meta">JSON, metrics, confusion counts and the probe</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/report.md"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">Markdown, findings, method and limits</span></a>
@@ -108,18 +107,17 @@
         </div>
         <p>A fifth family, picking which file the fix belongs in, is kept only as a wiring probe. Jev answered 19 of 19 correctly, and then we checked the items: every issue names the answer file's stem in its own text, so the question is string matching. It supports no claim about ability. Items are split by task, so no task appears in both the development and test splits, and the test split is what is published here.</p>
       </section>
-      <figure class="suite-card">
-        <a href="/assets/cards/verdict-v1-jev.png?v=4" aria-label="Open the Jev results card at full resolution">
-          <img src="/assets/cards/verdict-v1-jev.png?v=4" width="2400" height="1725" fetchpriority="high" alt="VulcanBench Verdict v1 model card for Jev 1.13.0. Left chart, accuracy against always guessing: 63 against 63 percent on whether a fix passes every test, 93 against 94 on whether it breaks an existing test, 50 against 63 on which of four test outcomes, and 90 against 58 on which fix is better written. Right chart, Jev's stated confidence that a fix works across 611 fixes: every value falls between 9 and 42 percent, below the 50 percent yes threshold, with fixes that really work concentrated at the higher end. Table 1 lists items, accuracy, ranking quality and calibration error for every question. Exact values are in the tables on this page.">
-        </a>
-        <figcaption>Whiskers show &plusmn;1 standard error. Jev's yes or no results use a cutoff chosen on a separate set of fixes; at the usual 50% it never answers yes, as the right-hand chart shows. The better-written question, marked with an asterisk, is checked against AI reviewers rather than tests. <a href="/assets/cards/verdict-v1-jev.png?v=4">Open full-size card</a>.</figcaption>
-      </figure>
+      <div class="status-box" id="card-status" role="status">
+        <span class="status-label">Update in progress</span>
+        <h3>The results card is being updated</h3>
+        <p>A control run on the 611 published fixes is still in progress: GPT-6 Astra is answering the same questions from the same inputs Jev saw, to check how answerable they are and how Jev compares. The card returns here with the final numbers. The tables below are Jev's own results, which the control does not change.</p>
+      </div>
 
       <section class="report-section" id="results" aria-labelledby="results-heading">
         <h2 id="results-heading">Results</h2>
         <p>One query per item, model pinned to <code>jev-1.13.0</code> rather than the <code>jev-latest</code> alias, because the alias moves and calibration is per version. Jev exposes no effort, temperature or seed setting, so it has a single column. The floor is the score for always answering a family's most common label.</p>
         <div class="suite-notes" id="control">
-          <p><strong>Is the pass question answerable at all? A control, added September 23, 2026.</strong> Every fix here comes from a task where an agent rebuilt a retired program, and the hidden tests check agreement with that program's real behaviour, including quirks the written specification gets wrong. Jev sees only the bug report and the fix. To check that the question can be answered from that alone, GPT-6 Astra at high effort, through Codex, was given exactly the same inputs on the 134 development-split fixes, 56.7% of which pass. It scored 70.9% at the usual 50% line with no tuning, and ranked the fixes with an AUROC of 0.82. So the question is answerable to a real degree: the hidden quirks cap how well any reader can do, but they do not make the task impossible. On the same fixes Jev ranked with an AUROC of 0.76, a gap too small to call on 134 items, but its stated probabilities stayed between 10% and 37%, so they cannot be used without re-tuning. Jev's shortfall is calibration, not an unanswerable test. A run on the 611 published fixes is in progress and will be added here.</p>
+          <p><strong>Is the pass question answerable at all? A control, in progress.</strong> Every fix here comes from a task where an agent rebuilt a retired program, and the hidden tests check agreement with that program's real behaviour, including quirks the written specification gets wrong. Jev sees only the bug report and the fix. To check that the question can be answered from that alone, GPT-6 Astra at high effort, through Codex, is being given exactly the same inputs. On the 134 development-split fixes, 56.7% of which pass, it ranked the fixes with an AUROC of 0.82 and scored 70.9% at the usual 50% line, against 0.76 and 43.3% for Jev. So the question is answerable from the inputs: the hidden quirks limit how well any reader can do, but they do not make the task impossible. The same control on the 611 published fixes is still running, and early results there differ enough from the development split that no comparison between Jev and Astra is stated here until it finishes.</p>
         </div>
         <div class="suite-table-scroll" role="region" aria-label="Accuracy, ranking and calibration by question family" tabindex="0"><table class="suite-results">
           <caption>VulcanBench Verdict v1: Jev against the majority-answer floor, test split</caption>
@@ -177,12 +175,12 @@
       <section class="report-section" id="style" aria-labelledby="style-heading">
         <h2 id="style-heading">Where it works</h2>
         <p>On the 311 pairs where both code-quality judges preferred the same patch by at least 10 points out of 100, Jev picked the same patch 89.7% of the time, with an AUROC of 0.962 and a well-calibrated expected calibration error of 0.082. That is the clearest positive signal in the suite, and it survives the two obvious explanations. Picking the longer patch agrees with the judges only 44.7% of the time, so length is not the shortcut. Jev's split between the two presented positions, 183 to 128, tracks the true split of 180 to 131, so there is no position bias. Patches are ordered by content hash, not by score, so position carries no signal to find.</p>
-        <p>Judges are opinion, not ground truth, so this is not a correctness result and it does not belong on the same scale as the rows above. What it suggests is a real and narrow competence: Jev can read the surface of code, its naming, structure, comments and duplication. On the pass question its ranking comes close to a frontier model's (see <a href="#control">the control</a> above); what it lacks there is probabilities you can use as stated. It is also the one place in this suite where its probabilities are both discriminating and honestly scaled.</p>
+        <p>Judges are opinion, not ground truth, so this is not a correctness result and it does not belong on the same scale as the rows above. What it suggests is a real and narrow competence: Jev can read the surface of code, its naming, structure, comments and duplication. How its ranking on the pass question compares with a frontier model's is still being measured (see <a href="#control">the control</a> above). It is also the one place in this suite where its probabilities are both discriminating and honestly scaled.</p>
       </section>
 
       <section class="report-section" id="meaning" aria-labelledby="meaning-heading">
         <h2 id="meaning-heading">What this means</h2>
-        <p>Jev cannot be dropped in as a merge gate or a continuous-integration pre-filter on the strength of its own probabilities. Read literally, it says every patch is more likely to fail than pass, which would block everything. Read as a ranking, with a cutoff fitted on your own labelled data, it comes out about level with answering "it passes" every time. A frontier model given the same inputs does beat guessing (see <a href="#control">the control</a>), so the gap is in how Jev states its confidence, not in the test.</p>
+        <p>Jev cannot be dropped in as a merge gate or a continuous-integration pre-filter on the strength of its own probabilities. Read literally, it says every patch is more likely to fail than pass, which would block everything. Read as a ranking, with a cutoff fitted on your own labelled data, it comes out about level with answering "it passes" every time. A frontier model given the same inputs ranks the fixes well (see <a href="#control">the control</a>), so the questions are answerable; how far Jev falls short of it is still being measured.</p>
         <p>Where the judgment is about the shape of the code rather than its behaviour, the picture changes: 89.7% agreement with a calibrated judge panel, an AUROC of 0.962, at 328 ms and $0.15 per 1,000 decisions. That is roughly the cost and latency of a database query, for a judgment that currently costs a full model call.</p>
         <p>The methodological point is one this report had to learn the hard way. A model that returns probabilities can be self-consistent, well ordered and badly scaled all at once, and which of those you see depends entirely on the metric. Accuracy at a fixed cutoff measures the scaling and hides the ordering. AUROC measures the ordering and hides the scaling. Reporting one without the other produces a confident, wrong headline, which is what the first version of this page did.</p>
       </section>
