@@ -33,8 +33,14 @@ SOURCES = [
      "models": {"terra": ("GPT-5.6 Terra", "Codex", "gpt-5-6-terra", "OpenAI")}},
     {"bundle": "swe-v4-sol-v37", "report": "benchmarks/swe-v4-sol-v37.html", "protocol": "v3.7",
      "models": {"sol": ("GPT-5.6 Sol", "Codex", "gpt-5-6-sol", "OpenAI")}},
+    {"bundle": "swe-v4-devin-swe2-v311", "report": "benchmarks/swe-v4-devin-swe2-v311.html", "protocol": "v3.11",
+     "models": {"swe2": ("Devin SWE-2", "Devin CLI", "devin-swe-2", "Cognition")}},
 ]
+# A model whose cost is unavailable sorts last on the cost tiebreak, is left off the
+# cost axis, and never wins a "cheapest within tolerance" suggestion on price.
+UNPRICED_SORT = float("inf")
 FOOTNOTES = {
+    "swe2": "Devin SWE-2 carries two disclosures. Its Code quality is from protocol v3.11 with Muse Spark 1.3 as the only judge, after Grok 4.6 and GPT-5.6 Sol failed the calibration exam for this population, so it is not the two-judge mean behind every other row; and its cost is unavailable, because Cognition publishes no per-token rate for SWE-2 and the catalog cost tier Free is a promotion dated through 2026-10-10 rather than a rate. It is judged on 65 of 69 runs.",
     "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
     "terra": "GPT-5.6 Terra at max includes paddockcore, run on September 17 on a second ChatGPT account after the first hit its quota window and judged under the v3.6.1 top-up with the same judges and calibration.",
     "sol": "GPT-5.6 Sol at max is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts, so the v3.7 protocol publishes no Code quality score for that run; the run passed its tests and is priced.",
@@ -66,11 +72,12 @@ def rows():
             out.append({
                 "model": name, "lab": lab, "harness": harness, "slug": slug, "key": g["model"], "effort": g["effort"], "n": g["n"],
                 "combined": g["combined_33"]["mean"], "combined_se": g["combined_33"]["se"], "code_quality": g["code_quality"]["mean"],
-                "passed": g["passed"], "minutes": g["minutes"]["mean"], "usd": e["usd"]["mean"], "raw_tokens": e["raw_tokens"]["mean"],
+                "passed": g["passed"], "minutes": g["minutes"]["mean"],
+                "usd": e["usd"]["mean"] if e["usd"] is not None else None, "raw_tokens": e["raw_tokens"]["mean"],
                 "output_tokens_median": t["median"], "output_tokens_mean": t["mean"],
                 "report": source["report"], "protocol": f"code-quality-maintenance-{source['protocol']}",
             })
-    out.sort(key=lambda r: (-r["combined"], r["usd"], r["model"], EFFORTS.index(r["effort"])))
+    out.sort(key=lambda r: (-r["combined"], r["usd"] if r["usd"] is not None else UNPRICED_SORT, r["model"], EFFORTS.index(r["effort"])))
     best = {}
     for r in out:
         best.setdefault(r["key"], r["effort"])  # first row per model in ranked order is its best effort
@@ -80,7 +87,8 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#FF7A3D", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573", "sol": "#D4FF3F"}  # Anthropic orange; OpenAI greens, brightest for the newest
+COLORS = {"fable": "#FF7A3D", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573", "sol": "#D4FF3F",
+          "swe2": "#C77DFF"}  # Anthropic orange; OpenAI greens, brightest for the newest; Cognition violet
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
@@ -94,14 +102,19 @@ def suggestions(board):
         by_model.setdefault(r["key"], []).append(r)
     for key, levels in by_model.items():
         best = max(levels, key=lambda r: r["combined"])
-        low = next(r for r in levels if r["effort"] == "low")
+        # The spread runs from the model's own lowest level; not every model offers "low".
+        low = min(levels, key=lambda r: EFFORTS.index(r["effort"]))
         entry = {"model": best["model"], "best_effort": best["effort"], "best_combined": best["combined"],
                  "spread": best["combined"] - low["combined"], "shape": "flat" if best["combined"] - low["combined"] <= 3 else "steep"}
         for name, tol in TOLERANCES.items():
             ok = [r for r in levels if best["combined"] - r["combined"] <= tol]
-            pick = min(ok, key=lambda r: (r["usd"], r["minutes"]))
+            # Cheapest, then fastest. With no price the order falls back to runtime alone,
+            # which is the only cost signal an unpriced model has.
+            pick = min(ok, key=lambda r: (r["usd"] if r["usd"] is not None else UNPRICED_SORT, r["minutes"]))
+            priced = pick["usd"] is not None and best["usd"] not in (None, 0)
             entry[name] = {"effort": pick["effort"], "combined": pick["combined"], "gap": best["combined"] - pick["combined"],
-                           "usd_vs_best": pick["usd"] / best["usd"], "minutes_vs_best": pick["minutes"] / best["minutes"], "passed": pick["passed"], "n": pick["n"]}
+                           "usd_vs_best": pick["usd"] / best["usd"] if priced else None,
+                           "minutes_vs_best": pick["minutes"] / best["minutes"], "passed": pick["passed"], "n": pick["n"]}
         out[key] = entry
     return out
 
@@ -115,12 +128,13 @@ def table_html(board):
     for r in board:
         cls = " leader" if r["rank"] == 1 else ""
         tag = '<span class="fb-best">best</span>' if r["best"] else ""
-        mark = "&dagger;" if r["key"] == "fable" else ("&Dagger;" if r["key"] == "terra" and r["effort"] == "max" else ("&sect;" if r["key"] == "sol" and r["effort"] == "max" else ""))
+        mark = "&dagger;" if r["key"] == "fable" else ("&Dagger;" if r["key"] == "terra" and r["effort"] == "max" else ("&sect;" if r["key"] == "sol" and r["effort"] == "max" else ("&para;" if r["key"] == "swe2" else "")))
+        cost = f'${r["usd"]:.2f}' if r["usd"] is not None else '<span class="lb-na">unavailable</span>' 
         lines.append(
             f'<tr class="v4row{cls}" data-model="{r["key"]}" data-effort="{r["effort"]}" data-best="{int(r["best"])}"><td class="l lb-rank">{r["rank"]}</td>'
             f'<td class="l"><span class="v4dot" style="background:{COLORS[r["key"]]}"></span><a class="lb-model" href="models/{r["slug"]}.html">{escape(r["model"])}</a> <span class="lb-harness">{escape(r["harness"])}</span>{tag}</td>'
             f'<td class="fb-eff">{LABEL[r["effort"]]}{mark}</td><td class="lb-win">{r["combined"]:.2f}</td><td>{r["combined_se"]:.2f}</td>'
-            f'<td>{r["code_quality"]:.2f}</td><td>{r["passed"]}/{r["n"]}</td><td>{r["minutes"]:.1f}</td><td>${r["usd"]:.2f}</td></tr>')
+            f'<td>{r["code_quality"]:.2f}</td><td>{r["passed"]}/{r["n"]}</td><td>{r["minutes"]:.1f}</td><td>{cost}</td></tr>')
     lines += ["</tbody>", "</table>", "</div>"]
     return "\n".join(lines)
 
@@ -137,18 +151,20 @@ def render(board):
             f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.7 apply the same rubric, controls, gates and judges to each population). The chart plots combined score against cost per task, most expensive on the left, one line per model from Max to Low; the table below carries every column. "
-            "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription.</p>\n"
+            "under one frozen protocol (v3.4 to v3.11 apply the same rubric, controls, gates and judges to each population; the marked row is judged by one of them). The chart plots combined score against cost per task, most expensive on the left, one line per model from Max to Low; the table below carries every column. "
+            "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription. "
+            "A model with no published per-token rate reads unavailable and is left off the cost axis rather than shown at zero.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
             '<noscript><p class="lb-context">The chart needs JavaScript; the table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
-            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) +
+            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(FOOTNOTES["swe2"]) +
             ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
             'The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model&rsquo;s highest-scoring effort level. '
             'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
             '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
             '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>, '
-            '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>. '
+            '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>, '
+            '<a href="benchmarks/swe-v4-devin-swe2-v311.html">Devin SWE-2</a>. '
             '<a href="assets/data/swe-v4-board.csv" download>Download the board as CSV</a>.</p>\n'
             f"{END}")
 
@@ -160,7 +176,8 @@ def csv_text(board):
                      "mean_minutes", "mean_usd", "mean_raw_tokens", "median_output_tokens", "mean_output_tokens", "report", "protocol"])
     for r in board:
         writer.writerow([r["rank"], r["model"], r["lab"], r["harness"], r["effort"], r["best"], r["n"], f'{r["combined"]:.4f}', f'{r["combined_se"]:.4f}',
-                         f'{r["code_quality"]:.4f}', r["passed"], f'{r["minutes"]:.4f}', f'{r["usd"]:.6f}', f'{r["raw_tokens"]:.1f}',
+                         f'{r["code_quality"]:.4f}', r["passed"], f'{r["minutes"]:.4f}',
+                         f'{r["usd"]:.6f}' if r["usd"] is not None else "unavailable", f'{r["raw_tokens"]:.1f}',
                          f'{r["output_tokens_median"]:.1f}', f'{r["output_tokens_mean"]:.1f}', r["report"], r["protocol"]])
     return buffer.getvalue()
 
