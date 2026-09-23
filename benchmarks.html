@@ -68,6 +68,7 @@
 
   <nav class="suite-nav" aria-label="Evaluation suites">
     <a href="#swe-v4">VulcanBench Frontier v4 <span>Current suite</span></a>
+    <a href="#verdict-v1">VulcanBench Verdict v1 <span>Decision models</span></a>
     <a href="#archive">Earlier suites &amp; studies <span>Archive</span></a>
   </nav>
   <p class="suite-comparability">Compare results within the same suite and scoring protocol. Scores from different suites are not directly comparable.</p>
@@ -141,6 +142,25 @@
       <a class="model-chip" href="models/gpt-5-6-luna.html"><b>GPT-5.6 Luna</b><span>OpenAI</span></a>
       <a class="model-chip" href="models/gpt-5-6-terra.html"><b>GPT-5.6 Terra</b><span>OpenAI</span></a>
     </div>
+  </section>
+
+  <section class="suite-section" id="verdict-v1" aria-labelledby="verdict-v1-heading">
+    <header class="suite-heading">
+      <div><p class="suite-label">Decision models</p><h2 id="verdict-v1-heading">VulcanBench Verdict v1</h2></div>
+      <a href="benchmarks/verdict-v1-jev.html">Read the first report &rarr;</a>
+    </header>
+    <p class="suite-description">A suite for models that return a typed decision instead of text, and so cannot take a coding benchmark. It asks them to judge code rather than write it: 2,163 test items mined from 745 real agent patches produced during Frontier v4 sweeps, with the answers taken from those tasks' hidden test suites. Accuracy is always published beside calibration and beside the score for simply answering each question's most common label. Verdict and Frontier scores measure different things and are not comparable.</p>
+
+    <article class="suite-feature suite-preview" aria-labelledby="verdict-jev-preview-heading">
+      <div>
+        <p class="suite-label">September 22, 2026 &middot; 2,641 queries &middot; jev-1.13.0</p>
+        <h3 id="verdict-jev-preview-heading"><a href="benchmarks/verdict-v1-jev.html">Jev, the model that will not say a patch works</a></h3>
+        <p>The first measurement of TypeSafe AI's Jev on software engineering. Jev is a System One model: it returns a typed decision in a single parallel pass and generates no text, so it was asked to judge 745 patches that frontier coding agents had already written, each one graded by hidden tests.</p>
+        <p>It scores 40.8% against a 72.4% majority-answer floor. On all 611 patches it was asked to rule on, it answered that the patch was broken; 383 of them pass. Asking the question four ways, including inverted, changes nothing, so the pessimism is the model rather than the phrasing. The exception is style: on which of two patches a code-quality panel preferred, Jev agrees 89.7% of the time, at 328 ms and $0.15 per 1,000 decisions.</p>
+        <div class="suite-downloads"><a href="benchmarks/verdict-v1-jev.html">Read the study</a><a href="assets/data/verdict-v1-jev/report.md">Full report</a><a href="assets/data/verdict-v1-jev/scores.csv">Scores CSV</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict">Suite code</a></div>
+      </div>
+      <a href="benchmarks/verdict-v1-jev.html" aria-label="Read the Jev report on Verdict v1"><img src="assets/cards/verdict-v1-jev.png" width="2560" height="1440" loading="lazy" alt="Preview of the Jev results card. Open the study for readable charts and tables."></a>
+    </article>
   </section>
 
   <section class="suite-section suite-archive" id="archive" aria-labelledby="archive-heading">
