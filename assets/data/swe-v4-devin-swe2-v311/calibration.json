@@ -1,0 +1,548 @@
+{
+  "rule": "Muse's v3.9 verdict gates this pass; no new calibration calls (the v3.6.1 precedent). Grok 4.6 (v3.9) and GPT-5.6 Sol (v3.10) failed gate 16 and are out under the single-panel rule.",
+  "panels": {
+    "muse": {
+      "passed": true,
+      "failing_gates": [
+        "g11_repeatability"
+      ],
+      "call_count": 80,
+      "protocol_sha256": "09654e5c44d3a6146bda09e21c8d0b8820ef4a1856d192e5eb0e132ada9fd510",
+      "allowance": {
+        "max_failing_gates": 1,
+        "max_shortfall": 0.5
+      },
+      "allowance_used": true,
+      "judge": "Muse Spark 1.3",
+      "scored": true,
+      "source": "runs-code-quality-maintenance-v3.9/calibration-muse.json",
+      "source_sha256": "390377839156e13d3b66b161f4f06435f094b5950d14cbebb695b7a6dc758fe7",
+      "gates": {
+        "g01_validity": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g02_clear_anchor": {
+          "passed": true,
+          "shortfall": -0.8667
+        },
+        "g03_compression_sensitivity": {
+          "passed": true,
+          "shortfall": -1.2
+        },
+        "g04_formatting_is_presentation": {
+          "passed": true,
+          "shortfall": -0.2
+        },
+        "g05_formatting_not_enough": {
+          "passed": true,
+          "shortfall": -1.8
+        },
+        "g06_duplication_sensitivity": {
+          "passed": true,
+          "shortfall": -2.1
+        },
+        "g07_abstraction_not_rewarded": {
+          "passed": true,
+          "shortfall": -1.8
+        },
+        "g08_misleading_comments": {
+          "passed": true,
+          "shortfall": -2.7
+        },
+        "g09_narration_not_rewarded": {
+          "passed": true,
+          "shortfall": -0.5
+        },
+        "g10_quirk_tolerance": {
+          "passed": true,
+          "shortfall": -0.4333
+        },
+        "g11_repeatability": {
+          "passed": false,
+          "shortfall": 0.02
+        },
+        "g12_instruction_isolation": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g13_verifiability": {
+          "passed": true,
+          "shortfall": -1.4
+        },
+        "g15_naming_tracks_names": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_1": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_2_1": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_3": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_6": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_9": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g16_probe_recovers_documented_intent": {
+          "passed": true,
+          "shortfall": 0.0
+        }
+      },
+      "control_means": {
+        "0": {
+          "naming": 4.0,
+          "presentation": 3.9,
+          "intent": 3.4,
+          "structure": 4.0,
+          "changeability": 4.0,
+          "verifiability": 3.9
+        },
+        "1": {
+          "naming": 1.2,
+          "presentation": 1.7,
+          "intent": 1.0,
+          "structure": 3.7,
+          "changeability": 2.5,
+          "verifiability": 3.0
+        },
+        "2": {
+          "naming": 1.0,
+          "presentation": 3.2,
+          "intent": 1.1,
+          "structure": 4.0,
+          "changeability": 2.8,
+          "verifiability": 3.1
+        },
+        "3": {
+          "naming": 2.6,
+          "presentation": 3.1,
+          "intent": 1.2,
+          "structure": 1.4,
+          "changeability": 1.5,
+          "verifiability": 1.9
+        },
+        "4": {
+          "naming": 3.2,
+          "presentation": 2.4,
+          "intent": 1.5,
+          "structure": 2.2,
+          "changeability": 3.1,
+          "verifiability": 2.7
+        },
+        "5": {
+          "naming": 3.8,
+          "presentation": 3.8,
+          "intent": 0.2,
+          "structure": 3.9,
+          "changeability": 2.0,
+          "verifiability": 3.4
+        },
+        "6": {
+          "naming": 1.0,
+          "presentation": 2.9,
+          "intent": 1.0,
+          "structure": 3.8,
+          "changeability": 2.7,
+          "verifiability": 3.1
+        },
+        "7": {
+          "naming": 4.0,
+          "presentation": 3.9,
+          "intent": 3.4,
+          "structure": 4.0,
+          "changeability": 4.0,
+          "verifiability": 3.5
+        },
+        "8": {
+          "naming": 4.0,
+          "presentation": 4.0,
+          "intent": 3.5,
+          "structure": 4.0,
+          "changeability": 4.0,
+          "verifiability": 3.9
+        },
+        "9": {
+          "naming": 2.4,
+          "presentation": 3.0,
+          "intent": 2.0,
+          "structure": 1.5,
+          "changeability": 2.6,
+          "verifiability": 2.0
+        }
+      }
+    },
+    "grok": {
+      "passed": false,
+      "failing_gates": [
+        "g16_probe_recovers_documented_intent"
+      ],
+      "call_count": 80,
+      "protocol_sha256": "09654e5c44d3a6146bda09e21c8d0b8820ef4a1856d192e5eb0e132ada9fd510",
+      "allowance": {
+        "max_failing_gates": 1,
+        "max_shortfall": 0.5
+      },
+      "allowance_used": false,
+      "judge": "Grok 4.6",
+      "scored": false,
+      "source": "runs-code-quality-maintenance-v3.9/calibration-grok.json",
+      "source_sha256": "0dd725e7226b9ba365fed8311109d002453823feba2dee9dd9d0d52fe355e140",
+      "gates": {
+        "g01_validity": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g02_clear_anchor": {
+          "passed": true,
+          "shortfall": -0.7
+        },
+        "g03_compression_sensitivity": {
+          "passed": true,
+          "shortfall": -0.9
+        },
+        "g04_formatting_is_presentation": {
+          "passed": true,
+          "shortfall": -0.2
+        },
+        "g05_formatting_not_enough": {
+          "passed": true,
+          "shortfall": -1.2
+        },
+        "g06_duplication_sensitivity": {
+          "passed": true,
+          "shortfall": -1.5
+        },
+        "g07_abstraction_not_rewarded": {
+          "passed": true,
+          "shortfall": -1.5
+        },
+        "g08_misleading_comments": {
+          "passed": true,
+          "shortfall": -2.0
+        },
+        "g09_narration_not_rewarded": {
+          "passed": true,
+          "shortfall": -0.5
+        },
+        "g10_quirk_tolerance": {
+          "passed": true,
+          "shortfall": -0.5
+        },
+        "g11_repeatability": {
+          "passed": true,
+          "shortfall": -0.26
+        },
+        "g12_instruction_isolation": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g13_verifiability": {
+          "passed": true,
+          "shortfall": -0.9
+        },
+        "g15_naming_tracks_names": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_1": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_2_1": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_3": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_6": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_9": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g16_probe_recovers_documented_intent": {
+          "passed": false,
+          "shortfall": null
+        }
+      },
+      "control_means": {
+        "0": {
+          "naming": 3.7,
+          "presentation": 3.6,
+          "intent": 3.5,
+          "structure": 4.0,
+          "changeability": 4.0,
+          "verifiability": 3.4
+        },
+        "1": {
+          "naming": 1.5,
+          "presentation": 1.7,
+          "intent": 1.4,
+          "structure": 3.2,
+          "changeability": 2.4,
+          "verifiability": 3.0
+        },
+        "2": {
+          "naming": 1.5,
+          "presentation": 2.6,
+          "intent": 1.6,
+          "structure": 3.3,
+          "changeability": 2.7,
+          "verifiability": 3.0
+        },
+        "3": {
+          "naming": 3.0,
+          "presentation": 2.5,
+          "intent": 2.0,
+          "structure": 2.0,
+          "changeability": 2.0,
+          "verifiability": 2.4
+        },
+        "4": {
+          "naming": 3.0,
+          "presentation": 2.5,
+          "intent": 2.0,
+          "structure": 2.5,
+          "changeability": 3.2,
+          "verifiability": 2.9
+        },
+        "5": {
+          "naming": 3.5,
+          "presentation": 3.2,
+          "intent": 1.0,
+          "structure": 3.6,
+          "changeability": 2.3,
+          "verifiability": 3.0
+        },
+        "6": {
+          "naming": 1.3,
+          "presentation": 2.0,
+          "intent": 1.3,
+          "structure": 3.0,
+          "changeability": 2.7,
+          "verifiability": 2.9
+        },
+        "7": {
+          "naming": 3.7,
+          "presentation": 3.5,
+          "intent": 3.5,
+          "structure": 4.0,
+          "changeability": 4.0,
+          "verifiability": 3.5
+        },
+        "8": {
+          "naming": 4.0,
+          "presentation": 3.6,
+          "intent": 3.4,
+          "structure": 4.0,
+          "changeability": 4.0,
+          "verifiability": 3.6
+        },
+        "9": {
+          "naming": 3.0,
+          "presentation": 2.8,
+          "intent": 2.5,
+          "structure": 2.0,
+          "changeability": 3.2,
+          "verifiability": 2.0
+        }
+      }
+    },
+    "sol": {
+      "passed": false,
+      "failing_gates": [
+        "g16_probe_recovers_documented_intent"
+      ],
+      "call_count": 80,
+      "protocol_sha256": "0c8068b128c295593624049ac1e29b8904c13437412693436312131bb1c1aa68",
+      "allowance": {
+        "max_failing_gates": 1,
+        "max_shortfall": 0.5
+      },
+      "allowance_used": false,
+      "judge": "GPT-5.6 Sol",
+      "scored": false,
+      "source": "runs-code-quality-maintenance-v3.10/calibration-sol.json",
+      "source_sha256": "b6a1b2fb849d1867a5ea69279214ef2fbe755112d4bd9dad79d695524185b8ca",
+      "gates": {
+        "g01_validity": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g02_clear_anchor": {
+          "passed": true,
+          "shortfall": -0.9167
+        },
+        "g03_compression_sensitivity": {
+          "passed": true,
+          "shortfall": -1.5
+        },
+        "g04_formatting_is_presentation": {
+          "passed": true,
+          "shortfall": -0.3
+        },
+        "g05_formatting_not_enough": {
+          "passed": true,
+          "shortfall": -1.3
+        },
+        "g06_duplication_sensitivity": {
+          "passed": true,
+          "shortfall": -2.0
+        },
+        "g07_abstraction_not_rewarded": {
+          "passed": true,
+          "shortfall": -0.7
+        },
+        "g08_misleading_comments": {
+          "passed": true,
+          "shortfall": -2.3
+        },
+        "g09_narration_not_rewarded": {
+          "passed": true,
+          "shortfall": -0.5
+        },
+        "g10_quirk_tolerance": {
+          "passed": true,
+          "shortfall": -0.4167
+        },
+        "g11_repeatability": {
+          "passed": true,
+          "shortfall": -0.02
+        },
+        "g12_instruction_isolation": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g13_verifiability": {
+          "passed": true,
+          "shortfall": -0.7
+        },
+        "g15_naming_tracks_names": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_1": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_2_1": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_3": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_6": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g14_pair_0_9": {
+          "passed": true,
+          "shortfall": 0.0
+        },
+        "g16_probe_recovers_documented_intent": {
+          "passed": false,
+          "shortfall": null
+        }
+      },
+      "control_means": {
+        "0": {
+          "naming": 4,
+          "presentation": 4,
+          "intent": 3.8,
+          "structure": 4,
+          "changeability": 4,
+          "verifiability": 3.7
+        },
+        "1": {
+          "naming": 1.5,
+          "presentation": 1.5,
+          "intent": 1.5,
+          "structure": 3.5,
+          "changeability": 3.3,
+          "verifiability": 3.5
+        },
+        "2": {
+          "naming": 1.7,
+          "presentation": 3.3,
+          "intent": 1.7,
+          "structure": 3.7,
+          "changeability": 3.5,
+          "verifiability": 3.5
+        },
+        "3": {
+          "naming": 3.3,
+          "presentation": 3.3,
+          "intent": 1.7,
+          "structure": 1.7,
+          "changeability": 1.5,
+          "verifiability": 2.5
+        },
+        "4": {
+          "naming": 3.5,
+          "presentation": 2.7,
+          "intent": 2.1,
+          "structure": 3.3,
+          "changeability": 3.5,
+          "verifiability": 3.3
+        },
+        "5": {
+          "naming": 4,
+          "presentation": 3.8,
+          "intent": 1.0,
+          "structure": 3.8,
+          "changeability": 3.4,
+          "verifiability": 3.5
+        },
+        "6": {
+          "naming": 1.7,
+          "presentation": 2.5,
+          "intent": 1.5,
+          "structure": 3.6,
+          "changeability": 3.5,
+          "verifiability": 3.5
+        },
+        "7": {
+          "naming": 4,
+          "presentation": 4,
+          "intent": 3.5,
+          "structure": 4,
+          "changeability": 3.9,
+          "verifiability": 3.6
+        },
+        "8": {
+          "naming": 4,
+          "presentation": 3.8,
+          "intent": 3.6,
+          "structure": 4,
+          "changeability": 4,
+          "verifiability": 3.5
+        },
+        "9": {
+          "naming": 3.5,
+          "presentation": 3.5,
+          "intent": 2.5,
+          "structure": 2.5,
+          "changeability": 3.5,
+          "verifiability": 2.5
+        }
+      }
+    }
+  }
+}
