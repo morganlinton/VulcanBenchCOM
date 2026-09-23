@@ -21,15 +21,15 @@
 <meta property="og:title" content="Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench">
 <meta property="og:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. Its probabilities never cross 0.5, but the ranking underneath scores 0.69 AUROC, and it agrees with a code-quality panel on 89.7% of style pairs.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/verdict-v1-jev.html">
-<meta property="og:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=3">
-<meta property="og:image:width" content="2560">
-<meta property="og:image:height" content="1440">
-<meta property="og:image:alt" content="VulcanBench Verdict v1: how the test works in three steps, and three results for Jev against always guessing">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=4">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1725">
+<meta property="og:image:alt" content="VulcanBench Verdict v1 model card for Jev 1.13.0: accuracy against always guessing for every question, Jev's confidence that a fix works, and a table of ranking quality and calibration">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench">
 <meta name="twitter:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. Its probabilities never cross 0.5, but the ranking underneath scores 0.69 AUROC, and it agrees with a code-quality panel on 89.7% of style pairs.">
-<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=3">
-<meta name="twitter:image:alt" content="VulcanBench Verdict v1: how the test works in three steps, and three results for Jev against always guessing">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=4">
+<meta name="twitter:image:alt" content="VulcanBench Verdict v1 model card for Jev 1.13.0: accuracy against always guessing for every question, Jev's confidence that a fix works, and a table of ranking quality and calibration">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
 <link rel="apple-touch-icon" href="/assets/logo.png">
 <link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
 <link rel="stylesheet" href="/style.css?v=30">
-<link rel="stylesheet" href="/benchmarks-suites.css?v=3">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=4">
 </head>
 <body>
 
@@ -68,8 +68,18 @@
         <p>TypeSafe AI's Jev is a System One model: it does not generate text, it returns a typed decision, either one option from a fixed set, a score on an ordered scale, or the probability that a statement is true, in a single parallel pass. It cannot write code, so it cannot take <a href="/benchmarks.html#swe-v4">VulcanBench Frontier v4</a>. It can judge code, which is what this suite asks it to do. Every headline answer here was produced by running tests, not by asking another model.</p>
         <p><strong>Correction, September 23, 2026.</strong> The first version of this report scored yes or no questions at a 0.5 cutoff. Jev's probability that a patch passes never exceeds 0.42, so that cutoff sat outside its output range and no item could be answered "passes". Those figures were an artifact of the decision rule, not of the model. This version reports the ranking, which needs no cutoff, alongside accuracy at a cutoff fitted on the development split. Two claims did not survive and are withdrawn; see <a href="#correction">what changed</a>.</p>
       </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>An AI agent fixes a bug</h3><p>Frontier coding agents wrote 745 distinct fixes for 23 engineering tasks during our Frontier v4 runs.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>The fix is run against hidden tests</h3><p>Each task has a test suite the agent never saw. It records whether the fix passes every test, passes some, or breaks something that used to work.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>Jev reviews the fix</h3><p>Jev gets the bug report and the fix, never the test results, and answers one question with a probability, such as "does this fix pass every test?"</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>We score the answer</h3><p>Jev's answer is compared with what the tests showed, and with the score for always giving the most common answer.</p></li>
+        </ol>
+        <p>Every fix yields three questions about its test results, plus a separate question comparing two fixes for the same task on how well they are written, which is checked against AI reviewers rather than tests. 2,163 questions in all. For yes or no questions, the probability Jev needs to count as "yes" is chosen on a separate set of fixes that are never scored, so Jev is judged at its best cutoff without seeing the answers.</p>
+      </section>
       <div class="report-resources" aria-label="Report and evidence downloads">
-        <a class="resource" href="/assets/cards/verdict-v1-jev.png?v=3" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, how the test works and three results</span></a>
+        <a class="resource" href="/assets/cards/verdict-v1-jev.png?v=4" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, accuracy, confidence and every question</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by family</span><span class="resource-meta">CSV, Jev and the majority floor</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/results.json"><span class="resource-kind">Data</span><span class="resource-title">Every published number</span><span class="resource-meta">JSON, metrics, confusion counts and the probe</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/report.md"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">Markdown, findings, method and limits</span></a>
@@ -78,7 +88,7 @@
       </div>
       <nav class="report-contents" aria-label="Study sections">
         <span class="report-contents-label">On this page</span>
-        <a href="#suite"><span class="n">01</span>What the suite asks</a>
+        <a href="#suite"><span class="n">01</span>The four questions</a>
         <a href="#results"><span class="n">02</span>Results</a>
         <a href="#pessimism"><span class="n">03</span>Probabilities and ranking</a>
         <a href="#style"><span class="n">04</span>Where it works</a>
@@ -88,8 +98,8 @@
       </nav>
 
       <section class="report-section" id="suite" aria-labelledby="suite-heading">
-        <h2 id="suite-heading">What the suite asks</h2>
-        <p>Verdict v1 is built for models that return a typed decision and cannot write code. Its items are mined from finished Frontier v4 runs: 745 distinct patches written by frontier coding agents across 23 behavioral-reconstruction tasks, each one already graded by that suite's hidden tests. The model sees the issue and the patch, and answers one question about it. The answer it should have given is what the tests reported.</p>
+        <h2 id="suite-heading">The four questions</h2>
+        <p>The fixes come from 23 behavioral-reconstruction tasks, where each agent rebuilt a retired program to match its real behaviour. Jev sees one fix, or one pair of fixes, per question.</p>
         <div class="effort-choices">
           <div><h3>Does this patch pass?</h3><p>611 test items</p><p>A yes or no question with a probability attached. The reference is the hidden test suite: did every target test pass, with nothing regressing.</p></div>
           <div><h3>Does it break something?</h3><p>611 test items</p><p>The same patches, asked whether a test that passed before the patch now fails. Only 36 of them really regress.</p></div>
@@ -99,10 +109,10 @@
         <p>A fifth family, picking which file the fix belongs in, is kept only as a wiring probe. Jev answered 19 of 19 correctly, and then we checked the items: every issue names the answer file's stem in its own text, so the question is string matching. It supports no claim about ability. Items are split by task, so no task appears in both the development and test splits, and the test split is what is published here.</p>
       </section>
       <figure class="suite-card">
-        <a href="/assets/cards/verdict-v1-jev.png?v=3" aria-label="Open the Jev results card at full resolution">
-          <img src="/assets/cards/verdict-v1-jev.png?v=3" width="2560" height="1440" fetchpriority="high" alt="VulcanBench Verdict v1 card for Jev. How the test works: an AI agent fixes a bug, Jev reads the bug report and the fix and answers one question about it, and the answer is checked against the fix's real test results. What we found: on whether a fix works, Jev scores 63 percent, the same as always guessing yes; it never once rated a fix as more likely to work than not, though 383 of 611 do work, and its highest confidence was 42 percent; on which of two fixes is better written, it agrees with the AI code reviewers 90 percent of the time against 58 percent for guessing. Exact values are in the tables on this page.">
+        <a href="/assets/cards/verdict-v1-jev.png?v=4" aria-label="Open the Jev results card at full resolution">
+          <img src="/assets/cards/verdict-v1-jev.png?v=4" width="2400" height="1725" fetchpriority="high" alt="VulcanBench Verdict v1 model card for Jev 1.13.0. Left chart, accuracy against always guessing: 63 against 63 percent on whether a fix passes every test, 93 against 94 on whether it breaks an existing test, 50 against 63 on which of four test outcomes, and 90 against 58 on which fix is better written. Right chart, Jev's stated confidence that a fix works across 611 fixes: every value falls between 9 and 42 percent, below the 50 percent yes threshold, with fixes that really work concentrated at the higher end. Table 1 lists items, accuracy, ranking quality and calibration error for every question. Exact values are in the tables on this page.">
         </a>
-        <figcaption>The yes or no results use a cutoff tuned on a separate set of fixes, so the comparison with guessing is fair to Jev. The style result, marked with an asterisk, is checked against AI reviewers rather than tests. <a href="/assets/cards/verdict-v1-jev.png?v=3">Open full-size card</a>.</figcaption>
+        <figcaption>Whiskers show &plusmn;1 standard error. Jev's yes or no results use a cutoff chosen on a separate set of fixes; at the usual 50% it never answers yes, as the right-hand chart shows. The better-written question, marked with an asterisk, is checked against AI reviewers rather than tests. <a href="/assets/cards/verdict-v1-jev.png?v=4">Open full-size card</a>.</figcaption>
       </figure>
 
       <section class="report-section" id="results" aria-labelledby="results-heading">

@@ -90,3 +90,23 @@
   .report-contents { gap: 8px 18px; }
   .benchmark-report .report-contents a { font-size: 14px; }
 }
+
+/* Report page: a boxed "how the test works" flow, four steps left to right */
+.how-it-works { margin: 28px 0 6px; padding: 24px 26px 22px; border: 1px solid var(--hairline); border-radius: 4px; background: var(--paper-2); }
+.how-it-works h2 { font-family: var(--display); font-size: 24px; margin: 0 0 18px; }
+.how-it-works .flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; }
+.how-it-works .flow li { position: relative; }
+.how-it-works .flow li:not(:last-child)::after { content: "\2192"; position: absolute; top: 3px; right: -27px; font-family: var(--mono); font-size: 20px; color: var(--soft); }
+.how-it-works .flow-n { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-bottom: 10px; border: 1.5px solid var(--ink); border-radius: 50%; font-family: var(--mono); font-size: 14px; font-weight: 500; }
+.how-it-works h3 { font-family: var(--display); font-size: 18px; line-height: 1.3; margin: 0 0 6px; }
+.how-it-works .flow p { font-size: 15.5px; line-height: 1.5; margin: 0; color: var(--soft); }
+.how-it-works > p { font-size: 16px; line-height: 1.55; margin: 20px 0 0; padding-top: 16px; border-top: 1px solid var(--hairline); }
+@media (max-width: 860px) {
+  .how-it-works .flow { grid-template-columns: 1fr 1fr; gap: 26px 36px; }
+  .how-it-works .flow li:nth-child(2)::after { content: none; }
+}
+@media (max-width: 560px) {
+  .how-it-works { padding: 20px 18px; }
+  .how-it-works .flow { grid-template-columns: 1fr; gap: 22px; }
+  .how-it-works .flow li:not(:last-child)::after { content: none; }
+}
