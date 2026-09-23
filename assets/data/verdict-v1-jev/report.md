@@ -23,21 +23,21 @@ the hidden test suite reported when that patch was graded.
 > split. Two claims did not survive and are withdrawn; see
 > [What changed in the correction](#what-changed-in-the-correction).
 
-> **An open question about the three correctness questions, added
-> September 23, 2026.** Every fix in this suite comes from a task where an
-> agent rebuilt a retired program, and the hidden tests check byte-for-byte
-> agreement with that program's actual behaviour, including quirks the
-> written specification gets wrong. Jev is shown only the bug report and the
-> fix. It never sees the specification, the retired program or any of its
-> output, and the bug report does not list the quirks. So whether a fix
-> passes may not be knowable by any reader, human or model, from what Jev is
-> given. Until a control is run, read the correctness rows as "Jev did not
-> beat guessing on these items", not as evidence that it cannot judge
-> whether code works. A frontier language model is being given the same
-> inputs as that control. The calibration finding stands either way: a
-> well-calibrated model facing a question it cannot answer should state
-> roughly the base rate, 63%, not 22%. The style question is unaffected,
-> because how well a fix is written is visible in the fix itself.
+> **Is the pass question answerable at all? A control, added September 23,
+> 2026.** Every fix here comes from a task where an agent rebuilt a retired
+> program, and the hidden tests check agreement with that program's real
+> behaviour, including quirks the written specification gets wrong. Jev sees
+> only the bug report and the fix. To check that the question can be answered
+> from that alone, GPT-6 Astra at high effort, through Codex, was given
+> exactly the same inputs on the 134 development-split fixes, 56.7% of which
+> pass. It scored 70.9% at the usual 50% line with no tuning, and ranked the
+> fixes with an AUROC of 0.82. So the question is answerable to a real
+> degree: the hidden quirks cap how well any reader can do, but they do not
+> make the task impossible. On the same fixes Jev ranked with an AUROC of
+> 0.76, a gap too small to call on 134 items, but its stated probabilities
+> stayed between 10% and 37%, so they cannot be used without re-tuning.
+> Jev's shortfall is calibration, not an unanswerable test. A run on the 611
+> published fixes is in progress.
 
 ## Results
 
@@ -143,9 +143,9 @@ tracks the true split (180 to 131), so there is no position bias.
 
 Judges are opinion, so this is not a correctness result. It is still the
 clearest positive signal in the suite, and it is the one place where Jev's
-probabilities are both discriminating and honestly scaled. Whether Jev can
-also judge what code does is not settled here; see the open question under
-the correction note.
+probabilities are both discriminating and honestly scaled. On the pass question
+its ranking comes close to a frontier model's (see the control under the
+correction note); what it lacks there is probabilities usable as stated.
 
 ### 5. The localization probe is not a result
 
@@ -160,9 +160,9 @@ Jev cannot be dropped in as a merge gate or a continuous-integration
 pre-filter on the strength of its own probabilities. Read literally, it says
 every patch is more likely to fail than pass, which would block everything.
 Read as a ranking, with a cutoff fitted on your own labelled data, it comes
-out about level with answering "it passes" every time. That is a statement
-about these items, where the information needed to decide may not be in the
-input at all; it is not yet a statement about Jev on code review in general.
+out about level with answering "it passes" every time. A frontier model given
+the same inputs does beat guessing (see the control), so the gap is in how
+Jev states its confidence, not in the test.
 
 Where the judgment is about the shape of the code rather than its behaviour,
 the picture changes: 89.7% agreement with a calibrated judge panel, AUROC
