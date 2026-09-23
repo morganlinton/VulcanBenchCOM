@@ -1,0 +1,39 @@
+{
+  "source_artifacts_sha256": {
+    "v3.11/summary.json": "f3f605603520e6f6941bd605eb1ef79a073bbe04cd6c26ab1e41eda49a8b6e09",
+    "v3.11/protocol.json": "a46cda0b67a8480569f0a323a160b86aef32cfaf16ae267f3bdef2573d930b10",
+    "v3.11/private-manifest.json": "d9eae1d5ad785c53004b51e9a019c6388792a4acc923ffb8721de03d3f6c7cb4",
+    "v3.9/calibration-muse.json": "390377839156e13d3b66b161f4f06435f094b5950d14cbebb695b7a6dc758fe7",
+    "v3.9/calibration-grok.json": "0dd725e7226b9ba365fed8311109d002453823feba2dee9dd9d0d52fe355e140",
+    "v3.10/calibration-sol.json": "b6a1b2fb849d1867a5ea69279214ef2fbe755112d4bd9dad79d695524185b8ca",
+    "comparison-judged.json": "e93d351eb4a2257d015c3e329ed6ecacc9b95b2e436c2a3df279b90f621c6f31",
+    "comparison.json": "9473e196c55443be8daab9cd1cbdd97597dc124bf6903df2924589d86209bb68"
+  },
+  "export_checks": [
+    "69 runs attempted across the three effort levels SWE-2 offers, 68 finished, 65 judged and published",
+    "the four excluded runs are exactly the four the population record lists, each with its reason, and each is a functional fail, so the sweep's pass counts equal the judged cells' pass counts",
+    "no probe was marked invalid and the frozen summary publishes a score for all 65 judged submissions",
+    "Muse Spark 1.3 is the only scored panel; both failed calibration verdicts are exported beside its passing one",
+    "every published row has the panel's reviewed score, and the one row that passed no quirk family carries the pre-registered redistribution instead of an intent-recovery score",
+    "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
+    "three-cell means and standard errors matched to the frozen summary's groups",
+    "no run carries a cost: every cost field is null, matching the population record, and the credit and ACU counters are exported as the receipts recorded them",
+    "the judged population record's hash matches the one frozen in the protocol",
+    "no dashes or host paths in exported text"
+  ],
+  "limits": [
+    "Code quality on this page comes from one judge. Grok 4.6 (v3.9) and GPT-5.6 Sol (v3.10) both failed gate 16 of the calibration exam, so under the protocol's pre-registered single-panel rule Devin SWE-2 is scored by Muse Spark 1.3 alone rather than by the two-judge panel behind every other Frontier v4 entry.",
+    "Muse passed its exam using the pre-registered one-gate allowance on the repeatability gate, as recorded in calibration.json.",
+    "The high cell's Code quality and combined score cover 20 of its 23 runs and the max cell's cover 22 of 23. The excluded runs produced no judgeable submission and all count as functional fails.",
+    "The one run that did not finish has no receipt, so it appears in did_not_finish rather than in the token and runtime aggregates.",
+    "Cost is unavailable, not zero. Cognition publishes no per-token rate for SWE-2, and the catalog's Free tier is a promotion dated through 2026-10-10 rather than a rate, so these runs cannot be priced and are not compared on cost with the priced models on this board."
+  ],
+  "publication_scope": "Per-run scores, the judge's sub-scores, aggregates, judge protocol text, all three calibration verdicts and control means, raw tokens, runtime and Devin's own credit and ACU counters. No cost is published.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}
