@@ -78,12 +78,15 @@
       "se": 4729670.587117841
     },
     "raw_tokens_total": 386452156,
-    "usd": {
+    "output_tokens": {
       "n": 23,
-      "mean": 0.0,
-      "se": 0.0
+      "mean": 220480.60869565216,
+      "se": 53092.46917063976
     },
-    "usd_total": 0.0
+    "output_tokens_total": 5071054,
+    "usd": null,
+    "usd_total": null,
+    "cost": "unavailable"
   },
   {
     "model": "swe2",
@@ -164,12 +167,15 @@
       "se": 944121.6128164232
     },
     "raw_tokens_total": 165578005,
-    "usd": {
+    "output_tokens": {
       "n": 22,
-      "mean": 0.0,
-      "se": 0.0
+      "mean": 136664.68181818182,
+      "se": 16406.226969080362
     },
-    "usd_total": 0.0
+    "output_tokens_total": 3006623,
+    "usd": null,
+    "usd_total": null,
+    "cost": "unavailable"
   },
   {
     "model": "swe2",
@@ -250,11 +256,14 @@
       "se": 1185163.8018067444
     },
     "raw_tokens_total": 223802374,
-    "usd": {
+    "output_tokens": {
       "n": 23,
-      "mean": 0.0,
-      "se": 0.0
+      "mean": 170843.13043478262,
+      "se": 16394.985984984654
     },
-    "usd_total": 0.0
+    "output_tokens_total": 3929392,
+    "usd": null,
+    "usd_total": null,
+    "cost": "unavailable"
   }
 ]

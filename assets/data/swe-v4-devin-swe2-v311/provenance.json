@@ -17,7 +17,7 @@
     "every published row has the panel's reviewed score, and the one row that passed no quirk family carries the pre-registered redistribution instead of an intent-recovery score",
     "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
     "three-cell means and standard errors matched to the frozen summary's groups",
-    "every run carries a zero cost, a zero credit counter and a zero ACU counter, as a free model must",
+    "no run carries a cost: every cost field is null, matching the population record, and the credit and ACU counters are exported as the receipts recorded them",
     "the judged population record's hash matches the one frozen in the protocol",
     "no dashes or host paths in exported text"
   ],
@@ -25,9 +25,10 @@
     "Code quality on this page comes from one judge. Grok 4.6 (v3.9) and GPT-5.6 Sol (v3.10) both failed gate 16 of the calibration exam, so under the protocol's pre-registered single-panel rule Devin SWE-2 is scored by Muse Spark 1.3 alone rather than by the two-judge panel behind every other Frontier v4 entry.",
     "Muse passed its exam using the pre-registered one-gate allowance on the repeatability gate, as recorded in calibration.json.",
     "The high cell's Code quality and combined score cover 20 of its 23 runs and the max cell's cover 22 of 23. The excluded runs produced no judgeable submission and all count as functional fails.",
-    "The one run that did not finish has no receipt, so it appears in did_not_finish rather than in the token and runtime aggregates."
+    "The one run that did not finish has no receipt, so it appears in did_not_finish rather than in the token and runtime aggregates.",
+    "Cost is unavailable, not zero. Cognition publishes no per-token rate for SWE-2, and the catalog's Free tier is a promotion dated through 2026-10-10 rather than a rate, so these runs cannot be priced and are not compared on cost with the priced models on this board."
   ],
-  "publication_scope": "Per-run scores, the judge's sub-scores, aggregates, judge protocol text, all three calibration verdicts and control means, raw tokens and Devin's own cost counters.",
+  "publication_scope": "Per-run scores, the judge's sub-scores, aggregates, judge protocol text, all three calibration verdicts and control means, raw tokens, runtime and Devin's own credit and ACU counters. No cost is published.",
   "withheld": [
     "raw prompts and responses",
     "submitted patches and reconstructed sources",

@@ -28,11 +28,13 @@ WEIGHTS = {"functional": 0.50, "quality": 0.085, "security": 0.085, "code_qualit
 SPLIT_WITHOUT_L3 = {"l1": 0.24, "l2": 0.09}
 PROTOCOL_ID = "code-quality-maintenance-v3.11"
 INVALID_MARKER = "operator-invalid.json"
-# SWE-2 is free on Devin's plans (its catalog lists the model at cost tier "Free"), so every run costs $0 and the
-# receipts' own credit and ACU counters are zero. Nothing here is priced from a rate table.
-COST_USD = 0.0
-PRICING_METHOD = ("SWE-2 is free on Devin's plans (catalog cost tier Free), so cost per task is $0; the receipts' own "
-                  "Devin credit and ACU counters are recorded per run and were zero throughout")
+# Cognition publishes no per-token rate for SWE-2, and its catalog's "Free" tier is a promotion dated through
+# 2026-10-10 rather than a price, so cost is reported as unavailable, never as zero. Every run's cost field is null,
+# matching the population record. What is measured instead is tokens, runtime and Devin's own credit and ACU counters.
+COST_UNAVAILABLE = None
+PRICING_METHOD = ("unavailable: Cognition publishes no per-token rate for SWE-2, and the catalog's Free tier is a "
+                  "promotion dated through 2026-10-10 rather than a rate, so no cost is estimated; the receipts' own "
+                  "Devin credit and ACU counters are recorded per run instead")
 # The four runs the v3.11 population builder excludes rather than judges. Each one counts as a functional fail in the sweep.
 EXCLUDED_TASKS = {
     ("high", "legacy-cellarcore-binary-parity"): "reached the 3-hour task budget before verification",
@@ -125,7 +127,7 @@ def main():  # noqa: PLR0915, one linear export
     for record in sweep_record["rows"]:
         receipt = record["solver_receipt"]
         assert type(receipt["raw_tokens"]) is int and receipt["raw_tokens"] > 0
-        # SWE-2 is free: the population record carries no API-equivalent cost and the receipts' counters are zero.
+        # SWE-2 is unpriced: the population record carries no API-equivalent cost for any run.
         assert record["api_equivalent_cost_usd"] is None, record["run_id"]
         assert (receipt.get("devin_credit_cost") or 0) == 0 and (receipt.get("devin_acu_cost") or 0.0) == 0.0
         assert record["solver_cli_version"].startswith("devin ")
@@ -146,7 +148,7 @@ def main():  # noqa: PLR0915, one linear export
                 "duration_s": record["duration_s"], "raw_tokens": receipt["raw_tokens"], "token_usage": receipt["usage"],
                 "cli_summary_units": record.get("reported_tokens"),
                 "devin_credits": receipt.get("devin_credit_cost") or 0, "devin_acu": receipt.get("devin_acu_cost") or 0.0,
-                "estimated_usd": COST_USD, "pricing_method": PRICING_METHOD,
+                "estimated_usd": COST_UNAVAILABLE, "pricing_method": PRICING_METHOD,
                 "started_at": record["started_at"], "finished_at": record["finished_at"],
                 "solver_cli_version": record["solver_cli_version"], "evidence_sha256": None,
             })
@@ -188,7 +190,7 @@ def main():  # noqa: PLR0915, one linear export
             "raw_tokens": receipt["raw_tokens"], "token_usage": receipt["usage"],
             "cli_summary_units": record.get("reported_tokens"),
             "devin_credits": receipt.get("devin_credit_cost") or 0, "devin_acu": receipt.get("devin_acu_cost") or 0.0,
-            "estimated_usd": COST_USD, "pricing_method": PRICING_METHOD,
+            "estimated_usd": COST_UNAVAILABLE, "pricing_method": PRICING_METHOD,
             "started_at": run["started_at"], "finished_at": run["finished_at"],
             "solver_cli_version": run.get("solver_cli_version"),
             "evidence_sha256": run["evidence_sha256"],
@@ -210,8 +212,9 @@ def main():  # noqa: PLR0915, one linear export
                        "reason the population builder excluded them before any judge call",
         "intent_recovery_rule": "When a submission passed no quirk family, intent recovery has no denominator, "
                                 "intent_recovery is null, intent_recovery_redistributed is true and Code quality equals the reviewed score",
-        "cost_rule": "SWE-2 is free on Devin's plans (catalog cost tier Free), so estimated_usd is 0 on every run; devin_credits and "
-                     "devin_acu are the receipts' own counters and were zero throughout",
+        "cost_rule": "estimated_usd is null on every run: Cognition publishes no per-token rate for SWE-2, and the catalog's "
+                     "Free tier is a promotion dated through 2026-10-10 rather than a rate, so a cost figure would be invented. "
+                     "devin_credits and devin_acu are the receipts' own counters, recorded as measured",
         "token_fields": {"raw_tokens": "Devin CLI raw total including cache reads, deduplicated by request id",
                          "cli_summary_units": "the CLI's own summary count, which for Devin is the same raw total"},
         "rows": rows, "did_not_finish": not_finished})
@@ -239,7 +242,7 @@ def main():  # noqa: PLR0915, one linear export
                              "" if r["intent_recovery_redistributed"] is None else r["intent_recovery_redistributed"],
                              *[fmt(panels[p].get(k)) for p in PANELS for k in ("reviewed_score", "readability", "maintainability", "intent_recovery")],
                              "" if r["passed_quirk_families"] is None else r["passed_quirk_families"], r["duration_s"], r["raw_tokens"],
-                             r["devin_credits"], f'{r["devin_acu"]:.1f}', f'{r["estimated_usd"]:.2f}',
+                             r["devin_credits"], f'{r["devin_acu"]:.1f}', "",  # cost is unavailable, never zero
                              r["started_at"], r["finished_at"], r["solver_cli_version"], r["evidence_sha256"] or ""])
 
     groups = []
@@ -265,7 +268,9 @@ def main():  # noqa: PLR0915, one linear export
                 "passed_all_runs": sum(r["functional"] == 1 for r in rs),
                 "minutes": mean_se(r["duration_s"] / 60 for r in rs), "solver_fallback_runs": sum(r["solver_fallback"] for r in rs),
                 "raw_tokens": mean_se(r["raw_tokens"] for r in rs), "raw_tokens_total": sum(r["raw_tokens"] for r in rs),
-                "usd": mean_se(r["estimated_usd"] for r in rs), "usd_total": sum(r["estimated_usd"] for r in rs),
+                "output_tokens": mean_se(r["token_usage"]["output_tokens"] for r in rs),
+                "output_tokens_total": sum(r["token_usage"]["output_tokens"] for r in rs),
+                "usd": None, "usd_total": None, "cost": "unavailable",
             })
             entry = summary["groups"][f"{model}/{effort}"]
             assert groups[-1]["n"] == entry["n"] == entry["composite_v3"]["n"]
@@ -286,7 +291,7 @@ def main():  # noqa: PLR0915, one linear export
         writer.writerow(["model", "effort", "n", "runs_finished", "runs_attempted", "combined_33", "combined_33_se", "combined_20_profile",
                          "code_quality", "code_quality_se", "reviewed_score", "intent_recovery", "intent_recovery_redistributed_runs",
                          "readability", "maintainability", "muse_reviewed", "functional", "automated_quality", "security", "passed",
-                         "mean_minutes", "mean_raw_tokens", "mean_usd", "total_usd"])
+                         "mean_minutes", "mean_raw_tokens", "mean_output_tokens", "cost_usd"])
         for g in groups:
             writer.writerow([NAMES[g["model"]], g["effort"], g["n"], g["runs"], g["runs_attempted"],
                              f'{g["combined_33"]["mean"]:.4f}', f'{g["combined_33"]["se"]:.4f}', f'{g["combined_20_profile"]["mean"]:.4f}',
@@ -294,36 +299,48 @@ def main():  # noqa: PLR0915, one linear export
                              f'{g["intent_recovery"]["mean"]:.4f}', g["intent_recovery_redistributed_runs"], f'{g["readability"]["mean"]:.4f}',
                              f'{g["maintainability"]["mean"]:.4f}', f'{g["by_panel"]["muse"]["mean"]:.4f}',
                              f'{g["functional"]["mean"]:.4f}', f'{g["automated_quality"]["mean"]:.4f}', f'{g["security"]["mean"]:.4f}', g["passed"],
-                             f'{g["minutes"]["mean"]:.4f}', f'{g["raw_tokens"]["mean"]:.1f}', f'{g["usd"]["mean"]:.2f}', f'{g["usd_total"]:.2f}'])
+                             f'{g["minutes"]["mean"]:.4f}', f'{g["raw_tokens"]["mean"]:.1f}', f'{g["output_tokens"]["mean"]:.1f}',
+                             "unavailable"])
     totals = {m: {"runs_attempted": sum(1 for r in rows if r["model"] == m) + len(not_finished),
                   "runs": sum(1 for r in rows if r["model"] == m),
-                  "usd": sum(r["estimated_usd"] for r in rows if r["model"] == m),
+                  "usd": None,
                   "raw_tokens": sum(r["raw_tokens"] for r in rows if r["model"] == m),
                   "output_tokens": sum(r["token_usage"]["output_tokens"] for r in rows if r["model"] == m),
                   "solver_hours": sum(r["duration_s"] for r in rows if r["model"] == m) / 3600}
               for m in LEVELS}
     save("economics.json", {
-        "scope": "Solver inference only, over the 68 finished runs of the sweep. SWE-2 is free on Devin's plans, so cost per task is $0 "
-                 "and there is no rate table to apply. Judging and local infrastructure are excluded.",
-        "cost": "SWE-2 is listed in Devin's catalog at cost tier Free and the sweep ran on a Devin subscription; the receipts' own credit "
-                "and ACU counters read zero on every run.",
+        "scope": "Tokens and runtime for solver inference only, over the 68 finished runs of the sweep. Judging and local "
+                 "infrastructure are excluded. No cost is reported: see the cost field.",
+        "cost": "unavailable",
+        "cost_reason": "Cognition publishes no per-token rate for SWE-2. Its catalog cost tier Free is a promotion dated through "
+                       "2026-10-10, not a rate, so any figure derived from it would read as a measured price and would stop being "
+                       "true when the promotion ends. The population record carries a null cost for every run. What is measured "
+                       "instead is tokens, runtime and Devin's own credit and ACU counters, which read zero throughout.",
+        "cost_revisit": "If Cognition publishes a per-token API rate for SWE-2, these runs can be repriced from their receipts and "
+                        "the column stops being unavailable.",
         "sources": {"devin": "Devin CLI receipts (the per-request usage records in the CLI's agent stream)"},
-        "rates_per_million": {"swe2": {"input": 0.0, "cached_input": 0.0, "output": 0.0}},
+        "rates_per_million": None,
+        "pricing_verified": None,
         "groups": [{"model": g["model"], "effort": g["effort"], "n": g["runs"], "runs_attempted": g["runs_attempted"],
-                    "usd": g["usd"], "usd_total": g["usd_total"], "raw_tokens": g["raw_tokens"], "raw_tokens_total": g["raw_tokens_total"],
+                    "usd": None, "usd_total": None, "cost": "unavailable",
+                    "raw_tokens": g["raw_tokens"], "raw_tokens_total": g["raw_tokens_total"],
+                    "output_tokens": g["output_tokens"], "output_tokens_total": g["output_tokens_total"],
                     "minutes": g["minutes"], "solver_fallback_runs": g["solver_fallback_runs"]} for g in groups],
         "totals": totals,
         "limitations": [
-            "SWE-2 is free on Devin's plans (catalog cost tier Free), so cost per task is $0; the sweep ran on a Devin subscription.",
+            "SWE-2 has no public API price, so no cost is estimated and the cost column reads unavailable; the sweep ran on a "
+            "Devin subscription. The catalog's Free tier is a promotion dated through 2026-10-10, not a published rate.",
             "Tokens are the Devin CLI's per-request usage receipts, deduplicated by request id: uncached input, cache reads and output.",
-            "Devin's own credit and ACU counters are recorded from the receipts and were zero for every run of this sweep.",
+            "Devin's own credit and ACU counters are recorded from the receipts and were zero for every run of this sweep. A zero "
+            "counter on a subscription is not a price, so it is reported as a counter and not as a cost.",
             "The 68 finished runs are all counted here, the three that changed no source file included. The one run that did not finish "
             "has no receipt and is listed separately; its 3.0 hours of wall clock are not in these totals.",
             "Runtime is solver wall clock as the harness recorded it, judging excluded.",
         ],
         "comparison_sha256": digest(sweep_path),
         "comparison_judged_sha256": digest(judged_path),
-        "note": "Per-run records are in runs.json (raw_tokens, token_usage, devin_credits, devin_acu). Judging is excluded.",
+        "note": "Per-run records are in runs.json (raw_tokens, token_usage, devin_credits, devin_acu; estimated_usd is null "
+                "throughout). Judging is excluded.",
     })
 
     # Calibration: Muse's passing v3.9 verdict gates this pass, and both failed verdicts are published beside it.
@@ -389,7 +406,8 @@ def main():  # noqa: PLR0915, one linear export
                           "pre-registered redistribution instead of an intent-recovery score",
                           "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
                           "three-cell means and standard errors matched to the frozen summary's groups",
-                          "every run carries a zero cost, a zero credit counter and a zero ACU counter, as a free model must",
+                          "no run carries a cost: every cost field is null, matching the population record, and the credit and ACU "
+                          "counters are exported as the receipts recorded them",
                           "the judged population record's hash matches the one frozen in the protocol",
                           "no dashes or host paths in exported text"],
         "limits": ["Code quality on this page comes from one judge. Grok 4.6 (v3.9) and GPT-5.6 Sol (v3.10) both failed gate 16 of the "
@@ -400,9 +418,12 @@ def main():  # noqa: PLR0915, one linear export
                    "The high cell's Code quality and combined score cover 20 of its 23 runs and the max cell's cover 22 of 23. The "
                    "excluded runs produced no judgeable submission and all count as functional fails.",
                    "The one run that did not finish has no receipt, so it appears in did_not_finish rather than in the token and runtime "
-                   "aggregates."],
+                   "aggregates.",
+                   "Cost is unavailable, not zero. Cognition publishes no per-token rate for SWE-2, and the catalog's Free tier is a "
+                   "promotion dated through 2026-10-10 rather than a rate, so these runs cannot be priced and are not compared on cost "
+                   "with the priced models on this board."],
         "publication_scope": "Per-run scores, the judge's sub-scores, aggregates, judge protocol text, all three calibration verdicts and "
-                             "control means, raw tokens and Devin's own cost counters.",
+                             "control means, raw tokens, runtime and Devin's own credit and ACU counters. No cost is published.",
         "withheld": ["raw prompts and responses", "submitted patches and reconstructed sources", "quirk answer keys (they describe hidden-test behaviour)",
                      "reviewer session identifiers and usage receipts"],
         "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists.",

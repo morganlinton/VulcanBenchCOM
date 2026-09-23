@@ -45,14 +45,16 @@ def main():
     totals = econ["totals"]["swe2"]
     for needle in ("Muse Spark 1.3", "Grok 4.6", "GPT-5.6 Sol", "code-quality-maintenance-v3.11", "code-quality-maintenance-v3.9",
                    "code-quality-maintenance-v3.10", "gate 16", "single-panel rule", "24 reviewed plus 9 intent recovery",
-                   "$0", f'{totals["raw_tokens"] / 1e6:,.0f}M', f'{totals["solver_hours"]:.1f} h',
+                   "unavailable", f'{totals["raw_tokens"] / 1e6:,.0f}M', f'{totals["solver_hours"]:.1f} h',
                    "cellarcore", "snapcore", "vaultcore", "freightcore", "65 of the 69 runs are judged", "20 of 23", "22 of 23"):
         assert needle in all_text, needle
-    # Cost is $0, never "unpriced" and never a rate table.
-    for banned in ("unpriced", "no price available", "API-equivalent", "list rates"):
+    # Cost is unavailable, never a zero and never a rate table.
+    for banned in ("$0", "cost tier Free", "free on Devin", "list rates", "rates checked"):
         assert banned not in all_text, banned
-    print(f"Verified {PAGES} pages, three effort rows, the judged-cell counts, the single-judge disclosure, the $0 cost, "
-          "page numbers, GitHub link and writing.")
+    assert totals["usd"] is None
+    assert "no per-token rate" in all_text
+    print(f"Verified {PAGES} pages, three effort rows, the judged-cell counts, the single-judge disclosure, the unavailable "
+          "cost with no zero anywhere, page numbers, GitHub link and writing.")
 
 
 if __name__ == "__main__":

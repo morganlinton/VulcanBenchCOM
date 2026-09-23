@@ -34,7 +34,7 @@ therefore Muse Spark 1.3 alone. Both failing verdicts are published in
 | [groups.json](groups.json) | Three effort aggregates with sample standard errors, pass counts, runtime and tokens, with the judged count and the finished count kept apart |
 | [calibration.json](calibration.json) | All three calibration verdicts, every gate value, the allowance rule and control means: Muse's passing v3.9 verdict, which gates this pass, and Grok's and Sol's failures |
 | [judge-protocols.json](judge-protocols.json) | The exact system text, rubric, pair instruction, probe and match instructions, schemas, weights, repeats, seed, allowance rule, retry rule, control source hashes, the single-panel rule and the v3.11 population record with its exclusions |
-| [economics.json](economics.json) | Raw-token and runtime aggregates per effort and for the sweep, the cost record and its limitations |
+| [economics.json](economics.json) | Raw-token, output-token and runtime aggregates per effort and for the sweep, the record of why cost is unavailable, and the limitations |
 | [provenance.json](provenance.json) | Frozen source hashes, export checks and publication limits |
 | [REPRODUCING.md](REPRODUCING.md) | Public arithmetic checks and links to the protocol documents, controls, runner and operator wrapper |
 | [Scores CSV](../swe-v4-devin-swe2-v311-scores.csv) | Aggregate values for spreadsheets |
@@ -93,10 +93,19 @@ and tokens use `runs`.
 
 ## Cost and tokens
 
-Cost is $0. SWE-2 is listed in Devin's catalog at cost tier Free, and the
-sweep ran on a Devin subscription; Devin's own credit and ACU counters in the
-receipts read zero on every run and are recorded per run as `devin_credits`
-and `devin_acu`. There is no rate table to apply and nothing is estimated.
+Cost is **unavailable**, not zero. Cognition publishes no per-token rate for
+SWE-2, and the cost tier "Free" in Devin's catalog is a promotion dated
+through 2026-10-10 rather than a published rate, so any figure taken from it
+would read as a measured price and would stop being true when the promotion
+ends. `estimated_usd` is null on every run, matching the `api_equivalent_cost_usd`
+the population record carries, and the aggregate cost column reads
+`unavailable`. If Cognition publishes a rate, these runs can be repriced from
+their receipts.
+
+What is measured instead is tokens, runtime and Devin's own counters. The
+receipts' credit and ACU counters read zero on every run and are recorded per
+run as `devin_credits` and `devin_acu`; a zero counter on a subscription is a
+counter, not a price.
 
 Each finished run carries `raw_tokens` (the Devin CLI's total including cache
 reads, deduplicated by request id) and `token_usage` (the receipt's breakdown

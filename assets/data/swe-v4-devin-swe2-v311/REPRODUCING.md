@@ -17,9 +17,9 @@ and their standard errors from the runs (23 judged at medium, 20 at high, 22
 at max; 68 runs timed and counted for tokens), checks the flat CSVs and the
 report page tables against them, checks all three calibration verdicts,
 checks that the four excluded runs are exactly the four the population record
-lists and that each is a functional fail, checks that every run carries a zero
-cost and zero Devin counters, and checks that no dash characters or host paths
-appear in the published text. The PDF check needs `pypdf`. None of these
+lists and that each is a functional fail, checks that no run carries a cost
+figure and that the cost column reads unavailable everywhere, and checks that
+no dash characters or host paths appear in the published text. The PDF check needs `pypdf`. None of these
 commands contacts a provider.
 
 ## Inspect the protocol and the code that ran it

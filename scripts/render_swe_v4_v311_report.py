@@ -107,8 +107,9 @@ def main():  # noqa: PLR0915, one linear document
       f"Medium and high are indistinguishable: {comb[0]:.2f} and {comb[1]:.2f}, with standard errors of "
       f"{t['medium']['combined_33']['se']:.2f} and {t['high']['combined_33']['se']:.2f}, and both pass "
       f"{t['medium']['passed']} of 23 tasks. Only max moves, to {comb[2]:.2f} and {t['max']['passed']} of 23. Code quality runs "
-      f"{min(cq):.2f} to {max(cq):.2f} across the three levels. SWE-2 is free on Devin's plans, so cost per task is $0; what the sweep "
-      f"spends is time and tokens, {et['high']['minutes']['mean']:.1f} to {et['max']['minutes']['mean']:.1f} minutes and "
+      f"{min(cq):.2f} to {max(cq):.2f} across the three levels. Cost per task is unavailable: Cognition publishes no per-token rate for "
+      f"SWE-2, so nothing here is priced. What the sweep spends is time and tokens, "
+      f"{et['high']['minutes']['mean']:.1f} to {et['max']['minutes']['mean']:.1f} minutes and "
       f"{et['high']['raw_tokens']['mean'] / 1e6:.2f}M to {et['medium']['raw_tokens']['mean'] / 1e6:.2f}M raw tokens per task.")
     p("65 of the 69 runs are judged. One high run (cellarcore) reached the 3-hour task budget before verification and did not finish; three "
       "more (snapcore and vaultcore at high, freightcore at max) changed no recognized source file, so there was no submission to review and "
@@ -246,18 +247,25 @@ def main():  # noqa: PLR0915, one linear document
     # Page 5: cost and tokens
     story.append(PageBreak())
     p("Cost and tokens across effort levels", "h1")
-    p("Cost per task is $0. Devin's catalog lists SWE-2 at cost tier Free, the sweep ran on a Devin subscription, and Devin's own credit and "
-      "ACU counters in the CLI receipts read zero on every run, so there is no rate table to apply and nothing here is an estimate. What the "
-      "sweep does spend is time and tokens, and it spends a great deal of both. Neither follows the effort ladder: medium is the heaviest "
-      "level in tokens, high the lightest and the fastest, and max the slowest. Against the Codex models measured on the same suite, which "
-      "run about 10 to 12 minutes and 1.8M to 2.8M tokens per task, Devin is several times slower and several times heavier.")
-    heading("Table 6. Cost, raw tokens and runtime by effort")
-    records = [[label(e), str(et[e]["n"]), "$0.00", "$0.00", f'{et[e]["raw_tokens"]["mean"] / 1e6:.2f}M',
-                f'{et[e]["raw_tokens_total"] / 1e6:.0f}M', f'{et[e]["minutes"]["mean"]:.1f}'] for e in EFFORTS]
-    records.append(["Full sweep", str(totals["runs"]), "$0.00", "$0.00", f'{totals["raw_tokens"] / totals["runs"] / 1e6:.2f}M',
-                    f'{totals["raw_tokens"] / 1e6:,.0f}M', f'{totals["solver_hours"]:.1f} h'])
-    table(["Effort", "Runs", "$/task", "Level total", "Tokens/task", "Level tokens", "Min/task"],
-          records, [70, 46, 60, 70, 74, 74, 62], size=8.6, padding=3)
+    p("<b>Cost per task is unavailable, and that is the published value.</b> Cognition publishes no per-token rate for SWE-2. The cost tier "
+      "\"Free\" in Devin's catalog is a promotion dated through 2026-10-10, not a rate, so a figure taken from it would read as a measured "
+      "price and would stop being true when the promotion ends. No cost is estimated on this page or in the evidence bundle, the population "
+      "record carries a null cost for every run, and SWE-2 is not compared on cost with the priced models on this board. If Cognition "
+      "publishes a rate, these runs can be repriced from their receipts.")
+    p("Devin's own credit and ACU counters in the CLI receipts read zero on every run and are recorded per run, but a zero counter on a "
+      "subscription is a counter and not a price. What the sweep does spend is time and tokens, and it spends a great deal of both. Neither "
+      "follows the effort ladder: medium is the heaviest level in tokens, high the lightest and the fastest, and max the slowest. Against "
+      "the Codex models measured on the same suite, which run about 10 to 12 minutes and 1.8M to 2.8M tokens per task, Devin is several "
+      "times slower and several times heavier.")
+    heading("Table 6. Tokens, runtime and cost by effort")
+    records = [[label(e), str(et[e]["n"]), f'{et[e]["output_tokens"]["mean"] / 1e3:.0f}K',
+                f'{et[e]["raw_tokens"]["mean"] / 1e6:.2f}M', f'{et[e]["raw_tokens_total"] / 1e6:.0f}M',
+                f'{et[e]["minutes"]["mean"]:.1f}', "unavailable"] for e in EFFORTS]
+    records.append(["Full sweep", str(totals["runs"]), f'{totals["output_tokens"] / totals["runs"] / 1e3:.0f}K',
+                    f'{totals["raw_tokens"] / totals["runs"] / 1e6:.2f}M', f'{totals["raw_tokens"] / 1e6:,.0f}M',
+                    f'{totals["solver_hours"]:.1f} h', "unavailable"])
+    table(["Effort", "Runs", "Output/task", "Tokens/task", "Level tokens", "Min/task", "$/task"],
+          records, [62, 40, 66, 66, 66, 56, 70], size=8.6, padding=3)
     p("Runs here are the finished runs of each cell, 68 in all; the run that did not finish has no receipt. Tokens are the Devin CLI's own "
       "per-request usage receipts, deduplicated by request id and summed as uncached input, cache reads and output. Per-run records, "
       "including Devin's credit and ACU counters, are in economics.json and runs.csv.", "small")
@@ -273,7 +281,7 @@ def main():  # noqa: PLR0915, one linear document
       f"<font name='Mono'>groups.json</font>; <font name='Mono'>calibration.json</font> with all three verdicts, every gate value and "
       f"control mean; <font name='Mono'>judge-protocols.json</font> with the exact rubric, system text, probe and match instructions, "
       f"schemas, weights, the single-panel rule and the population record; <font name='Mono'>economics.json</font> with token and runtime "
-      f"aggregates and the cost record; and <font name='Mono'>provenance.json</font> with source hashes and limits. "
+      f"aggregates and the record of why cost is unavailable; and <font name='Mono'>provenance.json</font> with source hashes and limits. "
       f"<link href='{escape(args.github_url)}' color='#10A37F'>{escape(args.github_url)}</link>")
     p("Withheld: " + "; ".join(provenance["withheld"]) + ".")
     heading("Recompute the published numbers")
@@ -281,8 +289,8 @@ def main():  # noqa: PLR0915, one linear document
       "the reviewed score alone where the submission passed no quirk family. The combined score is "
       "100 x (0.50 F + 0.085 Q + 0.085 S + 0.33 C / 100) with F, Q, S on a 0 to 1 scale. Group means weight the cell's judged tasks equally. "
       "The export script recomputes every row from the frozen summary, asserts that the four excluded runs are exactly the four the "
-      "population record lists and that each is a functional fail, asserts that every run carries a zero cost and zero Devin counters, and "
-      "refuses to write if any value differs.")
+      "population record lists and that each is a functional fail, asserts that no run carries a cost figure, and refuses to write if any "
+      "value differs.")
     heading("What this report does not claim")
     p("Code quality here is one model's judgment for a human reader, without the second opinion every other Frontier v4 entry carries and "
       "without any human validation. Standard errors describe task sampling only. The measured-maintenance layer is unbuilt, so the 33 "

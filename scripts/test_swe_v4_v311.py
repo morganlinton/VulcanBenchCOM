@@ -24,8 +24,8 @@ EXCLUDED = [("high", "legacy-cellarcore-binary-parity"), ("high", "legacy-snapco
             ("high", "legacy-vaultcore-binary-parity"), ("max", "legacy-freightcore-binary-parity")]
 JUDGED = {"medium": 23, "high": 20, "max": 22}
 FINISHED = {"medium": 23, "high": 22, "max": 23}
-CARD_SHA256 = "d34551494195c25fcb9cabbb0981398c8d223894e153002a1511d08cf68db2a6"
-ECONOMICS_CARD_SHA256 = "7e45c6ca75ed114c597db783f6fa9f9283a9eb93001e6ce2268b09e8b6de1543"
+CARD_SHA256 = "8b938688b63878c60e43249fc8825ab4949d8829dd7a91f0b6bde0861c63f606"
+ECONOMICS_CARD_SHA256 = "9104e14b16f252bce3bd3ab85d61b61d99c545078622835d52198c7396ccd4f6"
 
 
 def mean_se(values):
@@ -101,8 +101,9 @@ class DevinBundleTests(unittest.TestCase):
                                    (r["panels"]["muse"]["readability"] + r["panels"]["muse"]["maintainability"]) / 2, places=6)
         for r in self.rows:
             self.assertFalse(r["solver_fallback"], r["run_id"])
-            # SWE-2 is free: no cost, no credits, no ACU.
-            self.assertEqual(r["estimated_usd"], 0.0, r["run_id"])
+            # SWE-2 is unpriced: cost is null, never a zero. The credit and ACU counters are measurements, not prices.
+            self.assertIsNone(r["estimated_usd"], r["run_id"])
+            self.assertIn("no per-token rate", r["pricing_method"])
             self.assertEqual(r["devin_credits"], 0, r["run_id"])
             self.assertEqual(r["devin_acu"], 0.0, r["run_id"])
             self.assertGreater(r["raw_tokens"], 0)
@@ -127,7 +128,7 @@ class DevinBundleTests(unittest.TestCase):
                 self.assertEqual(c["combined_33"], "")
                 self.assertEqual(c["code_quality"], "")
                 self.assertEqual(c["muse_intent_recovery"], "")
-            self.assertEqual(float(c["estimated_usd"]), 0.0)
+            self.assertEqual(c["estimated_usd"], "")  # a missing value, not a zero
             self.assertEqual(int(c["devin_credits"]), 0)
             self.assertEqual(int(c["raw_tokens"]), r["raw_tokens"])
 
@@ -162,8 +163,9 @@ class DevinBundleTests(unittest.TestCase):
             self.assertEqual(g["passed"], sum(r["functional"] == 1 for r in judged))
             # Every excluded run is a fail, so the sweep's pass count equals the judged cell's.
             self.assertEqual(g["passed_all_runs"], g["passed"])
-            self.assertEqual(g["usd"]["mean"], 0.0)
-            self.assertEqual(g["usd_total"], 0.0)
+            self.assertIsNone(g["usd"])
+            self.assertIsNone(g["usd_total"])
+            self.assertEqual(g["cost"], "unavailable")
             self.assertEqual(g["solver_fallback_runs"], 0)
             row = self.scores[key]
             self.assertEqual(row["model"], NAMES["swe2"])
@@ -174,6 +176,7 @@ class DevinBundleTests(unittest.TestCase):
                                   ("readability", "readability"), ("maintainability", "maintainability"), ("intent_recovery", "intent_recovery"),
                                   ("mean_minutes", "minutes")):
                 self.assertAlmostEqual(float(row[column]), g[field]["mean"], places=4, msg=(key, column))
+            self.assertEqual(row["cost_usd"], "unavailable")
             self.assertAlmostEqual(float(row["combined_33_se"]), g["combined_33"]["se"], places=4)
             self.assertAlmostEqual(float(row["code_quality_se"]), g["code_quality"]["se"], places=4)
             self.assertEqual(int(row["passed"]), g["passed"])
@@ -206,7 +209,7 @@ class DevinBundleTests(unittest.TestCase):
                                  ("Tasks passed", "".join(f"<td>{g[e]['passed_all_runs']}/23</td>" for e in EFFORTS)),
                                  ("Code quality", cells("code_quality", 2)), ("Human readability", cells("readability", 1)),
                                  ("Minutes per task", cells("minutes", 1)),
-                                 ("Cost per task", "<td>$0</td><td>$0</td><td>$0</td>")):
+                                 ("Cost per task", "<td>unavailable</td><td>unavailable</td><td>unavailable</td>")):
             self.assertIn(f'<th scope="row">{name}</th>{html_cells}</tr>', self.page_html, name)
         comb = [g[e]["combined_33"]["mean"] for e in EFFORTS]
         self.assertIn(f'{comb[0]:.2f} at medium, {comb[1]:.2f} at high, {comb[2]:.2f} at Max', self.page_html)
@@ -225,25 +228,32 @@ class DevinBundleTests(unittest.TestCase):
             self.assertEqual(b["n"], len(rs))
             self.assertEqual(b["n"], FINISHED[e])
             self.assertEqual(b["runs_attempted"], 23)
-            self.assertEqual(b["usd"]["mean"], 0.0)
-            self.assertEqual(b["usd_total"], 0.0)
+            self.assertIsNone(b["usd"])
+            self.assertIsNone(b["usd_total"])
+            self.assertEqual(b["cost"], "unavailable")
             self.assertAlmostEqual(b["raw_tokens"]["mean"], statistics.mean(r["raw_tokens"] for r in rs), places=6)
+            self.assertAlmostEqual(b["output_tokens"]["mean"], statistics.mean(r["token_usage"]["output_tokens"] for r in rs), places=6)
             self.assertAlmostEqual(b["minutes"]["mean"], statistics.mean(r["duration_s"] / 60 for r in rs), places=6)
-            cells = (f'<td>{b["n"]}</td><td>$0.00</td><td>$0.00</td>'
-                     f'<td>{b["raw_tokens"]["mean"] / 1e6:.2f}M</td><td>{b["minutes"]["mean"]:.1f}</td>')
+            cells = (f'<td>{b["n"]}</td><td>{b["output_tokens"]["mean"] / 1e3:.0f}K</td><td>{b["raw_tokens_total"] / 1e6:.0f}M</td>'
+                     f'<td>{b["raw_tokens"]["mean"] / 1e6:.2f}M</td><td>{b["minutes"]["mean"]:.1f}</td><td>unavailable</td>')
             self.assertIn(f'<tr data-econ-effort="{e}"><th scope="row">{label(e)}</th>{cells}</tr>', self.page_html, e)
         t = self.econ["totals"]["swe2"]
-        self.assertEqual(t["usd"], 0.0)
+        self.assertIsNone(t["usd"])
+        self.assertEqual(self.econ["cost"], "unavailable")
+        self.assertIsNone(self.econ["rates_per_million"])
+        self.assertIsNone(self.econ["pricing_verified"])
+        self.assertIn("no per-token rate", self.econ["cost_reason"])
+        self.assertIn("2026-10-10", self.econ["cost_reason"])
         self.assertEqual(t["raw_tokens"], sum(r["raw_tokens"] for r in self.rows))
+        self.assertEqual(t["output_tokens"], sum(r["token_usage"]["output_tokens"] for r in self.rows))
         self.assertEqual(t["runs"], 68)
         self.assertEqual(t["runs_attempted"], 69)
-        self.assertIn(f'<tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>68</td><td>$0.00</td><td>$0.00</td>'
-                      f'<td>{t["raw_tokens"] / 1e6:,.0f}M</td><td>{t["solver_hours"]:.1f} h</td>', self.page_html)
+        self.assertIn(f'<tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>68</td>'
+                      f'<td>{t["output_tokens"] / t["runs"] / 1e3:.0f}K</td><td>{t["raw_tokens"] / 1e6:,.0f}M</td>'
+                      f'<td>{t["raw_tokens"] / t["runs"] / 1e6:.2f}M</td><td>{t["solver_hours"]:.1f} h</td><td>unavailable</td>',
+                      self.page_html)
         self.assertIn(f'{t["raw_tokens"] / t["runs"] / 1e6:.2f}M tokens', self.page_html)
         self.assertIn(f'{t["solver_hours"] * 60 / t["runs"]:.1f} minutes per task', self.page_html)
-        # Cost is $0 everywhere, never "unpriced".
-        for banned in ("unpriced", "no price available", "API-equivalent", "list rates"):
-            self.assertNotIn(banned, self.page_html, banned)
         card = ROOT / "assets/cards/swe-v4-devin-swe2-v311-economics.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), ECONOMICS_CARD_SHA256)
 
@@ -256,7 +266,8 @@ class DevinBundleTests(unittest.TestCase):
         quality = [self.groups["swe2", e]["code_quality"]["mean"] for e in EFFORTS]
         self.assertIn(f"combined score {combined[0]:.2f} at medium, {combined[1]:.2f} at high and {combined[2]:.2f} at Max", page)
         self.assertIn(f"Code quality {min(quality):.2f} to {max(quality):.2f}", page)
-        self.assertIn("$0 per task", page)
+        self.assertIn("Cost is unavailable at every effort level", page)
+        self.assertIn("no per-token rate", page)
         self.assertIn("Muse Spark 1.3 alone", page)
         # Every effort level SWE-2 offers is named; there is no other level to show.
         for effort in EFFORTS:
@@ -353,6 +364,34 @@ class DevinBundleTests(unittest.TestCase):
             for mark in (chr(0x2014), chr(0x2013), "/Users/", "/home/"):
                 self.assertNotIn(mark, text, name)
             self.assertNotIn("SWE v4", text, name)
+
+    def test_no_price_is_claimed_anywhere(self):
+        """SWE-2 has no public rate, so no published file may show a cost figure or call the model free."""
+        banned = ("$0", "cost tier Free", "free on Devin", "Free to run", "free to run", "is free", "rates checked",
+                  "list rates", "API-equivalent")
+        published = [PAGE, ROOT / "models/devin-swe-2.html", DATA / "README.md", DATA / "REPRODUCING.md",
+                     ROOT / "assets/data/swe-v4-devin-swe2-v311-scores.csv", DATA / "runs.csv"]
+        for path in published:
+            text = html.unescape(path.read_text())
+            for mark in banned:
+                self.assertNotIn(mark, text, f"{path.name}: {mark}")
+        # The bundle's JSON may explain why the Free tier is not a rate, but must never carry a cost number.
+        for name in ("runs.json", "groups.json", "economics.json", "provenance.json"):
+            data = json.loads((DATA / name).read_text())
+            self.assertNotIn("$0", json.dumps(data), name)
+        for r in self.rows:
+            self.assertIsNone(r["estimated_usd"], r["run_id"])
+        # The site-wide copy names the report without pricing it. Each of these files lists the Devin entry
+        # immediately before the Sol one, so the Devin block is what lies between the two slugs.
+        for name in ("benchmarks.html", "index.html", "llms.txt", "feed.xml"):
+            text = html.unescape((ROOT / name).read_text())
+            start = text.index("swe-v4-devin-swe2-v311")
+            end = text.index("swe-v4-sol-v37", start)
+            entry = text[start:end]
+            self.assertIn("Devin", entry, name)
+            self.assertLess(len(entry), 3000, name)  # the slice really is one entry
+            for mark in banned:
+                self.assertNotIn(mark, entry, f"{name}: {mark}")
 
     def test_page_card_links_and_site_references(self):
         self.assertEqual(self.page.structure_errors, [])
