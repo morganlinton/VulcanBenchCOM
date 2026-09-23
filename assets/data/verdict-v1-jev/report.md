@@ -23,6 +23,22 @@ the hidden test suite reported when that patch was graded.
 > split. Two claims did not survive and are withdrawn; see
 > [What changed in the correction](#what-changed-in-the-correction).
 
+> **An open question about the three correctness questions, added
+> September 23, 2026.** Every fix in this suite comes from a task where an
+> agent rebuilt a retired program, and the hidden tests check byte-for-byte
+> agreement with that program's actual behaviour, including quirks the
+> written specification gets wrong. Jev is shown only the bug report and the
+> fix. It never sees the specification, the retired program or any of its
+> output, and the bug report does not list the quirks. So whether a fix
+> passes may not be knowable by any reader, human or model, from what Jev is
+> given. Until a control is run, read the correctness rows as "Jev did not
+> beat guessing on these items", not as evidence that it cannot judge
+> whether code works. A frontier language model is being given the same
+> inputs as that control. The calibration finding stands either way: a
+> well-calibrated model facing a question it cannot answer should state
+> roughly the base rate, 63%, not 22%. The style question is unaffected,
+> because how well a fix is written is visible in the fix itself.
+
 ## Results
 
 Test split, one query per item, model pinned to `jev-1.13.0`.
@@ -127,7 +143,9 @@ tracks the true split (180 to 131), so there is no position bias.
 
 Judges are opinion, so this is not a correctness result. It is still the
 clearest positive signal in the suite, and it is the one place where Jev's
-probabilities are both discriminating and honestly scaled.
+probabilities are both discriminating and honestly scaled. Whether Jev can
+also judge what code does is not settled here; see the open question under
+the correction note.
 
 ### 5. The localization probe is not a result
 
@@ -142,7 +160,9 @@ Jev cannot be dropped in as a merge gate or a continuous-integration
 pre-filter on the strength of its own probabilities. Read literally, it says
 every patch is more likely to fail than pass, which would block everything.
 Read as a ranking, with a cutoff fitted on your own labelled data, it comes
-out about level with answering "it passes" every time.
+out about level with answering "it passes" every time. That is a statement
+about these items, where the information needed to decide may not be in the
+input at all; it is not yet a statement about Jev on code review in general.
 
 Where the judgment is about the shape of the code rather than its behaviour,
 the picture changes: 89.7% agreement with a calibrated judge panel, AUROC
