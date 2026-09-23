@@ -16,25 +16,41 @@ Frontier v4 issues and agent patches, so they stay private and canaried.
 
 All figures below come from `results.json`.
 
-1. **Overall accuracy.** `results.jev-1.13.0.overall.accuracy` is the mean of
-   the ground-truth families only, weighted by item count:
-   (0.3732 x 611 + 0.3339 x 611 + 0.4975 x 611 + 1.0 x 19) / 1852 = 0.4077.
+1. **Overall accuracy.** `results.jev-1.13.0.overall` covers the
+   ground-truth families only, weighted by item count. At the withdrawn 0.5
+   cutoff: (0.3732 x 611 + 0.3339 x 611 + 0.4975 x 611 + 1.0 x 19) / 1852 =
+   0.4077. At the fitted cutoffs, the same arithmetic over 0.6285, 0.9313,
+   0.4975 and 1.0 gives `accuracy_at_threshold` 0.6890.
    `quality-preference` is excluded, and `agreement_only_families` names it.
 2. **The floor.** `results.majority_floor` answers each family's most common
    dev-split label on every test item. On `patch-verdict` that is "passes",
    which is right for 383 of 611 items, so 0.6268.
-3. **Jev said no to everything.** In
-   `diagnostics.confusion.patch-verdict`, the only two keys are
-   `true->false` (383) and `false->false` (228). No item was predicted to
-   pass. `patch_verdict_mean_p_pass` is 0.2196.
-4. **False alarms on regression.** In
+3. **The probabilities never reach the boundary.** In
+   `results["jev-1.13.0"].families["patch-verdict"]`, `p_true_min` is 0.09
+   and `p_true_max` is 0.42, so the 0.5 cutoff the first version of this
+   report used could never fire: `diagnostics.confusion.patch-verdict` has
+   only `true->false` (383) and `false->false` (228).
+   `patch_verdict_mean_p_pass` is 0.2196.
+4. **The ranking, which needs no cutoff.** The same block gives `auroc`
+   0.6899, against 0.5 for chance. `accuracy` (0.3732) is the withdrawn
+   0.5-cutoff figure; `accuracy_at_threshold` (0.6285) uses `threshold`
+   0.17, fitted on the development split and recorded in
+   `thresholds.values`. The floor for the family is
+   `majority_label_share`, 0.6268.
+5. **Size does not explain anything.** In
+   `diagnostics.patch_verdict_by_input_tokens`, every bucket's
+   `accuracy_at_threshold` equals its `majority_baseline` exactly, and
+   `pass_rate` climbs from 0.5433 to 0.8846 to 0.8947. The withdrawn
+   "accuracy falls with patch length" finding was that climb, seen through
+   the broken cutoff.
+6. **False alarms on regression.** In
    `diagnostics.confusion.patch-regression`, `false->true` is 403 against
    `true->true` of 32.
-5. **The probe mirrors.** In `phrasing_probe.variants`, `original.mean_p_true`
+7. **The probe mirrors.** In `phrasing_probe.variants`, `original.mean_p_true`
    is 0.2202 and `inverted.mean_p_true` is 0.7795, and
    `phrasing_probe.agreement["original vs inverted"]` is 1.0 after folding the
    inverted answers back.
-6. **Style is not explained by length.** `quality_preference_longer_patch_baseline`
+8. **Style is not explained by length.** `quality_preference_longer_patch_baseline`
    is 0.4469, and `quality_preference_answer_balance` is 180 A to 131 B
    against Jev's 183 A to 128 B.
 
@@ -55,6 +71,15 @@ python scripts/verdict-v1/export_results.py
 Items are rebuilt from local run directories, so anyone without those runs
 cannot reproduce the item file. The metrics here are checkable from
 `results.json` alone.
+
+## The correction of September 23, 2026
+
+The first published version scored yes/no families at a 0.5 cutoff, which
+Jev never crosses, so its headline (40.8% overall against a 72.4% floor)
+measured the decision rule rather than the model. Both figures are in
+`results.json`: `accuracy` is the withdrawn one and `accuracy_at_threshold`
+the corrected one. Nothing was re-queried; every number here was recomputed
+from the same stored predictions.
 
 ## What these numbers do not show
 

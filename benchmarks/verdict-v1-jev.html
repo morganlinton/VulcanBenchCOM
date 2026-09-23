@@ -12,24 +12,24 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jev on VulcanBench Verdict v1 | VulcanBench</title>
-<meta name="description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. It scores 40.8% against a 72.4% majority floor, calling every patch broken, and agrees with a code-quality panel on 89.7% of style pairs.">
+<title>Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench</title>
+<meta name="description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. Its probabilities never cross 0.5, but the ranking underneath scores 0.69 AUROC, and it agrees with a code-quality panel on 89.7% of style pairs.">
 <link rel="canonical" href="https://vulcanbench.com/benchmarks/verdict-v1-jev.html">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="Jev on VulcanBench Verdict v1 | VulcanBench">
-<meta property="og:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. It scores 40.8% against a 72.4% majority floor, calling every patch broken, and agrees with a code-quality panel on 89.7% of style pairs.">
+<meta property="og:title" content="Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench">
+<meta property="og:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. Its probabilities never cross 0.5, but the ranking underneath scores 0.69 AUROC, and it agrees with a code-quality panel on 89.7% of style pairs.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/verdict-v1-jev.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png">
 <meta property="og:image:width" content="2560">
 <meta property="og:image:height" content="1440">
-<meta property="og:image:alt" content="VulcanBench Verdict v1: Jev accuracy against the majority-answer floor on four question families, what it predicted on 611 patches, and accuracy by patch length">
+<meta property="og:image:alt" content="VulcanBench Verdict v1: Jev accuracy against the majority-answer floor on four question families, the distribution of the probabilities it produced, and its AUROC per family">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Jev on VulcanBench Verdict v1 | VulcanBench">
-<meta name="twitter:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. It scores 40.8% against a 72.4% majority floor, calling every patch broken, and agrees with a code-quality panel on 89.7% of style pairs.">
+<meta name="twitter:title" content="Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench">
+<meta name="twitter:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent patches with answers verified by hidden tests. Its probabilities never cross 0.5, but the ranking underneath scores 0.69 AUROC, and it agrees with a code-quality panel on 89.7% of style pairs.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png">
-<meta name="twitter:image:alt" content="VulcanBench Verdict v1: Jev accuracy against the majority-answer floor on four question families, what it predicted on 611 patches, and accuracy by patch length">
+<meta name="twitter:image:alt" content="VulcanBench Verdict v1: Jev accuracy against the majority-answer floor on four question families, the distribution of the probabilities it produced, and its AUROC per family">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -63,12 +63,13 @@
 <p class="report-back"><a href="/benchmarks.html#verdict-v1">All VulcanBench Verdict v1 reports</a></p>
     <article class="suite-feature" aria-labelledby="verdict-jev-heading">
       <header>
-        <p class="suite-label">September 22, 2026 &middot; 2,641 queries &middot; VulcanBench Verdict v1</p>
-        <h1 id="verdict-jev-heading">Jev, the model that will not say a patch works</h1>
+        <p class="suite-label">September 22, 2026, corrected September 23 &middot; 2,641 queries &middot; VulcanBench Verdict v1</p>
+        <h1 id="verdict-jev-heading">Jev 1.13.0 on VulcanBench Verdict v1</h1>
         <p>TypeSafe AI's Jev is a System One model: it does not generate text, it returns a typed decision, either one option from a fixed set, a score on an ordered scale, or the probability that a statement is true, in a single parallel pass. It cannot write code, so it cannot take <a href="/benchmarks.html#swe-v4">VulcanBench Frontier v4</a>. It can judge code, which is what this suite asks it to do. Every headline answer here was produced by running tests, not by asking another model.</p>
+        <p><strong>Correction, September 23, 2026.</strong> The first version of this report scored yes or no questions at a 0.5 cutoff. Jev's probability that a patch passes never exceeds 0.42, so that cutoff sat outside its output range and no item could be answered "passes". Those figures were an artifact of the decision rule, not of the model. This version reports the ranking, which needs no cutoff, alongside accuracy at a cutoff fitted on the development split. Two claims did not survive and are withdrawn; see <a href="#correction">what changed</a>.</p>
       </header>
       <div class="report-resources" aria-label="Report and evidence downloads">
-        <a class="resource" href="/assets/cards/verdict-v1-jev.png" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, accuracy, predictions and patch length</span></a>
+        <a class="resource" href="/assets/cards/verdict-v1-jev.png" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, accuracy, probabilities and ranking</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by family</span><span class="resource-meta">CSV, Jev and the majority floor</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/results.json"><span class="resource-kind">Data</span><span class="resource-title">Every published number</span><span class="resource-meta">JSON, metrics, confusion counts and the probe</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/report.md"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">Markdown, findings, method and limits</span></a>
@@ -79,10 +80,11 @@
         <span class="report-contents-label">On this page</span>
         <a href="#suite"><span class="n">01</span>What the suite asks</a>
         <a href="#results"><span class="n">02</span>Results</a>
-        <a href="#pessimism"><span class="n">03</span>One answer, every time</a>
+        <a href="#pessimism"><span class="n">03</span>Probabilities and ranking</a>
         <a href="#style"><span class="n">04</span>Where it works</a>
         <a href="#meaning"><span class="n">05</span>What this means</a>
-        <a href="#reproduce"><span class="n">06</span>Method and limits</a>
+        <a href="#correction"><span class="n">06</span>What changed</a>
+        <a href="#reproduce"><span class="n">07</span>Method and limits</a>
       </nav>
 
       <section class="report-section" id="suite" aria-labelledby="suite-heading">
@@ -98,81 +100,95 @@
       </section>
       <figure class="suite-card">
         <a href="/assets/cards/verdict-v1-jev.png" aria-label="Open the Jev results card at full resolution">
-          <img src="/assets/cards/verdict-v1-jev.png" width="2560" height="1440" fetchpriority="high" alt="VulcanBench Verdict v1 results for Jev. Against a majority-answer floor, Jev scores 37 against 63 on whether a patch passes, 33 against 94 on whether it breaks a test, 50 against 63 on the four-way outcome, and 90 against 58 on which patch is more maintainable. A second panel shows that 383 of 611 patches really pass while Jev predicted that none would. A third panel shows accuracy falling from 46 percent on patches under 4,000 tokens to 11 percent above 8,000. Exact values are in the tables on this page.">
+          <img src="/assets/cards/verdict-v1-jev.png" width="2560" height="1440" fetchpriority="high" alt="VulcanBench Verdict v1 results for Jev. At a cutoff fitted on held-out items, Jev matches the majority-answer floor on whether a patch passes, 63 against 63, and on whether it breaks a test, 93 against 94; it scores 50 against 63 on the four-way outcome and 90 against 58 on which patch is more maintainable. A second panel shows every stated probability falling between 0.09 and 0.42, well short of the 0.5 mark where a yes would begin. A third panel shows AUROC of 0.69, 0.65, 0.65 and 0.96 across the four questions, all above the 0.5 coin-flip line. Exact values are in the tables on this page.">
         </a>
-        <figcaption>The style family, marked with an asterisk, scores agreement with a code-quality judge panel, not ground truth. <a href="/assets/cards/verdict-v1-jev.png">Open full-size card</a>.</figcaption>
+        <figcaption>Accuracy bars use a cutoff fitted on the development split, because Jev's own probabilities never cross 0.5. The style family, marked with an asterisk, scores agreement with a code-quality judge panel, not ground truth. <a href="/assets/cards/verdict-v1-jev.png">Open full-size card</a>.</figcaption>
       </figure>
 
       <section class="report-section" id="results" aria-labelledby="results-heading">
         <h2 id="results-heading">Results</h2>
-        <p>One query per item, model pinned to <code>jev-1.13.0</code> rather than the <code>jev-latest</code> alias, because the alias moves and calibration is per version. Jev exposes no effort, temperature or seed setting, so it has a single column. The floor is the score for always answering a family's most common label, fitted on the development split.</p>
-        <div class="suite-table-scroll" role="region" aria-label="Accuracy and calibration by question family" tabindex="0"><table class="suite-results">
+        <p>One query per item, model pinned to <code>jev-1.13.0</code> rather than the <code>jev-latest</code> alias, because the alias moves and calibration is per version. Jev exposes no effort, temperature or seed setting, so it has a single column. The floor is the score for always answering a family's most common label.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Accuracy, ranking and calibration by question family" tabindex="0"><table class="suite-results">
           <caption>VulcanBench Verdict v1: Jev against the majority-answer floor, test split</caption>
-          <thead><tr><th scope="col">Question</th><th scope="col">Items</th><th scope="col">Floor</th><th scope="col">Jev</th><th scope="col">SE</th><th scope="col">Brier (Jev)</th><th scope="col">Brier (floor)</th><th scope="col">ECE</th></tr></thead>
+          <thead><tr><th scope="col">Question</th><th scope="col">Items</th><th scope="col">Floor</th><th scope="col">Jev, fitted cutoff</th><th scope="col">AUROC</th><th scope="col">Brier</th><th scope="col">ECE</th><th scope="col">At a 0.5 cutoff&dagger;</th></tr></thead>
           <tbody>
-            <tr data-model="jev" data-effort="patch-verdict"><th scope="row">Does this patch pass every hidden test?</th><td>611</td><td>62.7%</td><td>37.3%</td><td>1.96</td><td>0.383</td><td>0.238</td><td>0.409</td></tr>
-            <tr data-model="jev" data-effort="patch-regression"><th scope="row">Does it break a test that passed before?</th><td>611</td><td>94.1%</td><td>33.4%</td><td>1.91</td><td>0.284</td><td>0.063</td><td>0.268</td></tr>
-            <tr data-model="jev" data-effort="patch-outcome"><th scope="row">Which of four outcomes did the tests report?</th><td>611</td><td>62.7%</td><td>49.8%</td><td>2.02</td><td>0.650</td><td>0.522</td><td>0.186</td></tr>
+            <tr data-model="jev" data-effort="patch-verdict"><th scope="row">Does this patch pass every hidden test?</th><td>611</td><td>62.7%</td><td>62.8%</td><td>0.690</td><td>0.383</td><td>0.409</td><td>37.3%</td></tr>
+            <tr data-model="jev" data-effort="patch-regression"><th scope="row">Does it break a test that passed before?</th><td>611</td><td>94.1%</td><td>93.1%</td><td>0.652</td><td>0.284</td><td>0.268</td><td>33.4%</td></tr>
+            <tr data-model="jev" data-effort="patch-outcome"><th scope="row">Which of four outcomes did the tests report?</th><td>611</td><td>62.7%</td><td>49.8%&Dagger;</td><td>0.651</td><td>0.650</td><td>0.186</td><td>49.8%</td></tr>
           </tbody>
           <tbody>
-            <tr data-model="jev" data-effort="overall"><th scope="row">Overall, ground truth only</th><td>1,852</td><td>72.4%</td><td>40.8%</td><td>1.14</td><td>0.434</td><td>0.280</td><td>0.278</td></tr>
+            <tr data-model="jev" data-effort="overall"><th scope="row">Overall, ground truth only</th><td>1,852</td><td>72.4%</td><td>68.9%</td><td></td><td>0.434</td><td>0.278</td><td>40.8%</td></tr>
           </tbody>
           <tbody>
-            <tr data-model="jev" data-effort="quality-preference"><th scope="row">Which of two patches is more maintainable?&sect;</th><td>311</td><td>57.9%</td><td>89.7%</td><td>1.72</td><td>0.162</td><td>0.500</td><td>0.082</td></tr>
+            <tr data-model="jev" data-effort="quality-preference"><th scope="row">Which of two patches is more maintainable?&sect;</th><td>311</td><td>57.9%</td><td>89.7%&Dagger;</td><td>0.962</td><td>0.162</td><td>0.082</td><td>89.7%</td></tr>
           </tbody>
         </table></div>
         <div class="suite-notes">
+          <p><strong>&dagger;The last column is the withdrawn number.</strong> It is accuracy when a yes needs a stated probability above 0.5, which Jev never produces on these items. It is kept in the table so the correction is visible rather than quietly removed. <strong>&Dagger;</strong> marks the two families decided by top-ranked option, where no cutoff applies and both columns are the same number.</p>
           <p><strong>&sect;The style row is not ground truth.</strong> Its reference is agreement with the Muse Spark 1.3 and Grok 4.6 code-quality panel, so it is excluded from the overall row and from any claim about correctness. The overall row covers the three patch families plus the 19 localization probe items.</p>
-          <p><strong>Reading the numbers.</strong> Accuracy is the share of items whose top-ranked answer is right; an item a model declines to answer would count as wrong, and none were declined. SE is one standard error of that accuracy. Brier and ECE score the probabilities rather than the ranking: Brier is the squared error of the stated probability, and ECE is the average gap between stated confidence and observed accuracy over ten bins. Brier is binary for the yes or no families and multiclass for the choice families, so compare it within a row, never down the column. The three patch families ask different questions about the same 745 patches, so their errors are correlated.</p>
+          <p><strong>Reading the numbers.</strong> The fitted cutoffs, 0.17 for the pass question and 0.72 for the regression question, were chosen on the development split and never on the published items. AUROC is the chance that the model ranks a true item above a false one, so it does not depend on where the cutoff sits; 0.5 is chance. Brier and ECE score the probabilities as stated, which is where Jev does badly: Brier is the squared error of the stated probability, and ECE is the average gap between stated confidence and observed accuracy over ten bins. Brier is binary for the yes or no families and multiclass for the choice families, so compare it within a row, never down the column. The three patch families ask different questions about the same 745 patches, so their errors are correlated.</p>
           <p><strong>Operations.</strong> 2,641 queries across both splits, zero failures, zero retries, $0.447 in total, $0.15 per 1,000 decisions. Latency was 328 ms at the median and 471 ms at the 95th percentile, measured as wall clock from a machine in California and including the network round trip to a service hosted on the US West Coast. Latency is published as indicative and is not used to rank anything.</p>
         </div>
       </section>
 
       <section class="report-section" id="pessimism" aria-labelledby="pessimism-heading">
-        <h2 id="pessimism-heading">One answer, every time</h2>
-        <p>On all 611 patch-verdict items, Jev's probability that the patch passes came out below 0.5, with a mean of 0.22. In reality 383 of those patches, 62.7% of them, pass every hidden test. The regression question shows the same bias from the other side: Jev answered that the patch breaks an existing test on 435 of 611 patches, where 36 really do. That is 403 false alarms against 32 true ones. This is what puts Jev below the majority floor on every ground-truth family.</p>
-        <p>The obvious suspect is the wording of our question, so we tested it. The same 134 development-split patches were asked the verdict question four ways, including an inverted form where agreeing means the opposite.</p>
+        <h2 id="pessimism-heading">Probabilities that never reach the boundary, and a ranking that does</h2>
+        <p>Across all 611 patch-verdict items, the probability Jev gives for "this patch passes" runs from 0.09 to 0.42, with a mean of 0.22. In reality 383 of those patches, 62.7% of them, pass every hidden test. There is no input in this suite for which Jev states that a patch is more likely to pass than not. The regression question is compressed the same way from the other side: the probability that a patch breaks something runs from 0.24 to 0.80 with a mean of 0.53, on a population where the true rate is 5.9%.</p>
+        <p>That is a calibration failure, and a large one. A model whose stated probabilities are meant to be believed, asked about a class that occurs 63% of the time, never assigns that class more than 0.42. The expected calibration error of 0.409 on the pass question is the largest number in this report.</p>
+        <p>The ordering underneath is a different story. Ranked by that same probability, Jev puts passing patches above failing ones well clear of chance.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Ranking quality by family" tabindex="0"><table class="suite-results">
+          <caption>AUROC by family, test split. 0.5 is chance</caption>
+          <thead><tr><th scope="col">Question</th><th scope="col">AUROC</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Does this patch pass every hidden test?</th><td>0.690</td></tr>
+            <tr><th scope="row">Does it break a test that passed before?</th><td>0.652</td></tr>
+            <tr><th scope="row">Which of four outcomes (macro, one against the rest)</th><td>0.651</td></tr>
+            <tr><th scope="row">Which of two patches is more maintainable?</th><td>0.962</td></tr>
+          </tbody>
+        </table></div>
+        <p>Ordering is not the same as usefulness. With a cutoff fitted on held-out items, accuracy on the two yes or no families lands at 62.8% and 93.1%, against floors of 62.7% and 94.1%. The signal is real, but the classes are imbalanced enough that acting on it gains nothing over answering the most common label.</p>
+        <p>The wording is not the cause. The same 134 development-split patches were asked the verdict question four ways, including an inverted form where agreeing means the opposite.</p>
         <div class="suite-table-scroll" role="region" aria-label="The same patches asked four ways" tabindex="0"><table class="suite-results">
           <caption>The verdict question worded four ways, 134 development-split patches, 56.7% of which pass</caption>
-          <thead><tr><th scope="col">Wording</th><th scope="col">Patches it said would pass</th><th scope="col">Mean probability of passing</th><th scope="col">Accuracy</th></tr></thead>
+          <thead><tr><th scope="col">Wording</th><th scope="col">Mean probability of passing</th></tr></thead>
           <tbody>
-            <tr><th scope="row">This patch makes every hidden target test pass</th><td>0%</td><td>0.220</td><td>43.3%</td></tr>
-            <tr><th scope="row">This patch is a correct and complete fix</th><td>0.7%</td><td>0.208</td><td>44.8%</td></tr>
-            <tr><th scope="row">A careful maintainer would merge this patch</th><td>3.7%</td><td>0.276</td><td>48.5%</td></tr>
-            <tr><th scope="row">This patch is broken (inverted)</th><td>0%</td><td>0.220</td><td>43.3%</td></tr>
+            <tr><th scope="row">This patch makes every hidden target test pass</th><td>0.220</td></tr>
+            <tr><th scope="row">This patch is a correct and complete fix</th><td>0.208</td></tr>
+            <tr><th scope="row">A careful maintainer would merge this patch</th><td>0.276</td></tr>
+            <tr><th scope="row">This patch is broken (inverted)</th><td>0.221</td></tr>
           </tbody>
         </table></div>
-        <p>The four wordings agree with each other on 96% to 100% of patches, and the inverted form mirrors the original almost exactly, 0.220 passing against 0.780 broken. TypeSafe's consistency claim holds up cleanly here. The pessimism is a property of the model, not an artifact of the phrasing. The last column is the more useful reading: a model that is this self-consistent and this wrong is not uncertain, it is confidently mistaken, which is why its expected calibration error on this family reaches 0.409.</p>
-        <p>Accuracy also falls away as the patch gets longer, which is what you would expect of a model that does not reason over the diff.</p>
-        <div class="suite-table-scroll" role="region" aria-label="Accuracy by input size" tabindex="0"><table class="suite-results">
-          <caption>Patch-verdict accuracy by input size, test split</caption>
-          <thead><tr><th scope="col">Input tokens</th><th scope="col">Items</th><th scope="col">Accuracy</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">0k to 4k</th><td>462</td><td>45.7%</td></tr>
-            <tr><th scope="row">4k to 8k</th><td>130</td><td>11.5%</td></tr>
-            <tr><th scope="row">8k and above</th><td>19</td><td>10.5%</td></tr>
-          </tbody>
-        </table></div>
-        <p>Short patches leave room for a fixed prior to be right by accident. Long ones do not. Reading a large diff against an issue and deciding whether the change is complete is System Two work, and this is a model that has given that up by design.</p>
+        <p>The four agree with each other on 96% to 100% of patches, and the inverted form mirrors the original almost exactly. TypeSafe's consistency claim holds up cleanly here. Rewording moves the mean by at most 0.06 and never lifts the distribution across 0.5, so the compression is a property of the model on this task rather than an artifact of how the question was put.</p>
       </section>
 
       <section class="report-section" id="style" aria-labelledby="style-heading">
         <h2 id="style-heading">Where it works</h2>
-        <p>On the 311 pairs where both code-quality judges preferred the same patch by at least 10 points out of 100, Jev picked the same patch 89.7% of the time, with a well-calibrated expected calibration error of 0.082. That is the clearest positive signal in the suite, and it survives the two obvious explanations. Picking the longer patch agrees with the judges only 44.7% of the time, so length is not the shortcut. Jev's split between the two presented positions, 183 to 128, tracks the true split of 180 to 131, so there is no position bias. Patches are ordered by content hash, not by score, so position carries no signal to find.</p>
-        <p>Judges are opinion, not ground truth, so this is not a correctness result and it does not belong on the same scale as the rows above. What it suggests is a real and narrow competence: Jev can read the surface of code, its naming, structure, comments and duplication, even though it cannot evaluate what the code does.</p>
+        <p>On the 311 pairs where both code-quality judges preferred the same patch by at least 10 points out of 100, Jev picked the same patch 89.7% of the time, with an AUROC of 0.962 and a well-calibrated expected calibration error of 0.082. That is the clearest positive signal in the suite, and it survives the two obvious explanations. Picking the longer patch agrees with the judges only 44.7% of the time, so length is not the shortcut. Jev's split between the two presented positions, 183 to 128, tracks the true split of 180 to 131, so there is no position bias. Patches are ordered by content hash, not by score, so position carries no signal to find.</p>
+        <p>Judges are opinion, not ground truth, so this is not a correctness result and it does not belong on the same scale as the rows above. What it suggests is a real and narrow competence: Jev can read the surface of code, its naming, structure, comments and duplication, even though it cannot evaluate what the code does. It is also the one place in this suite where its probabilities are both discriminating and honestly scaled.</p>
       </section>
 
       <section class="report-section" id="meaning" aria-labelledby="meaning-heading">
         <h2 id="meaning-heading">What this means</h2>
-        <p>For anyone considering a System One model as a merge gate or a continuous-integration pre-filter, the answer from this suite is no. At these numbers Jev would block nearly every correct patch, and its confidence would give no warning, because it is confidently wrong rather than uncertain.</p>
-        <p>For anyone using it where the judgment is about the shape of the code rather than its behaviour, 89.7% agreement with a calibrated judge panel at 328 ms and $0.15 per 1,000 decisions is worth a look. That is roughly the cost and latency of a database query, for a judgment that currently costs a full model call.</p>
-        <p>The wider point is about how this class of model gets evaluated. Jev is self-consistent, fast, cheap, and cannot return a malformed answer. None of those properties is correctness, and the first can look like correctness on a benchmark that scores agreement with other models rather than truth. A reference the model cannot argue with, in this case a test suite, separates the two.</p>
+        <p>Jev cannot be dropped in as a merge gate or a continuous-integration pre-filter on the strength of its own probabilities. Read literally, it says every patch is more likely to fail than pass, which would block everything. Read as a ranking, with a cutoff fitted on your own labelled data, it comes out about level with answering "it passes" every time.</p>
+        <p>Where the judgment is about the shape of the code rather than its behaviour, the picture changes: 89.7% agreement with a calibrated judge panel, an AUROC of 0.962, at 328 ms and $0.15 per 1,000 decisions. That is roughly the cost and latency of a database query, for a judgment that currently costs a full model call.</p>
+        <p>The methodological point is one this report had to learn the hard way. A model that returns probabilities can be self-consistent, well ordered and badly scaled all at once, and which of those you see depends entirely on the metric. Accuracy at a fixed cutoff measures the scaling and hides the ordering. AUROC measures the ordering and hides the scaling. Reporting one without the other produces a confident, wrong headline, which is what the first version of this page did.</p>
+      </section>
+
+      <section class="report-section" id="correction" aria-labelledby="correction-heading">
+        <h2 id="correction-heading">What changed in the correction</h2>
+        <p>Published September 22, corrected September 23, 2026. Two claims are withdrawn.</p>
+        <ul>
+          <li><strong>"Jev scores 40.8% against a 72.4% floor."</strong> That was accuracy at a 0.5 cutoff the model never crosses. At a fitted cutoff it is 68.9% against the same floor. Both numbers are in the table above and in the data file; the fitted one is the fair comparison, and Jev is still below the floor, by 3.5 points rather than 32.</li>
+          <li><strong>"Accuracy falls as the patch gets longer."</strong> It does not. The share of patches that pass rises with size, 54%, 89% and 90% across the three size buckets, and at a fitted cutoff Jev's accuracy in each bucket equals that bucket's majority baseline exactly. The original finding was the class balance moving, seen through a broken decision rule.</li>
+        </ul>
+        <p>Retained, with the framing corrected: the compression of the probabilities, now reported as the calibration failure it is rather than as "it called every patch broken"; the four-wording consistency result; the style-pair result; and the localization probe.</p>
+        <p>Changed in the suite itself: the scorer now reports AUROC and the range of probabilities the model actually produced, fits yes or no cutoffs on the development split, and prints the majority baseline beside every subgroup. Everything was recomputed from the stored predictions, so the correction cost no further queries and no number moved for any other reason.</p>
       </section>
 
       <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
         <h2 id="reproduce-heading">Method, limits and evidence</h2>
-        <p>Items were mined from seven completed Frontier v4 sweeps: 745 distinct agent patches across 23 tasks, with contaminated runs, empty patches and duplicate patches excluded. Answers come from the verifier's own record of which target tests passed and whether anything regressed, from the gold patch for the localization probe, and from the code-quality panel for the style pairs. Scoring covers accuracy, Brier, log loss, expected calibration error over ten bins, latency and cost per 1,000 decisions. The <a href="/assets/data/verdict-v1-jev/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks against <a href="/assets/data/verdict-v1-jev/results.json">results.json</a>, and the suite code is in the <a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict">VulcanBench repository</a>.</p>
-        <p><strong>Limits.</strong> No other model has been run on these items yet, so the reference points here are the majority floor and, for style, the judge panel. In particular, 89.7% agreement on style is not yet known to be better or worse than what a frontier model would score on the same pairs. Every item comes from one suite, whose tasks skew toward binary-parity reimplementation work in Python, so this patch population is not a sample of open-source pull requests in general. Any aggregate across the three patch families should be bootstrapped by patch rather than by item, because they ask different questions about the same patches. Latency depends on where the caller sits.</p>
+        <p>Items were mined from seven completed Frontier v4 sweeps: 745 distinct agent patches across 23 tasks, with contaminated runs, empty patches and duplicate patches excluded. Answers come from the verifier's own record of which target tests passed and whether anything regressed, from the gold patch for the localization probe, and from the code-quality panel for the style pairs. Scoring covers AUROC, accuracy at the top-ranked answer, accuracy at a development-fitted cutoff, the majority-label share, Brier, log loss, expected calibration error over ten bins, the range of probabilities produced, and latency and cost per 1,000 decisions. The <a href="/assets/data/verdict-v1-jev/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks against <a href="/assets/data/verdict-v1-jev/results.json">results.json</a>, and the suite code is in the <a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict">VulcanBench repository</a>.</p>
+        <p><strong>Limits.</strong> The fitted cutoffs come from 134 development items per family; they are held out from the published split, but they are not many, and a different development sample would move them. No other model has been run on these items yet, so the reference points here are the majority floor and, for style, the judge panel. In particular, an AUROC of 0.962 on style is not yet known to be better or worse than what a frontier model would score on the same pairs. Every item comes from one suite, whose tasks skew toward binary-parity reimplementation work in Python, so this patch population is not a sample of open-source pull requests in general. Any aggregate across the three patch families should be bootstrapped by patch rather than by item, because they ask different questions about the same patches. Latency depends on where the caller sits.</p>
         <p><strong>Withheld.</strong> The item file embeds Frontier v4 issue text and agent patches, so it stays private and carries the suite canary; publishing it would leak the task set. This bundle contains metrics only. Results are pinned to <code>jev-1.13.0</code> and to the item set built on September 22, 2026; a later model version is a new measurement, never an update of this one.</p>
       </section>
     </article>
