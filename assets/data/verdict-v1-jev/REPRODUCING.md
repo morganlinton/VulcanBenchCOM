@@ -64,6 +64,14 @@ All figures below come from `results.json`.
    run reports no cutoff accuracy, because its cutoff was fitted on those
    same items.
 
+10. **The diff-size baseline.** `baselines.diff_size` ranks the 611
+    published pass questions by lines changed: `auroc` 0.7846, with
+    `auroc_ci95` [0.745, 0.823]; `dev_cutoff_lines` 127 gives
+    `accuracy_at_dev_cutoff` 0.6514. `size_tracking_auroc.jev` is 0.8159, the
+    extent to which Jev's stated probability follows fix size. In `by_size`,
+    the 50 to 199 line band (417 fixes) has `auroc_jev` 0.5583 against
+    `auroc_control` 0.8132.
+
 ## Re-running it
 
 The harness code is in the [VulcanBench

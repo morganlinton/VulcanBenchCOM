@@ -21,14 +21,14 @@
 <meta property="og:title" content="Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench">
 <meta property="og:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent-written fixes, with answers from hidden tests. It ranks whether a fix works at AUROC 0.69 against 0.87 for GPT-6 Astra on the same inputs, never states better than even odds that a fix works, and agrees with a code-quality panel on 89.7% of style pairs.">
 <meta property="og:url" content="https://vulcanbench.com/benchmarks/verdict-v1-jev.html">
-<meta property="og:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=6">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=7">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1725">
 <meta property="og:image:alt" content="VulcanBench Verdict v1 model card for Jev 1.13.0: accuracy against always guessing for every question, with a GPT-6 Astra control on the pass question, Jev's confidence that a fix works, and a table of ranking quality and calibration">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Jev 1.13.0 on VulcanBench Verdict v1 | VulcanBench">
 <meta name="twitter:description" content="Verdict v1: TypeSafe AI's Jev judged 745 real agent-written fixes, with answers from hidden tests. It ranks whether a fix works at AUROC 0.69 against 0.87 for GPT-6 Astra on the same inputs, never states better than even odds that a fix works, and agrees with a code-quality panel on 89.7% of style pairs.">
-<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=6">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/verdict-v1-jev.png?v=7">
 <meta name="twitter:image:alt" content="VulcanBench Verdict v1 model card for Jev 1.13.0: accuracy against always guessing for every question, with a GPT-6 Astra control on the pass question, Jev's confidence that a fix works, and a table of ranking quality and calibration">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +79,7 @@
         <p>Every fix yields three questions about its test results, plus a separate question comparing two fixes for the same task on how well they are written, which is checked against AI reviewers rather than tests. 2,163 questions in all. For yes or no questions, the probability Jev needs to count as "yes" is chosen on a separate set of fixes that are never scored, so Jev is judged at its best cutoff without seeing the answers.</p>
       </section>
       <div class="report-resources" aria-label="Report and evidence downloads">
-        <a class="resource" href="/assets/cards/verdict-v1-jev.png?v=6" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, accuracy with the control, confidence and every question</span></a>
+        <a class="resource" href="/assets/cards/verdict-v1-jev.png?v=7" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, accuracy with the control, confidence and every question</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by family</span><span class="resource-meta">CSV, Jev and the majority floor</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/results.json"><span class="resource-kind">Data</span><span class="resource-title">Every published number</span><span class="resource-meta">JSON, metrics, confusion counts and the probe</span></a>
         <a class="resource" href="/assets/data/verdict-v1-jev/report.md"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">Markdown, findings, method and limits</span></a>
@@ -110,10 +110,10 @@
         <p>A fifth family, picking which file the fix belongs in, is kept only as a wiring probe. Jev answered 19 of 19 correctly, and then we checked the items: every issue names the answer file's stem in its own text, so the question is string matching. It supports no claim about ability. Items are split by task, so no task appears in both the development and test splits, and the test split is what is published here.</p>
       </section>
       <figure class="suite-card">
-        <a href="/assets/cards/verdict-v1-jev.png?v=6" aria-label="Open the Jev results card at full resolution">
-          <img src="/assets/cards/verdict-v1-jev.png?v=6" width="2400" height="1725" fetchpriority="high" alt="VulcanBench Verdict v1 model card for Jev 1.13.0. Left chart, accuracy against always guessing: on whether a fix passes every test, always guessing scores 63 percent, Jev 63 and a GPT-6 Astra control given the same inputs 73; on whether a fix breaks an existing test, 94 against 93 for Jev; on which of four test outcomes, 63 against 50; on which fix is better written, 58 against 90. Right chart, Jev's stated confidence that a fix works across 611 fixes: every value falls between 9 and 42 percent, below the 50 percent yes threshold. Table 1 lists items, accuracy, ranking quality and calibration error for every question and for the control. Exact values are in the tables on this page.">
+        <a href="/assets/cards/verdict-v1-jev.png?v=7" aria-label="Open the Jev results card at full resolution">
+          <img src="/assets/cards/verdict-v1-jev.png?v=7" width="2400" height="1725" fetchpriority="high" alt="VulcanBench Verdict v1 model card for Jev 1.13.0. Left chart, accuracy against always guessing: on whether a fix passes every test, always guessing scores 63 percent, Jev 63 and a GPT-6 Astra control given the same inputs 73; on whether a fix breaks an existing test, 94 against 93 for Jev; on which of four test outcomes, 63 against 50; on which fix is better written, 58 against 90. Right chart, Jev's stated confidence that a fix works across 611 fixes: every value falls between 9 and 42 percent, below the 50 percent yes threshold. Table 1 lists items, accuracy, ranking quality and calibration error for every question, for the control and for ranking by diff size alone. Exact values are in the tables on this page.">
         </a>
-        <figcaption>Whiskers show &plusmn;1 standard error. The green bar on the pass question is the <a href="#control-run">control</a>: GPT-6 Astra given exactly Jev's inputs, which shows the question is answerable. Yes or no results use a cutoff chosen on a separate set of fixes; at the usual 50% Jev never answers yes. The better-written question, marked with an asterisk, is checked against AI reviewers rather than tests. <a href="/assets/cards/verdict-v1-jev.png?v=6">Open full-size card</a>.</figcaption>
+        <figcaption>Whiskers show &plusmn;1 standard error. The green bar on the pass question is the <a href="#control-run">control</a>: GPT-6 Astra given exactly Jev's inputs, which shows the question is answerable. Yes or no results use a cutoff chosen on a separate set of fixes; at the usual 50% Jev never answers yes. The better-written question, marked with an asterisk, is checked against AI reviewers rather than tests. <a href="/assets/cards/verdict-v1-jev.png?v=7">Open full-size card</a>.</figcaption>
       </figure>
 
       <section class="report-section" id="results" aria-labelledby="results-heading">
@@ -160,7 +160,7 @@
             <tr><th scope="row">Which of two patches is more maintainable?</th><td>0.962</td></tr>
           </tbody>
         </table></div>
-        <p>Ordering is not the same as usefulness. With a cutoff fitted on held-out items, accuracy on the two yes or no families lands at 62.8% and 93.1%, against floors of 62.7% and 94.1%. The signal is real, but the classes are imbalanced enough that acting on it gains nothing over answering the most common label.</p>
+        <p>Ordering is not the same as usefulness. With a cutoff fitted on held-out items, accuracy on the two yes or no families lands at 62.8% and 93.1%, against floors of 62.7% and 94.1%. The signal is real, but the classes are imbalanced enough that acting on it gains nothing over answering the most common label. It is also weaker than the simplest heuristic: bigger fixes pass more often here, so ranking fixes by lines changed alone scores 0.78, above Jev's 0.69 (see <a href="#control-run">the control</a>).</p>
         <p>The wording is not the cause. The same 134 development-split patches were asked the verdict question four ways, including an inverted form where agreeing means the opposite.</p>
         <div class="suite-table-scroll" role="region" aria-label="The same patches asked four ways" tabindex="0"><table class="suite-results">
           <caption>The verdict question worded four ways, 134 development-split patches, 56.7% of which pass</caption>
@@ -181,19 +181,30 @@
         <p>To find out, GPT-6 Astra at high effort was given exactly Jev's inputs through Codex, in an empty read-only directory with no tools, and asked for a probability on every pass question. Its cutoff was chosen on the 134 development-split questions and applied to the 611 published ones, the same procedure as Jev's. It made no tool calls and took a median of 22 seconds per answer, against 0.3 seconds for Jev.</p>
         <div class="suite-table-scroll" role="region" aria-label="Control results on the pass question" tabindex="0"><table class="suite-results">
           <caption>Does the fix pass every hidden test? 611 published fixes, same inputs for both models</caption>
-          <thead><tr><th scope="col">Measure</th><th scope="col">GPT-6 Astra (control)</th><th scope="col">Jev 1.13.0</th></tr></thead>
+          <thead><tr><th scope="col">Measure</th><th scope="col">GPT-6 Astra (control)</th><th scope="col">Jev 1.13.0</th><th scope="col">Lines changed alone</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Always guessing</th><td>62.7%</td><td>62.7%</td></tr>
-            <tr><th scope="row">Ranking (AUROC, 95% interval)</th><td>0.87 (0.84 to 0.89)</td><td>0.69 (0.65 to 0.73)</td></tr>
-            <tr><th scope="row">Accuracy at a development-fitted cutoff</th><td>72.5% (cutoff 0.20)</td><td>62.8% (cutoff 0.17)</td></tr>
-            <tr><th scope="row">Accuracy at the plain 50% line</th><td>67.1%</td><td>37.3%</td></tr>
-            <tr><th scope="row">Stated probability, lowest to highest</th><td>0.00 to 0.95</td><td>0.09 to 0.42</td></tr>
-            <tr><th scope="row">Mean stated probability (true rate 62.7%)</th><td>0.34</td><td>0.22</td></tr>
+            <tr><th scope="row">Always guessing</th><td>62.7%</td><td>62.7%</td><td>62.7%</td></tr>
+            <tr><th scope="row">Ranking (AUROC, 95% interval)</th><td>0.87 (0.84 to 0.89)</td><td>0.69 (0.65 to 0.73)</td><td>0.78 (0.75 to 0.82)</td></tr>
+            <tr><th scope="row">Accuracy at a development-fitted cutoff</th><td>72.5% (cutoff 0.20)</td><td>62.8% (cutoff 0.17)</td><td>65.1% (127 lines)</td></tr>
+            <tr><th scope="row">Accuracy at the plain 50% line</th><td>67.1%</td><td>37.3%</td><td></td></tr>
+            <tr><th scope="row">Stated probability, lowest to highest</th><td>0.00 to 0.95</td><td>0.09 to 0.42</td><td></td></tr>
+            <tr><th scope="row">Mean stated probability (true rate 62.7%)</th><td>0.34</td><td>0.22</td><td></td></tr>
+          </tbody>
+        </table></div>
+        <p>Fix size matters here more than it should. Bigger fixes pass far more often in this suite, 7% of the published fixes under 50 lines against 90% of those over 200, so "rank fixes by how many lines they change" is a real baseline, and a model's ranking only shows it is reading the code if it beats that.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Ranking within each fix size" tabindex="0"><table class="suite-results">
+          <caption>Ranking (AUROC) within each fix size, 611 published pass questions</caption>
+          <thead><tr><th scope="col">Fix size</th><th scope="col">Fixes</th><th scope="col">Share that pass</th><th scope="col">GPT-6 Astra</th><th scope="col">Jev</th><th scope="col">Lines changed alone</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Under 50 lines</th><td>68</td><td>7%</td><td>0.80</td><td>0.45</td><td>0.89</td></tr>
+            <tr><th scope="row">50 to 199 lines</th><td>417</td><td>64%</td><td>0.81</td><td>0.56</td><td>0.65</td></tr>
+            <tr><th scope="row">200 lines or more</th><td>126</td><td>90%</td><td>0.96</td><td>0.88</td><td>0.64</td></tr>
           </tbody>
         </table></div>
         <div class="effort-choices">
           <div><h3>The question is answerable</h3><p>About 10 points above guessing</p><p>A frontier model beats always guessing by about 10 points from the same text. The hidden quirks limit how well any reader can do, but they do not make the task impossible.</p></div>
           <div><h3>Jev's shortfall is real</h3><p>AUROC gap 0.13 to 0.22</p><p>It is ranking as well as calibration. The gap holds within each of the 19 tasks, item-weighted AUROC 0.91 for Astra against 0.73 for Jev, so it is not an artifact of some tasks being easier.</p></div>
+          <div><h3>Fix size explains most of Jev's ranking</h3><p>0.78 for size alone, 0.69 for Jev</p><p>Ranking by lines changed beats Jev overall. In the middle size band, two thirds of the fixes, Jev is near chance (0.56) while Astra holds at 0.81. Jev does rank the largest fixes well, but only 13 of those 126 fail.</p></div>
           <div><h3>Astra is under-confident too</h3><p>Mean 0.34 where 63% pass</p><p>But its answers do cross 50%, and at that plain line it still beats guessing, 67.1% against 62.7%. Jev's never do.</p></div>
           <div><h3>A control, not a column</h3><p>One model, one effort, one question</p><p>The control shows the pass question is answerable and gives Jev a reference point. It is not a leaderboard entry for Astra, and the style question has no control yet.</p></div>
         </div>
@@ -208,7 +219,7 @@
 
       <section class="report-section" id="meaning" aria-labelledby="meaning-heading">
         <h2 id="meaning-heading">What this means</h2>
-        <p>Jev cannot be dropped in as a merge gate or a continuous-integration pre-filter on the strength of its own probabilities. Read literally, it says every patch is more likely to fail than pass, which would block everything. Read as a ranking, with a cutoff fitted on your own labelled data, it comes out about level with answering "it passes" every time. A frontier model given the same inputs beats guessing by about 10 points and ranks fixes far better (see <a href="#control-run">the control</a>), so the shortfall is Jev's, not the test's.</p>
+        <p>Jev cannot be dropped in as a merge gate or a continuous-integration pre-filter on the strength of its own probabilities. Read literally, it says every patch is more likely to fail than pass, which would block everything. Read as a ranking, with a cutoff fitted on your own labelled data, it comes out about level with answering "it passes" every time. A frontier model given the same inputs beats guessing by about 10 points and ranks fixes far better (see <a href="#control-run">the control</a>), so the shortfall is Jev's, not the test's. Even the modest ranking Jev has is mostly available for free: sorting fixes by how many lines they change does better.</p>
         <p>Where the judgment is about the shape of the code rather than its behaviour, the picture changes: 89.7% agreement with a calibrated judge panel, an AUROC of 0.962, at 328 ms and $0.15 per 1,000 decisions. That is roughly the cost and latency of a database query, for a judgment that currently costs a full model call.</p>
         <p>The methodological point is one this report had to learn the hard way. A model that returns probabilities can be self-consistent, well ordered and badly scaled all at once, and which of those you see depends entirely on the metric. Accuracy at a fixed cutoff measures the scaling and hides the ordering. AUROC measures the ordering and hides the scaling. Reporting one without the other produces a confident, wrong headline, which is what the first version of this page did.</p>
       </section>
