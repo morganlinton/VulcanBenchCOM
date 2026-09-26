@@ -8,7 +8,7 @@
   var MODELS = [];
   COLS.forEach(function (c) { if (!MODELS.some(function (m) { return m.key === c.key; })) MODELS.push({ key: c.key, name: c.model, harness: c.harness }); });
   var AXES = {
-    usd: { label: "Average cost per task (API-equivalent, list rates)", fmt: function (v) { return v === 0 ? "$0" : "$" + (v < 1 ? v.toFixed(2) : Number.isInteger(v) ? v : v.toFixed(1)); }, tip: function (r) { return "$" + r.usd.toFixed(2) + " per task"; } },
+    usd: { label: "Average cost per task (API-equivalent, list rates)", fmt: function (v) { return v === 0 ? "$0" : "$" + (v < 1 ? v.toFixed(2) : Number.isInteger(v) ? v : v.toFixed(1)); }, tip: function (r) { return r.usd === null ? "cost unavailable" : "$" + r.usd.toFixed(2) + " per task"; } },
     output_tokens_median: { label: "Median completion tokens per task (reasoning included)", fmt: fmtTokens, tip: function (r) { return fmtTokens(r.output_tokens_median) + " tokens per task"; } },
     minutes: { label: "Minutes per task", fmt: function (v) { return String(Math.round(v)); }, tip: function (r) { return r.minutes.toFixed(1) + " min per task"; } }
   };
@@ -25,7 +25,10 @@
   function chart() {
     // CursorBench layout: cost runs from most expensive on the left to $0 on the right, so every line ends at the far right.
     var size = window.VB_V4_SIZE || {}, W = size.W || 960, H = size.H || 520, L = 56, R = 176, T = 40, B = 56, ax = AXES[xKey];
-    var xs = COLS.map(function (r) { return r[xKey]; }), ys = COLS.map(function (r) { return r.combined; });
+    // A column with no value on this axis (an unpriced model on the cost axis) is left
+    // off the chart rather than drawn at zero; the figcaption names it.
+    var P = COLS.filter(function (r) { return typeof r[xKey] === "number" && isFinite(r[xKey]); });
+    var xs = P.map(function (r) { return r[xKey]; }), ys = P.map(function (r) { return r.combined; });
     var step = niceStep(Math.max.apply(null, xs));
     var xmax = Math.ceil(Math.max.apply(null, xs) * 1.04 / step) * step;
     var ymin = Math.max(0, Math.floor((Math.min.apply(null, ys) - 4) / 10) * 10), ymax = 100;
@@ -54,9 +57,10 @@
       }
       return [x, y - 9];
     }
-    COLS.forEach(function (r) { boxes.push({ x: X(r[xKey]) - 6, y: Y(r.combined) - 6, w: 12, h: 12 }); });  // keep labels off the dots
+    P.forEach(function (r) { boxes.push({ x: X(r[xKey]) - 6, y: Y(r.combined) - 6, w: 12, h: 12 }); });  // keep labels off the dots
     MODELS.forEach(function (m) {
-      var pts = COLS.filter(function (r) { return r.key === m.key; }).sort(function (a, b) { return EFFORTS.indexOf(a.effort) - EFFORTS.indexOf(b.effort); });
+      var pts = P.filter(function (r) { return r.key === m.key; }).sort(function (a, b) { return EFFORTS.indexOf(a.effort) - EFFORTS.indexOf(b.effort); });
+      if (!pts.length) return;  // no value on this axis: the model is named in the figcaption instead
       var col = COLORS[m.key] || "#f7f4ee";
       if (pts.length > 1) g += '<polyline fill="none" stroke="' + col + '" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#v4glow)" points="' + pts.map(function (r) { return X(r[xKey]).toFixed(1) + "," + Y(r.combined).toFixed(1); }).join(" ") + '"/>';
       pts.forEach(function (r) {
@@ -72,7 +76,7 @@
     labels.forEach(function (l) { g += '<text x="' + l.x.toFixed(1) + '" y="' + l.y.toFixed(1) + '" font-size="13" font-weight="600" fill="' + l.col + '">' + esc(l.text) + "</text>"; });
     MODELS.forEach(function (m) {  // effort labels go last so they steer around the dots and the model names
       var col = COLORS[m.key] || "#f7f4ee";
-      COLS.filter(function (r) { return r.key === m.key; }).sort(function (a, b) { return a[xKey] - b[xKey]; }).forEach(function (r) {
+      P.filter(function (r) { return r.key === m.key; }).sort(function (a, b) { return a[xKey] - b[xKey]; }).forEach(function (r) {
         var at = place(X(r[xKey]), Y(r.combined), SHORT[r.effort], 10);
         g += '<text x="' + at[0].toFixed(1) + '" y="' + at[1].toFixed(1) + '" text-anchor="middle" font-size="10" fill="' + col + '" fill-opacity="0.85">' + SHORT[r.effort] + "</text>";
       });
@@ -80,12 +84,24 @@
     return '<svg viewBox="0 0 ' + W + " " + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VulcanBench Frontier v4 score against ' + esc(ax.label.toLowerCase()) + ', most expensive on the left, one line per model across its effort levels" font-family="IBM Plex Mono, SF Mono, monospace">' + g + "</svg>";
   }
 
+  function omitted() {
+    var names = [];
+    MODELS.forEach(function (m) {
+      var any = COLS.some(function (r) { return r.key === m.key && typeof r[xKey] === "number" && isFinite(r[xKey]); });
+      if (!any) names.push(m.name);
+    });
+    if (!names.length) return "";
+    return " " + names.join(" and ") + (names.length > 1 ? " are" : " is") + " not on this axis: " +
+      (xKey === "usd" ? "no per-token rate is published, so the cost is unavailable rather than zero." : "that measure is unavailable.") +
+      " The table below still carries every column.";
+  }
+
   function render() {
     var tabs = [["usd", "Cost"], ["output_tokens_median", "Tokens"], ["minutes", "Minutes"]].map(function (t) {
       return '<button type="button" role="tab" class="' + (xKey === t[0] ? "active" : "") + '" aria-selected="' + (xKey === t[0] ? "true" : "false") + '" data-x="' + t[0] + '">' + t[1] + "</button>";
     }).join("");
     app.innerHTML = '<div class="v4group"><span class="v4label">X axis</span><div class="lb-toggle chart-toggle on v4modes" role="tablist" aria-label="Chart x axis">' + tabs + "</div></div>" +
-      '<figure class="v4card v4chart">' + chart() + '<figcaption><span>Each line is one model through its reasoning-effort levels; cost runs from most expensive on the left to cheapest on the right, so Max sits at the left end of each line and Low at the right. Each dot is labelled with its effort level; hover for the exact numbers.</span></figcaption></figure>';
+      '<figure class="v4card v4chart">' + chart() + '<figcaption><span>Each line is one model through its reasoning-effort levels; cost runs from most expensive on the left to cheapest on the right, so Max sits at the left end of each line and Low at the right. Each dot is labelled with its effort level; hover for the exact numbers.' + omitted() + '</span></figcaption></figure>';
     try { localStorage.setItem("vb_v4_axis", xKey); } catch (e) {}
   }
 

@@ -287,6 +287,28 @@
       "best": false
     },
     {
+      "model": "Devin SWE-2",
+      "lab": "Cognition",
+      "harness": "Devin CLI",
+      "slug": "devin-swe-2",
+      "key": "swe2",
+      "effort": "max",
+      "n": 22,
+      "combined": 86.13931313686314,
+      "combined_se": 1.310080034269202,
+      "code_quality": 69.16818030454394,
+      "passed": 21,
+      "minutes": 56.64182536231884,
+      "usd": null,
+      "raw_tokens": 9730538,
+      "output_tokens_median": 153312,
+      "output_tokens_mean": 170843.13043478262,
+      "report": "benchmarks/swe-v4-devin-swe2-v311.html",
+      "protocol": "code-quality-maintenance-v3.11",
+      "rank": 14,
+      "best": true
+    },
+    {
       "model": "GPT-5.6 Sol",
       "lab": "OpenAI",
       "harness": "Codex",
@@ -305,7 +327,7 @@
       "output_tokens_mean": 27088.260869565216,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 14,
+      "rank": 15,
       "best": false
     },
     {
@@ -327,7 +349,7 @@
       "output_tokens_mean": 110535.30434782608,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 15,
+      "rank": 16,
       "best": true
     },
     {
@@ -349,7 +371,7 @@
       "output_tokens_mean": 52972.565217391304,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 16,
+      "rank": 17,
       "best": false
     },
     {
@@ -371,7 +393,51 @@
       "output_tokens_mean": 25212.434782608696,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 17,
+      "rank": 18,
+      "best": false
+    },
+    {
+      "model": "Devin SWE-2",
+      "lab": "Cognition",
+      "harness": "Devin CLI",
+      "slug": "devin-swe-2",
+      "key": "swe2",
+      "effort": "medium",
+      "n": 23,
+      "combined": 82.43096510446075,
+      "combined_se": 2.001609692243867,
+      "code_quality": 65.13868213472956,
+      "passed": 15,
+      "minutes": 49.778971014492754,
+      "usd": null,
+      "raw_tokens": 16802267.652173914,
+      "output_tokens_median": 138321,
+      "output_tokens_mean": 220480.60869565216,
+      "report": "benchmarks/swe-v4-devin-swe2-v311.html",
+      "protocol": "code-quality-maintenance-v3.11",
+      "rank": 19,
+      "best": false
+    },
+    {
+      "model": "Devin SWE-2",
+      "lab": "Cognition",
+      "harness": "Devin CLI",
+      "slug": "devin-swe-2",
+      "key": "swe2",
+      "effort": "high",
+      "n": 20,
+      "combined": 81.42260524725275,
+      "combined_se": 2.9811276318131976,
+      "code_quality": 66.26440226440226,
+      "passed": 15,
+      "minutes": 35.08740681818182,
+      "usd": null,
+      "raw_tokens": 7526272.954545454,
+      "output_tokens_median": 116405.5,
+      "output_tokens_mean": 136664.68181818182,
+      "report": "benchmarks/swe-v4-devin-swe2-v311.html",
+      "protocol": "code-quality-maintenance-v3.11",
+      "rank": 20,
       "best": false
     },
     {
@@ -393,7 +459,7 @@
       "output_tokens_mean": 68218.17391304347,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 18,
+      "rank": 21,
       "best": false
     },
     {
@@ -415,7 +481,7 @@
       "output_tokens_mean": 52640.47826086957,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 19,
+      "rank": 22,
       "best": true
     },
     {
@@ -437,7 +503,7 @@
       "output_tokens_mean": 33233.391304347824,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 20,
+      "rank": 23,
       "best": false
     },
     {
@@ -459,7 +525,7 @@
       "output_tokens_mean": 56749.17391304348,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 21,
+      "rank": 24,
       "best": false
     },
     {
@@ -481,7 +547,7 @@
       "output_tokens_mean": 45403.82608695652,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 22,
+      "rank": 25,
       "best": false
     },
     {
@@ -503,7 +569,7 @@
       "output_tokens_mean": 19983.478260869564,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 23,
+      "rank": 26,
       "best": false
     },
     {
@@ -525,7 +591,7 @@
       "output_tokens_mean": 20601.217391304348,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 24,
+      "rank": 27,
       "best": false
     },
     {
@@ -547,7 +613,7 @@
       "output_tokens_mean": 29336.043478260868,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 25,
+      "rank": 28,
       "best": false
     },
     {
@@ -569,7 +635,7 @@
       "output_tokens_mean": 16828.304347826088,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 26,
+      "rank": 29,
       "best": false
     },
     {
@@ -591,7 +657,7 @@
       "output_tokens_mean": 19703.91304347826,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 27,
+      "rank": 30,
       "best": false
     },
     {
@@ -613,7 +679,7 @@
       "output_tokens_mean": 19643.739130434784,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 28,
+      "rank": 31,
       "best": false
     },
     {
@@ -635,7 +701,7 @@
       "output_tokens_mean": 6406.826086956522,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 29,
+      "rank": 32,
       "best": false
     }
   ],
@@ -701,6 +767,19 @@
           "Codex",
           "gpt-5-6-sol",
           "OpenAI"
+        ]
+      }
+    },
+    {
+      "bundle": "swe-v4-devin-swe2-v311",
+      "report": "benchmarks/swe-v4-devin-swe2-v311.html",
+      "protocol": "v3.11",
+      "models": {
+        "swe2": [
+          "Devin SWE-2",
+          "Devin CLI",
+          "devin-swe-2",
+          "Cognition"
         ]
       }
     }
@@ -845,6 +924,40 @@
         "minutes_vs_best": 0.9150290569343577,
         "passed": 21,
         "n": 23
+      }
+    },
+    "swe2": {
+      "model": "Devin SWE-2",
+      "best_effort": "max",
+      "best_combined": 86.13931313686314,
+      "spread": 3.708348032402384,
+      "shape": "steep",
+      "critical": {
+        "effort": "max",
+        "combined": 86.13931313686314,
+        "gap": 0.0,
+        "usd_vs_best": null,
+        "minutes_vs_best": 1.0,
+        "passed": 21,
+        "n": 22
+      },
+      "routine": {
+        "effort": "max",
+        "combined": 86.13931313686314,
+        "gap": 0.0,
+        "usd_vs_best": null,
+        "minutes_vs_best": 1.0,
+        "passed": 21,
+        "n": 22
+      },
+      "rough": {
+        "effort": "high",
+        "combined": 81.42260524725275,
+        "gap": 4.71670788961039,
+        "usd_vs_best": null,
+        "minutes_vs_best": 0.6194610889345354,
+        "passed": 15,
+        "n": 20
       }
     },
     "luna": {
