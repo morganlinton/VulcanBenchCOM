@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jev 1.13.0 on VulcanBench Verdict v2 | VulcanBench</title>
+<meta name="description" content="Verdict v2: TypeSafe AI's Jev on 4,774 test items in twenty question families, in software engineering and general reasoning, every answer checked by execution, a tool, hidden tests, a merged fix or a generator. Jev scores 45.9 on the Verdict Index, where 0 is the best trivial strategy and 100 is perfect; GPT-6 Astra, a reference given the same inputs, scores 91.7.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/verdict-v2-jev.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Jev 1.13.0 on VulcanBench Verdict v2 | VulcanBench">
+<meta property="og:description" content="Verdict v2: TypeSafe AI's Jev on 4,774 test items in twenty question families, in software engineering and general reasoning, every answer checked by execution, a tool, hidden tests, a merged fix or a generator. Jev scores 45.9 on the Verdict Index, where 0 is the best trivial strategy and 100 is perfect; GPT-6 Astra, a reference given the same inputs, scores 91.7.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/verdict-v2-jev.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/verdict-v2-jev.png?v=1">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1725">
+<meta property="og:image:alt" content="VulcanBench Verdict v2 model card for Jev 1.13.0: Jev against the GPT-6 Astra reference on the Verdict, Software, General and Calibration indices, skill on each of twenty question families, and a table of every family">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jev 1.13.0 on VulcanBench Verdict v2 | VulcanBench">
+<meta name="twitter:description" content="Verdict v2: TypeSafe AI's Jev on 4,774 test items in twenty question families, in software engineering and general reasoning, every answer checked by execution, a tool, hidden tests, a merged fix or a generator. Jev scores 45.9 on the Verdict Index, where 0 is the best trivial strategy and 100 is perfect; GPT-6 Astra, a reference given the same inputs, scores 91.7.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/verdict-v2-jev.png?v=1">
+<meta name="twitter:image:alt" content="VulcanBench Verdict v2 model card for Jev 1.13.0: Jev against the GPT-6 Astra reference on the Verdict, Software, General and Calibration indices, skill on each of twenty question families, and a table of every family">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#verdict-v2">All VulcanBench Verdict v2 reports</a></p>
+    <article class="suite-feature" aria-labelledby="verdict-v2-jev-heading">
+      <header>
+        <p class="suite-label">September 25, 2026 &middot; 4,774 test items &middot; VulcanBench Verdict v2</p>
+        <h1 id="verdict-v2-jev-heading">Jev 1.13.0 on VulcanBench Verdict v2</h1>
+        <p>Verdict v2 measures TypeSafe AI's Jev across twenty kinds of judgment, in software engineering and in general reasoning, with every answer checked against something that cannot be argued with: a program's real output, a type checker, a hidden test suite, a merged fix, or the generator that built the question. Jev is a System One model. It writes no text; it returns a typed decision (one option from a list, a level on an ordered scale, or the probability that a statement is true) in a single fast pass.</p>
+        <p>Jev scores <strong>45.9</strong> on the Verdict Index (95% interval 43.1 to 48.4), where 0 means no better than the best dumb strategy for each question and 100 means perfect. GPT-6 Astra at high effort, given exactly the same inputs as a reference row, scores <strong>91.7</strong> (90.1 to 93.1). Jev answers in 0.3 seconds for about $0.12 per 1,000 questions; the reference takes 7 seconds per question and reasons at length before answering.</p>
+        <p>The reference row is there to show that every question can be answered from the inputs Jev sees. It is not a leaderboard entry. The rules that admitted each family were amended after a pilot; <a href="#gate">the gate change</a> sets out what changed and why.</p>
+      </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A question is built with a known answer</h3><p>For code, the answer comes from running the code, a type checker, the hidden tests of our Frontier v4 and earlier suites, a merged open-source fix or a security advisory. For general reasoning, a program generates the puzzle, table or policy and knows the answer by construction.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>Jev sees the question and nothing else</h3><p>The state is the text a person would need (a program, two patches, a table, logs from several services), plus one typed question.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>The answer is scored against the floor</h3><p>Jev's top answer is compared with the truth, and with the best trivial strategy for that family.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>A reference model checks that the question is fair</h3><p>GPT-6 Astra at high effort answers the same items with no tools. If it could not answer a family well, the family would say nothing about Jev and would not ship.</p></li>
+        </ol>
+        <p>Twenty families in eight areas, 4,774 published test items. Each family is scored as skill, <code>100 * (accuracy - floor) / (1 - floor)</code>, where the floor is the best of always giving the most common answer, guessing, and every surface shortcut we could build for that family.</p>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/cards/verdict-v2-jev.png?v=1" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, the four indices and all twenty families with the reference</span></a>
+        <a class="resource" href="/assets/data/verdict-v2-jev/scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by family</span><span class="resource-meta">CSV, twenty families and four indices</span></a>
+        <a class="resource" href="/assets/data/verdict-v2-jev/results.json"><span class="resource-kind">Data</span><span class="resource-title">Every published number</span><span class="resource-meta">JSON, per family metrics, shortcuts and the freeze record</span></a>
+        <a class="resource" href="/assets/data/verdict-v2-jev/report.md"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">Markdown, findings, method and limits</span></a>
+        <a class="resource" href="/assets/data/verdict-v2-jev/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">Public arithmetic checks and the freeze hash</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict/v2"><span class="resource-kind">Code</span><span class="resource-title">Suite code</span><span class="resource-meta">GitHub, family builders, scoring and the gate</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBench/blob/main/docs/VERDICT_V2.md"><span class="resource-kind">Spec</span><span class="resource-title">Suite design</span><span class="resource-meta">GitHub, families, scoring and the admission gate</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#why"><span class="n">01</span>Why v2</a>
+        <a href="#results"><span class="n">02</span>Results</a>
+        <a href="#findings"><span class="n">03</span>Findings</a>
+        <a href="#gate"><span class="n">04</span>The gate change</a>
+        <a href="#method"><span class="n">05</span>Method</a>
+        <a href="#limits"><span class="n">06</span>Limits</a>
+        <a href="#reproduce"><span class="n">07</span>Reproducing</a>
+      </nav>
+
+      <section class="report-section" id="why" aria-labelledby="why-heading">
+        <h2 id="why-heading">Why v2</h2>
+        <p><a href="/benchmarks/verdict-v1-jev.html">Verdict v1</a> (September 22) asked Jev one kind of question, whether an agent's patch passes its hidden tests, four different ways. Its headline could not separate Jev from guessing: 63% of patches passed, so always answering "passes" scored 62.7% and Jev scored 62.8%. Patch size alone predicted the answer better than Jev did. v2 fixes all three problems:</p>
+        <ul>
+          <li><strong>Many skills, not one.</strong> Twenty families in eight areas, each from its own source, so one family's quirks cannot decide the result.</li>
+          <li><strong>Scores above the floor, not raw accuracy.</strong> Items are balanced by construction, and each family is scored as skill: <code>100 * (accuracy - floor) / (1 - floor)</code>, where the floor is the best of always giving the most common answer, guessing, and every surface shortcut we could build for that family. A v1-style result reads as 0 here.</li>
+          <li><strong>Shortcuts are measured, not assumed away.</strong> Every family records what cheap heuristics (longest option, larger patch, first service to log an error, the option most similar to the others, and so on) would answer, and a family only ships if the best of them stays at skill 15 or below.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="results" aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+        <p>One query per item, with Jev pinned to <code>jev-1.13.0</code>. The reference is GPT-6 Astra at high effort, given the identical state, question and options.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Verdict v2 indices for Jev and the reference" tabindex="0"><table class="suite-results">
+          <caption>VulcanBench Verdict v2 indices, test split, 95% intervals in brackets</caption>
+          <thead><tr><th scope="col">Index</th><th scope="col">Jev 1.13.0</th><th scope="col">GPT-6 Astra, high (reference)</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Verdict Index (20 families)</th><td><strong>45.9</strong> (43.1 to 48.4)</td><td><strong>91.7</strong> (90.1 to 93.1)</td></tr>
+            <tr><th scope="row">Software sub-index (12)</th><td>49.6 (45.5 to 53.1)</td><td>86.2 (83.6 to 88.5)</td></tr>
+            <tr><th scope="row">General sub-index (8)</th><td>40.4 (36.8 to 43.9)</td><td>100.0 (100.0 to 100.0)</td></tr>
+            <tr><th scope="row">Calibration Index (Brier skill, 0 to 1)</th><td>0.33 (0.30 to 0.35)</td><td>0.87 (0.85 to 0.89)</td></tr>
+          </tbody>
+          <tbody>
+            <tr><th scope="row">Median time per answer</th><td>0.29 s (p95 0.42 s)</td><td>7.2 s (p95 17.8 s)</td></tr>
+            <tr><th scope="row">Cost</th><td>$0.58 for 4,774 answers</td><td>ChatGPT subscription</td></tr>
+          </tbody>
+        </table></div>
+        <div class="suite-notes">
+          <p><strong>Reading the indices.</strong> Intervals are 95% bootstrap intervals that resample source units (tasks, repositories or generator seed groups), not items. The two rows are separated on every index. The Verdict Index is the mean skill over all twenty families, and the sub-indices are the same mean within each pillar. The Calibration Index sits beside it and is never folded into it.</p>
+          <p><strong>The reference is a reference.</strong> GPT-6 Astra shows that each family can be answered from the same inputs. It is not a leaderboard entry, and no other model rows are added in v2.</p>
+        </div>
+
+        <h3 id="by-family">By family</h3>
+        <p>Skill, 0 = the best trivial strategy, 100 = perfect. Ranking is AUROC for families with a fixed set of options (no cutoff needed); a dash means the options differ per item.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Skill by question family" tabindex="0"><table class="suite-results">
+          <caption>Skill on every question family, test split</caption>
+          <thead><tr><th scope="col">Area</th><th scope="col">Family</th><th scope="col">Test items</th><th scope="col">Floor</th><th scope="col">Jev skill (95%)</th><th scope="col">Jev ranking</th><th scope="col">Reference skill</th><th scope="col">Best shortcut skill</th></tr></thead>
+          <tbody>
+            <tr data-model="jev" data-effort="code-output"><th scope="row">Reading code</th><td>What does this program print?</td><td>233</td><td>26%</td><td>39.9 (29 to 51)</td><td>0.81</td><td>100.0</td><td>9.8</td></tr>
+            <tr data-model="jev" data-effort="type-check-pair"><th scope="row">Reading code</th><td>Which of two snippets type-checks?</td><td>205</td><td>58%</td><td>87.2 (72 to 97)</td><td>0.99</td><td>100.0</td><td>0.0</td></tr>
+            <tr data-model="jev" data-effort="patch-pair"><th scope="row">Reviewing changes</th><td>Which of two patches passes the tests?</td><td>268</td><td>51%</td><td>36.4 (17 to 52)</td><td>0.76</td><td>57.6</td><td>0.8</td></tr>
+            <tr data-model="jev" data-effort="failing-test"><th scope="row">Reviewing changes</th><td>Which listed test does this patch fail?</td><td>210</td><td>26%</td><td>0.6 (-14 to 15)</td><td>-</td><td>69.7</td><td>7.3</td></tr>
+            <tr data-model="jev" data-effort="fix-file"><th scope="row">Finding bugs</th><td>Which file does the fix touch?</td><td>257</td><td>11%</td><td>56.8 (50 to 63)</td><td>-</td><td>79.9</td><td>1.3</td></tr>
+            <tr data-model="jev" data-effort="bug-function"><th scope="row">Finding bugs</th><td>Which function holds the planted bug?</td><td>266</td><td>21%</td><td>75.4 (66 to 84)</td><td>-</td><td>100.0</td><td>5.4</td></tr>
+            <tr data-model="jev" data-effort="vuln-pair"><th scope="row">Security</th><td>Which version is vulnerable?</td><td>240</td><td>60%</td><td>22.9 (6 to 37)</td><td>0.90</td><td>87.5</td><td>20.0</td></tr>
+            <tr data-model="jev" data-effort="weakness-class"><th scope="row">Security</th><td>Which weakness class is this?</td><td>240</td><td>23%</td><td>60.3 (53 to 68)</td><td>-</td><td>70.1</td><td>13.2</td></tr>
+            <tr data-model="jev" data-effort="mutant-kill"><th scope="row">Testing</th><td>Does this test catch this change?</td><td>206</td><td>52%</td><td>28.3 (7 to 46)</td><td>0.77</td><td>90.9</td><td>2.9</td></tr>
+            <tr data-model="jev" data-effort="expected-value"><th scope="row">Testing</th><td>Is this expected value right?</td><td>227</td><td>51%</td><td>42.3 (29 to 56)</td><td>0.84</td><td>100.0</td><td>-1.8</td></tr>
+            <tr data-model="jev" data-effort="incident-root-cause"><th scope="row">Operations</th><td>Which service caused the incident?</td><td>240</td><td>14%</td><td>81.6 (76 to 87)</td><td>-</td><td>99.0</td><td>0.0</td></tr>
+            <tr data-model="jev" data-effort="semver-impact"><th scope="row">Operations</th><td>Patch, minor or major version bump?</td><td>262</td><td>43%</td><td>63.3 (53 to 72)</td><td>0.91</td><td>80.0</td><td>-2.0</td></tr>
+          </tbody>
+          <tbody>
+            <tr data-model="jev" data-effort="constraint-pick"><th scope="row">Logic</th><td>Which assignment satisfies every rule?</td><td>240</td><td>25%</td><td>36.1 (29 to 44)</td><td>0.78</td><td>100.0</td><td>5.6</td></tr>
+            <tr data-model="jev" data-effort="entailment"><th scope="row">Logic</th><td>Does the conclusion follow?</td><td>240</td><td>51%</td><td>75.4 (68 to 83)</td><td>0.95</td><td>100.0</td><td>1.7</td></tr>
+            <tr data-model="jev" data-effort="word-problem"><th scope="row">Math</th><td>Multi-step word problem</td><td>240</td><td>27%</td><td>40.9 (30 to 51)</td><td>0.83</td><td>100.0</td><td>3.3</td></tr>
+            <tr data-model="jev" data-effort="estimate-band"><th scope="row">Math</th><td>Which band holds this quantity?</td><td>240</td><td>23%</td><td>24.2 (15 to 34)</td><td>-</td><td>100.0</td><td>3.1</td></tr>
+            <tr data-model="jev" data-effort="table-lookup"><th scope="row">Tables</th><td>Which group answers this question?</td><td>240</td><td>26%</td><td>23.7 (16 to 31)</td><td>-</td><td>100.0</td><td>0.0</td></tr>
+            <tr data-model="jev" data-effort="table-count-band"><th scope="row">Tables</th><td>How many rows match? (bands)</td><td>240</td><td>20%</td><td>35.4 (29 to 42)</td><td>-</td><td>100.0</td><td>0.0</td></tr>
+            <tr data-model="jev" data-effort="policy-decision"><th scope="row">Rules and policy</th><td>Is this case allowed?</td><td>240</td><td>51%</td><td>44.1 (27 to 58)</td><td>0.82</td><td>100.0</td><td>1.7</td></tr>
+            <tr data-model="jev" data-effort="policy-clause"><th scope="row">Rules and policy</th><td>Which clause decides this case?</td><td>240</td><td>18%</td><td>43.4 (31 to 55)</td><td>-</td><td>100.0</td><td>7.0</td></tr>
+          </tbody>
+        </table></div>
+        <div class="suite-notes">
+          <p><strong>The floor.</strong> The floor is measured on the published test split. Families were balanced over their full build, so a test split can lean one way (the type-check pairs are 58% "A" on test), and the floor rises to match. The first twelve rows are the software pillar and the last eight the general pillar.</p>
+          <p><strong>One shortcut sits close to Jev.</strong> On "which version is vulnerable", choosing the shorter version scores skill 20 on the test split, against 11.6 on the full build that the gate checked. Jev's 22.9 is measured above it, but only just. See <a href="#limits">Limits</a>.</p>
+        </div>
+      </section>
+
+      <figure class="suite-card">
+        <a href="/assets/cards/verdict-v2-jev.png?v=1" aria-label="Open the Jev Verdict v2 results card at full resolution">
+          <img src="/assets/cards/verdict-v2-jev.png?v=1" width="2400" height="1725" loading="lazy" alt="VulcanBench Verdict v2 model card for Jev 1.13.0. Left chart, four indices with Jev against the GPT-6 Astra high-effort reference: Verdict Index 46 against 92, Software 50 against 86, General 40 against 100, and Calibration, shown as Brier skill times 100, 33 against 87. Right chart, skill on each of the twenty question families, sorted by Jev within the software and general pillars: Jev runs from 87 on which snippet type-checks down to 1 on which hidden test fails, while the reference scores 100 on every general family and 58 to 100 on the software ones. Table 1 lists test items, Jev skill, reference skill, Jev AUROC and the best shortcut for every family. Exact values are in the tables on this page.">
+        </a>
+        <figcaption>Whiskers show &plusmn;1 standard error. Skill is 0 for the best trivial strategy on each family and 100 for perfect; the Calibration panel shows the Brier skill score times 100. The green bars are the reference row: GPT-6 Astra at high effort, given exactly Jev's inputs with no tools, which shows each family is answerable. It is a reference, not a ranked entry. <a href="/assets/cards/verdict-v2-jev.png?v=1">Open full-size card</a>.</figcaption>
+      </figure>
+
+      <section class="report-section" id="findings" aria-labelledby="findings-heading">
+        <h2 id="findings-heading">Findings</h2>
+
+        <h3 id="finding-recognition">1. Strong on recognition, weak on multi-step work</h3>
+        <p>Jev's best families are ones where the answer can be recognised from the shape of the text: whether a snippet type-checks (87), which service caused an incident when every victim's error points upstream (82), whether a conclusion follows from premises (75), and which function a failing assertion implicates (75). Its weakest are the ones that need several steps of working: a filter, group and total over a table of up to 200 rows (24), placing a computed value in a band (24), satisfying five to eight interlocking rules (36), predicting which hidden test a patch fails (1). The reference, which reasons before it answers, scores 100 on nearly all of those. The gap between the two rows is largest exactly where the work is.</p>
+
+        <h3 id="finding-patches">2. Patch review is above the floor but weak</h3>
+        <p>On pairs of real agent patches for the same issue, matched on size so that size gives nothing away, Jev picks the one that passes the hidden tests 68.7% of the time: skill 36 (17 to 52), ranking 0.76. That is above the floor, unlike v1, but well behind the reference (58, ranking 0.90). Asked which listed test a failing patch breaks, with the source of every listed test in front of it, Jev scores 0.6 (-14 to 15): no better than choosing the longest test. The reference scores 70 on the same items, so the question is answerable.</p>
+
+        <h3 id="finding-yes">3. A lean towards yes on yes or no questions</h3>
+        <p>Every yes or no family is built at a 50% base rate. Jev's stated probability ranges from about 0.01 to 0.99 on all four, so the v1 failure, a model whose probabilities never reached the decision boundary, does not recur. But it says "true" more often than it should: 73% of the time on whether an expected value is right, 72% on whether a test catches a change, 60% on whether a policy allows a case. Its ranking on those families (0.84, 0.77, 0.82) shows more signal than its yes or no answers do.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Jev's stated probabilities on the yes or no families" tabindex="0"><table class="suite-results">
+          <caption>Jev's stated probability that the statement is true, yes or no families, test split</caption>
+          <thead><tr><th scope="col">Yes or no family</th><th scope="col">Lowest p(true)</th><th scope="col">Median</th><th scope="col">Highest</th><th scope="col">Share answered yes</th><th scope="col">True rate</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Is this expected value right?</th><td>0.02</td><td>0.74</td><td>0.98</td><td>73%</td><td>51%</td></tr>
+            <tr><th scope="row">Does this test catch this change?</th><td>0.10</td><td>0.65</td><td>0.97</td><td>72%</td><td>50%</td></tr>
+            <tr><th scope="row">Is this case allowed?</th><td>0.03</td><td>0.62</td><td>0.98</td><td>60%</td><td>50%</td></tr>
+            <tr><th scope="row">Does the conclusion follow?</th><td>0.01</td><td>0.57</td><td>0.99</td><td>55%</td><td>50%</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3 id="finding-calibration">4. Calibration</h3>
+        <p>The Calibration Index is the mean Brier skill score against forecasting each family's answer frequencies: 0 is no better than that, 1 is perfect. Jev scores 0.33, the reference 0.87. Jev is best calibrated where it is most accurate (type checking 0.83, incidents 0.73, bug location 0.68) and close to uninformative on code output (0.10), vulnerable versions (0.09) and failing tests (0.06).</p>
+
+        <h3 id="finding-headroom">5. Headroom</h3>
+        <p>The reference answered all 1,920 general test items correctly. These families separate a fast decision model from a reasoning model very clearly, but they cannot rank two strong reasoning models against each other. The real-world software families still have headroom for the reference: patch pairs 58, failing tests 70, weakness class 70, which file 80, version bump 80, vulnerable version 88.</p>
+      </section>
+
+      <section class="report-section" id="gate" aria-labelledby="gate-heading">
+        <h2 id="gate-heading">The gate change</h2>
+        <p>Families were admitted by a gate written down before any results. On a 30-item development pilot, the reference was to score between 40 and 95, the best shortcut 15 or less, and each family needed at least 200 test items from at least 20 independent sources. The pilot broke the upper bound: the reference scored 100 on 14 of 20 families. We inspected items by hand for leaks and found none; the reference simply solves generated puzzles by reasoning through them. Hardening those families until the reference fell below 95 would have pushed Jev onto the floor on most of them.</p>
+        <p>So the gate was amended after seeing the pilot, on the owner's decision, and logged in the project's <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/DECISIONS.md">decision record</a> on September 25:</p>
+        <ul>
+          <li>The reference only has to show a family is answerable (skill 40 or more); it has no upper bound.</li>
+          <li>A family is too easy when <strong>Jev</strong> reaches skill 90, because then it measures nothing about Jev.</li>
+          <li>The shortcut rule is checked on the full build (about 300 items per family), not on the 30 pilot items, where chance alone moves a shortcut by about 18 points.</li>
+        </ul>
+        <p>Under the amended gate, four families needed work before they shipped, and all four were rebuilt, not waved through:</p>
+        <ul>
+          <li><strong>Program output</strong> (Jev 95 on the pilot): the wrong options were all one edit away from the true output, so the right answer was the option most similar to the others, 88.7% of the time. No builder had recorded that shortcut. Wrong options now form clusters and chains, and the gate checks this "most similar option" shortcut on every multiple-choice family.</li>
+          <li><strong>Planted bug</strong> (Jev 96): crash messages named the buggy function. Only the test's own assertion is shown now, the options are the functions on the test's call path, and 15 modules come from outside networkx.</li>
+          <li><strong>Failing test</strong> (reference 39): test names alone were barely answerable. Each item now shows the source of every listed test.</li>
+          <li><strong>Weakness class</strong> (keyword shortcut 15.2): rebalanced to 13.2 on the test split.</li>
+        </ul>
+        <p>After the rebuild, all 20 families passed, and the item set was frozen (5,926 items, seed 20260924, SHA-256 recorded) before the test split was run.</p>
+      </section>
+
+      <section class="report-section" id="method" aria-labelledby="method-heading">
+        <h2 id="method-heading">Method</h2>
+        <ul>
+          <li><strong>Items.</strong> 5,926 items, 4,774 in the published test split. Items are split into development and test by source unit (task, repository or seed group), so no task, repository or template appears in both. The development split was used only for the pilot.</li>
+          <li><strong>Sources.</strong> Software families come from executed programs (27 Python and 8 JavaScript templates for program output), mypy 2.1.0 in strict mode, planted mutations in real library modules labelled by running each library's own tests, the hidden-test verdicts of 3,821 distinct archived agent patches over 129 tasks (VulcanBench v1, v3, the Python pool and Frontier v4), merged single-file fixes from 107 repositories, and reviewed security advisories whose fix commits date from June 1, 2026 or later. General families are generated fresh by code, with nonsense names, so no item exists anywhere else.</li>
+          <li><strong>Ground truth audit.</strong> Before the freeze, a separate script re-derived the answer to a fixed 5% sample of every family (298 items) without using the builders' code: 298 of 298 matched.</li>
+          <li><strong>Jev.</strong> <code>jev-1.13.0</code> through TypeSafe's System One API, pinned (not <code>jev-latest</code>). The API has no effort, temperature or seed setting, so Jev has one column. Latency is wall clock from the operator's machine in California, including the network round trip, and is indicative only.</li>
+          <li><strong>Reference.</strong> GPT-6 Astra at high effort through <code>codex exec</code> on a ChatGPT subscription, in an empty read-only directory, with the identical state, question and options and a request for a probability on every option. No answer used a tool.</li>
+          <li><strong>Scoring.</strong> Skill uses each model's top answer. Ties break to the first option, whose position is randomised. Missing answers count as wrong (there were none). Intervals resample source units 2,000 times, keeping each family's floor strategy fixed at the one chosen on the real data.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="limits" aria-labelledby="limits-heading">
+        <h2 id="limits-heading">Limits</h2>
+        <ul>
+          <li><strong>The gate was changed after the pilot.</strong> The change and its reasons are <a href="#gate">above</a> and in the decision record. It removed the reference ceiling, added the Jev ceiling, and moved the shortcut check from the 30 pilot items to the full build. On the pilot items alone, the "shorter version" shortcut on vulnerable versions read skill 40 and would have failed the original rule.</li>
+          <li><strong>One shortcut is stronger on the test split than the gate saw.</strong> On "which version is vulnerable", choosing the shorter version scores skill 20 on the test split (11.6 on the full build that the gate checked). Jev's skill of 22.9 is measured above it, but only just.</li>
+          <li><strong>Some families lean on one source.</strong> 58% of planted-bug items come from networkx. 199 of 242 failing-test items and 184 of 300 patch pairs come from Frontier v4's binary-parity tasks. Most general families are one generator each.</li>
+          <li><strong>Labels by convention.</strong> The version-bump family is labelled by our own public-API differ for Python (names without a leading underscore are public), not by maintainers' intent. The weakness family collapses advisory CWE ids into ten classes by a published mapping.</li>
+          <li><strong>Memorisation.</strong> Generated items cannot have been seen before. Mined items are from June 2026 or later, but the libraries around them (networkx especially) are old and well known.</li>
+          <li><strong>Pilot numbers were noisy.</strong> Each pilot family had 30 items; patch pairs read -45 on the pilot and 36 on the 268-item test split. Only the test split is published.</li>
+          <li><strong>No headroom on the general families.</strong> The reference scored 100 on all eight, so they separate a fast decision model from a reasoning model but cannot rank two strong reasoning models against each other.</li>
+          <li><strong>Verdict and Frontier scores measure different things</strong> and are not comparable.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Reproducing</h2>
+        <p>Item files are private and gitignored, because software items embed benchmark tasks and hidden tests. The code, the freeze manifest, the pilot gate table and every published number are public. The <a href="/assets/data/verdict-v2-jev/REPRODUCING.md">reproduction guide</a> lists arithmetic checks a reader can do from <a href="/assets/data/verdict-v2-jev/scores.csv">scores.csv</a> and <a href="/assets/data/verdict-v2-jev/results.json">results.json</a>, and records the freeze: item file SHA-256 <code>ab5a2828...4481e</code> at commit <code>6933770</code>.</p>
+        <ul>
+          <li><strong>Suite.</strong> <a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict/v2"><code>harness/verdict/v2/</code></a> (items, registry, scoring, gate, twenty family builders); spec in <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/VERDICT_V2.md"><code>docs/VERDICT_V2.md</code></a>; decisions in <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/DECISIONS.md"><code>docs/DECISIONS.md</code></a> (September 24 and 25, 2026).</li>
+          <li><strong>Build.</strong> <code>scripts/verdict-v2/build_items.py --per-family 300</code> (seed 20260924); the freeze manifest records the commit and the item file's SHA-256.</li>
+          <li><strong>Run.</strong> <code>scripts/verdict-v2/run_jev.py</code> and <code>run_reference.py</code>; score and export with <code>scripts/verdict-v2/export_results.py</code>, which writes the results file published here.</li>
+          <li><strong>Audit.</strong> <code>scripts/verdict-v2/audit_ground_truth.py</code>.</li>
+        </ul>
+        <p>Results are pinned to <code>jev-1.13.0</code> and to the item set frozen on September 25, 2026; a later model version is a new measurement, never an update of this one.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+</body>
+</html>

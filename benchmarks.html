@@ -68,7 +68,8 @@
 
   <nav class="suite-nav" aria-label="Evaluation suites">
     <a href="#swe-v4">VulcanBench Frontier v4 <span>Current suite</span></a>
-    <a href="#verdict-v1">VulcanBench Verdict v1 <span>Decision models</span></a>
+    <a href="#verdict-v2">VulcanBench Verdict v2 <span>Decision models</span></a>
+    <a href="#verdict-v1">VulcanBench Verdict v1 <span>Decision models, earlier version</span></a>
     <a href="#archive">Earlier suites &amp; studies <span>Archive</span></a>
   </nav>
   <p class="suite-comparability">Compare results within the same suite and scoring protocol. Scores from different suites are not directly comparable.</p>
@@ -144,10 +145,29 @@
     </div>
   </section>
 
+  <section class="suite-section" id="verdict-v2" aria-labelledby="verdict-v2-heading">
+    <header class="suite-heading">
+      <div><p class="suite-label">Decision models</p><h2 id="verdict-v2-heading">VulcanBench Verdict v2</h2></div>
+      <a href="benchmarks/verdict-v2-jev.html">Read the report &rarr;</a>
+    </header>
+    <p class="suite-description">A suite for models that return a typed decision instead of text. Twenty question families in eight areas, twelve in software engineering and eight in general reasoning, with every answer checked by running code, a type checker, hidden tests, a merged fix, a security advisory or the generator that built the question. Each family is scored as skill above its floor, the best of the most common answer, guessing and every surface shortcut built for it, so 0 is no better than the best dumb strategy and 100 is perfect. It replaces Verdict v1, which asked one kind of question and whose headline could not separate Jev from guessing. Verdict and Frontier scores measure different things and are not comparable.</p>
+
+    <article class="suite-feature suite-preview" aria-labelledby="verdict-v2-jev-preview-heading">
+      <div>
+        <p class="suite-label">September 25, 2026 &middot; 4,774 test items &middot; jev-1.13.0</p>
+        <h3 id="verdict-v2-jev-preview-heading"><a href="benchmarks/verdict-v2-jev.html">Jev 1.13.0 on VulcanBench Verdict v2</a></h3>
+        <p>TypeSafe AI's Jev scores 45.9 on the Verdict Index (95% interval 43.1 to 48.4): 49.6 on the software families and 40.4 on the general ones, with a Calibration Index of 0.33. It answers in 0.3 seconds, $0.58 for all 4,774 items. GPT-6 Astra at high effort, given exactly the same inputs as a reference that shows every family is answerable rather than as a leaderboard entry, scores 91.7.</p>
+        <p>Jev is strongest where the answer can be recognised from the shape of the text, such as whether a snippet type-checks (87) or which service caused an incident (82), and weakest on multi-step work: 24 on filtering and totalling a table, 1 on predicting which hidden test a patch fails. On size-matched patch pairs it is above the floor, unlike v1, at skill 36 against 58 for the reference. The admission gate was amended after the pilot; the report sets out the change and its reasons. The reference scored 100 on all eight general families, so they have no headroom for ranking strong reasoning models.</p>
+        <div class="suite-downloads"><a href="benchmarks/verdict-v2-jev.html">Read the study</a><a href="assets/data/verdict-v2-jev/report.md">Full report</a><a href="assets/data/verdict-v2-jev/scores.csv">Scores CSV</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict/v2">Suite code</a></div>
+      </div>
+      <a href="benchmarks/verdict-v2-jev.html" aria-label="Read the Jev report on Verdict v2"><img src="assets/cards/verdict-v2-jev.png?v=1" width="2400" height="1725" loading="lazy" alt="Preview of the Jev Verdict v2 results card. Open the study for readable charts and tables."></a>
+    </article>
+  </section>
+
   <section class="suite-section" id="verdict-v1" aria-labelledby="verdict-v1-heading">
     <header class="suite-heading">
-      <div><p class="suite-label">Decision models</p><h2 id="verdict-v1-heading">VulcanBench Verdict v1</h2></div>
-      <a href="benchmarks/verdict-v1-jev.html">Read the first report &rarr;</a>
+      <div><p class="suite-label">Decision models, earlier version</p><h2 id="verdict-v1-heading">VulcanBench Verdict v1</h2></div>
+      <a href="benchmarks/verdict-v1-jev.html">Read the v1 report &rarr;</a>
     </header>
     <p class="suite-description">A suite for models that return a typed decision instead of text, and so cannot take a coding benchmark. It asks them to judge code rather than write it: 2,163 test items mined from 745 real agent patches produced during Frontier v4 sweeps, with the answers taken from those tasks' hidden test suites. Accuracy is always published beside calibration and beside the score for simply answering each question's most common label. Verdict and Frontier scores measure different things and are not comparable.</p>
 

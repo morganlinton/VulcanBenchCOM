@@ -1,0 +1,25 @@
+area,family,pillar,test_items,floor,jev_skill,jev_ci_low,jev_ci_high,jev_ranking,reference_skill,best_shortcut_skill
+Reading code,What does this program print?,software,233,26,39.9,29,51,0.81,100.0,9.8
+Reading code,Which of two snippets type-checks?,software,205,58,87.2,72,97,0.99,100.0,0.0
+Reviewing changes,Which of two patches passes the tests?,software,268,51,36.4,17,52,0.76,57.6,0.8
+Reviewing changes,Which listed test does this patch fail?,software,210,26,0.6,-14,15,,69.7,7.3
+Finding bugs,Which file does the fix touch?,software,257,11,56.8,50,63,,79.9,1.3
+Finding bugs,Which function holds the planted bug?,software,266,21,75.4,66,84,,100.0,5.4
+Security,Which version is vulnerable?,software,240,60,22.9,6,37,0.90,87.5,20.0
+Security,Which weakness class is this?,software,240,23,60.3,53,68,,70.1,13.2
+Testing,Does this test catch this change?,software,206,52,28.3,7,46,0.77,90.9,2.9
+Testing,Is this expected value right?,software,227,51,42.3,29,56,0.84,100.0,-1.8
+Operations,Which service caused the incident?,software,240,14,81.6,76,87,,99.0,0.0
+Operations,"Patch, minor or major version bump?",software,262,43,63.3,53,72,0.91,80.0,-2.0
+Logic,Which assignment satisfies every rule?,general,240,25,36.1,29,44,0.78,100.0,5.6
+Logic,Does the conclusion follow?,general,240,51,75.4,68,83,0.95,100.0,1.7
+Math,Multi-step word problem,general,240,27,40.9,30,51,0.83,100.0,3.3
+Math,Which band holds this quantity?,general,240,23,24.2,15,34,,100.0,3.1
+Tables,Which group answers this question?,general,240,26,23.7,16,31,,100.0,0.0
+Tables,How many rows match? (bands),general,240,20,35.4,29,42,,100.0,0.0
+Rules and policy,Is this case allowed?,general,240,51,44.1,27,58,0.82,100.0,1.7
+Rules and policy,Which clause decides this case?,general,240,18,43.4,31,55,,100.0,7.0
+Index,Verdict Index (20 families),all,4774,,45.9,43.1,48.4,,91.7,
+Index,Software sub-index (12),software,2854,,49.6,45.5,53.1,,86.2,
+Index,General sub-index (8),general,1920,,40.4,36.8,43.9,,100.0,
+Index,"Calibration Index (Brier skill, 0 to 1)",all,4774,,0.33,0.30,0.35,,0.87,
