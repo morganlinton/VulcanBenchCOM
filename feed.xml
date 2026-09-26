@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>Claude Opus 5.5 across every effort level | VulcanBench Frontier v4</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-opus55-v315.html</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-opus55-v315.html</guid>
+      <pubDate>Sat, 26 Sep 2026 12:00:00 +0000</pubDate>
+      <description>115 runs through Claude Code on a Claude Max subscription, 23 tasks at each of five effort levels, scored with Code quality at 33% of the combined score under the frozen v3.15 protocol, judged by Muse Spark 1.3 and Grok 4.6. Combined score 86.36 at Low, 90.86 at Medium with all 23 tasks passed, 91.11 at High, second on Frontier v4 only to Fable 5.1 at Max, then 90.68 and 90.22; $1.70 to $8.75 per task. Claude Code's refusal fallback was on, following Artificial Analysis: Opus 4.8 wrote 0.0, 6.4, 20.9, 32.4, 47.8% of replies from Low to Max, and every run counts. 114 of 115 runs are judged; on high depotcore a safeguard classifier stop left an empty patch. Includes a comparison card with GPT-6 Astra and Claude Fable 5.1 and public run records.</description>
+    </item>
+    <item>
       <title>Devin SWE-2 across every effort level | VulcanBench Frontier v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-devin-swe2-v311.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-devin-swe2-v311.html</guid>

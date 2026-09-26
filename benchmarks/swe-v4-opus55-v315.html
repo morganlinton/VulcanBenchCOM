@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Opus 5.5 across effort levels | VulcanBench</title>
+<meta name="description" content="Frontier v4: 115 Claude Code runs of Claude Opus 5.5 at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Best combined score 91.11 at high, second only to Fable 5.1 at max; medium, the shipped default, passes all 23 tasks at 90.86 for $2.84 a task. Refusal fallback on and disclosed.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-opus55-v315.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Claude Opus 5.5 across effort levels | VulcanBench">
+<meta property="og:description" content="Frontier v4: 115 Claude Code runs of Claude Opus 5.5 at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Best combined score 91.11 at high, second only to Fable 5.1 at max; medium, the shipped default, passes all 23 tasks at 90.86 for $2.84 a task. Refusal fallback on and disclosed.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-opus55-v315.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-opus55-v315.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="2130">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: Claude Opus 5.5, combined score and runtime at every effort level, with Code quality, fallback share and cost by effort">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Opus 5.5 across effort levels | VulcanBench">
+<meta name="twitter:description" content="Frontier v4: 115 Claude Code runs of Claude Opus 5.5 at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Best combined score 91.11 at high, second only to Fable 5.1 at max; medium, the shipped default, passes all 23 tasks at 90.86 for $2.84 a task. Refusal fallback on and disclosed.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-opus55-v315.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: Claude Opus 5.5, combined score and runtime at every effort level, with Code quality, fallback share and cost by effort">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=3">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<!--
+  Panel copy, revision map. Code quality on this page is a single judge's rating under protocol v3.11. If a second
+  judge is admitted for this population under a later protocol, the claim lives in exactly these places:
+    this page  the three meta descriptions; the abstract paragraph; the "suite-reading" paragraph's pointer;
+               the "What was judged, and by whom" section; the footnote "Code quality on this page is one judge's
+               rating"; the "Judges and calibration" section and its verdict table; the score card and its alt text.
+    elsewhere  benchmarks.html suite card, index.html report row, models/devin-swe-2.html, llms.txt, feed.xml,
+               assets/data/swe-v4-devin-swe2-v311/README.md, and the abstract and judges pages of the PDF.
+  Every other mention on this page points at those rather than restating the panel size.
+
+  Cost is reported as unavailable, never as zero: Cognition publishes no per-token rate for SWE-2 and the catalog's
+  "Free" tier is a promotion dated through 2026-10-10. See docs/DECISIONS.md (2026-09-18) in the harness repository.
+  If a rate is published, reprice from the receipts and revise the cost section, the two cost tables, the effort-choice
+  card, the three meta descriptions and the same list of files named above.
+-->
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="opus55-v315-heading">
+      <div class="suite-feature-head">
+        <p class="suite-label">September 26, 2026 &middot; 115 runs &middot; Code quality protocol v3.15</p>
+        <h1 id="opus55-v315-heading">Claude Opus 5.5 across every effort level</h1>
+      </div>
+      <div class="report-resources" aria-label="Cards and evidence downloads">
+        <a class="resource" href="/assets/cards/swe-v4-opus55-v315.png" download><span class="resource-kind">Card</span><span class="resource-title">Score card</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-opus55-astra-fable.png" download><span class="resource-kind">Card</span><span class="resource-title">Beside Astra and Fable 5.1</span></a>
+        <a class="resource" href="/assets/data/swe-v4-opus55-v315/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 115 run measurements</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-opus55-v315"><span class="resource-kind">Evidence</span><span class="resource-title">Public evidence bundle</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#compared"><span class="n">02</span>Beside Astra and Fable 5.1</a>
+        <a href="#fallback"><span class="n">03</span>Refusal fallback</a>
+        <a href="#population"><span class="n">04</span>Population and panel</a>
+        <a href="#reproduce"><span class="n">05</span>Evidence</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>Claude Opus 5.5 ran every Frontier v4 task once at each of five effort levels, 23 tasks per cell, through Claude Code 2.1.280 on a Claude Max subscription on September 22 to 24, 2026. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged by Muse Spark 1.3 and Grok 4.6 with a ground-truth intent-recovery probe. Judging ran on September 24 and 25.</p>
+        <p>Effort pays once, then flattens. Low scores 86.36 and passes 17 of 23 tasks. Medium, Anthropic's shipped default, passes all 23 at 90.86 for $2.84 a task. High, extra-high and max land between 90.22 and 91.11, with standard errors that overlap medium's, while cost per task climbs to $8.75 at max.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Opus 5.5 at each effort level" tabindex="0"><table class="suite-results"><caption>Claude Opus 5.5 (with fallback) at each effort level, 23 runs per cell (judged: 22 at high, 23 elsewhere)</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>86.36</td><td>90.86</td><td>91.11</td><td>90.68</td><td>90.22</td></tr><tr><th scope="row">Standard error</th><td>1.30</td><td>0.64</td><td>0.57</td><td>1.10</td><td>1.02</td></tr><tr><th scope="row">Tasks passed</th><td>17/23</td><td>23/23</td><td>22/23</td><td>22/23</td><td>21/23</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>72.53</td><td>77.32</td><td>77.99</td><td>79.98</td><td>79.77</td></tr><tr><th scope="row">Human readability</th><td>67.1</td><td>74.6</td><td>75.5</td><td>78.6</td><td>77.5</td></tr><tr><th scope="row">Intent recovery</th><td>78.3</td><td>77.8</td><td>79.3</td><td>79.7</td><td>81.0</td></tr></tbody><tbody><tr><th scope="row">Runs with Opus 4.8 turns</th><td>0</td><td>3</td><td>7</td><td>8</td><td>12</td></tr><tr><th scope="row">Opus 4.8 share of replies</th><td>0.0%</td><td>6.4%</td><td>20.9%</td><td>32.4%</td><td>47.8%</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>13.7</td><td>18.6</td><td>21.4</td><td>20.7</td><td>37.5</td></tr><tr><th scope="row">Raw tokens per task</th><td>2.77M</td><td>5.01M</td><td>4.11M</td><td>3.90M</td><td>8.72M</td></tr><tr><th scope="row">Cost per task</th><td>$1.70</td><td>$2.84</td><td>$3.27</td><td>$4.11</td><td>$8.75</td></tr></tbody></table></div>
+        <p>Tasks passed counts every run; the high cell's combined score and Code quality are over its 22 judged runs. Runtime and cost cover every run, so high's runtime here (21.4 minutes) differs slightly from the card, which averages the judged runs.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-opus55-v315.png" aria-label="Open the Claude Opus 5.5 model card at full resolution">
+          <img src="/assets/cards/swe-v4-opus55-v315.png" width="2400" height="2130" fetchpriority="high" alt="Claude Opus 5.5 across five effort levels under the v3.15 Code quality protocol. Combined score is 86.36 at low, 90.86 at medium, 91.11 at high, 90.68 at extra-high and 90.22 at max. A table gives Code quality, tasks passed, runs with Opus 4.8 turns, Opus 4.8 share of replies and cost per task at every level. Exact values are in the adjacent table.">
+        </a>
+        <figcaption>Combined score uses a focused scale; runtime starts at zero. Whiskers show &plusmn;1 task standard error. <a href="/assets/cards/swe-v4-opus55-v315.png">Open full-size card</a>.</figcaption>
+      </figure>
+
+      <section class="report-section" id="compared" aria-labelledby="compared-heading">
+        <h2 id="compared-heading">Beside GPT-6 Astra and Claude Fable 5.1</h2>
+        <p>On this suite Opus 5.5's best level, high at 91.11, is second only to Fable 5.1 at max (91.84) and ahead of GPT-6 Astra's best (89.30 at max). Opus 5.5 leads Fable 5.1 at medium and high and trails it at low, extra-high and max, costing 21 to 34% of Fable 5.1's price per task below max and about the same at max. Astra is the cheapest of the three at every level except low, where Opus 5.5 is two cents cheaper. Astra and Fable 5.1 are the published v3.4 rows; nothing was re-judged.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-opus55-astra-fable.png" aria-label="Open the Opus 5.5, Astra and Fable 5.1 comparison card at full resolution">
+          <img src="/assets/cards/swe-v4-opus55-astra-fable.png" width="2400" height="2385" loading="lazy" alt="Frontier v4 combined score and cost per task at every effort level for Claude Opus 5.5, GPT-6 Astra and Claude Fable 5.1, with a table of combined score, tasks passed, cost and Opus 4.8 reply share for each model and level.">
+        </a>
+        <figcaption>Both Claude columns ran with Claude Code's refusal fallback on and carry their Opus 4.8 reply share. Opus 5.5 and Fable 5.1 ran on different Claude Code versions (2.1.280 and 2.1.259 to 2.1.261), so small gaps between them are harness confounded. <a href="/assets/cards/swe-v4-opus55-astra-fable.png">Open full-size card</a>.</figcaption>
+      </figure>
+
+      <section class="report-section" id="fallback" aria-labelledby="fallback-heading">
+        <h2 id="fallback-heading">Refusal fallback, and what it means for these numbers</h2>
+        <p>When a safeguard classifier refuses a turn, Claude Code can finish the session on another model, here claude-opus-4-8. We follow Artificial Analysis, which publishes Opus 5.5 as "Default Fallback": the fallback stays on and every run counts. We go one step further and publish how much of each cell the fallback model wrote. Opus 4.8 wrote some replies in 0, 3, 7, 8 and 12 runs from low to max, and 0.0, 6.4, 20.9, 32.4 and 47.8% of all replies. The higher effort levels therefore partly measure Opus 4.8, and max is close to an even blend. The published Fable 5.1 column carries the same effect: 11 of its runs fell back.</p>
+        <p>Cost is Claude Code's own list-price total for every model that served a run. The harness's per-run estimate omitted the fallback model's usage (one extra-high run showed $0.15 against $19.69), so it is not used here.</p>
+      </section>
+
+      <section class="report-section" id="population" aria-labelledby="population-heading">
+        <h2 id="population-heading">What was judged, and by whom</h2>
+        <p>114 of 115 runs are judged. On high depotcore a safeguard classifier stop cut off the turn that would have written the module, so the patch is empty and there is nothing to review; the run scored 0 and stays in tasks passed, runtime and cost. Both judges, Muse Spark 1.3 and Grok 4.6, passed the full calibration exam under v3.15 with no allowance used, and no review fell back to another judge model. They are neutral for an Anthropic submission.</p>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence</h2>
+        <p>Public files contain all 115 run measurements, both judges' sub-scores and intent recovery per judged run, raw tokens by serving model, replies by serving model, cost per run, per-cell aggregates, every calibration gate for both judges and the exact judge protocol text. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). Summed solver time is 42.94 hours and API-equivalent solver cost $475.33 at list prices; judging is excluded.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader. Runs were not repeated. Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), and reviewer session identifiers.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+</body>
+</html>

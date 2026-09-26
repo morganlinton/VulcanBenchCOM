@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vulcanbench.com/</loc><lastmod>2026-09-23</lastmod><priority>1.0</priority></url>
-  <url><loc>https://vulcanbench.com/benchmarks.html</loc><lastmod>2026-09-25</lastmod><priority>0.9</priority></url>
-  <url><loc>https://vulcanbench.com/leaderboard.html</loc><lastmod>2026-09-23</lastmod><priority>0.8</priority></url>
+  <url><loc>https://vulcanbench.com/</loc><lastmod>2026-09-26</lastmod><priority>1.0</priority></url>
+  <url><loc>https://vulcanbench.com/benchmarks.html</loc><lastmod>2026-09-26</lastmod><priority>0.9</priority></url>
+  <url><loc>https://vulcanbench.com/leaderboard.html</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
   <url><loc>https://vulcanbench.com/methodology.html</loc><lastmod>2026-09-23</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/methodology-notes.html</loc><lastmod>2026-09-23</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/benchmark-your-stack.html</loc><lastmod>2026-09-23</lastmod><priority>0.7</priority></url>
@@ -12,6 +12,7 @@
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html</loc><lastmod>2026-09-23</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-devin-swe2-v311.html</loc><lastmod>2026-09-23</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-gpt55-luna-v35.html</loc><lastmod>2026-09-23</lastmod><priority>0.9</priority></url>
+  <url><loc>https://vulcanbench.com/benchmarks/swe-v4-opus55-v315.html</loc><lastmod>2026-09-26</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-sol-v37.html</loc><lastmod>2026-09-23</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-terra-v36.html</loc><lastmod>2026-09-23</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/01-cost-pilot.html</loc><lastmod>2026-09-23</lastmod><priority>0.8</priority></url>
@@ -42,6 +43,7 @@
   <url><loc>https://vulcanbench.com/models/claude-fable-5.html</loc><lastmod>2026-09-23</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/claude-haiku-4-5.html</loc><lastmod>2026-09-23</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/claude-opus-4-8.html</loc><lastmod>2026-09-23</lastmod><priority>0.7</priority></url>
+  <url><loc>https://vulcanbench.com/models/claude-opus-5-5.html</loc><lastmod>2026-09-26</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/claude-opus-5.html</loc><lastmod>2026-09-23</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/claude-sonnet-5.html</loc><lastmod>2026-09-23</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/deepseek-v4-flash.html</loc><lastmod>2026-09-23</lastmod><priority>0.7</priority></url>

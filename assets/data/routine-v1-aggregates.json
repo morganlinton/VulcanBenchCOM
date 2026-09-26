@@ -26,7 +26,20 @@
   "published_submissions": 384,
   "expected_submissions": 384,
   "ready_for_publication": true,
-  "comparability": "Routine Code quality is the L1 reviewed score alone (no legacy quirks exist to recover); it is not comparable with Frontier v4 Code quality."
+  "comparability": "Routine Code quality is the L1 reviewed score alone (no legacy quirks exist to recover); it is not comparable with Frontier v4 Code quality. Cells judged under a later protocol share the v3.8 rubric, controls, judge pins and weights but come from a separate judging session.",
+  "additional_records": [
+   {
+    "protocol": "code-quality-maintenance-v3.14",
+    "passing_panels": [
+     "muse",
+     "grok"
+    ],
+    "failed_panels": [],
+    "published_submissions": 60,
+    "expected_submissions": 60,
+    "ready_for_publication": true
+   }
+  ]
  },
  "duplicate_runs_dropped": 0,
  "task_hash_drift": 0,
@@ -65,6 +78,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 87.76,
    "se_code_quality": 1.96,
@@ -105,6 +119,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 85.85,
    "se_code_quality": 1.99,
@@ -145,6 +160,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 88.28,
    "se_code_quality": 1.3,
@@ -185,6 +201,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 88.72,
    "se_code_quality": 1.79,
@@ -225,6 +242,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 87.33,
    "se_code_quality": 1.26,
@@ -265,6 +283,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 82.47,
    "se_code_quality": 2.53,
@@ -305,6 +324,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 85.16,
    "se_code_quality": 2.24,
@@ -345,6 +365,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 86.72,
    "se_code_quality": 2.18,
@@ -385,6 +406,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 86.37,
    "se_code_quality": 2.29,
@@ -425,6 +447,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 86.72,
    "se_code_quality": 1.69,
@@ -465,6 +488,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 80.82,
    "se_code_quality": 2.27,
@@ -505,6 +529,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 79.6,
    "se_code_quality": 2.73,
@@ -545,6 +570,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 82.03,
    "se_code_quality": 2.46,
@@ -585,6 +611,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 81.42,
    "se_code_quality": 2.08,
@@ -625,6 +652,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 82.38,
    "se_code_quality": 2.43,
@@ -665,6 +693,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 86.37,
    "se_code_quality": 2.3,
@@ -705,6 +734,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 85.59,
    "se_code_quality": 2.03,
@@ -745,6 +775,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 86.72,
    "se_code_quality": 1.75,
@@ -785,6 +816,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 85.85,
    "se_code_quality": 2.08,
@@ -825,6 +857,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 86.81,
    "se_code_quality": 1.84,
@@ -865,6 +898,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 87.76,
    "se_code_quality": 2.15,
@@ -905,6 +939,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 87.85,
    "se_code_quality": 1.86,
@@ -945,6 +980,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 88.54,
    "se_code_quality": 1.9,
@@ -985,6 +1021,7 @@
    "harness_versions": [
     "codex-cli 0.153.4"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 88.89,
    "se_code_quality": 1.83,
@@ -1025,6 +1062,7 @@
    "harness_versions": [
     "2.1.261 (Claude Code)"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 85.5,
    "se_code_quality": 2.22,
@@ -1065,6 +1103,7 @@
    "harness_versions": [
     "2.1.261 (Claude Code)"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 86.98,
    "se_code_quality": 1.49,
@@ -1105,6 +1144,7 @@
    "harness_versions": [
     "2.1.261 (Claude Code)"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 90.02,
    "se_code_quality": 1.65,
@@ -1145,6 +1185,7 @@
    "harness_versions": [
     "2.1.261 (Claude Code)"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 92.19,
    "se_code_quality": 1.64,
@@ -1185,11 +1226,217 @@
    "harness_versions": [
     "2.1.261 (Claude Code)"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 93.84,
    "se_code_quality": 1.01,
    "mean_combined": 96.9,
    "se_combined": 0.32
+  },
+  {
+   "model_key": "opus55",
+   "model": "Claude Opus 5.5",
+   "lab": "Anthropic",
+   "harness": "Claude Code",
+   "effort": "low",
+   "effort_sent": [
+    "low"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8827,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9585,
+   "median_duration_s": 30.9,
+   "mean_duration_s": 32.0464,
+   "max_duration_s": 39.755,
+   "mean_prompt_tokens": 12248.5,
+   "mean_completion_tokens": 1162.5,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": 0.0722,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2.1.280 (Claude Code)"
+   ],
+   "judging_protocol": "code-quality-maintenance-v3.14",
+   "judged_submissions": 12,
+   "mean_code_quality": 85.5,
+   "se_code_quality": 2.06,
+   "mean_combined": 94.22,
+   "se_combined": 0.73
+  },
+  {
+   "model_key": "opus55",
+   "model": "Claude Opus 5.5",
+   "lab": "Anthropic",
+   "harness": "Claude Code",
+   "effort": "medium",
+   "effort_sent": [
+    "medium"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8851,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9493,
+   "median_duration_s": 40.6,
+   "mean_duration_s": 42.3468,
+   "max_duration_s": 52.297,
+   "mean_prompt_tokens": 17065.1667,
+   "mean_completion_tokens": 2283.6667,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": 0.1139,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2.1.280 (Claude Code)"
+   ],
+   "judging_protocol": "code-quality-maintenance-v3.14",
+   "judged_submissions": 12,
+   "mean_code_quality": 88.72,
+   "se_code_quality": 2.28,
+   "mean_combined": 95.3,
+   "se_combined": 0.77
+  },
+  {
+   "model_key": "opus55",
+   "model": "Claude Opus 5.5",
+   "lab": "Anthropic",
+   "harness": "Claude Code",
+   "effort": "high",
+   "effort_sent": [
+    "high"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.878,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9416,
+   "median_duration_s": 48.6,
+   "mean_duration_s": 51.3245,
+   "max_duration_s": 73.934,
+   "mean_prompt_tokens": 20290.1667,
+   "mean_completion_tokens": 3065.0,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": 0.1425,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2.1.280 (Claude Code)"
+   ],
+   "judging_protocol": "code-quality-maintenance-v3.14",
+   "judged_submissions": 12,
+   "mean_code_quality": 90.71,
+   "se_code_quality": 1.75,
+   "mean_combined": 95.9,
+   "se_combined": 0.6
+  },
+  {
+   "model_key": "opus55",
+   "model": "Claude Opus 5.5",
+   "lab": "Anthropic",
+   "harness": "Claude Code",
+   "effort": "extra-high",
+   "effort_sent": [
+    "xhigh"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8759,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9299,
+   "median_duration_s": 64.1,
+   "mean_duration_s": 66.3829,
+   "max_duration_s": 109.82,
+   "mean_prompt_tokens": 25546.1667,
+   "mean_completion_tokens": 4839.9167,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": 0.199,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2.1.280 (Claude Code)"
+   ],
+   "judging_protocol": "code-quality-maintenance-v3.14",
+   "judged_submissions": 12,
+   "mean_code_quality": 93.32,
+   "se_code_quality": 1.04,
+   "mean_combined": 96.74,
+   "se_combined": 0.34
+  },
+  {
+   "model_key": "opus55",
+   "model": "Claude Opus 5.5",
+   "lab": "Anthropic",
+   "harness": "Claude Code",
+   "effort": "max",
+   "effort_sent": [
+    "max"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8784,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.8969,
+   "median_duration_s": 355.6,
+   "mean_duration_s": 341.8583,
+   "max_duration_s": 564.212,
+   "mean_prompt_tokens": 105761.5,
+   "mean_completion_tokens": 35034.25,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": 1.1237,
+   "cost_basis": [
+    "harness-price-table"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2.1.280 (Claude Code)"
+   ],
+   "judging_protocol": "code-quality-maintenance-v3.14",
+   "judged_submissions": 12,
+   "mean_code_quality": 92.53,
+   "se_code_quality": 1.33,
+   "mean_combined": 96.5,
+   "se_combined": 0.45
   },
   {
    "model_key": "swe2",
@@ -1225,6 +1472,7 @@
    "harness_versions": [
     "devin 3000.10.31 (b98cc431)"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 82.73,
    "se_code_quality": 2.28,
@@ -1265,6 +1513,7 @@
    "harness_versions": [
     "devin 3000.10.31 (b98cc431)"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 83.94,
    "se_code_quality": 1.79,
@@ -1305,6 +1554,7 @@
    "harness_versions": [
     "devin 3000.10.31 (b98cc431)"
    ],
+   "judging_protocol": "code-quality-maintenance-v3.8",
    "judged_submissions": 12,
    "mean_code_quality": 85.68,
    "se_code_quality": 1.89,
@@ -1372,6 +1622,16 @@
    "best": 96.9,
    "tolerance_points": 3.0,
    "basis": "combined score (50/8.5/8.5/33) under Code quality v3.8"
+  },
+  {
+   "model_key": "opus55",
+   "model": "Claude Opus 5.5",
+   "effort": "low",
+   "metric": "mean_combined",
+   "value": 94.22,
+   "best": 96.74,
+   "tolerance_points": 3.0,
+   "basis": "combined score (50/8.5/8.5/33) under Code quality v3.14"
   },
   {
    "model_key": "swe2",

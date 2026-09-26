@@ -1,0 +1,166 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a Claude Max subscription through Claude Code, so these are estimates, not bills. Judging is excluded. Every run is priced, including the unjudged high depotcore run.",
+  "pricing_verified": "2026-09-22",
+  "sources": {
+    "anthropic": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  "rates_per_million": {
+    "claude-opus-5-5": {
+      "input": 4.0,
+      "cache_hit": 0.2,
+      "cache_write_5m": 5.0,
+      "cache_write_1h": 8.0,
+      "output": 20.0
+    },
+    "claude-opus-4-8": {
+      "input": 5.0,
+      "cache_hit": 0.5,
+      "cache_write_5m": 6.25,
+      "cache_write_1h": 10.0,
+      "output": 25.0
+    },
+    "claude-opus-5": {
+      "input": 5.0,
+      "cache_hit": 0.5,
+      "cache_write_5m": 6.25,
+      "cache_write_1h": 10.0,
+      "output": 25.0
+    }
+  },
+  "groups": [
+    {
+      "model": "opus55",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.6953085304347826,
+        "se": 0.3945348879014461
+      },
+      "usd_total": 38.9920962,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2771589.6086956523,
+        "se": 984950.6842694776
+      },
+      "raw_tokens_total": 63746561,
+      "minutes": {
+        "n": 23,
+        "mean": 13.690294202898551,
+        "se": 3.4827368865340973
+      },
+      "solver_fallback_runs": 0,
+      "opus48_reply_share_pct": 0.0
+    },
+    {
+      "model": "opus55",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.8422010086956524,
+        "se": 0.7278012786334727
+      },
+      "usd_total": 65.3706232,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 5012347.956521739,
+        "se": 2057767.7170178648
+      },
+      "raw_tokens_total": 115284003,
+      "minutes": {
+        "n": 23,
+        "mean": 18.644595652173912,
+        "se": 5.3692813380229465
+      },
+      "solver_fallback_runs": 3,
+      "opus48_reply_share_pct": 6.380368098159509
+    },
+    {
+      "model": "opus55",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 3.269443786956522,
+        "se": 0.5890153952256889
+      },
+      "usd_total": 75.19720710000001,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 4106099.9565217393,
+        "se": 1260723.7719478307
+      },
+      "raw_tokens_total": 94440299,
+      "minutes": {
+        "n": 23,
+        "mean": 21.419183333333333,
+        "se": 4.4262379456165055
+      },
+      "solver_fallback_runs": 7,
+      "opus48_reply_share_pct": 20.8596214511041
+    },
+    {
+      "model": "opus55",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 4.111557069565217,
+        "se": 0.8174800048527411
+      },
+      "usd_total": 94.5658126,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 3895567.782608696,
+        "se": 884318.1228854222
+      },
+      "raw_tokens_total": 89598059,
+      "minutes": {
+        "n": 23,
+        "mean": 20.747041304347825,
+        "se": 3.579764789652178
+      },
+      "solver_fallback_runs": 8,
+      "opus48_reply_share_pct": 32.427770590771885
+    },
+    {
+      "model": "opus55",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 8.74801397826087,
+        "se": 1.5156160428915122
+      },
+      "usd_total": 201.20432150000002,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 8723496.173913043,
+        "se": 1744507.2029533843
+      },
+      "raw_tokens_total": 200640412,
+      "minutes": {
+        "n": 23,
+        "mean": 37.51127826086957,
+        "se": 4.676498010145973
+      },
+      "solver_fallback_runs": 12,
+      "opus48_reply_share_pct": 47.77837259100642
+    }
+  ],
+  "totals": {
+    "opus55": {
+      "runs": 115,
+      "usd": 475.3300606,
+      "raw_tokens": 563709334,
+      "solver_hours": 42.93808388888888
+    }
+  },
+  "limitations": [
+    "Cost is Claude Code's own list-price total for the session, covering every serving model: claude-opus-5-5, claude-opus-4-8 after a refusal fallback, and claude-opus-5 for auxiliary CLI calls. The harness's receipt-based estimate omits fallback-model usage and is not used.",
+    "Claude Code prices cache writes by their observed TTL; the export takes its total as reported and checks it against each run summary.",
+    "No Batch, Fast or priority pricing is applied."
+  ],
+  "comparison_sha256": "7b79a443c1c336be5118ef1473fb4164fe4ece75975b050044ff8cdef2b614d2"
+}
