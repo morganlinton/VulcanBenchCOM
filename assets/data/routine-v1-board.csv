@@ -4,6 +4,11 @@ Fable 5.1,Anthropic,Claude Code,medium,False,12,12,94.7500,0.5100,86.9800,45.0,0
 Fable 5.1,Anthropic,Claude Code,high,False,12,12,95.7200,0.5600,90.0200,53.0,0.323100,2756.3,code-quality-maintenance-v3.8
 Fable 5.1,Anthropic,Claude Code,extra-high,False,12,12,96.4200,0.5400,92.1900,106.9,0.632400,6625.8,code-quality-maintenance-v3.8
 Fable 5.1,Anthropic,Claude Code,max,False,12,12,96.9000,0.3200,93.8400,241.9,1.463200,18445.0,code-quality-maintenance-v3.8
+Opus 5.5,Anthropic,Claude Code,low,True,12,12,94.2200,0.7300,85.5000,32.0,0.072200,1162.5,code-quality-maintenance-v3.14
+Opus 5.5,Anthropic,Claude Code,medium,False,12,12,95.3000,0.7700,88.7200,42.3,0.113900,2283.7,code-quality-maintenance-v3.14
+Opus 5.5,Anthropic,Claude Code,high,False,12,12,95.9000,0.6000,90.7100,51.3,0.142500,3065.0,code-quality-maintenance-v3.14
+Opus 5.5,Anthropic,Claude Code,extra-high,False,12,12,96.7400,0.3400,93.3200,66.4,0.199000,4839.9,code-quality-maintenance-v3.14
+Opus 5.5,Anthropic,Claude Code,max,False,12,12,96.5000,0.4500,92.5300,341.9,1.123700,35034.2,code-quality-maintenance-v3.14
 GPT-6 Astra,OpenAI,Codex,low,True,12,12,94.7900,0.6600,87.7600,73.8,0.259100,1568.8,code-quality-maintenance-v3.8
 GPT-6 Astra,OpenAI,Codex,medium,False,12,12,94.1400,0.6800,85.8500,75.7,0.264700,1637.2,code-quality-maintenance-v3.8
 GPT-6 Astra,OpenAI,Codex,high,False,12,12,95.0100,0.4400,88.2800,85.5,0.276700,1914.1,code-quality-maintenance-v3.8

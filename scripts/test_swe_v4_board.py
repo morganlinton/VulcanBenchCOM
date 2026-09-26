@@ -27,12 +27,12 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(board.csv_text(self.rows), (ROOT / "assets/data/swe-v4-board.csv").read_text())
 
     def test_every_column_is_on_the_board(self):
-        self.assertEqual(len(self.rows), 29)
-        self.assertEqual({r["model"] for r in self.rows}, {"GPT-6 Astra", "Fable 5.1", "GPT-5.5", "GPT-5.6 Luna", "GPT-5.6 Terra", "GPT-5.6 Sol"})
-        self.assertEqual(sum(1 for r in self.rows if r["best"]), 6)
-        self.assertEqual([r["rank"] for r in self.rows], list(range(1, 30)))
+        self.assertEqual(len(self.rows), 34)
+        self.assertEqual({r["model"] for r in self.rows}, {"GPT-6 Astra", "Fable 5.1", "GPT-5.5", "GPT-5.6 Luna", "GPT-5.6 Terra", "GPT-5.6 Sol", "Opus 5.5"})
+        self.assertEqual(sum(1 for r in self.rows if r["best"]), 7)
+        self.assertEqual([r["rank"] for r in self.rows], list(range(1, 35)))
         self.assertEqual([r["combined"] for r in self.rows], sorted((r["combined"] for r in self.rows), reverse=True))
-        self.assertEqual(sum(r["n"] for r in self.rows), 666)
+        self.assertEqual(sum(r["n"] for r in self.rows), 780)
         for r in self.rows:
             self.assertTrue((ROOT / f"models/{r['slug']}.html").is_file(), r["slug"])
             self.assertTrue((ROOT / r["report"]).is_file(), r["report"])
@@ -45,7 +45,10 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(sol_max["n"], 22)
         self.assertEqual(sol_max["passed"], 21)
         self.assertTrue(all(r["n"] == 23 for r in self.rows if r["key"] == "sol" and r["effort"] != "max"))
-        self.assertEqual(len(self.csv), 29)
+        opus_high = next(r for r in self.rows if r["key"] == "opus55" and r["effort"] == "high")
+        self.assertEqual((opus_high["n"], opus_high["passed"]), (22, 22))
+        self.assertTrue(all(r["n"] == 23 for r in self.rows if r["key"] == "opus55" and r["effort"] != "high"))
+        self.assertEqual(len(self.csv), 34)
         self.assertEqual(self.csv[0]["rank"], "1")
 
     def test_board_matches_the_bundles(self):
@@ -83,8 +86,8 @@ class BoardTests(unittest.TestCase):
                     if best["combined"] - r["combined"] <= tol:
                         self.assertGreaterEqual((r["usd"], r["minutes"]), (pick["usd"], pick["minutes"]))
         self.assertEqual({k: v["routine"]["effort"] for k, v in sug.items()},
-                         {"fable": "low", "astra": "medium", "terra": "max", "luna": "max", "gpt55": "extra-high", "sol": "extra-high"})
-        self.assertEqual({k: v["shape"] for k, v in sug.items()}, {"fable": "flat", "astra": "flat", "terra": "steep", "luna": "steep", "gpt55": "steep", "sol": "steep"})
+                         {"fable": "low", "astra": "medium", "terra": "max", "luna": "max", "gpt55": "extra-high", "sol": "extra-high", "opus55": "medium"})
+        self.assertEqual({k: v["shape"] for k, v in sug.items()}, {"fable": "flat", "astra": "flat", "terra": "steep", "luna": "steep", "gpt55": "steep", "sol": "steep", "opus55": "steep"})
 
     def test_page_writing_and_structure(self):
         text = html.unescape(self.page)

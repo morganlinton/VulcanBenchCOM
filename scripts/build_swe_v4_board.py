@@ -33,10 +33,13 @@ SOURCES = [
      "models": {"terra": ("GPT-5.6 Terra", "Codex", "gpt-5-6-terra", "OpenAI")}},
     {"bundle": "swe-v4-sol-v37", "report": "benchmarks/swe-v4-sol-v37.html", "protocol": "v3.7",
      "models": {"sol": ("GPT-5.6 Sol", "Codex", "gpt-5-6-sol", "OpenAI")}},
+    {"bundle": "swe-v4-opus55-v315", "report": "benchmarks/swe-v4-opus55-v315.html", "protocol": "v3.15",
+     "models": {"opus55": ("Opus 5.5", "Claude Code", "claude-opus-5-5", "Anthropic")}},
 ]
 FOOTNOTES = {
     "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
     "terra": "GPT-5.6 Terra at max includes paddockcore, run on September 17 on a second ChatGPT account after the first hit its quota window and judged under the v3.6.1 top-up with the same judges and calibration.",
+    "opus55": "Opus 5.5 ran with Claude Code's refusal fallback on (Default Fallback) and counts every run: Opus 4.8 wrote some replies in 0, 3, 7, 8 and 12 runs from low to max (0.0, 6.4, 20.9, 32.4 and 47.8% of replies). High is judged on 22 of 23 tasks: on depotcore a safeguard classifier stop left an empty patch, so there is no code to review; the run scored 0 and is priced.",
     "sol": "GPT-5.6 Sol at max is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts, so the v3.7 protocol publishes no Code quality score for that run; the run passed its tests and is priced.",
 }
 
@@ -80,7 +83,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#FF7A3D", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573", "sol": "#D4FF3F"}  # Anthropic orange; OpenAI greens, brightest for the newest
+COLORS = {"fable": "#FF7A3D", "opus55": "#FFB347", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573", "sol": "#D4FF3F"}  # Anthropic oranges; OpenAI greens, brightest for the newest
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}

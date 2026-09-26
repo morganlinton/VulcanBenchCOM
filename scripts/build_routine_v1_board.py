@@ -34,6 +34,7 @@ EFFORTS = ("low", "medium", "high", "extra-high", "max")
 # Board order and display: key -> (model, harness, model page slug, lab, colour). Colours match the Frontier v4 board.
 MODELS = {
     "fable": ("Fable 5.1", "Claude Code", "fable-5-1", "Anthropic", "#FF7A3D"),
+    "opus55": ("Opus 5.5", "Claude Code", "claude-opus-5-5", "Anthropic", "#FFB347"),
     "astra": ("GPT-6 Astra", "Codex", "gpt-6-astra", "OpenAI", "#00FF9D"),
     "terra": ("GPT-5.6 Terra", "Codex", "gpt-5-6-terra", "OpenAI", "#00C9B1"),
     "sol": ("GPT-5.6 Sol", "Codex", "gpt-5-6-sol", "OpenAI", "#D4FF3F"),
@@ -82,7 +83,8 @@ def rows(data):
         out.append({
             "key": c["model_key"], "model": model, "harness": harness, "slug": slug, "lab": lab, "effort": c["effort"],
             "n": c["tasks"], "passed": c["passes"], "combined": c["mean_combined"], "combined_se": c.get("se_combined"),
-            "code_quality": c["mean_code_quality"], "seconds": c["mean_duration_s"], "usd": c["mean_cost_usd"],
+            "code_quality": c["mean_code_quality"],
+            "protocol": c.get("judging_protocol") or "code-quality-maintenance-v3.8", "seconds": c["mean_duration_s"], "usd": c["mean_cost_usd"],
             "completion_tokens": c["mean_completion_tokens"],
         })
     order = list(MODELS)
@@ -166,7 +168,7 @@ def render(data, board):
             f"{picks_html(picks)}\n"
             f"{table_html(board, picks)}\n"
             '<p class="lb-context">Combined score uses the Frontier weights: 50% functional correctness from hidden tests, 8.5% lint and complexity, 8.5% security and 33% Code quality, '
-            f"judged by {panels} under Code quality protocol v3.8 with the same rubric, controls, gates and calibration exam as Frontier v4. "
+            f"judged by {panels} under Code quality protocol v3.8 (Opus 5.5 under v3.14, the same protocol on its own population, judged in a separate session) with the same rubric, controls, gates and calibration exam as Frontier v4. "
             "<strong>Routine and Frontier Code quality are not comparable.</strong> On Frontier v4 part of Code quality measures whether a reviewer can recover each task&rsquo;s deliberate legacy quirks; "
             "routine tickets have no such quirks by design, so the protocol&rsquo;s own pre-registered rule scores Routine Code quality from the reviewed panel alone. Compare levels and models within this table, never across the two boards. "
             "SE is one task standard error of the combined score. Sec/task is mean wall clock. $/task is API-equivalent at list rates from the solver receipts, not a subscription bill; "
@@ -185,7 +187,7 @@ def csv_text(board, picks):
         writer.writerow([r["model"], r["lab"], r["harness"], r["effort"], picks[r["key"]]["effort"] == r["effort"], r["n"], r["passed"],
                          f'{r["combined"]:.4f}', "" if r["combined_se"] is None else f'{r["combined_se"]:.4f}', f'{r["code_quality"]:.4f}',
                          f'{r["seconds"]:.1f}', "" if r["usd"] is None else f'{r["usd"]:.6f}', f'{r["completion_tokens"]:.1f}',
-                         "code-quality-maintenance-v3.8"])
+                         r["protocol"]])
     return buffer.getvalue()
 
 

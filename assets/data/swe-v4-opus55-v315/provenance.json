@@ -1,0 +1,31 @@
+{
+  "source_artifacts_sha256": {
+    "v3.15/summary.json": "0d001e0370010075c1b0e2a803c7092524dd9e783c29254f93cc1223e0ce7f03",
+    "v3.15/protocol.json": "7bfc6dac0a73d8b6d3e9eb8ecae2d29d4c11d524e3a2503adfe1efe149a54f06",
+    "v3.15/private-manifest.json": "4a57a222e67571a497e1da0be164996dcb49702d09c02b0bd1142a12bae96cb2",
+    "v3.15/calibration-muse.json": "f8335e311707d7cf50d59374a0a3dc054175f01dcb7aadf2b98f8775c35ec098",
+    "v3.15/calibration-grok.json": "53eac101828d5cacc528bbcf947afa36b6e6dcba9bed3686f50049a2106183c5",
+    "comparison.json": "7b79a443c1c336be5118ef1473fb4164fe4ece75975b050044ff8cdef2b614d2"
+  },
+  "export_checks": [
+    "115 runs across five effort cells; 114 judged and published, the high depotcore run not judged",
+    "both scored panels passed calibration under v3.15 with no allowance used; no reviewer fallbacks",
+    "per-row Code quality and combined score recomputed and matched to the frozen summary; cell means matched",
+    "every run's cost equals Claude Code's final total_cost_usd in its stream and the run summary's cli_reported_cost_usd",
+    "replies by serving model recounted from each stream and matched to the population record",
+    "the population record's hash matches the one frozen in the protocol",
+    "no dashes or host paths in exported text"
+  ],
+  "limits": [
+    "Claude Code's refusal fallback was on, so 30 runs were partly served by claude-opus-4-8; they count, and each cell reports the Opus 4.8 share of replies.",
+    "The high cell's Code quality and combined score cover 22 of 23 runs (depotcore not judged, empty patch)."
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, raw tokens, replies by serving model and API-equivalent cost.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}
