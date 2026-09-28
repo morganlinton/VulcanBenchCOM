@@ -83,17 +83,18 @@ class BoardTests(unittest.TestCase):
             by_model.setdefault(r["key"], []).append(r)
         for key, entry in sug.items():
             levels = by_model[key]
-            best = max(levels, key=lambda r: r["combined"])
+            score = board.decision_score  # timeouts as 0 where a column has timeouts
+            best = max(levels, key=score)
             self.assertEqual(entry["best_effort"], best["effort"])
             self.assertEqual(entry["shape"], "flat" if entry["spread"] <= 3 else "steep")
             for name, tol in self.json["tolerances"].items():
                 pick = next(r for r in levels if r["effort"] == entry[name]["effort"])
-                self.assertLessEqual(best["combined"] - pick["combined"], tol)
+                self.assertLessEqual(score(best) - score(pick), tol)
                 for r in levels:  # nothing cheaper qualifies
-                    if best["combined"] - r["combined"] <= tol:
+                    if score(best) - score(r) <= tol:
                         self.assertGreaterEqual((r["usd"], r["minutes"]), (pick["usd"], pick["minutes"]))
         self.assertEqual({k: v["routine"]["effort"] for k, v in sug.items()},
-                         {"fable": "low", "astra": "medium", "terra": "max", "luna": "max", "gpt55": "extra-high", "sol": "extra-high", "opus55": "medium", "gpt6luna": "max"})
+                         {"fable": "low", "astra": "medium", "terra": "max", "luna": "max", "gpt55": "extra-high", "sol": "extra-high", "opus55": "medium", "gpt6luna": "extra-high"})
         self.assertEqual({k: v["shape"] for k, v in sug.items()}, {"fable": "flat", "astra": "flat", "terra": "steep", "luna": "steep", "gpt55": "steep", "sol": "steep", "opus55": "steep", "gpt6luna": "steep"})
 
     def test_page_writing_and_structure(self):
@@ -108,6 +109,8 @@ class BoardTests(unittest.TestCase):
         self.assertIn("<td class=\"fb-eff\">max&sect;</td>", self.page)
         self.assertIn('<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>', self.page)
         self.assertIn("&para; GPT-6 Luna at extra-high and max is judged on 21 and 19 of 23 tasks", self.page)
+        self.assertIn("its best tag and effort suggestions use these figures", self.page)
+        self.assertIn('data-model="gpt6luna" data-effort="extra-high" data-best="1"', self.page)
         self.assertIn("gives 71.94 at extra-high and 67.26 at max", self.page)
         for effort in ("extra-high", "max"):
             self.assertIn(f'data-model="gpt6luna" data-effort="{effort}"', self.page)

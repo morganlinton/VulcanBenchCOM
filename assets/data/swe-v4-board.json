@@ -550,7 +550,7 @@
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
       "rank": 23,
-      "best": true
+      "best": false
     },
     {
       "model": "GPT-5.6 Luna",
@@ -598,7 +598,7 @@
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
       "rank": 25,
-      "best": false
+      "best": true
     },
     {
       "model": "GPT-5.5",
@@ -1242,34 +1242,34 @@
     },
     "gpt6luna": {
       "model": "GPT-6 Luna",
-      "best_effort": "max",
-      "best_combined": 81.42353698669751,
-      "spread": 40.59254909849876,
+      "best_effort": "extra-high",
+      "best_combined": 71.93542970073405,
+      "spread": 31.104441812535292,
       "shape": "steep",
       "critical": {
-        "effort": "max",
-        "combined": 81.42353698669751,
+        "effort": "extra-high",
+        "combined": 71.93542970073405,
         "gap": 0.0,
         "usd_vs_best": 1.0,
         "minutes_vs_best": 1.0,
-        "passed": 12,
-        "n": 19
+        "passed": 11,
+        "n": 21
       },
       "routine": {
-        "effort": "max",
-        "combined": 81.42353698669751,
+        "effort": "extra-high",
+        "combined": 71.93542970073405,
         "gap": 0.0,
         "usd_vs_best": 1.0,
         "minutes_vs_best": 1.0,
-        "passed": 12,
-        "n": 19
+        "passed": 11,
+        "n": 21
       },
       "rough": {
         "effort": "max",
-        "combined": 81.42353698669751,
-        "gap": 0.0,
-        "usd_vs_best": 1.0,
-        "minutes_vs_best": 1.0,
+        "combined": 67.2629218585762,
+        "gap": 4.672507842157842,
+        "usd_vs_best": 0.6107547524102238,
+        "minutes_vs_best": 1.1513983388409745,
         "passed": 12,
         "n": 19
       }

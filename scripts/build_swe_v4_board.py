@@ -46,7 +46,7 @@ FOOTNOTES = {
     "gpt6luna": ("GPT-6 Luna at extra-high and max is judged on {xh_n} and {max_n} of 23 tasks: the other {xh_t} and {max_t} runs hit the flat "
                  "3-hour task bound while still working, have no finished code to judge, count as failed tasks and are unpriced ($/task "
                  "covers the finished runs; Min/task covers all 23). Counting each timeout as a combined score of 0 over all 23 runs gives "
-                 "{xh_zero:.2f} at extra-high and {max_zero:.2f} at max. Ran on Codex CLI 0.155.0, the first release that serves GPT-6 Luna "
+                 "{xh_zero:.2f} at extra-high and {max_zero:.2f} at max; its best tag and effort suggestions use these figures. Ran on Codex CLI 0.155.0, the first release that serves GPT-6 Luna "
                  "on a ChatGPT plan; the extra-high pacecore run was retried after an 88-minute Codex client stall, and the retry counts."),
     "sol": "GPT-5.6 Sol at max is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts, so the v3.7 protocol publishes no Code quality score for that run; the run passed its tests and is priced.",
 }
@@ -88,8 +88,10 @@ def rows():
             })
     out.sort(key=lambda r: (-r["combined"], r["usd"], r["model"], EFFORTS.index(r["effort"])))
     best = {}
-    for r in out:
-        best.setdefault(r["key"], r["effort"])  # first row per model in ranked order is its best effort
+    for key in {r["key"] for r in out}:
+        # Best level by the decision score: timeouts counted as 0 where a column has timeouts.
+        best[key] = min((r for r in out if r["key"] == key),
+                        key=lambda r: (-decision_score(r), r["usd"], EFFORTS.index(r["effort"])))["effort"]
     for i, r in enumerate(out, 1):
         r["rank"] = i
         r["best"] = best[r["key"]] == r["effort"]
@@ -102,21 +104,31 @@ COLORS = {"fable": "#FF7A3D", "opus55": "#FFB347", "astra": "#00FF9D", "terra": 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
 
 
+def decision_score(r):
+    """Combined score for choosing a level: timeouts counted as 0 where a column has them, else the judged score."""
+    return r["combined"] if r.get("combined_timeouts_zero") is None else r["combined_timeouts_zero"]
+
+
 def suggestions(board):
-    """Per model and tolerance: the cheapest level (then fastest) within that many points of the model's best score."""
+    """Per model and tolerance: the cheapest level (then fastest) within that many points of the model's best score.
+
+    Scores are decision scores: a level whose runs hit the task bound is judged with each timeout as 0, so a
+    level that times out often is not suggested on the strength of its finished runs alone.
+    """
     out = {}
     by_model = {}
     for r in board:
         by_model.setdefault(r["key"], []).append(r)
     for key, levels in by_model.items():
-        best = max(levels, key=lambda r: r["combined"])
+        best = max(levels, key=decision_score)
         low = next(r for r in levels if r["effort"] == "low")
-        entry = {"model": best["model"], "best_effort": best["effort"], "best_combined": best["combined"],
-                 "spread": best["combined"] - low["combined"], "shape": "flat" if best["combined"] - low["combined"] <= 3 else "steep"}
+        top, floor = decision_score(best), decision_score(low)
+        entry = {"model": best["model"], "best_effort": best["effort"], "best_combined": top,
+                 "spread": top - floor, "shape": "flat" if top - floor <= 3 else "steep"}
         for name, tol in TOLERANCES.items():
-            ok = [r for r in levels if best["combined"] - r["combined"] <= tol]
+            ok = [r for r in levels if top - decision_score(r) <= tol]
             pick = min(ok, key=lambda r: (r["usd"], r["minutes"]))
-            entry[name] = {"effort": pick["effort"], "combined": pick["combined"], "gap": best["combined"] - pick["combined"],
+            entry[name] = {"effort": pick["effort"], "combined": decision_score(pick), "gap": top - decision_score(pick),
                            "usd_vs_best": pick["usd"] / best["usd"], "minutes_vs_best": pick["minutes"] / best["minutes"], "passed": pick["passed"], "n": pick["n"]}
         out[key] = entry
     return out
