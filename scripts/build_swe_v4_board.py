@@ -35,11 +35,19 @@ SOURCES = [
      "models": {"sol": ("GPT-5.6 Sol", "Codex", "gpt-5-6-sol", "OpenAI")}},
     {"bundle": "swe-v4-opus55-v315", "report": "benchmarks/swe-v4-opus55-v315.html", "protocol": "v3.15",
      "models": {"opus55": ("Opus 5.5", "Claude Code", "claude-opus-5-5", "Anthropic")}},
+    # Six GPT-6 Luna runs hit the 3-hour bound: passes count over all 23 runs, and the cells carry the timeouts-as-0 figure.
+    {"bundle": "swe-v4-gpt6-luna-v316", "report": "benchmarks/swe-v4-gpt6-luna-v316.html", "protocol": "v3.16", "pass_over_all_runs": True,
+     "models": {"gpt6luna": ("GPT-6 Luna", "Codex", "gpt-6-luna", "OpenAI")}},
 ]
 FOOTNOTES = {
     "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
     "terra": "GPT-5.6 Terra at max includes paddockcore, run on September 17 on a second ChatGPT account after the first hit its quota window and judged under the v3.6.1 top-up with the same judges and calibration.",
     "opus55": "Opus 5.5 ran with Claude Code's refusal fallback on (Default Fallback) and counts every run: Opus 4.8 wrote some replies in 0, 3, 7, 8 and 12 runs from low to max (0.0, 6.4, 20.9, 32.4 and 47.8% of replies). High is judged on 22 of 23 tasks: on depotcore a safeguard classifier stop left an empty patch, so there is no code to review; the run scored 0 and is priced.",
+    "gpt6luna": ("GPT-6 Luna at extra-high and max is judged on {xh_n} and {max_n} of 23 tasks: the other {xh_t} and {max_t} runs hit the flat "
+                 "3-hour task bound while still working, have no finished code to judge, count as failed tasks and are unpriced ($/task "
+                 "covers the finished runs; Min/task covers all 23). Counting each timeout as a combined score of 0 over all 23 runs gives "
+                 "{xh_zero:.2f} at extra-high and {max_zero:.2f} at max. Ran on Codex CLI 0.155.0, the first release that serves GPT-6 Luna "
+                 "on a ChatGPT plan; the extra-high pacecore run was retried after an 88-minute Codex client stall, and the retry counts."),
     "sol": "GPT-5.6 Sol at max is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts, so the v3.7 protocol publishes no Code quality score for that run; the run passed its tests and is priced.",
 }
 
@@ -52,6 +60,8 @@ def output_tokens(bundle):
     """Median and mean completion tokens per task for every model and effort cell of a bundle."""
     cells = {}
     for r in read(f"{bundle}/runs.json")["rows"]:
+        if r["token_usage"] is None:  # a timed-out run with no usage receipt
+            continue
         cells.setdefault((r["model"], r["effort"]), []).append(r["token_usage"]["output_tokens"])
     return {key: {"median": statistics.median(v), "mean": statistics.mean(v)} for key, v in cells.items()}
 
@@ -66,10 +76,13 @@ def rows():
             name, harness, slug, lab = source["models"][g["model"]]
             e = econ[g["model"], g["effort"]]
             t = tokens[g["model"], g["effort"]]
+            over_all = source.get("pass_over_all_runs", False)
             out.append({
                 "model": name, "lab": lab, "harness": harness, "slug": slug, "key": g["model"], "effort": g["effort"], "n": g["n"],
                 "combined": g["combined_33"]["mean"], "combined_se": g["combined_33"]["se"], "code_quality": g["code_quality"]["mean"],
-                "passed": g["passed"], "minutes": g["minutes"]["mean"], "usd": e["usd"]["mean"], "raw_tokens": e["raw_tokens"]["mean"],
+                "passed": g["passed_all_runs"] if over_all else g["passed"], "passed_of": g["runs"] if over_all else g["n"],
+                "combined_timeouts_zero": g["combined_timeouts_zero"]["mean"] if "combined_timeouts_zero" in g else None,
+                "minutes": g["minutes"]["mean"], "usd": e["usd"]["mean"], "raw_tokens": e["raw_tokens"]["mean"],
                 "output_tokens_median": t["median"], "output_tokens_mean": t["mean"],
                 "report": source["report"], "protocol": f"code-quality-maintenance-{source['protocol']}",
             })
@@ -83,7 +96,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#FF7A3D", "opus55": "#FFB347", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573", "sol": "#D4FF3F"}  # Anthropic oranges; OpenAI greens, brightest for the newest
+COLORS = {"fable": "#FF7A3D", "opus55": "#FFB347", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573", "sol": "#D4FF3F", "gpt6luna": "#9BE564"}  # Anthropic oranges; OpenAI greens, brightest for the newest
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
@@ -119,13 +132,22 @@ def table_html(board):
         cls = " leader" if r["rank"] == 1 else ""
         tag = '<span class="fb-best">best</span>' if r["best"] else ""
         mark = "&dagger;" if r["key"] == "fable" else ("&Dagger;" if r["key"] == "terra" and r["effort"] == "max" else ("&sect;" if r["key"] == "sol" and r["effort"] == "max" else ""))
+        if r["key"] == "gpt6luna" and r["effort"] in ("extra-high", "max"):
+            mark = "&para;"
         lines.append(
             f'<tr class="v4row{cls}" data-model="{r["key"]}" data-effort="{r["effort"]}" data-best="{int(r["best"])}"><td class="l lb-rank">{r["rank"]}</td>'
             f'<td class="l"><span class="v4dot" style="background:{COLORS[r["key"]]}"></span><a class="lb-model" href="models/{r["slug"]}.html">{escape(r["model"])}</a> <span class="lb-harness">{escape(r["harness"])}</span>{tag}</td>'
             f'<td class="fb-eff">{LABEL[r["effort"]]}{mark}</td><td class="lb-win">{r["combined"]:.2f}</td><td>{r["combined_se"]:.2f}</td>'
-            f'<td>{r["code_quality"]:.2f}</td><td>{r["passed"]}/{r["n"]}</td><td>{r["minutes"]:.1f}</td><td>${r["usd"]:.2f}</td></tr>')
+            f'<td>{r["code_quality"]:.2f}</td><td>{r["passed"]}/{r["passed_of"]}</td><td>{r["minutes"]:.1f}</td><td>${r["usd"]:.2f}</td></tr>')
     lines += ["</tbody>", "</table>", "</div>"]
     return "\n".join(lines)
+
+
+def gpt6luna_footnote(board):
+    cells = {r["effort"]: r for r in board if r["key"] == "gpt6luna"}
+    xh, mx = cells["extra-high"], cells["max"]
+    return FOOTNOTES["gpt6luna"].format(xh_n=xh["n"], max_n=mx["n"], xh_t=xh["passed_of"] - xh["n"], max_t=mx["passed_of"] - mx["n"],
+                                        xh_zero=xh["combined_timeouts_zero"], max_zero=mx["combined_timeouts_zero"])
 
 
 def render(board):
@@ -140,18 +162,19 @@ def render(board):
             f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.7 apply the same rubric, controls, gates and judges to each population). The chart plots combined score against cost per task, most expensive on the left, one line per model from Max to Low; the table below carries every column. "
+            "under one frozen protocol (v3.4 to v3.7, v3.15 and v3.16 apply the same rubric, controls, gates and judges to each population). The chart plots combined score against cost per task, most expensive on the left, one line per model from Max to Low; the table below carries every column. "
             "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
             '<noscript><p class="lb-context">The chart needs JavaScript; the table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
-            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) +
+            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) +
             ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
             'The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model&rsquo;s highest-scoring effort level. '
             'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
             '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
             '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>, '
-            '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>. '
+            '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>, <a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>, '
+            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>. '
             '<a href="assets/data/swe-v4-board.csv" download>Download the board as CSV</a>.</p>\n'
             f"{END}")
 
@@ -160,11 +183,13 @@ def csv_text(board):
     buffer = io.StringIO()
     writer = csv.writer(buffer, lineterminator="\n")
     writer.writerow(["rank", "model", "lab", "harness", "effort", "best_effort", "n", "combined_33", "combined_33_se", "code_quality", "passed",
-                     "mean_minutes", "mean_usd", "mean_raw_tokens", "median_output_tokens", "mean_output_tokens", "report", "protocol"])
+                     "mean_minutes", "mean_usd", "mean_raw_tokens", "median_output_tokens", "mean_output_tokens", "report", "protocol",
+                     "passed_of", "combined_timeouts_zero"])
     for r in board:
         writer.writerow([r["rank"], r["model"], r["lab"], r["harness"], r["effort"], r["best"], r["n"], f'{r["combined"]:.4f}', f'{r["combined_se"]:.4f}',
                          f'{r["code_quality"]:.4f}', r["passed"], f'{r["minutes"]:.4f}', f'{r["usd"]:.6f}', f'{r["raw_tokens"]:.1f}',
-                         f'{r["output_tokens_median"]:.1f}', f'{r["output_tokens_mean"]:.1f}', r["report"], r["protocol"]])
+                         f'{r["output_tokens_median"]:.1f}', f'{r["output_tokens_mean"]:.1f}', r["report"], r["protocol"],
+                         r["passed_of"], "" if r["combined_timeouts_zero"] is None else f'{r["combined_timeouts_zero"]:.4f}'])
     return buffer.getvalue()
 
 

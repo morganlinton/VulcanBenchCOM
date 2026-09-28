@@ -1,0 +1,500 @@
+[
+  {
+    "model": "gpt6luna",
+    "effort": "low",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "timeout_tasks": [],
+    "combined_33": {
+      "n": 23,
+      "mean": 40.830987888198756,
+      "se": 2.041460673979132
+    },
+    "combined_timeouts_zero": {
+      "n": 23,
+      "mean": 40.830987888198756,
+      "se": 2.041460673979132
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 43.99834246188594,
+      "se": 1.9482810310236784
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 65.84203839638622,
+      "se": 2.235524433229228
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 63.04347826086956,
+      "se": 2.208125873152324
+    },
+    "intent_recovery": {
+      "n": 13,
+      "mean": 80.17399267399267,
+      "se": 5.1183841071363085
+    },
+    "intent_recovery_redistributed_runs": 10,
+    "readability": {
+      "n": 23,
+      "mean": 59.78260869565217,
+      "se": 2.2283010375890444
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 66.30434782608695,
+      "se": 2.396046969885288
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 62.77173913043478,
+        "se": 2.5776543969553796
+      },
+      "grok": {
+        "n": 23,
+        "mean": 63.315217391304344,
+        "se": 2.2409846989652458
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 7.536086956521739,
+      "se": 3.6299040557846367
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 80.41260869565217,
+      "se": 0.9295957762755224
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 0,
+    "passed_all_runs": 0,
+    "minutes": {
+      "n": 23,
+      "mean": 5.557563043478261,
+      "se": 1.047903222073788
+    },
+    "solver_fallback_runs": 0,
+    "priced_runs": 23,
+    "unpriced_timeouts": 0,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 1654399.3043478262,
+      "se": 551511.7654505488
+    },
+    "raw_tokens_total": 38051184,
+    "usd": {
+      "n": 23,
+      "mean": 0.027790478260869566,
+      "se": 0.007274311815342826
+    },
+    "usd_total": 0.639181
+  },
+  {
+    "model": "gpt6luna",
+    "effort": "medium",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "timeout_tasks": [],
+    "combined_33": {
+      "n": 23,
+      "mean": 45.71919347826086,
+      "se": 1.3221266791291455
+    },
+    "combined_timeouts_zero": {
+      "n": 23,
+      "mean": 45.71919347826086,
+      "se": 1.3221266791291455
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 48.47057839262187,
+      "se": 1.2998388805215892
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 69.3272397891963,
+      "se": 1.7806533489668468
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 68.43297101449275,
+      "se": 1.564125173989956
+    },
+    "intent_recovery": {
+      "n": 20,
+      "mean": 72.83333333333333,
+      "se": 5.8752877246951245
+    },
+    "intent_recovery_redistributed_runs": 3,
+    "readability": {
+      "n": 23,
+      "mean": 64.85507246376811,
+      "se": 1.8767117599260583
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 72.01086956521739,
+      "se": 1.4808403829159402
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 67.39130434782608,
+        "se": 1.8551258587094925
+      },
+      "grok": {
+        "n": 23,
+        "mean": 69.47463768115942,
+        "se": 1.4503043119424732
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 14.915217391304349,
+      "se": 2.681474055533651
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 80.98347826086956,
+      "se": 0.9513939448092077
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 0,
+    "passed_all_runs": 0,
+    "minutes": {
+      "n": 23,
+      "mean": 3.559326811594203,
+      "se": 0.3131111633485139
+    },
+    "solver_fallback_runs": 0,
+    "priced_runs": 23,
+    "unpriced_timeouts": 0,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 404296.52173913043,
+      "se": 23814.097299897192
+    },
+    "raw_tokens_total": 9298820,
+    "usd": {
+      "n": 23,
+      "mean": 0.009534565217391305,
+      "se": 0.0006128070346880734
+    },
+    "usd_total": 0.21929500000000002
+  },
+  {
+    "model": "gpt6luna",
+    "effort": "high",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "timeout_tasks": [],
+    "combined_33": {
+      "n": 23,
+      "mean": 57.351380745341615,
+      "se": 3.7954442530991503
+    },
+    "combined_timeouts_zero": {
+      "n": 23,
+      "mean": 57.351380745341615,
+      "se": 3.7954442530991503
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 60.41362996423866,
+      "se": 3.7486794548604787
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 66.3972802559759,
+      "se": 1.4977216548262373
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 63.903985507246375,
+      "se": 1.3415002136499181
+    },
+    "intent_recovery": {
+      "n": 22,
+      "mean": 73.80952380952381,
+      "se": 3.229662541593103
+    },
+    "intent_recovery_redistributed_runs": 1,
+    "readability": {
+      "n": 23,
+      "mean": 60.326086956521735,
+      "se": 1.4554381485695458
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 67.48188405797102,
+      "se": 1.5973905877308332
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 63.04347826086956,
+        "se": 1.7873459526909807
+      },
+      "grok": {
+        "n": 23,
+        "mean": 64.76449275362319,
+        "se": 1.2827361615350223
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 40.296521739130434,
+      "se": 7.210756803507269
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 79.90608695652173,
+      "se": 1.0486079119556468
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 2,
+    "passed_all_runs": 2,
+    "minutes": {
+      "n": 23,
+      "mean": 15.590407246376811,
+      "se": 1.67257649785497
+    },
+    "solver_fallback_runs": 0,
+    "priced_runs": 23,
+    "unpriced_timeouts": 0,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 2556496.695652174,
+      "se": 303930.9423606601
+    },
+    "raw_tokens_total": 58799424,
+    "usd": {
+      "n": 23,
+      "mean": 0.05191208695652174,
+      "se": 0.005020368430456266
+    },
+    "usd_total": 1.193978
+  },
+  {
+    "model": "gpt6luna",
+    "effort": "extra-high",
+    "n": 21,
+    "runs": 23,
+    "timeouts": 2,
+    "timeout_tasks": [
+      "legacy-depotcore-binary-parity",
+      "legacy-paddockcore-binary-parity"
+    ],
+    "combined_33": {
+      "n": 21,
+      "mean": 78.78642300556587,
+      "se": 3.0159956139279496
+    },
+    "combined_timeouts_zero": {
+      "n": 23,
+      "mean": 71.93542970073405,
+      "se": 5.47280137873639
+    },
+    "combined_20_profile": {
+      "n": 21,
+      "mean": 81.21482707408032,
+      "se": 3.0322316411323738
+    },
+    "code_quality": {
+      "n": 21,
+      "mean": 71.48782584659207,
+      "se": 1.0236601504734166
+    },
+    "reviewed_score": {
+      "n": 21,
+      "mean": 69.7420634920635,
+      "se": 1.4312901268826195
+    },
+    "intent_recovery": {
+      "n": 21,
+      "mean": 76.14319212533498,
+      "se": 2.6617486257242464
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 21,
+      "mean": 67.36111111111111,
+      "se": 1.7685462198999489
+    },
+    "maintainability": {
+      "n": 21,
+      "mean": 72.12301587301587,
+      "se": 1.4694600366099622
+    },
+    "by_panel": {
+      "muse": {
+        "n": 21,
+        "mean": 67.9563492063492,
+        "se": 1.564820964534155
+      },
+      "grok": {
+        "n": 21,
+        "mean": 71.52777777777777,
+        "se": 1.5704712893099122
+      }
+    },
+    "functional": {
+      "n": 21,
+      "mean": 79.73380952380953,
+      "se": 6.079158795041367
+    },
+    "automated_quality": {
+      "n": 21,
+      "mean": 80.33571428571429,
+      "se": 0.8655899643564253
+    },
+    "security": {
+      "n": 21,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 11,
+    "passed_all_runs": 11,
+    "minutes": {
+      "n": 23,
+      "mean": 52.57451956521739,
+      "se": 10.579109521244105
+    },
+    "solver_fallback_runs": 0,
+    "priced_runs": 21,
+    "unpriced_timeouts": 2,
+    "raw_tokens": {
+      "n": 21,
+      "mean": 8473100.904761905,
+      "se": 2204760.8680581003
+    },
+    "raw_tokens_total": 177935119,
+    "usd": {
+      "n": 21,
+      "mean": 0.15968628571428573,
+      "se": 0.03641089140138617
+    },
+    "usd_total": 3.353412
+  },
+  {
+    "model": "gpt6luna",
+    "effort": "max",
+    "n": 19,
+    "runs": 23,
+    "timeouts": 4,
+    "timeout_tasks": [
+      "legacy-cellarcore-binary-parity",
+      "legacy-depotcore-binary-parity",
+      "legacy-lodgecore-binary-parity",
+      "legacy-paddockcore-binary-parity"
+    ],
+    "combined_33": {
+      "n": 19,
+      "mean": 81.42353698669751,
+      "se": 2.8822342994992063
+    },
+    "combined_timeouts_zero": {
+      "n": 23,
+      "mean": 67.2629218585762,
+      "se": 6.993535682846373
+    },
+    "combined_20_profile": {
+      "n": 19,
+      "mean": 83.83460774313406,
+      "se": 2.9077284676648056
+    },
+    "code_quality": {
+      "n": 19,
+      "mean": 71.5117229261966,
+      "se": 1.521765743085695
+    },
+    "reviewed_score": {
+      "n": 19,
+      "mean": 69.57236842105263,
+      "se": 1.819243108880821
+    },
+    "intent_recovery": {
+      "n": 19,
+      "mean": 76.68333493991389,
+      "se": 2.8025276969634576
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 19,
+      "mean": 66.8859649122807,
+      "se": 2.1189375790403133
+    },
+    "maintainability": {
+      "n": 19,
+      "mean": 72.25877192982456,
+      "se": 1.8028307682951057
+    },
+    "by_panel": {
+      "muse": {
+        "n": 19,
+        "mean": 68.53070175438596,
+        "se": 2.0643305915852244
+      },
+      "grok": {
+        "n": 19,
+        "mean": 70.6140350877193,
+        "se": 1.773320098056755
+      }
+    },
+    "functional": {
+      "n": 19,
+      "mean": 85.02947368421053,
+      "se": 5.943014055719706
+    },
+    "automated_quality": {
+      "n": 19,
+      "mean": 80.11684210526316,
+      "se": 1.2724985903165664
+    },
+    "security": {
+      "n": 19,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 12,
+    "passed_all_runs": 12,
+    "minutes": {
+      "n": 23,
+      "mean": 60.53421449275363,
+      "se": 12.55429656356173
+    },
+    "solver_fallback_runs": 0,
+    "priced_runs": 19,
+    "unpriced_timeouts": 4,
+    "raw_tokens": {
+      "n": 19,
+      "mean": 4317174.052631579,
+      "se": 758489.5504104565
+    },
+    "raw_tokens_total": 82026307,
+    "usd": {
+      "n": 19,
+      "mean": 0.09752915789473685,
+      "se": 0.01412181073227736
+    },
+    "usd_total": 1.853054
+  }
+]

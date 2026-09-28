@@ -1,0 +1,193 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a ChatGPT Pro subscription through Codex, so these are estimates, not bills. Judging and local infrastructure are excluded. 109 of 115 runs are priced; the six runs that hit the 3-hour bound ended before Codex reported usage and are unpriced, not $0, so extra-high and max spend is understated. Runtime covers all 115 runs.",
+  "pricing_verified": "2026-09-25",
+  "sources": {
+    "openai": "https://developers.openai.com/api/docs/pricing"
+  },
+  "rates_per_million": {
+    "gpt6luna": {
+      "input": 0.1,
+      "cached_input": 0.01,
+      "output": 0.5
+    }
+  },
+  "groups": [
+    {
+      "model": "gpt6luna",
+      "effort": "low",
+      "n": 23,
+      "runs": 23,
+      "unpriced_timeouts": 0,
+      "usd": {
+        "n": 23,
+        "mean": 0.027790478260869566,
+        "se": 0.007274311815342826
+      },
+      "usd_total": 0.639181,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1654399.3043478262,
+        "se": 551511.7654505488
+      },
+      "raw_tokens_total": 38051184,
+      "minutes": {
+        "n": 23,
+        "mean": 5.557563043478261,
+        "se": 1.047903222073788
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt6luna",
+      "effort": "medium",
+      "n": 23,
+      "runs": 23,
+      "unpriced_timeouts": 0,
+      "usd": {
+        "n": 23,
+        "mean": 0.009534565217391305,
+        "se": 0.0006128070346880734
+      },
+      "usd_total": 0.21929500000000002,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 404296.52173913043,
+        "se": 23814.097299897192
+      },
+      "raw_tokens_total": 9298820,
+      "minutes": {
+        "n": 23,
+        "mean": 3.559326811594203,
+        "se": 0.3131111633485139
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt6luna",
+      "effort": "high",
+      "n": 23,
+      "runs": 23,
+      "unpriced_timeouts": 0,
+      "usd": {
+        "n": 23,
+        "mean": 0.05191208695652174,
+        "se": 0.005020368430456266
+      },
+      "usd_total": 1.193978,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2556496.695652174,
+        "se": 303930.9423606601
+      },
+      "raw_tokens_total": 58799424,
+      "minutes": {
+        "n": 23,
+        "mean": 15.590407246376811,
+        "se": 1.67257649785497
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt6luna",
+      "effort": "extra-high",
+      "n": 21,
+      "runs": 23,
+      "unpriced_timeouts": 2,
+      "usd": {
+        "n": 21,
+        "mean": 0.15968628571428573,
+        "se": 0.03641089140138617
+      },
+      "usd_total": 3.353412,
+      "raw_tokens": {
+        "n": 21,
+        "mean": 8473100.904761905,
+        "se": 2204760.8680581003
+      },
+      "raw_tokens_total": 177935119,
+      "minutes": {
+        "n": 23,
+        "mean": 52.57451956521739,
+        "se": 10.579109521244105
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt6luna",
+      "effort": "max",
+      "n": 19,
+      "runs": 23,
+      "unpriced_timeouts": 4,
+      "usd": {
+        "n": 19,
+        "mean": 0.09752915789473685,
+        "se": 0.01412181073227736
+      },
+      "usd_total": 1.853054,
+      "raw_tokens": {
+        "n": 19,
+        "mean": 4317174.052631579,
+        "se": 758489.5504104565
+      },
+      "raw_tokens_total": 82026307,
+      "minutes": {
+        "n": 23,
+        "mean": 60.53421449275363,
+        "se": 12.55429656356173
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "gpt6luna": {
+      "runs": 115,
+      "priced_runs": 109,
+      "unpriced_timeouts": 6,
+      "usd": 7.25892,
+      "raw_tokens": 366110854,
+      "solver_hours": 52.82947861111111
+    }
+  },
+  "unpriced": [
+    {
+      "effort": "extra-high",
+      "task": "legacy-depotcore-binary-parity",
+      "duration_s": 10800.631
+    },
+    {
+      "effort": "extra-high",
+      "task": "legacy-paddockcore-binary-parity",
+      "duration_s": 10800.65
+    },
+    {
+      "effort": "max",
+      "task": "legacy-cellarcore-binary-parity",
+      "duration_s": 10800.638
+    },
+    {
+      "effort": "max",
+      "task": "legacy-depotcore-binary-parity",
+      "duration_s": 10800.656
+    },
+    {
+      "effort": "max",
+      "task": "legacy-lodgecore-binary-parity",
+      "duration_s": 10800.664
+    },
+    {
+      "effort": "max",
+      "task": "legacy-paddockcore-binary-parity",
+      "duration_s": 10800.611
+    }
+  ],
+  "limitations": [
+    "Codex receipts report input, cached input, output and reasoning tokens per run; cached input is billed at the cache-read rate and the rest of the input at the standard rate. Cache writes are free on this API and are not modelled.",
+    "Standard tier, short-context rates. OpenAI bills prompts over 272K input tokens at a higher rate, but Codex keeps each request within its 272K context window, so no long-context premium applies and none is modelled.",
+    "No Batch, Flex, Fast or priority pricing is applied.",
+    "The six timed-out runs have no usage receipt. They are unpriced and excluded from cost and token means and totals; level means cover priced runs only, so extra-high and max spend is understated.",
+    "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
+    "The sweep stamped each run at run time at the published GPT-6 Luna list rates; the export recomputes every priced run from its receipt and matched every stamp."
+  ],
+  "comparison_sha256": "6cfc0dc8f703992a247d95d2132f125862bdc4807e5c85344e779c3b248b3a31",
+  "note": "Per-run estimates are in runs.json (estimated_usd, raw_tokens, token_usage). Judging is excluded."
+}
