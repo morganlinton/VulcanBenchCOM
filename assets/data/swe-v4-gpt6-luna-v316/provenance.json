@@ -1,0 +1,43 @@
+{
+  "source_artifacts_sha256": {
+    "v3.16/summary.json": "a4fe3c64c43a61cc8327fce6612ff9f2811c7dbdb6b2c776a89da9f6aa978ba9",
+    "v3.16/protocol.json": "db301bf81db907d13e0ecfff98699951ad918c6b5d9674237fd4a5e73fee73a1",
+    "v3.16/private-manifest.json": "2a51cb811911b5d81b00f0f4a2340487d664d93cdcd102b2e3a210bdac0d91c7",
+    "v3.16/calibration-muse.json": "e381ac093af8344f3ce359063ccb679725e66a4d8d6590a368a35772e7a06bad",
+    "v3.16/calibration-grok.json": "1681c1215e0c751aa46781aefed316008e6fe4a56837444f5bc06ef7db35c5f4",
+    "comparison.json": "6cfc0dc8f703992a247d95d2132f125862bdc4807e5c85344e779c3b248b3a31",
+    "runs-effort-gpt6-luna/extra-high/legacy-depotcore-binary-parity-603ac003/summary.json": "e0151b6705a8caecd8e83b9c54ea00d92db07b537db31adf5b1c69d8a37a60ce",
+    "runs-effort-gpt6-luna/extra-high/legacy-paddockcore-binary-parity-cd39bec2/summary.json": "f4f869dd5d7ef5ff03cca3af1ade6415f52172dcbf9e64d97c2a467debcb2c62",
+    "runs-effort-gpt6-luna/max/legacy-cellarcore-binary-parity-dac665b8/summary.json": "ac9fc3268a67824d33347f184359036eb662710face67206953859abe4cb0a41",
+    "runs-effort-gpt6-luna/max/legacy-depotcore-binary-parity-b9f0eb37/summary.json": "a616a1e81e5f624c8e4ae165b9e50e2edbf28cab3197870bd88822f371f3b65c",
+    "runs-effort-gpt6-luna/max/legacy-lodgecore-binary-parity-f8e2291a/summary.json": "d695eac526be8efb88af99ea8868bf35acb5aaa5401a78bab1f7201205d488be",
+    "runs-effort-gpt6-luna/max/legacy-paddockcore-binary-parity-b7fd757a/summary.json": "58f2de9b13dff7d30a2905e836d74bef2528813baaa1a83f256407bec9343fde",
+    "gpt6-luna-v316-efforts.csv": "8d26b78d6ffe8ffb3867e844bcc9d5088187b0a560814c1b18dd1936f92d292a",
+    "gpt6-luna-v316-economics-efforts.csv": "f77b93e5f604313bfafd76af3be49c89333cfa4446064a5eda74a3537c200a92"
+  },
+  "export_checks": [
+    "115 solver summaries in the sweep folder: 109 population rows and 6 excluded timeouts, none missing",
+    "every timeout is finished false, scored 0 functional with the budget exceeded, ran at least 10800 s and reported no tokens",
+    "all 109 population rows carry a published Code quality score; the frozen summary is ready for publication",
+    "both scored panels passed calibration under v3.16, each with exactly one failing gate inside the 0.5 allowance",
+    "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
+    "five-cell means and standard errors matched to the frozen summary's groups",
+    "both combined figures, pass counts, timeouts, runtime, cost and token totals matched to the harness card tables",
+    "every priced run's API-equivalent cost recomputed from its Codex receipt at the published list rates and matched to the population record's run-time stamp",
+    "the population record's hash matches the one frozen in the protocol",
+    "no dashes or host paths in exported text"
+  ],
+  "limits": [
+    "Six runs hit the flat 3-hour task bound while still working (extra-high 2, max 4). They have no finished submission, so the extra-high cell's Code quality and standard combined score cover 21 of its 23 runs and the max cell's 19 of its 23. combined_timeouts_zero counts each timeout as 0 over all 23. Pass counts treat every timeout as a failure.",
+    "The timeouts are unpriced: cost and token figures cover the 109 priced runs, so extra-high and max spend is understated.",
+    "One attempt per task and level; the extra-high pacecore run was stopped by the operator after an 88-minute Codex client stall and retried, and the retry is the counted run."
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, raw tokens and API-equivalent cost estimates.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}
