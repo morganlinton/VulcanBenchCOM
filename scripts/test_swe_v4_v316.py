@@ -22,6 +22,7 @@ TIMEOUTS = [("extra-high", "legacy-depotcore-binary-parity"), ("extra-high", "le
             ("max", "legacy-lodgecore-binary-parity"), ("max", "legacy-paddockcore-binary-parity")]
 CARD_SHA256 = "f8e8e6481eca32b7f5c401a22905ab86c69b733d15baf29c955cb9ed9f535dca"
 ECONOMICS_CARD_SHA256 = "455e54800f0a61210605fd80cc139cae6392711e2fe262fc1a2b0306268cf08b"
+COMPARISON_CARD_SHA256 = "6c2fc0cedf14782629fb658f72b4f566588be1f83515dae6577ac5452a840c1c"  # GPT-6 Luna vs. GPT-5.6 Luna, make_gpt6_vs_gpt56_cards.py
 
 
 def mean_se(values):
@@ -372,6 +373,16 @@ class GPT6LunaBundleTests(unittest.TestCase):
         for mark in (chr(0x2014), chr(0x2013), "/Users/", "SWE v4", "ultra"):
             self.assertNotIn(mark, unescaped, mark)
         self.assertIn('class="how-it-works"', self.page_html)
+
+
+class ComparisonCardTests(unittest.TestCase):
+    def test_comparison_card_is_pinned_and_placed(self):
+        card = ROOT / "assets/cards/swe-v4-gpt6-vs-gpt56-luna.png"
+        self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), COMPARISON_CARD_SHA256)
+        page = (ROOT / "benchmarks/swe-v4-gpt6-luna-v316.html").read_text()
+        section = page[page.index('id="gpt56-luna"') : page.index('id="code-quality"')]
+        self.assertIn('src="/assets/cards/swe-v4-gpt6-vs-gpt56-luna.png"', section)
+        self.assertIn('href="/assets/cards/swe-v4-gpt6-vs-gpt56-luna.png" download', page)
 
 
 if __name__ == "__main__":
