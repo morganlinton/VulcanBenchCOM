@@ -21,13 +21,22 @@
   var MIN_W  = 900;
   var ACCENT = 4;
 
+  /* Works on both report layouts: numbered reports (.article-head, table.data)
+     and suite reports (Frontier v4, Verdict: main h1, table.suite-results). */
+  function pageSlug() {
+    return location.pathname.split("/").pop().replace(/\.html$/, "");
+  }
   function pageTitle() {
-    var h1 = document.querySelector(".article-head h1");
+    var h1 = document.querySelector(".article-head h1") || document.querySelector("main h1") || document.querySelector("h1");
     return h1 ? h1.textContent.trim() : "";
   }
   function reportNo() {
     var el = document.querySelector(".article-head .rno");
-    return el ? el.textContent.trim() : "";
+    if (el) return el.textContent.trim();
+    var slug = pageSlug();
+    if (slug.indexOf("swe-v4-") === 0) return "VulcanBench Frontier v4";
+    if (slug.indexOf("verdict-") === 0) return "VulcanBench Verdict";
+    return "VulcanBench";
   }
   function sectionHeading(table) {
     var sec = table.closest("section");
@@ -44,11 +53,12 @@
     var rows = [];
     table.querySelectorAll("tbody tr").forEach(function (tr) {
       var cells = [];
-      tr.querySelectorAll("td").forEach(function (td) {
+      /* Suite reports label rows with <th scope="row">; keep them as the first column. */
+      tr.querySelectorAll("th, td").forEach(function (td) {
         cells.push({
-          text: td.textContent.trim(),
+          text: td.textContent.trim().replace(/\s+/g, " "),
           model: td.classList.contains("model"),
-          win: td.classList.contains("win")
+          win: td.classList.contains("win") || td.classList.contains("lb-win")
         });
       });
       rows.push(cells);
@@ -208,12 +218,19 @@
 
   /* ---- model card share ---- */
 
-  function findCardPNG(figure) {
-    var dlLink = document.querySelector('.dl-row a[download]');
-    if (dlLink) return dlLink.href;
+  /* The card's own PNG: the figure's image (a .webp preview maps to its .png),
+     or, on a page with a single card, the report's download link. */
+  function findCardPNG(figure, cardCount) {
     var img = figure.querySelector("img");
     if (!img) return null;
-    return img.src.replace(/\.webp$/, ".png");
+    var src = img.currentSrc || img.src;
+    if (/\.png(\?|$)/.test(src)) return src;
+    if (/\.webp(\?|$)/.test(src)) return src.replace(/\.webp(\?|$)/, ".png$1");
+    if (cardCount === 1) {
+      var dlLink = document.querySelector('.dl-row a[download][href$=".png"]');
+      if (dlLink) return dlLink.href;
+    }
+    return null;
   }
 
   function shareImage(url, filename) {
@@ -233,12 +250,12 @@
   /* ---- init ---- */
 
   function init() {
-    var slug = location.pathname.split("/").pop().replace(/\.html$/, "");
+    var slug = pageSlug();
 
     /* --- table share buttons --- */
-    var tables = document.querySelectorAll("table.data");
+    var tables = document.querySelectorAll("table.data, table.suite-results");
     tables.forEach(function (table, i) {
-      var anchor = table.closest(".table-scroll") || table;
+      var anchor = table.closest(".table-scroll, .suite-table-scroll") || table;
       var wrap = document.createElement("div");
       wrap.className = "table-share-wrap";
       var btn = document.createElement("button");
@@ -255,11 +272,11 @@
     });
 
     /* --- model card share button --- */
-    var figures = document.querySelectorAll("figure");
-    figures.forEach(function (figure) {
-      var img = figure.querySelector("img");
-      if (!img) return;
-      var pngUrl = findCardPNG(figure);
+    var figures = Array.prototype.filter.call(document.querySelectorAll("figure"), function (f) {
+      return !!f.querySelector("img");
+    });
+    figures.forEach(function (figure, i) {
+      var pngUrl = findCardPNG(figure, figures.length);
       if (!pngUrl) return;
 
       var wrap = document.createElement("div");
@@ -270,7 +287,8 @@
       btn.setAttribute("aria-label", "Share this model card as an image");
       btn.innerHTML = SHARE_ICON + '<span>Share card</span>';
       btn.addEventListener("click", function () {
-        shareImage(pngUrl, "vulcanbench-" + slug + "-card.png");
+        var suffix = figures.length > 1 ? "-" + (i + 1) : "";
+        shareImage(pngUrl, "vulcanbench-" + slug + "-card" + suffix + ".png");
       });
       wrap.appendChild(btn);
       figure.insertBefore(wrap, figure.firstChild);
