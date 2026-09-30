@@ -385,6 +385,30 @@
       "best": true
     },
     {
+      "model": "GPT-6 Sol",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-6-sol",
+      "key": "gpt6sol",
+      "effort": "max",
+      "n": 23,
+      "combined": 86.81889988055423,
+      "combined_se": 0.9121402986320095,
+      "code_quality": 70.78099436795088,
+      "passed": 19,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 24.49333768115942,
+      "usd": 2.5206181739130433,
+      "raw_tokens": 8324692.956521739,
+      "output_tokens_median": 32197,
+      "output_tokens_mean": 54959.34782608696,
+      "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
+      "protocol": "code-quality-maintenance-v3.17",
+      "rank": 17,
+      "best": true
+    },
+    {
       "model": "GPT-5.6 Sol",
       "lab": "OpenAI",
       "harness": "Codex",
@@ -405,7 +429,7 @@
       "output_tokens_mean": 25339.17391304348,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 17,
+      "rank": 18,
       "best": false
     },
     {
@@ -429,7 +453,31 @@
       "output_tokens_mean": 29314.521739130436,
       "report": "benchmarks/swe-v4-opus55-v315.html",
       "protocol": "code-quality-maintenance-v3.15",
-      "rank": 18,
+      "rank": 19,
+      "best": false
+    },
+    {
+      "model": "GPT-6 Sol",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-6-sol",
+      "key": "gpt6sol",
+      "effort": "extra-high",
+      "n": 23,
+      "combined": 85.93841257872562,
+      "combined_se": 1.3772034748640758,
+      "code_quality": 70.77051242565076,
+      "passed": 18,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 20.90214420289855,
+      "usd": 1.9962731304347825,
+      "raw_tokens": 6683897.391304348,
+      "output_tokens_median": 29850,
+      "output_tokens_mean": 43580.739130434784,
+      "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
+      "protocol": "code-quality-maintenance-v3.17",
+      "rank": 20,
       "best": false
     },
     {
@@ -453,7 +501,7 @@
       "output_tokens_mean": 27088.260869565216,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 19,
+      "rank": 21,
       "best": false
     },
     {
@@ -477,7 +525,7 @@
       "output_tokens_mean": 110535.30434782608,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 20,
+      "rank": 22,
       "best": true
     },
     {
@@ -501,7 +549,31 @@
       "output_tokens_mean": 52972.565217391304,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 21,
+      "rank": 23,
+      "best": false
+    },
+    {
+      "model": "GPT-6 Sol",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-6-sol",
+      "key": "gpt6sol",
+      "effort": "high",
+      "n": 23,
+      "combined": 82.82614554358685,
+      "combined_se": 2.4345366241795476,
+      "code_quality": 70.08514459848452,
+      "passed": 15,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 23.771605797101447,
+      "usd": 2.3303419565217394,
+      "raw_tokens": 8280192.0869565215,
+      "output_tokens_median": 25209,
+      "output_tokens_mean": 45157.47826086957,
+      "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
+      "protocol": "code-quality-maintenance-v3.17",
+      "rank": 24,
       "best": false
     },
     {
@@ -525,7 +597,7 @@
       "output_tokens_mean": 25212.434782608696,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 22,
+      "rank": 25,
       "best": false
     },
     {
@@ -549,7 +621,31 @@
       "output_tokens_mean": 78868.63157894737,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 23,
+      "rank": 26,
+      "best": false
+    },
+    {
+      "model": "GPT-6 Sol",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-6-sol",
+      "key": "gpt6sol",
+      "effort": "medium",
+      "n": 22,
+      "combined": 80.60092374670783,
+      "combined_se": 2.590968755696354,
+      "code_quality": 66.78926617459675,
+      "passed": 13,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 17.535660144927537,
+      "usd": 1.7584624347826088,
+      "raw_tokens": 6162215.217391305,
+      "output_tokens_median": 21525,
+      "output_tokens_mean": 32666.17391304348,
+      "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
+      "protocol": "code-quality-maintenance-v3.17",
+      "rank": 27,
       "best": false
     },
     {
@@ -573,7 +669,7 @@
       "output_tokens_mean": 68218.17391304347,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 24,
+      "rank": 28,
       "best": false
     },
     {
@@ -597,7 +693,7 @@
       "output_tokens_mean": 107518.85714285714,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 25,
+      "rank": 29,
       "best": true
     },
     {
@@ -621,7 +717,7 @@
       "output_tokens_mean": 52640.47826086957,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 26,
+      "rank": 30,
       "best": true
     },
     {
@@ -645,7 +741,7 @@
       "output_tokens_mean": 33233.391304347824,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 27,
+      "rank": 31,
       "best": false
     },
     {
@@ -669,7 +765,7 @@
       "output_tokens_mean": 56749.17391304348,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 28,
+      "rank": 32,
       "best": false
     },
     {
@@ -693,7 +789,7 @@
       "output_tokens_mean": 45403.82608695652,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 29,
+      "rank": 33,
       "best": false
     },
     {
@@ -717,7 +813,31 @@
       "output_tokens_mean": 19983.478260869564,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 30,
+      "rank": 34,
+      "best": false
+    },
+    {
+      "model": "GPT-6 Sol",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-6-sol",
+      "key": "gpt6sol",
+      "effort": "low",
+      "n": 23,
+      "combined": 67.62144689440994,
+      "combined_se": 3.593744336702941,
+      "code_quality": 62.52835027291548,
+      "passed": 4,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 12.997172463768116,
+      "usd": 1.0194561739130434,
+      "raw_tokens": 3261058.8260869565,
+      "output_tokens_median": 13300,
+      "output_tokens_mean": 21682.869565217392,
+      "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
+      "protocol": "code-quality-maintenance-v3.17",
+      "rank": 35,
       "best": false
     },
     {
@@ -741,7 +861,7 @@
       "output_tokens_mean": 20601.217391304348,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 31,
+      "rank": 36,
       "best": false
     },
     {
@@ -765,7 +885,7 @@
       "output_tokens_mean": 29336.043478260868,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 32,
+      "rank": 37,
       "best": false
     },
     {
@@ -789,7 +909,7 @@
       "output_tokens_mean": 16828.304347826088,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 33,
+      "rank": 38,
       "best": false
     },
     {
@@ -813,7 +933,7 @@
       "output_tokens_mean": 35920.30434782609,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 34,
+      "rank": 39,
       "best": false
     },
     {
@@ -837,7 +957,7 @@
       "output_tokens_mean": 19703.91304347826,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 35,
+      "rank": 40,
       "best": false
     },
     {
@@ -861,7 +981,7 @@
       "output_tokens_mean": 19643.739130434784,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 36,
+      "rank": 41,
       "best": false
     },
     {
@@ -885,7 +1005,7 @@
       "output_tokens_mean": 5445.782608695652,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 37,
+      "rank": 42,
       "best": false
     },
     {
@@ -909,7 +1029,7 @@
       "output_tokens_mean": 6406.826086956522,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 38,
+      "rank": 43,
       "best": false
     },
     {
@@ -933,7 +1053,7 @@
       "output_tokens_mean": 10815.04347826087,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 39,
+      "rank": 44,
       "best": false
     }
   ],
@@ -1025,6 +1145,20 @@
           "GPT-6 Luna",
           "Codex",
           "gpt-6-luna",
+          "OpenAI"
+        ]
+      }
+    },
+    {
+      "bundle": "swe-v4-gpt6-sol-v317",
+      "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
+      "protocol": "v3.17",
+      "pass_over_all_runs": true,
+      "models": {
+        "gpt6sol": [
+          "GPT-6 Sol",
+          "Codex",
+          "gpt-6-sol",
           "OpenAI"
         ]
       }
@@ -1203,6 +1337,40 @@
         "usd_vs_best": 0.907329174091695,
         "minutes_vs_best": 0.9150290569343577,
         "passed": 21,
+        "n": 23
+      }
+    },
+    "gpt6sol": {
+      "model": "GPT-6 Sol",
+      "best_effort": "max",
+      "best_combined": 86.81889988055423,
+      "spread": 19.197452986144285,
+      "shape": "steep",
+      "critical": {
+        "effort": "extra-high",
+        "combined": 85.93841257872562,
+        "gap": 0.8804873018286088,
+        "usd_vs_best": 0.7919775994218672,
+        "minutes_vs_best": 0.8533808039962124,
+        "passed": 18,
+        "n": 23
+      },
+      "routine": {
+        "effort": "extra-high",
+        "combined": 85.93841257872562,
+        "gap": 0.8804873018286088,
+        "usd_vs_best": 0.7919775994218672,
+        "minutes_vs_best": 0.8533808039962124,
+        "passed": 18,
+        "n": 23
+      },
+      "rough": {
+        "effort": "extra-high",
+        "combined": 85.93841257872562,
+        "gap": 0.8804873018286088,
+        "usd_vs_best": 0.7919775994218672,
+        "minutes_vs_best": 0.8533808039962124,
+        "passed": 18,
         "n": 23
       }
     },
