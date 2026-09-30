@@ -1,0 +1,44 @@
+{
+  "source_artifacts_sha256": {
+    "v3.17/summary.json": "83e6e9d1c5dfffaaae0e5b2388462f0a2df51672a4af332b32cda1797a9fce25",
+    "v3.17/protocol.json": "6d73cb7d4320e20114ef70c73a6a250ca594b289ac2da84dc53963dfdd5b876f",
+    "v3.17/private-manifest.json": "50ef3caa26840fc6fd2f794ee15338409f929b7c5f4c0856422c989026e42427",
+    "v3.17/calibration-muse.json": "17b42cc36c50b77823473ebe39545075b558bed1c707f972d6ea3aeae1de1556",
+    "v3.17/calibration-grok.json": "7ce053e62665e8914dec9d7ebba1ed9c9798ef28235579f51131dcb28afde919",
+    "v3.17/calls/grok/probe/submission-061/operator-invalid.json": "7657745ce5c34175eb3a32dc204f7af0c1bb4a202e623483db4666353c9f1def",
+    "v3.17/calls/grok/primary/submission-035/selected.json": "d7fb747a4ea11798b54f9a1f1bf33c83dd80ac9528bbde3f3e49758ee6763f7c",
+    "comparison.json": "065f80a4dd750ecf8144f06659d71e1f39b96f85029fece9b63be5adef6d783d",
+    "gpt6-sol-v317-efforts.csv": "cf648e7498f5364dbc873f49ddc0288ec570bdb6ab5740bd2c6383d7536fef6f",
+    "gpt6-sol-v317-economics-efforts.csv": "2039fba71673d0e5323e11df94b5612ef7b98936aa426dbb21cbbf1118e5f4ae",
+    "gpt6-vs-gpt56-sol-efforts.csv": "0e3c0f189bf26b079c79196ff57618b9adadf2580cff2d850cdb5a1cc3130ad9",
+    "gpt6-vs-gpt56-all-efforts.csv": "f155eb49538f37d4c7dcfec71cf036cf153ef00ba2bf6f95291d2a1ab696a291"
+  },
+  "export_checks": [
+    "115 solver summaries in the sweep folder, one per population row, all finished inside the 3-hour bound; none missing or excluded",
+    "the one sweep folder without a summary is the max depotcore attempt whose Codex stream ends with the API's \"Selected model is at capacity\" error; its retry is the counted run",
+    "the one unpublished row is exactly the submission whose Grok probe folder carries the operator-invalid marker",
+    "the one operator recovery is the Grok primary review of submission-035, trailing braces only, no field edited",
+    "both scored panels passed calibration under v3.17 with no allowance used",
+    "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
+    "five-cell means and standard errors matched to the frozen summary's groups",
+    "combined score, Code quality, pass counts, runtime, cost and token totals matched to the harness card tables and to the GPT-6 vs. GPT-5.6 comparison tables",
+    "every run's API-equivalent cost recomputed from its Codex receipt at the published list rates and matched to the population record's run-time stamp",
+    "the population record's hash matches the one frozen in the protocol",
+    "no dashes or host paths in exported text"
+  ],
+  "limits": [
+    "The Medium cell's Code quality and combined score cover 22 of its 23 runs: the codeccore run has no published score because Grok 4.6's intent probe gave no valid answer after the single retry (one malformed attempt, one quoting code absent from the run). The run failed its tests; it counts as a failed task, and its runtime, tokens and cost are in every economics figure.",
+    "The frozen summary's ready_for_publication flag is false only because of that strict count (114 of 115); the export asserts the shortfall is exactly that row.",
+    "Grok 4.6's primary review of high payrollcore is published through the formatting-only recover_trailing_braces rule (score 79.17). The owner may still invalidate it and score that submission from Muse alone before any republication.",
+    "One attempt per task and level. The first max depotcore attempt ended after 8 minutes when the API reported the model at capacity; the harness re-queued it as an infrastructure error and the retry is the counted run.",
+    "The solver sweep ran September 28, 00:31 PDT, to September 29, 14:53 PDT, while GPT-6 Luna's v3.16 judging ran on September 28, 00:32 to 14:32 PDT, at the owner's request; that overlap may affect the wall-clock runtime figures."
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, raw tokens and API-equivalent cost estimates.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}

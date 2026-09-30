@@ -19,5 +19,12 @@ Luna report under Code quality protocol v3.16, exported by
 the six runs stopped at the 3-hour bound and the two combined figures.
 `swe-v4-gpt6-luna-v316-scores.csv` holds its five effort aggregates.
 
+`swe-v4-gpt6-sol-v317/` is the public record of the September 30, 2026 GPT-6
+Sol report under Code quality protocol v3.17, exported by
+`scripts/export_swe_v4_v317_evidence.py` on the same terms; its README explains
+the one Medium run without a published Code quality score and the one
+formatting-only recovery of a judge review.
+`swe-v4-gpt6-sol-v317-scores.csv` holds its five effort aggregates.
+
 Earlier suite results live in their own report pages and keep their original
 scoring conventions; do not pool them with Frontier v4.

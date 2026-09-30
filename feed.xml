@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>GPT-6 Sol across every effort level | VulcanBench Frontier v4</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-gpt6-sol-v317.html</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-gpt6-sol-v317.html</guid>
+      <pubDate>Wed, 30 Sep 2026 12:00:00 +0000</pubDate>
+      <description>115 runs through Codex CLI 0.155.0 on a ChatGPT Pro subscription, 23 tasks at each of five effort levels, scored with Code quality at 33% of the combined score under the frozen v3.17 protocol, judged by Muse Spark 1.3 and Grok 4.6. Combined score 67.62 at Low, 80.60 at Medium, 82.83 at High, 85.94 at Extra-high and 86.82 at Max, slightly behind GPT-5.6 Sol at every level. Tasks passed 4, 13, 15, 18 and 19 of 23; $1.02 to $2.52 per task, $221.38 for all 115 runs. Medium is judged on 22 of 23 after one invalid judge probe. Includes PDF, a cost and tokens card, comparison cards with GPT-5.6 Sol and the GPT-6 family, per-run CSV and public evidence links.</description>
+    </item>
+    <item>
       <title>GPT-6 Luna across every effort level | VulcanBench Frontier v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-gpt6-luna-v316.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-gpt6-luna-v316.html</guid>

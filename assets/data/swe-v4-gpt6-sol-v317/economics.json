@@ -1,0 +1,148 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a ChatGPT Pro subscription through Codex, so these are estimates, not bills. Judging and local infrastructure are excluded. Every run in the sweep is priced, including the one Medium run whose Code quality score is unpublished.",
+  "pricing_verified": "2026-09-25",
+  "sources": {
+    "openai": "https://developers.openai.com/api/docs/pricing"
+  },
+  "rates_per_million": {
+    "gpt6sol": {
+      "input": 2.0,
+      "cached_input": 0.2,
+      "output": 10.0
+    }
+  },
+  "groups": [
+    {
+      "model": "gpt6sol",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.0194561739130434,
+        "se": 0.26548295000751054
+      },
+      "usd_total": 23.447492,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 3261058.8260869565,
+        "se": 1032107.6531897823
+      },
+      "raw_tokens_total": 75004353,
+      "minutes": {
+        "n": 23,
+        "mean": 12.997172463768116,
+        "se": 2.8599186513330506
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt6sol",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.7584624347826088,
+        "se": 0.48882563000259527
+      },
+      "usd_total": 40.444636,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 6162215.217391305,
+        "se": 2026011.3344446146
+      },
+      "raw_tokens_total": 141730950,
+      "minutes": {
+        "n": 23,
+        "mean": 17.535660144927537,
+        "se": 3.9668784610553067
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt6sol",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.3303419565217394,
+        "se": 0.7126789337660924
+      },
+      "usd_total": 53.597865,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 8280192.0869565215,
+        "se": 2946882.7863265486
+      },
+      "raw_tokens_total": 190444418,
+      "minutes": {
+        "n": 23,
+        "mean": 23.771605797101447,
+        "se": 5.913399470230932
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt6sol",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.9962731304347825,
+        "se": 0.6237704442289473
+      },
+      "usd_total": 45.914282,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 6683897.391304348,
+        "se": 2479474.5466049598
+      },
+      "raw_tokens_total": 153729640,
+      "minutes": {
+        "n": 23,
+        "mean": 20.90214420289855,
+        "se": 4.789012797867486
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt6sol",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.5206181739130433,
+        "se": 0.8415429945570473
+      },
+      "usd_total": 57.974218,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 8324692.956521739,
+        "se": 3215515.4455746124
+      },
+      "raw_tokens_total": 191467938,
+      "minutes": {
+        "n": 23,
+        "mean": 24.49333768115942,
+        "se": 5.680356987300083
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "gpt6sol": {
+      "runs": 115,
+      "usd": 221.378493,
+      "raw_tokens": 752377299,
+      "solver_hours": 38.21830277777777
+    }
+  },
+  "limitations": [
+    "Codex receipts report input, cached input, output and reasoning tokens per run; cached input is billed at the cache-read rate and the rest of the input at the standard rate. Cache writes are free on this API and are not modelled.",
+    "Standard tier, short-context rates. OpenAI bills prompts over 272K input tokens at a higher rate, but Codex keeps each request within its 272K context window, so no long-context premium applies and none is modelled.",
+    "No Batch, Flex, Fast or priority pricing is applied.",
+    "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
+    "The sweep stamped each run at run time at the published GPT-6 Sol list rates; the export recomputes every run from its receipt and matched every stamp."
+  ],
+  "comparison_sha256": "065f80a4dd750ecf8144f06659d71e1f39b96f85029fece9b63be5adef6d783d",
+  "note": "Per-run estimates are in runs.json (estimated_usd, raw_tokens, token_usage). Judging is excluded."
+}

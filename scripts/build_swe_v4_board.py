@@ -38,6 +38,9 @@ SOURCES = [
     # Six GPT-6 Luna runs hit the 3-hour bound: passes count over all 23 runs, and the cells carry the timeouts-as-0 figure.
     {"bundle": "swe-v4-gpt6-luna-v316", "report": "benchmarks/swe-v4-gpt6-luna-v316.html", "protocol": "v3.16", "pass_over_all_runs": True,
      "models": {"gpt6luna": ("GPT-6 Luna", "Codex", "gpt-6-luna", "OpenAI")}},
+    # One GPT-6 Sol medium run has no published Code quality score; it failed its tests, so passes count over all 23 runs.
+    {"bundle": "swe-v4-gpt6-sol-v317", "report": "benchmarks/swe-v4-gpt6-sol-v317.html", "protocol": "v3.17", "pass_over_all_runs": True,
+     "models": {"gpt6sol": ("GPT-6 Sol", "Codex", "gpt-6-sol", "OpenAI")}},
 ]
 FOOTNOTES = {
     "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
@@ -48,6 +51,10 @@ FOOTNOTES = {
                  "covers the finished runs; Min/task covers all 23). Counting each timeout as a combined score of 0 over all 23 runs gives "
                  "{xh_zero:.2f} at extra-high and {max_zero:.2f} at max; its best tag and effort suggestions use these figures. Ran on Codex CLI 0.155.0, the first release that serves GPT-6 Luna "
                  "on a ChatGPT plan; the extra-high pacecore run was retried after an 88-minute Codex client stall, and the retry counts."),
+    "gpt6sol": ("GPT-6 Sol at medium is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe gave no valid answer (one "
+                "malformed attempt, one quoting code absent from the run), so the v3.17 protocol publishes no Code quality score for that "
+                "run; the run failed its tests, counts as a failed task in Passed (over all 23) and is priced. Ran on Codex CLI 0.155.0, the "
+                "first release that serves GPT-6 Sol on a ChatGPT plan; no run reached the 3-hour bound."),
     "sol": "GPT-5.6 Sol at max is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts, so the v3.7 protocol publishes no Code quality score for that run; the run passed its tests and is priced.",
 }
 
@@ -98,7 +105,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#FF7A3D", "opus55": "#FFB347", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573", "sol": "#D4FF3F", "gpt6luna": "#9BE564"}  # Anthropic oranges; OpenAI greens, brightest for the newest
+COLORS = {"fable": "#FF7A3D", "opus55": "#FFB347", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573", "sol": "#D4FF3F", "gpt6luna": "#9BE564", "gpt6sol": "#39FF14"}  # Anthropic oranges; OpenAI greens, brightest for the newest
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
@@ -146,6 +153,8 @@ def table_html(board):
         mark = "&dagger;" if r["key"] == "fable" else ("&Dagger;" if r["key"] == "terra" and r["effort"] == "max" else ("&sect;" if r["key"] == "sol" and r["effort"] == "max" else ""))
         if r["key"] == "gpt6luna" and r["effort"] in ("extra-high", "max"):
             mark = "&para;"
+        if r["key"] == "gpt6sol" and r["effort"] == "medium":
+            mark = "&Vert;"
         lines.append(
             f'<tr class="v4row{cls}" data-model="{r["key"]}" data-effort="{r["effort"]}" data-best="{int(r["best"])}"><td class="l lb-rank">{r["rank"]}</td>'
             f'<td class="l"><span class="v4dot" style="background:{COLORS[r["key"]]}"></span><a class="lb-model" href="models/{r["slug"]}.html">{escape(r["model"])}</a> <span class="lb-harness">{escape(r["harness"])}</span>{tag}</td>'
@@ -174,19 +183,19 @@ def render(board):
             f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.7, v3.15 and v3.16 apply the same rubric, controls, gates and judges to each population). The chart plots combined score against cost per task, most expensive on the left, one line per model from Max to Low; the table below carries every column. "
+            "under one frozen protocol (v3.4 to v3.7 and v3.15 to v3.17 apply the same rubric, controls, gates and judges to each population). The chart plots combined score against cost per task, most expensive on the left, one line per model from Max to Low; the table below carries every column. "
             "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
             '<noscript><p class="lb-context">The chart needs JavaScript; the table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
-            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) +
+            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) +
             ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
             'The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model&rsquo;s highest-scoring effort level. '
             'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
             '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
             '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>, '
             '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>, <a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>, '
-            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>. '
+            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>, <a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>. '
             '<a href="assets/data/swe-v4-board.csv" download>Download the board as CSV</a>.</p>\n'
             f"{END}")
 
