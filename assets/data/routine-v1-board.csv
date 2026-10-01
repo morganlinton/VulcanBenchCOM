@@ -33,6 +33,3 @@ GPT-5.5,OpenAI,Codex,low,True,12,12,94.8600,0.7500,87.7600,75.7,0.205500,2633.8,
 GPT-5.5,OpenAI,Codex,medium,False,12,12,94.8600,0.6200,87.8500,83.6,0.218300,2966.8,code-quality-maintenance-v3.8
 GPT-5.5,OpenAI,Codex,high,False,12,12,95.0800,0.6400,88.5400,89.9,0.230700,3427.4,code-quality-maintenance-v3.8
 GPT-5.5,OpenAI,Codex,extra-high,False,12,12,95.2400,0.6300,88.8900,110.2,0.271800,4511.6,code-quality-maintenance-v3.8
-SWE-2,Cognition,Devin CLI,medium,True,12,12,93.3700,0.7200,82.7300,56.6,,1535.6,code-quality-maintenance-v3.8
-SWE-2,Cognition,Devin CLI,high,False,12,12,93.7800,0.6000,83.9400,79.6,,3354.0,code-quality-maintenance-v3.8
-SWE-2,Cognition,Devin CLI,max,False,12,12,94.4200,0.6100,85.6800,104.5,,5110.4,code-quality-maintenance-v3.8

@@ -40,7 +40,6 @@ MODELS = {
     "sol": ("GPT-5.6 Sol", "Codex", "gpt-5-6-sol", "OpenAI", "#D4FF3F"),
     "luna": ("GPT-5.6 Luna", "Codex", "gpt-5-6-luna", "OpenAI", "#A8FFD8"),
     "gpt55": ("GPT-5.5", "Codex", "gpt-5-5", "OpenAI", "#22B573"),
-    "swe2": ("SWE-2", "Devin CLI", "swe-2", "Cognition", "#B48CFF"),
 }
 TOLERANCE = 3.0  # the Frontier board's "routine" tolerance, in combined-score points
 PRIVATE_KEYS = ("task_id", "run_id", "task", "source_directory", "issue")
@@ -171,8 +170,7 @@ def render(data, board):
             f"judged by {panels} under Code quality protocol v3.8 (Opus 5.5 under v3.14, the same protocol on its own population, judged in a separate session) with the same rubric, controls, gates and calibration exam as Frontier v4. "
             "<strong>Routine and Frontier Code quality are not comparable.</strong> On Frontier v4 part of Code quality measures whether a reviewer can recover each task&rsquo;s deliberate legacy quirks; "
             "routine tickets have no such quirks by design, so the protocol&rsquo;s own pre-registered rule scores Routine Code quality from the reviewed panel alone. Compare levels and models within this table, never across the two boards. "
-            "SE is one task standard error of the combined score. Sec/task is mean wall clock. $/task is API-equivalent at list rates from the solver receipts, not a subscription bill; "
-            "SWE-2 has no public per-token price, so its cost is not shown and its suggestion is made on time alone. "
+            "SE is one task standard error of the combined score. Sec/task is mean wall clock. $/task is API-equivalent at list rates from the solver receipts, not a subscription bill. "
             '<a href="assets/data/routine-v1-board.csv" download>Download this table as CSV</a>.</p>\n'
             "  </section>\n"
             f"{END}")

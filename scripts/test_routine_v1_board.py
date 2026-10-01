@@ -32,8 +32,8 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(picks["astra"]["best_effort"], "max")
 
     def test_unpriced_model_is_picked_on_time(self):
-        data = sample([cell("swe2", "medium", 85.0, None, 200), cell("swe2", "high", 86.0, None, 150), cell("swe2", "max", 86.5, None, 400)])
-        self.assertEqual(board.suggestions(board.rows(data))["swe2"]["effort"], "high")
+        data = sample([cell("luna", "medium", 85.0, None, 200), cell("luna", "high", 86.0, None, 150), cell("luna", "max", 86.5, None, 400)])
+        self.assertEqual(board.suggestions(board.rows(data))["luna"]["effort"], "high")
         self.assertIn("n/a", board.table_html(board.rows(data), board.suggestions(board.rows(data))))
 
     def test_incomplete_unjudged_or_flagged_data_is_refused(self):

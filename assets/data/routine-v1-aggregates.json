@@ -12,8 +12,7 @@
    "cache_write": 12.5,
    "output": 50
   },
-  "astra_rates_check": "matches harness/api_equivalent_costs.py",
-  "unpriced": "Devin SWE-2 has no public per-token price"
+  "astra_rates_check": "matches harness/api_equivalent_costs.py"
  },
  "code_quality": {
   "status": "judged",
@@ -23,8 +22,8 @@
    "grok"
   ],
   "failed_panels": [],
-  "published_submissions": 384,
-  "expected_submissions": 384,
+  "published_submissions": 348,
+  "expected_submissions": 348,
   "ready_for_publication": true,
   "comparability": "Routine Code quality is the L1 reviewed score alone (no legacy quirks exist to recover); it is not comparable with Frontier v4 Code quality. Cells judged under a later protocol share the v3.8 rubric, controls, judge pins and weights but come from a separate judging session.",
   "additional_records": [
@@ -1437,129 +1436,6 @@
    "se_code_quality": 1.33,
    "mean_combined": 96.5,
    "se_combined": 0.45
-  },
-  {
-   "model_key": "swe2",
-   "model": "SWE-2",
-   "lab": "Cognition",
-   "harness": "Devin CLI",
-   "effort": "medium",
-   "effort_sent": [
-    "medium"
-   ],
-   "tasks": 12,
-   "tasks_expected": 12,
-   "complete": true,
-   "passes": 12,
-   "pass_rate": 1.0,
-   "mean_functional": 1.0,
-   "mean_quality": 0.8904,
-   "mean_security": 1.0,
-   "mean_total_no_judges": 0.902,
-   "median_duration_s": 49.3,
-   "mean_duration_s": 56.5744,
-   "max_duration_s": 83.188,
-   "mean_prompt_tokens": 79429.6667,
-   "mean_completion_tokens": 1535.5833,
-   "mean_cached_input_tokens": 66154.5833,
-   "mean_cost_usd": null,
-   "cost_basis": [
-    "unavailable-no-public-price"
-   ],
-   "budget_exceeded": 0,
-   "contaminated": 0,
-   "astra_long_context_runs": 0,
-   "harness_versions": [
-    "devin 3000.10.31 (b98cc431)"
-   ],
-   "judging_protocol": "code-quality-maintenance-v3.8",
-   "judged_submissions": 12,
-   "mean_code_quality": 82.73,
-   "se_code_quality": 2.28,
-   "mean_combined": 93.37,
-   "se_combined": 0.72
-  },
-  {
-   "model_key": "swe2",
-   "model": "SWE-2",
-   "lab": "Cognition",
-   "harness": "Devin CLI",
-   "effort": "high",
-   "effort_sent": [
-    "high"
-   ],
-   "tasks": 12,
-   "tasks_expected": 12,
-   "complete": true,
-   "passes": 12,
-   "pass_rate": 1.0,
-   "mean_functional": 1.0,
-   "mean_quality": 0.8911,
-   "mean_security": 1.0,
-   "mean_total_no_judges": 0.9019,
-   "median_duration_s": 75.8,
-   "mean_duration_s": 79.5981,
-   "max_duration_s": 134.162,
-   "mean_prompt_tokens": 96564.0833,
-   "mean_completion_tokens": 3354.0,
-   "mean_cached_input_tokens": 79245.5833,
-   "mean_cost_usd": null,
-   "cost_basis": [
-    "unavailable-no-public-price"
-   ],
-   "budget_exceeded": 0,
-   "contaminated": 0,
-   "astra_long_context_runs": 0,
-   "harness_versions": [
-    "devin 3000.10.31 (b98cc431)"
-   ],
-   "judging_protocol": "code-quality-maintenance-v3.8",
-   "judged_submissions": 12,
-   "mean_code_quality": 83.94,
-   "se_code_quality": 1.79,
-   "mean_combined": 93.78,
-   "se_combined": 0.6
-  },
-  {
-   "model_key": "swe2",
-   "model": "SWE-2",
-   "lab": "Cognition",
-   "harness": "Devin CLI",
-   "effort": "max",
-   "effort_sent": [
-    "max"
-   ],
-   "tasks": 12,
-   "tasks_expected": 12,
-   "complete": true,
-   "passes": 12,
-   "pass_rate": 1.0,
-   "mean_functional": 1.0,
-   "mean_quality": 0.8997,
-   "mean_security": 1.0,
-   "mean_total_no_judges": 0.9032,
-   "median_duration_s": 90.5,
-   "mean_duration_s": 104.4891,
-   "max_duration_s": 201.339,
-   "mean_prompt_tokens": 115665.8333,
-   "mean_completion_tokens": 5110.4167,
-   "mean_cached_input_tokens": 95455.8333,
-   "mean_cost_usd": null,
-   "cost_basis": [
-    "unavailable-no-public-price"
-   ],
-   "budget_exceeded": 0,
-   "contaminated": 0,
-   "astra_long_context_runs": 0,
-   "harness_versions": [
-    "devin 3000.10.31 (b98cc431)"
-   ],
-   "judging_protocol": "code-quality-maintenance-v3.8",
-   "judged_submissions": 12,
-   "mean_code_quality": 85.68,
-   "se_code_quality": 1.89,
-   "mean_combined": 94.42,
-   "se_combined": 0.61
   }
  ],
  "cheapest_adequate_effort": [
@@ -1632,16 +1508,6 @@
    "best": 96.74,
    "tolerance_points": 3.0,
    "basis": "combined score (50/8.5/8.5/33) under Code quality v3.14"
-  },
-  {
-   "model_key": "swe2",
-   "model": "SWE-2",
-   "effort": "medium",
-   "metric": "mean_combined",
-   "value": 93.37,
-   "best": 94.42,
-   "tolerance_points": 3.0,
-   "basis": "combined score (50/8.5/8.5/33) under Code quality v3.8"
   }
  ]
 }
