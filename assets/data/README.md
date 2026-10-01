@@ -26,5 +26,12 @@ the one Medium run without a published Code quality score and the one
 formatting-only recovery of a judge review.
 `swe-v4-gpt6-sol-v317-scores.csv` holds its five effort aggregates.
 
+`swe-v4-gpt61-sol-v318/` is the public record of the October 1, 2026 GPT-6.1
+Sol report under Code quality protocol v3.18, exported by
+`scripts/export_swe_v4_v318_evidence.py` on the same terms; its README explains
+the one Medium run scored from Muse Spark 1.3 alone, the one escaping recovery
+of a judge probe and the three evidence rebuilds.
+`swe-v4-gpt61-sol-v318-scores.csv` holds its five effort aggregates.
+
 Earlier suite results live in their own report pages and keep their original
 scoring conventions; do not pool them with Frontier v4.
