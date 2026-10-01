@@ -46,7 +46,7 @@ def main():
     for needle in ("Muse Spark 1.3", "Grok 4.6", "code-quality-maintenance-v3.18", "24 reviewed plus 9 intent recovery",
                    f"${econ['totals']['gpt61sol']['usd']:,.2f}", "$0.39 per task", "Codex CLI 0.159.0", "0.155.0, 0.157.0 and 0.158.0",
                    "GPT-6 Sol's v3.17 judging", "The one-panel Medium row", "invalidate_unrecoverable_primary", "recover_escaped_excerpts",
-                   "54.00", "78.4", "paddockcore", "codeccore", "Three generations of Sol", "no allowance used", "no long-context premium",
+                   "54.00", "paddockcore", "codeccore", "Three generations of Sol", "no allowance used", "no long-context premium",
                    "April 30, 2026", "saturation-pruning", "231 of the 231", "ranks 13 of the board's 49 columns", "index diff"):
         assert needle in all_text, needle
     print(f"Verified {PAGES} pages, five effort rows, the one-panel Medium row, the operator record, page numbers, GitHub link and writing.")

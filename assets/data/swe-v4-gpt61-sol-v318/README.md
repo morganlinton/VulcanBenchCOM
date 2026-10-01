@@ -98,11 +98,6 @@ not used in any score and is not published; its panel entry in runs.json has
 `scored` false and null fields. In `groups.json` Grok's Medium mean
 (`by_panel.grok`) covers 22 runs; every other aggregate covers 23.
 
-The harness score card's intent-recovery row at Medium shows 78.4: it averages
-both judges' probes on paddockcore, including Grok's unused one. The published
-Medium intent recovery, as in `groups.json` and on the report page, is 78.59.
-Code quality and the combined score on the card agree with this bundle.
-
 ## Cost and tokens
 
 Each run carries `raw_tokens` (Codex's total including cache reads),

@@ -239,8 +239,7 @@ def main():  # noqa: PLR0915, one linear document
       f"decision on the same case, the rule {finding['rule']} marked the call invalid, and the frozen summary scores the run from Muse Spark "
       f"1.3 alone: reviewed score {single['reviewed_score']:.2f}, intent recovery {single['intent_recovery']:.2f}, Code quality "
       f"{single['code_quality']:.2f}, combined {single['combined_33']:.2f}. The run passed its tests. Grok's probe answer for that run is not "
-      "used and not published. The harness score card's intent-recovery row at Medium (78.4) averages both judges' probes on that run; the "
-      f"published Medium figure is {t['medium']['intent_recovery']['mean']:.2f}.", "small")
+      "used and not published.", "small")
     heading("Operator record")
     p(f"On high codeccore, Muse Spark 1.3's first probe attempt wrote an invalid JSON escape and its second quoted a code line with the string "
       f"escapes decoded into control characters. By owner decision the new rule {recovery['rule']} respelled that excerpt with the source's "

@@ -336,16 +336,10 @@ def main():  # noqa: PLR0915, one linear export
                               ("combined_20pct", g["combined_20_profile"]["mean"]), ("code_quality", g["code_quality"]["mean"]),
                               ("code_quality_se", g["code_quality"]["se"]), ("readability", g["readability"]["mean"]),
                               ("maintainability", g["maintainability"]["mean"]), ("muse_l1", g["by_panel"]["muse"]["mean"]),
-                              ("grok_l1", g["by_panel"]["grok"]["mean"]), ("minutes", g["minutes"]["mean"])):
+                              ("grok_l1", g["by_panel"]["grok"]["mean"]), ("minutes", g["minutes"]["mean"]),
+                              # Intent recovery over validly reviewed panels only, as published (Muse alone on medium paddockcore).
+                              ("intent_recovery", g["intent_recovery"]["mean"])):
             assert abs(float(c[column]) - value) < 1e-4, (g["effort"], column)
-        if g["effort"] == "medium":
-            # The score card's intent-recovery row at medium averages both judges' probes on paddockcore, including Grok's,
-            # which the summary does not use (no valid Grok review); the published figure uses Muse's alone. Record both.
-            card_intent = statistics.mean(statistics.mean(e["panels"][p]["l2"] for p in PANELS) for e in entries if e["effort"] == "medium")
-            assert abs(float(c["intent_recovery"]) - card_intent) < 1e-4 and abs(card_intent - g["intent_recovery"]["mean"]) > 0.2
-            g["card_intent_recovery"] = card_intent
-        else:
-            assert abs(float(c["intent_recovery"]) - g["intent_recovery"]["mean"]) < 1e-4, g["effort"]
         assert int(ce["n"]) == g["priced_runs"] == 23 and abs(float(ce["total_usd"]) - g["usd_total"]) < 1e-6
         assert int(ce["total_tokens"]) == g["raw_tokens_total"] and abs(float(ce["mean_minutes"]) - g["minutes"]["mean"]) < 1e-4
         assert abs(float(ce["mean_usd"]) - g["usd"]["mean"]) < 1e-6 and ce["fallbacks"] == "0"
@@ -478,7 +472,7 @@ def main():  # noqa: PLR0915, one linear export
                           "both scored panels passed calibration under v3.18 with no allowance used",
                           "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
                           "five-cell means and standard errors matched to the frozen summary's groups, per-judge means included",
-                          "combined score, Code quality components, pass counts, runtime, cost and token totals matched to the harness card "
+                          "combined score, Code quality components (intent recovery included), pass counts, runtime, cost and token totals matched to the harness card "
                           "tables and to the three-generation Sol comparison table",
                           "every run's API-equivalent cost recomputed from its Codex receipt at the published list rates and matched to the "
                           "population record's run-time stamp",
@@ -486,9 +480,6 @@ def main():  # noqa: PLR0915, one linear export
         "limits": ["Medium paddockcore is scored from Muse Spark 1.3 alone: Grok 4.6's primary review has no valid response (both attempts quoted "
                    "a changed line), so the summary uses Muse's reviewed score and intent recovery for that run, as the frozen protocol does for "
                    "any submission without two valid reviews. Every other run is the equal mean of both judges.",
-                   "The harness score card's intent-recovery row at Medium (78.4) averages both judges' probes on that run, including Grok's, "
-                   "which the summary does not use; the published Medium intent recovery, with Muse's alone on that run, is "
-                   f"{groups[1]['intent_recovery']['mean']:.2f}. Code quality and the combined score on the card match the summary.",
                    "Muse Spark 1.3's probe on high codeccore is published through the owner-approved recover_escaped_excerpts rule: attempt 2 had "
                    "decoded the string escapes in one quoted line into control characters, and the rule wrote them back as the source's escapes.",
                    "Three runs add test fixtures the saved text patch cannot re-apply: low payrollcore and medium lodgecore add fixtures git "

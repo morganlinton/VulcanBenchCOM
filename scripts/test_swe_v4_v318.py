@@ -22,7 +22,7 @@ PANELS = ("muse", "grok")
 ONE_PANEL = [("medium", "legacy-paddockcore-binary-parity")]
 # Copied byte for byte from the harness (docs/results/swe-v4-gpt61-sol-2026-09 and swe-v4-gpt6-vs-gpt56-2026-09).
 CARDS = {
-    "swe-v4-gpt61-sol-v318.png": "12c8fa98660b5d0ba13fae2fa7c4ea001ffbe629e7ec52f2d591114cc1288117",
+    "swe-v4-gpt61-sol-v318.png": "679399afa0574aed0ce9e1f148499b5bbcc55eabfa50ceb87b62225946929576",
     "swe-v4-gpt61-sol-v318-economics.png": "3564f3b6f0f7ce0528bac19afcc85ae6fda301d8c8c53d461413f923633c803b",
     "swe-v4-sol-family-combined.png": "da186dea5e46af6fd3411b063fcf02f6d6f60051a016706fa776aeb65d756bf0",
 }
@@ -172,8 +172,8 @@ class GPT61SolBundleTests(unittest.TestCase):
         self.assertEqual([round(g[e]["code_quality"]["mean"], 2) for e in EFFORTS], [70.79, 70.25, 73.67, 74.99, 73.80])
         self.assertEqual([round(g[e]["minutes"]["mean"], 1) for e in EFFORTS], [6.9, 10.6, 10.2, 15.4, 14.5])
         self.assertEqual([g[e]["intent_recovery_redistributed_runs"] for e in EFFORTS], [0, 0, 0, 0, 0])
-        # The score card's Medium intent-recovery row (78.4) averages Grok's unused probe; the published figure does not.
-        self.assertEqual((round(g["medium"]["card_intent_recovery"], 1), round(g["medium"]["intent_recovery"]["mean"], 1)), (78.4, 78.6))
+        self.assertNotIn("card_intent_recovery", g["medium"])
+        self.assertEqual(round(g["medium"]["intent_recovery"]["mean"], 2), 78.59)
 
     def test_page_tables_match_groups(self):
         self.assertEqual(set(self.page.rows), {("gpt61sol", e) for e in EFFORTS})
@@ -389,7 +389,7 @@ class GPT61SolBundleTests(unittest.TestCase):
                        "September 30, 20:58 PDT, to October 1, 06:01 PDT", "06:04 to 12:52 PDT", "One attempt per task and level"):
             self.assertIn(needle, section, needle)
         limits = " ".join(self.provenance["limits"])
-        for needle in ("Muse Spark 1.3 alone", "78.4", "recover_escaped_excerpts", "binary", "06:51 PDT"):
+        for needle in ("Muse Spark 1.3 alone", "recover_escaped_excerpts", "binary", "06:51 PDT"):
             self.assertIn(needle, limits, needle)
 
     def test_cards_are_pinned_and_placed(self):
@@ -399,7 +399,7 @@ class GPT61SolBundleTests(unittest.TestCase):
             self.assertIn(f'src="/assets/cards/{name}"', self.page_html, name)
         family = self.page_html[self.page_html.index('id="sol-family"'):self.page_html.index('id="board"')]
         self.assertIn('src="/assets/cards/swe-v4-sol-family-combined.png"', family)
-        self.assertIn("78.4", self.page_html[self.page_html.index('src="/assets/cards/swe-v4-gpt61-sol-v318.png"'):self.page_html.index('id="results"')])
+        self.assertNotIn("78.4", self.page_html)
 
     def test_page_card_links_and_site_references(self):
         self.assertEqual(self.page.structure_errors, [])
