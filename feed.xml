@@ -67,7 +67,7 @@
       <link>https://vulcanbench.com/blog/02-vulcanbench-safety-v1.html</link>
       <guid>https://vulcanbench.com/blog/02-vulcanbench-safety-v1.html</guid>
       <pubDate>Sun, 13 Sep 2026 12:00:00 +0000</pubDate>
-      <description>VulcanBench is starting a safety eval suite, VulcanBench Safety v1, built for and run in the same environments and harnesses companies actually use (Claude Code, Codex, Cursor, Devin). It looks for the smaller, still important safety issues that show up during ordinary coding work, so teams can tell whether rolling out a new model raises or lowers safety risk in their codebase.</description>
+      <description>VulcanBench is starting a safety eval suite, VulcanBench Safety v1, built for and run in the same environments and harnesses companies actually use (Claude Code, Codex, Cursor). It looks for the smaller, still important safety issues that show up during ordinary coding work, so teams can tell whether rolling out a new model raises or lowers safety risk in their codebase.</description>
     </item>
     <item>
       <title>Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels</title>
