@@ -1,0 +1,50 @@
+{
+  "source_artifacts_sha256": {
+    "v3.18/summary.json": "288f844bc09e87334d6ebef0d803dc91bca7b200fa1053b1bfd1624f911b3ff6",
+    "v3.18/protocol.json": "c7dbb6586e59d80433f9e96210219c47f806fc9bc7cb24fb86c59f6b0cc8156c",
+    "v3.18/private-manifest.json": "baf6f816ffbeb51a04fdf9ec58f305694bcfcea527d99553e3e4a3b0df78a42d",
+    "v3.18/calibration-muse.json": "025ad9a4b708e8527fb4295594a5cfbc2412b2387776a91e4ace1c6aa1e62b56",
+    "v3.18/calibration-grok.json": "de38cfcde3bf000644f641ff03697c94e3d5cdb229362a034a70443093e70373",
+    "v3.18/calls/grok/primary/submission-054/operator-invalid.json": "06429cac0ec95468a37ec529e15e4ff5d84f13cc9fc941792263ed37cf1ef39c",
+    "v3.18/calls/muse/probe/submission-083/selected.json": "45e77ffcbb9ffa0d4f3edf765da1cd5cd92de0b1ed86339ddb09c6f88f9a461d",
+    "v3.18/calls/muse/probe/submission-083/operator-invalid.superseded.json": "3a34f640713f6080a5a749c4784ed814dfd9082fb28dbb495d04e08acf2523d5",
+    "v3.18/reconstruction/legacy-cellarcore-binary-parity-bdca534c.json": "2b30fd1ebf5466f512936f21ed58d7e505e65c4456408cb0eca822079596c6a7",
+    "v3.18/reconstruction/legacy-lodgecore-binary-parity-08b754d0.json": "77d2dd8fcc657511678a20f5614c2c0c3c9e4eb24c6abe3cfe927e5ed27e856c",
+    "v3.18/reconstruction/legacy-payrollcore-binary-parity-51181245.json": "de29fabfa60b94d251ff246d05eedc1256b659d090fd28b663f7adcd41d2709b",
+    "comparison.json": "7359debe2d78a801b894037ca63c599a44e3588927e5209221a3fc8c5ba1d64f",
+    "gpt61-sol-v318-efforts.csv": "53dad6a23755f61aefd764b9a63363af856e90d963bdc6992ab08c11e0f74d74",
+    "gpt61-sol-v318-economics-efforts.csv": "d7606e95b149012b29cc06e86ec25a80964d78c44c8dea70b611574d9328e157",
+    "sol-family-combined-efforts.csv": "1a78547e417cb322edcb050bab8c612c4d9f0e89ee2bade20f313902d59a013b"
+  },
+  "export_checks": [
+    "115 solver summaries in the sweep folder, one per population row, all finished inside the 3-hour bound on Codex CLI 0.159.0; none missing, excluded or retried",
+    "every run's integrity audit is clean: no web access, no benchmark-data or answer-key paths",
+    "the frozen summary publishes all 115 submissions and is marked ready for publication",
+    "the one live invalidation marker is Grok's primary review of submission-054, and that row's published scores are reproduced from Muse alone",
+    "the one operator recovery is Muse's probe of submission-083, escapes respelled only, with the earlier marker superseded",
+    "the three evidence rebuilds are the three method records under reconstruction/",
+    "both scored panels passed calibration under v3.18 with no allowance used",
+    "per-row Code quality and both combined scores recomputed and matched to the frozen summary",
+    "five-cell means and standard errors matched to the frozen summary's groups, per-judge means included",
+    "combined score, Code quality components (intent recovery included), pass counts, runtime, cost and token totals matched to the harness card tables and to the three-generation Sol comparison table",
+    "every run's API-equivalent cost recomputed from its Codex receipt at the published list rates and matched to the population record's run-time stamp",
+    "the population record's hash matches the one frozen in the protocol",
+    "no dashes or host paths in exported text"
+  ],
+  "limits": [
+    "Medium paddockcore is scored from Muse Spark 1.3 alone: Grok 4.6's primary review has no valid response (both attempts quoted a changed line), so the summary uses Muse's reviewed score and intent recovery for that run, as the frozen protocol does for any submission without two valid reviews. Every other run is the equal mean of both judges.",
+    "Muse Spark 1.3's probe on high codeccore is published through the owner-approved recover_escaped_excerpts rule: attempt 2 had decoded the string escapes in one quoted line into control characters, and the rule wrote them back as the source's escapes.",
+    "Three runs add test fixtures the saved text patch cannot re-apply: low payrollcore and medium lodgecore add fixtures git treats as binary, and low cellarcore's fixture text was altered by the text-mode capture. Their judging evidence was rebuilt from the saved workspace's index diff (the binary diff for the first two, after checking that its text diff equals the run's patch; for cellarcore, the index diff whose normalized text matches the patch exactly). Only test fixtures differ; the reviewed module is rebuilt as for every other run.",
+    "One attempt per task and level.",
+    "The solver sweep ran September 29, 19:18 PDT, to September 30, 17:21 PDT. Its first 11.5 hours, to September 30, 06:51 PDT, overlapped GPT-6 Sol's v3.17 judging on the same machine at the owner's request; every Low, Medium and High run and the first five Extra-high runs started inside that window, which may affect the wall-clock runtime figures."
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, integrity-audit verdicts, raw tokens and API-equivalent cost estimates.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts",
+    "the unused Grok probe answer on medium paddockcore"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}

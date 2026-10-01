@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPT-6.1 Sol across effort levels | VulcanBench</title>
+<meta name="description" content="Frontier v4: 115 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 86.22 at Low, 86.44 at Medium, 88.23 at High, 88.78 at Extra-high and 88.35 at Max; 20 to 23 of 23 tasks passed; $0.31 to $0.46 per task at list rates. Includes the three-generation Sol comparison.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-gpt61-sol-v318.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="GPT-6.1 Sol across effort levels | VulcanBench">
+<meta property="og:description" content="Frontier v4: 115 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 86.22 at Low, 86.44 at Medium, 88.23 at High, 88.78 at Extra-high and 88.35 at Max; 20 to 23 of 23 tasks passed; $0.31 to $0.46 per task at list rates. Includes the three-generation Sol comparison.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-gpt61-sol-v318.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-gpt61-sol-v318.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1867">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: GPT-6.1 Sol, combined score and runtime at every effort level, with a Code quality table by effort">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPT-6.1 Sol across effort levels | VulcanBench">
+<meta name="twitter:description" content="Frontier v4: 115 Codex runs at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 86.22 at Low, 86.44 at Medium, 88.23 at High, 88.78 at Extra-high and 88.35 at Max; 20 to 23 of 23 tasks passed; $0.31 to $0.46 per task at list rates. Includes the three-generation Sol comparison.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-gpt61-sol-v318.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: GPT-6.1 Sol, combined score and runtime at every effort level, with a Code quality table by effort">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="gpt61-sol-v318-heading">
+      <header>
+        <p class="suite-label">October 1, 2026 &middot; 115 runs &middot; Code quality protocol v3.18</p>
+        <h1 id="gpt61-sol-v318-heading">GPT-6.1 Sol across every effort level</h1>
+        <p>115 runs of GPT-6.1 Sol through the Codex CLI on a ChatGPT Pro subscription, 23 tasks at each of five effort levels, Low to Max. GPT-6.1 Sol is a new model, the third Sol on the board after <a href="/models/gpt-6-sol.html">GPT-6 Sol</a> and <a href="/models/gpt-5-6-sol.html">GPT-5.6 Sol</a>. Code quality carries 33% of the combined score and is judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the other Frontier v4 reports, so GPT-6.1 Sol takes its place on the <a href="/leaderboard.html">Frontier v4 leaderboard</a>. Every run finished inside the 3-hour task bound, and every cell is judged on all 23 runs.</p>
+      </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A retired program to rebuild</h3><p>Each of the 23 tasks is a legacy binary with a written specification and an issue. Its real behaviour departs from the specification in documented ways, and hidden tests check the rewrite against the binary.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>One attempt per task and level</h3><p>GPT-6.1 Sol works in Codex with the binary, the specification and the code, once per task at each effort level, inside a flat 3-hour bound.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>Tests and two judges score it</h3><p>Hidden tests give functional correctness. Two calibrated judges from labs with no model on the board rate the code for a human reader and try to recover the documented departures.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>Scores, time and cost per level</h3><p>Each level gets a combined score, tasks passed, minutes and API-equivalent cost. A run with only one valid judge review is scored from that judge alone, under the protocol's frozen rule.</p></li>
+        </ol>
+        <p>Combined score = 50% functional correctness + 8.5% lint and complexity + 8.5% security + 33% Code quality, averaged over the 23 runs in each level, as on every other board column. Tasks passed, minutes and cost cover the same 23 runs.</p>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/reports/vulcanbench-swe-v4-gpt61-sol-v318-report.pdf"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">PDF, 11 pages</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-gpt61-sol-v318.png" download><span class="resource-kind">Card</span><span class="resource-title">Score card</span><span class="resource-meta">PNG, combined score, runtime and Code quality by effort</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-gpt61-sol-v318-economics.png" download><span class="resource-kind">Card</span><span class="resource-title">Cost and tokens card</span><span class="resource-meta">PNG, API-equivalent cost and tokens by effort</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-sol-family-combined.png" download><span class="resource-kind">Card</span><span class="resource-title">Three generations of Sol</span><span class="resource-meta">PNG, GPT-6.1 Sol, GPT-6 Sol and GPT-5.6 Sol at every level</span></a>
+        <a class="resource" href="/assets/data/swe-v4-gpt61-sol-v318/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 115 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores</span></a>
+        <a class="resource" href="/assets/data/swe-v4-gpt61-sol-v318-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, five effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt61-sol-v318"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-gpt61-sol-v318/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=GPT-6.1%20Sol%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-gpt61-sol-v318.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this report, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#ceiling"><span class="n">03</span>Perfect hidden tests</a>
+        <a href="#cost"><span class="n">04</span>Cost and tokens</a>
+        <a href="#sol-family"><span class="n">05</span>Three generations of Sol</a>
+        <a href="#board"><span class="n">06</span>On the board</a>
+        <a href="#code-quality"><span class="n">07</span>Code quality</a>
+        <a href="#judges"><span class="n">08</span>Judges and calibration</a>
+        <a href="#run-notes"><span class="n">09</span>How it was run</a>
+        <a href="#reproduce"><span class="n">10</span>Reproduction</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>GPT-6.1 Sol ran every task once at each of its five effort levels, 23 tasks per cell, through Codex CLI 0.159.0 on a ChatGPT Pro subscription from September 29 to 30, 2026. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a named human reader by Muse Spark 1.3 and Grok 4.6 with a ground-truth intent-recovery probe. Judging ran September 30 to October 1. No run reached the flat 3-hour task bound; the longest, Medium paddockcore, took 80 minutes. All 115 runs carry a published Code quality score. One of them, Medium paddockcore, is scored from Muse Spark 1.3 alone, because Grok 4.6's review of it had no valid response; see the note under the results table.</p>
+        <div class="effort-choices">
+          <div><h3>Combined score</h3><p>86.22 at Low to 88.78 at Extra-high</p><p>A flat curve: 86.22 at Low, 86.44 at Medium, 88.23 at High, 88.78 at Extra-high and 88.35 at Max. High, Extra-high and Max sit within 0.55 points of each other, and Low is 2.56 points below the best level.</p></div>
+          <div><h3>Tasks passed</h3><p>20 of 23 at Low, 23 of 23 from High up</p><p>GPT-6.1 Sol passes 20 tasks at Low, 22 at Medium and every task at High, Extra-high and Max. Of the 231 hidden behaviours the tasks test for, it fixes 225 at Low, 228 at Medium and all 231 from High up.</p></div>
+          <div><h3>Code quality</h3><p>70.25 to 74.99</p><p>The judges rate the code from 70.79 at Low and 70.25 at Medium to 73.67 at High, 74.99 at Extra-high and 73.80 at Max, with standard errors of 0.85 to 1.25.</p></div>
+          <div><h3>Runtime and cost</h3><p>6.9 to 15.4 min &middot; $0.31 to $0.46 per task</p><p>Low is the fastest and cheapest level; High costs less than Medium ($0.33 against $0.40). The whole sweep prices at $44.33, $0.39 per task, at about 1.2M raw tokens per task.</p></div>
+        </div>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score, tasks passed, Code quality and runtime at each effort level" tabindex="0"><table class="suite-results"><caption>Combined score, tasks passed, Code quality and runtime at each effort level, 23 runs per cell</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>86.22</td><td>86.44</td><td>88.23</td><td>88.78</td><td>88.35</td></tr><tr><th scope="row">Standard error</th><td>0.82</td><td>0.78</td><td>0.40</td><td>0.40</td><td>0.33</td></tr><tr><th scope="row">Judged runs</th><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr></tbody><tbody><tr><th scope="row">Tasks passed</th><td>20/23</td><td>22/23</td><td>23/23</td><td>23/23</td><td>23/23</td></tr><tr><th scope="row">Hidden behaviours fixed</th><td>225/231</td><td>228/231</td><td>231/231</td><td>231/231</td><td>231/231</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>70.79</td><td>70.25</td><td>73.67</td><td>74.99</td><td>73.80</td></tr><tr><th scope="row">Human readability</th><td>61.5</td><td>60.9</td><td>64.8</td><td>66.6</td><td>64.8</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>6.9</td><td>10.6</td><td>10.2</td><td>15.4</td><td>14.5</td></tr><tr><th scope="row">API-equivalent $ per task</th><td>$0.31</td><td>$0.40</td><td>$0.33</td><td>$0.43</td><td>$0.46</td></tr></tbody></table></div>
+        <p>Under the prior 50/15/15/20 profile applied to the same Code quality scores the ladder has the same shape, 87.93 to 89.76. The card and the full per-effort table follow.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-gpt61-sol-v318.png" aria-label="Open the GPT-6.1 Sol model card at full resolution">
+          <img src="/assets/cards/swe-v4-gpt61-sol-v318.png" width="2400" height="1867" fetchpriority="high" alt="GPT-6.1 Sol across five effort levels under the v3.18 Code quality protocol. The combined score is 86.22 at Low, 86.44 at Medium, 88.23 at High, 88.78 at Extra-high and 88.35 at Max. Mean runtime is 6.9 minutes at Low, 10.6 at Medium, 10.2 at High, 15.4 at Extra-high and 14.5 at Max. A table gives Code quality and its components at every effort, and a note says Medium paddockcore is scored from Muse Spark 1.3 alone. Exact values are in the adjacent accessible tables.">
+        </a>
+        <figcaption>Combined score uses a focused scale; runtime starts at zero. Whiskers show &plusmn;1 task standard error, not statistical significance. <a href="/assets/cards/swe-v4-gpt61-sol-v318.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">GPT-6.1 Sol starts high and gains little with effort: Low already passes 20 of 23 tasks, and from High up it passes all 23, so the remaining spread comes from Code quality and the automated factors. These runs compare a model-and-harness combination, not an isolated base model; the <a href="/leaderboard.html">Frontier v4 leaderboard</a> places every GPT-6.1 Sol effort level beside the other models judged under the same protocol.</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">n=23 at every level. Combined (33%) is the published score. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the two judges, or of Muse Spark 1.3 alone on Medium paddockcore (see the note below). Passed counts all 23 runs. Runtime is solver wall-clock per task over every run in the cell.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench Frontier v4: GPT-6.1 Sol effort results under Code quality protocol v3.18</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="gpt61sol" data-effort="low"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Low</td><td>86.22</td><td>0.82</td><td>87.93</td><td>70.79</td><td>61.5</td><td>72.7</td><td>80.6</td><td>23/23</td><td>20/23</td><td>6.9</td></tr>
+              <tr data-model="gpt61sol" data-effort="medium"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Medium</td><td>86.44</td><td>0.78</td><td>87.95</td><td>70.25</td><td>60.9</td><td>73.4</td><td>78.6</td><td>23/23*</td><td>22/23</td><td>10.6</td></tr>
+              <tr data-model="gpt61sol" data-effort="high"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>High</td><td>88.23</td><td>0.40</td><td>89.31</td><td>73.67</td><td>64.8</td><td>76.6</td><td>81.6</td><td>23/23</td><td>23/23</td><td>10.2</td></tr>
+              <tr data-model="gpt61sol" data-effort="extra-high"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Extra-high</td><td>88.78</td><td>0.40</td><td>89.76</td><td>74.99</td><td>66.6</td><td>77.7</td><td>82.6</td><td>23/23</td><td>23/23</td><td>15.4</td></tr>
+              <tr data-model="gpt61sol" data-effort="max"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Max</td><td>88.35</td><td>0.33</td><td>89.46</td><td>73.80</td><td>64.8</td><td>77.6</td><td>80.7</td><td>23/23</td><td>23/23</td><td>14.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>*Medium paddockcore is scored from Muse Spark 1.3 alone.</strong> Grok 4.6's primary review of that run had no valid response after the protocol's single retry: both attempts quoted <code>self.standing[pony] += 2</code> as evidence where the code reads <code>self.standing[parts[1]] += 2</code>, a changed token that no recovery rule accepts. As the owner decided for the same case under v3.14, the operator wrapper marked the call invalid, and the frozen summary, which publishes a submission from the panels with a valid review, scores it from Muse alone: reviewed layer and intent recovery both (Code quality 54.00, combined 80.76). Grok's probe answer for that run is not used and not published. Every other run is the equal mean of both judges, and the run passed its tests.</p>
+        <p><strong>Intent recovery</strong> is scored over the specification departures a submission actually passed tests for. Every GPT-6.1 Sol run passed at least one, so no run fell back to the reviewed score alone. <strong>SE</strong> is one sample standard error of the combined score across the cell's tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. No solver fallback occurred, and neither judge produced a reviewer fallback on any of the 115 submissions.</p>
+      </div>
+
+      <section class="report-section" id="ceiling" aria-labelledby="ceiling-heading">
+        <h2 id="ceiling-heading">Perfect hidden tests from High up</h2>
+        <p>From High to Max, GPT-6.1 Sol passes every hidden test on every task: 23 of 23 tasks and all 231 tested behaviours at each of the three levels. Frontier v4 therefore no longer separates GPT-6.1 Sol's top levels on correctness. What still separates them is Code quality, the lint and security scans, and cost: Extra-high scores 0.55 points above High on the combined score and costs 32% more per task, and Max is 0.43 points below Extra-high at 5% more.</p>
+        <p>We checked the two obvious alternative explanations. The harness's integrity audit is clean on all 115 runs: no web access, and no reads of benchmark data or answer-key paths. (The filesystem audit records paths outside the task workspace on every run, as it does for every Codex column, such as the shell and temporary scratch folders; none of them is benchmark data or an answer key.) And OpenAI's <a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol">model page</a> gives GPT-6.1 Sol a knowledge cutoff of April 30, 2026, before the Frontier v4 tasks were built and admitted in August 2026. Neither rules out every form of overlap, but the perfect results are not explained by the run reaching the answers.</p>
+        <p>The suite's charter already plans for this. Its saturation-pruning rule says that when a new frontier model generation lands, the suite is re-gated with three runs per model per task, and tasks that the weaker reference now solves every time, or that the stronger reference finishes in a median under 10 minutes, are pruned. Re-gating Frontier v4 against this generation is a planned follow-up; until then, read GPT-6.1 Sol's High to Max columns as at the suite's correctness ceiling.</p>
+      </section>
+
+      <section class="report-section" id="cost" aria-labelledby="cost-heading">
+        <h2 id="cost-heading">Cost and tokens across effort levels</h2>
+        <p>All 115 runs priced from their Codex receipts at list API rates, cache-aware, with judging excluded. These are API-equivalent estimates, not subscription charges: GPT-6.1 Sol ran on a ChatGPT Pro subscription, and what the plan actually bills is not observable from the receipts. Cost per task is $0.31 at Low, $0.40 at Medium, $0.33 at High, $0.43 at Extra-high and $0.46 at Max. Medium uses the most tokens per task (1.62M) and High the fewest (0.91M), which is why High costs less than Medium. The whole sweep comes to $44.33 for 115 runs.</p>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-gpt61-sol-v318-economics.png" aria-label="Open the cost and tokens card at full resolution">
+            <img src="/assets/cards/swe-v4-gpt61-sol-v318-economics.png" width="2400" height="1725" loading="lazy" alt="GPT-6.1 Sol API-equivalent cost per task and raw tokens per task at every effort level, with a table of runs, cost, level totals, tokens and runtime at each effort and for the full sweep: $0.39 per task and $44.33 over 115 runs. Exact values are in the adjacent accessible table.">
+          </a>
+          <figcaption>Whiskers show &plusmn;1 task standard error. Cost, tokens and runtime cover all 23 runs per level. <a href="/assets/cards/swe-v4-gpt61-sol-v318-economics.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <div class="suite-table-scroll" role="region" aria-label="Cost, tokens and runtime at each effort level" tabindex="0"><table class="suite-results">
+        <caption>API-equivalent cost, raw tokens and runtime at each effort level</caption><thead><tr><th scope="col">Effort</th><th scope="col">Runs</th><th scope="col">$/task</th><th scope="col">Level total</th><th scope="col">Tokens/task</th><th scope="col">Min/task</th></tr></thead><tbody><tr data-econ-effort="low"><th scope="row">Low</th><td>23</td><td>$0.31</td><td>$7.04</td><td>1.24M</td><td>6.9</td></tr><tr data-econ-effort="medium"><th scope="row">Medium</th><td>23</td><td>$0.40</td><td>$9.17</td><td>1.62M</td><td>10.6</td></tr><tr data-econ-effort="high"><th scope="row">High</th><td>23</td><td>$0.33</td><td>$7.59</td><td>0.91M</td><td>10.2</td></tr><tr data-econ-effort="extra-high"><th scope="row">Extra-high</th><td>23</td><td>$0.43</td><td>$10.00</td><td>1.12M</td><td>15.4</td></tr><tr data-econ-effort="max"><th scope="row">Max</th><td>23</td><td>$0.46</td><td>$10.54</td><td>1.04M</td><td>14.5</td></tr><tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>115</td><td>$0.39</td><td>$44.33</td><td>136M</td><td>22.0 h</td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Pricing.</strong> Rates checked 2026-09-29 from <a href="https://developers.openai.com/api/docs/pricing">OpenAI</a>: GPT-6.1 Sol at $2.00 input, $0.10 cached input and $10.00 output per million tokens. Codex receipts report input, cached input, output and reasoning tokens per run, so cached input is billed at the cache-read rate and the rest at the standard rate. OpenAI bills prompts over 272K input tokens at a higher rate, but Codex keeps each request within its 272K context window, so no long-context premium applies. The sweep stamped each run at these rates at run time; the export recomputed every run from its receipt and matched every stamp.</p>
+          <p><strong>Tokens</strong> are Codex's raw totals including cache reads. Runtime covers all 115 runs, 22.0 hours in all. Per-run estimates, token usage breakdowns and the rate table are in <a href="/assets/data/swe-v4-gpt61-sol-v318/economics.json">economics.json</a> and <a href="/assets/data/swe-v4-gpt61-sol-v318/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="sol-family" aria-labelledby="sol-family-heading">
+        <h2 id="sol-family-heading">Three generations of Sol</h2>
+        <p>GPT-6 Sol and GPT-5.6 Sol ran the same 23 tasks through Codex in September and were judged by the same two judges under v3.17 and v3.7. GPT-6.1 Sol leads both at every effort level on combined score, tasks passed and cost per task. Its combined score is 86.22 to 88.78, against 67.62 to 86.82 for GPT-6 Sol and 69.05 to 87.18 for GPT-5.6 Sol; the lead is largest at Low (18.60 and 17.17 points) and smallest at Max (1.53 and 1.17). It costs 14% to 30% of GPT-6 Sol's price per task and 16% to 27% of GPT-5.6 Sol's, using 0.91M to 1.62M raw tokens per task against 3.26M to 8.32M and 1.79M to 2.83M. Its Code quality is also higher at every level (70.25 to 74.99, against 62.53 to 70.78 and 64.98 to 68.19).</p>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-sol-family-combined.png" aria-label="Open the three generations of Sol card at full resolution">
+            <img src="/assets/cards/swe-v4-sol-family-combined.png" width="2400" height="2269" loading="lazy" alt="GPT-6.1 Sol, GPT-6 Sol and GPT-5.6 Sol on Frontier v4 at every effort level. Combined score from Low to Max: GPT-6.1 Sol 86.22, 86.44, 88.23, 88.78 and 88.35; GPT-6 Sol 67.62, 80.60, 82.83, 85.94 and 86.82; GPT-5.6 Sol 69.05, 82.56, 85.76, 86.47 and 87.18. Cost per priced task on a log scale: GPT-6.1 Sol near $0.30 to $0.46, the other two near $1 to $2.50. A table gives combined score, tasks passed, cost and minutes for all three.">
+          </a>
+          <figcaption>Combined score on the left, API-equivalent cost per priced task on a log scale on the right; whiskers show &plusmn;1 task standard error. Each model was judged in its own protocol run (v3.18, v3.17 and v3.7) with the same rubric and judges, and each is priced at its own list rates. GPT-6 Sol at Medium and GPT-5.6 Sol at Max are judged on 22 of 23 runs. <a href="/assets/cards/swe-v4-sol-family-combined.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <div class="suite-table-scroll" role="region" aria-label="Three generations of Sol" tabindex="0"><table class="suite-results"><caption>GPT-6.1 Sol, GPT-6 Sol and GPT-5.6 Sol on Frontier v4, 23 runs per cell (judged: GPT-6 Sol 22 at Medium, GPT-5.6 Sol 22 at Max)</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr data-compare="combined-gpt61sol"><th scope="row">Combined, GPT-6.1 Sol</th><td>86.22</td><td>86.44</td><td>88.23</td><td>88.78</td><td>88.35</td></tr><tr data-compare="combined-gpt6sol"><th scope="row">Combined, GPT-6 Sol</th><td>67.62</td><td>80.60</td><td>82.83</td><td>85.94</td><td>86.82</td></tr><tr data-compare="combined-sol"><th scope="row">Combined, GPT-5.6 Sol</th><td>69.05</td><td>82.56</td><td>85.76</td><td>86.47</td><td>87.18</td></tr></tbody><tbody><tr data-compare="passed-gpt61sol"><th scope="row">Tasks passed, GPT-6.1 Sol</th><td>20/23</td><td>22/23</td><td>23/23</td><td>23/23</td><td>23/23</td></tr><tr data-compare="passed-gpt6sol"><th scope="row">Tasks passed, GPT-6 Sol</th><td>4/23</td><td>13/23</td><td>15/23</td><td>18/23</td><td>19/23</td></tr><tr data-compare="passed-sol"><th scope="row">Tasks passed, GPT-5.6 Sol</th><td>6/23</td><td>12/23</td><td>20/23</td><td>21/23</td><td>22/23</td></tr></tbody><tbody><tr data-compare="cq-gpt61sol"><th scope="row">Code quality, GPT-6.1 Sol</th><td>70.79</td><td>70.25</td><td>73.67</td><td>74.99</td><td>73.80</td></tr><tr data-compare="cq-gpt6sol"><th scope="row">Code quality, GPT-6 Sol</th><td>62.53</td><td>66.79</td><td>70.09</td><td>70.77</td><td>70.78</td></tr><tr data-compare="cq-sol"><th scope="row">Code quality, GPT-5.6 Sol</th><td>64.98</td><td>68.19</td><td>67.65</td><td>67.31</td><td>67.58</td></tr></tbody><tbody><tr data-compare="usd-gpt61sol"><th scope="row">$ per task, GPT-6.1 Sol</th><td>$0.31</td><td>$0.40</td><td>$0.33</td><td>$0.43</td><td>$0.46</td></tr><tr data-compare="usd-gpt6sol"><th scope="row">$ per task, GPT-6 Sol</th><td>$1.02</td><td>$1.76</td><td>$2.33</td><td>$2.00</td><td>$2.52</td></tr><tr data-compare="usd-sol"><th scope="row">$ per task, GPT-5.6 Sol</th><td>$1.36</td><td>$1.72</td><td>$2.05</td><td>$1.61</td><td>$1.77</td></tr></tbody><tbody><tr data-compare="minutes-gpt61sol"><th scope="row">Minutes per task, GPT-6.1 Sol</th><td>6.9</td><td>10.6</td><td>10.2</td><td>15.4</td><td>14.5</td></tr><tr data-compare="minutes-gpt6sol"><th scope="row">Minutes per task, GPT-6 Sol</th><td>13.0</td><td>17.5</td><td>23.8</td><td>20.9</td><td>24.5</td></tr><tr data-compare="minutes-sol"><th scope="row">Minutes per task, GPT-5.6 Sol</th><td>9.8</td><td>11.1</td><td>12.0</td><td>10.6</td><td>11.6</td></tr></tbody></table></div>
+        <p>On speed the picture is mixed: GPT-6.1 Sol is faster than GPT-6 Sol at every level and faster than GPT-5.6 Sol at Low, Medium and High, but slower at Extra-high (15.4 against 10.6 minutes) and Max (14.5 against 11.6). Three cautions on the speed figures: the three sweeps ran on different Codex CLI versions (0.159.0, 0.155.0 and 0.153.4); GPT-6.1 Sol's Low, Medium and High runs overlapped GPT-6 Sol's judging on the same machine, as GPT-6 Sol's sweep had overlapped GPT-6 Luna's (see How it was run); and its Extra-high and Max runs, the two slower than GPT-5.6 Sol, mostly ran after that window. Each model was judged in its own protocol run of the same frozen rubric.</p>
+      </section>
+
+      <section class="report-section" id="board" aria-labelledby="board-heading">
+        <h2 id="board-heading">On the Frontier v4 board</h2>
+        <p>GPT-6.1 Sol's best level, Extra-high at 88.78, ranks 13th of the board's 49 model and effort columns, with Max 14th and High 15th. Above it are every Fable 5.1 level, Opus 5.5 from Medium to Max, GPT-6 Astra at Max and Extra-high, and GPT-5.6 Terra at Max. The leaders are Claude Fable 5.1 at Max (91.84), Opus 5.5 at High (91.11) and GPT-6 Astra at Max (89.30), 3.06, 2.33 and 0.52 points above GPT-6.1 Sol's best.</p>
+        <p>The gap is not correctness: Fable 5.1 at Max and GPT-6 Astra at Max also pass 23 of 23, and Opus 5.5 at High passes all 22 of its judged runs, so on functional correctness they tie. The gap is in the judged and scanned factors, Code quality above all. GPT-6.1 Sol's best Code quality is 74.99, against 82.43 for Fable 5.1 at Max, 77.32 to 79.98 for Opus 5.5 from Medium to Max, and 76.26 for GPT-6 Astra at Max. Against Fable 5.1 at Max, Code quality accounts for 2.46 of the 3.06 points and security for 0.48; against GPT-6 Astra at Max, Code quality accounts for 0.42 of 0.52. Against Opus 5.5 at High the security scan matters as much: Code quality accounts for 0.99 of the 2.33 points and security for 1.29 (99.55 against 84.35). GPT-5.6 Terra at Max has lower Code quality (72.52) and ranks just above GPT-6.1 Sol on its security score (99.13). On cost the order reverses: of the 16 columns scoring 88 or more, GPT-6.1 Sol's three are the cheapest, $0.33 to $0.46 per task against $1.71 to $14.49 for the rest. The <a href="/leaderboard.html">leaderboard</a> carries every column.</p>
+      </section>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel carries 24 points. An intent-recovery probe carries 9: the judge, given only the specification and the code, lists where the code departs from the specification, and a separate call matches that list against a frozen answer key, over the departures the submission passed tests for. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each effort level, out of 100, mean of both judges over 23 runs (Medium paddockcore: Muse Spark 1.3 alone)</caption><thead><tr><th scope="col">Component</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>70.79</td><td>70.25</td><td>73.67</td><td>74.99</td><td>73.80</td></tr><tr><th scope="row">Human readability</th><td>61.5</td><td>60.9</td><td>64.8</td><td>66.6</td><td>64.8</td></tr><tr><th scope="row">Maintainability</th><td>72.7</td><td>73.4</td><td>76.6</td><td>77.7</td><td>77.6</td></tr><tr><th scope="row">Intent recovery</th><td>80.6</td><td>78.6</td><td>81.6</td><td>82.6</td><td>80.7</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>65.6</td><td>64.7</td><td>69.9</td><td>71.2</td><td>69.2</td></tr><tr><th scope="row">Rated by Grok 4.6</th><td>68.7</td><td>70.3</td><td>71.5</td><td>73.1</td><td>73.2</td></tr><tr><th scope="row">Standard error of Code quality</th><td>1.22</td><td>1.25</td><td>1.18</td><td>1.20</td><td>0.85</td></tr></tbody></table></div>
+        <p>Code quality is about 70.5 at Low and Medium and about 74 from High up, with Grok 4.6 the higher rater at every level. Grok's Medium mean covers the 22 runs it reviewed validly. Human readability is the weaker sub-score at every level, 60.9 to 66.6 against 72.7 to 77.7 for maintainability. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-gpt61-sol-v318/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-gpt61-sol-v318/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p>The scored panel is Muse Spark 1.3 (Meta) through the Muse CLI on its Standard tier, and Grok 4.6 (xAI) through the Cursor CLI at medium effort, with equal weight, the same pinned binaries as under v3.7. Neither lab has a model on this board, so neither judge grades a relative. Every session is fresh, tools are disabled, the workspace is empty, model identity is checked per call from the CLI's own records, and solver labels are withheld. Protocol v3.18 changes nothing in the rubric, controls, quirk keys, gates, repeats, seed, weights or judges from v3.7; it applies the protocol to this population, and both judges retook the calibration exam under it before any counted call.</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification: clear, compressed, compressed then auto-formatted, verbose with duplicated policy, needlessly abstracted, misleadingly commented, narrated with a comment on every line, a documented legacy quirk, an embedded instruction to give full marks, and hidden module state. Each program is reviewed five times in a seeded order. Twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.18</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr><tr><th scope="row">Grok 4.6</th><td>code-quality-maintenance-v3.18</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr></tbody></table></div>
+        <p>Both judges passed every gate with no allowance used, as under v3.17. Every gate value and control mean is in <a href="/assets/data/swe-v4-gpt61-sol-v318/calibration.json">calibration.json</a>.</p>
+        <p>Under v3.18 each judge made 440 counted calls: 80 in calibration, 115 primary reviews, 5 repeats, 10 pairwise checks, 115 intent probes and 115 answer-key matches. One of Grok 4.6's 115 primary reviews, Medium paddockcore, has no valid response, as described above. Muse needed a second attempt on eight calls and Grok on nine. Muse's probe on High codeccore was recovered by a new operator rule, described under How it was run. Grok's calls reported the display label "Grok 4.6 Medium" for the pinned model id, which the operator wrapper's display-rename rule accepts, as under earlier amendments. Neither judge produced a reviewer fallback. Every attempt is archived beside its replacement in the harness run directory.</p>
+      </section>
+
+      <section class="report-section" id="run-notes" aria-labelledby="run-notes-heading">
+        <h2 id="run-notes-heading">How it was run</h2>
+        <ul>
+          <li><strong>Codex CLI 0.159.0.</strong> Codex 0.155.0, 0.157.0 and 0.158.0 refuse GPT-6.1 Sol on a ChatGPT account before any work; 0.159.0 is the first release that serves it, so the column runs on 0.159.0 from its own install, and the earlier Codex columns keep their versions.</li>
+          <li><strong>The sweep overlapped another model's judging.</strong> The GPT-6.1 Sol solver sweep ran from September 29, 19:18 PDT, to September 30, 17:21 PDT. At the owner's request its first 11.5 hours, to September 30, 06:51 PDT, ran alongside GPT-6 Sol's v3.17 Code quality judging on the same machine. Every Low, Medium and High run and the first five Extra-high runs started inside that window, which matters for the wall-clock speed figures.</li>
+          <li><strong>Three evidence rebuilds.</strong> Three runs add test fixtures that the saved text patch cannot re-apply: Low payrollcore and Medium lodgecore add fixtures git treats as binary, and Low cellarcore's fixture text was altered by the text-mode capture. The v3.18 runner rebuilt their judging evidence from the saved workspace's index diff after checking it against the run's patch. Only test fixtures differ; the reviewed module is rebuilt as for every other run. The three method records are hashed in the evidence bundle.</li>
+          <li><strong>One escaping recovery on a Muse probe.</strong> On High codeccore, Muse Spark 1.3's first probe attempt wrote an invalid JSON escape, and its second quoted a code line with the string escapes decoded into control characters, so the excerpt no longer matched the source text. By owner decision this was treated as a JSON-escaping slip, not an invented quote: a new operator rule respells such an excerpt with the source's escapes, after which it must be verbatim and the attempt must pass every other check. The second attempt was selected, and the original excerpt is kept in the receipt.</li>
+          <li><strong>One Grok review scored from Muse alone.</strong> Grok 4.6's primary review of Medium paddockcore quoted a changed line on both attempts and was marked invalid under the owner's v3.14 precedent, so that run's Code quality is Muse Spark 1.3's alone, as described under the results table.</li>
+          <li><strong>Judging windows.</strong> Judging ran September 30, 20:58 PDT, to October 1, 06:01 PDT, and resumed from 06:04 to 12:52 PDT after the Grok finding above. No solver sweep ran during judging; the Grok 4.7 sweep waited for it to finish.</li>
+          <li><strong>One attempt per task and level.</strong> Runs were not repeated, no run was retried, and effort labels are Codex's own.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 115 run measurements, both judges' six-dimension sub-scores and intent-recovery scores per run (Muse's alone on Medium paddockcore), hidden behaviours fixed, integrity-audit verdicts, raw tokens and API-equivalent cost estimates per run, five aggregates, every calibration gate value, the exact judge protocol text, the operator records for the invalid Grok review, the Muse escaping recovery and the three evidence rebuilds, and source hashes. Each run's Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the judges with a valid review. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-gpt61-sol-v318/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the protocol documents, controls, runner, operator wrapper and decision records.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Hash checks bind the export to frozen files, including the operator's invalid-review marker and the recovered probe; they do not prove that judges were unbiased or that no training overlap exists.</p>
+        <p>Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, and Grok's unused probe answer on Medium paddockcore. Summed solver time is 22.05 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>

@@ -289,6 +289,78 @@
       "best": true
     },
     {
+      "model": "GPT-6.1 Sol",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-6-1-sol",
+      "key": "gpt61sol",
+      "effort": "extra-high",
+      "n": 23,
+      "combined": 88.78047846501325,
+      "combined_se": 0.40378112124713617,
+      "code_quality": 74.98949995985568,
+      "passed": 23,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 15.371615942028985,
+      "usd": 0.4345906956521739,
+      "raw_tokens": 1117538.2173913044,
+      "output_tokens_median": 15974,
+      "output_tokens_mean": 16303.391304347826,
+      "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
+      "protocol": "code-quality-maintenance-v3.18",
+      "rank": 13,
+      "best": true
+    },
+    {
+      "model": "GPT-6.1 Sol",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-6-1-sol",
+      "key": "gpt61sol",
+      "effort": "max",
+      "n": 23,
+      "combined": 88.3477945054945,
+      "combined_se": 0.33097472087157315,
+      "code_quality": 73.79794118924553,
+      "passed": 23,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 14.464176086956522,
+      "usd": 0.45833865217391306,
+      "raw_tokens": 1036948.5217391305,
+      "output_tokens_median": 18143,
+      "output_tokens_mean": 19278.652173913044,
+      "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
+      "protocol": "code-quality-maintenance-v3.18",
+      "rank": 14,
+      "best": false
+    },
+    {
+      "model": "GPT-6.1 Sol",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-6-1-sol",
+      "key": "gpt61sol",
+      "effort": "high",
+      "n": 23,
+      "combined": 88.23419702688615,
+      "combined_se": 0.40077587015771043,
+      "code_quality": 73.66760627383157,
+      "passed": 23,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 10.221878985507246,
+      "usd": 0.3300698695652174,
+      "raw_tokens": 908058.8260869565,
+      "output_tokens_median": 10526,
+      "output_tokens_mean": 10854.04347826087,
+      "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
+      "protocol": "code-quality-maintenance-v3.18",
+      "rank": 15,
+      "best": false
+    },
+    {
       "model": "GPT-6 Astra",
       "lab": "OpenAI",
       "harness": "Codex",
@@ -309,7 +381,7 @@
       "output_tokens_mean": 8196.739130434782,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 13,
+      "rank": 16,
       "best": false
     },
     {
@@ -333,7 +405,7 @@
       "output_tokens_mean": 5901.826086956522,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 14,
+      "rank": 17,
       "best": false
     },
     {
@@ -357,7 +429,7 @@
       "output_tokens_mean": 6381.652173913043,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 15,
+      "rank": 18,
       "best": false
     },
     {
@@ -381,7 +453,7 @@
       "output_tokens_mean": 29211.043478260868,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 16,
+      "rank": 19,
       "best": true
     },
     {
@@ -405,7 +477,7 @@
       "output_tokens_mean": 54959.34782608696,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 17,
+      "rank": 20,
       "best": true
     },
     {
@@ -429,7 +501,31 @@
       "output_tokens_mean": 25339.17391304348,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 18,
+      "rank": 21,
+      "best": false
+    },
+    {
+      "model": "GPT-6.1 Sol",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-6-1-sol",
+      "key": "gpt61sol",
+      "effort": "medium",
+      "n": 23,
+      "combined": 86.44097082048386,
+      "combined_se": 0.7823040569067103,
+      "code_quality": 70.24817244678904,
+      "passed": 22,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 10.564721014492754,
+      "usd": 0.3986,
+      "raw_tokens": 1616234.652173913,
+      "output_tokens_median": 6579,
+      "output_tokens_mean": 9641.130434782608,
+      "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
+      "protocol": "code-quality-maintenance-v3.18",
+      "rank": 22,
       "best": false
     },
     {
@@ -453,7 +549,31 @@
       "output_tokens_mean": 29314.521739130436,
       "report": "benchmarks/swe-v4-opus55-v315.html",
       "protocol": "code-quality-maintenance-v3.15",
-      "rank": 19,
+      "rank": 23,
+      "best": false
+    },
+    {
+      "model": "GPT-6.1 Sol",
+      "lab": "OpenAI",
+      "harness": "Codex",
+      "slug": "gpt-6-1-sol",
+      "key": "gpt61sol",
+      "effort": "low",
+      "n": 23,
+      "combined": 86.22132261217044,
+      "combined_se": 0.8218418662171463,
+      "code_quality": 70.78704480631357,
+      "passed": 20,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 6.890042753623188,
+      "usd": 0.3059761739130435,
+      "raw_tokens": 1239928.9130434783,
+      "output_tokens_median": 4318,
+      "output_tokens_mean": 6773.739130434783,
+      "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
+      "protocol": "code-quality-maintenance-v3.18",
+      "rank": 24,
       "best": false
     },
     {
@@ -477,7 +597,7 @@
       "output_tokens_mean": 43580.739130434784,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 20,
+      "rank": 25,
       "best": false
     },
     {
@@ -501,7 +621,7 @@
       "output_tokens_mean": 27088.260869565216,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 21,
+      "rank": 26,
       "best": false
     },
     {
@@ -525,7 +645,7 @@
       "output_tokens_mean": 110535.30434782608,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 22,
+      "rank": 27,
       "best": true
     },
     {
@@ -549,7 +669,7 @@
       "output_tokens_mean": 52972.565217391304,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 23,
+      "rank": 28,
       "best": false
     },
     {
@@ -573,7 +693,7 @@
       "output_tokens_mean": 45157.47826086957,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 24,
+      "rank": 29,
       "best": false
     },
     {
@@ -597,7 +717,7 @@
       "output_tokens_mean": 25212.434782608696,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 25,
+      "rank": 30,
       "best": false
     },
     {
@@ -621,7 +741,7 @@
       "output_tokens_mean": 78868.63157894737,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 26,
+      "rank": 31,
       "best": false
     },
     {
@@ -645,7 +765,7 @@
       "output_tokens_mean": 32666.17391304348,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 27,
+      "rank": 32,
       "best": false
     },
     {
@@ -669,7 +789,7 @@
       "output_tokens_mean": 68218.17391304347,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 28,
+      "rank": 33,
       "best": false
     },
     {
@@ -693,7 +813,7 @@
       "output_tokens_mean": 107518.85714285714,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 29,
+      "rank": 34,
       "best": true
     },
     {
@@ -717,7 +837,7 @@
       "output_tokens_mean": 52640.47826086957,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 30,
+      "rank": 35,
       "best": true
     },
     {
@@ -741,7 +861,7 @@
       "output_tokens_mean": 33233.391304347824,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 31,
+      "rank": 36,
       "best": false
     },
     {
@@ -765,7 +885,7 @@
       "output_tokens_mean": 56749.17391304348,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 32,
+      "rank": 37,
       "best": false
     },
     {
@@ -789,7 +909,7 @@
       "output_tokens_mean": 45403.82608695652,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 33,
+      "rank": 38,
       "best": false
     },
     {
@@ -813,7 +933,7 @@
       "output_tokens_mean": 19983.478260869564,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 34,
+      "rank": 39,
       "best": false
     },
     {
@@ -837,7 +957,7 @@
       "output_tokens_mean": 21682.869565217392,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 35,
+      "rank": 40,
       "best": false
     },
     {
@@ -861,7 +981,7 @@
       "output_tokens_mean": 20601.217391304348,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 36,
+      "rank": 41,
       "best": false
     },
     {
@@ -885,7 +1005,7 @@
       "output_tokens_mean": 29336.043478260868,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 37,
+      "rank": 42,
       "best": false
     },
     {
@@ -909,7 +1029,7 @@
       "output_tokens_mean": 16828.304347826088,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 38,
+      "rank": 43,
       "best": false
     },
     {
@@ -933,7 +1053,7 @@
       "output_tokens_mean": 35920.30434782609,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 39,
+      "rank": 44,
       "best": false
     },
     {
@@ -957,7 +1077,7 @@
       "output_tokens_mean": 19703.91304347826,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 40,
+      "rank": 45,
       "best": false
     },
     {
@@ -981,7 +1101,7 @@
       "output_tokens_mean": 19643.739130434784,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 41,
+      "rank": 46,
       "best": false
     },
     {
@@ -1005,7 +1125,7 @@
       "output_tokens_mean": 5445.782608695652,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 42,
+      "rank": 47,
       "best": false
     },
     {
@@ -1029,7 +1149,7 @@
       "output_tokens_mean": 6406.826086956522,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 43,
+      "rank": 48,
       "best": false
     },
     {
@@ -1053,7 +1173,7 @@
       "output_tokens_mean": 10815.04347826087,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 44,
+      "rank": 49,
       "best": false
     }
   ],
@@ -1159,6 +1279,19 @@
           "GPT-6 Sol",
           "Codex",
           "gpt-6-sol",
+          "OpenAI"
+        ]
+      }
+    },
+    {
+      "bundle": "swe-v4-gpt61-sol-v318",
+      "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
+      "protocol": "v3.18",
+      "models": {
+        "gpt61sol": [
+          "GPT-6.1 Sol",
+          "Codex",
+          "gpt-6-1-sol",
           "OpenAI"
         ]
       }
@@ -1303,6 +1436,40 @@
         "usd_vs_best": 1.0,
         "minutes_vs_best": 1.0,
         "passed": 23,
+        "n": 23
+      }
+    },
+    "gpt61sol": {
+      "model": "GPT-6.1 Sol",
+      "best_effort": "extra-high",
+      "best_combined": 88.78047846501325,
+      "spread": 2.5591558528428067,
+      "shape": "flat",
+      "critical": {
+        "effort": "high",
+        "combined": 88.23419702688615,
+        "gap": 0.546281438127096,
+        "usd_vs_best": 0.7594959415085819,
+        "minutes_vs_best": 0.6649840214624828,
+        "passed": 23,
+        "n": 23
+      },
+      "routine": {
+        "effort": "low",
+        "combined": 86.22132261217044,
+        "gap": 2.5591558528428067,
+        "usd_vs_best": 0.7040559703052928,
+        "minutes_vs_best": 0.44823151837826447,
+        "passed": 20,
+        "n": 23
+      },
+      "rough": {
+        "effort": "low",
+        "combined": 86.22132261217044,
+        "gap": 2.5591558528428067,
+        "usd_vs_best": 0.7040559703052928,
+        "minutes_vs_best": 0.44823151837826447,
+        "passed": 20,
         "n": 23
       }
     },
