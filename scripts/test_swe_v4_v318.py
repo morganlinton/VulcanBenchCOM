@@ -441,5 +441,23 @@ class GPT61SolBundleTests(unittest.TestCase):
         self.assertIn("intent/post?text=GPT-6.1%20Sol%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4", self.page_html)
 
 
+
+class LeadersCardTests(unittest.TestCase):
+    """GPT-6.1 Sol beside Claude Opus 5.5 and GPT-6 Astra (harness make_frontier_leaders_card.py and _quality_card.py)."""
+
+    CARDS = {
+        "swe-v4-gpt61sol-opus55-astra.png": "173462b61f7c02352b1563c4cf22a2975c4010b882228c56de8db367af38a66a",
+        "swe-v4-gpt61sol-opus55-astra-quality.png": "17f7dc916c07bac8c5a70a95d383d79ff86d3a2d748e5fe950870017d28e518e",
+    }
+
+    def test_leaders_cards_are_pinned_and_placed_in_the_board_section(self):
+        page = (ROOT / "benchmarks/swe-v4-gpt61-sol-v318.html").read_text()
+        section = page[page.index('id="board"') : page.index('id="code-quality"')]
+        for name, digest in self.CARDS.items():
+            self.assertEqual(hashlib.sha256((ROOT / "assets/cards" / name).read_bytes()).hexdigest(), digest)
+            self.assertIn(f'src="/assets/cards/{name}"', section)
+            self.assertIn(f'href="/assets/cards/{name}" download', page)
+
+
 if __name__ == "__main__":
     unittest.main()
