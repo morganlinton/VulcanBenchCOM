@@ -864,6 +864,11 @@ section[id] { scroll-margin-top: 90px; }
 .v4chart { margin-top: 14px; padding: 12px 12px 14px; background: #0e0e0c; border-color: #0e0e0c; border-radius: 10px; }
 .v4chart svg { border-radius: 6px; }
 .v4chart figcaption { margin-top: 10px; }
+.v4frame { display: flex; align-items: flex-start; }
+.v4frame .v4yaxis { flex: none; border-radius: 6px 0 0 6px; }
+.v4scroll { flex: none; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-color: #5a5650 #0e0e0c; }
+.v4scroll svg { max-width: none; border-radius: 0 6px 6px 0; }
+.v4scroll:focus-visible { outline: 2px solid #f7f4ee; outline-offset: 2px; }
 .v4chart figcaption span { color: #a8a39a; }
 .v4app .v4group { margin-top: 4px; }
 @media (max-width: 760px) {
