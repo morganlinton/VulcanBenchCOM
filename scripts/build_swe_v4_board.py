@@ -192,7 +192,7 @@ def render(board):
             f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.7 and v3.15 to v3.18 apply the same rubric, controls, gates and judges to each population). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $10 per task and scrolls sideways for anything costlier. The table below carries every column. "
+            "under one frozen protocol (v3.4 to v3.7 and v3.15 to v3.18 apply the same rubric, controls, gates and judges to each population). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The table below carries every column. "
             "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
             '<noscript><p class="lb-context">The chart needs JavaScript; the table below carries every column.</p></noscript>\n'
