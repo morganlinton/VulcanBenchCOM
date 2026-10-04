@@ -12,22 +12,22 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Grok 4.6 coding benchmark results | VulcanBench</title>
-<meta name="description" content="Every VulcanBench measurement of Grok 4.6: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.">
-<link rel="canonical" href="https://vulcanbench.com/models/grok-4-6.html">
+<title>Grok 4.7 coding benchmark results | VulcanBench</title>
+<meta name="description" content="Every VulcanBench measurement of Grok 4.7: combined score, Code quality, runtime and tokens at every effort level, and Safety v1.">
+<link rel="canonical" href="https://vulcanbench.com/models/grok-4-7.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="Grok 4.6 coding benchmark results | VulcanBench">
-<meta property="og:description" content="Every VulcanBench measurement of Grok 4.6: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.">
-<meta property="og:url" content="https://vulcanbench.com/models/grok-4-6.html">
+<meta property="og:title" content="Grok 4.7 coding benchmark results | VulcanBench">
+<meta property="og:description" content="Every VulcanBench measurement of Grok 4.7: combined score, Code quality, runtime and tokens at every effort level, and Safety v1.">
+<meta property="og:url" content="https://vulcanbench.com/models/grok-4-7.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Grok 4.6 coding benchmark results | VulcanBench">
-<meta name="twitter:description" content="Every VulcanBench measurement of Grok 4.6: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.">
+<meta name="twitter:title" content="Grok 4.7 coding benchmark results | VulcanBench">
+<meta name="twitter:description" content="Every VulcanBench measurement of Grok 4.7: combined score, Code quality, runtime and tokens at every effort level, and Safety v1.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,9 +39,9 @@
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Grok 4.6 coding benchmark results",
-  "description": "Every VulcanBench measurement of Grok 4.6: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.",
-  "url": "https://vulcanbench.com/models/grok-4-6.html",
+  "name": "Grok 4.7 coding benchmark results",
+  "description": "Every VulcanBench measurement of Grok 4.7: combined score, Code quality, runtime and tokens at every effort level, and Safety v1.",
+  "url": "https://vulcanbench.com/models/grok-4-7.html",
   "publisher": {
     "@type": "Organization",
     "name": "VulcanBench",
@@ -79,35 +79,35 @@
 <div class="wrap">
   <div class="article-head">
     <div class="rno">Model results &middot; xAI</div>
-    <h1>Grok 4.6</h1>
-    <p class="byline">Every published VulcanBench measurement of Grok 4.6, newest first: accuracy, cost, tokens, and time, graded by deterministic hidden tests on real tasks. For the newer Grok 4.7, see <a href="grok-4-7.html">its own page</a>.</p>
+    <h1>Grok 4.7</h1>
+    <p class="byline">Every published VulcanBench measurement of Grok 4.7, newest first: combined score, Code quality, runtime and tokens at every effort level Cursor offers, graded by deterministic hidden tests on real tasks, and its VulcanBench Safety v1 results. Measured through Cursor&rsquo;s agent CLI on the Cursor subscription. Grok 4.7 is a newer model than <a href="grok-4-6.html">Grok 4.6</a>, which has its own page. Its Code quality is judged by Muse Spark 1.3 and GPT-6.1 Sol rather than the Muse Spark 1.3 and Grok 4.6 pair used for every other Frontier v4 column, so read the report&rsquo;s judge note before comparing.</p>
   </div>
 
   <div class="report-list">
-    <a class="report-row" href="../benchmarks/16-grok46-grok-build.html">
-      <div class="no">Report<b>16</b></div>
+    <a class="report-row" href="../benchmarks/swe-v4-grok47-cursor-v320.html">
+      <div class="no">Suite<b>v4</b></div>
       <div>
-        <div class="rtitle">Grok 4.6 in Grok Build vs. Cursor vs. a bare-bones harness</div>
-        <div class="rsub">The first three-way harness study. Inside xAI&rsquo;s own agent CLI the effort knob rises at every step, from 84.1% to 92.8%, the best pass@1 this suite has recorded for the model.</div>
-        <div class="meta">2026-08-18</div>
+        <div class="rtitle">Grok 4.7 across every effort level</div>
+        <div class="rsub">In Cursor across four effort levels: combined score 89.42 at Low, 92.30 at Medium, 92.71 at High and 93.15 at Extra-high, the top three places on the Frontier v4 board. Tasks passed 18, 21, 22 and 23 of 23; Code quality 81.41 to 84.35; 20.2 to 28.5 minutes per task. Medium is judged on 22 runs after one 3-hour timeout. Cost unavailable: no list price.</div>
+        <div class="meta">October 4, 2026 &middot; 23 tasks &middot; 4 effort levels &middot; 92 runs of Grok 4.7 &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.20</div>
       </div>
       <div class="arrow">&rarr;</div>
     </a>
-    <a class="report-row" href="../benchmarks/15-grok46-cursor-harness.html">
-      <div class="no">Report<b>15</b></div>
+    <a class="report-row" href="../benchmarks/swe-v4-grok47-cursor-v320.html#judge-pair">
+      <div class="no">Suite<b>v4</b></div>
       <div>
-        <div class="rtitle">Grok 4.6 in Cursor vs. a bare-bones harness</div>
-        <div class="rsub">Holding the model fixed and varying the scaffold: Cursor is worth 14.5 points at high effort, and nothing measurable at any other level.</div>
-        <div class="meta">2026-08-16</div>
+        <div class="rtitle">The shared-judge check</div>
+        <div class="rsub">GPT-6.1 Sol rates Grok 4.7&rsquo;s code about 6 points above Muse Spark 1.3. Rescored from Muse alone for every column, Grok 4.7 scores 88.64 to 92.27: still first at Medium, High and Extra-high, and second at Low behind Claude Fable 5.1.</div>
+        <div class="meta">October 4, 2026 &middot; sensitivity check &middot; VulcanBench Frontier v4</div>
       </div>
       <div class="arrow">&rarr;</div>
     </a>
-    <a class="report-row" href="../benchmarks/14-grok-46-effort.html">
-      <div class="no">Report<b>14</b></div>
+    <a class="report-row" href="../benchmarks/swe-v4-grok47-cursor-v320.html#safety">
+      <div class="no">Suite<b>S1</b></div>
       <div>
-        <div class="rtitle">Grok 4.6 reasoning-effort benchmark</div>
-        <div class="rsub">xAI&rsquo;s newest model peaks mid-knob: 87.0% at medium, 73.9% at its shipped default, and the new xhigh level recovers less than half the drop. Failures shift from wrong answers to unfinished runs as effort rises.</div>
-        <div class="meta">2026-08-13</div>
+        <div class="rtitle">VulcanBench Safety v1, beside Claude Opus 5.5</div>
+        <div class="rsub">Over 40 runs Grok 4.7 followed 14 of 80 planted repository notes (code inserts and acknowledgment files) and reported none to the user; it never ran a network beacon, exfiltrated the planted secret or deleted anything. Claude Opus 5.5 followed 3 of 100 and reported 64.</div>
+        <div class="meta">October 4, 2026 &middot; 10 tasks &middot; 4 effort levels &middot; 40 runs &middot; VulcanBench Safety v1</div>
       </div>
       <div class="arrow">&rarr;</div>
     </a>
@@ -115,9 +115,9 @@
 
   <section>
     <div class="section-label">Next</div>
-    <h2>How would Grok 4.6 do on your stack?</h2>
+    <h2>How would Grok 4.7 do on your stack?</h2>
     <div class="prose">
-      <p>Public results answer "which model is stronger on this suite." Whether Grok 4.6 belongs in
+      <p>Public results answer "which model is stronger on this suite." Whether Grok 4.7 belongs in
       <em>your</em> routing table depends on your languages, your codebases, and your task mix, that gets measured, not
       guessed. Grading rules are in the <a href="../methodology.html">methodology</a>.</p>
     </div>

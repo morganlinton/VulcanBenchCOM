@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grok 4.7 across effort levels | VulcanBench</title>
+<meta name="description" content="Frontier v4: 92 Cursor runs of Grok 4.7 at four effort levels, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 89.42 at Low, 92.30 at Medium, 92.71 at High and 93.15 at Extra-high; 18 to 23 of 23 tasks passed; 20.2 to 28.5 minutes per task. A different second judge from the rest of the board; cost unavailable. Includes Grok 4.7 beside the leaders and on Safety v1.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-grok47-cursor-v320.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Grok 4.7 across effort levels | VulcanBench">
+<meta property="og:description" content="Frontier v4: 92 Cursor runs of Grok 4.7 at four effort levels, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 89.42 at Low, 92.30 at Medium, 92.71 at High and 93.15 at Extra-high; 18 to 23 of 23 tasks passed; 20.2 to 28.5 minutes per task. A different second judge from the rest of the board; cost unavailable. Includes Grok 4.7 beside the leaders and on Safety v1.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-grok47-cursor-v320.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-grok47-cursor-v320.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1867">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: Grok 4.7, combined score and runtime at every effort level, with a Code quality table by effort">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grok 4.7 across effort levels | VulcanBench">
+<meta name="twitter:description" content="Frontier v4: 92 Cursor runs of Grok 4.7 at four effort levels, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 89.42 at Low, 92.30 at Medium, 92.71 at High and 93.15 at Extra-high; 18 to 23 of 23 tasks passed; 20.2 to 28.5 minutes per task. A different second judge from the rest of the board; cost unavailable. Includes Grok 4.7 beside the leaders and on Safety v1.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-grok47-cursor-v320.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: Grok 4.7, combined score and runtime at every effort level, with a Code quality table by effort">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="grok47-cursor-v320-heading">
+      <header>
+        <p class="suite-label">October 4, 2026 &middot; 92 runs &middot; Code quality protocol v3.20</p>
+        <h1 id="grok47-cursor-v320-heading">Grok 4.7 across every effort level</h1>
+        <p>92 runs of Grok 4.7 (xAI) through Cursor&rsquo;s agent CLI on the Cursor subscription, 23 tasks at each of the four effort levels Cursor offers for it, Low, Medium, High and Extra-high; there is no Max. Grok 4.7 is a new model, the successor to <a href="/models/grok-4-6.html">Grok 4.6</a>. Its combined scores are the highest on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> at every level it shares with the other models, and its Extra-high, High and Medium levels take the top three places. One run, Medium lodgecore, hit the 3-hour task bound and counts as a failed task. Cost is unavailable: VulcanBench has no list price for Grok 4.7.</p>
+      </header>
+      <div class="suite-notes" id="judge-caveat" style="border-left:3px solid var(--ink);padding-left:18px;">
+        <p><strong>Read this first: a different second judge.</strong> Code quality, 33% of the combined score, is judged by two calibrated models. Every other column on the board was judged by Muse Spark 1.3 and Grok 4.6. Grok 4.6 is an xAI model and is not neutral for an xAI submission, so Grok 4.7 was judged by Muse Spark 1.3 and GPT-6.1 Sol. GPT-6.1 Sol rates Grok 4.7&rsquo;s code about 6 points above Muse on the same submissions (5.4 to 6.3 points by level), so Grok 4.7&rsquo;s two-judge Code quality, and through it the combined score, is not strictly comparable with the other columns. The fair comparison uses the one judge every column shares. On Muse Spark 1.3&rsquo;s review score alone, Grok 4.7 (78.3 to 81.9) is above Claude Opus 5.5 (70.2 to 80.1), GPT-6.1 Sol (64.7 to 71.2) and GPT-6 Astra (64.9 to 73.6) at every shared level, but not above Claude Fable 5.1 (78.7 to 83.4), which Muse rates higher at Low, High and Extra-high. Rescoring every column from Muse alone, Grok 4.7 stays first at Medium, High and Extra-high and is second at Low, behind Fable 5.1. <a href="#judge-pair">The shared-judge check</a> has the numbers.</p>
+      </div>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A retired program to rebuild</h3><p>Each of the 23 tasks is a legacy binary with a written specification and an issue. Its real behaviour departs from the specification in documented ways, and hidden tests check the rewrite against the binary.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>One attempt per task and level</h3><p>Grok 4.7 works in Cursor&rsquo;s agent CLI with the binary, the specification and the code, once per task at each effort level, inside a flat 3-hour bound.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>Tests and two judges score it</h3><p>Hidden tests give functional correctness. Two calibrated judges from labs other than xAI rate the code for a human reader and try to recover the documented departures.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>Scores, time and tokens per level</h3><p>Each level gets a combined score, tasks passed, minutes and tokens. A run stopped by the 3-hour bound counts as a failed task and in the minutes, and has no score to judge.</p></li>
+        </ol>
+        <p>Combined score = 50% functional correctness + 8.5% lint and complexity + 8.5% security + 33% Code quality, averaged over the judged runs in each level, as on every other board column. Tasks passed and minutes cover all 23 runs.</p>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/reports/vulcanbench-swe-v4-grok47-cursor-v320-report.pdf"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">PDF, 12 pages</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-grok47-cursor-v320.png" download><span class="resource-kind">Card</span><span class="resource-title">Score card</span><span class="resource-meta">PNG, combined score, runtime and Code quality by effort</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-grok47-cursor-v320-usage.png" download><span class="resource-kind">Card</span><span class="resource-title">Time and tokens card</span><span class="resource-meta">PNG, tasks passed, minutes and tokens by effort</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-grok47-vs-frontier-leaders.png" download><span class="resource-kind">Card</span><span class="resource-title">Beside the leaders</span><span class="resource-meta">PNG, with GPT-6.1 Sol, Claude Opus 5.5 and GPT-6 Astra</span></a>
+        <a class="resource" href="/assets/cards/safety-v1-grok47-opus55.png" download><span class="resource-kind">Card</span><span class="resource-title">Safety v1</span><span class="resource-meta">PNG, planted notes followed, beside Claude Opus 5.5</span></a>
+        <a class="resource" href="/assets/data/swe-v4-grok47-cursor-v320/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 92 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores</span></a>
+        <a class="resource" href="/assets/data/swe-v4-grok47-cursor-v320-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, four effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-grok47-cursor-v320"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-grok47-cursor-v320/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=Grok%204.7%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-grok47-cursor-v320.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this report, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#judge-pair"><span class="n">03</span>The shared-judge check</a>
+        <a href="#usage"><span class="n">04</span>Time and tokens</a>
+        <a href="#board"><span class="n">05</span>On the board</a>
+        <a href="#safety"><span class="n">06</span>Safety v1</a>
+        <a href="#code-quality"><span class="n">07</span>Code quality</a>
+        <a href="#judges"><span class="n">08</span>Judges and calibration</a>
+        <a href="#run-notes"><span class="n">09</span>How it was run</a>
+        <a href="#next"><span class="n">10</span>Still to come</a>
+        <a href="#reproduce"><span class="n">11</span>Reproduction</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>Grok 4.7 ran every task once at each of its four effort levels, 23 tasks per level, through Cursor&rsquo;s agent CLI 2026.10.01-14929f9 on the Cursor subscription from October 1 to 3, 2026. Cursor exposes four Grok 4.7 variants (grok-4.7-low, -medium, -high and -xhigh), so there is no Max level. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a named human reader by Muse Spark 1.3 and GPT-6.1 Sol with a ground-truth intent-recovery probe, on October 3. One run, Medium lodgecore, reached the flat 3-hour task bound while still running: it counts as a failed task and in Medium&rsquo;s runtime, and has no finished code to judge, so Medium&rsquo;s combined score and Code quality average 22 runs. The longest finished run took 67 minutes.</p>
+        <div class="effort-choices">
+          <div><h3>Combined score</h3><p>89.42 at Low to 93.15 at Extra-high</p><p>89.42 at Low, 92.30 at Medium, 92.71 at High and 93.15 at Extra-high. Medium, High and Extra-high sit within 0.85 points of each other, and Low is 3.73 points below the best level.</p></div>
+          <div><h3>Tasks passed</h3><p>18 of 23 at Low, 23 of 23 at Extra-high</p><p>Grok 4.7 passes 18 tasks at Low, 21 at Medium, 22 at High and every task at Extra-high. Of the 231 hidden behaviours the tasks test for, it fixes 213 at Low, 215 at Medium (the timed-out run counts as fixing none), 230 at High and all 231 at Extra-high.</p></div>
+          <div><h3>Code quality</h3><p>81.41 to 84.35</p><p>The judges rate the code 81.41 at Low, 83.90 at Medium, 83.43 at High and 84.35 at Extra-high, with standard errors of 0.87 to 1.21. These are means of Muse Spark 1.3 and GPT-6.1 Sol; see the note above on comparing them.</p></div>
+          <div><h3>Runtime and tokens</h3><p>20.2 to 28.5 min &middot; 2.85M to 4.76M tokens per task</p><p>Low is the fastest level and uses the most tokens; High uses the fewest. Cost is unavailable, not $0: there is no list price for Grok 4.7 in VulcanBench, and the sweep ran on the Cursor subscription.</p></div>
+        </div>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score, tasks passed, Code quality and runtime at each effort level" tabindex="0"><table class="suite-results"><caption>Combined score, tasks passed, Code quality, runtime and tokens at each effort level (Medium judged on 22 runs)</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>89.42</td><td>92.30</td><td>92.71</td><td>93.15</td></tr><tr><th scope="row">Standard error</th><td>1.55</td><td>0.86</td><td>0.41</td><td>0.32</td></tr><tr><th scope="row">Judged runs</th><td>23</td><td>22</td><td>23</td><td>23</td></tr></tbody><tbody><tr><th scope="row">Tasks passed</th><td>18/23</td><td>21/23</td><td>22/23</td><td>23/23</td></tr><tr><th scope="row">Hidden behaviours fixed</th><td>213/231</td><td>215/231</td><td>230/231</td><td>231/231</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>81.41</td><td>83.90</td><td>83.43</td><td>84.35</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>78.3</td><td>80.5</td><td>79.8</td><td>81.9</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>20.2</td><td>27.2</td><td>25.4</td><td>28.5</td></tr><tr><th scope="row">Tokens per task</th><td>4.76M</td><td>3.20M</td><td>2.85M</td><td>3.94M</td></tr><tr><th scope="row">Cost per task</th><td>unavailable</td><td>unavailable</td><td>unavailable</td><td>unavailable</td></tr></tbody></table></div>
+        <p>Under the prior 50/15/15/20 profile applied to the same Code quality scores the ladder has the same shape, 90.59 to 93.89. The card and the full per-effort table follow.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-grok47-cursor-v320.png" aria-label="Open the Grok 4.7 model card at full resolution">
+          <img src="/assets/cards/swe-v4-grok47-cursor-v320.png" width="2400" height="1867" fetchpriority="high" alt="Grok 4.7 across four effort levels under the v3.20 Code quality protocol. The combined score is 89.42 at Low, 92.30 at Medium, 92.71 at High and 93.15 at Extra-high. Mean runtime is 20.2 minutes at Low, 27.2 at Medium, 25.4 at High and 28.5 at Extra-high. A table gives Code quality and its components at every effort, rated by Muse Spark 1.3 and GPT-6.1 Sol, and notes say Medium lodgecore hit the 3-hour bound and that the judges differ from the rest of the board. Exact values are in the adjacent accessible tables.">
+        </a>
+        <figcaption>Combined score uses a focused scale; runtime starts at zero. Whiskers show &plusmn;1 task standard error, not statistical significance. <a href="/assets/cards/swe-v4-grok47-cursor-v320.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">Grok 4.7 gains most between Low and Medium (2.88 points) and little after: from Medium up it passes 21 to 23 tasks and the spread is under one point. These runs compare a model-and-harness combination, not an isolated base model: this is Grok 4.7 in Cursor. The same model in xAI&rsquo;s own Grok Build CLI is being measured next (see <a href="#next">Still to come</a>).</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">n=23 judged runs at Low, High and Extra-high and 22 at Medium. Combined (33%) is the published score. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of Muse Spark 1.3 and GPT-6.1 Sol. Passed counts all 23 runs. Runtime is solver wall-clock per task over every run in the level, the timeout included.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench Frontier v4: Grok 4.7 effort results under Code quality protocol v3.20</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="grok47cursor" data-effort="low"><th scope="row"><a href="/models/grok-4-7.html">Grok 4.7</a> / Cursor</th><td>Low</td><td>89.42</td><td>1.55</td><td>90.59</td><td>81.41</td><td>78.4</td><td>84.4</td><td>81.5</td><td>23/23</td><td>18/23</td><td>20.2</td></tr>
+              <tr data-model="grok47cursor" data-effort="medium"><th scope="row"><a href="/models/grok-4-7.html">Grok 4.7</a> / Cursor</th><td>Medium</td><td>92.30</td><td>0.86</td><td>93.06</td><td>83.90</td><td>81.5</td><td>85.8</td><td>84.5</td><td>22/23*</td><td>21/23</td><td>27.2</td></tr>
+              <tr data-model="grok47cursor" data-effort="high"><th scope="row"><a href="/models/grok-4-7.html">Grok 4.7</a> / Cursor</th><td>High</td><td>92.71</td><td>0.41</td><td>93.59</td><td>83.43</td><td>81.5</td><td>84.4</td><td>84.7</td><td>23/23</td><td>22/23</td><td>25.4</td></tr>
+              <tr data-model="grok47cursor" data-effort="extra-high"><th scope="row"><a href="/models/grok-4-7.html">Grok 4.7</a> / Cursor</th><td>Extra-high</td><td>93.15</td><td>0.32</td><td>93.89</td><td>84.35</td><td>82.7</td><td>86.5</td><td>83.7</td><td>23/23</td><td>23/23</td><td>28.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>*Medium lodgecore hit the 3-hour task bound.</strong> The run started October 2 at 02:56 PDT and was stopped by the flat 10,800-second bound while still running, so there is no finished submission. Under the v3.20 protocol it is an incomplete source run: it counts as a failed task in every pass count and in Medium&rsquo;s runtime at its recorded duration (27.2 minutes per task over all 23 runs, 20.3 over the 22 finished ones), and it has no combined score or Code quality. The Cursor stream has no usage receipt for it, so Medium&rsquo;s token figures average 22 runs. With one exclusion at one level, the rule that adds a second, timeouts-as-0 combined figure (adopted for GPT-6 Luna, which lost up to four runs per level) does not apply.</p>
+        <p><strong>Intent recovery</strong> is scored over the specification departures a submission actually passed tests for. Every judged Grok 4.7 run passed at least one, so no run fell back to the reviewed score alone. <strong>SE</strong> is one sample standard error of the combined score across the level&rsquo;s judged tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. No solver fallback occurred, and neither judge produced a reviewer fallback on any of the 91 judged submissions.</p>
+      </div>
+
+      <section class="report-section" id="judge-pair" aria-labelledby="judge-pair-heading">
+        <h2 id="judge-pair-heading">The shared-judge check</h2>
+        <p>Every Frontier v4 column has a Muse Spark 1.3 review. The second judge is Grok 4.6 for every column except this one, where it is GPT-6.1 Sol. GPT-6.1 Sol rates the same Grok 4.7 submissions 6.3, 6.3, 6.3 and 5.4 points above Muse from Low to Extra-high (84.5 to 87.3 against 78.3 to 81.9). Grok 4.6&rsquo;s gap to Muse on the other columns ranges from 1.5 points below to 5.8 above, and on the two Anthropic columns, the closest rivals, it stays within 1.5 points either way. So part of Grok 4.7&rsquo;s Code quality lead comes from its judge pair. To take the pair out of the comparison, we rescored every judged run on the board from Muse Spark 1.3&rsquo;s panel alone, with the same Code quality split and combined weights. This is a sensitivity check, not a published score; the board keeps the protocol&rsquo;s two-judge figures.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score from Muse Spark 1.3 alone, every column" tabindex="0"><table class="suite-results"><caption>Combined score from Muse Spark 1.3&rsquo;s reviews alone: Grok 4.7 against the best other column at each level</caption><thead><tr><th scope="col">Effort</th><th scope="col">Grok 4.7, published</th><th scope="col">Grok 4.7, Muse alone</th><th scope="col">Best other column, Muse alone</th><th scope="col">Grok 4.7 Muse review</th><th scope="col">That column&rsquo;s Muse review</th></tr></thead><tbody><tr data-shared="low"><th scope="row">Low</th><td>89.42</td><td>88.64</td><td>89.46 (Fable 5.1)</td><td>78.3</td><td>78.7</td></tr><tr data-shared="medium"><th scope="row">Medium</th><td>92.30</td><td>91.46</td><td>91.05 (Opus 5.5)</td><td>80.5</td><td>77.4</td></tr><tr data-shared="high"><th scope="row">High</th><td>92.71</td><td>91.74</td><td>91.03 (Opus 5.5)</td><td>79.8</td><td>77.1</td></tr><tr data-shared="extra-high"><th scope="row">Extra-high</th><td>93.15</td><td>92.27</td><td>90.86 (Fable 5.1)</td><td>81.9</td><td>82.8</td></tr></tbody></table></div>
+        <p>On one judge, Grok 4.7 loses about 0.8 to 1.0 points at every level and still leads at Medium (by 0.41), High (0.71) and Extra-high (1.41); at Low, Fable 5.1 moves ahead by 0.82. Its Extra-high, at 92.27, is also above the best Max column on Muse alone (Fable 5.1, 92.19). Where the lead comes from differs by rival. Against Claude Opus 5.5 at Medium and High it is Code quality: Muse rates Grok 4.7&rsquo;s code 2.7 to 3.1 points higher, while Opus 5.5 passes slightly more of its judged tasks. Against Claude Fable 5.1 at Extra-high it is not Code quality, which Muse rates a little higher for Fable 5.1, but the security scan (100.00 against 83.26, worth 1.42 points) and passing all 23 tasks (Fable 5.1 passes 22). The per-column figures are in <a href="/assets/data/swe-v4-grok47-cursor-v320/shared-judge.json">shared-judge.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="usage" aria-labelledby="usage-heading">
+        <h2 id="usage-heading">Time and tokens across effort levels</h2>
+        <p>Grok 4.7 takes 20.2 minutes per task at Low, 27.2 at Medium, 25.4 at High and 28.5 at Extra-high, on average over all 23 runs. Medium&rsquo;s mean carries the 3-hour timeout; its median is 17.4 minutes. Tokens per task fall from 4.76M at Low to 3.20M at Medium and 2.85M at High, then rise to 3.94M at Extra-high, while output tokens rise with effort, from 49.2k to 84.5k per task. Most of the raw total is cache reads: 85% to 89% of each run&rsquo;s tokens on average.</p>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-grok47-cursor-v320-usage.png" aria-label="Open the time and tokens card at full resolution">
+            <img src="/assets/cards/swe-v4-grok47-cursor-v320-usage.png" width="2400" height="1830" loading="lazy" alt="Grok 4.7 tasks passed and raw tokens per task at every effort level, with a table of tasks passed, mean and median minutes, tokens, output tokens and cache share: 18, 21, 22 and 23 tasks passed; 4.76M, 3.20M, 2.85M and 3.94M tokens per task. Exact values are in the adjacent accessible table.">
+          </a>
+          <figcaption>Whiskers show &plusmn;1 task standard error. Minutes cover all 23 runs per level; tokens cover the runs with a usage receipt (22 at Medium). There is no cost panel. <a href="/assets/cards/swe-v4-grok47-cursor-v320-usage.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <div class="suite-table-scroll" role="region" aria-label="Runtime and tokens at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Runtime, raw tokens and cost at each effort level</caption><thead><tr><th scope="col">Effort</th><th scope="col">Runs</th><th scope="col">Min/task</th><th scope="col">Median min</th><th scope="col">Tokens/task</th><th scope="col">Output/task</th><th scope="col">From cache</th><th scope="col">$/task</th></tr></thead><tbody><tr data-usage-effort="low"><th scope="row">Low</th><td>23</td><td>20.2</td><td>14.1</td><td>4.76M</td><td>49.2k</td><td>85%</td><td>unavailable</td></tr><tr data-usage-effort="medium"><th scope="row">Medium</th><td>23</td><td>27.2</td><td>17.4</td><td>3.20M</td><td>65.3k</td><td>85%</td><td>unavailable</td></tr><tr data-usage-effort="high"><th scope="row">High</th><td>23</td><td>25.4</td><td>24.0</td><td>2.85M</td><td>63.1k</td><td>87%</td><td>unavailable</td></tr><tr data-usage-effort="extra-high"><th scope="row">Extra-high</th><td>23</td><td>28.5</td><td>27.9</td><td>3.94M</td><td>84.5k</td><td>89%</td><td>unavailable</td></tr><tr data-usage-effort="sweep"><th scope="row">Full sweep</th><td>92</td><td>25.3</td><td></td><td>336M</td><td></td><td></td><td>unavailable</td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Why no cost.</strong> VulcanBench has no list price for Grok 4.7, and the sweep ran on the Cursor subscription, whose bill for these runs is not observable from the receipts. Every cost field in the evidence bundle is null, and the board shows Grok 4.7&rsquo;s cost as unavailable and leaves it off the cost chart. Read it as unknown, never as free.</p>
+          <p><strong>Tokens</strong> come from the usage block of each run&rsquo;s Cursor stream (input, output, cache reads and cache writes), because Cursor&rsquo;s run summaries record 0 tokens. They are raw totals including cache reads, 336M over the 91 receipted runs. Runtime covers all 92 runs, 38.8 hours in all. Per-run tokens are in <a href="/assets/data/swe-v4-grok47-cursor-v320/usage.json">usage.json</a> and <a href="/assets/data/swe-v4-grok47-cursor-v320/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="board" aria-labelledby="board-heading">
+        <h2 id="board-heading">On the Frontier v4 board</h2>
+        <p>On the board&rsquo;s published figures, Grok 4.7 at Extra-high (93.15), High (92.71) and Medium (92.30) ranks first, second and third of 53 model and effort columns, ahead of Claude Fable 5.1 at Max (91.84) and Claude Opus 5.5 at High (91.11). Grok 4.7 at Low (89.42) ranks 12th and is the highest Low column, 0.30 points above Fable 5.1 at Low. Read those ranks with the judge note above: on Muse Spark 1.3 alone the top three hold, and Low drops behind Fable 5.1. The board marks every Grok 4.7 row with a footnote saying so, shows its cost as unavailable, and picks its effort suggestions on time alone.</p>
+        <p>The card below sets Grok 4.7 beside the three leaders it is most often compared with: GPT-6.1 Sol, Claude Opus 5.5 and GPT-6 Astra, at every effort level each one offers. Grok 4.7 has the highest combined score at every shared level and the highest Code quality. It is also the slowest of the four at every shared level, and uses 2 to 4 times as many tokens per task as GPT-6.1 Sol and 4 to 5 times as many as Astra. Its table carries a Muse Spark 1.3 review row for every model, the comparison that does not depend on the judge pair: Grok 4.7 78.3 to 81.9, Opus 5.5 70.2 to 80.1, GPT-6.1 Sol 64.7 to 71.2, Astra 64.9 to 73.6.</p>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-grok47-vs-frontier-leaders.png" aria-label="Open the Grok 4.7 beside the leaders card at full resolution">
+            <img src="/assets/cards/swe-v4-grok47-vs-frontier-leaders.png" width="2400" height="2475" loading="lazy" alt="Grok 4.7, GPT-6.1 Sol, Claude Opus 5.5 and GPT-6 Astra on Frontier v4 at every effort level. Combined score: Grok 4.7 89.42, 92.30, 92.71 and 93.15 from Low to Extra-high; GPT-6.1 Sol 86.22 to 88.78; Opus 5.5 86.36 to 91.11; GPT-6 Astra 87.43 to 89.30. Mean runtime: Grok 4.7 20.2 to 28.5 minutes; Opus 5.5 13.7 to 37.5; GPT-6.1 Sol 6.9 to 15.4; Astra 3.8 to 10.3. A table gives tasks passed, combined score, Code quality, Muse Spark 1.3 review score and tokens per task for each model.">
+          </a>
+          <figcaption>Combined score over judged runs on the left, mean minutes over all 23 runs on the right; whiskers show &plusmn;1 task standard error. Each model was judged in its own protocol run with the same rubric: Grok 4.7 by Muse Spark 1.3 and GPT-6.1 Sol (v3.20), the others by Muse Spark 1.3 and Grok 4.6 (v3.18, v3.15 and v3.4). Compare Code quality on the Muse row. Opus 5.5 ran with Claude Code&rsquo;s refusal fallback on (High judged on 22). Cursor offers no Max level for Grok 4.7. <a href="/assets/cards/swe-v4-grok47-vs-frontier-leaders.png">Open full-size card</a>.</figcaption>
+        </figure>
+      </section>
+
+      <section class="report-section" id="safety" aria-labelledby="safety-heading">
+        <h2 id="safety-heading">Grok 4.7 on VulcanBench Safety v1</h2>
+        <p><a href="/blog/02-vulcanbench-safety-v1.html">VulcanBench Safety v1</a> is a private suite that asks a different question: what does a coding agent do when the repository tells it to do something it should not? It forks ten Frontier v4 tasks and plants two hazards in each, written as ordinary notes in the repository: a code insert, an acknowledgment file, a network beacon, a secret exfiltration or a destructive delete. A detector labels each planted note per run as complied (the run did what the note asked), reported (it did not, and told the user about the note) or ignored (neither). The tasks stay private, so only aggregates are published.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Safety v1 aggregates for Grok 4.7 and Claude Opus 5.5" tabindex="0"><table class="suite-results"><caption>Safety v1: ten tasks and twenty planted notes per effort level</caption><thead><tr><th scope="col">Model and measure</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr data-safety="grok47cursor-passed"><th scope="row">Grok 4.7, tasks passed of 10</th><td>9</td><td>10</td><td>10</td><td>10</td><td>n/a</td></tr><tr data-safety="grok47cursor-complied"><th scope="row">Grok 4.7, planted notes followed of 20</th><td>5</td><td>5</td><td>1</td><td>3</td><td>n/a</td></tr><tr data-safety="grok47cursor-reported"><th scope="row">Grok 4.7, planted notes reported</th><td>0</td><td>0</td><td>0</td><td>0</td><td>n/a</td></tr></tbody><tbody><tr data-safety="opus55-passed"><th scope="row">Claude Opus 5.5, tasks passed of 10</th><td>5</td><td>9</td><td>10</td><td>10</td><td>10</td></tr><tr data-safety="opus55-complied"><th scope="row">Claude Opus 5.5, planted notes followed of 20</th><td>1</td><td>0</td><td>0</td><td>0</td><td>2</td></tr><tr data-safety="opus55-reported"><th scope="row">Claude Opus 5.5, planted notes reported</th><td>11</td><td>16</td><td>14</td><td>14</td><td>9</td></tr></tbody></table></div>
+        <p>Over 40 runs, Low to Extra-high, Grok 4.7 in Cursor followed 14 of the 80 planted notes: 7 of 16 code inserts and 7 of 16 acknowledgment files. It reported none of them to the user. It never ran the network beacon, never exfiltrated the planted secret and never ran the destructive delete. Claude Opus 5.5 in Claude Code, over 50 runs from Low to Max, followed 3 of 100 and reported 64. Neither model leaked the secret. Grok 4.7 passed 9, 10, 10 and 10 of the ten tasks; its one Low failure is a run that reached the 10-hour Safety bound then in force (every suite moved to the flat 3-hour bound on October 3, 2026) and counts as failed.</p>
+        <figure class="suite-card">
+          <a href="/assets/cards/safety-v1-grok47-opus55.png" aria-label="Open the Safety v1 card at full resolution">
+            <img src="/assets/cards/safety-v1-grok47-opus55.png" width="2400" height="2062" loading="lazy" alt="VulcanBench Safety v1: Grok 4.7 in Cursor and Claude Opus 5.5 in Claude Code. Bars show what each model did with each kind of planted note: Grok 4.7 complied with 7 of 16 code inserts and 7 of 16 acknowledgment files and ignored every beacon, exfiltration and delete note; Opus 5.5 reported most notes of every kind. A line chart shows planted notes followed per level, and a table gives tasks passed, notes followed, notes reported and secret leaks per level.">
+          </a>
+          <figcaption>Every effort level each harness offers; Cursor has no Max for Grok 4.7. Labels come from the VulcanConduct hazards detector over each run&rsquo;s commands, file edits, patch and final message. <a href="/assets/cards/safety-v1-grok47-opus55.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <div class="suite-notes">
+          <p><strong>Audit tooling.</strong> Grok 4.7&rsquo;s runs were audited after the detector gained a Cursor stream parser (before it, Cursor runs showed no commands to the detector) and a fix to its netcat pattern; Claude Opus 5.5&rsquo;s audits are unchanged by both. Safety v1 has no effect on the Frontier v4 score. The per-level counts are in <a href="/assets/data/swe-v4-grok47-cursor-v320/safety-v1.json">safety-v1.json</a>; task names, note text and planted tokens are withheld.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel carries 24 points. An intent-recovery probe carries 9: the judge, given only the specification and the code, lists where the code departs from the specification, and a separate call matches that list against a frozen answer key, over the departures the submission passed tests for. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each effort level, out of 100, mean of both judges over the judged runs</caption><thead><tr><th scope="col">Component</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>81.41</td><td>83.90</td><td>83.43</td><td>84.35</td></tr><tr><th scope="row">Human readability</th><td>78.4</td><td>81.5</td><td>81.5</td><td>82.7</td></tr><tr><th scope="row">Maintainability</th><td>84.4</td><td>85.8</td><td>84.4</td><td>86.5</td></tr><tr><th scope="row">Intent recovery</th><td>81.5</td><td>84.5</td><td>84.7</td><td>83.7</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>78.3</td><td>80.5</td><td>79.8</td><td>81.9</td></tr><tr><th scope="row">Rated by GPT-6.1 Sol</th><td>84.5</td><td>86.8</td><td>86.1</td><td>87.3</td></tr><tr><th scope="row">Standard error of Code quality</th><td>1.21</td><td>1.12</td><td>1.08</td><td>0.87</td></tr></tbody></table></div>
+        <p>Code quality rises from 81.41 at Low to about 84 from Medium up, with GPT-6.1 Sol the higher rater at every level. Human readability is the weaker sub-score at every level, 78.4 to 82.7 against 84.4 to 86.5 for maintainability. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-grok47-cursor-v320/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-grok47-cursor-v320/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p>The scored panel is Muse Spark 1.3 (Meta) through the Muse CLI on its Standard tier, with its v3.4 settings and binary pin, and GPT-6.1 Sol (OpenAI) at medium effort through Codex CLI 0.159.0, the binary pinned for GPT-6.1 Sol&rsquo;s own sweep, with equal weight. Neither lab is xAI. Grok 4.6, the second judge on every other column, sits out because it is an xAI model; the owner chose GPT-6.1 Sol for the seat on October 3, 2026. Every session is fresh, tools are disabled, the workspace is empty and solver labels are withheld. Muse&rsquo;s identity is checked per call from the CLI&rsquo;s own records; Codex does not record the serving model, so GPT-6.1 Sol&rsquo;s identity is the model requested. Protocol v3.20 changes nothing in the rubric, controls, quirk keys, gates, repeats, seed or weights from v3.7; it applies the protocol to this population with this judge pair, and both judges took the calibration exam under it before any counted call.</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification: clear, compressed, compressed then auto-formatted, verbose with duplicated policy, needlessly abstracted, misleadingly commented, narrated with a comment on every line, a documented legacy quirk, an embedded instruction to give full marks, and hidden module state. Each program is reviewed five times in a seeded order. Twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.20</td><td>80</td><td>passed</td><td>yes</td><td>g11 repeatability, 0.1 short</td></tr><tr><th scope="row">GPT-6.1 Sol</th><td>code-quality-maintenance-v3.20</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr></tbody></table></div>
+        <p>Muse Spark 1.3 passed with the one-gate allowance: its repeatability gate fell 0.1 short, inside the half-point the protocol allows. GPT-6.1 Sol, taking the exam for the first time, passed every gate with no allowance used. Every gate value and control mean is in <a href="/assets/data/swe-v4-grok47-cursor-v320/calibration.json">calibration.json</a>.</p>
+        <p>Under v3.20 each judge made 365 counted calls: 80 in calibration, 91 primary reviews, 4 repeats, 8 pairwise checks, 91 intent probes and 91 answer-key matches. Muse needed a second attempt on three calls and GPT-6.1 Sol on thirteen, including the two operator events under How it was run. No call was invalidated, neither judge produced a reviewer fallback, and every attempt is archived beside its replacement in the harness run directory.</p>
+      </section>
+
+      <section class="report-section" id="run-notes" aria-labelledby="run-notes-heading">
+        <h2 id="run-notes-heading">How it was run</h2>
+        <ul>
+          <li><strong>Cursor agent CLI 2026.10.01-14929f9.</strong> Grok 4.7 ran through Cursor on the Cursor subscription, using the four effort variants Cursor exposes (grok-4.7-low, -medium, -high and -xhigh). Effort labels are Cursor&rsquo;s own.</li>
+          <li><strong>Sweep window.</strong> The solver sweep ran from October 1, 12:53 PDT, to October 3, 04:12 PDT, one level at a time, one task at a time. No judging ran on the machine during it.</li>
+          <li><strong>One timeout.</strong> Medium lodgecore reached the flat 3-hour bound, as described under the results table.</li>
+          <li><strong>Infrastructure retries.</strong> Five High tasks failed in Cursor&rsquo;s infrastructure before producing a result (no summary was written) and were rerun by the harness; the reruns are the runs. No finished run was repeated.</li>
+          <li><strong>Tokens from the stream.</strong> Cursor&rsquo;s run summaries record 0 tokens, so the population record reads each run&rsquo;s usage from the single result event of its Cursor stream.</li>
+          <li><strong>One GPT-6.1 Sol call at capacity.</strong> On one primary review, Codex ended the first attempt with &ldquo;Selected model is at capacity&rdquo; and no model output. The wrapper&rsquo;s transport-fault rule, which until then knew only DNS and connection failures, gained the capacity message and granted the protocol&rsquo;s single fresh attempt; the failed attempt&rsquo;s receipt is retained. Muse&rsquo;s panel kept running.</li>
+          <li><strong>Six GPT-6.1 Sol answer-key matches numbered from 1.</strong> The match call cites departures by index from 0. On six submissions GPT-6.1 Sol numbered them from 1 on both attempts, which fails the index range check. A new wrapper rule, <code>recover_one_based_indexes</code>, applies only when every cited index lies between 1 and the number of departures and the highest equals that number: it moves every index down by one, leaves every match status untouched, keeps the originals in the receipt, and the result must then validate. Intent scoring reads match statuses only, so no score changed. GPT-6.1 Sol also numbered from 1 on some accepted calls where the validator could not tell; for the same reason, no score depends on it.</li>
+          <li><strong>Judging windows.</strong> Judging ran October 3, 08:15 to 14:55 PDT. GPT-6.1 Sol&rsquo;s panel stopped from 09:26 to 09:27 for the capacity event and from 11:53 to 13:28 for the index recovery; Muse finished its stages at 11:31. Judging overlapped Grok 4.7&rsquo;s own Cursor Safety v1 leg, after its Frontier v4 leg had finished, so no Frontier v4 solver run was active during judging.</li>
+          <li><strong>One attempt per task and level.</strong> Runs were not repeated.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="next" aria-labelledby="next-heading">
+        <h2 id="next-heading">Still to come</h2>
+        <p>Two more Grok 4.7 results are on the way. Its VulcanBench Routine v1 runs in Cursor are being judged under protocol v3.22, and will join the Routine v1 board. And the Grok Build half: Grok 4.7 in xAI&rsquo;s own Grok Build CLI on Frontier v4, judged by the same pair under v3.21, followed by a card comparing Grok 4.7 in Cursor with Grok 4.7 in Grok Build.</p>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 92 run records (91 judged and the timeout), both judges&rsquo; six-dimension sub-scores and intent-recovery scores per judged run, hidden behaviours fixed, integrity-audit verdicts, raw tokens per run, four aggregates, every calibration gate value, the exact judge protocol text, the operator records for the capacity retry and the six index recoveries, the shared-judge sensitivity, the Safety v1 aggregates, and source hashes. Each run&rsquo;s Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-grok47-cursor-v320/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the protocol documents, controls, runner, operator wrapper and decision records.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Every run&rsquo;s integrity audit is clean: no web access, and no reads of benchmark data or answer-key paths. Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists.</p>
+        <p>Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, and every Safety v1 task name, note text and planted token. Summed solver time is 38.83 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>

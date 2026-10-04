@@ -1,0 +1,147 @@
+{
+  "scope": "Solver time and tokens only. Grok 4.7 ran on the Cursor subscription and VulcanBench has no list price for it, so no API-equivalent cost is computed: cost is unavailable, not $0. Judging is excluded.",
+  "cost": "unavailable",
+  "groups": [
+    {
+      "model": "grok47cursor",
+      "effort": "low",
+      "runs": 23,
+      "receipt_runs": 23,
+      "usd": null,
+      "usd_total": null,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 4757446.869565218,
+        "se": 1451527.4941159699
+      },
+      "raw_tokens_total": 109421278,
+      "output_tokens": {
+        "n": 23,
+        "mean": 49185.13043478261,
+        "se": 9200.848236009142
+      },
+      "cache_read_share": {
+        "n": 23,
+        "mean": 0.8536767032181882,
+        "se": 0.01704922050492888
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 20.21453115942029,
+        "se": 3.749877740088148
+      },
+      "minutes_median": 14.128716666666666,
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "grok47cursor",
+      "effort": "medium",
+      "runs": 23,
+      "receipt_runs": 22,
+      "usd": null,
+      "usd_total": null,
+      "raw_tokens": {
+        "n": 22,
+        "mean": 3202089.5454545454,
+        "se": 655818.1290169865
+      },
+      "raw_tokens_total": 70445970,
+      "output_tokens": {
+        "n": 22,
+        "mean": 65254.954545454544,
+        "se": 5859.5699827733515
+      },
+      "cache_read_share": {
+        "n": 22,
+        "mean": 0.8486142707715034,
+        "se": 0.02058275030935935
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 27.232263043478262,
+        "se": 7.189638619353201
+      },
+      "minutes_median": 17.422733333333333,
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "grok47cursor",
+      "effort": "high",
+      "runs": 23,
+      "receipt_runs": 23,
+      "usd": null,
+      "usd_total": null,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2854672.086956522,
+        "se": 492670.11260679876
+      },
+      "raw_tokens_total": 65657458,
+      "output_tokens": {
+        "n": 23,
+        "mean": 63108.95652173913,
+        "se": 6289.901894293347
+      },
+      "cache_read_share": {
+        "n": 23,
+        "mean": 0.8693230090498402,
+        "se": 0.015598014001299468
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 25.35874347826087,
+        "se": 1.4929549786213634
+      },
+      "minutes_median": 23.9769,
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "grok47cursor",
+      "effort": "extra-high",
+      "runs": 23,
+      "receipt_runs": 23,
+      "usd": null,
+      "usd_total": null,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 3938126.8695652173,
+        "se": 567016.3061802768
+      },
+      "raw_tokens_total": 90576918,
+      "output_tokens": {
+        "n": 23,
+        "mean": 84468.69565217392,
+        "se": 7686.227179486887
+      },
+      "cache_read_share": {
+        "n": 23,
+        "mean": 0.8881146081800027,
+        "se": 0.010365457535489266
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 28.480354347826086,
+        "se": 1.4099144481357522
+      },
+      "minutes_median": 27.9274,
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "grok47cursor": {
+      "runs": 92,
+      "receipt_runs": 91,
+      "raw_tokens": 336101624,
+      "solver_hours": 38.82625861111111,
+      "usd": null
+    }
+  },
+  "limitations": [
+    "Tokens are read from the single result event of each run's Cursor stream (input, output, cache reads and cache writes); Cursor's run summaries record 0 tokens because the adapter does not read that usage block.",
+    "Raw tokens include cache reads, which are 85 to 89% of the total on average per run. They are not comparable with a billed-token figure.",
+    "The medium lodgecore timeout has no usage receipt, so medium's token figures average 22 runs; minutes cover all 23.",
+    "No price is applied. Cursor's subscription bill for these runs is not observable from the receipts."
+  ],
+  "comparison_sha256": "d253ce67118e5a8085192d1d374be8bfd983371a406868da4b92ff1413f6a69c",
+  "note": "Per-run tokens are in runs.json (raw_tokens, token_usage). Judging is excluded."
+}

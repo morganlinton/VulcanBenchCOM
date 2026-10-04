@@ -1,0 +1,5 @@
+model,effort,n,runs,timeouts,combined_33,combined_33_se,combined_20_profile,code_quality,code_quality_se,reviewed_score,intent_recovery,readability,maintainability,muse_reviewed,sol_reviewed,functional,automated_quality,security,passed_of_23,hidden_behaviours_fixed_of_231,mean_minutes,median_minutes,mean_raw_tokens,mean_output_tokens,cache_read_share,mean_usd
+Grok 4.7,low,23,23,0,89.4202,1.5454,90.5925,81.4055,1.2147,81.3859,81.4578,78.3514,84.4203,78.2609,84.5109,94.3687,80.8470,100.0000,18,213,20.2145,14.1287,4757446.9,49185.1,0.8537,unavailable
+Grok 4.7,medium,22,23,1,92.2980,0.8552,93.0592,83.9038,1.1217,83.6648,84.5413,81.5341,85.7955,80.4924,86.8371,98.7014,80.2000,99.3182,21,215,27.2323,17.4227,3202089.5,65255.0,0.8486,unavailable
+Grok 4.7,high,23,23,0,92.7077,0.4145,93.5856,83.4299,1.0751,82.9710,84.6537,81.5217,84.4203,79.8007,86.1413,99.6896,80.3657,100.0000,22,230,25.3587,23.9769,2854672.1,63109.0,0.8693,unavailable
+Grok 4.7,extra-high,23,23,0,93.1465,0.3240,93.8878,84.3544,0.8657,84.6014,83.6958,82.6993,86.5036,81.8841,87.3188,100.0000,80.1126,100.0000,23,231,28.4804,27.9274,3938126.9,84468.7,0.8881,unavailable
