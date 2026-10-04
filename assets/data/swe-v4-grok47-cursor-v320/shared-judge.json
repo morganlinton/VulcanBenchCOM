@@ -1,0 +1,536 @@
+{
+  "what": "A sensitivity check, not a published score. Every Frontier v4 column has a Muse Spark 1.3 review; the second judge differs (Grok 4.6 for every column except Grok 4.7, GPT-6.1 Sol for Grok 4.7). This file rescores every judged run from Muse's panel alone, with the same Code quality split and combined weights, so all columns share one judge.",
+  "formula": "code_quality = (0.24 * muse reviewed + 0.09 * muse intent recovery) / 0.33; combined as published",
+  "columns": [
+    {
+      "model": "astra",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 65.67028985507247,
+      "muse_code_quality": 69.16201552071117,
+      "muse_combined": 87.0539607740086,
+      "published_combined": 87.43253220258002,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "astra",
+      "effort": "medium",
+      "n": 23,
+      "muse_reviewed": 64.94565217391305,
+      "muse_code_quality": 69.60562329633476,
+      "muse_combined": 87.20451003561655,
+      "published_combined": 87.72616663988185,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "astra",
+      "effort": "high",
+      "n": 23,
+      "muse_reviewed": 68.20652173913044,
+      "muse_code_quality": 71.5227888053975,
+      "muse_combined": 87.51376813186813,
+      "published_combined": 88.15804315032793,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "astra",
+      "effort": "extra-high",
+      "n": 23,
+      "muse_reviewed": 72.10144927536231,
+      "muse_code_quality": 74.28393411594992,
+      "muse_combined": 88.76853086695913,
+      "published_combined": 89.16155930591148,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "astra",
+      "effort": "max",
+      "n": 23,
+      "muse_reviewed": 73.55072463768116,
+      "muse_code_quality": 75.2828265278858,
+      "muse_combined": 88.97935014550667,
+      "published_combined": 89.30329386483082,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "fable",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 78.71376811594203,
+      "muse_code_quality": 79.38418959169947,
+      "muse_combined": 89.46160430439126,
+      "published_combined": 89.12245025192199,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "fable",
+      "effort": "medium",
+      "n": 23,
+      "muse_reviewed": 80.2536231884058,
+      "muse_code_quality": 80.16082402446038,
+      "muse_combined": 90.1367610585067,
+      "published_combined": 90.1293013986014,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "fable",
+      "effort": "high",
+      "n": 23,
+      "muse_reviewed": 81.25,
+      "muse_code_quality": 80.33377854030027,
+      "muse_combined": 89.8949230052556,
+      "published_combined": 90.06889875776398,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "fable",
+      "effort": "extra-high",
+      "n": 23,
+      "muse_reviewed": 82.78985507246377,
+      "muse_code_quality": 82.26152141665975,
+      "muse_combined": 90.8625411979325,
+      "published_combined": 90.75431437041219,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "fable",
+      "effort": "max",
+      "n": 23,
+      "muse_reviewed": 83.42391304347827,
+      "muse_code_quality": 83.51072840203274,
+      "muse_combined": 92.19191863354037,
+      "published_combined": 91.83648928028492,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt55",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 60.14492753623188,
+      "muse_code_quality": 61.133069828722,
+      "muse_combined": 49.59855217391304,
+      "published_combined": 49.80340465838509,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt55",
+      "effort": "medium",
+      "n": 23,
+      "muse_reviewed": 60.869565217391305,
+      "muse_code_quality": 63.07053453792584,
+      "muse_combined": 63.01718074534161,
+      "published_combined": 63.53992919254658,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt55",
+      "effort": "high",
+      "n": 23,
+      "muse_reviewed": 58.42391304347826,
+      "muse_code_quality": 61.369753434970825,
+      "muse_combined": 69.40549472049689,
+      "published_combined": 69.92152732919254,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt55",
+      "effort": "extra-high",
+      "n": 23,
+      "muse_reviewed": 62.77173913043478,
+      "muse_code_quality": 66.71306953915649,
+      "muse_combined": 78.14153686096512,
+      "published_combined": 78.45621023107327,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "luna",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 68.20652173913044,
+      "muse_code_quality": 72.149209486166,
+      "muse_combined": 41.42601739130435,
+      "published_combined": 41.28688695652174,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "luna",
+      "effort": "medium",
+      "n": 23,
+      "muse_reviewed": 64.13043478260869,
+      "muse_code_quality": 64.39370412196499,
+      "muse_combined": 52.88563540372671,
+      "published_combined": 53.27806552795031,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "luna",
+      "effort": "high",
+      "n": 23,
+      "muse_reviewed": 62.13768115942029,
+      "muse_code_quality": 65.14210427253906,
+      "muse_combined": 71.00291614906833,
+      "published_combined": 71.21595962732918,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "luna",
+      "effort": "extra-high",
+      "n": 23,
+      "muse_reviewed": 63.315217391304344,
+      "muse_code_quality": 66.51384353459451,
+      "muse_combined": 78.60659445337271,
+      "published_combined": 79.1139229943969,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "luna",
+      "effort": "max",
+      "n": 23,
+      "muse_reviewed": 57.97101449275362,
+      "muse_code_quality": 63.582052005965046,
+      "muse_combined": 83.56329455327281,
+      "published_combined": 84.14689600616774,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "terra",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 69.3840579710145,
+      "muse_code_quality": 71.62996423865988,
+      "muse_combined": 59.47381428571428,
+      "published_combined": 59.69986242236025,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "terra",
+      "effort": "medium",
+      "n": 23,
+      "muse_reviewed": 67.93478260869566,
+      "muse_code_quality": 69.45746282702804,
+      "muse_combined": 65.86333447204969,
+      "published_combined": 66.348000621118,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "terra",
+      "effort": "high",
+      "n": 23,
+      "muse_reviewed": 71.92028985507247,
+      "muse_code_quality": 73.2857228410588,
+      "muse_combined": 76.4781081027668,
+      "published_combined": 76.67926564088086,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "terra",
+      "effort": "extra-high",
+      "n": 23,
+      "muse_reviewed": 70.92391304347827,
+      "muse_code_quality": 73.38655909308082,
+      "muse_combined": 83.54101667462972,
+      "published_combined": 83.4577928332537,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "terra",
+      "effort": "max",
+      "n": 23,
+      "muse_reviewed": 70.19927536231884,
+      "muse_code_quality": 72.8199336894989,
+      "muse_combined": 89.1525215957955,
+      "published_combined": 89.05345625895843,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "sol",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 60.23550724637681,
+      "muse_code_quality": 63.60718991153773,
+      "muse_combined": 68.59618571428571,
+      "published_combined": 69.04925248447205,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "sol",
+      "effort": "medium",
+      "n": 23,
+      "muse_reviewed": 64.31159420289855,
+      "muse_code_quality": 66.7040025192199,
+      "muse_combined": 82.06909039655996,
+      "published_combined": 82.56018272814141,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "sol",
+      "effort": "high",
+      "n": 23,
+      "muse_reviewed": 61.95652173913044,
+      "muse_code_quality": 66.66422181244315,
+      "muse_combined": 85.43359754593233,
+      "published_combined": 85.75766776918734,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "sol",
+      "effort": "extra-high",
+      "n": 23,
+      "muse_reviewed": 61.77536231884058,
+      "muse_code_quality": 65.71412283368805,
+      "muse_combined": 85.94080401337793,
+      "published_combined": 86.46688146853147,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "sol",
+      "effort": "max",
+      "n": 22,
+      "muse_reviewed": 62.97348484848485,
+      "muse_code_quality": 66.58931977113795,
+      "muse_combined": 86.85480734265734,
+      "published_combined": 87.18010335346472,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "opus55",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 70.19927536231884,
+      "muse_code_quality": 72.84333420202985,
+      "muse_combined": 86.46528724319158,
+      "published_combined": 86.36308889805846,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "opus55",
+      "effort": "medium",
+      "n": 23,
+      "muse_reviewed": 77.35507246376811,
+      "muse_code_quality": 77.88231202262821,
+      "muse_combined": 91.05001948920643,
+      "published_combined": 90.86350736003126,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "opus55",
+      "effort": "high",
+      "n": 22,
+      "muse_reviewed": 77.08333333333333,
+      "muse_code_quality": 77.74393994435316,
+      "muse_combined": 91.02690018163653,
+      "published_combined": 91.10811328671328,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "opus55",
+      "effort": "extra-high",
+      "n": 23,
+      "muse_reviewed": 80.07246376811594,
+      "muse_code_quality": 80.30512965295573,
+      "muse_combined": 90.7858384376493,
+      "published_combined": 90.67882995699952,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "opus55",
+      "effort": "max",
+      "n": 23,
+      "muse_reviewed": 79.43840579710145,
+      "muse_code_quality": 80.15319496050721,
+      "muse_combined": 90.3463804239239,
+      "published_combined": 90.21974998914129,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt6luna",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 62.77173913043478,
+      "muse_code_quality": 65.33032185206098,
+      "muse_combined": 40.66212142857143,
+      "published_combined": 40.830987888198756,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt6luna",
+      "effort": "medium",
+      "n": 23,
+      "muse_reviewed": 67.39130434782608,
+      "muse_code_quality": 67.79150197628458,
+      "muse_combined": 45.2124,
+      "published_combined": 45.71919347826086,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt6luna",
+      "effort": "high",
+      "n": 23,
+      "muse_reviewed": 63.04347826086956,
+      "muse_code_quality": 65.60488424618859,
+      "muse_combined": 57.0898900621118,
+      "published_combined": 57.351380745341615,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt6luna",
+      "effort": "extra-high",
+      "n": 21,
+      "muse_reviewed": 67.9563492063492,
+      "muse_code_quality": 70.7104205318491,
+      "muse_combined": 78.52987925170068,
+      "published_combined": 78.78642300556587,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt6luna",
+      "effort": "max",
+      "n": 19,
+      "muse_reviewed": 68.53070175438596,
+      "muse_code_quality": 70.89737017368596,
+      "muse_combined": 81.220800578369,
+      "published_combined": 81.42353698669751,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt6sol",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 57.880434782608695,
+      "muse_code_quality": 60.71710897797853,
+      "muse_combined": 67.02373726708075,
+      "published_combined": 67.62144689440994,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt6sol",
+      "effort": "medium",
+      "n": 22,
+      "muse_reviewed": 63.06818181818182,
+      "muse_code_quality": 65.92554484083409,
+      "muse_combined": 80.31589570656615,
+      "published_combined": 80.60092374670783,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt6sol",
+      "effort": "high",
+      "n": 23,
+      "muse_reviewed": 66.57608695652173,
+      "muse_code_quality": 69.63202311522468,
+      "muse_combined": 82.6766154541111,
+      "published_combined": 82.82614554358685,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt6sol",
+      "effort": "extra-high",
+      "n": 23,
+      "muse_reviewed": 66.66666666666667,
+      "muse_code_quality": 70.65208342382255,
+      "muse_combined": 85.89933100812232,
+      "published_combined": 85.93841257872562,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt6sol",
+      "effort": "max",
+      "n": 23,
+      "muse_reviewed": 68.20652173913044,
+      "muse_code_quality": 70.60291158117245,
+      "muse_combined": 86.76013256091734,
+      "published_combined": 86.81889988055423,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt61sol",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 65.57971014492753,
+      "muse_code_quality": 69.79645025593642,
+      "muse_combined": 85.89442641054598,
+      "published_combined": 86.22132261217044,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt61sol",
+      "effort": "medium",
+      "n": 23,
+      "muse_reviewed": 64.67391304347827,
+      "muse_code_quality": 68.44224286912034,
+      "muse_combined": 85.84501405985318,
+      "published_combined": 86.44097082048386,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt61sol",
+      "effort": "high",
+      "n": 23,
+      "muse_reviewed": 69.92753623188406,
+      "muse_code_quality": 73.50111844677062,
+      "muse_combined": 88.17925604395604,
+      "published_combined": 88.23419702688615,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt61sol",
+      "effort": "extra-high",
+      "n": 23,
+      "muse_reviewed": 71.19565217391305,
+      "muse_code_quality": 74.60169935466378,
+      "muse_combined": 88.65250426529991,
+      "published_combined": 88.78047846501325,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "gpt61sol",
+      "effort": "max",
+      "n": 23,
+      "muse_reviewed": 69.20289855072464,
+      "muse_code_quality": 72.43929983060417,
+      "muse_combined": 87.89944285714286,
+      "published_combined": 88.3477945054945,
+      "judges": "Muse Spark 1.3 and Grok 4.6"
+    },
+    {
+      "model": "grok47cursor",
+      "effort": "low",
+      "n": 23,
+      "muse_reviewed": 78.26086956521739,
+      "muse_code_quality": 79.039940625909,
+      "muse_combined": 88.63951953698475,
+      "published_combined": 89.42015194805194,
+      "judges": "Muse Spark 1.3 and GPT-6.1 Sol"
+    },
+    {
+      "model": "grok47cursor",
+      "effort": "medium",
+      "n": 22,
+      "muse_reviewed": 80.49242424242424,
+      "muse_code_quality": 81.3505623164714,
+      "muse_combined": 91.45541283716283,
+      "published_combined": 92.297989010989,
+      "judges": "Muse Spark 1.3 and GPT-6.1 Sol"
+    },
+    {
+      "model": "grok47cursor",
+      "effort": "high",
+      "n": 23,
+      "muse_reviewed": 79.80072463768116,
+      "muse_code_quality": 80.49712968191228,
+      "muse_combined": 91.73991583850932,
+      "published_combined": 92.70774311992355,
+      "judges": "Muse Spark 1.3 and GPT-6.1 Sol"
+    },
+    {
+      "model": "grok47cursor",
+      "effort": "extra-high",
+      "n": 23,
+      "muse_reviewed": 81.8840579710145,
+      "muse_code_quality": 81.6985369702761,
+      "muse_combined": 92.27008893932154,
+      "published_combined": 93.14654020544673,
+      "judges": "Muse Spark 1.3 and GPT-6.1 Sol"
+    }
+  ]
+}

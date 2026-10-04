@@ -5,6 +5,7 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 ## Pages
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
 - `benchmarks.html`: suite-separated results, with the current Frontier v4 comparison first and all earlier reports in a labeled archive
+- `benchmarks/swe-v4-grok47-cursor-v320.html`: Grok 4.7 through Cursor at every effort level Cursor offers under Code quality protocol v3.20 (judged by Muse Spark 1.3 and GPT-6.1 Sol), with PDF, calibration record, the shared-judge check, cards beside the leaders and on Safety v1, and evidence links
 - `benchmarks/swe-v4-gpt61-sol-v318.html`: GPT-6.1 Sol through Codex at every effort level under Code quality protocol v3.18, with PDF, calibration record, the three-generation Sol comparison card and evidence links
 - `benchmarks/swe-v4-gpt6-sol-v317.html`: GPT-6 Sol through Codex at every effort level under Code quality protocol v3.17, with PDF, calibration record, GPT-5.6 Sol and GPT-6 family comparison cards and evidence links
 - `benchmarks/swe-v4-gpt6-luna-v316.html`: GPT-6 Luna through Codex at every effort level under Code quality protocol v3.16, with both combined figures (judged runs, and timeouts counted as 0), PDF, calibration record and evidence links
@@ -49,8 +50,9 @@ archive. Run `python3 scripts/check_benchmark_index.py` after index edits.
 Each Frontier v4 report PDF is generated directly from its public record in
 `assets/data/swe-v4-astra-fable51-v34/`, `assets/data/swe-v4-gpt55-luna-v35/`,
 `assets/data/swe-v4-terra-v36/`, `assets/data/swe-v4-sol-v37/`,
-`assets/data/swe-v4-gpt6-luna-v316/`, `assets/data/swe-v4-gpt6-sol-v317/` and `assets/data/swe-v4-gpt61-sol-v318/`, which the matching `scripts/export_swe_v4_v3N_evidence.py`
-(`--harness-root ../VulcanBench`) export from the frozen harness results. The renderers
+`assets/data/swe-v4-gpt6-luna-v316/`, `assets/data/swe-v4-gpt6-sol-v317/`, `assets/data/swe-v4-gpt61-sol-v318/` and `assets/data/swe-v4-grok47-cursor-v320/`, which the matching `scripts/export_swe_v4_v3N_evidence.py`
+(`--harness-root ../VulcanBench`) export from the frozen harness results; the v3.20 exporter also takes
+`--conduct-root ../VulcanConduct` to re-derive its Safety v1 aggregates. The renderers
 use ReportLab and the Geist, Chakra Petch and IBM Plex Mono TTF files already used
 by the harness chart generator:
 
@@ -72,6 +74,8 @@ python3 scripts/render_swe_v4_v317_report.py --fonts /path/to/VulcanBench/script
 python3 scripts/verify_swe_v4_v317_pdf.py
 python3 scripts/render_swe_v4_v318_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt61-sol-v318
 python3 scripts/verify_swe_v4_v318_pdf.py
+python3 scripts/render_swe_v4_v320_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-grok47-cursor-v320
+python3 scripts/verify_swe_v4_v320_pdf.py
 ```
 
 Rasterise all rendered pages and check the extracted text for forbidden

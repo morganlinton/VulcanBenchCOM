@@ -13,6 +13,8 @@
     minutes: { label: "Minutes per task", fmt: function (v) { return String(Math.round(v)); }, tip: function (r) { return r.minutes.toFixed(1) + " min per task"; } }
   };
   var CAP = 5;
+  function plotted() { return COLS.filter(function (r) { return r[xKey] !== null && r[xKey] !== undefined; }); }  // unpriced columns sit out the cost view
+  function unplotted() { return MODELS.filter(function (m) { return !plotted().some(function (r) { return r.key === m.key; }); }); }
   var SHORT_EFFORT = { low: "Low", medium: "Med", high: "High", "extra-high": "XHigh", max: "Max" };  // dollars per task shown before the cost chart scrolls
   var xKey = "usd";
   try { var saved = localStorage.getItem("vb_v4_axis"); if (saved && AXES[saved]) xKey = saved; } catch (e) {}
@@ -28,7 +30,7 @@
     // Columns past the cap, grouped by model: pointer text, caption text and the cheapest such level (where the line leaves the view).
     var out = [];
     MODELS.forEach(function (m) {
-      var all = COLS.filter(function (r) { return r.key === m.key; });
+      var all = plotted().filter(function (r) { return r.key === m.key; });
       var off = all.filter(function (r) { return r.usd > cap; }).sort(function (a, b) { return a.usd - b.usd; });
       if (!off.length) return;
       var lo = "$" + off[0].usd.toFixed(2), hi = "$" + off[off.length - 1].usd.toFixed(2);
@@ -43,7 +45,8 @@
   function chart() {
     // $0 on the left. The y axis is pinned; the plot scrolls sideways when the cost axis runs past CAP, so $0 to CAP keeps the full width.
     var size = window.VB_V4_SIZE || {}, W = size.W || 960, H = size.H || 520, L = 56, T = 40, B = 56, P = 12, ax = AXES[xKey];
-    var xs = COLS.map(function (r) { return r[xKey]; }), ys = COLS.map(function (r) { return r.combined; });
+    var cols = plotted();
+    var xs = cols.map(function (r) { return r[xKey]; }), ys = cols.map(function (r) { return r.combined; });
     var top = Math.max.apply(null, xs), cap = xKey === "usd" && top > CAP ? CAP : 0;
     var step = niceStep(cap || top);
     var xmax = Math.ceil(top * 1.04 / step) * step;
@@ -78,11 +81,12 @@
       }
       return [x + tries[0][0], y + tries[0][1]];
     }
-    COLS.forEach(function (r) { boxes.push({ x: X(r[xKey]) - 6, y: Y(r.combined) - 6, w: 12, h: 12 }); });  // keep labels off the dots
+    cols.forEach(function (r) { boxes.push({ x: X(r[xKey]) - 6, y: Y(r.combined) - 6, w: 12, h: 12 }); });  // keep labels off the dots
     var lines = [], names = [];
     MODELS.forEach(function (m) {
-      var pts = COLS.filter(function (r) { return r.key === m.key; }).sort(function (a, b) { return EFFORTS.indexOf(a.effort) - EFFORTS.indexOf(b.effort); });
+      var pts = cols.filter(function (r) { return r.key === m.key; }).sort(function (a, b) { return EFFORTS.indexOf(a.effort) - EFFORTS.indexOf(b.effort); });
       var col = COLORS[m.key] || "#f7f4ee";
+      if (!pts.length) return;
       if (pts.length > 1) g += '<polyline fill="none" stroke="' + col + '" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" filter="url(#v4glow)" points="' + pts.map(function (r) { return X(r[xKey]).toFixed(1) + "," + Y(r.combined).toFixed(1); }).join(" ") + '"/>';
       pts.forEach(function (r) {
         var tip = r.model + " " + LABEL[r.effort] + ": " + r.combined.toFixed(1) + ", " + ax.tip(r);
@@ -115,7 +119,7 @@
     edge = cap ? VIEW - 4 : PW;
     MODELS.forEach(function (m) {  // effort labels go last so they steer around the dots and the model names
       var col = COLORS[m.key] || "#f7f4ee";
-      COLS.filter(function (r) { return r.key === m.key; }).sort(function (a, b) { return a[xKey] - b[xKey]; }).forEach(function (r) {
+      cols.filter(function (r) { return r.key === m.key; }).sort(function (a, b) { return a[xKey] - b[xKey]; }).forEach(function (r) {
         var at = place(X(r[xKey]), Y(r.combined), SHORT[r.effort], 10, [[0, -9], [0, 17], [11, -9], [-11, -9], [0, -21], [0, 29], [22, 4], [-22, 4]]);
         g += '<text x="' + at[0].toFixed(1) + '" y="' + at[1].toFixed(1) + '" text-anchor="middle" font-size="10" fill="' + col + '" fill-opacity="0.85">' + SHORT[r.effort] + "</text>";
       });
@@ -137,7 +141,8 @@
     var c = chart();
     app.innerHTML = '<div class="v4group"><span class="v4label">X axis</span><div class="lb-toggle chart-toggle on v4modes" role="tablist" aria-label="Chart x axis">' + tabs + "</div></div>" +
       '<figure class="v4card v4chart">' + c.html + '<figcaption><span>Each line is one model through its reasoning-effort levels. The x axis starts at zero on the left, so cheaper levels sit toward the left of each line. Each dot is labelled with its effort level; hover for the exact numbers.' +
-      (c.beyond.length ? " The cost axis shows up to " + AXES.usd.fmt(CAP) + " per task; scroll the chart right for " + c.beyond.map(function (b) { return b.caption; }).join(" and ") + "." : "") + "</span></figcaption></figure>";
+      (c.beyond.length ? " The cost axis shows up to " + AXES.usd.fmt(CAP) + " per task; scroll the chart right for " + c.beyond.map(function (b) { return b.caption; }).join(" and ") + "." : "") +
+      (unplotted().length ? " " + unplotted().map(function (m) { return m.name; }).join(" and ") + " has no list price, so it is not on the cost view; choose Tokens or Minutes to see it." : "") + "</span></figcaption></figure>";
     try { localStorage.setItem("vb_v4_axis", xKey); } catch (e) {}
   }
 

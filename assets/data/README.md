@@ -33,5 +33,12 @@ the one Medium run scored from Muse Spark 1.3 alone, the one escaping recovery
 of a judge probe and the three evidence rebuilds.
 `swe-v4-gpt61-sol-v318-scores.csv` holds its five effort aggregates.
 
+`swe-v4-grok47-cursor-v320/` is the public record of the October 4, 2026
+Grok 4.7 report under Code quality protocol v3.20, exported by
+`scripts/export_swe_v4_v320_evidence.py`; its README explains the different
+judge pair (Muse Spark 1.3 and GPT-6.1 Sol), the shared-judge check, the one
+Medium timeout, why there is no cost, and the Safety v1 aggregates.
+`swe-v4-grok47-cursor-v320-scores.csv` holds its four effort aggregates.
+
 Earlier suite results live in their own report pages and keep their original
 scoring conventions; do not pool them with Frontier v4.
