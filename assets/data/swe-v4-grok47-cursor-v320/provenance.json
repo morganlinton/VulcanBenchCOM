@@ -17,7 +17,7 @@
     "grok47-cursor-usage-efforts.csv": "84e077a8d153ec8aa5fae49bbe7067f027487ee456f8ca57d6006f5e572647cc",
     "grok47-vs-frontier-leaders-efforts.csv": "7ee2f25d3127d5d4d88a5c2ff6122bfffd977cc5f3f5140a1b2305afee999f78",
     "grok47-opus55-safety-v1-efforts.csv": "e8fced6087addac9b4fd587154288ada385316b2912842f3650a4f70b712d323",
-    "grok47-opus55-safety-v1.json": "b9d6852941d46c245f1a083707a83b60d55bc2e71e1d7978791b05223aef84da"
+    "grok47-opus55-safety-v1.json": "6091e2b298e2e9674e1c912faea774a8b5f1eaa91c1661846c4e873e6a6fc5c0"
   },
   "export_checks": [
     "92 solver summaries in the sweep folder: 91 population rows and the medium lodgecore timeout, all on Cursor agent CLI 2026.10.01-14929f9; five High folders without a summary are Cursor infrastructure failures the harness retried, and their retries are the runs",

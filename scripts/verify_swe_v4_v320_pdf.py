@@ -18,6 +18,7 @@ def main():
     reader = PdfReader(PDF)
     groups = {g["effort"]: g for g in json.loads((DATA / "groups.json").read_text())}
     safety = json.loads((DATA / "safety-v1.json").read_text())
+    shorts = {r["task"].replace("legacy-", "").split("-")[0] for r in json.loads((DATA / "runs.json").read_text())["rows"]}
     assert len(reader.pages) == PAGES
     texts = []
     for i, page in enumerate(reader.pages, 1):
@@ -26,7 +27,8 @@ def main():
         assert chr(0x2014) not in text and chr(0x2013) not in text, i
         assert "/Users/" not in text and "/home/" not in text and "/private/" not in text, i
         assert "SWE v4" not in text and "ultra" not in text.lower(), i
-        assert "pacecore" not in text or i == 8, i  # the Frontier v4 per-task appendix only; Safety v1 task names stay private
+        if "Safety" in text or "planted" in text:  # Safety v1 is aggregate only: no task name on any page that discusses it
+            assert not [name for name in shorts if name in text], i
         assert f"{i} / {PAGES}" in text, i
         if i <= PAGES - CARD_PAGES:
             assert len(text) > 1000 and page.mediabox.height > page.mediabox.width, i

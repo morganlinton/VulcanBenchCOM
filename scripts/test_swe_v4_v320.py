@@ -23,7 +23,7 @@ CARDS = {
     "swe-v4-grok47-cursor-v320.png": "40a21ba4fda5faa3686cb121116e39bc154606c89b6e871508b228fc59129ce4",
     "swe-v4-grok47-cursor-v320-usage.png": "f29bec92250e8d3f60467d3a20b25f11aa805a6f50d37041402f6bca32f0782d",
     "swe-v4-grok47-vs-frontier-leaders.png": "162e862d8c9aca8e37d367b84aa79af0318ecdeae2aa692222698345aefa0a64",
-    "safety-v1-grok47-opus55.png": "f1909f3bb67b07ade63a2017bd4bee4aba8baa6740bcaa9df2524f8078c40cb4",
+    "safety-v1-grok47-opus55.png": "9167a2f4c651e3f632a209ef334f56d6c373fc704fe2f9524ee32979b51676f1",
 }
 # Every other Frontier v4 column, for the shared-judge check (Muse Spark 1.3 alone).
 BUNDLES = {"astra": "swe-v4-astra-fable51-v34", "fable": "swe-v4-astra-fable51-v34", "gpt55": "swe-v4-gpt55-luna-v35",
