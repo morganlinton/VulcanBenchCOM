@@ -24,6 +24,8 @@ CARDS = {
     "swe-v4-grok47-cursor-v320-usage.png": "f29bec92250e8d3f60467d3a20b25f11aa805a6f50d37041402f6bca32f0782d",
     "swe-v4-grok47-vs-frontier-leaders.png": "162e862d8c9aca8e37d367b84aa79af0318ecdeae2aa692222698345aefa0a64",
     "safety-v1-grok47-opus55.png": "9167a2f4c651e3f632a209ef334f56d6c373fc704fe2f9524ee32979b51676f1",
+    # VulcanRoutine results/routine-v1-grok47-card.png (commit 719876c), re-rendered without SWE-2, which left the site in #83.
+    "routine-v1-grok47.png": "cc3423c37a52ecd62cfab522a7120909fbb2e05b365cb0f067325ddd9b1e79a7",
 }
 # Every other Frontier v4 column, for the shared-judge check (Muse Spark 1.3 alone).
 BUNDLES = {"astra": "swe-v4-astra-fable51-v34", "fable": "swe-v4-astra-fable51-v34", "gpt55": "swe-v4-gpt55-luna-v35",
@@ -432,6 +434,10 @@ class Grok47BundleTests(unittest.TestCase):
         self.assertIn('src="/assets/cards/swe-v4-grok47-vs-frontier-leaders.png"', board)
         safety = self.page_html[self.page_html.index('id="safety"'):self.page_html.index('id="code-quality"')]
         self.assertIn('src="/assets/cards/safety-v1-grok47-opus55.png"', safety)
+        routine = self.page_html[self.page_html.index('id="routine"'):self.page_html.index('id="code-quality"')]
+        self.assertIn('src="/assets/cards/routine-v1-grok47.png"', routine)
+        self.assertNotIn("SWE-2", routine)
+        self.assertNotIn("Cognition", routine)
         usage = self.page_html[self.page_html.index('id="usage"'):self.page_html.index('id="board"')]
         self.assertIn('src="/assets/cards/swe-v4-grok47-cursor-v320-usage.png"', usage)
 
