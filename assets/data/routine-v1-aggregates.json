@@ -12,7 +12,8 @@
    "cache_write": 12.5,
    "output": 50
   },
-  "astra_rates_check": "matches harness/api_equivalent_costs.py"
+  "astra_rates_check": "matches harness/api_equivalent_costs.py",
+  "unpriced": "Grok 4.7 has no list price in VulcanBench and ran on the Cursor subscription; its cost is unavailable, not $0"
  },
  "code_quality": {
   "status": "judged",
@@ -25,7 +26,7 @@
   "published_submissions": 348,
   "expected_submissions": 348,
   "ready_for_publication": true,
-  "comparability": "Routine Code quality is the L1 reviewed score alone (no legacy quirks exist to recover); it is not comparable with Frontier v4 Code quality. Cells judged under a later protocol share the v3.8 rubric, controls, judge pins and weights but come from a separate judging session.",
+  "comparability": "Routine Code quality is the L1 reviewed score alone (no legacy quirks exist to recover); it is not comparable with Frontier v4 Code quality. Cells judged under a later protocol share the v3.8 rubric, controls and weights but come from a separate judging session; v3.14 (Opus 5.5) keeps v3.8's judges, Muse Spark 1.3 and Grok 4.6. v3.22 (Grok 4.7) seated GPT-6.1 Sol in place of Grok 4.6, which is not neutral for an xAI model; GPT-6.1 Sol failed the v3.22 calibration exam on two gates, so Grok 4.7's cells are judged by Muse Spark 1.3 alone.",
   "additional_records": [
    {
     "protocol": "code-quality-maintenance-v3.14",
@@ -36,6 +37,18 @@
     "failed_panels": [],
     "published_submissions": 60,
     "expected_submissions": 60,
+    "ready_for_publication": true
+   },
+   {
+    "protocol": "code-quality-maintenance-v3.22",
+    "passing_panels": [
+     "muse"
+    ],
+    "failed_panels": [
+     "sol"
+    ],
+    "published_submissions": 48,
+    "expected_submissions": 48,
     "ready_for_publication": true
    }
   ]
@@ -1436,6 +1449,170 @@
    "se_code_quality": 1.33,
    "mean_combined": 96.5,
    "se_combined": 0.45
+  },
+  {
+   "model_key": "grok47-cursor",
+   "model": "Grok 4.7",
+   "lab": "xAI",
+   "harness": "Cursor CLI",
+   "effort": "low",
+   "effort_sent": [
+    "None"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8897,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9816,
+   "median_duration_s": 64.1,
+   "mean_duration_s": 65.5482,
+   "max_duration_s": 81.432,
+   "mean_prompt_tokens": 0.0,
+   "mean_completion_tokens": 0.0,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": null,
+   "cost_basis": [
+    "unavailable-no-public-price"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2026.10.01-14929f9"
+   ],
+   "judging_protocol": "code-quality-maintenance-v3.22",
+   "judged_submissions": 12,
+   "mean_code_quality": 94.62,
+   "se_code_quality": 1.51,
+   "mean_combined": 97.29,
+   "se_combined": 0.58
+  },
+  {
+   "model_key": "grok47-cursor",
+   "model": "Grok 4.7",
+   "lab": "xAI",
+   "harness": "Cursor CLI",
+   "effort": "medium",
+   "effort_sent": [
+    "None"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8937,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9823,
+   "median_duration_s": 104.6,
+   "mean_duration_s": 109.4596,
+   "max_duration_s": 186.503,
+   "mean_prompt_tokens": 0.0,
+   "mean_completion_tokens": 0.0,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": null,
+   "cost_basis": [
+    "unavailable-no-public-price"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2026.10.01-14929f9"
+   ],
+   "judging_protocol": "code-quality-maintenance-v3.22",
+   "judged_submissions": 12,
+   "mean_code_quality": 94.27,
+   "se_code_quality": 1.54,
+   "mean_combined": 97.21,
+   "se_combined": 0.55
+  },
+  {
+   "model_key": "grok47-cursor",
+   "model": "Grok 4.7",
+   "lab": "xAI",
+   "harness": "Cursor CLI",
+   "effort": "high",
+   "effort_sent": [
+    "None"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.9036,
+   "mean_security": 0.9958,
+   "mean_total_no_judges": 0.9832,
+   "median_duration_s": 166.6,
+   "mean_duration_s": 189.4492,
+   "max_duration_s": 480.174,
+   "mean_prompt_tokens": 0.0,
+   "mean_completion_tokens": 0.0,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": null,
+   "cost_basis": [
+    "unavailable-no-public-price"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2026.10.01-14929f9"
+   ],
+   "judging_protocol": "code-quality-maintenance-v3.22",
+   "judged_submissions": 12,
+   "mean_code_quality": 94.62,
+   "se_code_quality": 1.16,
+   "mean_combined": 97.37,
+   "se_combined": 0.42
+  },
+  {
+   "model_key": "grok47-cursor",
+   "model": "Grok 4.7",
+   "lab": "xAI",
+   "harness": "Cursor CLI",
+   "effort": "extra-high",
+   "effort_sent": [
+    "None"
+   ],
+   "tasks": 12,
+   "tasks_expected": 12,
+   "complete": true,
+   "passes": 12,
+   "pass_rate": 1.0,
+   "mean_functional": 1.0,
+   "mean_quality": 0.8996,
+   "mean_security": 1.0,
+   "mean_total_no_judges": 0.9833,
+   "median_duration_s": 209.1,
+   "mean_duration_s": 241.0842,
+   "max_duration_s": 499.337,
+   "mean_prompt_tokens": 0.0,
+   "mean_completion_tokens": 0.0,
+   "mean_cached_input_tokens": 0.0,
+   "mean_cost_usd": null,
+   "cost_basis": [
+    "unavailable-no-public-price"
+   ],
+   "budget_exceeded": 0,
+   "contaminated": 0,
+   "astra_long_context_runs": 0,
+   "harness_versions": [
+    "2026.10.01-14929f9"
+   ],
+   "judging_protocol": "code-quality-maintenance-v3.22",
+   "judged_submissions": 12,
+   "mean_code_quality": 93.92,
+   "se_code_quality": 1.61,
+   "mean_combined": 97.14,
+   "se_combined": 0.55
   }
  ],
  "cheapest_adequate_effort": [
@@ -1508,6 +1685,16 @@
    "best": 96.74,
    "tolerance_points": 3.0,
    "basis": "combined score (50/8.5/8.5/33) under Code quality v3.14"
+  },
+  {
+   "model_key": "grok47-cursor",
+   "model": "Grok 4.7",
+   "effort": "low",
+   "metric": "mean_combined",
+   "value": 97.29,
+   "best": 97.37,
+   "tolerance_points": 3.0,
+   "basis": "combined score (50/8.5/8.5/33) under Code quality v3.22"
   }
  ]
 }
