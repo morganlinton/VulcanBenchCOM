@@ -34,7 +34,7 @@ class RuleTests(unittest.TestCase):
     def test_unpriced_model_is_picked_on_time(self):
         data = sample([cell("luna", "medium", 85.0, None, 200), cell("luna", "high", 86.0, None, 150), cell("luna", "max", 86.5, None, 400)])
         self.assertEqual(board.suggestions(board.rows(data))["luna"]["effort"], "high")
-        self.assertIn("n/a", board.table_html(board.rows(data), board.suggestions(board.rows(data))))
+        self.assertIn("<td>unavailable</td>", board.table_html(board.rows(data), board.suggestions(board.rows(data))))
 
     def test_incomplete_unjudged_or_flagged_data_is_refused(self):
         self.assertEqual(board.problems(sample([cell("astra", "low", 86.0, 0.3, 70)])), [])
@@ -88,6 +88,33 @@ class PublishedBoardTests(unittest.TestCase):
             table = list(csv.DictReader(source))
         self.assertEqual(len(table), len(self.rows))
         self.assertEqual(sum(1 for r in table if r["suggested_for_routine"] == "True"), len({r["key"] for r in self.rows}))
+
+    def test_grok47_cells(self):
+        grok = {r["effort"]: r for r in self.rows if r["key"] == "grok47-cursor"}
+        self.assertEqual(list(grok), ["low", "medium", "high", "extra-high"])  # Cursor offers no max level for Grok 4.7
+        self.assertTrue(all(r["passed"] == r["n"] == 12 for r in grok.values()))
+        self.assertEqual([r["combined"] for r in grok.values()], [97.29, 97.21, 97.37, 97.14])
+        self.assertEqual([r["code_quality"] for r in grok.values()], [94.62, 94.27, 94.62, 93.92])
+        self.assertEqual([round(r["seconds"] / 60, 1) for r in grok.values()], [1.1, 1.8, 3.2, 4.0])
+        self.assertTrue(all(r["protocol"] == "code-quality-maintenance-v3.22" and r["usd"] is None and r["completion_tokens"] is None
+                            for r in grok.values()))
+        pick = board.suggestions(self.rows)["grok47-cursor"]
+        self.assertEqual((pick["effort"], pick["basis"]), ("low", "time (no public price)"))
+        self.assertEqual(max(r["combined"] for r in self.rows), 97.37)  # Grok 4.7 high is the top Routine column
+        [record] = [r for r in self.data["code_quality"]["additional_records"] if r["protocol"] == "code-quality-maintenance-v3.22"]
+        self.assertEqual((record["passing_panels"], record["failed_panels"], record["published_submissions"]), (["muse"], ["sol"], 48))
+        self.assertIn("Grok 4.7 is judged under v3.22 by Muse Spark 1.3 alone", self.page)
+        self.assertIn("failed that protocol&rsquo;s calibration exam on two gates", self.page)
+        self.assertIn("lowest tested levels at 93.1 to 95.6, against Grok 4.7&rsquo;s 97.3 at Low", self.page)
+        with board.CSV.open(newline="") as source:
+            for row in csv.DictReader(source):
+                if row["model"] == "Grok 4.7":
+                    self.assertEqual((row["mean_usd"], row["mean_completion_tokens"]), ("", ""))
+        block = self.page.split(board.START, 1)[1].split(board.END, 1)[0]
+        self.assertEqual(block.count('data-model="grok47-cursor"'), 4)
+        self.assertEqual(block.count("<td>unavailable</td>"), 4)
+        self.assertNotIn("SWE-2", block)
+        self.assertNotIn("Devin", block)
 
     def test_page_order_and_no_task_content(self):
         self.assertLess(self.page.index('id="swe-v4-board"'), self.page.index('id="routine-v1-board"'))

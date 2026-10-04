@@ -33,3 +33,7 @@ GPT-5.5,OpenAI,Codex,low,True,12,12,94.8600,0.7500,87.7600,75.7,0.205500,2633.8,
 GPT-5.5,OpenAI,Codex,medium,False,12,12,94.8600,0.6200,87.8500,83.6,0.218300,2966.8,code-quality-maintenance-v3.8
 GPT-5.5,OpenAI,Codex,high,False,12,12,95.0800,0.6400,88.5400,89.9,0.230700,3427.4,code-quality-maintenance-v3.8
 GPT-5.5,OpenAI,Codex,extra-high,False,12,12,95.2400,0.6300,88.8900,110.2,0.271800,4511.6,code-quality-maintenance-v3.8
+Grok 4.7,xAI,Cursor,low,True,12,12,97.2900,0.5800,94.6200,65.5,,,code-quality-maintenance-v3.22
+Grok 4.7,xAI,Cursor,medium,False,12,12,97.2100,0.5500,94.2700,109.5,,,code-quality-maintenance-v3.22
+Grok 4.7,xAI,Cursor,high,False,12,12,97.3700,0.4200,94.6200,189.4,,,code-quality-maintenance-v3.22
+Grok 4.7,xAI,Cursor,extra-high,False,12,12,97.1400,0.5500,93.9200,241.1,,,code-quality-maintenance-v3.22

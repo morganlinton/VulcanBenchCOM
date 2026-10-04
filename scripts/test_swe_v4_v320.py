@@ -24,6 +24,8 @@ CARDS = {
     "swe-v4-grok47-cursor-v320-usage.png": "f29bec92250e8d3f60467d3a20b25f11aa805a6f50d37041402f6bca32f0782d",
     "swe-v4-grok47-vs-frontier-leaders.png": "162e862d8c9aca8e37d367b84aa79af0318ecdeae2aa692222698345aefa0a64",
     "safety-v1-grok47-opus55.png": "9167a2f4c651e3f632a209ef334f56d6c373fc704fe2f9524ee32979b51676f1",
+    # VulcanRoutine results/routine-v1-grok47-card.png (commit 719876c), re-rendered without SWE-2, which left the site in #83.
+    "routine-v1-grok47.png": "cc3423c37a52ecd62cfab522a7120909fbb2e05b365cb0f067325ddd9b1e79a7",
 }
 # Every other Frontier v4 column, for the shared-judge check (Muse Spark 1.3 alone).
 BUNDLES = {"astra": "swe-v4-astra-fable51-v34", "fable": "swe-v4-astra-fable51-v34", "gpt55": "swe-v4-gpt55-luna-v35",
@@ -311,6 +313,42 @@ class Grok47BundleTests(unittest.TestCase):
             self.assertNotIn(name, section, name)
             self.assertNotIn(name, safety_text, name)
 
+    def test_routine_section_matches_the_routine_aggregates(self):
+        data = json.loads((ROOT / "assets/data/routine-v1-aggregates.json").read_text())
+        cells = {c["effort"]: c for c in data["cells"] if c["model_key"] == "grok47-cursor"}
+        self.assertEqual(list(cells), list(EFFORTS))
+        rows = {"passed": [f'{cells[e]["passes"]}/{cells[e]["tasks"]}' for e in EFFORTS],
+                "combined": [f'{cells[e]["mean_combined"]:.2f}' for e in EFFORTS],
+                "se": [f'{cells[e]["se_combined"]:.2f}' for e in EFFORTS],
+                "code-quality": [f'{cells[e]["mean_code_quality"]:.2f}' for e in EFFORTS],
+                "minutes": [f'{cells[e]["mean_duration_s"] / 60:.1f}' for e in EFFORTS],
+                "cost": ["unavailable"] * 4}
+        for key, values in rows.items():
+            start = self.page_html.index(f'<tr data-routine="{key}">')
+            self.assertIn("".join(f"<td>{v}</td>" for v in values) + "</tr>", self.page_html[start:start + 400], key)
+        self.assertTrue(all(cells[e]["mean_cost_usd"] is None for e in EFFORTS))
+        others = [c for c in data["cells"] if c["model_key"] != "grok47-cursor"]
+        self.assertGreater(min(c["mean_combined"] for c in cells.values()), max(c["mean_combined"] for c in others))
+        order = ("low", "medium", "high", "extra-high", "max")
+        lowest = {}
+        for c in others:
+            if c["model_key"] not in lowest or order.index(c["effort"]) < order.index(lowest[c["model_key"]]["effort"]):
+                lowest[c["model_key"]] = c
+        section = html.unescape(self.page_html[self.page_html.index('id="routine"'):self.page_html.index('id="code-quality"')])
+        best_other = max(others, key=lambda c: c["mean_combined"])
+        self.assertIn(f"the next is Claude Fable 5.1 at Max, {best_other['mean_combined']:.2f}", section)
+        self.assertEqual((best_other["model_key"], best_other["effort"]), ("fable", "max"))
+        self.assertIn(f"the rest of the field scores {min(c['mean_combined'] for c in lowest.values()):.2f} to "
+                      f"{max(c['mean_combined'] for c in lowest.values()):.2f}", section)
+        for needle in ("Muse Spark 1.3 alone", "failed the calibration exam on two gates", "g04", "0.4 short", "g14", "single-panel rule",
+                       "v3.20 Frontier v4 judging is unaffected", "93.1 to 95.6", "82.5 to 89.8", "97.10 on Muse alone",
+                       "Routine and Frontier Code quality are not comparable", "/leaderboard.html#routine-v1-board"):
+            self.assertIn(needle, section, needle)
+        [record] = [r for r in data["code_quality"]["additional_records"] if r["protocol"] == "code-quality-maintenance-v3.22"]
+        self.assertEqual((record["passing_panels"], record["failed_panels"]), (["muse"], ["sol"]))
+        self.assertIn("../benchmarks/swe-v4-grok47-cursor-v320.html#routine", (ROOT / "models/grok-4-7.html").read_text())
+        self.assertIn("swe-v4-grok47-cursor-v320.html#routine</guid>", (ROOT / "feed.xml").read_text())
+
     def test_model_pages(self):
         page = (ROOT / "models/grok-4-7.html").read_text()
         for anchor in ("", "#judge-pair", "#safety"):
@@ -380,8 +418,9 @@ class Grok47BundleTests(unittest.TestCase):
                        "no Frontier v4 solver run was active during judging", "Five High tasks", "One attempt per task and level"):
             self.assertIn(needle, section, needle)
         upcoming = text[text.index('id="next"'):text.index('id="reproduce"')]
-        for needle in ("Routine v1", "v3.22", "Grok Build", "v3.21"):
+        for needle in ("Grok Build", "v3.21"):
             self.assertIn(needle, upcoming, needle)
+        self.assertNotIn("Routine", upcoming)  # Routine v1 is published in its own section now
         limits = " ".join(self.provenance["limits"])
         for needle in ("GPT-6.1 Sol rates about 6 points above Muse", "requested model", "3-hour bound", "Cursor subscription", "08:15 to 14:55 PDT"):
             self.assertIn(needle, limits, needle)
@@ -395,6 +434,10 @@ class Grok47BundleTests(unittest.TestCase):
         self.assertIn('src="/assets/cards/swe-v4-grok47-vs-frontier-leaders.png"', board)
         safety = self.page_html[self.page_html.index('id="safety"'):self.page_html.index('id="code-quality"')]
         self.assertIn('src="/assets/cards/safety-v1-grok47-opus55.png"', safety)
+        routine = self.page_html[self.page_html.index('id="routine"'):self.page_html.index('id="code-quality"')]
+        self.assertIn('src="/assets/cards/routine-v1-grok47.png"', routine)
+        self.assertNotIn("SWE-2", routine)
+        self.assertNotIn("Cognition", routine)
         usage = self.page_html[self.page_html.index('id="usage"'):self.page_html.index('id="board"')]
         self.assertIn('src="/assets/cards/swe-v4-grok47-cursor-v320-usage.png"', usage)
 

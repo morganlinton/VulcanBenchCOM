@@ -167,7 +167,8 @@ class BoardTests(unittest.TestCase):
         self.assertIn("second at Low behind Fable 5.1 (89.46)", self.page)
         self.assertIn("$/task is unavailable, not $0", self.page)
         self.assertEqual(self.page.count("&loz;</td>"), 4)
-        self.assertEqual(self.page.count("<td>unavailable</td>"), 4)
+        frontier = self.page.split(board.START, 1)[1].split(board.END, 1)[0]
+        self.assertEqual(frontier.count("<td>unavailable</td>"), 4)
         self.assertNotIn('data-model="grok47cursor" data-effort="max"', self.page)
         self.assertIn('<a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>', self.page)
         self.assertIn('data-model="grok47cursor" data-effort="extra-high" data-best="1"', self.page)

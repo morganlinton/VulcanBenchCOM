@@ -86,6 +86,7 @@
         <a class="resource" href="/assets/cards/swe-v4-grok47-cursor-v320-usage.png" download><span class="resource-kind">Card</span><span class="resource-title">Time and tokens card</span><span class="resource-meta">PNG, tasks passed, minutes and tokens by effort</span></a>
         <a class="resource" href="/assets/cards/swe-v4-grok47-vs-frontier-leaders.png" download><span class="resource-kind">Card</span><span class="resource-title">Beside the leaders</span><span class="resource-meta">PNG, with GPT-6.1 Sol, Claude Opus 5.5 and GPT-6 Astra</span></a>
         <a class="resource" href="/assets/cards/safety-v1-grok47-opus55.png" download><span class="resource-kind">Card</span><span class="resource-title">Safety v1</span><span class="resource-meta">PNG, planted notes followed, beside Claude Opus 5.5</span></a>
+        <a class="resource" href="/assets/cards/routine-v1-grok47.png" download><span class="resource-kind">Card</span><span class="resource-title">Routine v1</span><span class="resource-meta">PNG, combined score, sub-scores and minutes by effort, and the field</span></a>
         <a class="resource" href="/assets/data/swe-v4-grok47-cursor-v320/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 92 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores</span></a>
         <a class="resource" href="/assets/data/swe-v4-grok47-cursor-v320-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, four effort aggregates</span></a>
         <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-grok47-cursor-v320"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
@@ -100,11 +101,12 @@
         <a href="#usage"><span class="n">04</span>Time and tokens</a>
         <a href="#board"><span class="n">05</span>On the board</a>
         <a href="#safety"><span class="n">06</span>Safety v1</a>
-        <a href="#code-quality"><span class="n">07</span>Code quality</a>
-        <a href="#judges"><span class="n">08</span>Judges and calibration</a>
-        <a href="#run-notes"><span class="n">09</span>How it was run</a>
-        <a href="#next"><span class="n">10</span>Still to come</a>
-        <a href="#reproduce"><span class="n">11</span>Reproduction</a>
+        <a href="#routine"><span class="n">07</span>Routine v1</a>
+        <a href="#code-quality"><span class="n">08</span>Code quality</a>
+        <a href="#judges"><span class="n">09</span>Judges and calibration</a>
+        <a href="#run-notes"><span class="n">10</span>How it was run</a>
+        <a href="#next"><span class="n">11</span>Still to come</a>
+        <a href="#reproduce"><span class="n">12</span>Reproduction</a>
       </nav>
 
       <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
@@ -200,6 +202,24 @@
         </div>
       </section>
 
+      <section class="report-section" id="routine" aria-labelledby="routine-heading">
+        <h2 id="routine-heading">Grok 4.7 on VulcanBench Routine v1</h2>
+        <p>VulcanBench Routine v1 asks the everyday question: what is the cheapest effort level that is enough for an ordinary ticket? It is twelve private routine tickets on small Python packages, each admitted because a frontier model at its lowest effort finds it easy. The tickets stay private, so only per-level aggregates are published, on the <a href="/leaderboard.html#routine-v1-board">Routine v1 board</a>. Grok 4.7 ran all twelve once at each of its four Cursor levels, 48 runs, all finished.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Routine v1 results for Grok 4.7" tabindex="0"><table class="suite-results"><caption>Routine v1: Grok 4.7 in Cursor, twelve tickets per level, Code quality protocol v3.22</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th></tr></thead><tbody><tr data-routine="passed"><th scope="row">Tasks passed</th><td>12/12</td><td>12/12</td><td>12/12</td><td>12/12</td></tr><tr data-routine="combined"><th scope="row">Combined score</th><td>97.29</td><td>97.21</td><td>97.37</td><td>97.14</td></tr><tr data-routine="se"><th scope="row">Standard error</th><td>0.58</td><td>0.55</td><td>0.42</td><td>0.55</td></tr><tr data-routine="code-quality"><th scope="row">Code quality (Muse Spark 1.3)</th><td>94.62</td><td>94.27</td><td>94.62</td><td>93.92</td></tr><tr data-routine="minutes"><th scope="row">Minutes per task</th><td>1.1</td><td>1.8</td><td>3.2</td><td>4.0</td></tr><tr data-routine="cost"><th scope="row">Cost per task</th><td>unavailable</td><td>unavailable</td><td>unavailable</td><td>unavailable</td></tr></tbody></table></div>
+        <p>Every level passes every ticket, and the combined score barely moves with effort, 97.14 to 97.37, while minutes per task rise almost fourfold, from 1.1 at Low to 4.0 at Extra-high. Low is 0.08 points under the best level in a third of its time, so Low is the board&rsquo;s suggestion for Grok 4.7, picked on time because it has no list price. Grok 4.7&rsquo;s four levels are the four highest columns on the Routine v1 board; the next is Claude Fable 5.1 at Max, 96.90. At each model&rsquo;s lowest tested level, the rest of the field scores 92.50 to 94.86 against Grok 4.7&rsquo;s 97.29.</p>
+        <figure class="suite-card">
+          <a href="/assets/cards/routine-v1-grok47.png" aria-label="Open the Routine v1 card at full resolution">
+            <img src="/assets/cards/routine-v1-grok47.png" width="2400" height="2250" loading="lazy" alt="VulcanBench Routine v1: Grok 4.7 across four effort levels. Combined score 97.3 at Low, 97.2 at Medium, 97.4 at High and 97.1 at Extra-high; sub-scores flat across effort; minutes per task 1.1, 1.8, 3.2 and 4.0. A second panel shows the field at each model&rsquo;s lowest tested level: Grok 4.7 97.3, then GPT-5.5 94.9, GPT-6 Astra 94.8, GPT-5.6 Sol 94.4, Claude Fable 5.1 94.2, Claude Opus 5.5 94.2, GPT-5.6 Terra 93.1 and GPT-5.6 Luna 92.5. Exact values are in the adjacent accessible table.">
+          </a>
+          <figcaption>Whiskers show &plusmn;1 task standard error. Grok 4.7 is judged under v3.22 by Muse Spark 1.3 alone; the rest of the field by Muse Spark 1.3 and Grok 4.6 (v3.8 and v3.14). Routine Code quality is not comparable with Frontier v4 Code quality. <a href="/assets/cards/routine-v1-grok47.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <div class="suite-notes">
+          <p><strong>Judged by Muse Spark 1.3 alone.</strong> Routine v1&rsquo;s Grok 4.7 cells are judged under Code quality protocol v3.22. As on Frontier v4, Grok 4.6 sat out as not neutral for an xAI model and GPT-6.1 Sol took its seat, but this time GPT-6.1 Sol failed the calibration exam on two gates: g04, formatting is presentation, 0.4 short, and g14, one pairwise ordering. The allowance covers one gate, so the protocol&rsquo;s single-panel rule publishes from Muse Spark 1.3, which passed with no allowance used. The exam is scored on each run&rsquo;s own answers, so GPT-6.1 Sol&rsquo;s pass under v3.20 a day earlier does not carry over, and its v3.20 Frontier v4 judging is unaffected.</p>
+          <p><strong>The shared-judge check.</strong> The rest of the Routine board is judged by Muse Spark 1.3 and Grok 4.6 (v3.8, and v3.14 for Claude Opus 5.5), and Muse rates code above Grok 4.6, so a Muse-only score flatters Grok 4.7 against them. Rescoring every other column from Muse alone puts their lowest tested levels at 93.1 to 95.6, against Grok 4.7&rsquo;s 97.3 at Low, and Muse&rsquo;s review score at those levels is 82.5 to 89.8 against Grok 4.7&rsquo;s 94.6. At any level the closest is Claude Fable 5.1 at Max, 97.10 on Muse alone, just under Grok 4.7&rsquo;s weakest level, Extra-high at 97.14. Grok 4.7 stays first, by a narrower margin at the top.</p>
+          <p><strong>Routine and Frontier Code quality are not comparable.</strong> Routine tickets have no deliberate legacy quirks, so Routine Code quality is the reviewed score alone, with no intent-recovery layer. Compare Grok 4.7&rsquo;s 94 here only with other Routine columns, never with its Frontier v4 Code quality. Cost is unavailable, as on Frontier v4, and Cursor records no token counts in its run summaries, so the Routine table leaves tokens blank for Grok 4.7.</p>
+        </div>
+      </section>
+
       <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
         <h2 id="code-quality-heading">What Code quality measures</h2>
         <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
@@ -236,7 +256,7 @@
 
       <section class="report-section" id="next" aria-labelledby="next-heading">
         <h2 id="next-heading">Still to come</h2>
-        <p>Two more Grok 4.7 results are on the way. Its VulcanBench Routine v1 runs in Cursor are being judged under protocol v3.22, and will join the Routine v1 board. And the Grok Build half: Grok 4.7 in xAI&rsquo;s own Grok Build CLI on Frontier v4, judged by the same pair under v3.21, followed by a card comparing Grok 4.7 in Cursor with Grok 4.7 in Grok Build.</p>
+        <p>One more Grok 4.7 result is on the way: the Grok Build half. Grok 4.7 in xAI&rsquo;s own Grok Build CLI on Frontier v4, judged by the same pair under v3.21, followed by a card comparing Grok 4.7 in Cursor with Grok 4.7 in Grok Build.</p>
       </section>
 
       <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">

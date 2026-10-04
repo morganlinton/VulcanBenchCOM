@@ -40,7 +40,11 @@ MODELS = {
     "sol": ("GPT-5.6 Sol", "Codex", "gpt-5-6-sol", "OpenAI", "#D4FF3F"),
     "luna": ("GPT-5.6 Luna", "Codex", "gpt-5-6-luna", "OpenAI", "#A8FFD8"),
     "gpt55": ("GPT-5.5", "Codex", "gpt-5-5", "OpenAI", "#22B573"),
+    "grok47-cursor": ("Grok 4.7", "Cursor", "grok-4-7", "xAI", "#A9B8FF"),
 }
+# Cursor's run summaries record 0 tokens (the adapter does not read the stream's usage block), so these models' token
+# means in the aggregate file are not measurements; the board publishes them as blank, never 0.
+TOKENS_UNRECORDED = {"grok47-cursor"}
 TOLERANCE = 3.0  # the Frontier board's "routine" tolerance, in combined-score points
 PRIVATE_KEYS = ("task_id", "run_id", "task", "source_directory", "issue")
 
@@ -84,7 +88,7 @@ def rows(data):
             "n": c["tasks"], "passed": c["passes"], "combined": c["mean_combined"], "combined_se": c.get("se_combined"),
             "code_quality": c["mean_code_quality"],
             "protocol": c.get("judging_protocol") or "code-quality-maintenance-v3.8", "seconds": c["mean_duration_s"], "usd": c["mean_cost_usd"],
-            "completion_tokens": c["mean_completion_tokens"],
+            "completion_tokens": None if c["model_key"] in TOKENS_UNRECORDED else c["mean_completion_tokens"],
         })
     order = list(MODELS)
     out.sort(key=lambda r: (order.index(r["key"]), EFFORTS.index(r["effort"])))
@@ -114,7 +118,7 @@ def suggestions(board):
 
 
 def money(value):
-    return "n/a" if value is None else (f"${value:.3f}" if value < 0.1 else f"${value:.2f}")
+    return "unavailable" if value is None else (f"${value:.3f}" if value < 0.1 else f"${value:.2f}")
 
 
 def table_html(board, picks):
@@ -168,9 +172,13 @@ def render(data, board):
             f"{table_html(board, picks)}\n"
             '<p class="lb-context">Combined score uses the Frontier weights: 50% functional correctness from hidden tests, 8.5% lint and complexity, 8.5% security and 33% Code quality, '
             f"judged by {panels} under Code quality protocol v3.8 (Opus 5.5 under v3.14, the same protocol on its own population, judged in a separate session) with the same rubric, controls, gates and calibration exam as Frontier v4. "
+            "Grok 4.7 is judged under v3.22 by Muse Spark 1.3 alone: Grok 4.6 is not neutral for an xAI model, and GPT-6.1 Sol, seated in its place, "
+            "failed that protocol&rsquo;s calibration exam on two gates, so the single-panel rule publishes from Muse. Muse rates code above Grok 4.6, so "
+            "rescoring every other column from Muse alone puts their lowest tested levels at 93.1 to 95.6, against Grok 4.7&rsquo;s 97.3 at Low: still first. "
             "<strong>Routine and Frontier Code quality are not comparable.</strong> On Frontier v4 part of Code quality measures whether a reviewer can recover each task&rsquo;s deliberate legacy quirks; "
             "routine tickets have no such quirks by design, so the protocol&rsquo;s own pre-registered rule scores Routine Code quality from the reviewed panel alone. Compare levels and models within this table, never across the two boards. "
-            "SE is one task standard error of the combined score. Sec/task is mean wall clock. $/task is API-equivalent at list rates from the solver receipts, not a subscription bill. "
+            "SE is one task standard error of the combined score. Sec/task is mean wall clock. $/task is API-equivalent at list rates from the solver receipts, not a subscription bill; "
+            "Grok 4.7 has no list price and ran on the Cursor subscription, so its cost is unavailable, not $0, and its suggestion is made on time alone. "
             '<a href="assets/data/routine-v1-board.csv" download>Download this table as CSV</a>.</p>\n'
             "  </section>\n"
             f"{END}")
@@ -184,7 +192,7 @@ def csv_text(board, picks):
     for r in board:
         writer.writerow([r["model"], r["lab"], r["harness"], r["effort"], picks[r["key"]]["effort"] == r["effort"], r["n"], r["passed"],
                          f'{r["combined"]:.4f}', "" if r["combined_se"] is None else f'{r["combined_se"]:.4f}', f'{r["code_quality"]:.4f}',
-                         f'{r["seconds"]:.1f}', "" if r["usd"] is None else f'{r["usd"]:.6f}', f'{r["completion_tokens"]:.1f}',
+                         f'{r["seconds"]:.1f}', "" if r["usd"] is None else f'{r["usd"]:.6f}', "" if r["completion_tokens"] is None else f'{r["completion_tokens"]:.1f}',
                          r["protocol"]])
     return buffer.getvalue()
 

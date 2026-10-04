@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>Grok 4.7 on VulcanBench Routine v1</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-grok47-cursor-v320.html#routine</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-grok47-cursor-v320.html#routine</guid>
+      <pubDate>Sun, 04 Oct 2026 18:00:00 +0000</pubDate>
+      <description>Grok 4.7 joins the Routine v1 board: 48 Cursor runs on twelve private routine tickets at Low, Medium, High and Extra-high (Cursor offers no Max). Every level passes all twelve; combined score 97.29, 97.21, 97.37 and 97.14, the four highest Routine columns, in 1.1 to 4.0 minutes per task, so Low is the suggested level. Judged under Code quality v3.22 by Muse Spark 1.3 alone: GPT-6.1 Sol, seated because Grok 4.6 is not neutral for an xAI model, failed that protocol's calibration exam on two gates. Rescoring every other column from Muse alone, their lowest tested levels score 93.1 to 95.6 against Grok 4.7's 97.3. Cost unavailable, no list price. Routine and Frontier Code quality are not comparable.</description>
+    </item>
+    <item>
       <title>Grok 4.7 across every effort level | VulcanBench Frontier v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-grok47-cursor-v320.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-grok47-cursor-v320.html</guid>
