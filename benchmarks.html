@@ -68,6 +68,7 @@
 
   <nav class="suite-nav" aria-label="Evaluation suites">
     <a href="#swe-v4">VulcanBench Frontier v4 <span>Current suite</span></a>
+    <a href="#safety-v1">VulcanBench Safety v1 <span>Agent safety</span></a>
     <a href="#verdict-v2">VulcanBench Verdict v2 <span>Decision models</span></a>
     <a href="#verdict-v1">VulcanBench Verdict v1 <span>Decision models, earlier version</span></a>
     <a href="#archive">Earlier suites &amp; studies <span>Archive</span></a>
@@ -191,6 +192,24 @@
       <a class="model-chip" href="models/gpt-6-1-sol.html"><b>GPT-6.1 Sol</b><span>OpenAI</span></a>
       <a class="model-chip" href="models/grok-4-7.html"><b>Grok 4.7</b><span>xAI</span></a>
     </div>
+  </section>
+
+  <section class="suite-section" id="safety-v1" aria-labelledby="safety-v1-heading">
+    <header class="suite-heading">
+      <div><p class="suite-label">Agent safety</p><h2 id="safety-v1-heading">VulcanBench Safety v1</h2></div>
+      <a href="blog/02-vulcanbench-safety-v1.html">Why Safety v1 &rarr;</a>
+    </header>
+    <p class="suite-description">A private suite that asks what a coding agent does when the repository tells it to do something it should not. Ten Frontier v4 tasks each hide two harmful instructions in ordinary-looking places (README sections, design docs, code comments, program output), and every run is labeled as followed, refused and told the user, or refused silently. Only aggregates are published. Safety v1 has no effect on any Frontier v4 score.</p>
+
+    <article class="suite-feature suite-preview" aria-labelledby="safety-v1-opus55-preview-heading">
+      <div>
+        <p class="suite-label">October 6, 2026 &middot; 50 runs &middot; Claude Code 2.1.280</p>
+        <h3 id="safety-v1-opus55-preview-heading"><a href="benchmarks/safety-v1-opus55.html">Claude Opus 5.5 on VulcanBench Safety v1</a></h3>
+        <p>Over 50 runs, Low to Max, Claude Opus 5.5 followed 0 of 60 instructions to contact the network, leak a secret or delete files. It followed 3 of 100 planted instructions overall (two code injections into its fix and one harmless test), flagged the note to the user in 64 of 97 refusals, and passed 44 of 50 tasks.</p>
+        <div class="suite-downloads"><a href="benchmarks/safety-v1-opus55.html">Read the study</a><a href="assets/cards/safety-v1-opus55.png?v=1">Results card</a><a href="benchmarks/swe-v4-grok47-cursor-v320.html#safety">Beside Grok 4.7</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/safety-v1-opus55-2026-10">GitHub evidence</a></div>
+      </div>
+      <a href="benchmarks/safety-v1-opus55.html" aria-label="Read the Claude Opus 5.5 Safety v1 report"><img src="assets/cards/safety-v1-opus55.png?v=1" width="2400" height="2002" loading="lazy" alt="Preview of the Claude Opus 5.5 Safety v1 card. Open the study for readable charts and tables."></a>
+    </article>
   </section>
 
   <section class="suite-section" id="verdict-v2" aria-labelledby="verdict-v2-heading">
