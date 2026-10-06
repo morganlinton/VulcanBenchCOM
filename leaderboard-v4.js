@@ -12,6 +12,7 @@
     output_tokens_median: { label: "Median completion tokens per task (reasoning included)", fmt: fmtTokens, tip: function (r) { return fmtTokens(r.output_tokens_median) + " tokens per task"; } },
     minutes: { label: "Minutes per task", fmt: function (v) { return String(Math.round(v)); }, tip: function (r) { return r.minutes.toFixed(1) + " min per task"; } }
   };
+  var BETTER = { usd: "lower cost", output_tokens_median: "fewer tokens", minutes: "less time" };  // how the shaded corner reads on each x axis
   var CAP = 5;
   function plotted() { return COLS.filter(function (r) { return r[xKey] !== null && r[xKey] !== undefined; }); }  // unpriced columns sit out the cost view
   function unplotted() { return MODELS.filter(function (m) { return !plotted().some(function (r) { return r.key === m.key; }); }); }
@@ -49,6 +50,8 @@
   function shown() { var lo = ymin(); return plotted().filter(function (r) { return r.combined >= lo; }); }  // levels inside the y range
   function hidden() { var s = shown(); return MODELS.filter(function (m) { return plotted().some(function (r) { return r.key === m.key; }) && !s.some(function (r) { return r.key === m.key; }); }); }
 
+  function median(v) { var a = v.slice().sort(function (p, q) { return p - q; }), h = a.length >> 1; return a.length % 2 ? a[h] : (a[h - 1] + a[h]) / 2; }
+
   function chart() {
     // $0 on the left. The y axis is pinned; the plot scrolls sideways when the cost axis runs past CAP, so $0 to CAP keeps the full width.
     var size = window.VB_V4_SIZE || {}, W = size.W || 960, H = size.H || 600, L = 56, T = 40, B = 56, P = 12, ax = AXES[xKey];
@@ -66,6 +69,11 @@
     var yaxis = '<rect x="0" y="0" width="' + L + '" height="' + H + '" fill="' + BG + '"/>';
     var g = '<defs><clipPath id="v4clip"><rect x="0" y="' + (T - 10) + '" width="' + PW + '" height="' + (H - T - B + 16) + '"/></clipPath></defs>' +
       '<rect x="0" y="0" width="' + PW + '" height="' + H + '" fill="' + BG + '"/>';
+    // The attractive corner: above the median score of every level on this x axis, below their median x (the same corner at either y range).
+    var mx = median(all.map(function (r) { return r[xKey]; })), my = median(all.map(function (r) { return r.combined; }));
+    var zone = { x: X(0), y: Y(hi), w: X(mx) - X(0), h: Y(my) - Y(hi) };
+    g += '<rect class="v4zone" x="' + zone.x.toFixed(1) + '" y="' + zone.y.toFixed(1) + '" width="' + zone.w.toFixed(1) + '" height="' + zone.h.toFixed(1) + '" fill="#2b8a3e" fill-opacity="0.07"/>' +
+      '<path d="M' + (zone.x + zone.w).toFixed(1) + " " + zone.y.toFixed(1) + "V" + (zone.y + zone.h).toFixed(1) + "H" + zone.x.toFixed(1) + '" fill="none" stroke="#2b8a3e" stroke-opacity="0.55" stroke-width="1.2" stroke-dasharray="5 4"/>';
     for (var y = lo; y <= hi; y += ystep) {
       g += '<line x1="0" y1="' + Y(y).toFixed(1) + '" x2="' + (PW - R + 8) + '" y2="' + Y(y).toFixed(1) + '" stroke="' + GRID + '" stroke-opacity="' + (y === lo ? 0.35 : 0.08) + '"/>';
       yaxis += '<text x="' + (L - 10) + '" y="' + (Y(y) + 4).toFixed(1) + '" text-anchor="end" font-size="12" fill="' + SOFT + '">' + y + "</text>";
@@ -78,6 +86,9 @@
     g += '<text x="' + ((VIEW - room) / 2).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="12.5" fill="#3d3a35">' + esc(ax.label) + "</text>";
 
     var boxes = [], edge = cap ? VIEW - 4 : PW;  // labels stay inside the first view
+    var zl = "Most attractive", zs = "higher score, " + BETTER[xKey];
+    g += '<text x="' + (zone.x + 8) + '" y="' + (zone.y + 17).toFixed(1) + '" font-size="12" font-weight="600" fill="#1f6e31">' + zl + '</text><text x="' + (zone.x + 8) + '" y="' + (zone.y + 31).toFixed(1) + '" font-size="10.5" fill="#1f6e31">' + zs + "</text>";
+    boxes.push({ x: zone.x + 4, y: zone.y + 3, w: Math.max(zl.length * 12, zs.length * 10.5) * 0.62 + 8, h: 32 });  // keep the corner label clear
     function hits(b, set) { return b.x < 0 || b.x + b.w > edge || b.y < T - 12 || b.y + b.h > H - B + 4 || set.some(function (q) { return b.x < q.x + q.w && b.x + b.w > q.x && b.y < q.y + q.h && b.y + b.h > q.y; }); }
     function place(x, y, text, size, tries, anchor, set, force) {
       // The first free spot from tries; null when every spot collides, unless force (then the first try).
@@ -228,7 +239,7 @@
     var c = chart(), gone = hidden();
     app.innerHTML = '<div class="v4controls"><div class="v4group"><span class="v4label">X axis</span><div class="lb-toggle chart-toggle on v4modes" role="tablist" aria-label="Chart x axis">' + tabs + "</div></div>" +
       '<div class="v4group"><span class="v4label">Y axis</span><div class="lb-toggle chart-toggle on v4modes" role="group" aria-label="Chart y axis range">' + zooms + "</div></div></div>" +
-      '<figure class="v4card v4chart">' + legend() + '<div class="v4plotwrap">' + c.html + '<div class="v4tip" hidden></div></div><figcaption><span>Each line is one model through its reasoning-effort levels. The x axis starts at zero on the left, so cheaper levels sit toward the left of each line. Hover or tap a model in the key to pick out its line with every effort level labelled; hover a dot for the exact numbers.' +
+      '<figure class="v4card v4chart">' + legend() + '<div class="v4plotwrap">' + c.html + '<div class="v4tip" hidden></div></div><figcaption><span>Each line is one model through its reasoning-effort levels. The x axis starts at zero on the left, so cheaper levels sit toward the left of each line. Hover or tap a model in the key to pick out its line with every effort level labelled; hover a dot for the exact numbers. The shaded corner holds the levels that score above the median of every level on this axis while using less than their median ' + { usd: "cost", output_tokens_median: "tokens", minutes: "time" }[xKey] + ': the best place to start.' +
       (c.beyond.length ? " The cost axis shows up to " + AXES.usd.fmt(CAP) + " per task; scroll the chart right for " + c.beyond.map(function (b) { return b.caption; }).join(" and ") + "." : "") +
       (gone.length ? " " + gone.map(function (m) { return m.name; }).join(" and ") + (gone.length > 1 ? " have" : " has") + " no level at " + ZOOM_MIN + " or above, so " + (gone.length > 1 ? "they sit" : "it sits") + " out of this view; choose All scores to see " + (gone.length > 1 ? "them" : "it") + "." : "") +
       (unplotted().length ? " " + unplotted().map(function (m) { return m.name; }).join(" and ") + " has no list price, so it is not on the cost view; choose Tokens or Minutes to see it." : "") + "</span></figcaption></figure>";
