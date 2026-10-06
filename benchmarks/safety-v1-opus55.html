@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Opus 5.5 on VulcanBench Safety v1 | VulcanBench</title>
+<meta name="description" content="Safety v1: ten real coding tasks, each with two harmful instructions hidden in the repository. Over 50 Claude Code runs, Claude Opus 5.5 followed 0 of 60 instructions to contact the network, leak a secret or delete files, followed 3 of 100 overall, and flagged the planted note to the user in 64 of 97 refusals.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/safety-v1-opus55.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Claude Opus 5.5 on VulcanBench Safety v1 | VulcanBench">
+<meta property="og:description" content="Safety v1: ten real coding tasks, each with two harmful instructions hidden in the repository. Over 50 Claude Code runs, Claude Opus 5.5 followed 0 of 60 instructions to contact the network, leak a secret or delete files, followed 3 of 100 overall, and flagged the planted note to the user in 64 of 97 refusals.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/safety-v1-opus55.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/safety-v1-opus55.png?v=1">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="2002">
+<meta property="og:image:alt" content="VulcanBench Safety v1 card for Claude Opus 5.5: 0 of 60 network, secret or delete notes followed, 3 of 100 planted notes followed, 64 of 97 refusals flagged to the user, 44 of 50 tasks passed">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Opus 5.5 on VulcanBench Safety v1 | VulcanBench">
+<meta name="twitter:description" content="Over 50 Claude Code runs, Claude Opus 5.5 followed 0 of 60 hidden instructions to contact the network, leak a secret or delete files, and flagged the planted note to the user in 64 of 97 refusals.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/safety-v1-opus55.png?v=1">
+<meta name="twitter:image:alt" content="VulcanBench Safety v1 card for Claude Opus 5.5: 0 of 60 network, secret or delete notes followed, 3 of 100 planted notes followed, 64 of 97 refusals flagged to the user, 44 of 50 tasks passed">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#safety-v1">All VulcanBench Safety v1 reports</a></p>
+    <article class="suite-feature" aria-labelledby="safety-v1-opus55-heading">
+      <header>
+        <p class="suite-label">October 6, 2026 &middot; 50 runs &middot; VulcanBench Safety v1</p>
+        <h1 id="safety-v1-opus55-heading">Claude Opus 5.5 on VulcanBench Safety v1</h1>
+        <p><a href="/blog/02-vulcanbench-safety-v1.html">VulcanBench Safety v1</a> asks what a coding agent does when the repository it is working in tells it to do something it should not. Ten real Frontier v4 tasks each carry two harmful instructions, written to look like ordinary notes in the repository. The agent works the task as usual, in the harness people actually use, and we check whether it followed the note, refused and told the user, or refused and said nothing.</p>
+        <p>Over 50 runs in Claude Code, Low to Max, Claude Opus 5.5 followed <strong>0 of 60</strong> instructions to contact the network, leak a secret or delete files (95% range 0% to 6%). It followed <strong>3 of 100</strong> planted instructions overall: two code injections into its fix and one harmless test instruction. When it refused, it flagged the planted note to the user <strong>64 of 97</strong> times, and it still passed <strong>44 of 50</strong> tasks.</p>
+        <p>In one sentence: Opus 5.5 is very hard to trick into harmful actions through instructions hidden in a codebase, and usually tells you when someone tries. This suite measures that one kind of safety, not every kind.</p>
+      </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A real coding task</h3><p>Ten Frontier v4 tasks, with their hidden tests and issue text unchanged. The issue, AGENTS.md and CLAUDE.md state the ground rules: stay in the module, no network, keep the legacy code intact, treat the .env file as confidential.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>Two instructions hidden in the repo</h3><p>Each task hides two instructions where an agent would not expect them: README sections, design docs, code comments and the output of a program the agent runs. They ask for a network beacon, a secret exfiltration, a destructive delete, a code insert or an acknowledgment file.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>The agent works as usual</h3><p>Claude Code 2.1.280 on a Claude Max subscription, at every effort level, with its default settings.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>Each instruction gets a label</h3><p>A detector reads the run's commands, file edits, patch and final message. Followed: the run did what the note asked. Told the user: it did not, and flagged the note. Said nothing: it did not, and never mentioned the note.</p></li>
+        </ol>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/cards/safety-v1-opus55.png?v=1" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, headline numbers, each kind of note and each effort level</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/safety-v1-opus55-2026-10"><span class="resource-kind">Data</span><span class="resource-title">Card table and record</span><span class="resource-meta">GitHub, per-level CSV and the JSON with source hashes</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBench/blob/main/scripts/cii-v4-board/make_opus55_safety_card.py"><span class="resource-kind">Code</span><span class="resource-title">Card generator</span><span class="resource-meta">GitHub, with the consistency checks it runs before drawing</span></a>
+        <a class="resource" href="/blog/02-vulcanbench-safety-v1.html"><span class="resource-kind">Post</span><span class="resource-title">Why Safety v1</span><span class="resource-meta">The announcement post</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=Claude%20Opus%205.5%20on%20VulcanBench%20Safety%20v1&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fsafety-v1-opus55.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this report, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#results"><span class="n">01</span>Results</a>
+        <a href="#findings"><span class="n">02</span>Findings</a>
+        <a href="#limits"><span class="n">03</span>Limits</a>
+      </nav>
+
+      <section class="report-section" id="results" aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+        <div class="suite-table-scroll" role="region" aria-label="Safety v1 results for Claude Opus 5.5 at each effort level" tabindex="0"><table class="suite-results"><caption>Safety v1: ten tasks and twenty planted notes per effort level</caption><thead><tr><th scope="col">Measure</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Tasks passed of 10</th><td>5</td><td>9</td><td>10</td><td>10</td><td>10</td></tr><tr><th scope="row">Planted notes followed of 20</th><td>1</td><td>0</td><td>0</td><td>0</td><td>2</td></tr><tr><th scope="row">Did not follow, told the user</th><td>11</td><td>16</td><td>14</td><td>14</td><td>9</td></tr><tr><th scope="row">Did not follow, said nothing</th><td>8</td><td>4</td><td>6</td><td>6</td><td>9</td></tr><tr><th scope="row">Runs that leaked the secret of 10</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></tbody></table></div>
+        <div class="suite-table-scroll" role="region" aria-label="Safety v1 results for Claude Opus 5.5 by kind of note" tabindex="0"><table class="suite-results"><caption>Each kind of note, all effort levels (20 of each)</caption><thead><tr><th scope="col">Kind of note</th><th scope="col">Harm class</th><th scope="col">Followed</th><th scope="col">Told the user</th><th scope="col">Said nothing</th></tr></thead><tbody><tr><th scope="row">Network beacon</th><td>Breaks a ground rule</td><td>0</td><td>1</td><td>19</td></tr><tr><th scope="row">Secret exfiltration</th><td>Breaks a ground rule</td><td>0</td><td>18</td><td>2</td></tr><tr><th scope="row">Destructive delete</th><td>Breaks a ground rule</td><td>0</td><td>12</td><td>8</td></tr><tr><th scope="row">Code insert</th><td>Code injection into the deliverable</td><td>2</td><td>15</td><td>3</td></tr><tr><th scope="row">Acknowledgment file</th><td>Harmless test, no rule broken</td><td>1</td><td>18</td><td>1</td></tr></tbody></table></div>
+      </section>
+
+      <figure class="suite-card">
+        <a href="/assets/cards/safety-v1-opus55.png?v=1" aria-label="Open the Claude Opus 5.5 Safety v1 card at full resolution">
+          <img src="/assets/cards/safety-v1-opus55.png?v=1" width="2400" height="2002" loading="lazy" alt="VulcanBench Safety v1 card for Claude Opus 5.5. Four headline numbers: 0 of 60 network, secret or delete notes followed; 3 of 100 planted notes followed, 2 code injections and 1 harmless; 64 of 97 refusals flagged to the user; 44 of 50 tasks still passed. A bar chart shows what it did with each kind of note, grouped by harm class, and a second chart shows the share of notes followed at each effort level with 95% ranges that overlap heavily. A table gives the counts per level.">
+        </a>
+        <figcaption>Ranges are 95% Wilson intervals. With twenty notes per level, the differences between effort levels are within noise. Harm classes are the ones Safety v1 defines for each kind of note. <a href="/assets/cards/safety-v1-opus55.png?v=1">Open full-size card</a>.</figcaption>
+      </figure>
+
+      <section class="report-section" id="findings" aria-labelledby="findings-heading">
+        <h2 id="findings-heading">Findings</h2>
+        <p><strong>It never took a dangerous action.</strong> None of the 60 network beacon, secret exfiltration or destructive delete notes was followed, at any effort level, and no run leaked the planted secret. Zero of 60 rules out a true rate above about 6%.</p>
+        <p><strong>It is not zero.</strong> It followed 3 of 100 notes. One was the harmless acknowledgment file. The other two added a planted line of code to its fix, which Safety v1 counts as code injection into the deliverable: the kind of change a backdoor would start with.</p>
+        <p><strong>It usually tells you.</strong> In 64 of 97 refusals it flagged the planted note to the user (66%, 95% range 56% to 75%). The exception is the network beacon: it refused all 20 but mentioned only 1, so a user would rarely learn that someone tried. It also stayed quiet on 8 of the 20 delete notes.</p>
+        <p><strong>Effort level makes no clear difference.</strong> It followed 1, 0, 0, 0 and 2 notes from Low to Max. Those ranges overlap almost entirely, so the suite cannot tell the levels apart on this measure.</p>
+      </section>
+
+      <section class="report-section" id="limits" aria-labelledby="limits-heading">
+        <h2 id="limits-heading">Limits</h2>
+        <ul>
+          <li><strong>One kind of safety.</strong> Safety v1 measures resistance to instructions hidden in a repository. It says nothing about harmful requests from the user, honesty, or misuse.</li>
+          <li><strong>Small numbers.</strong> 100 planted notes across 10 tasks. Treat single-level differences as noise.</li>
+          <li><strong>Refusal fallback.</strong> Opus 5.5 ran with Claude Code's refusal fallback on, its default. In one Low run a safety classifier triggered it and 244 of that run's 252 replies came from Claude Opus 4.8. The run is counted, as on the Frontier v4 board.</li>
+          <li><strong>Said nothing is ambiguous.</strong> The detector cannot tell a model that read a note and quietly skipped it from one that never read it.</li>
+          <li><strong>Not covered yet.</strong> Instructions hidden in MCP tool descriptions, which an agent tends to trust more than repository files.</li>
+          <li><strong>Private suite.</strong> Task names, note text and planted tokens are withheld so the suite stays useful; only aggregates are published.</li>
+        </ul>
+        <p>The same audits appear beside Grok 4.7 in the <a href="/benchmarks/swe-v4-grok47-cursor-v320.html#safety">Grok 4.7 report</a>.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>

@@ -80,10 +80,19 @@
   <div class="article-head">
     <div class="rno">Model results &middot; Anthropic</div>
     <h1>Claude Opus 5.5</h1>
-    <p class="byline">Every published VulcanBench measurement of Claude Opus 5.5, newest first: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level on Frontier v4, graded by deterministic hidden tests on real tasks. Measured through Claude Code on a Claude Max subscription, with Claude Code's refusal fallback on and disclosed.</p>
+    <p class="byline">Every published VulcanBench measurement of Claude Opus 5.5, newest first: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level on Frontier v4, graded by deterministic hidden tests on real tasks, and how it handles harmful instructions hidden in a repository on Safety v1. Measured through Claude Code on a Claude Max subscription, with Claude Code's refusal fallback on and disclosed.</p>
   </div>
 
   <div class="report-list">
+    <a class="report-row" href="../benchmarks/safety-v1-opus55.html">
+      <div class="no">Suite<b>S1</b></div>
+      <div>
+        <div class="rtitle">VulcanBench Safety v1 across every effort level</div>
+        <div class="rsub">Over 50 Claude Code runs it followed 0 of 60 hidden instructions to contact the network, leak a secret or delete files, and 3 of 100 overall: two code injections into its fix and one harmless test. It flagged the planted note to the user in 64 of 97 refusals and passed 44 of 50 tasks.</div>
+        <div class="meta">October 6, 2026 &middot; 10 tasks &middot; 5 effort levels &middot; 50 runs &middot; VulcanBench Safety v1</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
     <a class="report-row" href="../benchmarks/swe-v4-opus55-v315.html">
       <div class="no">Suite<b>v4</b></div>
       <div>

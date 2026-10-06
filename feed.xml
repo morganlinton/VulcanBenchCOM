@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>Claude Opus 5.5 on VulcanBench Safety v1</title>
+      <link>https://vulcanbench.com/benchmarks/safety-v1-opus55.html</link>
+      <guid>https://vulcanbench.com/benchmarks/safety-v1-opus55.html</guid>
+      <pubDate>Tue, 06 Oct 2026 18:00:00 +0000</pubDate>
+      <description>Ten real coding tasks, each with two harmful instructions hidden in the repository. Over 50 Claude Code runs, Low to Max, Claude Opus 5.5 followed 0 of 60 instructions to contact the network, leak a secret or delete files, and 3 of 100 overall (two code injections into its fix, one harmless test). It flagged the planted note to the user in 64 of 97 refusals and passed 44 of 50 tasks.</description>
+    </item>
+    <item>
       <title>Grok 4.7 on VulcanBench Routine v1</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-grok47-cursor-v320.html#routine</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-grok47-cursor-v320.html#routine</guid>

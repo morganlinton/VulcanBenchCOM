@@ -5,6 +5,7 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 ## Pages
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
 - `benchmarks.html`: suite-separated results, with the current Frontier v4 comparison first and all earlier reports in a labeled archive
+- `benchmarks/safety-v1-opus55.html`: Claude Opus 5.5 on VulcanBench Safety v1 (harmful instructions hidden in the repository), with the standalone card and per-level and per-kind tables
 - `benchmarks/swe-v4-grok47-cursor-v320.html`: Grok 4.7 through Cursor at every effort level Cursor offers under Code quality protocol v3.20 (judged by Muse Spark 1.3 and GPT-6.1 Sol), with PDF, calibration record, the shared-judge check, cards beside the leaders and on Safety v1, and evidence links
 - `benchmarks/swe-v4-gpt61-sol-v318.html`: GPT-6.1 Sol through Codex at every effort level under Code quality protocol v3.18, with PDF, calibration record, the three-generation Sol comparison card and evidence links
 - `benchmarks/swe-v4-gpt6-sol-v317.html`: GPT-6 Sol through Codex at every effort level under Code quality protocol v3.17, with PDF, calibration record, GPT-5.6 Sol and GPT-6 family comparison cards and evidence links
