@@ -135,7 +135,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#FF7A3D", "opus55": "#FFB347", "astra": "#00FF9D", "terra": "#00C9B1", "luna": "#A8FFD8", "gpt55": "#22B573", "sol": "#D4FF3F", "gpt6luna": "#9BE564", "gpt6sol": "#39FF14", "gpt61sol": "#00FF66", "grok47cursor": "#A9B8FF"}  # Anthropic oranges; OpenAI greens, brightest for the newest; xAI pale blue
+COLORS = {"fable": "#E8590C", "opus55": "#A61E4D", "astra": "#0CA678", "terra": "#1098AD", "luna": "#E64980", "gpt55": "#6B7280", "sol": "#C77C02", "gpt6luna": "#9C36B5", "gpt6sol": "#8F9A00", "gpt61sol": "#2B8A3E", "grok47cursor": "#3B5BDB"}  # one distinct hue per model, dark enough to read on the white chart and page; Anthropic in warm reds
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}

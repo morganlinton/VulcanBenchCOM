@@ -861,19 +861,41 @@ section[id] { scroll-margin-top: 90px; }
 .v4se::before, .v4se::after { content: ""; position: absolute; top: -4px; width: 1px; height: 9px; background: #1c1a17; }
 .v4se::before { left: -1px; } .v4se::after { right: -1px; }
 #v4board tr[hidden] { display: none; }
-.v4chart { margin-top: 14px; padding: 12px 12px 14px; background: #0e0e0c; border-color: #0e0e0c; border-radius: 10px; }
+.v4chart { margin-top: 14px; padding: 14px 14px 14px; background: #fff; border-color: rgba(28,26,23,0.14); border-radius: 10px; }
 .v4chart svg { border-radius: 6px; }
 .v4chart figcaption { margin-top: 10px; }
+.v4controls { display: flex; flex-wrap: wrap; gap: 4px 28px; }
+.v4legend { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.v4key { display: inline-flex; align-items: center; font-family: var(--mono); font-size: 12px; color: #1c1a17; background: #fff; border: 1px solid rgba(28,26,23,0.18); border-radius: 999px; padding: 4px 10px 4px 8px; cursor: pointer; }
+.v4key:hover, .v4key:focus-visible { border-color: #1c1a17; }
+.v4key.on { background: #1c1a17; color: #fff; border-color: #1c1a17; }
+.v4key.on .v4dot { box-shadow: 0 0 0 2px #fff; }
+.v4key[disabled] { opacity: 0.4; cursor: default; }
+.v4key.v4clear { border-style: dashed; color: #6f6a62; }
+.v4plotwrap { position: relative; }
 .v4frame { display: flex; align-items: flex-start; }
 .v4frame .v4yaxis { flex: none; border-radius: 6px 0 0 6px; }
-.v4scroll { flex: none; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-color: #5a5650 #0e0e0c; }
+.v4scroll { flex: none; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-color: #c9c4ba #fff; }
 .v4scroll svg { max-width: none; border-radius: 0 6px 6px 0; }
-.v4scroll:focus-visible { outline: 2px solid #f7f4ee; outline-offset: 2px; }
-.v4chart figcaption span { color: #a8a39a; }
+.v4scroll:focus-visible { outline: 2px solid #1c1a17; outline-offset: 2px; }
+.v4plot .v4m, .v4plot .v4auto { transition: opacity 0.15s; }
+.v4plot .v4eff { display: none; }
+.v4plot .v4m { cursor: pointer; }
+.v4plot.focus .v4m { opacity: 0.12; }
+.v4plot.focus .v4m.on { opacity: 1; }
+.v4plot.focus .v4m.on .v4eff { display: inline; }
+.v4plot.focus .v4auto { opacity: 0; }
+.v4tip { position: absolute; z-index: 2; pointer-events: none; display: flex; flex-direction: column; gap: 1px; padding: 6px 9px; background: #1c1a17; color: #fff; border-radius: 6px; font-family: var(--mono); font-size: 12px; white-space: nowrap; box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
+.v4tip[hidden] { display: none; }
+.v4tip span { color: #d8d3c8; }
+.v4chart figcaption span { color: #6f6a62; }
 .v4app .v4group { margin-top: 4px; }
 @media (max-width: 760px) {
   .v4grid, .v4strip { grid-template-columns: 1fr; }
   .v4card .bc-row { grid-template-columns: 1fr; }
+  .v4legend { gap: 4px; }
+  .v4key { font-size: 10.5px; padding: 3px 8px 3px 6px; }
+  .v4key .v4dot { width: 8px; height: 8px; margin-right: 4px; }
 }
 
 /* SWE v4 board: effort you need */
