@@ -12,22 +12,22 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GPT-6.1 Sol coding benchmark results | VulcanBench</title>
-<meta name="description" content="Every VulcanBench measurement of GPT-6.1 Sol: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.">
-<link rel="canonical" href="https://vulcanbench.com/models/gpt-6-1-sol.html">
+<title>Claude Sonnet 5.5 coding benchmark results | VulcanBench</title>
+<meta name="description" content="Every VulcanBench measurement of Claude Sonnet 5.5: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.">
+<link rel="canonical" href="https://vulcanbench.com/models/claude-sonnet-5-5.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="VulcanBench">
-<meta property="og:title" content="GPT-6.1 Sol coding benchmark results | VulcanBench">
-<meta property="og:description" content="Every VulcanBench measurement of GPT-6.1 Sol: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.">
-<meta property="og:url" content="https://vulcanbench.com/models/gpt-6-1-sol.html">
+<meta property="og:title" content="Claude Sonnet 5.5 coding benchmark results | VulcanBench">
+<meta property="og:description" content="Every VulcanBench measurement of Claude Sonnet 5.5: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.">
+<meta property="og:url" content="https://vulcanbench.com/models/claude-sonnet-5-5.html">
 <meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GPT-6.1 Sol coding benchmark results | VulcanBench">
-<meta name="twitter:description" content="Every VulcanBench measurement of GPT-6.1 Sol: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.">
+<meta name="twitter:title" content="Claude Sonnet 5.5 coding benchmark results | VulcanBench">
+<meta name="twitter:description" content="Every VulcanBench measurement of Claude Sonnet 5.5: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.">
 <meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
 <meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,9 +39,9 @@
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "GPT-6.1 Sol coding benchmark results",
-  "description": "Every VulcanBench measurement of GPT-6.1 Sol: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.",
-  "url": "https://vulcanbench.com/models/gpt-6-1-sol.html",
+  "name": "Claude Sonnet 5.5 coding benchmark results",
+  "description": "Every VulcanBench measurement of Claude Sonnet 5.5: real tasks graded by deterministic hidden tests, with cost, tokens and time beside accuracy.",
+  "url": "https://vulcanbench.com/models/claude-sonnet-5-5.html",
   "publisher": {
     "@type": "Organization",
     "name": "VulcanBench",
@@ -78,45 +78,45 @@
 
 <div class="wrap">
   <div class="article-head">
-    <div class="rno">Model results &middot; OpenAI</div>
-    <h1>GPT-6.1 Sol</h1>
-    <p class="byline">Every published VulcanBench measurement of GPT-6.1 Sol, newest first: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level, graded by deterministic hidden tests on real tasks. Measured through the Codex CLI on a ChatGPT subscription. GPT-6.1 Sol is a newer model than <a href="gpt-6-sol.html">GPT-6 Sol</a> and <a href="gpt-5-6-sol.html">GPT-5.6 Sol</a>, which have their own pages.</p>
+    <div class="rno">Model results &middot; Anthropic</div>
+    <h1>Claude Sonnet 5.5</h1>
+    <p class="byline">Every published VulcanBench measurement of Claude Sonnet 5.5, newest first: combined score, Code quality, runtime, tokens and Claude Code&rsquo;s list-price cost at every effort level on Frontier v4, graded by deterministic hidden tests on real tasks. Measured through Claude Code on a Claude Max subscription, with Claude Code&rsquo;s refusal fallback on (no run used it). For the earlier Claude Sonnet 5, see <a href="claude-sonnet-5.html">its own page</a>; <a href="claude-opus-5-5.html">Claude Opus 5.5</a>, the other Claude 5.5 model on the board, has its own page too.</p>
   </div>
 
   <div class="report-list">
+    <a class="report-row" href="../benchmarks/swe-v4-sonnet55-v323.html">
+      <div class="no">Suite<b>v4</b></div>
+      <div>
+        <div class="rtitle">Claude Sonnet 5.5 across every effort level</div>
+        <div class="rsub">In Claude Code across five effort levels: combined score 81.63 at Low, 84.10 at Medium, 86.79 at High, 90.20 at Extra-high and 92.02 at Max. Tasks passed 15, 17, 20, 22 and 23 of 23; $2.39 to $5.52 a task. Judge versions and the pre-tagged-worktree sweep disclosed.</div>
+        <div class="meta">October 8, 2026 &middot; 23 tasks &middot; 5 effort levels &middot; 115 runs of Claude Sonnet 5.5 &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.23</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
     <a class="report-row" href="../benchmarks/swe-v4-sonnet55-vs-frontier.html">
       <div class="no">Suite<b>v4</b></div>
       <div>
         <div class="rtitle">Claude Sonnet 5.5 vs Claude Opus 5.5 vs GPT-6.1 Sol</div>
-        <div class="rsub">The three models side by side at every effort level on the same 23 tasks and judges: combined score with &plusmn;1 SE, Code quality, tasks solved, cost and minutes per task. GPT-6.1 Sol solves 20 to 23 tasks at $0.31 to $0.46 a task, the cheapest and fastest of the three.</div>
+        <div class="rsub">The three models side by side at every effort level on the same 23 tasks and judges: combined score with &plusmn;1 SE, Code quality, tasks solved, cost and minutes per task. Sonnet 5.5 solves 15 to 23 tasks at $2.39 to $5.52 a task.</div>
         <div class="meta">October 8, 2026 &middot; 23 tasks &middot; 5 effort levels &middot; 345 runs &middot; VulcanBench Frontier v4</div>
       </div>
       <div class="arrow">&rarr;</div>
     </a>
-    <a class="report-row" href="../benchmarks/swe-v4-gpt61-sol-v318.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div>
-        <div class="rtitle">GPT-6.1 Sol across every effort level</div>
-        <div class="rsub">In Codex across five effort levels: combined score 86.22 at Low, 86.44 at Medium, 88.23 at High, 88.78 at Extra-high and 88.35 at Max. Tasks passed 20, 22, 23, 23 and 23 of 23, with every hidden test passed from High up; Code quality 70.25 to 74.99; 6.9 to 15.4 minutes per task. Every cell is judged on 23 runs.</div>
-        <div class="meta">October 1, 2026 &middot; 23 tasks &middot; 5 effort levels &middot; 115 runs of GPT-6.1 Sol &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.18</div>
-      </div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="../benchmarks/swe-v4-gpt61-sol-v318.html#cost">
+    <a class="report-row" href="../benchmarks/swe-v4-sonnet55-v323.html#cost">
       <div class="no">Suite<b>v4</b></div>
       <div>
         <div class="rtitle">Cost and tokens across effort levels</div>
-        <div class="rsub">$0.31 to $0.46 per task at list API rates and 0.91M to 1.62M raw tokens per task across the five effort levels; the whole sweep prices at $44.33 for 115 runs, $0.39 per task.</div>
-        <div class="meta">October 1, 2026 &middot; API-equivalent estimates at list rates, solver inference only &middot; VulcanBench Frontier v4</div>
+        <div class="rsub">Claude Code&rsquo;s own list-price total per run, because Anthropic&rsquo;s page gives two cache-read prices for Sonnet 5.5. $2.88, $3.00, $2.39, $3.38 and $5.52 per task from Low to Max; the whole sweep priced at $394.77 for 115 runs.</div>
+        <div class="meta">October 8, 2026 &middot; API-equivalent estimates, solver inference only &middot; VulcanBench Frontier v4</div>
       </div>
       <div class="arrow">&rarr;</div>
     </a>
-    <a class="report-row" href="../benchmarks/swe-v4-gpt61-sol-v318.html#sol-family">
+    <a class="report-row" href="../benchmarks/swe-v4-sonnet55-v323.html#compared">
       <div class="no">Suite<b>v4</b></div>
       <div>
-        <div class="rtitle">Three generations of Sol</div>
-        <div class="rsub">GPT-6.1 Sol leads GPT-6 Sol and GPT-5.6 Sol at every effort level on combined score, tasks passed and cost per task, at 14% to 30% of GPT-6 Sol's cost per task. On the Frontier v4 board its best level ranks 13th of 49 columns, below Fable 5.1, Opus 5.5 and GPT-6 Astra, mainly on Code quality.</div>
-        <div class="meta">October 1, 2026 &middot; comparison card &middot; VulcanBench Frontier v4</div>
+        <div class="rtitle">Beside Claude Opus 5.5 and Claude Fable 5.1</div>
+        <div class="rsub">Combined score, tasks passed, Code quality, cost and minutes at every level for the three Claude columns on Frontier v4, each judged in its own protocol run with the same rubric and judges.</div>
+        <div class="meta">October 8, 2026 &middot; VulcanBench Frontier v4</div>
       </div>
       <div class="arrow">&rarr;</div>
     </a>
@@ -124,9 +124,9 @@
 
   <section>
     <div class="section-label">Next</div>
-    <h2>How would GPT-6.1 Sol do on your stack?</h2>
+    <h2>How would Claude Sonnet 5.5 do on your stack?</h2>
     <div class="prose">
-      <p>Public results answer "which model is stronger on this suite." Whether GPT-6.1 Sol belongs in
+      <p>Public results answer "which model is stronger on this suite." Whether Claude Sonnet 5.5 belongs in
       <em>your</em> routing table depends on your languages, your codebases, and your task mix, that gets measured, not
       guessed. Grading rules are in the <a href="../methodology.html">methodology</a>.</p>
     </div>

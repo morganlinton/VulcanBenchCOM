@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Sonnet 5.5 vs Claude Opus 5.5 vs GPT-6.1 Sol | VulcanBench</title>
+<meta name="description" content="Claude Sonnet 5.5, Claude Opus 5.5 and GPT-6.1 Sol on the same 23 VulcanBench Frontier v4 tasks at every effort level: combined score, Code quality, tasks solved, cost and time per task, judged by the same neutral panel. Sonnet 5.5 solves 15 to 23 tasks at $2.39 to $5.52; Opus 5.5 17 to 23 at $1.70 to $8.75; GPT-6.1 Sol 20 to 23 at $0.31 to $0.46.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-sonnet55-vs-frontier.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="VulcanBench Frontier v4: Claude Sonnet 5.5 vs Claude Opus 5.5 vs GPT-6.1 Sol">
+<meta property="og:description" content="Claude Sonnet 5.5, Claude Opus 5.5 and GPT-6.1 Sol on the same 23 VulcanBench Frontier v4 tasks at every effort level: combined score, Code quality, tasks solved, cost and time per task, judged by the same neutral panel. Sonnet 5.5 solves 15 to 23 tasks at $2.39 to $5.52; Opus 5.5 17 to 23 at $1.70 to $8.75; GPT-6.1 Sol 20 to 23 at $0.31 to $0.46.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-sonnet55-vs-frontier.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-sonnet55-vs-frontier.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="2445">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: Claude Sonnet 5.5, Claude Opus 5.5 and GPT-6.1 Sol, combined score and cost per task at every effort level, with tasks passed and fallback share">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VulcanBench Frontier v4: Claude Sonnet 5.5 vs Claude Opus 5.5 vs GPT-6.1 Sol">
+<meta name="twitter:description" content="Claude Sonnet 5.5, Claude Opus 5.5 and GPT-6.1 Sol on the same 23 VulcanBench Frontier v4 tasks at every effort level: combined score, Code quality, tasks solved, cost and time per task, judged by the same neutral panel. Sonnet 5.5 solves 15 to 23 tasks at $2.39 to $5.52; Opus 5.5 17 to 23 at $1.70 to $8.75; GPT-6.1 Sol 20 to 23 at $0.31 to $0.46.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-sonnet55-vs-frontier.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: Claude Sonnet 5.5, Claude Opus 5.5 and GPT-6.1 Sol, combined score and cost per task at every effort level, with tasks passed and fallback share">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="frontier-heading">
+      <header>
+        <p class="suite-label">VulcanBench Frontier v4 &middot; October 8, 2026 &middot; 345 runs &middot; three models, five effort levels</p>
+        <h1 id="frontier-heading">Claude Sonnet 5.5 vs Claude Opus 5.5 vs GPT-6.1 Sol</h1>
+        <p>Three current frontier coding models on the same 23 VulcanBench Frontier v4 tasks, once per task at each of five effort levels, Low to Max, 115 runs each. Every number on this page comes from each model&rsquo;s own published report; nothing was re-run or re-judged. Combined score is 50% functional correctness from hidden tests, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by the same two judges, Muse Spark 1.3 and Grok 4.6, neutral for both labs. Read the <a href="#caveats">methods and caveats</a> before quoting a small gap.</p>
+      </header>
+      <div class="report-resources" aria-label="Card and data downloads">
+        <a class="resource" href="/assets/cards/swe-v4-sonnet55-vs-frontier.png" download><span class="resource-kind">Card</span><span class="resource-title">The three models at every level</span><span class="resource-meta">PNG, combined score, cost, passes and fallback share</span></a>
+        <a class="resource" href="#data"><span class="resource-kind">Data</span><span class="resource-title">Get the data</span><span class="resource-meta">Every run record and judge protocol behind this page</span></a>
+        <a class="resource" href="/benchmarks/swe-v4-sonnet55-v323.html"><span class="resource-kind">Report</span><span class="resource-title">Claude Sonnet 5.5 report</span><span class="resource-meta">Full results and disclosures</span></a>
+        <a class="resource" href="/benchmarks/swe-v4-opus55-v315.html"><span class="resource-kind">Report</span><span class="resource-title">Claude Opus 5.5 report</span><span class="resource-meta">Full results and fallback detail</span></a>
+        <a class="resource" href="/benchmarks/swe-v4-gpt61-sol-v318.html"><span class="resource-kind">Report</span><span class="resource-title">GPT-6.1 Sol report</span><span class="resource-meta">Full results and PDF</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=Claude%20Sonnet%205.5%20vs%20Claude%20Opus%205.5%20vs%20GPT-6.1%20Sol%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-sonnet55-vs-frontier.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this comparison, ready to post</span></a>
+      </div>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-sonnet55-vs-frontier.png" aria-label="Open the three-model comparison card at full resolution">
+          <img src="/assets/cards/swe-v4-sonnet55-vs-frontier.png" width="2400" height="2445" fetchpriority="high" alt="Claude Sonnet 5.5, Claude Opus 5.5 and GPT-6.1 Sol on VulcanBench Frontier v4 at every effort level: combined score with one standard error whiskers, cost per task, and a table of tasks passed, cost and refusal-fallback share for each model and level. Exact values are in the table below.">
+        </a>
+        <figcaption>Whiskers show &plusmn;1 task standard error. Each model is read as its own report reads it: the Claude columns at Claude Code&rsquo;s own list-price cost, GPT-6.1 Sol at API-equivalent list prices. <a href="/assets/cards/swe-v4-sonnet55-vs-frontier.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <nav class="report-contents" aria-label="Page sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#findings"><span class="n">01</span>What we found</a>
+        <a href="#by-level"><span class="n">02</span>Every level, side by side</a>
+        <a href="#fallback"><span class="n">03</span>Refusal fallback</a>
+        <a href="#caveats"><span class="n">04</span>Methods and caveats</a>
+        <a href="#data"><span class="n">05</span>Get the data</a>
+      </nav>
+
+      <section class="report-section" id="findings" aria-labelledby="findings-heading">
+        <h2 id="findings-heading">What we found</h2>
+        <div class="effort-choices">
+          <div><h3>Highest score</h3><p>Sonnet 5.5 at Max: 92.02 &plusmn; 0.35</p><p>Sonnet 5.5&rsquo;s best edges Opus 5.5&rsquo;s best (91.11 &plusmn; 0.57 at High, judged on 22 runs) by about 0.9 points, roughly 1.4 combined standard errors: ahead on the point estimate, not a clear win. Both are clearly ahead of GPT-6.1 Sol&rsquo;s best, 88.78 &plusmn; 0.40 at Extra-high. Sonnet 5.5 also has the steepest effort curve of the three, 81.63 at Low to 92.02 at Max and 15 to 23 tasks, and is the lowest of the three on combined score at Low, Medium and High.</p></div>
+          <div><h3>Tasks solved</h3><p>Out of 23, Low to Max: Sonnet 5.5 15, 17, 20, 22, 23; Opus 5.5 17, 23, 22, 22, 21; GPT-6.1 Sol 20, 22, 23, 23, 23</p><p>GPT-6.1 Sol solves the most tasks at Low, High and Extra-high. Opus 5.5 solves all 23 at Medium. At Max, Sonnet 5.5 and GPT-6.1 Sol both solve all 23 and Opus 5.5 solves 21. Sonnet 5.5 solves the fewest from Low to High and ties Opus 5.5 at Extra-high.</p></div>
+          <div><h3>Cost per task</h3><p>Sonnet 5.5 $2.39 to $5.52 &middot; Opus 5.5 $1.70 to $8.75 &middot; GPT-6.1 Sol $0.31 to $0.46</p><p>GPT-6.1 Sol is by far the cheapest: 7 to 12 times less than Sonnet 5.5 at every level, and 5 to 19 times less than Opus 5.5. Sonnet 5.5 costs 70% more than Opus 5.5 at Low and about the same at Medium, then 18% to 37% less from High up. The cost bases differ; see the <a href="#caveats">caveats</a>.</p></div>
+          <div><h3>Time per task</h3><p>GPT-6.1 Sol is the fastest at every level</p><p>GPT-6.1 Sol takes 6.9 to 15.4 minutes a task. Sonnet 5.5 is the slowest at every level except High, where it beats Opus 5.5 (14.8 against 21.4 minutes); at Max both Claude models take about 38 minutes.</p></div>
+        </div>
+        <p>Code quality follows the same climb: Sonnet 5.5 rates lowest of the three from Low to High (61.67 to 70.84), between the other two at Extra-high (75.78, against 79.98 for Opus 5.5 and 74.99 for GPT-6.1 Sol) and highest at Max (81.72, against 79.77 and 73.80). In short, Sonnet 5.5 at Max ($5.52 a task) and Opus 5.5 at High ($3.27) give the two highest scores here, too close to separate firmly, with Opus 5.5 at Medium next (90.86, $2.84). GPT-6.1 Sol&rsquo;s best is 2.3 to 3.2 points lower, at $0.43 a task and the shortest runtime. Sonnet 5.5 needs high effort to keep up: below Extra-high it trails both.</p>
+        <p>The whole sweep of 115 runs cost $394.77 for Sonnet 5.5, $475.33 for Opus 5.5 and $44.33 for GPT-6.1 Sol, and took 44.1, 42.9 and 22.0 hours of solver time.</p>
+      </section>
+
+      <details class="suite-details" id="by-level" open>
+        <summary>Every level, side by side</summary>
+        <p id="by-level-note">One row per model at each effort level. Combined score is the mean over the judged runs, with &plusmn;1 sample standard error across tasks and the number of judged runs (n). Code quality is out of 100. Passed counts all 23 runs. Cost and minutes are means per task over all 23 runs; their standard errors are in each model&rsquo;s bundle.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Three models at every effort level, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="by-level-note">
+            <caption>VulcanBench Frontier v4: Claude Sonnet 5.5, Claude Opus 5.5 and GPT-6.1 Sol at every effort level</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined</th><th scope="col">&plusmn;1 SE</th><th scope="col">Judged n</th><th scope="col">Code quality</th><th scope="col">Passed</th><th scope="col">$/task</th><th scope="col">Min/task</th></tr></thead>
+            <tbody class="cmp-level">
+              <tr data-model="sonnet55" data-effort="low"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Low</td><td>81.63</td><td>&plusmn;1.38</td><td>23</td><td>61.67</td><td>15/23</td><td>$2.88</td><td>20.0</td></tr>
+              <tr data-model="opus55" data-effort="low"><th scope="row"><a href="/models/claude-opus-5-5.html">Claude Opus 5.5</a> / Claude Code</th><td>Low</td><td>86.36</td><td>&plusmn;1.30</td><td>23</td><td>72.53</td><td>17/23</td><td>$1.70</td><td>13.7</td></tr>
+              <tr data-model="gpt61sol" data-effort="low"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Low</td><td>86.22</td><td>&plusmn;0.82</td><td>23</td><td>70.79</td><td>20/23</td><td>$0.31</td><td>6.9</td></tr>
+            </tbody>
+            <tbody class="cmp-level">
+              <tr data-model="sonnet55" data-effort="medium"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Medium</td><td>84.10</td><td>&plusmn;1.20</td><td>23</td><td>65.35</td><td>17/23</td><td>$3.00</td><td>20.8</td></tr>
+              <tr data-model="opus55" data-effort="medium"><th scope="row"><a href="/models/claude-opus-5-5.html">Claude Opus 5.5</a> / Claude Code</th><td>Medium</td><td>90.86</td><td>&plusmn;0.64</td><td>23</td><td>77.32</td><td>23/23</td><td>$2.84</td><td>18.6</td></tr>
+              <tr data-model="gpt61sol" data-effort="medium"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Medium</td><td>86.44</td><td>&plusmn;0.78</td><td>23</td><td>70.25</td><td>22/23</td><td>$0.40</td><td>10.6</td></tr>
+            </tbody>
+            <tbody class="cmp-level">
+              <tr data-model="sonnet55" data-effort="high"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>High</td><td>86.79</td><td>&plusmn;1.15</td><td>23</td><td>70.84</td><td>20/23</td><td>$2.39</td><td>14.8</td></tr>
+              <tr data-model="opus55" data-effort="high"><th scope="row"><a href="/models/claude-opus-5-5.html">Claude Opus 5.5</a> / Claude Code</th><td>High</td><td>91.11</td><td>&plusmn;0.57</td><td>22</td><td>77.99</td><td>22/23</td><td>$3.27</td><td>21.4</td></tr>
+              <tr data-model="gpt61sol" data-effort="high"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>High</td><td>88.23</td><td>&plusmn;0.40</td><td>23</td><td>73.67</td><td>23/23</td><td>$0.33</td><td>10.2</td></tr>
+            </tbody>
+            <tbody class="cmp-level">
+              <tr data-model="sonnet55" data-effort="extra-high"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Extra-high</td><td>90.20</td><td>&plusmn;0.57</td><td>23</td><td>75.78</td><td>22/23</td><td>$3.38</td><td>21.6</td></tr>
+              <tr data-model="opus55" data-effort="extra-high"><th scope="row"><a href="/models/claude-opus-5-5.html">Claude Opus 5.5</a> / Claude Code</th><td>Extra-high</td><td>90.68</td><td>&plusmn;1.10</td><td>23</td><td>79.98</td><td>22/23</td><td>$4.11</td><td>20.7</td></tr>
+              <tr data-model="gpt61sol" data-effort="extra-high"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Extra-high</td><td>88.78</td><td>&plusmn;0.40</td><td>23</td><td>74.99</td><td>23/23</td><td>$0.43</td><td>15.4</td></tr>
+            </tbody>
+            <tbody class="cmp-level">
+              <tr data-model="sonnet55" data-effort="max"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Max</td><td>92.02</td><td>&plusmn;0.35</td><td>23</td><td>81.72</td><td>23/23</td><td>$5.52</td><td>38.0</td></tr>
+              <tr data-model="opus55" data-effort="max"><th scope="row"><a href="/models/claude-opus-5-5.html">Claude Opus 5.5</a> / Claude Code</th><td>Max</td><td>90.22</td><td>&plusmn;1.02</td><td>23</td><td>79.77</td><td>21/23</td><td>$8.75</td><td>37.5</td></tr>
+              <tr data-model="gpt61sol" data-effort="max"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Max</td><td>88.35</td><td>&plusmn;0.33</td><td>23</td><td>73.80</td><td>23/23</td><td>$0.46</td><td>14.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <section class="report-section" id="fallback" aria-labelledby="fallback-heading">
+        <h2 id="fallback-heading">Refusal fallback</h2>
+        <p>When a safeguard classifier refuses a turn, Claude Code can finish the session on another model. Both Claude columns ran with that fallback on, following Artificial Analysis&rsquo;s Default Fallback convention, and every run counts. Codex has no refusal fallback.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Refusal fallback by level" tabindex="0"><table class="suite-results"><caption>Runs with turns from a fallback model, and the fallback model&rsquo;s share of replies, n=23 runs per cell</caption><thead><tr><th scope="col">Model</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr data-fallback="sonnet55"><th scope="row">Claude Sonnet 5.5</th><td>none</td><td>none</td><td>none</td><td>none</td><td>none</td></tr><tr data-fallback="opus55"><th scope="row">Claude Opus 5.5 (Opus 4.8 replies)</th><td>0 of 23 runs, 0.0% of replies</td><td>3 of 23 runs, 6.4% of replies</td><td>7 of 23 runs, 20.9% of replies</td><td>8 of 23 runs, 32.4% of replies</td><td>12 of 23 runs, 47.8% of replies</td></tr><tr data-fallback="gpt61sol"><th scope="row">GPT-6.1 Sol</th><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td></tr></tbody></table></div>
+        <p>Sonnet 5.5 never fell back: every reply in every run came from <code>claude-sonnet-5-5</code>. Opus 5.5&rsquo;s higher levels partly measure Opus 4.8, and at Max nearly half its replies came from it; its cost includes the fallback model&rsquo;s usage.</p>
+      </section>
+
+      <section class="report-section" id="caveats" aria-labelledby="caveats-heading">
+        <h2 id="caveats-heading">Methods and caveats</h2>
+        <ul>
+          <li><strong>Same tasks, same rubric, same judges.</strong> All three ran the same 23 Frontier v4 tasks, one attempt per task and level, inside a flat 3-hour bound, and none timed out. Code quality was judged under one rubric by Muse Spark 1.3 (Meta) and Grok 4.6 (xAI), neutral for both Anthropic and OpenAI.</li>
+          <li><strong>Separate judging sessions.</strong> Sonnet 5.5 was judged under protocol v3.23, Opus 5.5 under v3.15 and GPT-6.1 Sol under v3.18. Each applies the same rubric, controls, gates and weights to its own population, and each judge retook the calibration exam every time.</li>
+          <li><strong>Cost bases differ.</strong> The two Claude columns use Claude Code&rsquo;s own list-price total per run. GPT-6.1 Sol is API-equivalent at list prices, recomputed from its token ledger, while its runs used a ChatGPT Pro subscription. None of these is a bill.</li>
+          <li><strong>Harnesses differ.</strong> Sonnet 5.5 ran on Claude Code 2.1.291 to 2.1.293, Opus 5.5 on Claude Code 2.1.280 and GPT-6.1 Sol on Codex 0.159.0, so small gaps between columns are harness confounded. These runs measure a model-and-harness pair, not a bare model.</li>
+          <li><strong>Refusal fallback.</strong> Opus 5.5 ran with Claude Code&rsquo;s refusal fallback on, and its fallback share per level is shown <a href="#fallback">above</a>. Sonnet 5.5 had it on and never used it. Codex has no fallback.</li>
+          <li><strong>Short cells.</strong> Opus 5.5 at High is judged on 22 of 23 runs: on depotcore a safeguard stop left an empty patch, so there was no code to review; the run counts as failed and is priced. GPT-6.1 Sol at Medium includes one run, paddockcore, scored from Muse Spark 1.3 alone because Grok 4.6&rsquo;s review of it had no valid response.</li>
+          <li><strong>Sonnet 5.5 disclosures.</strong> The Sonnet sweep predates the harness&rsquo;s tagged-worktree rule and was admitted to judging through a committed task hash bridge, with task content verified identical to the frozen suite. Its judge settings are identical to the original v3.3 and v3.4 protocols, Muse Spark 1.3 ran the same binary, and Grok 4.6 ran through a newer Cursor CLI (2026.10.01) than the v3.3 round (2026.09.02), with the same model id; Cursor now labels it &ldquo;Grok 4.6 Medium&rdquo; rather than the frozen &ldquo;Cursor Grok 4.6 Medium&rdquo;, a rename the judging wrapper accepts. Details are in the <a href="/benchmarks/swe-v4-sonnet55-v323.html#run-notes">Sonnet 5.5 report</a>.</li>
+          <li><strong>Standard errors</strong> describe task sampling across 23 tasks, not judge uncertainty or repeated runs, and are not a significance test. No human rated anything; Code quality is model judgment for a human reader. Frontier Code quality is never compared with Routine v1 Code quality.</li>
+        </ul>
+        <p>Every column also sits on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> beside the other models judged under the same rubric.</p>
+      </section>
+
+      <section class="report-section" id="data" aria-labelledby="data-heading">
+        <h2 id="data-heading">Get the data</h2>
+        <p>Every number above can be recomputed from public files. Each bundle holds every run&rsquo;s scores, both judges&rsquo; sub-scores, tokens and cost, the per-level aggregates, the calibration record and the exact judge protocol text.</p>
+        <ul>
+          <li><strong>Claude Sonnet 5.5:</strong> <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-sonnet55-v323">evidence bundle</a> (<a href="/assets/data/swe-v4-sonnet55-v323/runs.csv">runs.csv</a>, <a href="/assets/data/swe-v4-sonnet55-v323-scores.csv">scores by level</a>), <a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/swe-v4-sonnet55-2026-10">harness results folder</a>, <a href="https://github.com/morganlinton/vulcanbench-sonnet55-traces">redacted agent traces</a>.</li>
+          <li><strong>Claude Opus 5.5:</strong> <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-opus55-v315">evidence bundle</a> (<a href="/assets/data/swe-v4-opus55-v315/runs.csv">runs.csv</a>), <a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/swe-v4-opus55-2026-09">harness results folder</a>, <a href="https://github.com/morganlinton/vulcanbench-opus55-traces">redacted agent traces</a>.</li>
+          <li><strong>GPT-6.1 Sol:</strong> <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt61-sol-v318">evidence bundle</a> (<a href="/assets/data/swe-v4-gpt61-sol-v318/runs.csv">runs.csv</a>, <a href="/assets/data/swe-v4-gpt61-sol-v318-scores.csv">scores by level</a>), <a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/swe-v4-gpt61-sol-2026-09">harness results folder</a>.</li>
+          <li><strong>All Frontier v4 columns:</strong> <a href="/assets/data/swe-v4-board.csv">the leaderboard as CSV</a>.</li>
+        </ul>
+        <p>Withheld for every model: raw prompts and responses, submitted patches, and the quirk answer keys, which describe hidden-test behaviour.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>

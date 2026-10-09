@@ -73,6 +73,30 @@
       "best": false
     },
     {
+      "model": "Sonnet 5.5",
+      "lab": "Anthropic",
+      "harness": "Claude Code",
+      "slug": "claude-sonnet-5-5",
+      "key": "sonnet55",
+      "effort": "max",
+      "n": 23,
+      "combined": 92.01838297137644,
+      "combined_se": 0.35460818870632677,
+      "code_quality": 81.71579820048198,
+      "passed": 23,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 37.97560072463768,
+      "usd": 5.519631326086957,
+      "raw_tokens": 14110533.347826088,
+      "output_tokens_median": 157122,
+      "output_tokens_mean": 172441.60869565216,
+      "report": "benchmarks/swe-v4-sonnet55-v323.html",
+      "protocol": "code-quality-maintenance-v3.23",
+      "rank": 4,
+      "best": true
+    },
+    {
       "model": "Fable 5.1",
       "lab": "Anthropic",
       "harness": "Claude Code",
@@ -93,7 +117,7 @@
       "output_tokens_mean": 101244.08695652174,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 4,
+      "rank": 5,
       "best": true
     },
     {
@@ -117,7 +141,7 @@
       "output_tokens_mean": 56707.260869565216,
       "report": "benchmarks/swe-v4-opus55-v315.html",
       "protocol": "code-quality-maintenance-v3.15",
-      "rank": 5,
+      "rank": 6,
       "best": true
     },
     {
@@ -141,7 +165,7 @@
       "output_tokens_mean": 46207,
       "report": "benchmarks/swe-v4-opus55-v315.html",
       "protocol": "code-quality-maintenance-v3.15",
-      "rank": 6,
+      "rank": 7,
       "best": false
     },
     {
@@ -165,7 +189,7 @@
       "output_tokens_mean": 144967.52173913043,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 7,
+      "rank": 8,
       "best": false
     },
     {
@@ -189,7 +213,7 @@
       "output_tokens_mean": 69891.82608695653,
       "report": "benchmarks/swe-v4-opus55-v315.html",
       "protocol": "code-quality-maintenance-v3.15",
-      "rank": 8,
+      "rank": 9,
       "best": false
     },
     {
@@ -213,7 +237,31 @@
       "output_tokens_mean": 136790.47826086957,
       "report": "benchmarks/swe-v4-opus55-v315.html",
       "protocol": "code-quality-maintenance-v3.15",
-      "rank": 9,
+      "rank": 10,
+      "best": false
+    },
+    {
+      "model": "Sonnet 5.5",
+      "lab": "Anthropic",
+      "harness": "Claude Code",
+      "slug": "claude-sonnet-5-5",
+      "key": "sonnet55",
+      "effort": "extra-high",
+      "n": 23,
+      "combined": 90.20370271033315,
+      "combined_se": 0.5683769023186424,
+      "code_quality": 75.78477105898054,
+      "passed": 22,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 21.594560869565218,
+      "usd": 3.3753583217391303,
+      "raw_tokens": 8943798.608695652,
+      "output_tokens_median": 66659,
+      "output_tokens_mean": 98734,
+      "report": "benchmarks/swe-v4-sonnet55-v323.html",
+      "protocol": "code-quality-maintenance-v3.23",
+      "rank": 11,
       "best": false
     },
     {
@@ -237,7 +285,7 @@
       "output_tokens_mean": 92556.30434782608,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 10,
+      "rank": 12,
       "best": false
     },
     {
@@ -261,7 +309,7 @@
       "output_tokens_mean": 105501.56521739131,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 11,
+      "rank": 13,
       "best": false
     },
     {
@@ -285,7 +333,7 @@
       "output_tokens_mean": 49185.13043478261,
       "report": "benchmarks/swe-v4-grok47-cursor-v320.html",
       "protocol": "code-quality-maintenance-v3.20",
-      "rank": 12,
+      "rank": 14,
       "best": false
     },
     {
@@ -309,7 +357,7 @@
       "output_tokens_mean": 17863.260869565216,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 13,
+      "rank": 15,
       "best": true
     },
     {
@@ -333,7 +381,7 @@
       "output_tokens_mean": 14013.91304347826,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 14,
+      "rank": 16,
       "best": false
     },
     {
@@ -357,7 +405,7 @@
       "output_tokens_mean": 85756.56521739131,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 15,
+      "rank": 17,
       "best": false
     },
     {
@@ -381,7 +429,7 @@
       "output_tokens_mean": 53547.17391304348,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 16,
+      "rank": 18,
       "best": true
     },
     {
@@ -405,7 +453,7 @@
       "output_tokens_mean": 16303.391304347826,
       "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
       "protocol": "code-quality-maintenance-v3.18",
-      "rank": 17,
+      "rank": 19,
       "best": true
     },
     {
@@ -429,7 +477,7 @@
       "output_tokens_mean": 19278.652173913044,
       "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
       "protocol": "code-quality-maintenance-v3.18",
-      "rank": 18,
+      "rank": 20,
       "best": false
     },
     {
@@ -453,7 +501,7 @@
       "output_tokens_mean": 10854.04347826087,
       "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
       "protocol": "code-quality-maintenance-v3.18",
-      "rank": 19,
+      "rank": 21,
       "best": false
     },
     {
@@ -477,7 +525,7 @@
       "output_tokens_mean": 8196.739130434782,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 20,
+      "rank": 22,
       "best": false
     },
     {
@@ -501,7 +549,7 @@
       "output_tokens_mean": 5901.826086956522,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 21,
+      "rank": 23,
       "best": false
     },
     {
@@ -525,7 +573,7 @@
       "output_tokens_mean": 6381.652173913043,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 22,
+      "rank": 24,
       "best": false
     },
     {
@@ -549,7 +597,7 @@
       "output_tokens_mean": 29211.043478260868,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 23,
+      "rank": 25,
       "best": true
     },
     {
@@ -573,8 +621,32 @@
       "output_tokens_mean": 54959.34782608696,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 24,
+      "rank": 26,
       "best": true
+    },
+    {
+      "model": "Sonnet 5.5",
+      "lab": "Anthropic",
+      "harness": "Claude Code",
+      "slug": "claude-sonnet-5-5",
+      "key": "sonnet55",
+      "effort": "high",
+      "n": 23,
+      "combined": 86.79234424488554,
+      "combined_se": 1.1497535039289453,
+      "code_quality": 70.8384212954371,
+      "passed": 20,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 14.819935507246377,
+      "usd": 2.3904229565217396,
+      "raw_tokens": 6768098.0869565215,
+      "output_tokens_median": 37279,
+      "output_tokens_mean": 63666.782608695656,
+      "report": "benchmarks/swe-v4-sonnet55-v323.html",
+      "protocol": "code-quality-maintenance-v3.23",
+      "rank": 27,
+      "best": false
     },
     {
       "model": "GPT-5.6 Sol",
@@ -597,7 +669,7 @@
       "output_tokens_mean": 25339.17391304348,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 25,
+      "rank": 28,
       "best": false
     },
     {
@@ -621,7 +693,7 @@
       "output_tokens_mean": 9641.130434782608,
       "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
       "protocol": "code-quality-maintenance-v3.18",
-      "rank": 26,
+      "rank": 29,
       "best": false
     },
     {
@@ -645,7 +717,7 @@
       "output_tokens_mean": 29314.521739130436,
       "report": "benchmarks/swe-v4-opus55-v315.html",
       "protocol": "code-quality-maintenance-v3.15",
-      "rank": 27,
+      "rank": 30,
       "best": false
     },
     {
@@ -669,7 +741,7 @@
       "output_tokens_mean": 6773.739130434783,
       "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
       "protocol": "code-quality-maintenance-v3.18",
-      "rank": 28,
+      "rank": 31,
       "best": false
     },
     {
@@ -693,7 +765,7 @@
       "output_tokens_mean": 43580.739130434784,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 29,
+      "rank": 32,
       "best": false
     },
     {
@@ -717,7 +789,7 @@
       "output_tokens_mean": 27088.260869565216,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 30,
+      "rank": 33,
       "best": false
     },
     {
@@ -741,8 +813,32 @@
       "output_tokens_mean": 110535.30434782608,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 31,
+      "rank": 34,
       "best": true
+    },
+    {
+      "model": "Sonnet 5.5",
+      "lab": "Anthropic",
+      "harness": "Claude Code",
+      "slug": "claude-sonnet-5-5",
+      "key": "sonnet55",
+      "effort": "medium",
+      "n": 23,
+      "combined": 84.09558964730921,
+      "combined_se": 1.1952028504688428,
+      "code_quality": 65.35004767959313,
+      "passed": 17,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 20.821991304347826,
+      "usd": 3.002213504347826,
+      "raw_tokens": 9492336.956521738,
+      "output_tokens_median": 35404,
+      "output_tokens_mean": 69085.82608695653,
+      "report": "benchmarks/swe-v4-sonnet55-v323.html",
+      "protocol": "code-quality-maintenance-v3.23",
+      "rank": 35,
+      "best": false
     },
     {
       "model": "GPT-5.6 Terra",
@@ -765,7 +861,7 @@
       "output_tokens_mean": 52972.565217391304,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 32,
+      "rank": 36,
       "best": false
     },
     {
@@ -789,7 +885,7 @@
       "output_tokens_mean": 45157.47826086957,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 33,
+      "rank": 37,
       "best": false
     },
     {
@@ -813,7 +909,31 @@
       "output_tokens_mean": 25212.434782608696,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 34,
+      "rank": 38,
+      "best": false
+    },
+    {
+      "model": "Sonnet 5.5",
+      "lab": "Anthropic",
+      "harness": "Claude Code",
+      "slug": "claude-sonnet-5-5",
+      "key": "sonnet55",
+      "effort": "low",
+      "n": 23,
+      "combined": 81.62571683968206,
+      "combined_se": 1.3817743078828375,
+      "code_quality": 61.66833824936591,
+      "passed": 15,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 19.954818840579712,
+      "usd": 2.876154660869566,
+      "raw_tokens": 9020436.304347826,
+      "output_tokens_median": 29515,
+      "output_tokens_mean": 67281.17391304347,
+      "report": "benchmarks/swe-v4-sonnet55-v323.html",
+      "protocol": "code-quality-maintenance-v3.23",
+      "rank": 39,
       "best": false
     },
     {
@@ -837,7 +957,7 @@
       "output_tokens_mean": 78868.63157894737,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 35,
+      "rank": 40,
       "best": false
     },
     {
@@ -861,7 +981,7 @@
       "output_tokens_mean": 32666.17391304348,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 36,
+      "rank": 41,
       "best": false
     },
     {
@@ -885,7 +1005,7 @@
       "output_tokens_mean": 68218.17391304347,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 37,
+      "rank": 42,
       "best": false
     },
     {
@@ -909,7 +1029,7 @@
       "output_tokens_mean": 107518.85714285714,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 38,
+      "rank": 43,
       "best": true
     },
     {
@@ -933,7 +1053,7 @@
       "output_tokens_mean": 52640.47826086957,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 39,
+      "rank": 44,
       "best": true
     },
     {
@@ -957,7 +1077,7 @@
       "output_tokens_mean": 33233.391304347824,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 40,
+      "rank": 45,
       "best": false
     },
     {
@@ -981,7 +1101,7 @@
       "output_tokens_mean": 56749.17391304348,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 41,
+      "rank": 46,
       "best": false
     },
     {
@@ -1005,7 +1125,7 @@
       "output_tokens_mean": 45403.82608695652,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 42,
+      "rank": 47,
       "best": false
     },
     {
@@ -1029,7 +1149,7 @@
       "output_tokens_mean": 19983.478260869564,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 43,
+      "rank": 48,
       "best": false
     },
     {
@@ -1053,7 +1173,7 @@
       "output_tokens_mean": 21682.869565217392,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 44,
+      "rank": 49,
       "best": false
     },
     {
@@ -1077,7 +1197,7 @@
       "output_tokens_mean": 20601.217391304348,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 45,
+      "rank": 50,
       "best": false
     },
     {
@@ -1101,7 +1221,7 @@
       "output_tokens_mean": 29336.043478260868,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 46,
+      "rank": 51,
       "best": false
     },
     {
@@ -1125,7 +1245,7 @@
       "output_tokens_mean": 16828.304347826088,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 47,
+      "rank": 52,
       "best": false
     },
     {
@@ -1149,7 +1269,7 @@
       "output_tokens_mean": 35920.30434782609,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 48,
+      "rank": 53,
       "best": false
     },
     {
@@ -1173,7 +1293,7 @@
       "output_tokens_mean": 19703.91304347826,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 49,
+      "rank": 54,
       "best": false
     },
     {
@@ -1197,7 +1317,7 @@
       "output_tokens_mean": 19643.739130434784,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 50,
+      "rank": 55,
       "best": false
     },
     {
@@ -1221,7 +1341,7 @@
       "output_tokens_mean": 5445.782608695652,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 51,
+      "rank": 56,
       "best": false
     },
     {
@@ -1245,7 +1365,7 @@
       "output_tokens_mean": 6406.826086956522,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 52,
+      "rank": 57,
       "best": false
     },
     {
@@ -1269,7 +1389,7 @@
       "output_tokens_mean": 10815.04347826087,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 53,
+      "rank": 58,
       "best": false
     }
   ],
@@ -1407,6 +1527,19 @@
           "xAI"
         ]
       }
+    },
+    {
+      "bundle": "swe-v4-sonnet55-v323",
+      "report": "benchmarks/swe-v4-sonnet55-v323.html",
+      "protocol": "v3.23",
+      "models": {
+        "sonnet55": [
+          "Sonnet 5.5",
+          "Claude Code",
+          "claude-sonnet-5-5",
+          "Anthropic"
+        ]
+      }
     }
   ],
   "tolerances": {
@@ -1447,6 +1580,41 @@
         "usd_vs_best": null,
         "minutes_vs_best": 0.7097710552524523,
         "passed": 18,
+        "n": 23
+      }
+    },
+    "sonnet55": {
+      "model": "Sonnet 5.5",
+      "best_effort": "max",
+      "best_combined": 92.01838297137644,
+      "spread": 10.392666131694384,
+      "shape": "steep",
+      "basis": "cost then time",
+      "critical": {
+        "effort": "max",
+        "combined": 92.01838297137644,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 23,
+        "n": 23
+      },
+      "routine": {
+        "effort": "extra-high",
+        "combined": 90.20370271033315,
+        "gap": 1.8146802610432928,
+        "usd_vs_best": 0.6115187994144583,
+        "minutes_vs_best": 0.5686430354623772,
+        "passed": 22,
+        "n": 23
+      },
+      "rough": {
+        "effort": "extra-high",
+        "combined": 90.20370271033315,
+        "gap": 1.8146802610432928,
+        "usd_vs_best": 0.6115187994144583,
+        "minutes_vs_best": 0.5686430354623772,
+        "passed": 22,
         "n": 23
       }
     },

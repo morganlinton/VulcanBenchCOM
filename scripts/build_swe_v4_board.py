@@ -49,6 +49,11 @@ SOURCES = [
     {"bundle": "swe-v4-grok47-cursor-v320", "report": "benchmarks/swe-v4-grok47-cursor-v320.html", "protocol": "v3.20", "pass_over_all_runs": True,
      "economics": "usage.json", "judges": "Muse Spark 1.3 and GPT-6.1 Sol",
      "models": {"grok47cursor": ("Grok 4.7", "Cursor", "grok-4-7", "xAI")}},
+    # Sonnet 5.5 ran before the tagged-worktree rule (no source block, older task hashes, admitted through the committed hash bridge)
+    # and is judged by Muse Spark 1.3 and Grok 4.6, Grok on a newer Cursor CLI than earlier rounds. No exclusions, so judged and
+    # passed counts are over the runs the v3.23 summary publishes.
+    {"bundle": "swe-v4-sonnet55-v323", "report": "benchmarks/swe-v4-sonnet55-v323.html", "protocol": "v3.23",
+     "models": {"sonnet55": ("Sonnet 5.5", "Claude Code", "claude-sonnet-5-5", "Anthropic")}},
 ]
 FOOTNOTES = {
     "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
@@ -76,6 +81,16 @@ FOOTNOTES = {
                      "Passed (over all 23) and in Min/task, and has no score. $/task is unavailable, not $0: VulcanBench has no list price for "
                      "Grok 4.7 and the sweep ran on the Cursor subscription, so it is not on the cost chart and its effort suggestions are "
                      "picked on time alone."),
+    "sonnet55": ("Sonnet 5.5 ran in Claude Code 2.1.291 to 2.1.293 (low 21 tasks on 2.1.291 and 2 on 2.1.292; medium and high on "
+                 "2.1.292; extra-high 22 on 2.1.292 and paddockcore on 2.1.293; max on 2.1.293) with the refusal fallback on; no reply "
+                 "came from another model. The sweep predates the harness's tagged-worktree rule, so its run summaries carry no source "
+                 "block and record task hashes in an older format that counted __pycache__ files; task content was verified identical "
+                 "to the frozen suite lock and judging admitted the runs through a committed hash bridge (all 107 cached .pyc files an "
+                 "agent could see were byte-identical to compiling the starting source). Judged under v3.23 with judge settings identical "
+                 "to the original v3.3 and v3.4 protocol files (recovered from a private backup, hashes equal to the published ones). "
+                 "Muse Spark 1.3 ran the same binary; Grok 4.6 ran through Cursor CLI 2026.10.01, which updates itself (the v3.3 round "
+                 "recorded 2026.09.02), with the same model id (Cursor now labels it \"Grok 4.6 Medium\", a rename the judging wrapper accepts). Both judges passed calibration using the one-gate allowance. $/task is Claude Code's own "
+                 "reported cost, because Anthropic's pricing page gives two cache-read rates for Sonnet 5.5."),
     "sol": "GPT-5.6 Sol at max is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts, so the v3.7 protocol publishes no Code quality score for that run; the run passed its tests and is priced.",
 }
 
@@ -135,7 +150,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#E8590C", "opus55": "#A61E4D", "astra": "#0CA678", "terra": "#1098AD", "luna": "#E64980", "gpt55": "#6B7280", "sol": "#C77C02", "gpt6luna": "#9C36B5", "gpt6sol": "#8F9A00", "gpt61sol": "#2B8A3E", "grok47cursor": "#3B5BDB"}  # one distinct hue per model, dark enough to read on the white chart and page; Anthropic in warm reds
+COLORS = {"fable": "#E8590C", "opus55": "#A61E4D", "astra": "#0CA678", "terra": "#1098AD", "luna": "#E64980", "gpt55": "#6B7280", "sol": "#C77C02", "gpt6luna": "#9C36B5", "gpt6sol": "#8F9A00", "gpt61sol": "#2B8A3E", "grok47cursor": "#3B5BDB", "sonnet55": "#C92A2A"}  # one distinct hue per model, dark enough to read on the white chart and page; Anthropic in warm reds
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
@@ -192,6 +207,8 @@ def table_html(board):
             mark = "*"
         if r["key"] == "grok47cursor":
             mark = "&loz;"
+        if r["key"] == "sonnet55":
+            mark = "&dagger;&dagger;"
         cost = f'${r["usd"]:.2f}' if priced(r) else "unavailable"
         lines.append(
             f'<tr class="v4row{cls}" data-model="{r["key"]}" data-effort="{r["effort"]}" data-best="{int(r["best"])}"><td class="l lb-rank">{r["rank"]}</td>'
@@ -232,21 +249,21 @@ def render(board):
             f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18 and v3.20 apply the same rubric, controls and gates to each population; v3.20 "
-            "seats GPT-6.1 Sol in place of Grok 4.6 to judge Grok 4.7, see &loz;). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The table below carries every column. "
+            "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18, v3.20 and v3.23 apply the same rubric, controls and gates to each population; v3.20 "
+            "seats GPT-6.1 Sol in place of Grok 4.6 to judge Grok 4.7, see &loz;; v3.23 judges Grok 4.6 through a newer Cursor CLI, see &dagger;&dagger;). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The table below carries every column. "
             "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription. "
             "Grok 4.7 has no list price, so its $/task is unavailable and it appears on the Tokens and Minutes views only.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
             '<noscript><p class="lb-context">The chart needs JavaScript; the table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
-            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) + " * " + escape(FOOTNOTES["gpt61sol"]) + " &loz; " + escape(grok47_footnote(board)) +
+            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) + " * " + escape(FOOTNOTES["gpt61sol"]) + " &loz; " + escape(grok47_footnote(board)) + " &dagger;&dagger; " + escape(FOOTNOTES["sonnet55"]) +
             ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
             'The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model&rsquo;s highest-scoring effort level. '
             'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
             '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
             '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>, '
             '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>, <a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>, '
-            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>, <a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>, <a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>, <a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>. '
+            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>, <a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>, <a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>, <a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>, <a href="benchmarks/swe-v4-sonnet55-v323.html">Sonnet 5.5</a>. '
             '<a href="assets/data/swe-v4-board.csv" download>Download the board as CSV</a>.</p>\n'
             f"{END}")
 

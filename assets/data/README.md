@@ -40,5 +40,13 @@ judge pair (Muse Spark 1.3 and GPT-6.1 Sol), the shared-judge check, the one
 Medium timeout, why there is no cost, and the Safety v1 aggregates.
 `swe-v4-grok47-cursor-v320-scores.csv` holds its four effort aggregates.
 
+`swe-v4-sonnet55-v323/` is the public record of the October 8, 2026
+Claude Sonnet 5.5 report under Code quality protocol v3.23, exported by
+`scripts/export_swe_v4_v323_evidence.py`; its README explains the sweep that
+predates the tagged-worktree rule and the task hash bridge that admitted it,
+the judge settings and Cursor version, the Claude Code version mix, and why cost is Claude
+Code's own reported total.
+`swe-v4-sonnet55-v323-scores.csv` holds its five effort aggregates.
+
 Earlier suite results live in their own report pages and keep their original
 scoring conventions; do not pool them with Frontier v4.
