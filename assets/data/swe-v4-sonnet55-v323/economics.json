@@ -1,0 +1,151 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a Claude Max subscription through Claude Code (--billing subscription), so these are estimates, not bills. Judging is excluded. Every run in the sweep is priced.",
+  "pricing_verified": "2026-10-07",
+  "sources": {
+    "anthropic": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  "rates_per_million": {
+    "claude-sonnet-5-5": {
+      "input": 2.0,
+      "cache_write_5m": 2.5,
+      "cache_write_1h": 4.0,
+      "output": 10.0,
+      "cache_hit_pricing_table": 0.2,
+      "cache_hit_caching_section": 0.1
+    }
+  },
+  "pricing_method": "Claude Code's own list-price total for the session (economics.cli_reported_cost_usd, equal to the stream's total_cost_usd)",
+  "groups": [
+    {
+      "model": "sonnet55",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.876154660869566,
+        "se": 0.9719764247373642
+      },
+      "usd_total": 66.15155720000001,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 9020436.304347826,
+        "se": 3609023.0824853517
+      },
+      "raw_tokens_total": 207470035,
+      "minutes": {
+        "n": 23,
+        "mean": 19.954818840579712,
+        "se": 5.960302764883791
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "sonnet55",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 3.002213504347826,
+        "se": 1.0247937347421985
+      },
+      "usd_total": 69.05091060000002,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 9492336.956521738,
+        "se": 3745737.695641483
+      },
+      "raw_tokens_total": 218323750,
+      "minutes": {
+        "n": 23,
+        "mean": 20.821991304347826,
+        "se": 6.935351715352606
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "sonnet55",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.3904229565217396,
+        "se": 0.7092446343286211
+      },
+      "usd_total": 54.979728000000016,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 6768098.0869565215,
+        "se": 2532647.71567743
+      },
+      "raw_tokens_total": 155666256,
+      "minutes": {
+        "n": 23,
+        "mean": 14.819935507246377,
+        "se": 3.1023015679627277
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "sonnet55",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 3.3753583217391303,
+        "se": 0.7896144165086448
+      },
+      "usd_total": 77.63324139999999,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 8943798.608695652,
+        "se": 2645352.739438779
+      },
+      "raw_tokens_total": 205707368,
+      "minutes": {
+        "n": 23,
+        "mean": 21.594560869565218,
+        "se": 4.1781001495505805
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "sonnet55",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 5.519631326086957,
+        "se": 0.8391939405559178
+      },
+      "usd_total": 126.95152050000003,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 14110533.347826088,
+        "se": 3111436.400065955
+      },
+      "raw_tokens_total": 324542267,
+      "minutes": {
+        "n": 23,
+        "mean": 37.97560072463768,
+        "se": 3.592740665398668
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "sonnet55": {
+      "runs": 115,
+      "usd": 394.76695770000003,
+      "raw_tokens": 1111709676,
+      "solver_hours": 44.14731444444447
+    }
+  },
+  "limitations": [
+    "Cost is Claude Code's own list-price total for each session (cli_reported_cost_usd), checked against the stream's final total_cost_usd. Every reply came from claude-sonnet-5-5 and no other model appears in any run's usage.",
+    "Anthropic's pricing page lists Sonnet 5.5 cache reads at $0.20 per million tokens in its table and at 0.05x input ($0.10) in its prompt caching section. The export does not re-price runs at either rate; if Anthropic corrects the page, the CLI-reported figure stays the published one unless the owner decides otherwise (harness DECISIONS.md, 2026-10-07).",
+    "Claude Code prices cache writes by their observed TTL; the export takes its total as reported.",
+    "No Batch, Fast or priority pricing is applied."
+  ],
+  "comparison_sha256": "79eaf3bb61e20ab17165bc018f37d2ab64b42eb3182017bb8c12133a5bab9df5",
+  "note": "Per-run estimates are in runs.json (estimated_usd, raw_tokens, token_usage). Judging is excluded."
+}

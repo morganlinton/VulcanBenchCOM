@@ -303,8 +303,8 @@ class GPT61SolBundleTests(unittest.TestCase):
         self.assertTrue(all(eg[e]["minutes"]["mean"] < e6[e]["minutes"]["mean"] for e in EFFORTS))
 
     def test_board_context(self):
-        # The page describes the board as published on October 1, 2026: columns added later (Grok 4.7) are set aside and ranks recounted.
-        later = {"grok47cursor"}
+        # The page describes the board as published on October 1, 2026: columns added later (Grok 4.7, Sonnet 5.5) are set aside and ranks recounted.
+        later = {"grok47cursor", "sonnet55"}
         board = [dict(r) for r in json.loads((ROOT / "assets/data/swe-v4-board.json").read_text())["columns"] if r["key"] not in later]
         for rank, r in enumerate(board, 1):
             r["rank"] = rank

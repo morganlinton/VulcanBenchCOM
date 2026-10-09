@@ -27,12 +27,13 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(board.csv_text(self.rows), (ROOT / "assets/data/swe-v4-board.csv").read_text())
 
     def test_every_column_is_on_the_board(self):
-        self.assertEqual(len(self.rows), 53)
-        self.assertEqual({r["model"] for r in self.rows}, {"GPT-6 Astra", "Fable 5.1", "GPT-5.5", "GPT-5.6 Luna", "GPT-5.6 Terra", "GPT-5.6 Sol", "Opus 5.5", "GPT-6 Luna", "GPT-6 Sol", "GPT-6.1 Sol", "Grok 4.7"})
-        self.assertEqual(sum(1 for r in self.rows if r["best"]), 11)
-        self.assertEqual([r["rank"] for r in self.rows], list(range(1, 54)))
+        self.assertEqual(len(self.rows), 58)  # 53 + Sonnet 5.5 at five levels
+        self.assertEqual({r["model"] for r in self.rows}, {"GPT-6 Astra", "Fable 5.1", "GPT-5.5", "GPT-5.6 Luna", "GPT-5.6 Terra", "GPT-5.6 Sol", "Opus 5.5", "GPT-6 Luna", "GPT-6 Sol", "GPT-6.1 Sol", "Grok 4.7", "Sonnet 5.5"})
+        self.assertEqual(sum(1 for r in self.rows if r["best"]), 12)
+        self.assertEqual([r["rank"] for r in self.rows], list(range(1, 59)))
         self.assertEqual([r["combined"] for r in self.rows], sorted((r["combined"] for r in self.rows), reverse=True))
-        self.assertEqual(sum(r["n"] for r in self.rows), 1209)
+        # 1209 before Sonnet 5.5, plus its 115 judged runs.
+        self.assertEqual(sum(r["n"] for r in self.rows), 1324)
         for r in self.rows:
             self.assertTrue((ROOT / f"models/{r['slug']}.html").is_file(), r["slug"])
             self.assertTrue((ROOT / r["report"]).is_file(), r["report"])
@@ -67,7 +68,7 @@ class BoardTests(unittest.TestCase):
         self.assertEqual([sol61[e]["passed"] for e in board.EFFORTS], [20, 22, 23, 23, 23])
         self.assertEqual([round(sol61[e]["combined"], 2) for e in board.EFFORTS], [86.22, 86.44, 88.23, 88.78, 88.35])
         self.assertEqual([round(sol61[e]["code_quality"], 2) for e in board.EFFORTS], [70.79, 70.25, 73.67, 74.99, 73.80])
-        self.assertEqual([r["rank"] for r in self.rows if r["key"] == "gpt61sol"], [17, 18, 19, 26, 28])
+        self.assertEqual([r["rank"] for r in self.rows if r["key"] == "gpt61sol"], [19, 20, 21, 29, 31])  # in rank order
         grok = {r["effort"]: r for r in self.rows if r["key"] == "grok47cursor"}
         self.assertEqual(set(grok), {"low", "medium", "high", "extra-high"})  # Cursor offers no max level for Grok 4.7
         self.assertEqual([grok[e]["n"] for e in board.EFFORTS[:4]], [23, 22, 23, 23])  # medium lodgecore hit the 3-hour bound
@@ -75,9 +76,19 @@ class BoardTests(unittest.TestCase):
         self.assertTrue(all(grok[e]["passed_of"] == 23 and grok[e]["combined_timeouts_zero"] is None for e in grok))
         self.assertEqual([round(grok[e]["combined"], 2) for e in board.EFFORTS[:4]], [89.42, 92.30, 92.71, 93.15])
         self.assertEqual([round(grok[e]["code_quality"], 2) for e in board.EFFORTS[:4]], [81.41, 83.90, 83.43, 84.35])
-        self.assertEqual([grok[e]["rank"] for e in ("extra-high", "high", "medium", "low")], [1, 2, 3, 12])
+        self.assertEqual([grok[e]["rank"] for e in ("extra-high", "high", "medium", "low")], [1, 2, 3, 14])
+        sonnet = {r["effort"]: r for r in self.rows if r["key"] == "sonnet55"}
+        self.assertEqual(set(sonnet), set(board.EFFORTS))
+        self.assertEqual([sonnet[e]["n"] for e in board.EFFORTS], [23, 23, 23, 23, 23])
+        self.assertEqual([sonnet[e]["passed"] for e in board.EFFORTS], [15, 17, 20, 22, 23])  # pass@1 0.652, 0.739, 0.870, 0.957, 1.000
+        self.assertTrue(all(sonnet[e]["passed_of"] == 23 and sonnet[e]["combined_timeouts_zero"] is None for e in sonnet))
+        self.assertEqual([round(sonnet[e]["combined"], 2) for e in board.EFFORTS], [81.63, 84.10, 86.79, 90.20, 92.02])
+        self.assertEqual([round(sonnet[e]["code_quality"], 2) for e in board.EFFORTS], [61.67, 65.35, 70.84, 75.78, 81.72])
+        self.assertEqual([round(sonnet[e]["minutes"], 1) for e in board.EFFORTS], [20.0, 20.8, 14.8, 21.6, 38.0])
+        self.assertEqual([f'{sonnet[e]["usd"]:.2f}' for e in board.EFFORTS], ["2.88", "3.00", "2.39", "3.38", "5.52"])  # Claude Code's own cost
+        self.assertEqual([sonnet[e]["rank"] for e in board.EFFORTS], [39, 35, 27, 11, 4])
         self.assertTrue(all(r["passed_of"] == r["n"] and r["combined_timeouts_zero"] is None for r in self.rows if r["key"] not in ("gpt6luna", "gpt6sol", "grok47cursor")))
-        self.assertEqual(len(self.csv), 53)
+        self.assertEqual(len(self.csv), 58)
         for row in self.csv:
             self.assertEqual(row["mean_usd"] == "", row["model"] == "Grok 4.7")
         self.assertEqual(self.csv[0]["rank"], "1")
@@ -121,8 +132,10 @@ class BoardTests(unittest.TestCase):
                         else:  # no list price: picked on time alone
                             self.assertGreaterEqual(r["minutes"], pick["minutes"])
         self.assertEqual({k: v["routine"]["effort"] for k, v in sug.items()},
-                         {"fable": "low", "astra": "medium", "terra": "max", "luna": "max", "gpt55": "extra-high", "sol": "extra-high", "opus55": "medium", "gpt6luna": "extra-high", "gpt6sol": "extra-high", "gpt61sol": "low", "grok47cursor": "high"})
-        self.assertEqual({k: v["shape"] for k, v in sug.items()}, {"fable": "flat", "astra": "flat", "terra": "steep", "luna": "steep", "gpt55": "steep", "sol": "steep", "opus55": "steep", "gpt6luna": "steep", "gpt6sol": "steep", "gpt61sol": "flat", "grok47cursor": "steep"})
+                         {"fable": "low", "astra": "medium", "terra": "max", "luna": "max", "gpt55": "extra-high", "sol": "extra-high", "opus55": "medium", "gpt6luna": "extra-high", "gpt6sol": "extra-high", "gpt61sol": "low", "grok47cursor": "high",
+                          "sonnet55": "extra-high"})
+        self.assertEqual({k: v["shape"] for k, v in sug.items()}, {"fable": "flat", "astra": "flat", "terra": "steep", "luna": "steep", "gpt55": "steep", "sol": "steep", "opus55": "steep", "gpt6luna": "steep", "gpt6sol": "steep", "gpt61sol": "flat", "grok47cursor": "steep",
+                          "sonnet55": "steep"})
         self.assertEqual(sug["gpt6sol"]["best_effort"], "max")  # no timeouts, so the decision score is the judged score
         self.assertEqual((sug["gpt61sol"]["best_effort"], sug["gpt61sol"]["critical"]["effort"]), ("extra-high", "high"))
         self.assertEqual((sug["grok47cursor"]["best_effort"], sug["grok47cursor"]["basis"]), ("extra-high", "time (no list price)"))
@@ -161,7 +174,12 @@ class BoardTests(unittest.TestCase):
         self.assertIn('data-model="gpt61sol" data-effort="extra-high" data-best="1"', self.page)
         self.assertIn('<a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>', self.page)
         self.assertIn('<a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>', self.page)
-        self.assertIn("v3.4 to v3.7, v3.15 to v3.18 and v3.20", self.page)
+        self.assertIn("v3.4 to v3.7, v3.15 to v3.18, v3.20 and v3.23", self.page)
+        self.assertIn("&dagger;&dagger; Sonnet 5.5 ran in Claude Code 2.1.291 to 2.1.293", self.page)
+        self.assertIn("committed hash bridge", self.page)
+        self.assertIn("Grok 4.6 ran through Cursor CLI 2026.10.01, which updates itself", self.page)
+        self.assertEqual(self.page.count("&dagger;&dagger;</td>"), 5)
+        self.assertIn('<a href="benchmarks/swe-v4-sonnet55-v323.html">Sonnet 5.5</a>', self.page)
         self.assertIn("&loz; Grok 4.7 (xAI) ran in Cursor&#x27;s agent CLI 2026.10.01", self.page)
         self.assertIn("judged by Muse Spark 1.3 and GPT-6.1 Sol under v3.20", self.page)
         self.assertIn("second at Low behind Fable 5.1 (89.46)", self.page)

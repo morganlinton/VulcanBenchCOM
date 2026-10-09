@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Sonnet 5.5 across effort levels | VulcanBench</title>
+<meta name="description" content="Frontier v4: 115 Claude Code runs of Claude Sonnet 5.5 at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 81.63 at Low to 92.02 at Max; 15, 17, 20, 22 and 23 of 23 tasks passed; $2.39 to $5.52 per task. Judge versions disclosed.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-sonnet55-v323.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Claude Sonnet 5.5 across effort levels | VulcanBench">
+<meta property="og:description" content="Frontier v4: 115 Claude Code runs of Claude Sonnet 5.5 at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 81.63 at Low to 92.02 at Max; 15, 17, 20, 22 and 23 of 23 tasks passed; $2.39 to $5.52 per task. Judge versions disclosed.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-sonnet55-v323.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-sonnet55-v323.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="2130">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: Claude Sonnet 5.5, combined score and runtime at every effort level, with Code quality, tasks passed and cost by effort">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Sonnet 5.5 across effort levels | VulcanBench">
+<meta name="twitter:description" content="Frontier v4: 115 Claude Code runs of Claude Sonnet 5.5 at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 81.63 at Low to 92.02 at Max; 15, 17, 20, 22 and 23 of 23 tasks passed; $2.39 to $5.52 per task. Judge versions disclosed.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-sonnet55-v323.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: Claude Sonnet 5.5, combined score and runtime at every effort level, with Code quality, tasks passed and cost by effort">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="sonnet55-v323-heading">
+      <header>
+        <p class="suite-label">October 8, 2026 &middot; 115 runs &middot; Code quality protocol v3.23</p>
+        <h1 id="sonnet55-v323-heading">Claude Sonnet 5.5 across every effort level</h1>
+        <p>115 runs of Claude Sonnet 5.5 through Claude Code on a Claude Max subscription, 23 tasks at each of five effort levels, Low to Max. Code quality carries 33% of the combined score and is judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same rubric, controls and gates as the other Frontier v4 reports, so Sonnet 5.5 takes its place on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> beside <a href="/models/claude-opus-5-5.html">Claude Opus 5.5</a> and <a href="/models/fable-5-1.html">Claude Fable 5.1</a>. Every run finished inside the 3-hour task bound and none was excluded. Two things about how this column was produced differ from earlier ones and are disclosed below: the sweep predates the harness&rsquo;s tagged-worktree rule, and Grok 4.6 judged through a newer Cursor CLI than in earlier rounds.</p>
+      </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A retired program to rebuild</h3><p>Each of the 23 tasks is a legacy binary with a written specification and an issue. Its real behaviour departs from the specification in documented ways, and hidden tests check the rewrite against the binary.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>One attempt per task and level</h3><p>Claude Sonnet 5.5 works in Claude Code with the binary, the specification and the code, once per task at each effort level, inside a flat 3-hour bound, one task at a time.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>Tests and two judges score it</h3><p>Hidden tests give functional correctness. Two calibrated judges from labs other than Anthropic rate the code for a human reader and try to recover the documented departures.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>Scores, time and cost per level</h3><p>Each level gets a combined score, tasks passed, minutes and cost. Cost is Claude Code&rsquo;s own list-price total for each run.</p></li>
+        </ol>
+        <p>Combined score = 50% functional correctness + 8.5% lint and complexity + 8.5% security + 33% Code quality, averaged over the judged runs in each level, as on every other board column. Frontier Code quality is the reviewed layer plus intent recovery; it is never compared with Routine v1 Code quality.</p>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/reports/vulcanbench-swe-v4-sonnet55-v323-report.pdf"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">PDF, 10 pages</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-sonnet55-v323.png" download><span class="resource-kind">Card</span><span class="resource-title">Score card</span><span class="resource-meta">PNG, combined score, runtime and Code quality by effort</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-sonnet55-vs-claude.png" download><span class="resource-kind">Card</span><span class="resource-title">Beside Opus 5.5 and Fable 5.1</span><span class="resource-meta">PNG, combined score, passes, cost and fallback share</span></a>
+        <a class="resource" href="/benchmarks/swe-v4-sonnet55-vs-frontier.html"><span class="resource-kind">Compare</span><span class="resource-title">Sonnet 5.5 vs Opus 5.5 vs GPT-6.1 Sol</span><span class="resource-meta">The three models at every level, one page</span></a>
+        <a class="resource" href="/assets/data/swe-v4-sonnet55-v323/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 115 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores</span></a>
+        <a class="resource" href="/assets/data/swe-v4-sonnet55-v323-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, five effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-sonnet55-v323"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-sonnet55-v323/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=Claude%20Sonnet%205.5%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-sonnet55-v323.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this report, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#cost"><span class="n">03</span>Cost and tokens</a>
+        <a href="#compared"><span class="n">04</span>Beside Opus 5.5 and Fable 5.1</a>
+        <a href="#board"><span class="n">05</span>On the board</a>
+        <a href="#code-quality"><span class="n">06</span>Code quality</a>
+        <a href="#judges"><span class="n">07</span>Judges and calibration</a>
+        <a href="#run-notes"><span class="n">08</span>How it was run</a>
+        <a href="#reproduce"><span class="n">09</span>Reproduction</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>Claude Sonnet 5.5 (<code>claude-sonnet-5-5</code>) ran every task once at each of its five effort levels, 23 tasks per cell, through Claude Code 2.1.291 to 2.1.293 on a Claude Max subscription, from October 6, 06:49 PDT, to October 8, 03:38 PDT, 2026, on the owner&rsquo;s Mac in the local sandbox, one task at a time. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a named human reader by Muse Spark 1.3 and Grok 4.6 with a ground-truth intent-recovery probe. No run reached the flat 3-hour task bound; the longest, Medium lodgecore, took 137 minutes. Anthropic&rsquo;s default effort for Sonnet 5.5 on the Claude API is High; the vendor does not state a Claude Code default.</p>
+        <div class="effort-choices">
+          <div><h3>Combined score</h3><p>81.63 to 92.02</p><p>It rises at every step: 81.63 at Low, 84.10 at Medium, 86.79 at High, 90.20 at Extra-high and 92.02 at Max, a gain of 10.39 points, while the standard error narrows from 1.38 at Low to 0.35 at Max.</p></div>
+          <div><h3>Tasks passed</h3><p>15 of 23 at Low, 23 of 23 at Max</p><p>pass@1 rises at every step: 0.652 (&plusmn;0.102) at Low, 0.739 (&plusmn;0.094) at Medium, 0.870 (&plusmn;0.072) at High, 0.957 (&plusmn;0.043) at Extra-high and 1.000 at Max. Of the 231 hidden behaviours the tasks test for, it fixes 214, 219, 223, 230 and all 231.</p></div>
+          <div><h3>Code quality</h3><p>61.67 to 81.72</p><p>Code quality also rises at every step, from 61.67 at Low to 81.72 at Max, with standard errors of 0.99 to 2.08.</p></div>
+          <div><h3>Runtime and cost</h3><p>14.8 to 38.0 min &middot; $2.39 to $5.52 per task</p><p>High is the fastest and cheapest level (14.8 minutes, $2.39 a task); Max is the slowest and dearest (38.0 minutes, $5.52). The whole sweep comes to $394.77, $3.43 per task, at about 9.7M raw tokens per task.</p></div>
+        </div>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score, tasks passed, Code quality and runtime at each effort level" tabindex="0"><table class="suite-results"><caption>Combined score, tasks passed, Code quality and runtime at each effort level, n=23 runs per cell</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>81.63</td><td>84.10</td><td>86.79</td><td>90.20</td><td>92.02</td></tr><tr><th scope="row">Standard error</th><td>1.38</td><td>1.20</td><td>1.15</td><td>0.57</td><td>0.35</td></tr><tr><th scope="row">Judged runs</th><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr></tbody><tbody><tr><th scope="row">Tasks passed</th><td>15/23</td><td>17/23</td><td>20/23</td><td>22/23</td><td>23/23</td></tr><tr><th scope="row">Hidden behaviours fixed</th><td>214/231</td><td>219/231</td><td>223/231</td><td>230/231</td><td>231/231</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>61.67</td><td>65.35</td><td>70.84</td><td>75.78</td><td>81.72</td></tr><tr><th scope="row">Human readability</th><td>53.4</td><td>54.4</td><td>65.9</td><td>72.2</td><td>79.5</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>20.0</td><td>20.8</td><td>14.8</td><td>21.6</td><td>38.0</td></tr><tr><th scope="row">Standard error of minutes</th><td>6.0</td><td>6.9</td><td>3.1</td><td>4.2</td><td>3.6</td></tr><tr><th scope="row">$ per task (Claude Code)</th><td>$2.88</td><td>$3.00</td><td>$2.39</td><td>$3.38</td><td>$5.52</td></tr><tr><th scope="row">Standard error of $ per task</th><td>$0.97</td><td>$1.02</td><td>$0.71</td><td>$0.79</td><td>$0.84</td></tr></tbody></table></div>
+        <p>Under the prior 50/15/15/20 profile applied to the same Code quality scores the ladder runs 85.24 to 92.91. Low and Medium have long runtime tails (Low granarycore took 101 minutes and Medium lodgecore 137), which is why their standard errors of minutes and cost are wide. The card and the full per-effort table follow.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-sonnet55-v323.png" aria-label="Open the Claude Sonnet 5.5 model card at full resolution">
+          <img src="/assets/cards/swe-v4-sonnet55-v323.png" width="2400" height="2130" fetchpriority="high" alt="Claude Sonnet 5.5 across five effort levels under the v3.23 Code quality protocol. The combined score is 81.63 at Low, 84.10 at Medium, 86.79 at High, 90.20 at Extra-high and 92.02 at Max. Mean runtime is 20.0 minutes at Low, 20.8 at Medium, 14.8 at High, 21.6 at Extra-high and 38.0 at Max. A table gives Code quality, tasks passed, fallback runs and cost per task at every level, and footnotes give the Claude Code versions, the hash bridge and the judge versions. Exact values are in the adjacent accessible tables.">
+        </a>
+        <figcaption>Combined score uses a focused scale; runtime starts at zero. Whiskers show &plusmn;1 task standard error, not statistical significance. <a href="/assets/cards/swe-v4-sonnet55-v323.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">Sonnet 5.5 gains more from effort than Opus 5.5 or Fable 5.1: Low passes 15 of 23 tasks at 81.63, Max passes all 23 at 92.02, and Code quality climbs 20 points over the same range. At Max it has the highest combined point estimate of any column judged by Muse Spark 1.3 and Grok 4.6, level with Fable 5.1 at Max (91.84 &plusmn; 0.47) within one standard error. These runs compare a model-and-harness combination, not an isolated base model; the <a href="/leaderboard.html">Frontier v4 leaderboard</a> places every Sonnet 5.5 effort level beside the other models judged under the same rubric.</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">n=23 at every level unless the Judged column says otherwise. Combined (33%) is the published score. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the two judges. Passed counts all 23 runs. Runtime is solver wall-clock per task over every run in the cell.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench Frontier v4: Claude Sonnet 5.5 effort results under Code quality protocol v3.23</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="sonnet55" data-effort="low"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Low</td><td>81.63</td><td>1.38</td><td>85.24</td><td>61.67</td><td>53.4</td><td>64.9</td><td>68.4</td><td>23/23</td><td>15/23</td><td>20.0</td></tr>
+              <tr data-model="sonnet55" data-effort="medium"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Medium</td><td>84.10</td><td>1.20</td><td>87.25</td><td>65.35</td><td>54.4</td><td>68.7</td><td>75.5</td><td>23/23</td><td>17/23</td><td>20.8</td></tr>
+              <tr data-model="sonnet55" data-effort="high"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>High</td><td>86.79</td><td>1.15</td><td>89.29</td><td>70.84</td><td>65.9</td><td>75.1</td><td>71.8</td><td>23/23</td><td>20/23</td><td>14.8</td></tr>
+              <tr data-model="sonnet55" data-effort="extra-high"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Extra-high</td><td>90.20</td><td>0.57</td><td>92.08</td><td>75.78</td><td>72.2</td><td>78.0</td><td>77.6</td><td>23/23</td><td>22/23</td><td>21.6</td></tr>
+              <tr data-model="sonnet55" data-effort="max"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Max</td><td>92.02</td><td>0.35</td><td>92.91</td><td>81.72</td><td>79.5</td><td>84.1</td><td>81.4</td><td>23/23</td><td>23/23</td><td>38.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>Four factors by effort.</strong> Functional correctness averages 92.13 at Low, 94.59 at Medium, 96.21 at High, 99.71 at Extra-high and 100.00 at Max; lint and complexity 78.97, 79.22, 80.14, 81.99 and 83.17; security 100.00 at Low, Medium and High, 98.48 at Extra-high and 93.91 at Max. Only the Code quality factor depends on the judges.</p>
+        <p><strong>Intent recovery</strong> is scored over the specification departures a submission actually passed tests for. Every Sonnet 5.5 run passed at least one, so no run fell back to the reviewed score alone. <strong>SE</strong> is one sample standard error across the cell&rsquo;s tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. Every run is the equal mean of both judges. Neither judge produced a reviewer fallback.</p>
+      </div>
+
+      <section class="report-section" id="cost" aria-labelledby="cost-heading">
+        <h2 id="cost-heading">Cost and tokens across effort levels</h2>
+        <p>Cost is Claude Code&rsquo;s own list-price total for each run, as for the Opus 5.5 column. Anthropic&rsquo;s pricing page lists Sonnet 5.5 at $2 input and $10 output per million tokens, with cache writes at $2.50 (5 minutes) and $4 (1 hour), but gives two cache-read prices: $0.20 per million in its table and 0.05&times; input ($0.10) in its prompt caching section. Rather than pick one, every figure here is the cost Claude Code reports per run (<code>cli_reported_cost_usd</code>), checked against the session&rsquo;s final total. Sonnet 5.5 ran on a Claude Max subscription, so these are API-equivalent estimates, not bills; judging is excluded.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Cost, tokens and runtime at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Claude Code&rsquo;s list-price cost, raw tokens and runtime at each effort level</caption><thead><tr><th scope="col">Effort</th><th scope="col">Runs</th><th scope="col">$/task</th><th scope="col">&plusmn;SE</th><th scope="col">Level total</th><th scope="col">Tokens/task</th><th scope="col">Min/task</th></tr></thead><tbody><tr data-econ-effort="low"><th scope="row">Low</th><td>23</td><td>$2.88</td><td>$0.97</td><td>$66.15</td><td>9.02M</td><td>20.0</td></tr><tr data-econ-effort="medium"><th scope="row">Medium</th><td>23</td><td>$3.00</td><td>$1.02</td><td>$69.05</td><td>9.49M</td><td>20.8</td></tr><tr data-econ-effort="high"><th scope="row">High</th><td>23</td><td>$2.39</td><td>$0.71</td><td>$54.98</td><td>6.77M</td><td>14.8</td></tr><tr data-econ-effort="extra-high"><th scope="row">Extra-high</th><td>23</td><td>$3.38</td><td>$0.79</td><td>$77.63</td><td>8.94M</td><td>21.6</td></tr><tr data-econ-effort="max"><th scope="row">Max</th><td>23</td><td>$5.52</td><td>$0.84</td><td>$126.95</td><td>14.11M</td><td>38.0</td></tr><tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>115</td><td>$3.43</td><td></td><td>$394.77</td><td>1,112M</td><td>44.1 h</td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Tokens</strong> are Claude Code&rsquo;s usage for the session from its final record: input, cache reads, cache writes and output, with cache reads the bulk. Median completion tokens per task (the model&rsquo;s own output, reasoning included) are about 30K at Low, 35K at Medium, 37K at High, 67K at Extra-high and 157K at Max. Every reply in every run came from <code>claude-sonnet-5-5</code>, so no other model&rsquo;s usage is in these totals. Per-run figures are in <a href="/assets/data/swe-v4-sonnet55-v323/economics.json">economics.json</a> and <a href="/assets/data/swe-v4-sonnet55-v323/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="compared" aria-labelledby="compared-heading">
+        <h2 id="compared-heading">Beside Claude Opus 5.5 and Claude Fable 5.1</h2>
+        <p>Opus 5.5 and Fable 5.1 ran the same 23 tasks through Claude Code in September, judged by the same two judges under v3.15 and v3.4. Their numbers are the published rows; nothing was re-judged. Sonnet 5.5 scores below both from Low to High (81.63, 84.10 and 86.79, against 86.36 to 91.11 for Opus 5.5 and 89.12 to 90.13 for Fable 5.1), within about half a point of both at Extra-high (90.20), and highest of the three at Max: 92.02 &plusmn; 0.35, against 90.22 &plusmn; 1.02 for Opus 5.5 and 91.84 &plusmn; 0.47 for Fable 5.1, the last within one standard error. Its Code quality climbs from 61.67 at Low, below both, to 81.72 at Max, between Opus 5.5 (79.77) and Fable 5.1 (82.43). On correctness Sonnet 5.5 passes fewer tasks than Opus 5.5 from Low to High (15, 17 and 20 against 17, 23 and 22), the same at Extra-high (22) and more at Max (23 against 21). It costs 23% to 61% of Fable 5.1&rsquo;s price per task and is faster than Fable 5.1 from Low to Extra-high, though slower at Max (38.0 against 27.1 minutes). Against Opus 5.5 it costs more per task at Low and Medium and less from High up.</p>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-sonnet55-vs-claude.png" aria-label="Open the Sonnet 5.5, Opus 5.5 and Fable 5.1 comparison card at full resolution">
+            <img src="/assets/cards/swe-v4-sonnet55-vs-claude.png" width="2400" height="2445" loading="lazy" alt="Frontier v4 combined score and cost per task at every effort level for Claude Sonnet 5.5, Claude Opus 5.5 and Claude Fable 5.1, with a table of combined score, tasks passed, cost and fallback share for each model and level. Exact values are in the adjacent accessible table.">
+          </a>
+          <figcaption>All three ran with Claude Code&rsquo;s refusal fallback on; Sonnet 5.5 never used it, while Opus 4.8 wrote some replies for Opus 5.5 and Fable 5.1. Each model was judged in its own protocol run (v3.23, v3.15 and v3.4) with the same rubric and judges; under v3.23 Grok 4.6 ran on a newer Cursor CLI. The three columns ran on different Claude Code versions (2.1.291 to 2.1.293, 2.1.280, and 2.1.259 to 2.1.261), so small gaps between them are harness confounded. <a href="/assets/cards/swe-v4-sonnet55-vs-claude.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <div class="suite-table-scroll" role="region" aria-label="Sonnet 5.5, Opus 5.5 and Fable 5.1" tabindex="0"><table class="suite-results"><caption>Claude Sonnet 5.5, Claude Opus 5.5 and Claude Fable 5.1 on Frontier v4, 23 runs per cell (judged: Opus 5.5 22 at High)</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr data-compare="combined-sonnet55"><th scope="row">Combined, Sonnet 5.5</th><td>81.63</td><td>84.10</td><td>86.79</td><td>90.20</td><td>92.02</td></tr><tr data-compare="combined-opus55"><th scope="row">Combined, Opus 5.5</th><td>86.36</td><td>90.86</td><td>91.11</td><td>90.68</td><td>90.22</td></tr><tr data-compare="combined-fable"><th scope="row">Combined, Fable 5.1</th><td>89.12</td><td>90.13</td><td>90.07</td><td>90.75</td><td>91.84</td></tr></tbody><tbody><tr data-compare="passed-sonnet55"><th scope="row">Tasks passed, Sonnet 5.5</th><td>15/23</td><td>17/23</td><td>20/23</td><td>22/23</td><td>23/23</td></tr><tr data-compare="passed-opus55"><th scope="row">Tasks passed, Opus 5.5</th><td>17/23</td><td>23/23</td><td>22/23</td><td>22/23</td><td>21/23</td></tr><tr data-compare="passed-fable"><th scope="row">Tasks passed, Fable 5.1</th><td>19/23</td><td>20/23</td><td>20/23</td><td>22/23</td><td>23/23</td></tr></tbody><tbody><tr data-compare="cq-sonnet55"><th scope="row">Code quality, Sonnet 5.5</th><td>61.67</td><td>65.35</td><td>70.84</td><td>75.78</td><td>81.72</td></tr><tr data-compare="cq-opus55"><th scope="row">Code quality, Opus 5.5</th><td>72.53</td><td>77.32</td><td>77.99</td><td>79.98</td><td>79.77</td></tr><tr data-compare="cq-fable"><th scope="row">Code quality, Fable 5.1</th><td>78.36</td><td>80.14</td><td>80.86</td><td>81.93</td><td>82.43</td></tr></tbody><tbody><tr data-compare="usd-sonnet55"><th scope="row">$ per task, Sonnet 5.5</th><td>$2.88</td><td>$3.00</td><td>$2.39</td><td>$3.38</td><td>$5.52</td></tr><tr data-compare="usd-opus55"><th scope="row">$ per task, Opus 5.5</th><td>$1.70</td><td>$2.84</td><td>$3.27</td><td>$4.11</td><td>$8.75</td></tr><tr data-compare="usd-fable"><th scope="row">$ per task, Fable 5.1</th><td>$7.96</td><td>$9.19</td><td>$9.70</td><td>$14.49</td><td>$9.06</td></tr></tbody><tbody><tr data-compare="minutes-sonnet55"><th scope="row">Minutes per task, Sonnet 5.5</th><td>20.0</td><td>20.8</td><td>14.8</td><td>21.6</td><td>38.0</td></tr><tr data-compare="minutes-opus55"><th scope="row">Minutes per task, Opus 5.5</th><td>13.7</td><td>18.6</td><td>21.4</td><td>20.7</td><td>37.5</td></tr><tr data-compare="minutes-fable"><th scope="row">Minutes per task, Fable 5.1</th><td>26.9</td><td>31.7</td><td>28.8</td><td>38.8</td><td>27.1</td></tr></tbody></table></div>
+        <p>For Sonnet 5.5 beside Opus 5.5 and GPT-6.1 Sol, the comparison most readers want, see <a href="/benchmarks/swe-v4-sonnet55-vs-frontier.html">Claude Sonnet 5.5 vs Claude Opus 5.5 vs GPT-6.1 Sol</a>.</p>
+        <p>Opus 5.5&rsquo;s tasks passed and minutes cover all 23 runs at every level, as in its report; its High combined score and Code quality cover 22 judged runs. Fable 5.1&rsquo;s cost is its published v3.4 figure.</p>
+      </section>
+
+      <section class="report-section" id="board" aria-labelledby="board-heading">
+        <h2 id="board-heading">On the Frontier v4 board</h2>
+        <p>Sonnet 5.5&rsquo;s best level, Max at 92.02, ranks 4th of the board&rsquo;s 58 model and effort columns, behind only Grok 4.7&rsquo;s three top levels, which are judged by a different panel (Muse Spark 1.3 and GPT-6.1 Sol). Among columns judged by Muse Spark 1.3 and Grok 4.6 it is the highest point estimate: 0.18 points above Fable 5.1 at Max (91.84 &plusmn; 0.47), well within one standard error, and 0.91 above Opus 5.5 at High (91.11 &plusmn; 0.57, judged on 22 runs), about 1.4 combined standard errors: an edge, not a clear win. Extra-high ranks 11th, High 27th, Medium 35th and Low 39th. The <a href="/leaderboard.html">leaderboard</a> carries every column; Sonnet 5.5&rsquo;s cells carry the &dagger;&dagger; footnote with the disclosures below.</p>
+        <p>Max passes every hidden test on every task, 23 of 23 tasks and all 231 tested behaviours, so Frontier v4 no longer separates Sonnet 5.5 at Max on correctness; Code quality, the lint and security scans, and cost still do. The harness&rsquo;s integrity audit is clean on all 115 runs: no web access, and no reads of benchmark data or answer-key paths.</p>
+      </section>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel carries 24 points. An intent-recovery probe carries 9: the judge, given only the specification and the code, lists where the code departs from the specification, and a separate call matches that list against a frozen answer key, over the departures the submission passed tests for. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force. Frontier Code quality is therefore the reviewed layer plus intent recovery, and it is never compared with Routine v1 Code quality, which is scored on a different suite and population.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each effort level, out of 100, mean of both judges, n=23 runs per cell</caption><thead><tr><th scope="col">Component</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>61.67</td><td>65.35</td><td>70.84</td><td>75.78</td><td>81.72</td></tr><tr><th scope="row">Human readability</th><td>53.4</td><td>54.4</td><td>65.9</td><td>72.2</td><td>79.5</td></tr><tr><th scope="row">Maintainability</th><td>64.9</td><td>68.7</td><td>75.1</td><td>78.0</td><td>84.1</td></tr><tr><th scope="row">Intent recovery</th><td>68.4</td><td>75.5</td><td>71.8</td><td>77.6</td><td>81.4</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>56.1</td><td>60.4</td><td>69.7</td><td>74.4</td><td>81.5</td></tr><tr><th scope="row">Rated by Grok 4.6</th><td>62.2</td><td>62.7</td><td>71.3</td><td>75.8</td><td>82.2</td></tr><tr><th scope="row">Standard error of Code quality</th><td>2.08</td><td>1.66</td><td>1.57</td><td>1.28</td><td>0.99</td></tr></tbody></table></div>
+        <p>Both sub-scores rise with effort, human readability from 53.4 to 79.5 and maintainability from 64.9 to 84.1, and readability is the weaker of the two at every level. Grok 4.6 rates higher than Muse Spark 1.3 at every level, by 6.2 points at Low narrowing to 0.6 at Max. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-sonnet55-v323/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-sonnet55-v323/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p>The scored panel is Muse Spark 1.3 (Meta) through the Muse CLI on its Standard tier, and Grok 4.6 (xAI) through the Cursor CLI at medium effort, with equal weight. Neither lab has a model on this board, so neither judge grades a relative, and both are neutral for an Anthropic submission. Every session is fresh, tools are disabled, the workspace is empty, model identity is checked per call from the CLI&rsquo;s own records, and solver labels are withheld. Protocol v3.23 changes nothing in the rubric, controls, quirk keys, gates, repeats, seed, weights or judge settings from v3.15; it applies the protocol to this population, and both judges retook the calibration exam under it before any counted call.</p>
+        <p><strong>Judge settings and versions.</strong> The original v3.3 and v3.4 judge protocol files were recovered from the owner&rsquo;s private backup, and their sha256 equal the published values (v3.3 <code>b82da598</code>, v3.4 <code>1d80e097</code>). The judge settings used in v3.23 are identical to them. Muse Spark 1.3 ran the same binary as every earlier round (sha256 match). Grok 4.6 ran on a newer Cursor CLI: the Cursor &ldquo;pin&rdquo; hashes only Cursor&rsquo;s launcher script, which is the same in every Cursor release, so it never fixed the version. Cursor updated itself on October 7 at 14:43 PDT, and every v3.23 Grok call ran on Cursor CLI 2026.10.01-e373342, while the v3.3 round recorded 2026.09.02-c22c1a3. The Grok model id (<code>cursor-grok-4.6-medium</code>) is the same. Its display name changed: since September 21 Cursor reports &ldquo;Grok 4.6 Medium&rdquo; where the frozen settings say &ldquo;Cursor Grok 4.6 Medium&rdquo;, a rename the judging wrapper accepts and records (439 times in this round). Grok 4.6 passed calibration under v3.23, below.</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification: clear, compressed, compressed then auto-formatted, verbose with duplicated policy, needlessly abstracted, misleadingly commented, narrated with a comment on every line, a documented legacy quirk, an embedded instruction to give full marks, and hidden module state. Each program is reviewed five times in a seeded order. Twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts under v3.23</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.23</td><td>80</td><td>passed</td><td>yes</td><td>g11_repeatability, short by 0.02</td></tr><tr><th scope="row">Grok 4.6</th><td>code-quality-maintenance-v3.23</td><td>80</td><td>passed</td><td>yes</td><td>g04_formatting_is_presentation, short by 0.10</td></tr></tbody></table></div>
+        <p>Both judges passed, each using the protocol&rsquo;s one-gate allowance: Muse Spark 1.3 missed only the repeatability gate and Grok 4.6 only the formatting-is-presentation gate, both well inside the half-point limit. Under v3.15, for Opus 5.5, both passed every gate with no allowance used. Every gate value and control mean is in <a href="/assets/data/swe-v4-sonnet55-v323/calibration.json">calibration.json</a>.</p>
+        <p>Under v3.23 each judge made 440 (80 in calibration, 115 primary reviews, 5 repeats, 10 pairwise checks, 115 intent probes and 115 answer-key matches) counted calls. Muse needed a second attempt on ten calls and Grok on two, under the protocol&rsquo;s single-retry rule, and no call was marked invalid. One Grok review was recovered by a standing operator rule: on Medium lodgecore both attempts failed only because a quoted code line is hard-wrapped in the source, so the wrapper selected attempt 1 with the quote re-wrapped to the source&rsquo;s line breaks; scores are untouched and the original quote is kept in the receipt. Neither judge produced a reviewer fallback. Every attempt is archived beside its replacement in the harness run directory.</p>
+      </section>
+
+      <section class="report-section" id="run-notes" aria-labelledby="run-notes-heading">
+        <h2 id="run-notes-heading">How it was run</h2>
+        <ul>
+          <li><strong>Before the tagged-worktree rule.</strong> The Sonnet 5.5 sweep was launched on October 6 from a checkout that predates the harness&rsquo;s October 5 rule that every sweep runs from a tagged worktree. Its run summaries therefore carry no source block, and their recorded task hashes use an older format that counted <code>__pycache__</code> files. Task content was verified identical to the frozen suite lock. Judging admitted the runs through a committed hash bridge (harness repo <code>docs/judging/task-hash-bridge-sonnet55.json</code>), which pairs each task&rsquo;s recorded hash with its lock hash, both computed on the same unchanged directories. All 107 cached <code>.pyc</code> files an agent could see were byte-identical to compiling the starting source, so the extra files revealed nothing. The owner chose to publish with this disclosure rather than rerun.</li>
+          <li><strong>Claude Code versions.</strong> Claude Code updated itself during the sweep. From each run&rsquo;s own start-up record: Low ran 21 tasks on 2.1.291 and 2 on 2.1.292; Medium and High ran on 2.1.292; Extra-high ran 22 tasks on 2.1.292 and its last, paddockcore, on 2.1.293; Max ran on 2.1.293. Earlier Claude columns used older Claude Code releases (Opus 5.5 on 2.1.280, Fable 5.1 on 2.1.259 to 2.1.261).</li>
+          <li><strong>Refusal fallback on, never used.</strong> Claude Code&rsquo;s refusal fallback stayed at its default (on), as for Opus 5.5, following Artificial Analysis&rsquo;s Default Fallback convention. No run used it: every reply in every run came from <code>claude-sonnet-5-5</code>.</li>
+          <li><strong>Where and how.</strong> <code>--billing subscription</code> on a Claude Max plan, the local sandbox on the owner&rsquo;s Mac (the same host as every published Frontier v4 column), a flat 3-hour task timeout, one task at a time. The sweep ran October 6, 06:49 PDT, to October 8, 03:38 PDT.</li>
+          <li><strong>Judging window.</strong> Judging under v3.23 began October 8 at 05:02 PDT and finished at 18:02 PDT the same day, in one window with no stops. The Claude Haiku 5.5 solver sweep, queued behind this one, started at 03:40 PDT on October 8, after the last Sonnet 5.5 run had finished, and ran on the same machine during judging; it does not touch Sonnet 5.5&rsquo;s runtime figures, and judge timing is not scored.</li>
+          <li><strong>One attempt per task and level.</strong> Runs were not repeated, no run was retried, and effort labels are Claude Code&rsquo;s own.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 115 run measurements, both judges&rsquo; six-dimension sub-scores and intent-recovery scores per run, hidden behaviours fixed, integrity-audit verdicts, each run&rsquo;s task hash bridge pair, Claude Code version, replies by serving model, raw tokens and cost, five aggregates, every calibration gate value, the exact judge protocol text, the judge settings and version record and source hashes. Each run&rsquo;s Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-sonnet55-v323/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the protocol documents, the hash bridge, the judge settings file and the decision record.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists.</p>
+        <p>Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, and host binary paths. Summed solver time is 44.15 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>
