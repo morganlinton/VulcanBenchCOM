@@ -54,6 +54,10 @@ SOURCES = [
     # passed counts are over the runs the v3.23 summary publishes.
     {"bundle": "swe-v4-sonnet55-v323", "report": "benchmarks/swe-v4-sonnet55-v323.html", "protocol": "v3.23",
      "models": {"sonnet55": ("Sonnet 5.5", "Claude Code", "claude-sonnet-5-5", "Anthropic")}},
+    # Haiku 5.5: three classifier-stop runs are not judged and max codeccore is unpublished (invalid Grok probe), so passes count over
+    # all 23 runs; $/task is Claude Code's own total over every run, with the tier floor and ceiling in its bundle.
+    {"bundle": "swe-v4-haiku55-v324", "report": "benchmarks/swe-v4-haiku55-v324.html", "protocol": "v3.24", "pass_over_all_runs": True,
+     "models": {"haiku55": ("Haiku 5.5", "Claude Code", "claude-haiku-5-5", "Anthropic")}},
 ]
 FOOTNOTES = {
     "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
@@ -91,6 +95,16 @@ FOOTNOTES = {
                  "Muse Spark 1.3 ran the same binary; Grok 4.6 ran through Cursor CLI 2026.10.01, which updates itself (the v3.3 round "
                  "recorded 2026.09.02), with the same model id (Cursor now labels it \"Grok 4.6 Medium\", a rename the judging wrapper accepts). Both judges passed calibration using the one-gate allowance. $/task is Claude Code's own "
                  "reported cost, because Anthropic's pricing page gives two cache-read rates for Sonnet 5.5."),
+    "haiku55": ("Haiku 5.5 ran in Claude Code 2.1.293 to 2.1.296 (low 22 tasks on 2.1.293 and 1 on 2.1.294; medium 3 on 2.1.294 and "
+                "20 on 2.1.295; high on 2.1.295; extra-high 2 on 2.1.295 and 21 on 2.1.296; max on 2.1.296) with the refusal fallback on; no "
+                "reply came from another model. Medium, extra-high and max are judged on {med_n}, {xh_n} and {max_n} of 23 tasks: on "
+                "paddockcore at each a safety classifier stopped the session while the model probed the legacy binary, leaving an empty "
+                "patch, and at max codeccore has no published Code quality score because Grok 4.6's intent probe gave no valid answer. All "
+                "four count in Passed (over all 23): the paddockcore runs as failed, codeccore as passed. Haiku 5.5 costs five times as much "
+                "for prompts over 100,000 tokens and receipts hold session totals, so $/task is Claude Code's own total over every run, which "
+                "sits between a floor and a ceiling given in its report. Judged under v3.24 with the recovered original judge settings; "
+                "Grok 4.6 ran through Cursor CLI 2026.10.01, pinned by version for the whole round. Both judges passed calibration with no "
+                "gate missed. The sweep paused twice between tasks, leaving run timings intact."),
     "sol": "GPT-5.6 Sol at max is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts, so the v3.7 protocol publishes no Code quality score for that run; the run passed its tests and is priced.",
 }
 
@@ -150,7 +164,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#E8590C", "opus55": "#A61E4D", "astra": "#0CA678", "terra": "#1098AD", "luna": "#E64980", "gpt55": "#6B7280", "sol": "#C77C02", "gpt6luna": "#9C36B5", "gpt6sol": "#8F9A00", "gpt61sol": "#2B8A3E", "grok47cursor": "#3B5BDB", "sonnet55": "#C92A2A"}  # one distinct hue per model, dark enough to read on the white chart and page; Anthropic in warm reds
+COLORS = {"fable": "#E8590C", "opus55": "#A61E4D", "astra": "#0CA678", "terra": "#1098AD", "luna": "#E64980", "gpt55": "#6B7280", "sol": "#C77C02", "gpt6luna": "#9C36B5", "gpt6sol": "#8F9A00", "gpt61sol": "#2B8A3E", "grok47cursor": "#3B5BDB", "sonnet55": "#C92A2A", "haiku55": "#8B4513"}  # one distinct hue per model, dark enough to read on the white chart and page; Anthropic in warm reds
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
@@ -209,6 +223,8 @@ def table_html(board):
             mark = "&loz;"
         if r["key"] == "sonnet55":
             mark = "&dagger;&dagger;"
+        if r["key"] == "haiku55":
+            mark = "&Dagger;&Dagger;"
         cost = f'${r["usd"]:.2f}' if priced(r) else "unavailable"
         lines.append(
             f'<tr class="v4row{cls}" data-model="{r["key"]}" data-effort="{r["effort"]}" data-best="{int(r["best"])}"><td class="l lb-rank">{r["rank"]}</td>'
@@ -224,6 +240,11 @@ def gpt6luna_footnote(board):
     xh, mx = cells["extra-high"], cells["max"]
     return FOOTNOTES["gpt6luna"].format(xh_n=xh["n"], max_n=mx["n"], xh_t=xh["passed_of"] - xh["n"], max_t=mx["passed_of"] - mx["n"],
                                         xh_zero=xh["combined_timeouts_zero"], max_zero=mx["combined_timeouts_zero"])
+
+
+def haiku55_footnote(board):
+    cells = {r["effort"]: r for r in board if r["key"] == "haiku55"}
+    return FOOTNOTES["haiku55"].format(med_n=cells["medium"]["n"], xh_n=cells["extra-high"]["n"], max_n=cells["max"]["n"])
 
 
 def grok47_footnote(board):
@@ -249,21 +270,21 @@ def render(board):
             f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18, v3.20 and v3.23 apply the same rubric, controls and gates to each population; v3.20 "
-            "seats GPT-6.1 Sol in place of Grok 4.6 to judge Grok 4.7, see &loz;; v3.23 judges Grok 4.6 through a newer Cursor CLI, see &dagger;&dagger;). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The table below carries every column. "
+            "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23 and v3.24 apply the same rubric, controls and gates to each population; v3.20 "
+            "seats GPT-6.1 Sol in place of Grok 4.6 to judge Grok 4.7, see &loz;; v3.23 and v3.24 judge Grok 4.6 through a newer Cursor CLI, see &dagger;&dagger; and &Dagger;&Dagger;). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The table below carries every column. "
             "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription. "
             "Grok 4.7 has no list price, so its $/task is unavailable and it appears on the Tokens and Minutes views only.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
             '<noscript><p class="lb-context">The chart needs JavaScript; the table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
-            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) + " * " + escape(FOOTNOTES["gpt61sol"]) + " &loz; " + escape(grok47_footnote(board)) + " &dagger;&dagger; " + escape(FOOTNOTES["sonnet55"]) +
+            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) + " * " + escape(FOOTNOTES["gpt61sol"]) + " &loz; " + escape(grok47_footnote(board)) + " &dagger;&dagger; " + escape(FOOTNOTES["sonnet55"]) + " &Dagger;&Dagger; " + escape(haiku55_footnote(board)) +
             ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
             'The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model&rsquo;s highest-scoring effort level. '
             'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
             '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
             '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>, '
             '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>, <a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>, '
-            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>, <a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>, <a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>, <a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>, <a href="benchmarks/swe-v4-sonnet55-v323.html">Sonnet 5.5</a>. '
+            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>, <a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>, <a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>, <a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>, <a href="benchmarks/swe-v4-sonnet55-v323.html">Sonnet 5.5</a>, <a href="benchmarks/swe-v4-haiku55-v324.html">Haiku 5.5</a>. '
             '<a href="assets/data/swe-v4-board.csv" download>Download the board as CSV</a>.</p>\n'
             f"{END}")
 

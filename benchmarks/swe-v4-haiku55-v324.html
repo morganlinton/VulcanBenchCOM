@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Haiku 5.5 across effort levels | VulcanBench</title>
+<meta name="description" content="Frontier v4: 115 Claude Code runs of Claude Haiku 5.5 at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 84.42 at Low to 92.16 at Max (n=21 judged); 13, 13, 17, 22 and 22 of 23 tasks passed; $0.84 to $1.54 per task as Claude Code reports it, with a tier floor and ceiling.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-haiku55-v324.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Claude Haiku 5.5 across effort levels | VulcanBench">
+<meta property="og:description" content="Frontier v4: 115 Claude Code runs of Claude Haiku 5.5 at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 84.42 at Low to 92.16 at Max (n=21 judged); 13, 13, 17, 22 and 22 of 23 tasks passed; $0.84 to $1.54 per task as Claude Code reports it, with a tier floor and ceiling.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-haiku55-v324.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-haiku55-v324.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="2235">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: Claude Haiku 5.5, combined score and runtime at every effort level, with Code quality, tasks passed and cost by effort">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Haiku 5.5 across effort levels | VulcanBench">
+<meta name="twitter:description" content="Frontier v4: 115 Claude Code runs of Claude Haiku 5.5 at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 84.42 at Low to 92.16 at Max (n=21 judged); 13, 13, 17, 22 and 22 of 23 tasks passed; $0.84 to $1.54 per task as Claude Code reports it, with a tier floor and ceiling.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-haiku55-v324.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: Claude Haiku 5.5, combined score and runtime at every effort level, with Code quality, tasks passed and cost by effort">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="haiku55-v324-heading">
+      <header>
+        <p class="suite-label">October 12, 2026 &middot; 115 runs &middot; Code quality protocol v3.24</p>
+        <h1 id="haiku55-v324-heading">Claude Haiku 5.5 across every effort level</h1>
+        <p>115 runs of Claude Haiku 5.5 through Claude Code on a Claude Max subscription, 23 tasks at each of five effort levels, Low to Max. Code quality carries 33% of the combined score and is judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same rubric, controls and gates as the other Frontier v4 reports, so Haiku 5.5 takes its place on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> beside <a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> and <a href="/models/claude-opus-5-5.html">Claude Opus 5.5</a>. Every run finished inside the 3-hour task bound. Four runs carry no Code quality score: three that a safety classifier stopped with an empty patch, and one whose judge probe had no valid answer; all four count in tasks passed, time and cost. For Haiku 5.5 beside Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna, see <a href="/benchmarks/swe-v4-haiku55-vs-frontier.html">the comparison page</a>.</p>
+      </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A retired program to rebuild</h3><p>Each of the 23 tasks is a legacy binary with a written specification and an issue. Its real behaviour departs from the specification in documented ways, and hidden tests check the rewrite against the binary.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>One attempt per task and level</h3><p>Claude Haiku 5.5 works in Claude Code with the binary, the specification and the code, once per task at each effort level, inside a flat 3-hour bound, one task at a time.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>Tests and two judges score it</h3><p>Hidden tests give functional correctness. Two calibrated judges from labs other than Anthropic rate the code for a human reader and try to recover the documented departures.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>Scores, time and cost per level</h3><p>Each level gets a combined score, tasks passed, minutes and cost. Cost is Claude Code&rsquo;s own list-price total for each run, beside a floor and a ceiling for Haiku&rsquo;s two price tiers.</p></li>
+        </ol>
+        <p>Combined score = 50% functional correctness + 8.5% lint and complexity + 8.5% security + 33% Code quality, averaged over the judged runs in each level, as on every other board column. Frontier Code quality is the reviewed layer plus intent recovery; it is never compared with Routine v1 Code quality.</p>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/reports/vulcanbench-swe-v4-haiku55-v324-report.pdf"><span class="resource-kind">Report</span><span class="resource-title">Full technical report</span><span class="resource-meta">PDF, 10 pages</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-haiku55-v324.png" download><span class="resource-kind">Card</span><span class="resource-title">Score card</span><span class="resource-meta">PNG, combined score, runtime, Code quality and cost by effort</span></a>
+        <a class="resource" href="/benchmarks/swe-v4-haiku55-vs-frontier.html"><span class="resource-kind">Compare</span><span class="resource-title">Haiku 5.5 vs Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna</span><span class="resource-meta">Four models at every level, three cards</span></a>
+        <a class="resource" href="/assets/data/swe-v4-haiku55-v324/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 115 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores and the tier floor and ceiling</span></a>
+        <a class="resource" href="/assets/data/swe-v4-haiku55-v324-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, five effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-haiku55-v324"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-haiku55-v324/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=Claude%20Haiku%205.5%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-haiku55-v324.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this report, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#not-judged"><span class="n">03</span>Runs without a score</a>
+        <a href="#cost"><span class="n">04</span>Cost and price tiers</a>
+        <a href="#board"><span class="n">05</span>On the board</a>
+        <a href="#code-quality"><span class="n">06</span>Code quality</a>
+        <a href="#judges"><span class="n">07</span>Judges and calibration</a>
+        <a href="#run-notes"><span class="n">08</span>How it was run</a>
+        <a href="#reproduce"><span class="n">09</span>Reproduction</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>Claude Haiku 5.5 (<code>claude-haiku-5-5</code>) ran every task once at each of its five effort levels, 23 tasks per cell, through Claude Code 2.1.293 to 2.1.296 on a Claude Max subscription, from October 8, 10:40 UTC, to October 11, 22:49 UTC, 2026, on the owner&rsquo;s Mac in the local sandbox, one task at a time, with two pauses between tasks. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a named human reader by Muse Spark 1.3 and Grok 4.6 with a ground-truth intent-recovery probe. No run reached the flat 3-hour task bound; the longest, Medium depotcore, took 126 minutes. Anthropic&rsquo;s default effort for Haiku 5.5 is Medium, on the API and in Claude Code.</p>
+        <div class="effort-choices">
+          <div><h3>Combined score</h3><p>84.03 to 92.16</p><p>Combined score is 84.42 at Low and 84.03 at Medium, then rises to 88.01 at High, 91.83 at Extra-high and 92.16 at Max. Standard errors narrow from 1.97 and 2.50 at Low and Medium to 0.39 and 0.37 at the top two levels.</p></div>
+          <div><h3>Tasks passed</h3><p>13 of 23 at Low and Medium, 22 of 23 from Extra-high</p><p>pass@1 is 0.565 (&plusmn;0.106) at Low and Medium, 0.739 (&plusmn;0.094) at High and 0.957 (&plusmn;0.043) at Extra-high and Max. Of the 231 hidden behaviours the tasks test for, it fixes 202, 195, 215, 216 and 216. The one task missed at Extra-high and Max is paddockcore, stopped by a safety classifier.</p></div>
+          <div><h3>Code quality</h3><p>74.83 to 81.30</p><p>Code quality rises at every step, from 74.83 at Low to 81.30 at Max, with standard errors of 1.03 to 1.58.</p></div>
+          <div><h3>Runtime and cost</h3><p>19.0 to 27.7 min &middot; $0.84 to $1.54 per task</p><p>Extra-high is the fastest and cheapest level (19.0 minutes, $0.84 a task); Max is the slowest and dearest (27.7 minutes, $1.54). The whole sweep comes to $138.31 as Claude Code reports it, between a floor of $31.10 and a ceiling of $155.50.</p></div>
+        </div>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score, tasks passed, Code quality and runtime at each effort level" tabindex="0"><table class="suite-results"><caption>Combined score, tasks passed, Code quality, runtime and cost at each effort level, 23 runs per cell (judged n in the third row)</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>84.42</td><td>84.03</td><td>88.01</td><td>91.83</td><td>92.16</td></tr><tr><th scope="row">Standard error</th><td>1.97</td><td>2.50</td><td>1.42</td><td>0.39</td><td>0.37</td></tr><tr><th scope="row">Judged runs</th><td>23</td><td>22</td><td>23</td><td>22</td><td>21</td></tr></tbody><tbody><tr><th scope="row">Tasks passed</th><td>13/23</td><td>13/23</td><td>17/23</td><td>22/23</td><td>22/23</td></tr><tr><th scope="row">Hidden behaviours fixed</th><td>202/231</td><td>195/231</td><td>215/231</td><td>216/231</td><td>216/231</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>74.83</td><td>76.07</td><td>77.60</td><td>80.13</td><td>81.30</td></tr><tr><th scope="row">Human readability</th><td>71.1</td><td>74.1</td><td>73.9</td><td>76.9</td><td>78.7</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>22.9</td><td>24.0</td><td>26.8</td><td>19.0</td><td>27.7</td></tr><tr><th scope="row">Standard error of minutes</th><td>5.4</td><td>6.4</td><td>3.3</td><td>1.9</td><td>2.6</td></tr><tr><th scope="row">$ per task (Claude Code)</th><td>$1.04</td><td>$1.36</td><td>$1.25</td><td>$0.84</td><td>$1.54</td></tr><tr><th scope="row">Standard error of $ per task</th><td>$0.33</td><td>$0.52</td><td>$0.34</td><td>$0.16</td><td>$0.28</td></tr></tbody></table></div>
+        <p>Under the prior 50/15/15/20 profile applied to the same Code quality scores the ladder runs 85.92 to 93.31. Runtime and cost here cover every run; the score card averages the judged runs, so its minutes and cost at Medium, Extra-high and Max (24.9, 19.4 and 27.9 minutes; $1.41, $0.87 and $1.55) differ slightly from these, and its tasks-passed row at Max counts the 21 judged runs (21 of 21).</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-haiku55-v324.png" aria-label="Open the Claude Haiku 5.5 model card at full resolution">
+          <img src="/assets/cards/swe-v4-haiku55-v324.png" width="2400" height="2235" fetchpriority="high" alt="Claude Haiku 5.5 across five effort levels under the v3.24 Code quality protocol. The combined score is 84.42 at Low, 84.03 at Medium, 88.01 at High, 91.83 at Extra-high and 92.16 at Max. A table gives Code quality and its components, tasks passed, fallback runs, and cost per task with its floor and ceiling at every level; footnotes give the Claude Code versions, the unjudged runs, the price tiers, the pauses and the judge settings. Exact values are in the adjacent accessible tables.">
+        </a>
+        <figcaption>Combined score uses a focused scale; runtime starts at zero. Whiskers show &plusmn;1 task standard error, not statistical significance. The card averages runtime and cost over the judged runs. <a href="/assets/cards/swe-v4-haiku55-v324.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">Haiku 5.5 is flat from Low to Medium and climbs from High: Extra-high and Max are within 0.33 points of each other and both pass 22 of 23 tasks, the one miss at each being paddockcore, stopped by a safety classifier. At Max it has the highest combined point estimate of any column judged by Muse Spark 1.3 and Grok 4.6, level with Claude Sonnet 5.5 at Max (92.02 &plusmn; 0.35) within the errors. These runs compare a model-and-harness combination, not an isolated base model; the <a href="/leaderboard.html">Frontier v4 leaderboard</a> places every Haiku 5.5 effort level beside the other models judged under the same rubric.</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">n=23 runs at every level; the Judged column gives the runs with a published Code quality score (* fewer than 23, see the next section). Combined (33%) is the published score over the judged runs. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the two judges. Passed counts all 23 runs. Runtime is solver wall-clock per task over every run in the cell.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench Frontier v4: Claude Haiku 5.5 effort results under Code quality protocol v3.24</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="haiku55" data-effort="low"><th scope="row"><a href="/models/claude-haiku-5-5.html">Claude Haiku 5.5</a> / Claude Code</th><td>Low</td><td>84.42</td><td>1.97</td><td>86.45</td><td>74.83</td><td>71.1</td><td>78.2</td><td>75.3</td><td>23/23</td><td>13/23</td><td>22.9</td></tr>
+              <tr data-model="haiku55" data-effort="medium"><th scope="row"><a href="/models/claude-haiku-5-5.html">Claude Haiku 5.5</a> / Claude Code</th><td>Medium</td><td>84.03</td><td>2.50</td><td>85.92</td><td>76.07</td><td>74.1</td><td>79.3</td><td>74.4</td><td>22/23*</td><td>13/23</td><td>24.0</td></tr>
+              <tr data-model="haiku55" data-effort="high"><th scope="row"><a href="/models/claude-haiku-5-5.html">Claude Haiku 5.5</a> / Claude Code</th><td>High</td><td>88.01</td><td>1.42</td><td>89.69</td><td>77.60</td><td>73.9</td><td>81.0</td><td>78.0</td><td>23/23</td><td>17/23</td><td>26.8</td></tr>
+              <tr data-model="haiku55" data-effort="extra-high"><th scope="row"><a href="/models/claude-haiku-5-5.html">Claude Haiku 5.5</a> / Claude Code</th><td>Extra-high</td><td>91.83</td><td>0.39</td><td>93.18</td><td>80.13</td><td>76.9</td><td>81.2</td><td>83.1</td><td>22/23*</td><td>22/23</td><td>19.0</td></tr>
+              <tr data-model="haiku55" data-effort="max"><th scope="row"><a href="/models/claude-haiku-5-5.html">Claude Haiku 5.5</a> / Claude Code</th><td>Max</td><td>92.16</td><td>0.37</td><td>93.31</td><td>81.30</td><td>78.7</td><td>82.6</td><td>83.0</td><td>21/23*</td><td>22/23</td><td>27.7</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>Four factors by effort, over the judged runs.</strong> Functional correctness averages 88.72, 87.03, 94.06, 100.00 and 100.00 from Low to Max; lint and complexity 80.85, 81.73, 81.99, 81.47 and 81.31; security 100.00, 99.55, 98.91, 99.55 and 99.05. Only the Code quality factor depends on the judges.</p>
+        <p><strong>Intent recovery</strong> is scored over the specification departures a submission actually passed tests for. Every judged Haiku 5.5 run passed at least one, so no run fell back to the reviewed score alone. <strong>SE</strong> is one sample standard error across the cell&rsquo;s judged tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. Every published run is the equal mean of both judges, and neither judge produced a reviewer fallback.</p>
+      </div>
+
+      <section class="report-section" id="not-judged" aria-labelledby="not-judged-heading">
+        <h2 id="not-judged-heading">Four runs without a Code quality score</h2>
+        <ul>
+          <li><strong>Three safety-classifier stops.</strong> On paddockcore at Medium, Extra-high and Max, a safety classifier stopped the session while Haiku 5.5 probed the legacy binary, after 4.7, 9.3 and 29.7 minutes, and the run ended with an empty patch: there is no code to review. As for Claude Opus 5.5&rsquo;s High depotcore, these runs are excluded from judging, count as failed tasks, and are priced and timed. The combined score at those three levels is over the judged runs, so it does not include these failures; tasks passed does.</li>
+          <li><strong>Max codeccore is unpublished.</strong> Grok 4.6&rsquo;s intent probe for this run gave no valid answer after the protocol&rsquo;s single retry: attempt 1 quoted a code line absent from the run, which no recovery rule accepts, and attempt 2 was not valid JSON. The frozen protocol therefore publishes no Code quality or combined score for the run, exactly as for the same task under v3.7 and v3.17. The run passed its tests, so it counts as a passed task, and it is priced and timed.</li>
+        </ul>
+        <p>Max is therefore judged on 21 of 23 runs, and Medium and Extra-high on 22.</p>
+      </section>
+
+      <section class="report-section" id="cost" aria-labelledby="cost-heading">
+        <h2 id="cost-heading">Cost, tokens and Haiku&rsquo;s price tiers</h2>
+        <p>Haiku 5.5 has two list prices per token. Anthropic&rsquo;s pricing page, checked October 7, 2026, charges $0.10 input, $0.125 for 5-minute cache writes, $0.01 for cache reads and $0.50 output per million tokens for prompts up to 100,000 tokens, and five times as much on every line ($0.50, $0.625, $0.05 and $2.50) for prompts over 100,000 tokens. Claude Code&rsquo;s receipts hold the session&rsquo;s cumulative usage, not the size of each request, so a run cannot be split between the tiers after the fact. Each run therefore carries three figures: Claude Code&rsquo;s own list-price total (<code>cli_reported_cost_usd</code>, which prices each request at its own tier and is the published cost), a floor that prices every request at the standard tier, and a ceiling that prices every request at the higher one. Haiku 5.5 ran on a Claude Max subscription, so all three are API-equivalent estimates, not bills; judging is excluded.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Cost, tier floor and ceiling, tokens and runtime at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Claude Code&rsquo;s list-price cost with the tier floor and ceiling, raw tokens and runtime at each effort level, n=23 runs per cell</caption><thead><tr><th scope="col">Effort</th><th scope="col">Runs</th><th scope="col">$/task</th><th scope="col">&plusmn;SE</th><th scope="col">Floor</th><th scope="col">Ceiling</th><th scope="col">Level total</th><th scope="col">Tokens/task</th><th scope="col">Min/task</th></tr></thead><tbody><tr data-econ-effort="low"><th scope="row">Low</th><td>23</td><td>$1.04</td><td>$0.33</td><td>$0.24</td><td>$1.20</td><td>$23.82</td><td>14.51M</td><td>22.9</td></tr><tr data-econ-effort="medium"><th scope="row">Medium</th><td>23</td><td>$1.36</td><td>$0.52</td><td>$0.31</td><td>$1.53</td><td>$31.17</td><td>19.47M</td><td>24.0</td></tr><tr data-econ-effort="high"><th scope="row">High</th><td>23</td><td>$1.25</td><td>$0.34</td><td>$0.28</td><td>$1.40</td><td>$28.69</td><td>16.98M</td><td>26.8</td></tr><tr data-econ-effort="extra-high"><th scope="row">Extra-high</th><td>23</td><td>$0.84</td><td>$0.16</td><td>$0.20</td><td>$0.98</td><td>$19.31</td><td>9.34M</td><td>19.0</td></tr><tr data-econ-effort="max"><th scope="row">Max</th><td>23</td><td>$1.54</td><td>$0.28</td><td>$0.33</td><td>$1.65</td><td>$35.33</td><td>17.97M</td><td>27.7</td></tr><tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>115</td><td>$1.20</td><td></td><td>$0.27</td><td>$1.35</td><td>$138.31</td><td>1,800M</td><td>46.2 h</td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Reading the floor and ceiling.</strong> Claude Code&rsquo;s total sits well toward the ceiling at every level: most of Haiku 5.5&rsquo;s requests carry long prompts. The floor and ceiling price cache writes at the 5-minute rate, as the harness cards do; two runs (Medium lodgecore and Max depotcore) wrote cache entries with the 1-hour lifetime, which cost more, so Claude Code&rsquo;s total for them sits up to 0.4% above their ceiling.</p>
+          <p><strong>Tokens</strong> are Claude Code&rsquo;s usage for the session from its final record: input, cache reads, cache writes and output, with cache reads the bulk. Every reply in every run came from <code>claude-haiku-5-5</code>, so no other model&rsquo;s usage is in these totals. Per-run figures are in <a href="/assets/data/swe-v4-haiku55-v324/economics.json">economics.json</a> and <a href="/assets/data/swe-v4-haiku55-v324/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="board" aria-labelledby="board-heading">
+        <h2 id="board-heading">On the Frontier v4 board</h2>
+        <p>Haiku 5.5&rsquo;s best level, Max at 92.16 &plusmn; 0.37 (n=21), ranks 4th of the board&rsquo;s 63 model and effort columns, behind only Grok 4.7&rsquo;s three top levels, which are judged by a different panel (Muse Spark 1.3 and GPT-6.1 Sol). Among columns judged by Muse Spark 1.3 and Grok 4.6 it is the highest point estimate: 0.14 points above Claude Sonnet 5.5 at Max (92.02 &plusmn; 0.35) and 0.32 above Claude Fable 5.1 at Max (91.84 &plusmn; 0.47), both well within the errors. Extra-high ranks 7th, High 25th, Low 37th and Medium 40th. The <a href="/leaderboard.html">leaderboard</a> carries every column; Haiku 5.5&rsquo;s cells carry the &Dagger;&Dagger; footnote with the disclosures below.</p>
+        <p>The board&rsquo;s combined scores are over judged runs. Haiku 5.5&rsquo;s Medium, Extra-high and Max cells leave out the failed paddockcore runs that a safety classifier stopped, so read them beside tasks passed, which counts every run.</p>
+      </section>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel carries 24 points. An intent-recovery probe carries 9: the judge, given only the specification and the code, lists where the code departs from the specification, and a separate call matches that list against a frozen answer key, over the departures the submission passed tests for. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force. Frontier Code quality is therefore the reviewed layer plus intent recovery, and it is never compared with Routine v1 Code quality, which is scored on a different suite and population.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each effort level, out of 100, mean of both judges over the judged runs (n=23, 22, 23, 22, 21)</caption><thead><tr><th scope="col">Component</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>74.83</td><td>76.07</td><td>77.60</td><td>80.13</td><td>81.30</td></tr><tr><th scope="row">Human readability</th><td>71.1</td><td>74.1</td><td>73.9</td><td>76.9</td><td>78.7</td></tr><tr><th scope="row">Maintainability</th><td>78.2</td><td>79.3</td><td>81.0</td><td>81.2</td><td>82.6</td></tr><tr><th scope="row">Intent recovery</th><td>75.3</td><td>74.4</td><td>78.0</td><td>83.1</td><td>83.0</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>74.1</td><td>77.7</td><td>78.1</td><td>79.4</td><td>81.1</td></tr><tr><th scope="row">Rated by Grok 4.6</th><td>75.2</td><td>75.7</td><td>76.8</td><td>78.7</td><td>80.3</td></tr><tr><th scope="row">Standard error of Code quality</th><td>1.58</td><td>1.55</td><td>1.32</td><td>1.05</td><td>1.03</td></tr></tbody></table></div>
+        <p>Both sub-scores rise with effort, human readability from 71.1 to 78.7 and maintainability from 78.2 to 82.6, and readability is the weaker of the two at every level. The two judges agree closely: within 2.1 points at every level, Grok 4.6 higher at Low and Muse Spark 1.3 higher from Medium up. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-haiku55-v324/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-haiku55-v324/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p>The scored panel is Muse Spark 1.3 (Meta) through the Muse CLI on its Standard tier, and Grok 4.6 (xAI) through the Cursor CLI at medium effort, with equal weight. Both judges are from labs other than Anthropic, so neither grades a relative of Haiku 5.5. Every session is fresh, tools are disabled, the workspace is empty, model identity is checked per call from the CLI&rsquo;s own records, and solver labels are withheld. Protocol v3.24 changes nothing in the rubric, controls, quirk keys, gates, repeats, seed, weights or judge settings from v3.23; it applies the protocol to this population, and both judges retook the calibration exam under it before any counted call.</p>
+        <p><strong>Judge settings and versions.</strong> The judge settings are read from the original v3.3 and v3.4 protocol files, recovered from the owner&rsquo;s private backup, whose sha256 equal the published values (v3.3 <code>b82da598</code>, v3.4 <code>1d80e097</code>). Muse Spark 1.3 ran the same binary as every earlier round (sha256 match). Grok 4.6 ran through Cursor CLI 2026.10.01-e373342, pinned by version for the whole round: the round judged through that version&rsquo;s own launcher and re-checked a digest of its version directory before every stage, so the CLI could not change mid-round. It is the same Cursor CLI that judged Claude Sonnet 5.5 under v3.23. The Grok model id (<code>cursor-grok-4.6-medium</code>) is the same as in every earlier round; Cursor reports its display name as &ldquo;Grok 4.6 Medium&rdquo; where the frozen settings say &ldquo;Cursor Grok 4.6 Medium&rdquo;, a rename the judging wrapper accepts and records (426 times in this round).</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification: clear, compressed, compressed then auto-formatted, verbose with duplicated policy, needlessly abstracted, misleadingly commented, narrated with a comment on every line, a documented legacy quirk, an embedded instruction to give full marks, and hidden module state. Each program is reviewed five times in a seeded order. Twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts under v3.24</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.24</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr><tr><th scope="row">Grok 4.6</th><td>code-quality-maintenance-v3.24</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr></tbody></table></div>
+        <p>Both judges passed every gate with no allowance used. Under v3.23, for Sonnet 5.5, each needed the one-gate allowance. Every gate value and control mean is in <a href="/assets/data/swe-v4-haiku55-v324/calibration.json">calibration.json</a>.</p>
+        <p>Each judge made 80 calibration calls, 112 primary reviews, 5 repeats, 8 pairwise checks and 112 intent probes; Muse made 112 answer-key matches and Grok 111, since its probe on Max codeccore had no valid answer. Muse needed a second attempt on nine calls and Grok on five, under the protocol&rsquo;s single-retry rule. One Grok review was recovered by a standing operator rule: on Extra-high vaultcore both attempts failed only because a quoted code line is hard-wrapped in the source, so the wrapper selected attempt 1 with the quote re-wrapped to the source&rsquo;s line breaks; scores are untouched and the original quote is kept in the receipt. Neither judge produced a reviewer fallback. Every attempt is archived beside its replacement in the harness run directory.</p>
+      </section>
+
+      <section class="report-section" id="run-notes" aria-labelledby="run-notes-heading">
+        <h2 id="run-notes-heading">How it was run</h2>
+        <ul>
+          <li><strong>From a tagged run worktree.</strong> The sweep ran from <code>bench/2026-10-07-haiku55-frontier-v4</code>, so every run summary carries a clean source block and records the frozen suite lock&rsquo;s task hash. No hash bridge was needed, unlike Sonnet 5.5.</li>
+          <li><strong>Claude Code versions.</strong> Claude Code updated itself during the sweep. From each run&rsquo;s own start-up record: Low ran 22 tasks on 2.1.293 and 1 on 2.1.294; Medium 3 on 2.1.294 and 20 on 2.1.295; High on 2.1.295; Extra-high 2 on 2.1.295 and 21 on 2.1.296; Max on 2.1.296. Earlier Claude columns used older Claude Code releases (Sonnet 5.5 on 2.1.291 to 2.1.293).</li>
+          <li><strong>Refusal fallback on, never used.</strong> Claude Code&rsquo;s refusal fallback stayed at its default (on), as for Opus 5.5 and Sonnet 5.5. No run used it: every reply in every run came from <code>claude-haiku-5-5</code>.</li>
+          <li><strong>Two pauses between tasks.</strong> The owner needed the laptop, so the sweep was stopped between tasks from October 9, 15:43 UTC, to October 10, 09:20 UTC, and from October 10, 19:48 UTC, to October 11, 15:50 UTC. Each time the one run in progress was set aside and re-run from the start, and no counted run was in progress across a pause, so every run&rsquo;s timing is intact. The host&rsquo;s clock moved from PDT to CEST during the sweep, so all times here are UTC. When the first pause ended, Claude Code replaced itself (2.1.295 to 2.1.296) and left 25 extra-high folders holding only a start record; every one of those tasks then ran to completion in its own folder, and the stubs are not part of the population.</li>
+          <li><strong>Where and how.</strong> <code>--billing subscription</code> on a Claude Max plan, the local sandbox on the owner&rsquo;s Mac (the same host as every published Frontier v4 column), a flat 3-hour task timeout, one task at a time. The sweep ran October 8, 10:40 UTC, to October 11, 22:49 UTC.</li>
+          <li><strong>Judging window.</strong> Judging under v3.24 ran October 11, 22:52 UTC, to October 12, 10:11 UTC, in one window with no stops, and no solver sweep ran during it.</li>
+          <li><strong>One attempt per task and level.</strong> Runs were not repeated, and effort labels are Claude Code&rsquo;s own.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 115 run measurements, both judges&rsquo; six-dimension sub-scores and intent-recovery scores per judged run, hidden behaviours fixed, integrity-audit verdicts, each run&rsquo;s task hash, Claude Code version, replies by serving model, raw tokens, cost with its tier floor and ceiling, five aggregates, every calibration gate value, the exact judge protocol text, the judge settings and Cursor version record, the operator record for the unpublished probe, and source hashes. Each run&rsquo;s Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-haiku55-v324/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the protocol documents, the recovered judge protocols and the decision record. Redacted agent traces are published at <a href="https://github.com/morganlinton/vulcanbench-haiku55-traces">vulcanbench-haiku55-traces</a>.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists.</p>
+        <p>Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, the unused Grok probe attempts on Max codeccore, and host binary paths. Summed solver time is 46.15 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>

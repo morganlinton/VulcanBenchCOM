@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Haiku 5.5 vs Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna | VulcanBench</title>
+<meta name="description" content="Claude Haiku 5.5 beside Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna on the same 23 VulcanBench Frontier v4 tasks at every effort level: combined score, Code quality, tasks solved, cost and time per task, judged by the same panel. At Max Haiku 5.5 and Sonnet 5.5 are effectively tied, Haiku about 3.6 times cheaper.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-haiku55-vs-frontier.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Claude Haiku 5.5 vs Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna | VulcanBench">
+<meta property="og:description" content="Claude Haiku 5.5 beside Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna on the same 23 VulcanBench Frontier v4 tasks at every effort level: combined score, Code quality, tasks solved, cost and time per task, judged by the same panel. At Max Haiku 5.5 and Sonnet 5.5 are effectively tied, Haiku about 3.6 times cheaper.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-haiku55-vs-frontier.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-haiku55-vs-sonnet55.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="2340">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: Claude Haiku 5.5 beside Claude Sonnet 5.5, combined score and cost per task at every effort level">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Haiku 5.5 vs Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna | VulcanBench">
+<meta name="twitter:description" content="Claude Haiku 5.5 beside Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna on the same 23 VulcanBench Frontier v4 tasks at every effort level: combined score, Code quality, tasks solved, cost and time per task, judged by the same panel. At Max Haiku 5.5 and Sonnet 5.5 are effectively tied, Haiku about 3.6 times cheaper.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-haiku55-vs-sonnet55.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: Claude Haiku 5.5 beside Claude Sonnet 5.5, combined score and cost per task at every effort level">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="frontier-heading">
+      <header>
+        <p class="suite-label">VulcanBench Frontier v4 &middot; October 12, 2026 &middot; 460 runs &middot; four models, five effort levels</p>
+        <h1 id="frontier-heading">Claude Haiku 5.5 vs Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna</h1>
+        <p>Claude Haiku 5.5 beside three models on the same 23 VulcanBench Frontier v4 tasks, once per task at each of five effort levels, Low to Max, 115 runs each: Claude Sonnet 5.5 from the same family, GPT-6.1 Sol, the lowest-cost strong column on the board, and GPT-6 Luna, the closest small OpenAI model already published. Every number comes from each model&rsquo;s own published report; nothing was re-run or re-judged. Combined score is 50% functional correctness from hidden tests, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by the same two judges, Muse Spark 1.3 and Grok 4.6, both from labs other than Anthropic and OpenAI. Read the <a href="#caveats">methods and caveats</a> before quoting a small gap.</p>
+      </header>
+      <div class="report-resources" aria-label="Cards and data downloads">
+        <a class="resource" href="/assets/cards/swe-v4-haiku55-vs-sonnet55.png" download><span class="resource-kind">Card</span><span class="resource-title">Beside Claude Sonnet 5.5</span><span class="resource-meta">PNG, combined score, cost, passes and fallback share</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-haiku55-vs-gpt61sol.png" download><span class="resource-kind">Card</span><span class="resource-title">Beside GPT-6.1 Sol</span><span class="resource-meta">PNG, combined score, cost and passes</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-haiku55-vs-luna.png" download><span class="resource-kind">Card</span><span class="resource-title">Beside GPT-6 Luna</span><span class="resource-meta">PNG, with Luna&rsquo;s timeouts-as-0 figures</span></a>
+        <a class="resource" href="#data"><span class="resource-kind">Data</span><span class="resource-title">Get the data</span><span class="resource-meta">Every run record and judge protocol behind this page</span></a>
+        <a class="resource" href="/benchmarks/swe-v4-haiku55-v324.html"><span class="resource-kind">Report</span><span class="resource-title">Claude Haiku 5.5 report</span><span class="resource-meta">Full results, price tiers and disclosures</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=Claude%20Haiku%205.5%20vs%20Claude%20Sonnet%205.5%2C%20GPT-6.1%20Sol%20and%20GPT-6%20Luna%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-haiku55-vs-frontier.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this comparison, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Page sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#findings"><span class="n">01</span>What we found</a>
+        <a href="#by-level"><span class="n">02</span>Every level, side by side</a>
+        <a href="#cards"><span class="n">03</span>The three cards</a>
+        <a href="#caveats"><span class="n">04</span>Methods and caveats</a>
+        <a href="#data"><span class="n">05</span>Get the data</a>
+      </nav>
+
+      <section class="report-section" id="findings" aria-labelledby="findings-heading">
+        <h2 id="findings-heading">What we found</h2>
+        <div class="effort-choices">
+          <div><h3>Highest score</h3><p>Haiku 5.5 at Max: 92.16 &plusmn; 0.37 (n=21)</p><p>The highest point estimate of the four, level with Claude Sonnet 5.5 at Max (92.02 &plusmn; 0.35): a 0.14-point gap, far inside the error. Both are clearly ahead of GPT-6.1 Sol&rsquo;s best (88.78 &plusmn; 0.40 at Extra-high) and GPT-6 Luna&rsquo;s (81.42 at Max over its finished runs). Haiku&rsquo;s Max score is over 21 judged runs: it leaves out paddockcore, which a safety classifier stopped with an empty patch, and the unpublished codeccore.</p></div>
+          <div><h3>Beside Claude Sonnet 5.5</h3><p>Tied at Max; ahead below it on Code quality, not on tasks solved</p><p>Below Max, Haiku 5.5&rsquo;s combined score is level with Sonnet 5.5&rsquo;s at Medium (84.03 against 84.10) and above it at Low, High and Extra-high, but only the Extra-high gap (1.62 points, about 2.3 combined standard errors) is clearly outside the error. That edge comes from Code quality, not correctness: Haiku rates 74.83 to 80.13 from Low to Extra-high against Sonnet&rsquo;s 61.67 to 75.78, yet passes fewer tasks from Low to High (13, 13 and 17 against 15, 17 and 20), the same at Extra-high (22) and one fewer at Max (22 against 23). Haiku costs 1.9 to 4.0 times less per task at every level, about 3.6 times less at Max ($1.54 against $5.52).</p></div>
+          <div><h3>Beside GPT-6.1 Sol</h3><p>Level up to High, about 3 points ahead at Extra-high and Max</p><p>GPT-6.1 Sol is ahead of Haiku 5.5 on the point estimate at Low and Medium (86.22 and 86.44 against 84.42 and 84.03), within about one combined standard error since Haiku&rsquo;s errors there are 1.97 and 2.50; the two are level at High (88.23 against 88.01). At Extra-high and Max Haiku is ahead by 3.05 and 3.81 points, and both levels are above Sol&rsquo;s best. Sol solves more tasks at every level (20, 22, 23, 23 and 23 against 13, 13, 17, 22 and 22) and costs 1.9 to 3.8 times less per task.</p></div>
+          <div><h3>Beside GPT-6 Luna</h3><p>Far ahead at every level, at a far higher cost</p><p>Haiku 5.5 is far ahead of GPT-6 Luna at every level, 84.42 against 40.83 at Low and 92.16 against 81.42 at Max, and solves 13 to 22 tasks against Luna&rsquo;s 0 to 12. Luna is 5 to 142 times cheaper per task, and 6 of its runs hit the 3-hour bound: counting each timeout as 0, Luna scores 71.94 at Extra-high and 67.26 at Max.</p></div>
+        </div>
+        <p>GPT-6.1 Sol is the fastest of the four from High up and GPT-6 Luna at Low and Medium. Haiku 5.5 takes 19.0 to 27.7 minutes a task: slower than Sonnet 5.5 from Low to High, faster at Extra-high and Max. In short, at Max Haiku 5.5 matches Sonnet 5.5&rsquo;s combined score for about 28% of the price per task, solving one task fewer; GPT-6.1 Sol solves more tasks at every level for less money but scores about 3 points lower at the top; GPT-6 Luna is the cheapest and scores lowest.</p>
+        <p>Tasks solved out of 23, Low to Max: Haiku 5.5 13, 13, 17, 22, 22; Sonnet 5.5 15, 17, 20, 22, 23; GPT-6.1 Sol 20, 22, 23, 23, 23; GPT-6 Luna 0, 0, 2, 11, 12. The whole sweep of 115 runs cost $138.31 for Haiku 5.5 as Claude Code reports it (floor $31.10, ceiling $155.50), $394.77 for Sonnet 5.5, $44.33 for GPT-6.1 Sol and $7.26 for GPT-6 Luna&rsquo;s finished runs.</p>
+      </section>
+
+      <details class="suite-details" id="by-level" open>
+        <summary>Every level, side by side</summary>
+        <p id="by-level-note">One row per model at each effort level. Combined score is the mean over the judged runs, with &plusmn;1 sample standard error across tasks and the number of judged runs (n); every cell has 23 runs. Code quality is out of 100. Passed counts all 23 runs. Cost and minutes are means per task over every run, except GPT-6 Luna&rsquo;s cost, which covers its finished runs (timeouts are unpriced); their standard errors are in each model&rsquo;s bundle.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Four models at every effort level, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="by-level-note">
+            <caption>VulcanBench Frontier v4: Claude Haiku 5.5, Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna at every effort level</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined</th><th scope="col">&plusmn;1 SE</th><th scope="col">Judged n</th><th scope="col">Code quality</th><th scope="col">Passed</th><th scope="col">$/task</th><th scope="col">Min/task</th></tr></thead>
+            <tbody class="cmp-level">
+              <tr data-model="haiku55" data-effort="low"><th scope="row"><a href="/models/claude-haiku-5-5.html">Claude Haiku 5.5</a> / Claude Code</th><td>Low</td><td>84.42</td><td>&plusmn;1.97</td><td>23</td><td>74.83</td><td>13/23</td><td>$1.04</td><td>22.9</td></tr>
+              <tr data-model="sonnet55" data-effort="low"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Low</td><td>81.63</td><td>&plusmn;1.38</td><td>23</td><td>61.67</td><td>15/23</td><td>$2.88</td><td>20.0</td></tr>
+              <tr data-model="gpt61sol" data-effort="low"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Low</td><td>86.22</td><td>&plusmn;0.82</td><td>23</td><td>70.79</td><td>20/23</td><td>$0.31</td><td>6.9</td></tr>
+              <tr data-model="gpt6luna" data-effort="low"><th scope="row"><a href="/models/gpt-6-luna.html">GPT-6 Luna</a> / Codex</th><td>Low</td><td>40.83</td><td>&plusmn;2.04</td><td>23</td><td>65.84</td><td>0/23</td><td>$0.03</td><td>5.6</td></tr>
+            </tbody>
+            <tbody class="cmp-level">
+              <tr data-model="haiku55" data-effort="medium"><th scope="row"><a href="/models/claude-haiku-5-5.html">Claude Haiku 5.5</a> / Claude Code</th><td>Medium</td><td>84.03</td><td>&plusmn;2.50</td><td>22</td><td>76.07</td><td>13/23</td><td>$1.36</td><td>24.0</td></tr>
+              <tr data-model="sonnet55" data-effort="medium"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Medium</td><td>84.10</td><td>&plusmn;1.20</td><td>23</td><td>65.35</td><td>17/23</td><td>$3.00</td><td>20.8</td></tr>
+              <tr data-model="gpt61sol" data-effort="medium"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Medium</td><td>86.44</td><td>&plusmn;0.78</td><td>23</td><td>70.25</td><td>22/23</td><td>$0.40</td><td>10.6</td></tr>
+              <tr data-model="gpt6luna" data-effort="medium"><th scope="row"><a href="/models/gpt-6-luna.html">GPT-6 Luna</a> / Codex</th><td>Medium</td><td>45.72</td><td>&plusmn;1.32</td><td>23</td><td>69.33</td><td>0/23</td><td>$0.01</td><td>3.6</td></tr>
+            </tbody>
+            <tbody class="cmp-level">
+              <tr data-model="haiku55" data-effort="high"><th scope="row"><a href="/models/claude-haiku-5-5.html">Claude Haiku 5.5</a> / Claude Code</th><td>High</td><td>88.01</td><td>&plusmn;1.42</td><td>23</td><td>77.60</td><td>17/23</td><td>$1.25</td><td>26.8</td></tr>
+              <tr data-model="sonnet55" data-effort="high"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>High</td><td>86.79</td><td>&plusmn;1.15</td><td>23</td><td>70.84</td><td>20/23</td><td>$2.39</td><td>14.8</td></tr>
+              <tr data-model="gpt61sol" data-effort="high"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>High</td><td>88.23</td><td>&plusmn;0.40</td><td>23</td><td>73.67</td><td>23/23</td><td>$0.33</td><td>10.2</td></tr>
+              <tr data-model="gpt6luna" data-effort="high"><th scope="row"><a href="/models/gpt-6-luna.html">GPT-6 Luna</a> / Codex</th><td>High</td><td>57.35</td><td>&plusmn;3.80</td><td>23</td><td>66.40</td><td>2/23</td><td>$0.05</td><td>15.6</td></tr>
+            </tbody>
+            <tbody class="cmp-level">
+              <tr data-model="haiku55" data-effort="extra-high"><th scope="row"><a href="/models/claude-haiku-5-5.html">Claude Haiku 5.5</a> / Claude Code</th><td>Extra-high</td><td>91.83</td><td>&plusmn;0.39</td><td>22</td><td>80.13</td><td>22/23</td><td>$0.84</td><td>19.0</td></tr>
+              <tr data-model="sonnet55" data-effort="extra-high"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Extra-high</td><td>90.20</td><td>&plusmn;0.57</td><td>23</td><td>75.78</td><td>22/23</td><td>$3.38</td><td>21.6</td></tr>
+              <tr data-model="gpt61sol" data-effort="extra-high"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Extra-high</td><td>88.78</td><td>&plusmn;0.40</td><td>23</td><td>74.99</td><td>23/23</td><td>$0.43</td><td>15.4</td></tr>
+              <tr data-model="gpt6luna" data-effort="extra-high"><th scope="row"><a href="/models/gpt-6-luna.html">GPT-6 Luna</a> / Codex</th><td>Extra-high</td><td>78.79</td><td>&plusmn;3.02</td><td>21</td><td>71.49</td><td>11/23</td><td>$0.16</td><td>52.6</td></tr>
+            </tbody>
+            <tbody class="cmp-level">
+              <tr data-model="haiku55" data-effort="max"><th scope="row"><a href="/models/claude-haiku-5-5.html">Claude Haiku 5.5</a> / Claude Code</th><td>Max</td><td>92.16</td><td>&plusmn;0.37</td><td>21</td><td>81.30</td><td>22/23</td><td>$1.54</td><td>27.7</td></tr>
+              <tr data-model="sonnet55" data-effort="max"><th scope="row"><a href="/models/claude-sonnet-5-5.html">Claude Sonnet 5.5</a> / Claude Code</th><td>Max</td><td>92.02</td><td>&plusmn;0.35</td><td>23</td><td>81.72</td><td>23/23</td><td>$5.52</td><td>38.0</td></tr>
+              <tr data-model="gpt61sol" data-effort="max"><th scope="row"><a href="/models/gpt-6-1-sol.html">GPT-6.1 Sol</a> / Codex</th><td>Max</td><td>88.35</td><td>&plusmn;0.33</td><td>23</td><td>73.80</td><td>23/23</td><td>$0.46</td><td>14.5</td></tr>
+              <tr data-model="gpt6luna" data-effort="max"><th scope="row"><a href="/models/gpt-6-luna.html">GPT-6 Luna</a> / Codex</th><td>Max</td><td>81.42</td><td>&plusmn;2.88</td><td>19</td><td>71.51</td><td>12/23</td><td>$0.10</td><td>60.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-table-scroll" role="region" aria-label="GPT-6 Luna timeouts" tabindex="0"><table class="suite-results"><caption>GPT-6 Luna&rsquo;s timeouts: combined score over finished runs and with each timeout counted as 0, n=23 runs per level</caption><thead><tr><th scope="col">Effort</th><th scope="col">Judged n</th><th scope="col">Timeouts</th><th scope="col">Combined, finished runs</th><th scope="col">Combined, timeouts as 0</th></tr></thead><tbody><tr data-luna="low"><th scope="row">Low</th><td>23</td><td>0</td><td>40.83 &plusmn; 2.04</td><td>40.83 &plusmn; 2.04</td></tr><tr data-luna="medium"><th scope="row">Medium</th><td>23</td><td>0</td><td>45.72 &plusmn; 1.32</td><td>45.72 &plusmn; 1.32</td></tr><tr data-luna="high"><th scope="row">High</th><td>23</td><td>0</td><td>57.35 &plusmn; 3.80</td><td>57.35 &plusmn; 3.80</td></tr><tr data-luna="extra-high"><th scope="row">Extra-high</th><td>21</td><td>2</td><td>78.79 &plusmn; 3.02</td><td>71.94 &plusmn; 5.47</td></tr><tr data-luna="max"><th scope="row">Max</th><td>19</td><td>4</td><td>81.42 &plusmn; 2.88</td><td>67.26 &plusmn; 6.99</td></tr></tbody></table></div>
+
+      <section class="report-section" id="cards" aria-labelledby="cards-heading">
+        <h2 id="cards-heading">The three cards</h2>
+        <p>Each card sets Haiku 5.5 beside one model at every level, combined score on the left and cost per task on the right, with a table of tasks passed and cost. Haiku 5.5 never fell back to another model; Sonnet 5.5 never did either, and Codex has no refusal fallback.</p>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-haiku55-vs-sonnet55.png" aria-label="Open the Haiku 5.5 and Sonnet 5.5 card at full resolution">
+            <img src="/assets/cards/swe-v4-haiku55-vs-sonnet55.png" width="2400" height="2340" loading="lazy" alt="Claude Haiku 5.5 and Claude Sonnet 5.5 on Frontier v4 at every effort level: combined score with one standard error whiskers, cost per task, and a table of combined score, tasks passed, cost and fallback share. Exact values are in the table on this page.">
+          </a>
+          <figcaption>Whiskers show &plusmn;1 task standard error. The cards price and time Haiku 5.5&rsquo;s judged runs, so its cost at Medium, Extra-high and Max reads $1.41, $0.87 and $1.55 there against $1.36, $0.84 and $1.54 over every run in the table. <a href="/assets/cards/swe-v4-haiku55-vs-sonnet55.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-haiku55-vs-gpt61sol.png" aria-label="Open the Haiku 5.5 and GPT-6.1 Sol card at full resolution">
+            <img src="/assets/cards/swe-v4-haiku55-vs-gpt61sol.png" width="2400" height="2340" loading="lazy" alt="Claude Haiku 5.5 and GPT-6.1 Sol on Frontier v4 at every effort level: combined score with one standard error whiskers, cost per task, and a table of combined score, tasks passed and cost. Exact values are in the table on this page.">
+          </a>
+          <figcaption>Whiskers show &plusmn;1 task standard error. The cards price and time Haiku 5.5&rsquo;s judged runs, so its cost at Medium, Extra-high and Max reads $1.41, $0.87 and $1.55 there against $1.36, $0.84 and $1.54 over every run in the table. <a href="/assets/cards/swe-v4-haiku55-vs-gpt61sol.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-haiku55-vs-luna.png" aria-label="Open the Haiku 5.5 and GPT-6 Luna card at full resolution">
+            <img src="/assets/cards/swe-v4-haiku55-vs-luna.png" width="2400" height="2340" loading="lazy" alt="Claude Haiku 5.5 and GPT-6 Luna on Frontier v4 at every effort level: combined score with one standard error whiskers, cost per task, and a table of combined score, Luna&rsquo;s timeouts-as-0 score, tasks passed, cost and timeouts. Exact values are in the table on this page.">
+          </a>
+          <figcaption>Whiskers show &plusmn;1 task standard error. The cards price and time Haiku 5.5&rsquo;s judged runs, so its cost at Medium, Extra-high and Max reads $1.41, $0.87 and $1.55 there against $1.36, $0.84 and $1.54 over every run in the table. <a href="/assets/cards/swe-v4-haiku55-vs-luna.png">Open full-size card</a>.</figcaption>
+        </figure>
+      </section>
+
+      <section class="report-section" id="caveats" aria-labelledby="caveats-heading">
+        <h2 id="caveats-heading">Methods and caveats</h2>
+        <ul>
+          <li><strong>Same tasks, same rubric, same judges.</strong> All four ran the same 23 Frontier v4 tasks, one attempt per task and level, inside a flat 3-hour bound. Code quality was judged under one rubric by Muse Spark 1.3 (Meta) and Grok 4.6 (xAI), from labs other than Anthropic and OpenAI.</li>
+          <li><strong>Separate judging sessions.</strong> Haiku 5.5 was judged under protocol v3.24, Sonnet 5.5 under v3.23, GPT-6.1 Sol under v3.18 and GPT-6 Luna under v3.16. Each applies the same rubric, controls, gates and weights to its own population, and each judge retook the calibration exam every time. Under v3.23 and v3.24 Grok 4.6 ran through Cursor CLI 2026.10.01, pinned by version for the v3.24 round.</li>
+          <li><strong>Runs without a score.</strong> Haiku 5.5 is judged on 22 runs at Medium and Extra-high and 21 at Max: on paddockcore at each a safety classifier stopped the session with an empty patch (counted as failed), and at Max codeccore has no published Code quality score because Grok 4.6&rsquo;s intent probe gave no valid answer (counted as passed). Its combined score at those levels therefore leaves out the three failed paddockcore runs. GPT-6 Luna is judged on 21 and 19 runs at Extra-high and Max: 6 runs hit the 3-hour bound, so the Luna table above also shows the score with each timeout counted as 0. GPT-6.1 Sol at Medium includes one run scored from Muse Spark 1.3 alone.</li>
+          <li><strong>Cost bases differ.</strong> The two Claude columns use Claude Code&rsquo;s own list-price total per run; Haiku 5.5 is priced by prompt length, so its report also gives a floor and a ceiling for its two tiers. GPT-6.1 Sol and GPT-6 Luna are API-equivalent at list prices from their token ledgers (Luna&rsquo;s timeouts are unpriced), while their runs used a ChatGPT Pro subscription. None of these is a bill.</li>
+          <li><strong>Harnesses differ.</strong> Haiku 5.5 ran on Claude Code 2.1.293 to 2.1.296, Sonnet 5.5 on Claude Code 2.1.291 to 2.1.293, GPT-6.1 Sol on Codex 0.159.0 and GPT-6 Luna on Codex 0.155.0, so small gaps between columns are harness confounded. These runs measure a model-and-harness pair, not a bare model.</li>
+          <li><strong>Refusal fallback.</strong> Both Claude columns ran with Claude Code&rsquo;s refusal fallback on and neither used it. Codex has no fallback.</li>
+          <li><strong>Haiku 5.5 disclosures.</strong> The Haiku sweep paused twice between tasks, which leaves run timings intact, and Claude Code updated itself during it; its judge settings are the recovered original v3.3 and v3.4 protocols, with Cursor reporting Grok 4.6&rsquo;s display name as &ldquo;Grok 4.6 Medium&rdquo; for the same model id. Details are in the <a href="/benchmarks/swe-v4-haiku55-v324.html#run-notes">Haiku 5.5 report</a>; Sonnet 5.5&rsquo;s are in <a href="/benchmarks/swe-v4-sonnet55-v323.html#run-notes">its report</a>.</li>
+          <li><strong>Standard errors</strong> describe task sampling across the judged tasks, not judge uncertainty or repeated runs, and are not a significance test. No human rated anything; Code quality is model judgment for a human reader. Frontier Code quality is never compared with Routine v1 Code quality.</li>
+        </ul>
+        <p>Every column also sits on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> beside the other models judged under the same rubric.</p>
+      </section>
+
+      <section class="report-section" id="data" aria-labelledby="data-heading">
+        <h2 id="data-heading">Get the data</h2>
+        <p>Every number above can be recomputed from public files. Each bundle holds every run&rsquo;s scores, both judges&rsquo; sub-scores, tokens and cost, the per-level aggregates, the calibration record and the exact judge protocol text.</p>
+        <ul>
+          <li><strong>Claude Haiku 5.5:</strong> <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-haiku55-v324">evidence bundle</a> (<a href="/assets/data/swe-v4-haiku55-v324/runs.csv">runs.csv</a>, <a href="/assets/data/swe-v4-haiku55-v324-scores.csv">scores by level</a>), <a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/swe-v4-haiku55-2026-10">harness results folder</a>, <a href="https://github.com/morganlinton/vulcanbench-haiku55-traces">redacted agent traces</a>.</li>
+          <li><strong>Claude Sonnet 5.5:</strong> <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-sonnet55-v323">evidence bundle</a> (<a href="/assets/data/swe-v4-sonnet55-v323/runs.csv">runs.csv</a>, <a href="/assets/data/swe-v4-sonnet55-v323-scores.csv">scores by level</a>), <a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/swe-v4-sonnet55-2026-10">harness results folder</a>, <a href="https://github.com/morganlinton/vulcanbench-sonnet55-traces">redacted agent traces</a>.</li>
+          <li><strong>GPT-6.1 Sol:</strong> <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt61-sol-v318">evidence bundle</a> (<a href="/assets/data/swe-v4-gpt61-sol-v318/runs.csv">runs.csv</a>, <a href="/assets/data/swe-v4-gpt61-sol-v318-scores.csv">scores by level</a>), <a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/swe-v4-gpt61-sol-2026-09">harness results folder</a>.</li>
+          <li><strong>GPT-6 Luna:</strong> <a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt6-luna-v316">evidence bundle</a> (<a href="/assets/data/swe-v4-gpt6-luna-v316/runs.csv">runs.csv</a>, <a href="/assets/data/swe-v4-gpt6-luna-v316-scores.csv">scores by level</a>), <a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/swe-v4-gpt6-luna-2026-09">harness results folder</a>.</li>
+          <li><strong>All Frontier v4 columns:</strong> <a href="/assets/data/swe-v4-board.csv">the leaderboard as CSV</a>.</li>
+        </ul>
+        <p>Withheld for every model: raw prompts and responses, submitted patches, and the quirk answer keys, which describe hidden-test behaviour.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>

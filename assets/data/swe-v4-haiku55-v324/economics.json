@@ -1,0 +1,284 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a Claude Max subscription through Claude Code (--billing subscription), so these are estimates, not bills. Judging is excluded. Every run in the sweep is priced, including the three classifier-stop runs and the unpublished max codeccore run.",
+  "pricing_verified": "2026-10-07",
+  "sources": {
+    "anthropic": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  "rates_per_million": {
+    "claude-haiku-5-5": {
+      "up_to_100k": {
+        "input": 0.1,
+        "cache_write_5m": 0.125,
+        "cache_write_1h": 0.2,
+        "cache_hit": 0.01,
+        "output": 0.5
+      },
+      "over_100k": {
+        "input": 0.5,
+        "cache_write_5m": 0.625,
+        "cache_write_1h": 1.0,
+        "cache_hit": 0.05,
+        "output": 2.5
+      }
+    }
+  },
+  "pricing_method": "Claude Code's own list-price total for the session (economics.cli_reported_cost_usd, equal to the stream's total_cost_usd); floor and ceiling price the final modelUsage entirely at the up-to-100k and the over-100k tier, cache writes at the 5-minute rate",
+  "groups": [
+    {
+      "model": "haiku55",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.035485807826087,
+        "se": 0.333071194007451
+      },
+      "usd_total": 23.81617358,
+      "usd_judged_runs": {
+        "n": 23,
+        "mean": 1.035485807826087,
+        "se": 0.333071194007451
+      },
+      "usd_floor": {
+        "n": 23,
+        "mean": 0.24039130304347825,
+        "se": 0.06460040931111288
+      },
+      "usd_ceiling": {
+        "n": 23,
+        "mean": 1.2019565152173914,
+        "se": 0.32300204655556447
+      },
+      "usd_floor_total": 5.528999970000002,
+      "usd_ceiling_total": 27.644999849999998,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 14511775.043478262,
+        "se": 4872563.066830765
+      },
+      "raw_tokens_total": 333770826,
+      "minutes": {
+        "n": 23,
+        "mean": 22.912889855072464,
+        "se": 5.434264979033136
+      },
+      "minutes_judged_runs": {
+        "n": 23,
+        "mean": 22.912889855072464,
+        "se": 5.434264979033136
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "haiku55",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.3550853847826088,
+        "se": 0.5170104690143753
+      },
+      "usd_total": 31.16696385,
+      "usd_judged_runs": {
+        "n": 22,
+        "mean": 1.414268611818182,
+        "se": 0.5375134517159176
+      },
+      "usd_floor": {
+        "n": 23,
+        "mean": 0.3060451641304348,
+        "se": 0.10116635659524273
+      },
+      "usd_ceiling": {
+        "n": 23,
+        "mean": 1.530225820652174,
+        "se": 0.5058317829762137
+      },
+      "usd_floor_total": 7.039038775,
+      "usd_ceiling_total": 35.195193874999994,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 19474918.695652176,
+        "se": 8078603.23387347
+      },
+      "raw_tokens_total": 447923130,
+      "minutes": {
+        "n": 23,
+        "mean": 24.018076086956523,
+        "se": 6.419466525617373
+      },
+      "minutes_judged_runs": {
+        "n": 22,
+        "mean": 24.896249242424243,
+        "se": 6.6550458293236865
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "haiku55",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.2474014369565218,
+        "se": 0.3386919558269378
+      },
+      "usd_total": 28.690233050000007,
+      "usd_judged_runs": {
+        "n": 23,
+        "mean": 1.2474014369565218,
+        "se": 0.3386919558269378
+      },
+      "usd_floor": {
+        "n": 23,
+        "mean": 0.27937670565217393,
+        "se": 0.06599138453915968
+      },
+      "usd_ceiling": {
+        "n": 23,
+        "mean": 1.3968835282608696,
+        "se": 0.32995692269579835
+      },
+      "usd_floor_total": 6.425664230000001,
+      "usd_ceiling_total": 32.128321150000005,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 16976544.43478261,
+        "se": 5126549.011983879
+      },
+      "raw_tokens_total": 390460522,
+      "minutes": {
+        "n": 23,
+        "mean": 26.819019565217392,
+        "se": 3.346725960082356
+      },
+      "minutes_judged_runs": {
+        "n": 23,
+        "mean": 26.819019565217392,
+        "se": 3.346725960082356
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "haiku55",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.8394024791304348,
+        "se": 0.1599795841286573
+      },
+      "usd_total": 19.30625702,
+      "usd_judged_runs": {
+        "n": 22,
+        "mean": 0.866210394090909,
+        "se": 0.16505705647980848
+      },
+      "usd_floor": {
+        "n": 23,
+        "mean": 0.19656347347826086,
+        "se": 0.03055210356136501
+      },
+      "usd_ceiling": {
+        "n": 23,
+        "mean": 0.9828173673913043,
+        "se": 0.15276051780682504
+      },
+      "usd_floor_total": 4.52095989,
+      "usd_ceiling_total": 22.60479945,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 9335681.130434783,
+        "se": 2110834.193646164
+      },
+      "raw_tokens_total": 214720666,
+      "minutes": {
+        "n": 23,
+        "mean": 18.96700652173913,
+        "se": 1.8590651161626328
+      },
+      "minutes_judged_runs": {
+        "n": 22,
+        "mean": 19.408432575757576,
+        "se": 1.8899372795618328
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "haiku55",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.5361096630434785,
+        "se": 0.2821700533156764
+      },
+      "usd_total": 35.33052225000001,
+      "usd_judged_runs": {
+        "n": 21,
+        "mean": 1.5518715342857146,
+        "se": 0.3083604099155218
+      },
+      "usd_floor": {
+        "n": 23,
+        "mean": 0.32977298239130437,
+        "se": 0.05457277516957481
+      },
+      "usd_ceiling": {
+        "n": 23,
+        "mean": 1.6488649119565217,
+        "se": 0.2728638758478741
+      },
+      "usd_floor_total": 7.584778595000001,
+      "usd_ceiling_total": 37.923892975,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 17966703.304347824,
+        "se": 4255770.987252224
+      },
+      "raw_tokens_total": 413234176,
+      "minutes": {
+        "n": 23,
+        "mean": 27.67511231884058,
+        "se": 2.6026146792641325
+      },
+      "minutes_judged_runs": {
+        "n": 21,
+        "mean": 27.901973015873015,
+        "se": 2.835174194368312
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "haiku55": {
+      "runs": 115,
+      "usd": 138.31014975000014,
+      "usd_floor": 31.099441460000012,
+      "usd_ceiling": 155.49720729999996,
+      "raw_tokens": 1800109320,
+      "solver_hours": 46.15030666666669
+    }
+  },
+  "runs_above_ceiling": [
+    {
+      "effort": "medium",
+      "task": "legacy-lodgecore-binary-parity",
+      "estimated_usd": 9.657034819999996,
+      "usd_ceiling": 9.61645625
+    },
+    {
+      "effort": "max",
+      "task": "legacy-depotcore-binary-parity",
+      "estimated_usd": 4.019103560000001,
+      "usd_ceiling": 4.016993875
+    }
+  ],
+  "limitations": [
+    "Haiku 5.5 is priced by prompt length: prompts over 100,000 tokens cost five times the standard rate on every line. Claude Code receipts hold cumulative session usage, not per-request prompt sizes, so a run's true API price cannot be split between the tiers. Each run carries Claude Code's own list-price total, which prices each request at its own tier, beside a floor (every request at the standard tier) and a ceiling (every request at the over-100k tier).",
+    "Floor and ceiling price cache writes at the 5-minute rate, as the harness cards do. Two runs (medium lodgecore and max depotcore) wrote cache entries with the 1-hour TTL, which costs more, so Claude Code's total for them sits up to 0.4% above the ceiling.",
+    "Cost per task covers all 23 runs in a cell. The harness cards average the judged runs, so their figures at medium, extra-high and max ($1.41, $0.87 and $1.55) differ slightly from this bundle's ($1.36, $0.84 and $1.54).",
+    "No Batch, Fast or priority pricing is applied."
+  ],
+  "comparison_sha256": "545c448b6f1cfb3ea0f680121081178aa9cd7c6c1b88c3ca037209e994a2cd53"
+}
