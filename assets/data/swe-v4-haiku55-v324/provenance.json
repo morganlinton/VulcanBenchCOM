@@ -1,0 +1,52 @@
+{
+  "source_artifacts_sha256": {
+    "v3.24/summary.json": "3c57f31901d4a55b87e131727c3011327b38e59385cfb9a1f9d26f6153824de8",
+    "v3.24/protocol.json": "15c04683b3056999bec21cd99b148fc40c2289953360fb1106da05a5d1b800ed",
+    "v3.24/private-manifest.json": "7b4ca5eb516540ad30a86a0015b18a2a1e6b3e1aca413e03657ca3bad7f017b0",
+    "v3.24/calibration-muse.json": "203551085fe21fe627cb154d17f6c336ab8664344eaf02c2869838c7c11944d2",
+    "v3.24/calibration-grok.json": "5f5a3010263cb0c420ae2a54fa0e6628f70d1c5995fc9f20f0f856b450c3f227",
+    "v3.24/calls/grok/probe/submission-030/operator-invalid.json": "d582657e4d5f0a339c991c6c1faaec192a7500904a7c59376a5c5c0936ec4ce0",
+    "comparison.json": "545c448b6f1cfb3ea0f680121081178aa9cd7c6c1b88c3ca037209e994a2cd53",
+    "suite.lock.json": "861da9e5386e88e6c77236ee5326863e670b597a31ac8b62269c06b1e9aa79eb",
+    "haiku55-v324-efforts.csv": "672654a2dc979a7ebc11fd9b3b83a322f5e18f3f747e1428b0c39d79e8d53299",
+    "haiku55-vs-sonnet55-efforts.csv": "e370f98d7b4fc74ca01cca295604ce4b0e3ac9c5355ea6758078dc141605f168",
+    "haiku55-vs-gpt61sol-efforts.csv": "ffb26c90a4b1c7a6cf90817db28040bb6e1344ac2fca6ce023b4b4ab10f43aba",
+    "haiku55-vs-luna-efforts.csv": "ffd1b79c41903764a0455647ba41ce908770056bb00859cc0ae639777ab910da"
+  },
+  "export_checks": [
+    "115 solver summaries in the sweep folder: 112 population rows and the 3 classifier-stop exclusions, all finished inside the 3-hour bound; the only summary-less run folders are the 25 extra-high resume stubs",
+    "every run summary carries a clean source block from bench/2026-10-07-haiku55-frontier-v4 and records the frozen suite lock's task hash; every integrity audit is clean",
+    "every reply in every stream came from claude-haiku-5-5; no other model appears in any final modelUsage",
+    "every run's Claude Code version matches its stream's init event and the per-level mix in the decision record",
+    "no run was in progress across either pause",
+    "both scored panels passed calibration under v3.24 with no allowance used; no reviewer fallbacks",
+    "the reviewer settings equal those published in the v3.4 bundle and, when supplied, the recovered original protocols",
+    "the Cursor pin names version 2026.10.01-e373342 and its frozen directory digest, recomputed on this host when present",
+    "the one unpublished row is exactly the submission whose Grok probe folder carries the operator-invalid marker",
+    "per-row Code quality and both combined scores recomputed and matched to the frozen summary; cell means and standard errors matched, per-judge means included",
+    "combined score, Code quality and its components, pass counts and runtime matched to the harness score card table, and the Haiku rows of the three comparison card tables matched",
+    "every run's cost equals Claude Code's final total_cost_usd in its stream and the run summary's cli_reported_cost_usd",
+    "the population record's hash matches the one frozen in the protocol",
+    "no dashes or host paths in exported text"
+  ],
+  "limits": [
+    "Three runs are not judged: paddockcore at medium, extra-high and max. A safety classifier stopped each session while the model probed the legacy binary, and it ended with an empty patch. They count as failed tasks and are priced and timed.",
+    "Max codeccore has no published Code quality score: Grok 4.6's intent probe gave no valid answer after the single retry (attempt 1 quoted a line absent from the run; attempt 2 was not valid JSON). The run passed its tests and counts as passed.",
+    "One operator recovery: Grok 4.6's primary review of extra-high vaultcore quoted a hard-wrapped line joined into one on both attempts; the standing recover_excerpts rule selected attempt 1 with the quote re-wrapped, scores untouched. Invalid-response retries under the frozen rule: Muse Spark 1.3 9, Grok 4.6 5.",
+    "Claude Code versions: low 22 on 2.1.293 and 1 on 2.1.294; medium 3 on 2.1.294 and 20 on 2.1.295; high on 2.1.295; extra-high 2 on 2.1.295 and 21 on 2.1.296; max on 2.1.296. Earlier Claude columns used older Claude Code releases.",
+    "Judge settings are the recovered original v3.3 and v3.4 protocols; Muse Spark 1.3 ran the same binary; Grok 4.6 ran through Cursor CLI 2026.10.01-e373342, pinned by version for the whole round, the same CLI that judged Sonnet 5.5. Cursor reports the display name \"Grok 4.6 Medium\" (frozen: \"Cursor Grok 4.6 Medium\"), a rename the wrapper accepted and recorded 426 times.",
+    "The sweep was stopped between tasks twice, 2026-10-09 15:43 to 2026-10-10 09:20 UTC and 2026-10-10 19:48 to 2026-10-11 15:50 UTC; no run was in progress across either pause, so run timings are intact. The host's clock moved from PDT to CEST during the sweep; all times here are UTC.",
+    "Frontier Code quality is the reviewed layer plus intent recovery and is never compared with Routine v1 Code quality.",
+    "One attempt per task and level. The sweep ran 2026-10-08 10:40 to 2026-10-11 22:49 UTC on the owner's Mac, local sandbox, flat 3-hour task bound, one task at a time. Judging ran 2026-10-11 22:52 to 2026-10-12 10:11 UTC with no sweep running."
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, integrity-audit verdicts, raw tokens, replies by serving model, Claude Code's list-price cost and the tier floor and ceiling.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts",
+    "the unused Grok probe attempts on max codeccore",
+    "host binary paths"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}

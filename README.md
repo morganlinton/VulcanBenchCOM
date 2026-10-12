@@ -6,6 +6,8 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
 - `benchmarks.html`: suite-separated results, with the current Frontier v4 comparison first and all earlier reports in a labeled archive
 - `benchmarks/safety-v1-opus55.html`: Claude Opus 5.5 on VulcanBench Safety v1 (harmful instructions hidden in the repository), with the standalone card and per-level and per-kind tables
+- `benchmarks/swe-v4-haiku55-vs-frontier.html`: Claude Haiku 5.5 vs Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna on Frontier v4, every effort level side by side from the four published bundles, with the three comparison cards, methods and caveats and links to every evidence bundle
+- `benchmarks/swe-v4-haiku55-v324.html`: Claude Haiku 5.5 through Claude Code at every effort level under Code quality protocol v3.24, with PDF, calibration record, the price-tier floor and ceiling, the classifier-stop and unpublished-probe disclosures, and evidence links
 - `benchmarks/swe-v4-sonnet55-vs-frontier.html`: Claude Sonnet 5.5 vs Claude Opus 5.5 vs GPT-6.1 Sol on Frontier v4, every effort level side by side from the three published bundles, with the methods and caveats and links to every evidence bundle
 - `benchmarks/swe-v4-sonnet55-v323.html`: Claude Sonnet 5.5 through Claude Code at every effort level under Code quality protocol v3.23 (judged by Muse Spark 1.3 and Grok 4.6, Grok on a newer Cursor CLI), with PDF, calibration record, the card beside Claude Opus 5.5 and Claude Fable 5.1, the task hash bridge and Claude Code version disclosures, and evidence links
 - `benchmarks/swe-v4-grok47-cursor-v320.html`: Grok 4.7 through Cursor at every effort level Cursor offers under Code quality protocol v3.20 (judged by Muse Spark 1.3 and GPT-6.1 Sol), with PDF, calibration record, the shared-judge check, cards beside the leaders and on Safety v1, and evidence links
@@ -53,10 +55,10 @@ archive. Run `python3 scripts/check_benchmark_index.py` after index edits.
 Each Frontier v4 report PDF is generated directly from its public record in
 `assets/data/swe-v4-astra-fable51-v34/`, `assets/data/swe-v4-gpt55-luna-v35/`,
 `assets/data/swe-v4-terra-v36/`, `assets/data/swe-v4-sol-v37/`,
-`assets/data/swe-v4-gpt6-luna-v316/`, `assets/data/swe-v4-gpt6-sol-v317/`, `assets/data/swe-v4-gpt61-sol-v318/`, `assets/data/swe-v4-grok47-cursor-v320/` and `assets/data/swe-v4-sonnet55-v323/`, which the matching `scripts/export_swe_v4_v3N_evidence.py`
+`assets/data/swe-v4-gpt6-luna-v316/`, `assets/data/swe-v4-gpt6-sol-v317/`, `assets/data/swe-v4-gpt61-sol-v318/`, `assets/data/swe-v4-grok47-cursor-v320/`, `assets/data/swe-v4-sonnet55-v323/` and `assets/data/swe-v4-haiku55-v324/`, which the matching `scripts/export_swe_v4_v3N_evidence.py`
 (`--harness-root ../VulcanBench`) export from the frozen harness results; the v3.20 exporter also takes
-`--conduct-root ../VulcanConduct` to re-derive its Safety v1 aggregates, and the v3.23 exporter takes `--docs-root`, a harness
-checkout that carries the Sonnet 5.5 population record, task hash bridge and judge settings file; `--recovered-protocols` optionally checks the recovered v3.3 and v3.4 protocol files. The renderers
+`--conduct-root ../VulcanConduct` to re-derive its Safety v1 aggregates, and the v3.23 and v3.24 exporters take `--docs-root`, a harness
+checkout that carries the population record (and, for Sonnet 5.5, the task hash bridge and judge settings file); `--recovered-protocols` optionally checks the recovered v3.3 and v3.4 protocol files. The renderers
 use ReportLab and the Geist, Chakra Petch and IBM Plex Mono TTF files already used
 by the harness chart generator:
 
@@ -82,6 +84,8 @@ python3 scripts/render_swe_v4_v320_report.py --fonts /path/to/VulcanBench/script
 python3 scripts/verify_swe_v4_v320_pdf.py
 python3 scripts/render_swe_v4_v323_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-sonnet55-v323
 python3 scripts/verify_swe_v4_v323_pdf.py
+python3 scripts/render_swe_v4_v324_report.py --fonts /path/to/VulcanBench/scripts/rankings-chart --github-url https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-haiku55-v324
+python3 scripts/verify_swe_v4_v324_pdf.py
 ```
 
 Rasterise all rendered pages and check the extracted text for forbidden

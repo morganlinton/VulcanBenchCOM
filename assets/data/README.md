@@ -48,5 +48,12 @@ the judge settings and Cursor version, the Claude Code version mix, and why cost
 Code's own reported total.
 `swe-v4-sonnet55-v323-scores.csv` holds its five effort aggregates.
 
+`swe-v4-haiku55-v324/` is the public record of the October 12, 2026 Claude
+Haiku 5.5 report under Code quality protocol v3.24, exported by
+`scripts/export_swe_v4_v324_evidence.py`; its README explains the three
+classifier-stop exclusions, the unpublished max codeccore probe, the price-tier
+floor and ceiling, the two pauses and the judge settings.
+`swe-v4-haiku55-v324-scores.csv` holds its five effort aggregates.
+
 Earlier suite results live in their own report pages and keep their original
 scoring conventions; do not pool them with Frontier v4.
