@@ -7,7 +7,7 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
-      <title>Why Muse Wonder Full takes about 4x longer than GPT-6.1 Sol on the same tasks</title>
+      <title>Analysis of traces comparing Muse Wonder Full and GPT-6.1 Sol at Low effort</title>
       <link>https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html</link>
       <guid>https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html</guid>
       <pubDate>Wed, 14 Oct 2026 12:00:00 +0000</pubDate>
