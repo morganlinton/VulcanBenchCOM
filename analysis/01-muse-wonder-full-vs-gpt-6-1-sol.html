@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Muse Wonder Full takes about 4x longer than GPT-6.1 Sol on the same tasks</title>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="Trace analysis of Muse Wonder Full in Muse Code against GPT-6.1 Sol in Codex on 23 VulcanBench Frontier v4 tasks at Low effort: 27.2 vs 6.3 minutes per task, about 3x the model calls and 10x the output tokens, with similar time per step.">
+<meta name="author" content="VulcanBench">
+<link rel="canonical" href="https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Why Muse Wonder Full takes about 4x longer than GPT-6.1 Sol on the same tasks">
+<meta property="og:description" content="Trace analysis of Muse Wonder Full in Muse Code against GPT-6.1 Sol in Codex on 23 VulcanBench Frontier v4 tasks at Low effort: 27.2 vs 6.3 minutes per task, about 3x the model calls and 10x the output tokens, with similar time per step.">
+<meta property="og:url" content="https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta property="article:published_time" content="2026-10-14T12:00:00+00:00">
+<meta property="article:modified_time" content="2026-10-14T12:00:00+00:00">
+<meta property="article:section" content="Analysis">
+<meta property="article:tag" content="Muse Wonder">
+<meta property="article:tag" content="GPT-6.1 Sol">
+<meta property="article:tag" content="agent traces">
+<meta property="article:tag" content="VulcanBench Frontier v4">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Muse Wonder Full takes about 4x longer than GPT-6.1 Sol on the same tasks">
+<meta name="twitter:description" content="Trace analysis of Muse Wonder Full in Muse Code against GPT-6.1 Sol in Codex on 23 VulcanBench Frontier v4 tasks at Low effort: 27.2 vs 6.3 minutes per task, about 3x the model calls and 10x the output tokens, with similar time per step.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html#article",
+  "headline": "Why Muse Wonder Full takes about 4x longer than GPT-6.1 Sol on the same tasks",
+  "description": "Trace analysis of Muse Wonder Full in Muse Code against GPT-6.1 Sol in Codex on 23 VulcanBench Frontier v4 tasks at Low effort: 27.2 vs 6.3 minutes per task, about 3x the model calls and 10x the output tokens, with similar time per step.",
+  "datePublished": "2026-10-14T12:00:00+00:00",
+  "dateModified": "2026-10-14T12:00:00+00:00",
+  "mainEntityOfPage": "https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html",
+  "image": "https://vulcanbench.com/assets/og-image.png",
+  "author": {"@type": "Organization", "name": "VulcanBench", "url": "https://vulcanbench.com/"},
+  "publisher": {"@id": "https://vulcanbench.com/#org"}
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=30">
+<link rel="stylesheet" href="../analysis.css?v=1">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../analysis.html" class="active">Analysis</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../benchmark-your-stack.html">For teams</a>
+      <a href="../blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="../analysis.html">Analysis</a>
+    <span class="sep">/</span>
+    <span aria-current="page">Muse Wonder Full vs GPT-6.1 Sol</span>
+  </nav>
+
+  <div class="article-head">
+    <div class="rno">Analysis No. 01</div>
+    <h1>Why Muse Wonder Full takes about 4x longer than GPT-6.1 Sol on the same tasks</h1>
+    <div class="runmeta">2026-10-14 &middot; VulcanBench &middot; VulcanBench Frontier v4, Low effort &middot; trace analysis</div>
+  </div>
+
+  <div class="post-body an-body">
+    <p class="lead-in">On 23 hard legacy-reconstruction tasks, Muse Wonder Full averaged 27.2 minutes per task and GPT-6.1 Sol 6.3. Both solved almost all of them. The gap does not come from slower steps: each step takes about the same time. Muse Wonder Full takes about 3x as many steps and writes about 10x as much output to reach a similar result.</p>
+
+    <div class="an-stats">
+      <div><b>4.3x</b><span>longer per task (27.2 vs 6.3 min; medians 17.4 vs 4.1)</span></div>
+      <div><b>3.0x</b><span>more model calls per task (66 vs about 22)</span></div>
+      <div><b>10x</b><span>more output tokens per task (68.0k vs 6.8k)</span></div>
+      <div><b>18 vs 20</b><span>tasks fully solved of 23; mean functional score 0.958 vs 0.972</span></div>
+    </div>
+
+    <h2>Where the time goes</h2>
+    <p>Muse Code logs every model call with its latency and every tool run with its start and end, so Muse Wonder Full's time can be split exactly. Codex does not log a timestamp per step, so the split for GPT-6.1 Sol is an estimate.</p>
+    <figure class="an-fig">
+      <div class="an-legend"><span><i class="m1"></i>Waiting for the first token</span><span><i class="m2"></i>Model generating output</span><span><i class="s1"></i>Model, estimated</span><span><i class="tl"></i>Running tools</span><span><i class="hn"></i>Harness and other</span></div>
+      <div class="an-scroll"><svg viewBox="0 0 760 176" role="img" aria-labelledby="an-c1" class="an-chart"><title id="an-c1">Mean minutes per task, split by where the time goes</title><line x1="150.0" x2="150.0" y1="14" y2="128" class="grid"/><text x="150.0" y="146" text-anchor="middle" class="tick">0</text><line x1="246.7" x2="246.7" y1="14" y2="128" class="grid"/><text x="246.7" y="146" text-anchor="middle" class="tick">5</text><line x1="343.3" x2="343.3" y1="14" y2="128" class="grid"/><text x="343.3" y="146" text-anchor="middle" class="tick">10</text><line x1="440.0" x2="440.0" y1="14" y2="128" class="grid"/><text x="440.0" y="146" text-anchor="middle" class="tick">15</text><line x1="536.7" x2="536.7" y1="14" y2="128" class="grid"/><text x="536.7" y="146" text-anchor="middle" class="tick">20</text><line x1="633.3" x2="633.3" y1="14" y2="128" class="grid"/><text x="633.3" y="146" text-anchor="middle" class="tick">25</text><line x1="730.0" x2="730.0" y1="14" y2="128" class="grid"/><text x="730.0" y="146" text-anchor="middle" class="tick">30</text><text x="730.0" y="166" text-anchor="end" class="tick">minutes per task, mean of 23 tasks</text><text x="0" y="45" class="rl">Muse Wonder Full</text><text x="0" y="61" class="rs">Muse Code, measured</text><rect x="150.0" y="28" width="153.6" height="30" rx="2" class="m1"/><text x="226.8" y="47.5" text-anchor="middle" class="seg m1-t">8.1 wait</text><rect x="305.6" y="28" width="262.4" height="30" rx="2" class="m2"/><text x="436.8" y="47.5" text-anchor="middle" class="seg m2-t">13.7 generating</text><rect x="570.1" y="28" width="80.1" height="30" rx="2" class="tl"/><text x="610.1" y="47.5" text-anchor="middle" class="seg tl-t">4.2 tools</text><rect x="652.1" y="28" width="20.9" height="30" rx="2" class="hn"/><text x="681.0" y="48" class="el">27.2</text><text x="0" y="99" class="rl">GPT-6.1 Sol</text><text x="0" y="115" class="rs">Codex, estimated split</text><rect x="150.0" y="82" width="97.9" height="30" rx="2" class="s1"/><text x="199.0" y="101.5" text-anchor="middle" class="seg s1-t">5.2 model</text><rect x="249.9" y="82" width="20.4" height="30" rx="2" class="tl"/><rect x="272.3" y="82" width="0.0" height="30" rx="2" class="hn"/><text x="278.6" y="102" class="el">6.3</text></svg></div>
+    </figure>
+    <p>Muse Wonder Full spent 80% of its time in model calls. A call took 17.7 seconds on average, with a median of 5.8 seconds before the first token and about 98 tokens per second after it. Each call produced about 939 output tokens. The first call of every task carried about 25k input tokens of fixed instructions and context.</p>
+
+    <h2>Same tasks, side by side</h2>
+    <p>Means over all 23 Low tasks. Muse Wonder Full is its second, complete Low run, with Muse Code's skill reminder turned off (see below). GPT-6.1 Sol is its published <a href="../benchmarks/swe-v4-gpt61-sol-v318.html">Frontier v4 run</a>.</p>
+    <div class="an-table"><table>
+      <thead><tr><th class="l">Per task</th><th><i class="m2"></i>Muse Wonder Full</th><th><i class="s1"></i>GPT-6.1 Sol</th><th>Ratio</th></tr></thead>
+      <tbody><tr><td class="l">Minutes per task</td><td>27.2</td><td>6.3</td><td>4.3x</td></tr><tr><td class="l">Model calls<sup>a</sup></td><td>65.8</td><td>22.2</td><td>3.0x</td></tr><tr><td class="l">Output tokens</td><td>68.0k</td><td>6.8k</td><td>10.0x</td></tr><tr><td class="l">of which reasoning</td><td>38.3k</td><td>1.4k</td><td>26.5x</td></tr><tr><td class="l">Input tokens, mostly cached</td><td>7.83M</td><td>1.23M</td><td>6.3x</td></tr><tr><td class="l">Tool calls</td><td>73.7</td><td>21.2</td><td>3.5x</td></tr><tr><td class="l">Runs of the legacy binary</td><td>25.7</td><td>6.8</td><td>3.8x</td></tr><tr><td class="l">Code edits</td><td>18.7</td><td>7.1</td><td>2.6x</td></tr><tr><td class="l">Minutes before the first code edit</td><td>9.7</td><td>2.4</td><td>4.1x</td></tr><tr><td class="l">Seconds per step</td><td>19.8</td><td>15.4</td><td>1.3x</td></tr></tbody>
+    </table></div>
+    <p class="an-note"><sup>a</sup> GPT-6.1 Sol's model calls are estimated as one per tool step plus one. Seconds per step is the gap between consecutive tool completions.</p>
+
+    <h2>Ranked causes</h2>
+    <ol class="an-causes">
+      <li><strong>About 3x more round trips.</strong> This explains about half to two-thirds of the gap across all 23 tasks, and 65 to 90% once the two longest tasks are set aside. Muse Wonder Full often writes a script in one call and runs it in the next; about a fifth of its responses only write or edit a file. It tests one narrow hypothesis per run of the legacy binary (26 runs per task vs 7) and makes many small edits (19 vs 7). Across tasks, time tracks call count (correlation 0.91) and output tokens (0.99) closely.</li>
+      <li><strong>About 10x more output, mostly reasoning, even at Low effort.</strong> 38.3k reasoning tokens per task against 1.4k. At the measured streaming speed, generating that output accounts for about 14 minutes per task.</li>
+      <li><strong>A fixed wait before every response, multiplied by the call count.</strong> The median wait for the first token was 5.8 seconds, with a floor of about 3 to 4 seconds even for tiny calls. That is close to GPT-6.1 Sol's quickest steps, so it matters because there are so many calls, not because each one is slow.</li>
+      <li><strong>More tool time.</strong> 4.2 minutes per task against an estimated 1.2, mostly a few long randomized test runs.</li>
+      <li><strong>Harness overhead.</strong> About 1.2 minutes per task, including Muse Code's end-of-run goal and verify reminders, which run after the final answer.</li>
+    </ol>
+    <p class="an-note">Ruled out: retries (none), overlapping calls (none) and context size. Input grows from about 25k to over 120k tokens per call, about 97% cached, and call latency does not track it.</p>
+
+    <h2>How the two models work</h2>
+    <div class="an-two">
+      <div><h3><i class="m2"></i>Muse Wonder Full: experimenter</h3>
+        <ul><li>Treats the legacy binary as a black box: form a hypothesis, run one probe, reason, refine.</li><li>Used disassembly on 7 of 23 tasks.</li><li>Edits late, in small patches, then loops through fuzzing, minimizing and fixing.</li></ul>
+        <blockquote>&ldquo;Analyzing obfuscated binary behavior and mapping bullet clues to possible algorithm hypotheses for black-box testing.&rdquo; (granarycore)</blockquote></div>
+      <div><h3><i class="s1"></i>GPT-6.1 Sol: reverse engineer</h3>
+        <ul><li>Disassembles the binary early and reads large sections at once.</li><li>Used disassembly on 21 of 23 tasks.</li><li>Writes one large patch, runs one large randomized comparison against the binary, adds tests and stops.</li></ul>
+        <blockquote>&ldquo;The updated implementation matched the binary across 90,000 randomized commands.&rdquo; (blendcore, finished in about 3.5 minutes)</blockquote></div>
+    </div>
+    <p>Both end with patches of similar size and similar correctness. On <code>granarycore</code>, Muse Wonder Full judged the binary obfuscated and ran about 30 black-box probes, while GPT-6.1 Sol decoded the binary's data tables directly. The longest task, <code>lodgecore</code>, took Muse Wonder Full 117 minutes and GPT-6.1 Sol 7.</p>
+
+    <h2>Every task</h2>
+    <figure class="an-fig">
+      <div class="an-legend"><span><i class="m2"></i>Muse Wonder Full (square)</span><span><i class="s1 round"></i>GPT-6.1 Sol (circle)</span></div>
+      <div class="an-scroll"><svg viewBox="0 0 760 572" role="img" aria-labelledby="an-c2" class="an-chart"><title id="an-c2">Minutes per task for each of the 23 tasks, log scale</title><line x1="185.6" x2="185.6" y1="16" y2="526" class="grid"/><text x="185.6" y="544" text-anchor="middle" class="tick">2</text><line x1="299.0" x2="299.0" y1="16" y2="526" class="grid"/><text x="299.0" y="544" text-anchor="middle" class="tick">5</text><line x1="384.8" x2="384.8" y1="16" y2="526" class="grid"/><text x="384.8" y="544" text-anchor="middle" class="tick">10</text><line x1="470.6" x2="470.6" y1="16" y2="526" class="grid"/><text x="470.6" y="544" text-anchor="middle" class="tick">20</text><line x1="584.0" x2="584.0" y1="16" y2="526" class="grid"/><text x="584.0" y="544" text-anchor="middle" class="tick">50</text><line x1="669.8" x2="669.8" y1="16" y2="526" class="grid"/><text x="669.8" y="544" text-anchor="middle" class="tick">100</text><text x="720.0" y="564" text-anchor="end" class="tick">minutes per task, log scale</text><g><title>lodgecore: Muse Wonder Full 116.9 min (score 1.00); GPT-6.1 Sol 6.6 min (score 1.00)</title><text x="138" y="30" text-anchor="end" class="tl-label">lodgecore</text><line x1="334.2" x2="689.1" y1="26" y2="26" class="link"/><circle cx="334.2" cy="26" r="5" class="dot-s"/><rect x="684.1" y="21" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>paddockcore: Muse Wonder Full 114.7 min (score 0.93); GPT-6.1 Sol 43.7 min (score 1.00)</title><text x="138" y="52" text-anchor="end" class="tl-label">paddockcore</text><line x1="567.3" x2="686.8" y1="48" y2="48" class="link"/><circle cx="567.3" cy="48" r="5" class="dot-s"/><rect x="681.8" y="43" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>depotcore: Muse Wonder Full 48.1 min (score 1.00); GPT-6.1 Sol 6.8 min (score 1.00)</title><text x="138" y="74" text-anchor="end" class="tl-label">depotcore</text><line x1="337.1" x2="579.2" y1="70" y2="70" class="link"/><circle cx="337.1" cy="70" r="5" class="dot-s"/><rect x="574.2" y="65" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>tallycore: Muse Wonder Full 35.7 min (score 1.00); GPT-6.1 Sol 3.7 min (score 1.00)</title><text x="138" y="96" text-anchor="end" class="tl-label">tallycore</text><line x1="263.1" x2="542.3" y1="92" y2="92" class="link"/><circle cx="263.1" cy="92" r="5" class="dot-s"/><rect x="537.3" y="87" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>granarycore: Muse Wonder Full 32.8 min (score 1.00); GPT-6.1 Sol 11.1 min (score 1.00)</title><text x="138" y="118" text-anchor="end" class="tl-label">granarycore</text><line x1="397.8" x2="531.9" y1="114" y2="114" class="link"/><circle cx="397.8" cy="114" r="5" class="dot-s"/><rect x="526.9" y="109" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>payrollcore: Muse Wonder Full 30.4 min (score 1.00); GPT-6.1 Sol 2.8 min (score 1.00)</title><text x="138" y="140" text-anchor="end" class="tl-label">payrollcore</text><line x1="227.3" x2="522.6" y1="136" y2="136" class="link"/><circle cx="227.3" cy="136" r="5" class="dot-s"/><rect x="517.6" y="131" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>settlecore: Muse Wonder Full 20.5 min (score 0.80); GPT-6.1 Sol 6.2 min (score 0.80)</title><text x="138" y="162" text-anchor="end" class="tl-label">settlecore</text><line x1="326.4" x2="473.6" y1="158" y2="158" class="link"/><circle cx="326.4" cy="158" r="5" class="dot-s"/><rect x="468.6" y="153" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>matchcore-order-book: Muse Wonder Full 19.4 min (score 1.00); GPT-6.1 Sol 3.3 min (score 1.00)</title><text x="138" y="184" text-anchor="end" class="tl-label">matchcore-order-book</text><line x1="248.1" x2="466.9" y1="180" y2="180" class="link"/><circle cx="248.1" cy="180" r="5" class="dot-s"/><rect x="461.9" y="175" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>queuecore: Muse Wonder Full 19.4 min (score 1.00); GPT-6.1 Sol 4.1 min (score 1.00)</title><text x="138" y="206" text-anchor="end" class="tl-label">queuecore</text><line x1="274.2" x2="466.7" y1="202" y2="202" class="link"/><circle cx="274.2" cy="202" r="5" class="dot-s"/><rect x="461.7" y="197" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>cellarcore: Muse Wonder Full 18.1 min (score 0.93); GPT-6.1 Sol 4.7 min (score 1.00)</title><text x="138" y="228" text-anchor="end" class="tl-label">cellarcore</text><line x1="291.6" x2="458.5" y1="224" y2="224" class="link"/><circle cx="291.6" cy="224" r="5" class="dot-s"/><rect x="453.5" y="219" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>freightcore: Muse Wonder Full 18.1 min (score 1.00); GPT-6.1 Sol 2.6 min (score 1.00)</title><text x="138" y="250" text-anchor="end" class="tl-label">freightcore</text><line x1="220.3" x2="458.0" y1="246" y2="246" class="link"/><circle cx="220.3" cy="246" r="5" class="dot-s"/><rect x="453.0" y="241" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>quotacore: Muse Wonder Full 17.4 min (score 1.00); GPT-6.1 Sol 3.6 min (score 1.00)</title><text x="138" y="272" text-anchor="end" class="tl-label">quotacore</text><line x1="258.1" x2="453.7" y1="268" y2="268" class="link"/><circle cx="258.1" cy="268" r="5" class="dot-s"/><rect x="448.7" y="263" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>reflowcore: Muse Wonder Full 17.1 min (score 1.00); GPT-6.1 Sol 5.9 min (score 0.75)</title><text x="138" y="294" text-anchor="end" class="tl-label">reflowcore</text><line x1="320.4" x2="451.3" y1="290" y2="290" class="link"/><circle cx="320.4" cy="290" r="5" class="dot-s"/><rect x="446.3" y="285" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>stampcore: Muse Wonder Full 16.2 min (score 1.00); GPT-6.1 Sol 3.4 min (score 1.00)</title><text x="138" y="316" text-anchor="end" class="tl-label">stampcore</text><line x1="250.6" x2="444.9" y1="312" y2="312" class="link"/><circle cx="250.6" cy="312" r="5" class="dot-s"/><rect x="439.9" y="307" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>hedgecore: Muse Wonder Full 14.8 min (score 1.00); GPT-6.1 Sol 3.9 min (score 1.00)</title><text x="138" y="338" text-anchor="end" class="tl-label">hedgecore</text><line x1="267.0" x2="433.2" y1="334" y2="334" class="link"/><circle cx="267.0" cy="334" r="5" class="dot-s"/><rect x="428.2" y="329" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>codeccore: Muse Wonder Full 14.2 min (score 0.60); GPT-6.1 Sol 4.5 min (score 1.00)</title><text x="138" y="360" text-anchor="end" class="tl-label">codeccore</text><line x1="285.6" x2="428.3" y1="356" y2="356" class="link"/><circle cx="285.6" cy="356" r="5" class="dot-s"/><rect x="423.3" y="351" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>metercore: Muse Wonder Full 11.4 min (score 1.00); GPT-6.1 Sol 2.6 min (score 1.00)</title><text x="138" y="382" text-anchor="end" class="tl-label">metercore</text><line x1="220.3" x2="400.8" y1="378" y2="378" class="link"/><circle cx="220.3" cy="378" r="5" class="dot-s"/><rect x="395.8" y="373" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>vaultcore: Muse Wonder Full 10.8 min (score 0.78); GPT-6.1 Sol 6.6 min (score 1.00)</title><text x="138" y="404" text-anchor="end" class="tl-label">vaultcore</text><line x1="333.4" x2="394.7" y1="400" y2="400" class="link"/><circle cx="333.4" cy="400" r="5" class="dot-s"/><rect x="389.7" y="395" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>snapcore: Muse Wonder Full 10.8 min (score 1.00); GPT-6.1 Sol 4.4 min (score 0.80)</title><text x="138" y="426" text-anchor="end" class="tl-label">snapcore</text><line x1="284.4" x2="394.2" y1="422" y2="422" class="link"/><circle cx="284.4" cy="422" r="5" class="dot-s"/><rect x="389.2" y="417" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>pacecore: Muse Wonder Full 10.7 min (score 1.00); GPT-6.1 Sol 3.1 min (score 1.00)</title><text x="138" y="448" text-anchor="end" class="tl-label">pacecore</text><line x1="239.3" x2="392.7" y1="444" y2="444" class="link"/><circle cx="239.3" cy="444" r="5" class="dot-s"/><rect x="387.7" y="439" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>qlite-store: Muse Wonder Full 9.7 min (score 1.00); GPT-6.1 Sol 3.7 min (score 1.00)</title><text x="138" y="470" text-anchor="end" class="tl-label">qlite-store</text><line x1="261.6" x2="381.3" y1="466" y2="466" class="link"/><circle cx="261.6" cy="466" r="5" class="dot-s"/><rect x="376.3" y="461" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>schedcore: Muse Wonder Full 9.1 min (score 1.00); GPT-6.1 Sol 4.9 min (score 1.00)</title><text x="138" y="492" text-anchor="end" class="tl-label">schedcore</text><line x1="296.5" x2="373.6" y1="488" y2="488" class="link"/><circle cx="296.5" cy="488" r="5" class="dot-s"/><rect x="368.6" y="483" width="10" height="10" rx="1.5" class="dot-m"/></g><g><title>blendcore: Muse Wonder Full 8.1 min (score 1.00); GPT-6.1 Sol 3.4 min (score 1.00)</title><text x="138" y="514" text-anchor="end" class="tl-label">blendcore</text><line x1="251.9" x2="359.2" y1="510" y2="510" class="link"/><circle cx="251.9" cy="510" r="5" class="dot-s"/><rect x="354.2" y="505" width="10" height="10" rx="1.5" class="dot-m"/></g></svg></div>
+    </figure>
+    <div class="an-table"><table>
+      <thead><tr><th class="l" rowspan="2">Task</th><th colspan="4"><i class="m2"></i>Muse Wonder Full</th><th class="sep" colspan="4"><i class="s1"></i>GPT-6.1 Sol</th><th class="sep" rowspan="2">Time ratio</th></tr>
+      <tr><th>Min</th><th>Calls</th><th>Output</th><th>Score</th><th class="sep">Min</th><th>Calls<sup>a</sup></th><th>Output</th><th>Score</th></tr></thead>
+      <tbody><tr><td class="l">blendcore</td><td>8.1</td><td>33</td><td>24.7k</td><td>1.00</td><td class="sep">3.4</td><td>11</td><td>3.7k</td><td>1.00</td><td class="sep">2.4x</td></tr><tr><td class="l">cellarcore</td><td>18.1</td><td>53</td><td>54.4k</td><td>0.93</td><td class="sep">4.7</td><td>20</td><td>4.9k</td><td>1.00</td><td class="sep">3.9x</td></tr><tr><td class="l">codeccore</td><td>14.2</td><td>46</td><td>34.2k</td><td>0.60</td><td class="sep">4.5</td><td>17</td><td>5.3k</td><td>1.00</td><td class="sep">3.2x</td></tr><tr><td class="l">depotcore</td><td>48.1</td><td>103</td><td>126.4k</td><td>1.00</td><td class="sep">6.8</td><td>23</td><td>7.3k</td><td>1.00</td><td class="sep">7.1x</td></tr><tr><td class="l">freightcore</td><td>18.1</td><td>57</td><td>59.3k</td><td>1.00</td><td class="sep">2.6</td><td>13</td><td>4.0k</td><td>1.00</td><td class="sep">6.8x</td></tr><tr><td class="l">granarycore</td><td>32.8</td><td>98</td><td>102.8k</td><td>1.00</td><td class="sep">11.1</td><td>37</td><td>11.0k</td><td>1.00</td><td class="sep">3.0x</td></tr><tr><td class="l">hedgecore</td><td>14.8</td><td>44</td><td>44.8k</td><td>1.00</td><td class="sep">3.9</td><td>11</td><td>3.9k</td><td>1.00</td><td class="sep">3.8x</td></tr><tr><td class="l">lodgecore</td><td>116.9</td><td>138</td><td>262.4k</td><td>1.00</td><td class="sep">6.6</td><td>24</td><td>7.1k</td><td>1.00</td><td class="sep">17.6x</td></tr><tr><td class="l">matchcore-order-book</td><td>19.4</td><td>64</td><td>35.9k</td><td>1.00</td><td class="sep">3.3</td><td>17</td><td>4.5k</td><td>1.00</td><td class="sep">5.9x</td></tr><tr><td class="l">metercore</td><td>11.4</td><td>35</td><td>28.6k</td><td>1.00</td><td class="sep">2.6</td><td>12</td><td>3.8k</td><td>1.00</td><td class="sep">4.3x</td></tr><tr><td class="l">pacecore</td><td>10.7</td><td>36</td><td>33.9k</td><td>1.00</td><td class="sep">3.1</td><td>11</td><td>3.3k</td><td>1.00</td><td class="sep">3.5x</td></tr><tr><td class="l">paddockcore</td><td>114.7</td><td>183</td><td>247.4k</td><td>0.93</td><td class="sep">43.7</td><td>125</td><td>44.7k</td><td>1.00</td><td class="sep">2.6x</td></tr><tr><td class="l">payrollcore</td><td>30.4</td><td>83</td><td>76.6k</td><td>1.00</td><td class="sep">2.8</td><td>14</td><td>3.8k</td><td>1.00</td><td class="sep">10.9x</td></tr><tr><td class="l">qlite-store</td><td>9.7</td><td>23</td><td>30.4k</td><td>1.00</td><td class="sep">3.7</td><td>12</td><td>3.9k</td><td>1.00</td><td class="sep">2.6x</td></tr><tr><td class="l">queuecore</td><td>19.4</td><td>63</td><td>53.2k</td><td>1.00</td><td class="sep">4.1</td><td>13</td><td>3.8k</td><td>1.00</td><td class="sep">4.7x</td></tr><tr><td class="l">quotacore</td><td>17.4</td><td>58</td><td>48.6k</td><td>1.00</td><td class="sep">3.6</td><td>12</td><td>3.9k</td><td>1.00</td><td class="sep">4.9x</td></tr><tr><td class="l">reflowcore</td><td>17.1</td><td>58</td><td>38.2k</td><td>1.00</td><td class="sep">5.9</td><td>21</td><td>5.8k</td><td>0.75</td><td class="sep">2.9x</td></tr><tr><td class="l">schedcore</td><td>9.1</td><td>27</td><td>21.6k</td><td>1.00</td><td class="sep">4.9</td><td>16</td><td>4.3k</td><td>1.00</td><td class="sep">1.9x</td></tr><tr><td class="l">settlecore</td><td>20.5</td><td>47</td><td>41.2k</td><td>0.80</td><td class="sep">6.2</td><td>31</td><td>7.8k</td><td>0.80</td><td class="sep">3.3x</td></tr><tr><td class="l">snapcore</td><td>10.8</td><td>40</td><td>30.1k</td><td>1.00</td><td class="sep">4.4</td><td>18</td><td>4.6k</td><td>0.80</td><td class="sep">2.4x</td></tr><tr><td class="l">stampcore</td><td>16.2</td><td>66</td><td>36.2k</td><td>1.00</td><td class="sep">3.4</td><td>13</td><td>3.5k</td><td>1.00</td><td class="sep">4.8x</td></tr><tr><td class="l">tallycore</td><td>35.7</td><td>117</td><td>102.5k</td><td>1.00</td><td class="sep">3.7</td><td>14</td><td>3.8k</td><td>1.00</td><td class="sep">9.5x</td></tr><tr><td class="l">vaultcore</td><td>10.8</td><td>41</td><td>30.4k</td><td>0.78</td><td class="sep">6.6</td><td>25</td><td>7.0k</td><td>1.00</td><td class="sep">1.6x</td></tr></tbody>
+    </table></div>
+    <p class="an-note">Per-task data: <a href="../assets/data/analysis-01/tasks.csv">tasks.csv</a>.</p>
+
+    <h2>Turning off Muse Code's skill reminder</h2>
+    <p>Muse Code runs a skill-reminder plugin alongside the main model, and it can be turned off in Muse Code's settings. We repeated the Low run with it off. On the 19 tasks both runs completed, it saved little time and changed how the model worked.</p>
+    <div class="an-table"><table>
+      <thead><tr><th class="l">Per task, mean of 19</th><th>Reminder on</th><th>Reminder off</th><th>Change</th></tr></thead>
+      <tbody><tr><td class="l">Minutes per task</td><td>18.4</td><td>17.2</td><td>-6%</td></tr><tr><td class="l">Model calls</td><td>58.7</td><td>54.5</td><td>-7%</td></tr><tr><td class="l">Model time, minutes</td><td>16.2</td><td>14.5</td><td>-10%</td></tr><tr><td class="l">Input tokens, millions</td><td>4.89</td><td>4.66</td><td>-5%</td></tr><tr><td class="l">Output tokens, thousands</td><td>44.5</td><td>46.0</td><td>+3%</td></tr><tr><td class="l">Test runs</td><td>3.3</td><td>0.0</td><td>-100%</td></tr><tr><td class="l">Runs of the legacy binary</td><td>14.0</td><td>21.4</td><td>+53%</td></tr><tr><td class="l">Minutes before the first code edit</td><td>11.3</td><td>7.7</td><td>-32%</td></tr><tr><td class="l">Functional score</td><td>0.933</td><td>0.957</td><td>+3%</td></tr></tbody>
+    </table></div>
+    <ul>
+      <li>Time fell about 6% and tokens about 5%.</li>
+      <li>With the reminder on, it made about 45 decisions per task alongside the main model and fired once per task, pointing the model to a bundled skill about durable test collateral. With it off, the model ran no tests at all.</li>
+      <li>The score change is within run-to-run noise for one run per task.</li>
+    </ul>
+
+    <h2>Method and caveats</h2>
+    <p><strong>Runs.</strong> Muse Wonder Full (<code>muse-wonder-full-1.0</code>, Contributor mode) in Muse Code 1.4.6 at Low effort on 13 and 14 October 2026: a first run with the skill reminder on (19 tasks completed before a usage limit) and a complete second run with it off (23 tasks). GPT-6.1 Sol in Codex 0.159.0 at Low effort on 30 September 2026. One run per task per model. Grading is the same for both; the functional score is the share of hidden behavior tests passed. Code quality was not judged for this analysis, so no combined score is shown and Muse Wonder Full is not on the leaderboard yet.</p>
+    <p><strong>Measured.</strong> Muse Wonder Full's per-call latency, tokens, tool times and step counts come from Muse Code's session logs. GPT-6.1 Sol's step counts, tokens and step timestamps come from the Codex event stream and the harness trace.</p>
+    <p><strong>Estimated.</strong> GPT-6.1 Sol's split between model and tool time, and its model-call count.</p>
+    <p><strong>Not controlled.</strong> The harnesses differ: Muse Code has separate write, edit, todo and skill tools, reminders, and an outer sandbox in which the legacy binary must be copied before it runs, while Codex has one shell tool and patch edits. Some extra Muse steps come from the harness rather than the model. The runs were on different dates and hosts, and provider load is unknown. Muse logs do not record the effective reasoning effort, and Codex reasoning counts may not capture all hidden compute.</p>
+  </div>
+
+  <div class="post-foot">
+    <div class="dl-row">
+      <a class="btn primary" href="../benchmarks.html">Read the benchmarks &rarr;</a>
+      <a class="btn" href="https://x.com/intent/post?text=Why%20Muse%20Wonder%20Full%20takes%20about%204x%20longer%20than%20GPT-6.1%20Sol%20on%20the%20same%20tasks&amp;url=https%3A%2F%2Fvulcanbench.com%2Fanalysis%2F01-muse-wonder-full-vs-gpt-6-1-sol.html" target="_blank" rel="noopener">Share on X</a>
+      <a class="btn" href="https://github.com/morganlinton/VulcanBench">View the repository</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../analysis.html">&larr; All analysis</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../analysis.html">Analysis</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=14" defer></script>
+</body>
+</html>

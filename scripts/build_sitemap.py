@@ -31,12 +31,14 @@ def priority(rel):
         return "0.9"
     if rel.startswith("benchmarks/") or rel == "leaderboard.html":
         return "0.8"
+    if rel == "analysis.html" or rel.startswith("analysis/"):
+        return "0.8"
     return "0.7"
 
 
 def order(rel):
     groups = ("index.html", "benchmarks.html", "leaderboard.html", "methodology.html", "methodology-notes.html", "benchmark-your-stack.html",
-              "benchmark-your-model.html", "support.html", "blog.html")
+              "benchmark-your-model.html", "support.html", "blog.html", "analysis.html")
     if rel in groups:
         return (0, groups.index(rel), rel)
     if rel.startswith("benchmarks/swe-v4"):
@@ -45,6 +47,8 @@ def order(rel):
         return (2, 0, rel)
     if rel.startswith("blog/"):
         return (3, 0, rel)
+    if rel.startswith("analysis/"):
+        return (3, 1, rel)
     return (4, 0, rel)
 
 
