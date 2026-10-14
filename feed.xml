@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>Why Muse Wonder Full takes about 4x longer than GPT-6.1 Sol on the same tasks</title>
+      <link>https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html</link>
+      <guid>https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html</guid>
+      <pubDate>Wed, 14 Oct 2026 12:00:00 +0000</pubDate>
+      <description>Trace analysis of Muse Wonder Full in Muse Code against GPT-6.1 Sol in Codex on all 23 VulcanBench Frontier v4 tasks at Low effort. Muse Wonder Full averaged 27.2 minutes per task against 6.3, with about 3x the model calls and 10x the output tokens, while each step took about the same time. Covers where the time goes, ranked causes, how the two models work, and the effect of turning off Muse Code's skill reminder.</description>
+    </item>
+    <item>
       <title>Claude Haiku 5.5 vs Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna | VulcanBench Frontier v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-haiku55-vs-frontier.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-haiku55-vs-frontier.html</guid>
