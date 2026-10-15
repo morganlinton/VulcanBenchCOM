@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>Muse Wonder Full against Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra: combined score, time and cost</title>
+      <link>https://vulcanbench.com/analysis/02-muse-wonder-full-combined-time-cost.html</link>
+      <guid>https://vulcanbench.com/analysis/02-muse-wonder-full-combined-time-cost.html</guid>
+      <pubDate>Thu, 15 Oct 2026 22:00:00 +0000</pubDate>
+      <description>Muse Wonder Full's combined score, time and cost on VulcanBench Frontier v4 at Low and Medium, against Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra. It scores 87.0 at Low, level with all three, and 88.8 at Medium (21 of 23 tasks so far), second behind Opus 5.5, but it is the slowest and most expensive of the four at about 27 minutes and an estimated $3.90 per task. Its Code quality was judged by Claude Opus 5.5 and GPT-6.1 Sol, a different panel from the other models, and the two judges disagreed by about 17 points; both caveats are explained.</description>
+    </item>
+    <item>
       <title>Analysis of traces comparing Muse Wonder Full and GPT-6.1 Sol at Low effort</title>
       <link>https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html</link>
       <guid>https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html</guid>
