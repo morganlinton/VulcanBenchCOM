@@ -55,5 +55,12 @@ classifier-stop exclusions, the unpublished max codeccore probe, the price-tier
 floor and ceiling, the two pauses and the judge settings.
 `swe-v4-haiku55-v324-scores.csv` holds its five effort aggregates.
 
+`swe-v4-musewonder-full-v326/` is the public record of the October 17, 2026
+Muse Wonder Full report under Code quality protocols v3.26 to v3.26.3,
+exported by `scripts/export_swe_v4_v326_evidence.py`; its README explains the
+judge panel (Claude Opus 5.5 and GPT-6.1 Sol, and why), the two Muse Code
+versions, the two timeouts and both combined figures, and the estimated cost.
+`swe-v4-musewonder-full-v326-scores.csv` holds its four effort aggregates.
+
 Earlier suite results live in their own report pages and keep their original
 scoring conventions; do not pool them with Frontier v4.

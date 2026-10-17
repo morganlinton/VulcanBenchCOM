@@ -1,0 +1,524 @@
+[
+  {
+    "model": "musewonderfull",
+    "effort": "low",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "timeout_tasks": [],
+    "combined_33": {
+      "n": 23,
+      "mean": 86.95102934239672,
+      "se": 1.1638903461497079
+    },
+    "combined_timeouts_zero": {
+      "n": 23,
+      "mean": 86.95102934239672,
+      "se": 1.1638903461497079
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 89.17796574111001,
+      "se": 1.1004185344154473
+    },
+    "combined_single_judge": {
+      "claude": {
+        "n": 23,
+        "mean": 85.02205885636103,
+        "se": 1.227561591824672
+      },
+      "sol": {
+        "n": 23,
+        "mean": 88.87999982843243,
+        "se": 1.1173766487437162
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 72.25298087946308,
+      "se": 1.8350419116907064
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 67.43659420289855,
+      "se": 2.1633368389727528
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 85.0966786836352,
+      "se": 2.0202656574507354
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 64.76449275362319,
+      "se": 2.4848335089812315
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 70.1086956521739,
+      "se": 2.0734643373658694
+    },
+    "by_panel": {
+      "claude": {
+        "n": 23,
+        "mean": 58.8768115942029,
+        "se": 2.5167470995380086
+      },
+      "sol": {
+        "n": 23,
+        "mean": 75.9963768115942,
+        "se": 1.8974626391515588
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 95.82478260869566,
+      "se": 2.0795687708165422
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 95.82478260869566,
+      "se": 2.0795687708165422
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 78.76652173913044,
+      "se": 1.06928785889308
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 18,
+    "passed_all_runs": 18,
+    "hidden_behaviours_fixed": 221,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 27.28644927536232,
+      "se": 6.174283604672374
+    },
+    "minutes_median": 17.56931666666667,
+    "priced_runs": 23,
+    "cli_versions": {
+      "Muse Code 1.4.6 (1.4.6-R6000.1)": 23
+    },
+    "judged_in": {
+      "code-quality-maintenance-v3.26": 23
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 7990716.260869565,
+      "se": 2064879.808818819
+    },
+    "raw_tokens_total": 183786474,
+    "output_tokens": {
+      "n": 23,
+      "mean": 68647.30434782608,
+      "se": 13584.17701677442
+    },
+    "usd": {
+      "n": 23,
+      "mean": 3.9315751304347826,
+      "se": 0.8164875787501565
+    },
+    "usd_total": 90.426228,
+    "reminder_usd_total": 0.0,
+    "overlapping_runs": null
+  },
+  {
+    "model": "musewonderfull",
+    "effort": "medium",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "timeout_tasks": [],
+    "combined_33": {
+      "n": 23,
+      "mean": 88.26905476045692,
+      "se": 0.9473842794010097
+    },
+    "combined_timeouts_zero": {
+      "n": 23,
+      "mean": 88.26905476045692,
+      "se": 0.9473842794010097
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 90.44851144902529,
+      "se": 0.8099415147994964
+    },
+    "combined_single_judge": {
+      "claude": {
+        "n": 23,
+        "mean": 86.24225357251444,
+        "se": 1.030068537061918
+      },
+      "sol": {
+        "n": 23,
+        "mean": 90.29585594839942,
+        "se": 0.8928699768078617
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 72.28712246251771,
+      "se": 1.859172287139112
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 66.7572463768116,
+      "se": 2.337428841771617
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 87.03345869106738,
+      "se": 1.9086535938681277
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 64.58333333333333,
+      "se": 2.5632908604241447
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 68.93115942028986,
+      "se": 2.2147029610031934
+    },
+    "by_panel": {
+      "claude": {
+        "n": 23,
+        "mean": 58.242753623188406,
+        "se": 2.5210407559752523
+      },
+      "sol": {
+        "n": 23,
+        "mean": 75.27173913043478,
+        "se": 2.3183644726970205
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 98.5508695652174,
+      "se": 1.0228509550769211
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 98.5508695652174,
+      "se": 1.0228509550769211
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 78.32173913043478,
+      "se": 1.2026463987985199
+    },
+    "security": {
+      "n": 23,
+      "mean": 99.78260869565217,
+      "se": 0.2173913043478261
+    },
+    "passed": 21,
+    "passed_all_runs": 21,
+    "hidden_behaviours_fixed": 227,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 27.33825,
+      "se": 3.9505657463861485
+    },
+    "minutes_median": 21.318949999999997,
+    "priced_runs": 23,
+    "cli_versions": {
+      "Muse Code 1.4.6 (1.4.6-R6000.1)": 21,
+      "Muse Code 1.4.9 (1.4.9-R6297.1)": 2
+    },
+    "judged_in": {
+      "code-quality-maintenance-v3.26": 21,
+      "code-quality-maintenance-v3.26.1": 2
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 8495127.826086957,
+      "se": 1856490.3929544857
+    },
+    "raw_tokens_total": 195387940,
+    "output_tokens": {
+      "n": 23,
+      "mean": 73796.91304347826,
+      "se": 10457.558233789332
+    },
+    "usd": {
+      "n": 23,
+      "mean": 4.085145954347826,
+      "se": 0.6113668607083202
+    },
+    "usd_total": 93.95835695,
+    "reminder_usd_total": 0.30436175,
+    "overlapping_runs": 9
+  },
+  {
+    "model": "musewonderfull",
+    "effort": "high",
+    "n": 22,
+    "runs": 23,
+    "timeouts": 1,
+    "timeout_tasks": [
+      "legacy-paddockcore-binary-parity"
+    ],
+    "combined_33": {
+      "n": 22,
+      "mean": 88.18992946144763,
+      "se": 1.0433045559797345
+    },
+    "combined_timeouts_zero": {
+      "n": 23,
+      "mean": 84.35558470225426,
+      "se": 3.9618219687149474
+    },
+    "combined_20_profile": {
+      "n": 22,
+      "mean": 90.24233672594623,
+      "se": 0.9467814610882195
+    },
+    "combined_single_judge": {
+      "claude": {
+        "n": 22,
+        "mean": 86.13795955635273,
+        "se": 1.0770527950311142
+      },
+      "sol": {
+        "n": 22,
+        "mean": 90.24189936654254,
+        "se": 1.0313515169287253
+      }
+    },
+    "code_quality": {
+      "n": 22,
+      "mean": 73.58066090245842,
+      "se": 1.810122063455326
+    },
+    "reviewed_score": {
+      "n": 22,
+      "mean": 68.32386363636364,
+      "se": 2.233136749080934
+    },
+    "intent_recovery": {
+      "n": 22,
+      "mean": 87.59878694537785,
+      "se": 1.5849969763267981
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 22,
+      "mean": 66.28787878787878,
+      "se": 2.518705437821868
+    },
+    "maintainability": {
+      "n": 22,
+      "mean": 70.35984848484848,
+      "se": 2.264539272831217
+    },
+    "by_panel": {
+      "claude": {
+        "n": 22,
+        "mean": 59.56439393939394,
+        "se": 2.3248333365284775
+      },
+      "sol": {
+        "n": 22,
+        "mean": 77.08333333333333,
+        "se": 2.260670279061082
+      }
+    },
+    "functional": {
+      "n": 22,
+      "mean": 97.43136363636364,
+      "se": 1.4360682096593376
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 93.19521739130435,
+      "se": 4.452852701543847
+    },
+    "automated_quality": {
+      "n": 22,
+      "mean": 78.96409090909091,
+      "se": 1.0341168637625744
+    },
+    "security": {
+      "n": 22,
+      "mean": 99.77272727272727,
+      "se": 0.22727272727272727
+    },
+    "passed": 19,
+    "passed_all_runs": 19,
+    "hidden_behaviours_fixed": 210,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 36.17281014492754,
+      "se": 7.852748980757491
+    },
+    "minutes_median": 24.01738333333333,
+    "priced_runs": 23,
+    "cli_versions": {
+      "Muse Code 1.4.9 (1.4.9-R6297.1)": 23
+    },
+    "judged_in": {
+      "code-quality-maintenance-v3.26.2": 22
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 10369923.652173912,
+      "se": 2218951.6381154093
+    },
+    "raw_tokens_total": 238508244,
+    "output_tokens": {
+      "n": 23,
+      "mean": 89317.91304347826,
+      "se": 13544.70727194428
+    },
+    "usd": {
+      "n": 23,
+      "mean": 4.719412567391305,
+      "se": 0.8174426261684391
+    },
+    "usd_total": 108.54648905,
+    "reminder_usd_total": 2.83120265,
+    "overlapping_runs": 14
+  },
+  {
+    "model": "musewonderfull",
+    "effort": "extra-high",
+    "n": 22,
+    "runs": 23,
+    "timeouts": 1,
+    "timeout_tasks": [
+      "legacy-depotcore-binary-parity"
+    ],
+    "combined_33": {
+      "n": 22,
+      "mean": 87.58899923939697,
+      "se": 0.964079486318422
+    },
+    "combined_timeouts_zero": {
+      "n": 23,
+      "mean": 83.78078188116231,
+      "se": 3.9180539849611735
+    },
+    "combined_20_profile": {
+      "n": 22,
+      "mean": 89.85924540679706,
+      "se": 0.8992933986684136
+    },
+    "combined_single_judge": {
+      "claude": {
+        "n": 22,
+        "mean": 85.67136573653619,
+        "se": 1.0338529129460892
+      },
+      "sol": {
+        "n": 22,
+        "mean": 89.50663274225774,
+        "se": 0.9291279519041774
+      }
+    },
+    "code_quality": {
+      "n": 22,
+      "mean": 71.83770430671257,
+      "se": 1.5646492354462924
+    },
+    "reviewed_score": {
+      "n": 22,
+      "mean": 66.33522727272728,
+      "se": 2.050822223615356
+    },
+    "intent_recovery": {
+      "n": 22,
+      "mean": 86.51097639734003,
+      "se": 1.6071679531695762
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 22,
+      "mean": 63.35227272727273,
+      "se": 2.5521375038759038
+    },
+    "maintainability": {
+      "n": 22,
+      "mean": 69.31818181818181,
+      "se": 1.9150162004455378
+    },
+    "by_panel": {
+      "claude": {
+        "n": 22,
+        "mean": 57.765151515151516,
+        "se": 2.3470443145153506
+      },
+      "sol": {
+        "n": 22,
+        "mean": 74.90530303030303,
+        "se": 1.9115567703187784
+      }
+    },
+    "functional": {
+      "n": 22,
+      "mean": 97.40272727272728,
+      "se": 1.6133717727100496
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 93.16782608695652,
+      "se": 4.506773950983732
+    },
+    "automated_quality": {
+      "n": 22,
+      "mean": 78.60227272727272,
+      "se": 1.0669162854200192
+    },
+    "security": {
+      "n": 22,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 19,
+    "passed_all_runs": 19,
+    "hidden_behaviours_fixed": 211,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 33.337392028985505,
+      "se": 7.033674640417152
+    },
+    "minutes_median": 24.075666666666667,
+    "priced_runs": 23,
+    "cli_versions": {
+      "Muse Code 1.4.9 (1.4.9-R6297.1)": 23
+    },
+    "judged_in": {
+      "code-quality-maintenance-v3.26.3": 22
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 11370595.739130436,
+      "se": 2608718.3275568304
+    },
+    "raw_tokens_total": 261523702,
+    "output_tokens": {
+      "n": 23,
+      "mean": 90233.26086956522,
+      "se": 13296.577873836919
+    },
+    "usd": {
+      "n": 23,
+      "mean": 5.081019567391304,
+      "se": 0.9543182742733813
+    },
+    "usd_total": 116.86345005,
+    "reminder_usd_total": 2.83779885,
+    "overlapping_runs": 5
+  }
+]
