@@ -687,7 +687,9 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
                    "Contributor mode: Meta may train on submitted content, so Frontier v4 task content may enter future Meta training data. "
                    "The owner accepted this. Max is not offered in Contributor mode, so these are all the levels.",
                    "The per-minute overlap log recorded another local benchmark process during 9 Medium, 14 High and 5 Extra-high runs "
-                   "(overlap_minutes_logged); this can lengthen minutes and does not change scores. It started with Medium.",
+                   "(overlap_minutes_logged); this can lengthen minutes, and Extra-high depotcore hit the 3-hour limit with 145 of its 180 "
+                   "minutes overlapped, so its timeout may be partly due to the load. A clean rerun is scheduled after the "
+                   "2026-10-19 Muse quota reset. The log started with Medium.",
                    "One High snapcore attempt stopped on a Meta API transport error 8 minutes in; it is unscored and kept apart, and the "
                    "task was rerun.",
                    "Frontier Code quality is the reviewed layer plus intent recovery and is never compared with Routine v1 Code quality.",

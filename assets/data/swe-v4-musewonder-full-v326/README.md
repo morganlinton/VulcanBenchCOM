@@ -169,10 +169,13 @@ produced a reviewer fallback.
   16:11 UTC. Judging ran in four rounds, on October 15, 16 and 17.
 - A per-minute log recorded any other local benchmark process beside the
   sweep from Medium on. It flags 9 of 23 Medium runs, 14 of 23 High runs and
-  5 of 23 Extra-high runs (`overlap_minutes_logged`). The harness decision
-  record and card say Extra-high ran alone; the log records one matching
-  process beside five Extra-high tasks on October 17, 10:08 to 15:46 UTC.
-  Overlap can lengthen minutes and does not change scores.
+  5 of 23 Extra-high runs (`overlap_minutes_logged`); the Extra-high ones
+  ran beside another session's Frontier v5 jobs on October 17, 10:08 to
+  15:46 UTC. Overlap can lengthen minutes. Extra-high depotcore hit the
+  3-hour limit with 145 of its 180 minutes overlapped, so its timeout, and
+  its score of 0, may be partly due to the load; a clean rerun is scheduled
+  after the Muse quota reset on October 19, and this bundle will be updated
+  with it.
 - One attempt per task and level; runs were not repeated.
 
 ## Withheld

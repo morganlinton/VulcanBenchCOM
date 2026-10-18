@@ -42,7 +42,7 @@ CARD = {
                    "usd": 5.081019567391304, "minutes": 33.337392028985505, "claude": 57.765151515151516, "sol": 74.90530303030303},
 }
 # Copied byte for byte from the harness (docs/results/swe-v4-musewonder-full-2026-10/musewonder-full-vs-frontier.png).
-CARD_PNG = ("swe-v4-musewonder-full-v326.png", "6e76e3cac8d699f2d5f89ef8972780f4f7eafdc91a4c30d475259f1c6d0857c7", 3450, 2370)
+CARD_PNG = ("swe-v4-musewonder-full-v326.png", "fbd9ed9221e51acae49af56ae420f0e6518ee6ddd6a7655e2d1adb13f684930e", 3450, 2370)
 TOUCHED = ("benchmarks/swe-v4-musewonder-full-v326.html", "models/muse-wonder-full.html", "models/muse-spark-1-2.html", "benchmarks.html",
            "index.html", "feed.xml", "llms.txt", "leaderboard.html", "README.md", "assets/data/README.md",
            "assets/data/swe-v4-musewonder-full-v326/README.md", "assets/data/swe-v4-musewonder-full-v326/REPRODUCING.md",
@@ -290,7 +290,7 @@ class WonderPageTests(unittest.TestCase):
         notes = self.section("run-notes", "reproduce")
         for needle in ("Contributor mode", "Meta may train", "skill-reminder plugin was off", "offers no Max level", "1.4.6", "1.4.9",
                        "21 runs on 1.4.6 and 2 on 1.4.9", "weekly limit", "reset the quota", "transport error", "9 of the 23 Medium tasks",
-                       "14 of the 23 High tasks", "5 Extra-high tasks", "does not change scores", "No hash bridge"):
+                       "14 of the 23 High tasks", "5 Extra-high tasks", "145 of its 180 minutes", "clean rerun", "No hash bridge"):
             self.assertIn(needle, notes, needle)
         self.assertIn("never compared with Routine v1 Code quality", self.text)
 
