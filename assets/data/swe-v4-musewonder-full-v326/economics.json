@@ -1,0 +1,154 @@
+{
+  "scope": "Solver inference only, an API-equivalent estimate; the model ran on the owner's Muse Code subscription in Contributor mode, so these are estimates, not bills. Judging is excluded. Every run is priced, including the two timeouts, from the usage Muse Code reported.",
+  "pricing_verified": {
+    "muse-wonder-1.0": "2026-10-15",
+    "muse-spark-1.3": "2026-10-16"
+  },
+  "sources": {
+    "meta": "https://dev.meta.ai/docs/pricing-rate-limits/"
+  },
+  "rates_per_million": {
+    "muse-wonder-1.0 (applied to Muse Wonder Full)": {
+      "input": 4.0,
+      "cached_input": 0.2,
+      "output": 20.0
+    },
+    "muse-spark-1.3 (reminder observers)": {
+      "input": 1.25,
+      "cached_input": 0.15,
+      "output": 4.25
+    }
+  },
+  "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+  "groups": [
+    {
+      "model": "musewonderfull",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 3.9315751304347826,
+        "se": 0.8164875787501565
+      },
+      "usd_total": 90.426228,
+      "reminder_usd_total": 0.0,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 7990716.260869565,
+        "se": 2064879.808818819
+      },
+      "raw_tokens_total": 183786474,
+      "output_tokens": {
+        "n": 23,
+        "mean": 68647.30434782608,
+        "se": 13584.17701677442
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 27.28644927536232,
+        "se": 6.174283604672374
+      }
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 4.085145954347826,
+        "se": 0.6113668607083202
+      },
+      "usd_total": 93.95835695,
+      "reminder_usd_total": 0.30436175,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 8495127.826086957,
+        "se": 1856490.3929544857
+      },
+      "raw_tokens_total": 195387940,
+      "output_tokens": {
+        "n": 23,
+        "mean": 73796.91304347826,
+        "se": 10457.558233789332
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 27.33825,
+        "se": 3.9505657463861485
+      }
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 4.719412567391305,
+        "se": 0.8174426261684391
+      },
+      "usd_total": 108.54648905,
+      "reminder_usd_total": 2.83120265,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 10369923.652173912,
+        "se": 2218951.6381154093
+      },
+      "raw_tokens_total": 238508244,
+      "output_tokens": {
+        "n": 23,
+        "mean": 89317.91304347826,
+        "se": 13544.70727194428
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 36.17281014492754,
+        "se": 7.852748980757491
+      }
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 5.081019567391304,
+        "se": 0.9543182742733813
+      },
+      "usd_total": 116.86345005,
+      "reminder_usd_total": 2.83779885,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 11370595.739130436,
+        "se": 2608718.3275568304
+      },
+      "raw_tokens_total": 261523702,
+      "output_tokens": {
+        "n": 23,
+        "mean": 90233.26086956522,
+        "se": 13296.577873836919
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 33.337392028985505,
+        "se": 7.033674640417152
+      }
+    }
+  ],
+  "totals": {
+    "musewonderfull": {
+      "runs": 92,
+      "usd": 409.7945240499998,
+      "reminder_usd": 5.973363249999999,
+      "raw_tokens": 879206360,
+      "reminder_tokens": 4773911,
+      "solver_hours": 47.58504555555556
+    }
+  },
+  "limitations": [
+    "Meta lists no API price for Muse Wonder Full: it is not served on the Model API and is available through the Muse Code subscription only. Its tokens are priced at the Muse Wonder 1.0 list price, so every cost here is an estimate.",
+    "Muse Code 1.4.9 runs its end-of-run goal and verify reminder observers on Muse Spark 1.3; their tokens are recorded apart and priced at Muse Spark 1.3's Standard list price. Muse Code 1.4.6 ran them on the main model, so on Low and 21 Medium runs they are inside the Muse Wonder Full totals.",
+    "Meta charges the same rate at any context length, so no long-context tier applies.",
+    "Cost per task covers all 23 runs at every level, timeouts included, as on the harness card."
+  ],
+  "pricing_check_sha256": "5000f392af759954ef02c19348eb895c638f5470f98fc5745693de38407789df"
+}
