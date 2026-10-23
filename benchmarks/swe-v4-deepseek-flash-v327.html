@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek V4.1 Flash across effort levels | VulcanBench</title>
+<meta name="description" content="Frontier v4: 69 DeepSeek Harness runs of DeepSeek V4.1 Flash at Low, High and Max, the three levels DeepSeek's API offers, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 88.65 at Low, 88.61 at High and 88.36 at Max; 21, 20 and 20 of 23 tasks passed; 8.1 to 10.6 minutes and $0.058 to $0.074 per task at DeepSeek's off-peak list price ($0.068 to $0.101 billed).">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-deepseek-flash-v327.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="DeepSeek V4.1 Flash across effort levels | VulcanBench">
+<meta property="og:description" content="Frontier v4: 69 DeepSeek Harness runs of DeepSeek V4.1 Flash at Low, High and Max, the three levels DeepSeek's API offers, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 88.65 at Low, 88.61 at High and 88.36 at Max; 21, 20 and 20 of 23 tasks passed; 8.1 to 10.6 minutes and $0.058 to $0.074 per task at DeepSeek's off-peak list price ($0.068 to $0.101 billed).">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-deepseek-flash-v327.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-deepseek-flash-v327.png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: DeepSeek V4.1 Flash beside Claude Opus 5.5 and GPT-6.1 Sol at Low, High and Max, with combined score, tasks solved, minutes and cost per task">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DeepSeek V4.1 Flash across effort levels | VulcanBench">
+<meta name="twitter:description" content="Frontier v4: 69 DeepSeek Harness runs of DeepSeek V4.1 Flash at Low, High and Max, the three levels DeepSeek's API offers, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 88.65 at Low, 88.61 at High and 88.36 at Max; 21, 20 and 20 of 23 tasks passed; 8.1 to 10.6 minutes and $0.058 to $0.074 per task at DeepSeek's off-peak list price ($0.068 to $0.101 billed).">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-deepseek-flash-v327.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: DeepSeek V4.1 Flash beside Claude Opus 5.5 and GPT-6.1 Sol at Low, High and Max, with combined score, tasks solved, minutes and cost per task">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/analysis.html">Analysis</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="deepseek-flash-v327-heading">
+      <header>
+        <p class="suite-label">October 23, 2026 &middot; Morgan Linton &middot; 69 runs &middot; Code quality protocol v3.27</p>
+        <h1 id="deepseek-flash-v327-heading">DeepSeek V4.1 Flash across every effort level</h1>
+        <p>69 runs of DeepSeek V4.1 Flash in DeepSeek Harness, DeepSeek&rsquo;s own open-source agent, billed to a DeepSeek API key: 23 tasks at each of the three reasoning levels DeepSeek&rsquo;s API offers, Low, High and Max. Code quality carries 33% of the combined score and is judged for a human reader under the same rubric, controls and gates as the other Frontier v4 reports, by Muse Spark 1.3 and GPT-6.1 Sol. GPT-6.1 Sol sits in the seat Grok 4.6 holds for most columns, because Grok 4.6&rsquo;s Cursor account was out of usage, so this panel differs from the one that judged Claude Opus 5.5 and GPT-6.1 Sol&rsquo;s own columns. Every run finished inside the 3-hour bound and every run is judged. DeepSeek V4.1 Flash takes its place on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> with that caveat attached.</p>
+      </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A retired program to rebuild</h3><p>Each of the 23 tasks is a legacy binary with a written specification and an issue. Its real behaviour departs from the specification in documented ways, and hidden tests check the rewrite against the binary.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>One attempt per task and level</h3><p>DeepSeek V4.1 Flash works in DeepSeek Harness with the binary, the specification and the code, once per task at each effort level, inside a flat 3-hour bound, one task at a time.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>Tests and two judges score it</h3><p>Hidden tests give functional correctness. Two calibrated judges from labs other than DeepSeek rate the code for a human reader and try to recover the documented departures.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>Scores, time and cost per level</h3><p>Each level gets a combined score, tasks passed, minutes and cost. Cost is DeepSeek&rsquo;s off-peak list price applied to the harness&rsquo;s token receipts, with the amount actually billed beside it.</p></li>
+        </ol>
+        <p>Combined score = 50% functional correctness + 8.5% lint and complexity + 8.5% security + 33% Code quality, averaged over the judged runs in each level, as on every other board column. Frontier Code quality is the reviewed layer plus intent recovery; it is never compared with Routine v1 Code quality.</p>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/cards/swe-v4-deepseek-flash-v327.png" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, summary beside Opus 5.5 and GPT-6.1 Sol</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-deepseek-flash-v327-combined.png" download><span class="resource-kind">Card</span><span class="resource-title">Combined score card</span><span class="resource-meta">PNG, combined score at Low, High and Max</span></a>
+        <a class="resource" href="/assets/data/swe-v4-deepseek-flash-v327/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 69 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores and list and billed cost</span></a>
+        <a class="resource" href="/assets/data/swe-v4-deepseek-flash-v327-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, three effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-deepseek-flash-v327"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-deepseek-flash-v327/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=DeepSeek%20V4.1%20Flash%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-deepseek-flash-v327.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this report, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#comparison"><span class="n">03</span>Beside Opus 5.5 and GPT-6.1 Sol</a>
+        <a href="#cost"><span class="n">04</span>Cost and tokens</a>
+        <a href="#board"><span class="n">05</span>On the board</a>
+        <a href="#code-quality"><span class="n">06</span>Code quality</a>
+        <a href="#judges"><span class="n">07</span>Judges and calibration</a>
+        <a href="#run-notes"><span class="n">08</span>How it was run</a>
+        <a href="#reproduce"><span class="n">09</span>Reproduction</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>DeepSeek V4.1 Flash (API id <code>deepseek-flash</code>, which DeepSeek&rsquo;s pricing page mapped to DeepSeek-V4.1-Flash-1017) ran every task once at each of the three reasoning levels DeepSeek&rsquo;s API takes, 23 tasks per cell, through DeepSeek Harness 0.2.1-rc.2 on a DeepSeek API key, from October 20, 07:11 UTC, to October 22, 17:19 UTC, 2026, on the owner&rsquo;s Mac in the local sandbox, one task at a time. The API has no Medium and nothing maps to Extra-high, so these are all the levels. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a named human reader by Muse Spark 1.3 and GPT-6.1 Sol with a ground-truth intent-recovery probe.</p>
+        <div class="effort-choices">
+          <div><h3>Combined score</h3><p>88.36 to 88.65</p><p>Combined score is flat: 88.65 at Low, 88.61 at High and 88.36 at Max, a spread of 0.3 points, well inside one standard error (0.67 to 0.98). More reasoning does not raise it.</p></div>
+          <div><h3>Tasks passed</h3><p>21, 20 and 20 of 23</p><p>pass@1 is 0.913 (&plusmn;0.060) at Low and 0.870 (&plusmn;0.072) at High and Max. Of the 231 hidden behaviours the tasks test for, it fixes 228, 225 and 226. No run reached the 3-hour bound.</p></div>
+          <div><h3>Code quality</h3><p>73.11 to 74.87</p><p>Code quality is 73.11, 74.87 and 74.01, with standard errors of 1.47 to 1.61. GPT-6.1 Sol rates the reviewed layer 7.3 to 9.6 points above Muse Spark 1.3; see <a href="#judges">Judges and calibration</a>.</p></div>
+          <div><h3>Runtime and cost</h3><p>8.1 to 10.6 min &middot; $0.058 to $0.074 per task</p><p>Each step up adds time and under a cent per task without more solves: 8.1, 8.7 and 10.6 minutes, and $0.058, $0.067 and $0.074 at DeepSeek&rsquo;s off-peak list price. Billed, after DeepSeek&rsquo;s peak-hour doubling, it was $0.101, $0.068 and $0.074. The whole sweep came to $4.56 at list price and $5.59 billed.</p></div>
+        </div>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score, tasks passed, Code quality, runtime and cost at each effort level" tabindex="0"><table class="suite-results"><caption>Combined score, tasks passed, Code quality, runtime and cost at each effort level, 23 runs per cell, every run judged</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">High</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>88.65</td><td>88.61</td><td>88.36</td></tr><tr><th scope="row">Standard error</th><td>0.67</td><td>0.96</td><td>0.98</td></tr><tr><th scope="row">Judged runs</th><td>23</td><td>23</td><td>23</td></tr></tbody><tbody><tr><th scope="row">Tasks passed</th><td>21/23</td><td>20/23</td><td>20/23</td></tr><tr><th scope="row">Hidden behaviours fixed</th><td>228/231</td><td>225/231</td><td>226/231</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>73.11</td><td>74.87</td><td>74.01</td></tr><tr><th scope="row">Human readability</th><td>65.4</td><td>68.9</td><td>66.9</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>8.05</td><td>8.66</td><td>10.60</td></tr><tr><th scope="row">Standard error of minutes</th><td>0.85</td><td>0.91</td><td>1.69</td></tr><tr><th scope="row">$ per task (list)</th><td>$0.0577</td><td>$0.0667</td><td>$0.0741</td></tr><tr><th scope="row">Standard error of $ per task</th><td>$0.0060</td><td>$0.0072</td><td>$0.0100</td></tr><tr><th scope="row">$ per task (billed)</th><td>$0.1010</td><td>$0.0680</td><td>$0.0741</td></tr></tbody></table></div>
+        <p>Under the prior 50/15/15/20 profile applied to the same Code quality scores the ladder runs 90.28 to 90.70. List price is DeepSeek&rsquo;s off-peak rate, which the board uses; billed is what DeepSeek charged, higher at Low because most Low runs fell in its weekday peak hours (see <a href="#cost">Cost and tokens</a>).</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-deepseek-flash-v327.png" aria-label="Open the DeepSeek V4.1 Flash results card at full resolution">
+          <img src="/assets/cards/swe-v4-deepseek-flash-v327.png" width="1600" height="900" fetchpriority="high" alt="DeepSeek V4.1 Flash on VulcanBench Frontier v4 in DeepSeek Harness, against Claude Opus 5.5 and GPT-6.1 Sol at Low, High and Max. Four tiles: combined score 88.4 to 88.7, leading at Low and behind Opus 5.5 at High and Max; 20 to 21 of 23 tasks fully solved at each level; 8 to 11 minutes per task; $0.06 to $0.07 per task at list price, about a fifth of GPT-6.1 Sol's. A table gives combined score by level for the three models and their cost per task range. Footnotes give the peak-hour billing, the different judge panels and the harnesses. Exact values are in the adjacent accessible tables.">
+        </a>
+        <figcaption>The harness card places DeepSeek V4.1 Flash beside Claude Opus 5.5 and GPT-6.1 Sol; their columns come from their own reports and are judged by Muse Spark 1.3 and Grok 4.6, a different panel. Standard errors are in the tables here. <a href="/assets/cards/swe-v4-deepseek-flash-v327.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">DeepSeek V4.1 Flash gains nothing from effort: its combined score moves 0.3 points from Low to Max and it passes the most tasks at Low (21 of 23), while time and cost per task rise. Low is its best level and its cheapest. These runs compare a model-and-harness combination, not an isolated base model, and its second judge differs from the other columns&rsquo;; the <a href="/leaderboard.html">Frontier v4 leaderboard</a> places every level beside the other models with that caveat.</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">n=23 runs at every level, every run judged. Combined (33%) is the published score. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the two judges. Runtime is solver wall-clock per task.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench Frontier v4: DeepSeek V4.1 Flash effort results under Code quality protocol v3.27</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="dsflash" data-effort="low"><th scope="row"><a href="/models/deepseek-v4-1-flash.html">DeepSeek V4.1 Flash</a> / DeepSeek Harness</th><td>Low</td><td>88.65</td><td>0.67</td><td>90.70</td><td>73.11</td><td>65.4</td><td>74.1</td><td>82.1</td><td>23/23</td><td>21/23</td><td>8.1</td></tr>
+              <tr data-model="dsflash" data-effort="high"><th scope="row"><a href="/models/deepseek-v4-1-flash.html">DeepSeek V4.1 Flash</a> / DeepSeek Harness</th><td>High</td><td>88.61</td><td>0.96</td><td>90.44</td><td>74.87</td><td>68.9</td><td>76.1</td><td>81.2</td><td>23/23</td><td>20/23</td><td>8.7</td></tr>
+              <tr data-model="dsflash" data-effort="max"><th scope="row"><a href="/models/deepseek-v4-1-flash.html">DeepSeek V4.1 Flash</a> / DeepSeek Harness</th><td>Max</td><td>88.36</td><td>0.98</td><td>90.28</td><td>74.01</td><td>66.9</td><td>74.6</td><td>82.6</td><td>23/23</td><td>20/23</td><td>10.6</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>Four factors by effort.</strong> Functional correctness averages 98.84, 97.54 and 97.66 from Low to Max; lint and complexity 77.70, 78.00 and 77.68; security 100.00 at every level. Only the Code quality factor depends on the judges.</p>
+        <p><strong>Intent recovery</strong> is scored over the specification departures a submission actually passed tests for. Every DeepSeek V4.1 Flash run passed at least one, so no run fell back to the reviewed score alone. <strong>SE</strong> is one sample standard error across the cell&rsquo;s 23 tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. Every published run is the equal mean of both judges, and neither judge produced a reviewer fallback.</p>
+      </div>
+
+      <section class="report-section" id="comparison" aria-labelledby="comparison-heading">
+        <h2 id="comparison-heading">Beside Claude Opus 5.5 and GPT-6.1 Sol</h2>
+        <p>At Low, DeepSeek V4.1 Flash has the highest combined score of the three, 88.65 against 86.36 for Claude Opus 5.5 and 86.22 for GPT-6.1 Sol. At High and Max it is behind Opus 5.5 (91.11 and 90.22) and essentially level with GPT-6.1 Sol (88.23 and 88.35; Flash is 88.61 and 88.36). It fully solves 21, 20 and 20 tasks, against 17, 22 and 21 for Opus 5.5 and 20, 23 and 23 for GPT-6.1 Sol. It is faster than Opus 5.5 at every level, and faster than GPT-6.1 Sol at High and Max but slower at Low. At list price it is far cheaper: GPT-6.1 Sol costs 5.3, 5.0 and 6.2 times as much per task at Low, High and Max, and Opus 5.5 29, 49 and 118 times as much.</p>
+        <div class="suite-table-scroll" role="region" aria-label="DeepSeek V4.1 Flash beside Claude Opus 5.5 and GPT-6.1 Sol at Low, High and Max" tabindex="0"><table class="suite-results">
+        <caption>Combined score, tasks passed, minutes and list-price cost per task at Low, High and Max, 23 runs per cell; Opus 5.5 and GPT-6.1 Sol from their published reports</caption><thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th><th scope="col">$/task</th><th scope="col">Code quality judges</th></tr></thead><tbody>
+        <tr data-compare="dsflash-low"><th scope="row">DeepSeek V4.1 Flash / DeepSeek Harness</th><td>Low</td><td>88.65</td><td>0.67</td><td>23</td><td>21/23</td><td>8.1</td><td>$0.058</td><td>Muse Spark 1.3 and GPT-6.1 Sol</td></tr>
+        <tr data-compare="opus55-low"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Low</td><td>86.36</td><td>1.30</td><td>23</td><td>17/23</td><td>13.7</td><td>$1.70</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="gpt61sol-low"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>Low</td><td>86.22</td><td>0.82</td><td>23</td><td>20/23</td><td>6.9</td><td>$0.31</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="dsflash-high"><th scope="row">DeepSeek V4.1 Flash / DeepSeek Harness</th><td>High</td><td>88.61</td><td>0.96</td><td>23</td><td>20/23</td><td>8.7</td><td>$0.067</td><td>Muse Spark 1.3 and GPT-6.1 Sol</td></tr>
+        <tr data-compare="opus55-high"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>High</td><td>91.11</td><td>0.57</td><td>22*</td><td>22/23</td><td>21.4</td><td>$3.27</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="gpt61sol-high"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>High</td><td>88.23</td><td>0.40</td><td>23</td><td>23/23</td><td>10.2</td><td>$0.33</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="dsflash-max"><th scope="row">DeepSeek V4.1 Flash / DeepSeek Harness</th><td>Max</td><td>88.36</td><td>0.98</td><td>23</td><td>20/23</td><td>10.6</td><td>$0.074</td><td>Muse Spark 1.3 and GPT-6.1 Sol</td></tr>
+        <tr data-compare="opus55-max"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Max</td><td>90.22</td><td>1.02</td><td>23</td><td>21/23</td><td>37.5</td><td>$8.75</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="gpt61sol-max"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>Max</td><td>88.35</td><td>0.33</td><td>23</td><td>23/23</td><td>14.5</td><td>$0.46</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        </tbody></table></div>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-deepseek-flash-v327-combined.png" aria-label="Open the combined score card at full resolution">
+            <img src="/assets/cards/swe-v4-deepseek-flash-v327-combined.png" width="1600" height="900" loading="lazy" alt="Grouped bars of combined score at Low, High and Max for DeepSeek V4.1 Flash, Claude Opus 5.5 and GPT-6.1 Sol: 88.7, 86.4 and 86.2 at Low; 88.6, 91.1 and 88.2 at High; 88.4, 90.2 and 88.3 at Max. Footnotes give Opus 5.5's 22 judged runs at High and the different judge panels. Exact values are in the adjacent table.">
+          </a>
+          <figcaption>Combined score at each level; the y axis starts at 85. <a href="/assets/cards/swe-v4-deepseek-flash-v327-combined.png">Open full-size card</a>.</figcaption>
+        </figure>
+        <div class="suite-notes">
+          <p><strong>Read the comparison with its limits.</strong> * Opus 5.5 High is over 22 judged runs: a safeguard stop left one run with no code to review. The panels differ: Flash&rsquo;s Code quality is a mean of Muse Spark 1.3 and GPT-6.1 Sol, the other two columns&rsquo; a mean of Muse Spark 1.3 and Grok 4.6, and the panels are not calibrated against each other. GPT-6.1 Sol therefore judges a column it is shown beside; its own column was judged without it. Harnesses differ (DeepSeek Harness, Claude Code, Codex). Opus 5.5 and GPT-6.1 Sol ran on subscriptions and their $/task is API-equivalent at list price from their receipts; Flash&rsquo;s is DeepSeek&rsquo;s off-peak list price, and at its billed amount ($0.101, $0.068 and $0.074) the ratios are smaller but still large. Their figures are the published rows of their own reports.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="cost" aria-labelledby="cost-heading">
+        <h2 id="cost-heading">Cost, tokens and peak hours</h2>
+        <p>The sweep billed a DeepSeek API key, so this is metered API spend, not an estimate. The list-price figure, which the board uses, prices every run&rsquo;s tokens at DeepSeek&rsquo;s off-peak rate for <code>deepseek-flash</code>, checked October 19, 2026 on DeepSeek&rsquo;s pricing page: $0.15 per million input tokens on a cache miss, $0.003 on a cache hit and $0.60 output. DeepSeek bills 2x on weekdays from 01:00 to 04:00 and 06:00 to 10:00 UTC. The harness meters each call at the time it was made, so the billed figure is higher wherever calls fell in those hours: 14 of the 23 Low runs and one High run, none at Max. Judging is excluded.</p>
+        <div class="suite-table-scroll" role="region" aria-label="List and billed cost, tokens and runtime at each effort level" tabindex="0"><table class="suite-results">
+        <caption>List-price and billed cost, tokens and runtime at each effort level, n=23 runs per cell</caption><thead><tr><th scope="col">Effort</th><th scope="col">Runs</th><th scope="col">$/task (list)</th><th scope="col">&plusmn;SE</th><th scope="col">$/task (billed)</th><th scope="col">Runs with peak calls</th><th scope="col">Level total (list)</th><th scope="col">Level total (billed)</th><th scope="col">Tokens/task</th><th scope="col">Output/task</th><th scope="col">Min/task</th></tr></thead><tbody><tr data-econ-effort="low"><th scope="row">Low</th><td>23</td><td>$0.0577</td><td>$0.0060</td><td>$0.1010</td><td>14</td><td>$1.33</td><td>$2.32</td><td>4.35M</td><td>55.3K</td><td>8.1</td></tr><tr data-econ-effort="high"><th scope="row">High</th><td>23</td><td>$0.0667</td><td>$0.0072</td><td>$0.0680</td><td>1</td><td>$1.53</td><td>$1.56</td><td>5.15M</td><td>67.1K</td><td>8.7</td></tr><tr data-econ-effort="max"><th scope="row">Max</th><td>23</td><td>$0.0741</td><td>$0.0100</td><td>$0.0741</td><td>0</td><td>$1.70</td><td>$1.70</td><td>6.25M</td><td>72.2K</td><td>10.6</td></tr><tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>69</td><td>$0.0661</td><td></td><td>$0.0810</td><td>15</td><td>$4.56</td><td>$5.59</td><td>362M</td><td></td><td>10.5 h</td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Reading the cost.</strong> Tokens are input (cached included) and output as DeepSeek Harness&rsquo;s receipts report them; about 98% of input tokens are cache hits, which is why a task costs cents. dsh reports no separate reasoning count. Runs average 53, 59 and 59 model calls at Low, High and Max. dsh also titles each session with one small <code>deepseek-flash</code> call and records no usage for it; it appears in 66 of the 69 runs, is counted and is not priced, which understates cost by well under a cent per run. Three runs each had one interrupted reply that reported no usage, also unpriced. Per-run figures are in <a href="/assets/data/swe-v4-deepseek-flash-v327/economics.json">economics.json</a> and <a href="/assets/data/swe-v4-deepseek-flash-v327/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="board" aria-labelledby="board-heading">
+        <h2 id="board-heading">On the Frontier v4 board</h2>
+        <p>DeepSeek V4.1 Flash&rsquo;s best level, Low at 88.65 &plusmn; 0.67 (n=23), ranks 22nd of the board&rsquo;s 70 model and effort columns, just below GPT-6.1 Sol at Extra-high (88.78 &plusmn; 0.40). High and Max follow at 23rd and 24th, just above GPT-6.1 Sol at Max (88.35 &plusmn; 0.33), all within each other&rsquo;s errors. Low carries the best tag, and because the three levels sit within 0.3 points, the board&rsquo;s critical, routine and rough effort suggestions all pick Low, the cheapest. On the board&rsquo;s cost view its line sits at the far left, under a tenth of a dollar per task. The <a href="/leaderboard.html">leaderboard</a> carries every column; DeepSeek V4.1 Flash&rsquo;s cells carry the &para;&para; footnote with the disclosures on this page.</p>
+        <p>Read these placements with the panel in mind. Most columns, Claude Opus 5.5 and GPT-6.1 Sol included, are judged by Muse Spark 1.3 and Grok 4.6; Grok 4.7&rsquo;s and DeepSeek V4.1 Flash&rsquo;s by Muse Spark 1.3 and GPT-6.1 Sol; Muse Wonder Full&rsquo;s by Claude Opus 5.5 and GPT-6.1 Sol. Scores from different panels are not calibrated against each other, so gaps of a point or two between DeepSeek V4.1 Flash and its neighbours are not a reliable order.</p>
+      </section>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel carries 24 points. An intent-recovery probe carries 9: the judge, given only the specification and the code, lists where the code departs from the specification, and a separate call matches that list against a frozen answer key, over the departures the submission passed tests for. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force. Frontier Code quality is therefore the reviewed layer plus intent recovery, and it is never compared with Routine v1 Code quality, which is scored on a different suite and population.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each effort level, out of 100, mean of both judges over 23 judged runs per level</caption><thead><tr><th scope="col">Component</th><th scope="col">Low</th><th scope="col">High</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>73.11</td><td>74.87</td><td>74.01</td></tr><tr><th scope="row">Human readability</th><td>65.4</td><td>68.9</td><td>66.9</td></tr><tr><th scope="row">Maintainability</th><td>74.1</td><td>76.1</td><td>74.6</td></tr><tr><th scope="row">Intent recovery</th><td>82.1</td><td>81.2</td><td>82.6</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>64.9</td><td>68.4</td><td>67.1</td></tr><tr><th scope="row">Rated by GPT-6.1 Sol</th><td>74.5</td><td>76.6</td><td>74.5</td></tr><tr><th scope="row">Standard error of Code quality</th><td>1.47</td><td>1.54</td><td>1.61</td></tr></tbody></table></div>
+        <p>Intent recovery is the strongest component at every level, 81.2 to 82.6: given only the specification and the code, the judges find most of the departures DeepSeek V4.1 Flash implemented. The reviewed layer is lower, and human readability, 65.4 to 68.9, is its weakest part at every level. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-deepseek-flash-v327/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-deepseek-flash-v327/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p><strong>GPT-6.1 Sol in Grok 4.6&rsquo;s seat.</strong> The scored panel is Muse Spark 1.3 (Meta) through the Muse CLI on its Standard tier, with its v3.4 settings and binary pin, and GPT-6.1 Sol (OpenAI) at medium effort through Codex CLI 0.159.0, its launcher and native binary pinned by sha256, with equal weight. Grok 4.6, the second judge for most columns, runs through Cursor, and the Cursor account was out of usage on October 23, 2026. Rather than wait, the owner put GPT-6.1 Sol in the seat, as protocol v3.20 did for Grok 4.7; this is the same pair, with the same settings and pins. Neither lab is DeepSeek. Muse Code&rsquo;s updater had removed the v3.4 Muse binary from its usual place, so the round ran a byte-identical backup, matched by sha256 and re-checked before every stage. Every session is fresh, tools are disabled, the workspace is empty and solver labels are withheld. Muse&rsquo;s identity is checked per call from the CLI&rsquo;s own records; Codex does not record the serving model, so GPT-6.1 Sol&rsquo;s identity is the model requested.</p>
+        <p><strong>A different panel from the columns it is shown beside.</strong> Claude Opus 5.5 and GPT-6.1 Sol&rsquo;s own columns, like most columns on the board, are judged by Muse Spark 1.3 and Grok 4.6. Panels are not calibrated against each other, so DeepSeek V4.1 Flash&rsquo;s Code quality and combined score are not strictly comparable with theirs. GPT-6.1 Sol therefore judges a column it is shown beside; its own column was judged without it. Protocol v3.27 changes nothing in the rubric, controls, quirk keys, gates, repeats, seed or weights from v3.7; it applies the protocol to this population with this judge pair.</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification: clear, compressed, compressed then auto-formatted, verbose with duplicated policy, needlessly abstracted, misleadingly commented, narrated with a comment on every line, a documented legacy quirk, an embedded instruction to give full marks, and hidden module state. Each program is reviewed five times in a seeded order. Twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point. Both judges retook the exam under v3.27 before any counted call.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts under v3.27</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.27</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr><tr><th scope="row">GPT-6.1 Sol</th><td>code-quality-maintenance-v3.27</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr></tbody></table></div>
+        <p>Both judges passed every gate with no allowance used. Every gate value and control mean is in <a href="/assets/data/swe-v4-deepseek-flash-v327/calibration.json">calibration.json</a>.</p>
+        <p><strong>The judges disagree on level.</strong> GPT-6.1 Sol rates DeepSeek V4.1 Flash&rsquo;s reviewed Code quality about 8 points above Muse Spark 1.3, 9.6 at Low, 8.2 at High and 7.3 at Max: 74.5 against 64.9 at Low, 76.6 and 68.4 at High, 74.5 and 67.1 at Max. Both passed the same exam, so this is a difference in how strictly each scores real code, not a failed judge; GPT-6.1 Sol rated Grok 4.7 about 6 points above Muse in the same way. The published score is their mean. Scored by one judge alone, the combined score would be 87.21 (Muse) or 90.10 (Sol) at Low, 87.24 or 89.98 at High, and 87.14 or 89.57 at Max; either way the three levels sit within 0.6 points of each other. Each run&rsquo;s single-judge figures are in <a href="/assets/data/swe-v4-deepseek-flash-v327/runs.csv">runs.csv</a>.</p>
+        <p>Each judge made 69 primary reviews, 69 intent probes, 69 answer-key matches, 3 repeats and 6 pairwise checks. Muse needed a second attempt on two calls and Sol on ten, under the protocol&rsquo;s single-retry rule. Six of Sol&rsquo;s answer-key matches are published through a standing operator rule: both attempts failed only because Sol numbered the departures from one instead of zero, so the wrapper moved the indexes down by one with every status untouched and kept the original in the receipt. Neither judge produced a reviewer fallback. Judging ran on October 23, 2026, from 09:34 to 12:36 UTC.</p>
+      </section>
+
+      <section class="report-section" id="run-notes" aria-labelledby="run-notes-heading">
+        <h2 id="run-notes-heading">How it was run</h2>
+        <ul>
+          <li><strong>The model.</strong> DeepSeek V4.1 Flash through DeepSeek&rsquo;s API as <code>deepseek-flash</code>, which DeepSeek&rsquo;s pricing page mapped to DeepSeek-V4.1-Flash-1017 when it was checked before each level. DeepSeek Harness records the model it requested, not the id in DeepSeek&rsquo;s response, so model identity is harness-recorded.</li>
+          <li><strong>DeepSeek&rsquo;s own harness, as shipped.</strong> DeepSeek Harness (<code>@deepseek-ai/dsh</code>, DeepSeek&rsquo;s official open-source agent, MIT licence), version 0.2.1-rc.2, a developer preview prerelease, in its headless profile, pinned by exact version and a hash of its whole install tree. It ran inside VulcanBench&rsquo;s macOS outer sandbox with dsh&rsquo;s own sandbox and approvals off, since the sandboxes cannot nest, and a fresh home folder per run. Web tools were off, as for every harness on the board. dsh uploads each session&rsquo;s log to DeepSeek by default and has an OpenTelemetry feedback upload; at the owner&rsquo;s choice both were off. The model never sees either upload, and task content still reaches DeepSeek in the model requests. Everything else, including subagents, compaction and session titles, was as shipped.</li>
+          <li><strong>Three levels.</strong> DeepSeek&rsquo;s API takes low, high and max reasoning; it has no medium and nothing maps to extra-high. Effort labels are DeepSeek&rsquo;s own.</li>
+          <li><strong>From a tagged run worktree.</strong> Every run ran from <code>bench/2026-10-20-deepseek-dsh-frontier-v4</code>, so every run summary carries a clean source block and records the frozen suite lock&rsquo;s task hash. No hash bridge was needed.</li>
+          <li><strong>Two pauses, one macOS update.</strong> The owner paused the sweep twice between tasks during Low. Each run a pause interrupted (Low metercore and Low reflowcore) was set aside unscored and the task rerun. macOS went from 26 to 27.0.1 during the second pause; re-grading the 13 Low runs finished before it on 27.0.1 gave 13 identical functional scores, and the pinned dsh install hash was unchanged.</li>
+          <li><strong>No timeouts, no overlapping jobs.</strong> Every run finished inside the flat 3-hour bound; the longest, Max lodgecore, took 43.7 minutes. A per-minute log watched for any other local benchmark job beside the sweep and recorded none.</li>
+          <li><strong>Where and how.</strong> The local sandbox on the owner&rsquo;s Mac, one task at a time, from October 20, 07:11 UTC, to October 22, 17:19 UTC. The API key was in the agent&rsquo;s environment and the shell network was not isolated, as recorded on every run. Every integrity audit is clean: no web access, and no benchmark data or answer-key paths.</li>
+          <li><strong>One attempt per task and level.</strong> Runs were not repeated.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 69 run measurements, both judges&rsquo; six-dimension sub-scores and intent-recovery scores per run, the combined score from each judge alone, hidden behaviours fixed, integrity-audit verdicts, each run&rsquo;s task hash and harness version, model calls, raw tokens, list and billed cost, three aggregates, every calibration gate value, the exact judge protocol text and source hashes. Each run&rsquo;s Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-deepseek-flash-v327/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/code-quality-maintenance-v3.md">protocol document</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/DECISIONS.md">decision record</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/harness/agent/deepseek_harness.py">DeepSeek Harness adapter</a> and the code in the <a href="https://github.com/morganlinton/VulcanBench">harness repository</a>.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists.</p>
+        <p>Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, dsh session logs and solver traces, the two pause-interrupted attempts, and host binary paths. Summed solver time is 10.47 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/analysis.html">Analysis</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>

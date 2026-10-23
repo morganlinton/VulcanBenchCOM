@@ -1,0 +1,60 @@
+{
+  "source_artifacts_sha256": {
+    "v3.27/summary.json": "edeb1c15a981ee614fedc358aac2cca14c30ab5840e022571bbf771e237919d7",
+    "v3.27/protocol.json": "00a4c78e36a1e36e267d3cc97c4765b7b8bfe6ccc24298b2cc031cb2f1f2ed5b",
+    "v3.27/private-manifest.json": "cfa91b1e7bcc4384f54dbb741d47777044157103d6998ec9708520fe8a847dfa",
+    "v3.27/calibration-muse.json": "e12b755fdbe0659085eaf69872772f13ffdc0250ee3c25491b4c379d150c42a6",
+    "v3.27/calibration-sol.json": "cd194926bb836e092e7978c1ef207b5ce3708111f2b02c5c00048612eaefb5c5",
+    "v3.27/calls/sol/match/submission-021/selected.json": "204615643e3d4ceb5d3b1f68b4824793c5c414047eb07ef980e956cdda709217",
+    "v3.27/calls/sol/match/submission-032/selected.json": "80cc7e18f4904af432883429191feea3428e9bb52b449c5c01d3edb075f35f83",
+    "v3.27/calls/sol/match/submission-042/selected.json": "cc68577e7e7400137fd9bab8539c29b8dd823a2319c0fc6d9580fbb374d799b5",
+    "v3.27/calls/sol/match/submission-045/selected.json": "df09e5bfbf966c9a9a0cea04151daf24954ac2a2aaf4bb410358b2bab70c9b6e",
+    "v3.27/calls/sol/match/submission-068/selected.json": "a55a1c268b13eea151c5c12e05db08d475d5b0cd14c1cd957f1f229bf5ee5a55",
+    "v3.27/calls/sol/match/submission-069/selected.json": "3923f1c3dce4738d01f83d489bf1776b1334e37cd88af2c1c96bff6a6b0e6412",
+    "comparison.json": "3d168885a8e8f0467b304b91c6be97c8c3a73b6f007d779aeaf3fd6b6cb26f36",
+    "data.json": "637a77547a9cc06f97a70d9ed4855ff6928d79c36d07c8b6fa445237851cb146",
+    "deepseek-flash-vs-frontier-efforts.csv": "3b04fde310d1edcdd178b7dd21b829278bb01da04280d7384d155a54dd4e5c19",
+    "pricing-check.json": "f609ac6aba53a1022026f52c595873f5daf4f0c1dbccf32883266b76dcc3d8c4",
+    "1-summary.png": "33f583a7be425652b252b1cf218c27d224637ba499e0d7d10cc8615b854f6d28",
+    "2-combined-score.png": "564fd17ad6e49f4eb25cdbc5686969883aa63f0fa46dc007059f1692cb6e856f",
+    "3-time-per-task.png": "5363763babc3396c4b2c2c6f292a7ac1741c2ab6bbc0aef17328befc6b98c37d",
+    "4-cost-per-task.png": "853fe44d918560c4317558b328d540cdca15f02d437a774db65d23254389699e",
+    "gpt61sol-opus55-astra-efforts.csv": "8cd50c4dc1f6b5d9df77f6f3b5e156d6d2e3c0b8cdcf98e4495ea47f4996a585",
+    "suite.lock.json": "861da9e5386e88e6c77236ee5326863e670b597a31ac8b62269c06b1e9aa79eb",
+    "deepseek-flash-dsh.launch.sh": "17c8f2994e3b5b29cc67bf0f052b228bf9f61f4a315c5453835125d450b90dcb"
+  },
+  "export_checks": [
+    "69 solver summaries in the sweep folder, 23 per level, no task twice; the two runs a pause interrupted hold no summary and are not part of the population",
+    "every run is dsh:deepseek-flash at its requested level on DeepSeek Harness 0.2.1-rc.2, the install tree hash equal to the pin, from bench/2026-10-20-deepseek-dsh-frontier-v4 with a clean source block and every task hash equal to the frozen suite lock",
+    "every integrity audit: no web, no benchmark data or answer-key paths, not contaminated",
+    "each run's token totals equal its dsh_usage receipt; list cost recomputed from tokens at the off-peak rate equals the summary's; billed cost equals the receipt's meter; no retried attempt",
+    "the population record's hash and the manifest's hash equal the ones frozen in the protocol, and every judged run's summary hash equals its manifest entry",
+    "rubric, prompts, schemas, seed, repeats, gate allowance, weights, retry rule, control hashes and both judges' pins equal the published v3.20 record",
+    "both judges passed calibration under v3.27 with no failing gate and no allowance used; no reviewer fallback; no operator marker; six GPT-6.1 Sol answer-key matches recovered under recover_one_based_indexes",
+    "per-row Code quality and both combined scores recomputed and matched to the frozen summary; each level's means and standard errors, per-judge means included, matched to the summary's groups",
+    "combined score, its standard error, Code quality, each judge's reviewed score, tasks passed, functional score, minutes, list and billed cost per level matched to the harness card data and its per-level table",
+    "the rates applied equal the pricing check; the cards are byte-identical to the harness copies; the sweep's overlap logger recorded no other benchmark job; no dashes or host paths in exported text"
+  ],
+  "limits": [
+    "DeepSeek V4.1 Flash is judged by Muse Spark 1.3 and GPT-6.1 Sol, the pair v3.20 used for Grok 4.7, not by Muse Spark 1.3 and Grok 4.6 like most Frontier v4 columns (Claude Opus 5.5 and GPT-6.1 Sol included): Grok 4.6's Cursor account was out of usage on 2026-10-23. Scores from different panels are not calibrated against each other.",
+    "GPT-6.1 Sol rates Flash's reviewed Code quality 7.3 to 9.6 points above Muse Spark 1.3. The published score is their mean; combined_single_judge gives each judge alone.",
+    "GPT-6.1 Sol judged these runs and is also a compared model on the cards and the board; its own column comes from its own round, judged by Muse Spark 1.3 and Grok 4.6.",
+    "Model identity is harness-recorded: dsh records the model it requested, not the id in DeepSeek's response. DeepSeek's pricing page mapped deepseek-flash to DeepSeek-V4.1-Flash-1017 when checked before each level.",
+    "DeepSeek Harness 0.2.1-rc.2 is a developer preview prerelease, pinned by exact version and install tree hash. Its default-on session-log upload and OpenTelemetry feedback upload were off; the model never sees either, and task content still reaches DeepSeek in the model requests.",
+    "The owner paused the sweep twice between tasks; each run a pause interrupted was set aside and rerun, not judged. macOS went from 26 to 27.0.1 during the second pause; re-grading the 13 Low runs finished before it on 27.0.1 gave identical functional scores.",
+    "DeepSeek's API offers Low, High and Max reasoning only, so there is no Medium or Extra-high column.",
+    "Frontier Code quality is the reviewed layer plus intent recovery and is never compared with Routine v1 Code quality.",
+    "One attempt per task and level, on the owner's Mac, local sandbox, flat 3-hour task bound, one task at a time."
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, integrity-audit verdicts, raw tokens, model calls, list and billed cost.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts",
+    "dsh session logs and solver traces",
+    "the two pause-interrupted attempts",
+    "host binary paths"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}

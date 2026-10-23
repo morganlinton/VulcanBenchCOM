@@ -1,0 +1,416 @@
+[
+  {
+    "model": "dsflash",
+    "effort": "low",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "combined_33": {
+      "n": 23,
+      "mean": 88.65106195760761,
+      "se": 0.6733753879066554
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 90.6975441376805,
+      "se": 0.6051705656143396
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 87.20568342309863,
+        "se": 0.7644070689532737
+      },
+      "sol": {
+        "n": 23,
+        "mean": 90.09644049211657,
+        "se": 0.674639121695177
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 73.1093511231851,
+      "se": 1.4703716216005593
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 69.7463768115942,
+      "se": 1.6260256404906017
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 82.07728262076088,
+      "se": 2.1070804535158736
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 65.39855072463769,
+      "se": 1.9148754054635364
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 74.09420289855072,
+      "se": 1.6085580333781357
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 64.94565217391305,
+        "se": 1.85069786401583
+      },
+      "sol": {
+        "n": 23,
+        "mean": 74.54710144927536,
+        "se": 1.6565306580343782
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 98.8404347826087,
+      "se": 0.904056837876367
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 98.8404347826087,
+      "se": 0.904056837876367
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 77.70304347826087,
+      "se": 1.141040097396513
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 21,
+    "passed_all_runs": 21,
+    "hidden_behaviours_fixed": 228,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 8.054684782608696,
+      "se": 0.8505335201706097
+    },
+    "minutes_median": 7.904016666666666,
+    "priced_runs": 23,
+    "cli_versions": {
+      "DeepSeek Harness 0.2.1-rc.2": 23
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 4352974.608695652,
+      "se": 830621.2890196466
+    },
+    "raw_tokens_total": 100118416,
+    "output_tokens": {
+      "n": 23,
+      "mean": 55332.52173913043,
+      "se": 3782.57692494949
+    },
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9761395950065044,
+      "se": 0.0018599527079997441
+    },
+    "model_calls": {
+      "n": 23,
+      "mean": 53.34782608695652,
+      "se": 4.752618872666187
+    },
+    "usd": {
+      "n": 23,
+      "mean": 0.05772682608695652,
+      "se": 0.006003806080247603
+    },
+    "usd_total": 1.327717,
+    "billed_usd": {
+      "n": 23,
+      "mean": 0.10102952173913043,
+      "se": 0.014540350383541806
+    },
+    "billed_usd_total": 2.3236790000000003,
+    "runs_with_peak_calls": 14,
+    "peak_calls": 911,
+    "unmetered_title_calls": 22,
+    "attempts_without_usage": 1
+  },
+  {
+    "model": "dsflash",
+    "effort": "high",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "combined_33": {
+      "n": 23,
+      "mean": 88.60702508361203,
+      "se": 0.9635462101720835
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 90.44361204013379,
+      "se": 0.8854661914537021
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 87.23743000477782,
+        "se": 1.0019668643498463
+      },
+      "sol": {
+        "n": 23,
+        "mean": 89.97662016244624,
+        "se": 0.9525106345583244
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 74.87458193979933,
+      "se": 1.5428724534329068
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 72.5090579710145,
+      "se": 1.857787626812667
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 81.18264585655889,
+      "se": 2.3797108589725546
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 68.93115942028986,
+      "se": 2.111604308104404
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 76.08695652173913,
+      "se": 1.8189901727899318
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 68.3876811594203,
+        "se": 2.002089163951511
+      },
+      "sol": {
+        "n": 23,
+        "mean": 76.63043478260869,
+        "se": 1.8796901965880506
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 97.53608695652174,
+      "se": 1.5430956437188863
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 97.53608695652174,
+      "se": 1.5430956437188863
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 78.00434782608696,
+      "se": 1.1500333086922148
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 20,
+    "passed_all_runs": 20,
+    "hidden_behaviours_fixed": 225,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 8.659267391304349,
+      "se": 0.9069188376664538
+    },
+    "minutes_median": 7.07095,
+    "priced_runs": 23,
+    "cli_versions": {
+      "DeepSeek Harness 0.2.1-rc.2": 23
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 5151884.347826087,
+      "se": 995019.4549823944
+    },
+    "raw_tokens_total": 118493340,
+    "output_tokens": {
+      "n": 23,
+      "mean": 67121.34782608696,
+      "se": 5134.753374393424
+    },
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9812125199626169,
+      "se": 0.0012714335159908815
+    },
+    "model_calls": {
+      "n": 23,
+      "mean": 58.869565217391305,
+      "se": 4.918829011580134
+    },
+    "usd": {
+      "n": 23,
+      "mean": 0.06666321739130435,
+      "se": 0.007168393975884979
+    },
+    "usd_total": 1.5332540000000003,
+    "billed_usd": {
+      "n": 23,
+      "mean": 0.06803769565217391,
+      "se": 0.007347262265373744
+    },
+    "billed_usd_total": 1.564867,
+    "runs_with_peak_calls": 1,
+    "peak_calls": 25,
+    "unmetered_title_calls": 22,
+    "attempts_without_usage": 0
+  },
+  {
+    "model": "dsflash",
+    "effort": "max",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "combined_33": {
+      "n": 23,
+      "mean": 88.35567918168788,
+      "se": 0.9762584445763849
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 90.2828885686119,
+      "se": 0.8699502538672981
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 87.14359018372932,
+        "se": 1.0392011697318935
+      },
+      "sol": {
+        "n": 23,
+        "mean": 89.56776817964644,
+        "se": 0.9550084382491804
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 74.01400806045075,
+      "se": 1.613919667471775
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 70.78804347826087,
+      "se": 1.9410379018137984
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 82.61658027962376,
+      "se": 2.3478839550897157
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 66.93840579710145,
+      "se": 2.129367668985747
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 74.63768115942028,
+      "se": 1.9367581930662967
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 67.1195652173913,
+        "se": 2.091373327192246
+      },
+      "sol": {
+        "n": 23,
+        "mean": 74.45652173913044,
+        "se": 2.075980896655582
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 97.65695652173913,
+      "se": 1.431541008150602
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 97.65695652173913,
+      "se": 1.431541008150602
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 77.67739130434782,
+      "se": 1.0538334346849147
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 20,
+    "passed_all_runs": 20,
+    "hidden_behaviours_fixed": 226,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 10.596756521739131,
+      "se": 1.6935585697779953
+    },
+    "minutes_median": 8.857883333333332,
+    "priced_runs": 23,
+    "cli_versions": {
+      "DeepSeek Harness 0.2.1-rc.2": 23
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 6249981.304347826,
+      "se": 1618266.6804435945
+    },
+    "raw_tokens_total": 143749570,
+    "output_tokens": {
+      "n": 23,
+      "mean": 72235.82608695653,
+      "se": 6506.743116095975
+    },
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9804694508679479,
+      "se": 0.0014424401075000873
+    },
+    "model_calls": {
+      "n": 23,
+      "mean": 59.04347826086956,
+      "se": 7.506381543523804
+    },
+    "usd": {
+      "n": 23,
+      "mean": 0.0740565652173913,
+      "se": 0.010036254260053157
+    },
+    "usd_total": 1.703301,
+    "billed_usd": {
+      "n": 23,
+      "mean": 0.07405630434782609,
+      "se": 0.010036269324519332
+    },
+    "billed_usd_total": 1.7032949999999998,
+    "runs_with_peak_calls": 0,
+    "peak_calls": 0,
+    "unmetered_title_calls": 22,
+    "attempts_without_usage": 2
+  }
+]

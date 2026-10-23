@@ -1,0 +1,177 @@
+{
+  "scope": "Solver inference only. The sweep ran on a DeepSeek API key, so this is metered API spend: list_usd prices every run at DeepSeek's off-peak list rate (the board's $/task), billed_usd is what each call was metered at the time it was made. Judging is excluded.",
+  "pricing_verified": "2026-10-19",
+  "sources": {
+    "deepseek": "https://api-docs.deepseek.com/quick_start/pricing/"
+  },
+  "alias": {
+    "deepseek-flash": "DeepSeek-V4.1-Flash-1017",
+    "rechecked_before_each_level": true
+  },
+  "rates_per_million_off_peak": {
+    "deepseek-flash": {
+      "input": 0.15,
+      "cached_input": 0.003,
+      "output": 0.6
+    }
+  },
+  "peak": "2x, 01:00 to 04:00 and 06:00 to 10:00 UTC, Monday to Friday",
+  "pricing_method": "list_usd: tokens at DeepSeek's off-peak list price for deepseek-flash ($0.15 input cache miss, $0.003 cache hit, $0.60 output per million); billed_usd: the adapter's per-call meter, which applies DeepSeek's 2x weekday peak-hour rate to calls made 01:00 to 04:00 and 06:00 to 10:00 UTC; dsh's session-title call records no usage and is not priced",
+  "groups": [
+    {
+      "model": "dsflash",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.05772682608695652,
+        "se": 0.006003806080247603
+      },
+      "usd_total": 1.327717,
+      "billed_usd": {
+        "n": 23,
+        "mean": 0.10102952173913043,
+        "se": 0.014540350383541806
+      },
+      "billed_usd_total": 2.3236790000000003,
+      "runs_with_peak_calls": 14,
+      "peak_calls": 911,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 4352974.608695652,
+        "se": 830621.2890196466
+      },
+      "raw_tokens_total": 100118416,
+      "output_tokens": {
+        "n": 23,
+        "mean": 55332.52173913043,
+        "se": 3782.57692494949
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9761395950065044,
+        "se": 0.0018599527079997441
+      },
+      "model_calls": {
+        "n": 23,
+        "mean": 53.34782608695652,
+        "se": 4.752618872666187
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 8.054684782608696,
+        "se": 0.8505335201706097
+      }
+    },
+    {
+      "model": "dsflash",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.06666321739130435,
+        "se": 0.007168393975884979
+      },
+      "usd_total": 1.5332540000000003,
+      "billed_usd": {
+        "n": 23,
+        "mean": 0.06803769565217391,
+        "se": 0.007347262265373744
+      },
+      "billed_usd_total": 1.564867,
+      "runs_with_peak_calls": 1,
+      "peak_calls": 25,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 5151884.347826087,
+        "se": 995019.4549823944
+      },
+      "raw_tokens_total": 118493340,
+      "output_tokens": {
+        "n": 23,
+        "mean": 67121.34782608696,
+        "se": 5134.753374393424
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9812125199626169,
+        "se": 0.0012714335159908815
+      },
+      "model_calls": {
+        "n": 23,
+        "mean": 58.869565217391305,
+        "se": 4.918829011580134
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 8.659267391304349,
+        "se": 0.9069188376664538
+      }
+    },
+    {
+      "model": "dsflash",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.0740565652173913,
+        "se": 0.010036254260053157
+      },
+      "usd_total": 1.703301,
+      "billed_usd": {
+        "n": 23,
+        "mean": 0.07405630434782609,
+        "se": 0.010036269324519332
+      },
+      "billed_usd_total": 1.7032949999999998,
+      "runs_with_peak_calls": 0,
+      "peak_calls": 0,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 6249981.304347826,
+        "se": 1618266.6804435945
+      },
+      "raw_tokens_total": 143749570,
+      "output_tokens": {
+        "n": 23,
+        "mean": 72235.82608695653,
+        "se": 6506.743116095975
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9804694508679479,
+        "se": 0.0014424401075000873
+      },
+      "model_calls": {
+        "n": 23,
+        "mean": 59.04347826086956,
+        "se": 7.506381543523804
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 10.596756521739131,
+        "se": 1.6935585697779953
+      }
+    }
+  ],
+  "totals": {
+    "dsflash": {
+      "runs": 69,
+      "list_usd": 4.564271999999999,
+      "billed_usd": 5.591841000000001,
+      "raw_tokens": 362361326,
+      "model_calls": 3939,
+      "peak_calls": 936,
+      "unmetered_title_calls": 66,
+      "attempts_without_usage": 3,
+      "solver_hours": 10.469104999999997
+    }
+  },
+  "limitations": [
+    "List-price cost uses DeepSeek's off-peak rate, the rate its price table lists. DeepSeek bills 2x on weekdays from 01:00 to 04:00 and 06:00 to 10:00 UTC; the adapter meters each call at its own time, so billed_usd is higher wherever calls fell in those hours (most of Low and one High run).",
+    "dsh titles a session with one small deepseek-flash call (input capped at 4 KiB) and records no usage for it. It appears in 66 of 69 runs, is counted in unmetered_title_calls and is not priced; it understates cost by well under a cent per run.",
+    "Three runs each had one interrupted model reply that reported no usage (attempts_without_usage); those are not priced either.",
+    "Cost per task covers all 23 runs at every level."
+  ],
+  "pricing_check_sha256": "f609ac6aba53a1022026f52c595873f5daf4f0c1dbccf32883266b76dcc3d8c4"
+}

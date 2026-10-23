@@ -64,6 +64,12 @@ SOURCES = [
     {"bundle": "swe-v4-musewonder-full-v326", "report": "benchmarks/swe-v4-musewonder-full-v326.html", "protocol": "v3.26", "pass_over_all_runs": True,
      "judges": "Claude Opus 5.5 and GPT-6.1 Sol",
      "models": {"musewonderfull": ("Muse Wonder Full", "Muse Code", "muse-wonder-full", "Meta")}},
+    # DeepSeek V4.1 Flash is judged by Muse Spark 1.3 and GPT-6.1 Sol under v3.27 (Grok 4.6's Cursor account was out of usage).
+    # No timeouts or exclusions, so judged and passed counts are over 23. Low, High and Max only: DeepSeek's API has no other level.
+    # $/task is the off-peak list price; the billed figure (weekday peak hours at 2x) is in its bundle.
+    {"bundle": "swe-v4-deepseek-flash-v327", "report": "benchmarks/swe-v4-deepseek-flash-v327.html", "protocol": "v3.27",
+     "judges": "Muse Spark 1.3 and GPT-6.1 Sol",
+     "models": {"dsflash": ("DeepSeek V4.1 Flash", "DeepSeek Harness 0.2.1-rc.2", "deepseek-v4-1-flash", "DeepSeek")}},
 ]
 FOOTNOTES = {
     "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
@@ -122,6 +128,16 @@ FOOTNOTES = {
                        "runs gives {h_zero:.2f} at high and {xh_zero:.2f} at extra-high; its best tag and effort suggestions use these figures. "
                        "$/task is an estimate: Meta lists no API price for Muse Wonder Full, so its tokens are priced at the Muse Wonder 1.0 list "
                        "price ($4.00 input, $0.20 cached, $20.00 output per million) and the 1.4.9 reminder tokens at Muse Spark 1.3's."),
+    "dsflash": ("DeepSeek V4.1 Flash (deepseek-flash, which DeepSeek's pricing page mapped to DeepSeek-V4.1-Flash-1017) ran in "
+                "DeepSeek Harness 0.2.1-rc.2, DeepSeek's own agent, a developer preview pinned by version and install hash, with its "
+                "session-log and telemetry uploads off. DeepSeek's API offers low, high and max only, so it has no medium or extra-high "
+                "column. It is judged by Muse Spark 1.3 and GPT-6.1 Sol under v3.27, not by Muse Spark 1.3 and Grok 4.6: Grok 4.6 judges "
+                "through Cursor, whose account was out of usage, so the owner seated GPT-6.1 Sol, as v3.20 did for Grok 4.7. GPT-6.1 Sol "
+                "rates its reviewed Code quality about {gap:.0f} points above Muse ({gap_lo:.1f} to {gap_hi:.1f} by level), so its Code "
+                "quality and combined score are not strictly comparable with the other columns, and GPT-6.1 Sol judges a column it is shown "
+                "beside. Every cell is judged on 23 runs; none reached the 3-hour bound. Unlike the other columns it ran on a metered API "
+                "key, not a subscription: $/task is DeepSeek's off-peak list price ($0.15 input, $0.003 cached, $0.60 output per million); "
+                "weekday peak hours bill 2x, so the billed amount was ${billed_lo:.3f} to ${billed_hi:.3f} per task."),
     "sol": "GPT-5.6 Sol at max is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts, so the v3.7 protocol publishes no Code quality score for that run; the run passed its tests and is priced.",
 }
 
@@ -181,7 +197,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#E8590C", "opus55": "#A61E4D", "astra": "#0CA678", "terra": "#1098AD", "luna": "#E64980", "gpt55": "#6B7280", "sol": "#C77C02", "gpt6luna": "#9C36B5", "gpt6sol": "#8F9A00", "gpt61sol": "#2B8A3E", "grok47cursor": "#3B5BDB", "sonnet55": "#C92A2A", "haiku55": "#8B4513", "musewonderfull": "#0866FF"}  # one distinct hue per model, dark enough to read on the white chart and page; Anthropic in warm reds
+COLORS = {"fable": "#E8590C", "opus55": "#A61E4D", "astra": "#0CA678", "terra": "#1098AD", "luna": "#E64980", "gpt55": "#6B7280", "sol": "#C77C02", "gpt6luna": "#9C36B5", "gpt6sol": "#8F9A00", "gpt61sol": "#2B8A3E", "grok47cursor": "#3B5BDB", "sonnet55": "#C92A2A", "haiku55": "#8B4513", "musewonderfull": "#0866FF", "dsflash": "#5786FE"}  # one distinct hue per model, dark enough to read on the white chart and page; Anthropic in warm reds
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
@@ -244,6 +260,8 @@ def table_html(board):
             mark = "&Dagger;&Dagger;"
         if r["key"] == "musewonderfull":
             mark = "&sect;&sect;"
+        if r["key"] == "dsflash":
+            mark = "&para;&para;"
         cost = f'${r["usd"]:.2f}' if priced(r) else "unavailable"
         lines.append(
             f'<tr class="v4row{cls}" data-model="{r["key"]}" data-effort="{r["effort"]}" data-best="{int(r["best"])}"><td class="l lb-rank">{r["rank"]}</td>'
@@ -275,6 +293,14 @@ def musewonder_footnote(board):
                                               h_zero=cells["high"]["combined_timeouts_zero"], xh_zero=cells["extra-high"]["combined_timeouts_zero"])
 
 
+def dsflash_footnote(board):
+    groups = read("swe-v4-deepseek-flash-v327/groups.json")
+    assert all(r["n"] == r["passed_of"] == 23 for r in board if r["key"] == "dsflash")
+    gaps = [g["by_panel"]["sol"]["mean"] - g["by_panel"]["muse"]["mean"] for g in groups]
+    billed = [g["billed_usd"]["mean"] for g in groups]
+    return FOOTNOTES["dsflash"].format(gap=statistics.mean(gaps), gap_lo=min(gaps), gap_hi=max(gaps), billed_lo=min(billed), billed_hi=max(billed))
+
+
 def grok47_footnote(board):
     cells = {r["effort"]: r for r in board if r["key"] == "grok47cursor"}
     shared = read("swe-v4-grok47-cursor-v320/shared-judge.json")["columns"]
@@ -298,23 +324,25 @@ def render(board):
             f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24 and v3.26 apply the same rubric, controls and gates to each population; v3.20 "
+            "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24, v3.26 and v3.27 apply the same rubric, controls and gates to each population; v3.20 "
             "seats GPT-6.1 Sol in place of Grok 4.6 to judge Grok 4.7, see &loz;; v3.23 and v3.24 judge Grok 4.6 through a newer Cursor CLI, see &dagger;&dagger; and &Dagger;&Dagger;; "
-            "v3.26 to v3.26.3 seat Claude Opus 5.5 and GPT-6.1 Sol to judge Muse Wonder Full, see &sect;&sect;). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The table below carries every column. "
-            "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription. "
+            "v3.26 to v3.26.3 seat Claude Opus 5.5 and GPT-6.1 Sol to judge Muse Wonder Full, see &sect;&sect;; "
+            "v3.27 seats GPT-6.1 Sol in place of Grok 4.6 to judge DeepSeek V4.1 Flash, see &para;&para;). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The table below carries every column. "
+            "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription except DeepSeek V4.1 Flash, "
+            "which ran on a metered DeepSeek API key and is shown at DeepSeek&rsquo;s off-peak list price, see &para;&para;. "
             "Grok 4.7 has no list price, so its $/task is unavailable and it appears on the Tokens and Minutes views only. "
             "Muse Wonder Full&rsquo;s $/task is an estimate at the Muse Wonder 1.0 list price, see &sect;&sect;.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
             '<noscript><p class="lb-context">The chart needs JavaScript; the table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
-            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) + " * " + escape(FOOTNOTES["gpt61sol"]) + " &loz; " + escape(grok47_footnote(board)) + " &dagger;&dagger; " + escape(FOOTNOTES["sonnet55"]) + " &Dagger;&Dagger; " + escape(haiku55_footnote(board)) + " &sect;&sect; " + escape(musewonder_footnote(board)) +
+            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) + " * " + escape(FOOTNOTES["gpt61sol"]) + " &loz; " + escape(grok47_footnote(board)) + " &dagger;&dagger; " + escape(FOOTNOTES["sonnet55"]) + " &Dagger;&Dagger; " + escape(haiku55_footnote(board)) + " &sect;&sect; " + escape(musewonder_footnote(board)) + " &para;&para; " + escape(dsflash_footnote(board)) +
             ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
             'The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model&rsquo;s highest-scoring effort level. '
             'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
             '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
             '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>, '
             '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>, <a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>, '
-            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>, <a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>, <a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>, <a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>, <a href="benchmarks/swe-v4-sonnet55-v323.html">Sonnet 5.5</a>, <a href="benchmarks/swe-v4-haiku55-v324.html">Haiku 5.5</a>, <a href="benchmarks/swe-v4-musewonder-full-v326.html">Muse Wonder Full</a>. '
+            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>, <a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>, <a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>, <a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>, <a href="benchmarks/swe-v4-sonnet55-v323.html">Sonnet 5.5</a>, <a href="benchmarks/swe-v4-haiku55-v324.html">Haiku 5.5</a>, <a href="benchmarks/swe-v4-musewonder-full-v326.html">Muse Wonder Full</a>, <a href="benchmarks/swe-v4-deepseek-flash-v327.html">DeepSeek V4.1 Flash</a>. '
             '<a href="assets/data/swe-v4-board.csv" download>Download the board as CSV</a>.</p>\n'
             f"{END}")
 
