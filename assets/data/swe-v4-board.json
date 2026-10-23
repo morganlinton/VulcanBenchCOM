@@ -505,6 +505,78 @@
       "best": true
     },
     {
+      "model": "DeepSeek V4.1 Flash",
+      "lab": "DeepSeek",
+      "harness": "DeepSeek Harness 0.2.1-rc.2",
+      "slug": "deepseek-v4-1-flash",
+      "key": "dsflash",
+      "effort": "low",
+      "n": 23,
+      "combined": 88.65106195760761,
+      "combined_se": 0.6733753879066554,
+      "code_quality": 73.1093511231851,
+      "passed": 21,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 8.054684782608696,
+      "usd": 0.05772682608695652,
+      "raw_tokens": 4352974.608695652,
+      "output_tokens_median": 49656,
+      "output_tokens_mean": 55332.52173913043,
+      "report": "benchmarks/swe-v4-deepseek-flash-v327.html",
+      "protocol": "code-quality-maintenance-v3.27",
+      "rank": 22,
+      "best": true
+    },
+    {
+      "model": "DeepSeek V4.1 Flash",
+      "lab": "DeepSeek",
+      "harness": "DeepSeek Harness 0.2.1-rc.2",
+      "slug": "deepseek-v4-1-flash",
+      "key": "dsflash",
+      "effort": "high",
+      "n": 23,
+      "combined": 88.60702508361203,
+      "combined_se": 0.9635462101720835,
+      "code_quality": 74.87458193979933,
+      "passed": 20,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 8.659267391304349,
+      "usd": 0.06666321739130435,
+      "raw_tokens": 5151884.347826087,
+      "output_tokens_median": 62769,
+      "output_tokens_mean": 67121.34782608696,
+      "report": "benchmarks/swe-v4-deepseek-flash-v327.html",
+      "protocol": "code-quality-maintenance-v3.27",
+      "rank": 23,
+      "best": false
+    },
+    {
+      "model": "DeepSeek V4.1 Flash",
+      "lab": "DeepSeek",
+      "harness": "DeepSeek Harness 0.2.1-rc.2",
+      "slug": "deepseek-v4-1-flash",
+      "key": "dsflash",
+      "effort": "max",
+      "n": 23,
+      "combined": 88.35567918168788,
+      "combined_se": 0.9762584445763849,
+      "code_quality": 74.01400806045075,
+      "passed": 20,
+      "passed_of": 23,
+      "combined_timeouts_zero": null,
+      "minutes": 10.596756521739131,
+      "usd": 0.0740565652173913,
+      "raw_tokens": 6249981.304347826,
+      "output_tokens_median": 62337,
+      "output_tokens_mean": 72235.82608695653,
+      "report": "benchmarks/swe-v4-deepseek-flash-v327.html",
+      "protocol": "code-quality-maintenance-v3.27",
+      "rank": 24,
+      "best": false
+    },
+    {
       "model": "GPT-6.1 Sol",
       "lab": "OpenAI",
       "harness": "Codex",
@@ -525,7 +597,7 @@
       "output_tokens_mean": 19278.652173913044,
       "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
       "protocol": "code-quality-maintenance-v3.18",
-      "rank": 22,
+      "rank": 25,
       "best": false
     },
     {
@@ -549,7 +621,7 @@
       "output_tokens_mean": 73796.91304347826,
       "report": "benchmarks/swe-v4-musewonder-full-v326.html",
       "protocol": "code-quality-maintenance-v3.26",
-      "rank": 23,
+      "rank": 26,
       "best": true
     },
     {
@@ -573,7 +645,7 @@
       "output_tokens_mean": 10854.04347826087,
       "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
       "protocol": "code-quality-maintenance-v3.18",
-      "rank": 24,
+      "rank": 27,
       "best": false
     },
     {
@@ -597,7 +669,7 @@
       "output_tokens_mean": 89317.91304347826,
       "report": "benchmarks/swe-v4-musewonder-full-v326.html",
       "protocol": "code-quality-maintenance-v3.26",
-      "rank": 25,
+      "rank": 28,
       "best": false
     },
     {
@@ -621,7 +693,7 @@
       "output_tokens_mean": 8196.739130434782,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 26,
+      "rank": 29,
       "best": false
     },
     {
@@ -645,7 +717,7 @@
       "output_tokens_mean": 169245.4347826087,
       "report": "benchmarks/swe-v4-haiku55-v324.html",
       "protocol": "code-quality-maintenance-v3.24",
-      "rank": 27,
+      "rank": 30,
       "best": false
     },
     {
@@ -669,7 +741,7 @@
       "output_tokens_mean": 5901.826086956522,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 28,
+      "rank": 31,
       "best": false
     },
     {
@@ -693,7 +765,7 @@
       "output_tokens_mean": 90233.26086956522,
       "report": "benchmarks/swe-v4-musewonder-full-v326.html",
       "protocol": "code-quality-maintenance-v3.26",
-      "rank": 29,
+      "rank": 32,
       "best": false
     },
     {
@@ -717,7 +789,7 @@
       "output_tokens_mean": 6381.652173913043,
       "report": "benchmarks/swe-v4-astra-fable51-v34.html",
       "protocol": "code-quality-maintenance-v3.4",
-      "rank": 30,
+      "rank": 33,
       "best": false
     },
     {
@@ -741,7 +813,7 @@
       "output_tokens_mean": 29211.043478260868,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 31,
+      "rank": 34,
       "best": true
     },
     {
@@ -765,7 +837,7 @@
       "output_tokens_mean": 68647.30434782608,
       "report": "benchmarks/swe-v4-musewonder-full-v326.html",
       "protocol": "code-quality-maintenance-v3.26",
-      "rank": 32,
+      "rank": 35,
       "best": false
     },
     {
@@ -789,7 +861,7 @@
       "output_tokens_mean": 54959.34782608696,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 33,
+      "rank": 36,
       "best": true
     },
     {
@@ -813,7 +885,7 @@
       "output_tokens_mean": 63666.782608695656,
       "report": "benchmarks/swe-v4-sonnet55-v323.html",
       "protocol": "code-quality-maintenance-v3.23",
-      "rank": 34,
+      "rank": 37,
       "best": false
     },
     {
@@ -837,7 +909,7 @@
       "output_tokens_mean": 25339.17391304348,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 35,
+      "rank": 38,
       "best": false
     },
     {
@@ -861,7 +933,7 @@
       "output_tokens_mean": 9641.130434782608,
       "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
       "protocol": "code-quality-maintenance-v3.18",
-      "rank": 36,
+      "rank": 39,
       "best": false
     },
     {
@@ -885,7 +957,7 @@
       "output_tokens_mean": 29314.521739130436,
       "report": "benchmarks/swe-v4-opus55-v315.html",
       "protocol": "code-quality-maintenance-v3.15",
-      "rank": 37,
+      "rank": 40,
       "best": false
     },
     {
@@ -909,7 +981,7 @@
       "output_tokens_mean": 6773.739130434783,
       "report": "benchmarks/swe-v4-gpt61-sol-v318.html",
       "protocol": "code-quality-maintenance-v3.18",
-      "rank": 38,
+      "rank": 41,
       "best": false
     },
     {
@@ -933,7 +1005,7 @@
       "output_tokens_mean": 43580.739130434784,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 39,
+      "rank": 42,
       "best": false
     },
     {
@@ -957,7 +1029,7 @@
       "output_tokens_mean": 27088.260869565216,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 40,
+      "rank": 43,
       "best": false
     },
     {
@@ -981,7 +1053,7 @@
       "output_tokens_mean": 147480.08695652173,
       "report": "benchmarks/swe-v4-haiku55-v324.html",
       "protocol": "code-quality-maintenance-v3.24",
-      "rank": 41,
+      "rank": 44,
       "best": false
     },
     {
@@ -1005,7 +1077,7 @@
       "output_tokens_mean": 110535.30434782608,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 42,
+      "rank": 45,
       "best": true
     },
     {
@@ -1029,7 +1101,7 @@
       "output_tokens_mean": 69085.82608695653,
       "report": "benchmarks/swe-v4-sonnet55-v323.html",
       "protocol": "code-quality-maintenance-v3.23",
-      "rank": 43,
+      "rank": 46,
       "best": false
     },
     {
@@ -1053,7 +1125,7 @@
       "output_tokens_mean": 173660.13043478262,
       "report": "benchmarks/swe-v4-haiku55-v324.html",
       "protocol": "code-quality-maintenance-v3.24",
-      "rank": 44,
+      "rank": 47,
       "best": false
     },
     {
@@ -1077,7 +1149,7 @@
       "output_tokens_mean": 52972.565217391304,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 45,
+      "rank": 48,
       "best": false
     },
     {
@@ -1101,7 +1173,7 @@
       "output_tokens_mean": 45157.47826086957,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 46,
+      "rank": 49,
       "best": false
     },
     {
@@ -1125,7 +1197,7 @@
       "output_tokens_mean": 25212.434782608696,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 47,
+      "rank": 50,
       "best": false
     },
     {
@@ -1149,7 +1221,7 @@
       "output_tokens_mean": 67281.17391304347,
       "report": "benchmarks/swe-v4-sonnet55-v323.html",
       "protocol": "code-quality-maintenance-v3.23",
-      "rank": 48,
+      "rank": 51,
       "best": false
     },
     {
@@ -1173,7 +1245,7 @@
       "output_tokens_mean": 78868.63157894737,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 49,
+      "rank": 52,
       "best": false
     },
     {
@@ -1197,7 +1269,7 @@
       "output_tokens_mean": 32666.17391304348,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 50,
+      "rank": 53,
       "best": false
     },
     {
@@ -1221,7 +1293,7 @@
       "output_tokens_mean": 68218.17391304347,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 51,
+      "rank": 54,
       "best": false
     },
     {
@@ -1245,7 +1317,7 @@
       "output_tokens_mean": 107518.85714285714,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 52,
+      "rank": 55,
       "best": true
     },
     {
@@ -1269,7 +1341,7 @@
       "output_tokens_mean": 52640.47826086957,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 53,
+      "rank": 56,
       "best": true
     },
     {
@@ -1293,7 +1365,7 @@
       "output_tokens_mean": 33233.391304347824,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 54,
+      "rank": 57,
       "best": false
     },
     {
@@ -1317,7 +1389,7 @@
       "output_tokens_mean": 56749.17391304348,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 55,
+      "rank": 58,
       "best": false
     },
     {
@@ -1341,7 +1413,7 @@
       "output_tokens_mean": 45403.82608695652,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 56,
+      "rank": 59,
       "best": false
     },
     {
@@ -1365,7 +1437,7 @@
       "output_tokens_mean": 19983.478260869564,
       "report": "benchmarks/swe-v4-sol-v37.html",
       "protocol": "code-quality-maintenance-v3.7",
-      "rank": 57,
+      "rank": 60,
       "best": false
     },
     {
@@ -1389,7 +1461,7 @@
       "output_tokens_mean": 21682.869565217392,
       "report": "benchmarks/swe-v4-gpt6-sol-v317.html",
       "protocol": "code-quality-maintenance-v3.17",
-      "rank": 58,
+      "rank": 61,
       "best": false
     },
     {
@@ -1413,7 +1485,7 @@
       "output_tokens_mean": 20601.217391304348,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 59,
+      "rank": 62,
       "best": false
     },
     {
@@ -1437,7 +1509,7 @@
       "output_tokens_mean": 29336.043478260868,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 60,
+      "rank": 63,
       "best": false
     },
     {
@@ -1461,7 +1533,7 @@
       "output_tokens_mean": 16828.304347826088,
       "report": "benchmarks/swe-v4-terra-v36.html",
       "protocol": "code-quality-maintenance-v3.6",
-      "rank": 61,
+      "rank": 64,
       "best": false
     },
     {
@@ -1485,7 +1557,7 @@
       "output_tokens_mean": 35920.30434782609,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 62,
+      "rank": 65,
       "best": false
     },
     {
@@ -1509,7 +1581,7 @@
       "output_tokens_mean": 19703.91304347826,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 63,
+      "rank": 66,
       "best": false
     },
     {
@@ -1533,7 +1605,7 @@
       "output_tokens_mean": 19643.739130434784,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 64,
+      "rank": 67,
       "best": false
     },
     {
@@ -1557,7 +1629,7 @@
       "output_tokens_mean": 5445.782608695652,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 65,
+      "rank": 68,
       "best": false
     },
     {
@@ -1581,7 +1653,7 @@
       "output_tokens_mean": 6406.826086956522,
       "report": "benchmarks/swe-v4-gpt55-luna-v35.html",
       "protocol": "code-quality-maintenance-v3.5",
-      "rank": 66,
+      "rank": 69,
       "best": false
     },
     {
@@ -1605,7 +1677,7 @@
       "output_tokens_mean": 10815.04347826087,
       "report": "benchmarks/swe-v4-gpt6-luna-v316.html",
       "protocol": "code-quality-maintenance-v3.16",
-      "rank": 67,
+      "rank": 70,
       "best": false
     }
   ],
@@ -1783,6 +1855,20 @@
           "Muse Code",
           "muse-wonder-full",
           "Meta"
+        ]
+      }
+    },
+    {
+      "bundle": "swe-v4-deepseek-flash-v327",
+      "report": "benchmarks/swe-v4-deepseek-flash-v327.html",
+      "protocol": "v3.27",
+      "judges": "Muse Spark 1.3 and GPT-6.1 Sol",
+      "models": {
+        "dsflash": [
+          "DeepSeek V4.1 Flash",
+          "DeepSeek Harness 0.2.1-rc.2",
+          "deepseek-v4-1-flash",
+          "DeepSeek"
         ]
       }
     }
@@ -2070,6 +2156,41 @@
         "usd_vs_best": 0.7040559703052928,
         "minutes_vs_best": 0.44823151837826447,
         "passed": 20,
+        "n": 23
+      }
+    },
+    "dsflash": {
+      "model": "DeepSeek V4.1 Flash",
+      "best_effort": "low",
+      "best_combined": 88.65106195760761,
+      "spread": 0.0,
+      "shape": "flat",
+      "basis": "cost then time",
+      "critical": {
+        "effort": "low",
+        "combined": 88.65106195760761,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 21,
+        "n": 23
+      },
+      "routine": {
+        "effort": "low",
+        "combined": 88.65106195760761,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 21,
+        "n": 23
+      },
+      "rough": {
+        "effort": "low",
+        "combined": 88.65106195760761,
+        "gap": 0.0,
+        "usd_vs_best": 1.0,
+        "minutes_vs_best": 1.0,
+        "passed": 21,
         "n": 23
       }
     },

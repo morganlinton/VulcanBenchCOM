@@ -62,5 +62,12 @@ judge panel (Claude Opus 5.5 and GPT-6.1 Sol, and why), the two Muse Code
 versions, the two timeouts and both combined figures, and the estimated cost.
 `swe-v4-musewonder-full-v326-scores.csv` holds its four effort aggregates.
 
+`swe-v4-deepseek-flash-v327/` is the public record of the October 23, 2026
+DeepSeek V4.1 Flash report under Code quality protocol v3.27, exported by
+`scripts/export_swe_v4_v327_evidence.py`; its README explains the judge panel
+(Muse Spark 1.3 and GPT-6.1 Sol, and why), DeepSeek Harness and its settings,
+the two pauses, and list-price and billed cost.
+`swe-v4-deepseek-flash-v327-scores.csv` holds its three effort aggregates.
+
 Earlier suite results live in their own report pages and keep their original
 scoring conventions; do not pool them with Frontier v4.
