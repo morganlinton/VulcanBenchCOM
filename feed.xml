@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>Reflection Beam across every effort level | VulcanBench Frontier v4</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-beam-v328.html</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-beam-v328.html</guid>
+      <pubDate>Tue, 27 Oct 2026 20:00:00 +0000</pubDate>
+      <description>115 runs of Reflection Beam 1.0 (Beam-1.0-501B-A23B, 501B total and 23B active parameters) in Mirror CLI 0.1.1, Reflection's own coding agent and an early beta, on Reflection's API, 23 tasks at each of Beam's five reasoning levels (Low to Max), scored with Code quality at 33% of the combined score. Grok 4.6 judges through Cursor, whose account was out of usage, so Code quality is judged by Muse Spark 1.3 and GPT-6.1 Sol under protocol v3.28, the pair v3.27 used for DeepSeek V4.1 Flash; the Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra columns it is compared with are judged by Muse Spark 1.3 and Grok 4.6, so the panels differ. Combined score 39.51 at Low, 44.79 at Medium, 55.01 at High, 64.72 at Extra-high and 63.92 at Max over judged runs (n=11, 20, 23, 23, 22): 15 Low and Medium runs left no code to review and count as failed (18.90 and 38.95 counting them as 0), and Max hedgecore's evidence was too large for either judge. Tasks passed 0, 0, 0, 4 and 6 of 23; 0.4 to 22.4 minutes and 0.09M to 17.29M tokens a task; Reflection publishes no price. Best level Extra-high, about 24 to 26 points below the three frontier models. Disclosed: Mirror's misleading sandbox note, a daily API token limit that paused the sweep, untracked tool calls. Includes per-run CSV, calibration record and public evidence links.</description>
+    </item>
+    <item>
       <title>DeepSeek V4.1 Flash across every effort level | VulcanBench Frontier v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-deepseek-flash-v327.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-deepseek-flash-v327.html</guid>

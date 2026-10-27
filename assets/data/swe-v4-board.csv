@@ -61,11 +61,16 @@ rank,model,lab,harness,effort,best_effort,n,combined_33,combined_33_se,code_qual
 60,GPT-5.6 Sol,OpenAI,Codex,low,False,23,69.0493,3.5024,64.9801,6,9.7752,1.359168,1793981.5,20258.0,19983.5,benchmarks/swe-v4-sol-v37.html,code-quality-maintenance-v3.7,23,
 61,GPT-6 Sol,OpenAI,Codex,low,False,23,67.6214,3.5937,62.5284,4,12.9972,1.019456,3261058.8,13300.0,21682.9,benchmarks/swe-v4-gpt6-sol-v317.html,code-quality-maintenance-v3.17,23,
 62,GPT-5.6 Terra,OpenAI,Codex,medium,False,23,66.3480,3.8156,70.9261,5,7.8757,0.686316,1450843.8,20511.0,20601.2,benchmarks/swe-v4-terra-v36.html,code-quality-maintenance-v3.6,23,
-63,GPT-5.5,OpenAI,Codex,medium,False,23,63.5399,3.8413,64.6546,3,12.4031,2.708066,2740785.7,24797.0,29336.0,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5,23,
-64,GPT-5.6 Terra,OpenAI,Codex,low,False,23,59.6999,3.4294,72.3150,2,6.6732,0.576358,1212177.6,16089.0,16828.3,benchmarks/swe-v4-terra-v36.html,code-quality-maintenance-v3.6,23,
-65,GPT-6 Luna,OpenAI,Codex,high,False,23,57.3514,3.7954,66.3973,2,15.5904,0.051912,2556496.7,33527.0,35920.3,benchmarks/swe-v4-gpt6-luna-v316.html,code-quality-maintenance-v3.16,23,57.3514
-66,GPT-5.6 Luna,OpenAI,Codex,medium,False,23,53.2781,2.9402,65.5829,1,7.3971,0.066398,1347575.2,19069.0,19703.9,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5,23,
-67,GPT-5.5,OpenAI,Codex,low,False,23,49.8034,2.9303,61.7538,1,8.2103,1.794708,1715428.3,17705.0,19643.7,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5,23,
-68,GPT-6 Luna,OpenAI,Codex,medium,False,23,45.7192,1.3221,69.3272,0,3.5593,0.009535,404296.5,4531.0,5445.8,benchmarks/swe-v4-gpt6-luna-v316.html,code-quality-maintenance-v3.16,23,45.7192
-69,GPT-5.6 Luna,OpenAI,Codex,low,False,23,41.2869,0.9566,71.7276,0,2.6625,0.023996,422906.2,6268.0,6406.8,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5,23,
-70,GPT-6 Luna,OpenAI,Codex,low,False,23,40.8310,2.0415,65.8420,0,5.5576,0.027790,1654399.3,6795.0,10815.0,benchmarks/swe-v4-gpt6-luna-v316.html,code-quality-maintenance-v3.16,23,40.8310
+63,Reflection Beam,Reflection,Mirror CLI 0.1.1,extra-high,True,23,64.7163,3.7590,66.9498,4,18.7529,,12417111.3,73175.0,86908.9,benchmarks/swe-v4-beam-v328.html,code-quality-maintenance-v3.28,23,
+64,Reflection Beam,Reflection,Mirror CLI 0.1.1,max,False,22,63.9155,4.1249,65.8132,6,22.4451,,17285786.0,87008.0,115760.7,benchmarks/swe-v4-beam-v328.html,code-quality-maintenance-v3.28,23,
+65,GPT-5.5,OpenAI,Codex,medium,False,23,63.5399,3.8413,64.6546,3,12.4031,2.708066,2740785.7,24797.0,29336.0,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5,23,
+66,GPT-5.6 Terra,OpenAI,Codex,low,False,23,59.6999,3.4294,72.3150,2,6.6732,0.576358,1212177.6,16089.0,16828.3,benchmarks/swe-v4-terra-v36.html,code-quality-maintenance-v3.6,23,
+67,GPT-6 Luna,OpenAI,Codex,high,False,23,57.3514,3.7954,66.3973,2,15.5904,0.051912,2556496.7,33527.0,35920.3,benchmarks/swe-v4-gpt6-luna-v316.html,code-quality-maintenance-v3.16,23,57.3514
+68,Reflection Beam,Reflection,Mirror CLI 0.1.1,high,False,23,55.0072,2.7933,68.5216,0,9.2017,,3394646.2,40897.0,42268.3,benchmarks/swe-v4-beam-v328.html,code-quality-maintenance-v3.28,23,
+69,GPT-5.6 Luna,OpenAI,Codex,medium,False,23,53.2781,2.9402,65.5829,1,7.3971,0.066398,1347575.2,19069.0,19703.9,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5,23,
+70,GPT-5.5,OpenAI,Codex,low,False,23,49.8034,2.9303,61.7538,1,8.2103,1.794708,1715428.3,17705.0,19643.7,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5,23,
+71,GPT-6 Luna,OpenAI,Codex,medium,False,23,45.7192,1.3221,69.3272,0,3.5593,0.009535,404296.5,4531.0,5445.8,benchmarks/swe-v4-gpt6-luna-v316.html,code-quality-maintenance-v3.16,23,45.7192
+72,Reflection Beam,Reflection,Mirror CLI 0.1.1,medium,False,20,44.7872,1.9047,70.4640,0,1.9332,,436557.0,8029.0,8520.6,benchmarks/swe-v4-beam-v328.html,code-quality-maintenance-v3.28,23,38.9454
+73,GPT-5.6 Luna,OpenAI,Codex,low,False,23,41.2869,0.9566,71.7276,0,2.6625,0.023996,422906.2,6268.0,6406.8,benchmarks/swe-v4-gpt55-luna-v35.html,code-quality-maintenance-v3.5,23,
+74,GPT-6 Luna,OpenAI,Codex,low,False,23,40.8310,2.0415,65.8420,0,5.5576,0.027790,1654399.3,6795.0,10815.0,benchmarks/swe-v4-gpt6-luna-v316.html,code-quality-maintenance-v3.16,23,40.8310
+75,Reflection Beam,Reflection,Mirror CLI 0.1.1,low,False,11,39.5089,2.3493,72.9167,0,0.3778,,86611.5,2288.0,2326.3,benchmarks/swe-v4-beam-v328.html,code-quality-maintenance-v3.28,23,18.8956

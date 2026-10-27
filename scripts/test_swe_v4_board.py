@@ -28,17 +28,17 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(board.csv_text(self.rows), (ROOT / "assets/data/swe-v4-board.csv").read_text())
 
     def test_every_column_is_on_the_board(self):
-        self.assertEqual(len(self.rows), 70)  # 53 + Sonnet 5.5 and Haiku 5.5 at five levels each + Muse Wonder Full at four + DeepSeek V4.1 Flash at three
-        self.assertEqual({r["model"] for r in self.rows}, {"GPT-6 Astra", "Fable 5.1", "GPT-5.5", "GPT-5.6 Luna", "GPT-5.6 Terra", "GPT-5.6 Sol", "Opus 5.5", "GPT-6 Luna", "GPT-6 Sol", "GPT-6.1 Sol", "Grok 4.7", "Sonnet 5.5", "Haiku 5.5", "Muse Wonder Full", "DeepSeek V4.1 Flash"})
-        self.assertEqual(sum(1 for r in self.rows if r["best"]), 15)
-        self.assertEqual([r["rank"] for r in self.rows], list(range(1, 71)))
+        self.assertEqual(len(self.rows), 75)  # 53 + Sonnet 5.5 and Haiku 5.5 at five levels each + Muse Wonder Full at four + DeepSeek V4.1 Flash at three + Reflection Beam at five
+        self.assertEqual({r["model"] for r in self.rows}, {"GPT-6 Astra", "Fable 5.1", "GPT-5.5", "GPT-5.6 Luna", "GPT-5.6 Terra", "GPT-5.6 Sol", "Opus 5.5", "GPT-6 Luna", "GPT-6 Sol", "GPT-6.1 Sol", "Grok 4.7", "Sonnet 5.5", "Haiku 5.5", "Muse Wonder Full", "DeepSeek V4.1 Flash", "Reflection Beam"})
+        self.assertEqual(sum(1 for r in self.rows if r["best"]), 16)
+        self.assertEqual([r["rank"] for r in self.rows], list(range(1, 76)))
         self.assertEqual([r["combined"] for r in self.rows], sorted((r["combined"] for r in self.rows), reverse=True))
-        # 1209 before Sonnet 5.5, plus its 115 judged runs, Haiku 5.5's 111, Muse Wonder Full's 90 and DeepSeek V4.1 Flash's 69.
-        self.assertEqual(sum(r["n"] for r in self.rows), 1594)
+        # 1209 before Sonnet 5.5, plus its 115 judged runs, Haiku 5.5's 111, Muse Wonder Full's 90, DeepSeek V4.1 Flash's 69 and Reflection Beam's 99.
+        self.assertEqual(sum(r["n"] for r in self.rows), 1693)
         for r in self.rows:
             self.assertTrue((ROOT / f"models/{r['slug']}.html").is_file(), r["slug"])
             self.assertTrue((ROOT / r["report"]).is_file(), r["report"])
-            if r["key"] == "grok47cursor":  # no list price: unavailable, never $0
+            if r["key"] in ("grok47cursor", "beam"):  # no list price: unavailable, never $0
                 self.assertIsNone(r["usd"])
             else:
                 self.assertGreater(r["usd"], 0)
@@ -114,11 +114,21 @@ class BoardTests(unittest.TestCase):
         self.assertEqual([f'{flash[e]["usd"]:.4f}' for e in ("low", "high", "max")], ["0.0577", "0.0667", "0.0741"])  # off-peak list price
         self.assertEqual([flash[e]["rank"] for e in ("low", "high", "max")], [22, 23, 24])
         self.assertEqual((flash["low"]["lab"], flash["low"]["harness"], flash["low"]["slug"]), ("DeepSeek", "DeepSeek Harness 0.2.1-rc.2", "deepseek-v4-1-flash"))
+        beam = {r["effort"]: r for r in self.rows if r["key"] == "beam"}
+        self.assertEqual(set(beam), set(board.EFFORTS))
+        self.assertEqual([beam[e]["n"] for e in board.EFFORTS], [11, 20, 23, 23, 22])  # no-code runs not judged; max hedgecore unreviewable
+        self.assertTrue(all(beam[e]["passed_of"] == 23 and beam[e]["usd"] is None for e in board.EFFORTS))  # no list price
+        self.assertEqual([beam[e]["passed"] for e in board.EFFORTS], [0, 0, 0, 4, 6])
+        self.assertEqual([round(beam[e]["combined"], 2) for e in board.EFFORTS], [39.51, 44.79, 55.01, 64.72, 63.92])
+        self.assertEqual([None if beam[e]["combined_timeouts_zero"] is None else round(beam[e]["combined_timeouts_zero"], 2) for e in board.EFFORTS],
+                         [18.90, 38.95, None, None, None])  # no-code runs as 0
+        self.assertEqual([beam[e]["rank"] for e in board.EFFORTS], [75, 72, 68, 63, 64])
+        self.assertEqual((beam["low"]["lab"], beam["low"]["harness"], beam["low"]["slug"]), ("Reflection", "Mirror CLI 0.1.1", "reflection-beam"))
         self.assertEqual({r["key"] for r in self.rows if r["rank"] < 4}, {"grok47cursor"})  # only Grok 4.7, judged by another panel, is above
-        self.assertTrue(all(r["passed_of"] == r["n"] and r["combined_timeouts_zero"] is None for r in self.rows if r["key"] not in ("gpt6luna", "gpt6sol", "grok47cursor", "haiku55", "musewonderfull")))
-        self.assertEqual(len(self.csv), 70)
+        self.assertTrue(all(r["passed_of"] == r["n"] and r["combined_timeouts_zero"] is None for r in self.rows if r["key"] not in ("gpt6luna", "gpt6sol", "grok47cursor", "haiku55", "musewonderfull", "beam")))
+        self.assertEqual(len(self.csv), 75)
         for row in self.csv:
-            self.assertEqual(row["mean_usd"] == "", row["model"] == "Grok 4.7")
+            self.assertEqual(row["mean_usd"] == "", row["model"] in ("Grok 4.7", "Reflection Beam"))
         self.assertEqual(self.csv[0]["rank"], "1")
 
     def test_board_matches_the_bundles(self):
@@ -161,14 +171,15 @@ class BoardTests(unittest.TestCase):
                             self.assertGreaterEqual(r["minutes"], pick["minutes"])
         self.assertEqual({k: v["routine"]["effort"] for k, v in sug.items()},
                          {"fable": "low", "astra": "medium", "terra": "max", "luna": "max", "gpt55": "extra-high", "sol": "extra-high", "opus55": "medium", "gpt6luna": "extra-high", "gpt6sol": "extra-high", "gpt61sol": "low", "grok47cursor": "high",
-                          "sonnet55": "extra-high", "haiku55": "extra-high", "musewonderfull": "low", "dsflash": "low"})
+                          "sonnet55": "extra-high", "haiku55": "extra-high", "musewonderfull": "low", "dsflash": "low", "beam": "extra-high"})
         self.assertEqual({k: v["shape"] for k, v in sug.items()}, {"fable": "flat", "astra": "flat", "terra": "steep", "luna": "steep", "gpt55": "steep", "sol": "steep", "opus55": "steep", "gpt6luna": "steep", "gpt6sol": "steep", "gpt61sol": "flat", "grok47cursor": "steep",
-                          "sonnet55": "steep", "haiku55": "steep", "musewonderfull": "flat", "dsflash": "flat"})
+                          "sonnet55": "steep", "haiku55": "steep", "musewonderfull": "flat", "dsflash": "flat", "beam": "steep"})
         self.assertEqual(sug["gpt6sol"]["best_effort"], "max")  # no timeouts, so the decision score is the judged score
         self.assertEqual((sug["gpt61sol"]["best_effort"], sug["gpt61sol"]["critical"]["effort"]), ("extra-high", "high"))
         self.assertEqual((sug["grok47cursor"]["best_effort"], sug["grok47cursor"]["basis"]), ("extra-high", "time (no list price)"))
         self.assertTrue(all(sug["grok47cursor"][t]["usd_vs_best"] is None for t in self.json["tolerances"]))
-        self.assertTrue(all(v["basis"] == "cost then time" for k, v in sug.items() if k != "grok47cursor"))
+        self.assertTrue(all(v["basis"] == "cost then time" for k, v in sug.items() if k not in ("grok47cursor", "beam")))
+        self.assertEqual(sug["beam"]["basis"], "time (no list price)")
 
     def test_page_writing_and_structure(self):
         text = html.unescape(self.page)
@@ -202,7 +213,7 @@ class BoardTests(unittest.TestCase):
         self.assertIn('data-model="gpt61sol" data-effort="extra-high" data-best="1"', self.page)
         self.assertIn('<a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>', self.page)
         self.assertIn('<a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>', self.page)
-        self.assertIn("v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24, v3.26 and v3.27", self.page)
+        self.assertIn("v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24, v3.26, v3.27 and v3.28", self.page)
         self.assertIn("&sect;&sect; Muse Wonder Full (Meta) ran in Muse Code in Contributor mode", self.page)
         self.assertIn("judged by Claude Opus 5.5 and GPT-6.1 Sol under v3.26 to v3.26.3, not by Muse Spark 1.3 and Grok 4.6", self.page)
         self.assertIn("gives 84.36 at high and 83.78 at extra-high", self.page)
@@ -222,6 +233,16 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(self.page.count("&para;&para;</td>"), 3)
         self.assertIn('data-model="dsflash" data-effort="low" data-best="1"', self.page)
         self.assertIn('<a href="benchmarks/swe-v4-deepseek-flash-v327.html">DeepSeek V4.1 Flash</a>', self.page)
+        self.assertIn("&loz;&loz; Reflection Beam (Beam-1.0-501B-A23B, 501B total and 23B active parameters) ran in Mirror CLI 0.1.1", self.page)
+        self.assertIn("judged by Muse Spark 1.3 and GPT-6.1 Sol under v3.28, the v3.27 panel, not by Muse Spark 1.3 and Grok 4.6", self.page)
+        self.assertIn("about 14 points above Muse (10.1 to 17.6 by level)", self.page)
+        self.assertIn("12 at low and 3 at medium", self.page)
+        self.assertIn("gives 18.90 at low and 38.95 at medium", self.page)
+        self.assertIn("Max is judged on 22 of 23", self.page)
+        self.assertIn("Grok 4.7 and Reflection Beam have no list price", self.page)
+        self.assertEqual(self.page.count("&loz;&loz;</td>"), 5)
+        self.assertIn('data-model="beam" data-effort="extra-high" data-best="1"', self.page)
+        self.assertIn('<a href="benchmarks/swe-v4-beam-v328.html">Reflection Beam</a>', self.page)
         self.assertIn("&Dagger;&Dagger; Haiku 5.5 ran in Claude Code 2.1.293 to 2.1.296", self.page)
         self.assertIn("judged on 22, 22 and 21 of 23 tasks", self.page)
         self.assertEqual(self.page.count("&Dagger;&Dagger;</td>"), 5)
@@ -235,9 +256,9 @@ class BoardTests(unittest.TestCase):
         self.assertIn("judged by Muse Spark 1.3 and GPT-6.1 Sol under v3.20", self.page)
         self.assertIn("second at Low behind Fable 5.1 (89.46)", self.page)
         self.assertIn("$/task is unavailable, not $0", self.page)
-        self.assertEqual(self.page.count("&loz;</td>"), 4)
+        self.assertEqual(len(re.findall(r"(?<!&loz;)&loz;</td>", self.page)), 4)  # Grok 4.7's single mark, not Beam's doubled one
         frontier = self.page.split(board.START, 1)[1].split(board.END, 1)[0]
-        self.assertEqual(frontier.count("<td>unavailable</td>"), 4)
+        self.assertEqual(frontier.count("<td>unavailable</td>"), 9)  # Grok 4.7's four columns and Reflection Beam's five
         self.assertNotIn('data-model="grok47cursor" data-effort="max"', self.page)
         self.assertIn('<a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>', self.page)
         self.assertIn('data-model="grok47cursor" data-effort="extra-high" data-best="1"', self.page)

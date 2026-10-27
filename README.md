@@ -6,6 +6,7 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
 - `benchmarks.html`: suite-separated results, with the current Frontier v4 comparison first and all earlier reports in a labeled archive
 - `benchmarks/safety-v1-opus55.html`: Claude Opus 5.5 on VulcanBench Safety v1 (harmful instructions hidden in the repository), with the standalone card and per-level and per-kind tables
+- `benchmarks/swe-v4-beam-v328.html`: Reflection Beam through Mirror CLI 0.1.1 at all five effort levels under Code quality protocol v3.28 (judged by Muse Spark 1.3 and GPT-6.1 Sol), with both combined figures for the runs that left no code, time and tokens (no price exists), the comparison with Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra, calibration record, the judge-panel, exclusion and harness disclosures and evidence links
 - `benchmarks/swe-v4-deepseek-flash-v327.html`: DeepSeek V4.1 Flash through DeepSeek Harness 0.2.1-rc.2 at Low, High and Max under Code quality protocol v3.27 (judged by Muse Spark 1.3 and GPT-6.1 Sol), with list and billed cost, the comparison with Claude Opus 5.5 and GPT-6.1 Sol, calibration record, the judge-panel and harness disclosures and evidence links
 - `benchmarks/swe-v4-musewonder-full-v326.html`: Muse Wonder Full through Muse Code in Contributor mode at every effort level it offers under Code quality protocols v3.26 to v3.26.3 (judged by Claude Opus 5.5 and GPT-6.1 Sol), with both combined figures for the two timeouts, the estimated cost, calibration record, the judge-panel and Muse Code version disclosures, evidence links and the traces repository
 - `benchmarks/swe-v4-haiku55-vs-frontier.html`: Claude Haiku 5.5 vs Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna on Frontier v4, every effort level side by side from the four published bundles, with the three comparison cards, methods and caveats and links to every evidence bundle
@@ -57,6 +58,10 @@ archive. Run `python3 scripts/check_benchmark_index.py` after index edits.
 The Muse Wonder Full record, `assets/data/swe-v4-musewonder-full-v326/`, has no PDF; it is exported
 by `python3 scripts/export_swe_v4_v326_evidence.py --harness-root ../VulcanBench`, which reads the four
 judging rounds, the two run roots and the harness card, and refuses to write if any number differs.
+
+The Reflection Beam record, `assets/data/swe-v4-beam-v328/`, has no PDF; it is exported
+by `python3 scripts/export_swe_v4_v328_evidence.py --harness-root ../VulcanBench`, which reads the v3.28
+judging round, the sweep's run summaries and the harness card table, and refuses to write if any number differs.
 
 The DeepSeek V4.1 Flash record, `assets/data/swe-v4-deepseek-flash-v327/`, has no PDF; it is exported
 by `python3 scripts/export_swe_v4_v327_evidence.py --harness-root ../VulcanBench`, which reads the v3.27

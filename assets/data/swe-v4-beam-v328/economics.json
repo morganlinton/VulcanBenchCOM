@@ -1,0 +1,187 @@
+{
+  "scope": "Solver inference only. Reflection publishes no price for Beam (its public API beta is free to start), so no run is priced: cost is unavailable, not zero. Tokens and minutes are reported instead. Judging is excluded.",
+  "pricing": null,
+  "groups": [
+    {
+      "model": "beam",
+      "effort": "low",
+      "n": 23,
+      "usd": null,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 86611.52173913043,
+        "se": 5429.486076491994
+      },
+      "raw_tokens_total": 1992065,
+      "output_tokens": {
+        "n": 23,
+        "mean": 2326.3478260869565,
+        "se": 188.67607820008095
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.8166497622547785,
+        "se": 0.010905792877429862
+      },
+      "model_calls": {
+        "n": 23,
+        "mean": 12.521739130434783,
+        "se": 0.5653693927569556
+      },
+      "failed_model_requests": 0,
+      "minutes": {
+        "n": 23,
+        "mean": 0.3777913043478261,
+        "se": 0.02133749094526402
+      }
+    },
+    {
+      "model": "beam",
+      "effort": "medium",
+      "n": 23,
+      "usd": null,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 436557.04347826086,
+        "se": 56012.36997717904
+      },
+      "raw_tokens_total": 10040812,
+      "output_tokens": {
+        "n": 23,
+        "mean": 8520.565217391304,
+        "se": 675.8669087653133
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9106521029417463,
+        "se": 0.004624223767025414
+      },
+      "model_calls": {
+        "n": 23,
+        "mean": 32.91304347826087,
+        "se": 2.657611221577079
+      },
+      "failed_model_requests": 0,
+      "minutes": {
+        "n": 23,
+        "mean": 1.9331855072463768,
+        "se": 0.46051450499265995
+      }
+    },
+    {
+      "model": "beam",
+      "effort": "high",
+      "n": 23,
+      "usd": null,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 3394646.1739130435,
+        "se": 281863.6906282533
+      },
+      "raw_tokens_total": 78076862,
+      "output_tokens": {
+        "n": 23,
+        "mean": 42268.260869565216,
+        "se": 2489.7328961436583
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9526260259889935,
+        "se": 0.003645928300322017
+      },
+      "model_calls": {
+        "n": 23,
+        "mean": 93.69565217391305,
+        "se": 4.569375106517957
+      },
+      "failed_model_requests": 0,
+      "minutes": {
+        "n": 23,
+        "mean": 9.201744202898551,
+        "se": 1.3814292912022599
+      }
+    },
+    {
+      "model": "beam",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": null,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 12417111.304347826,
+        "se": 2203962.3470025402
+      },
+      "raw_tokens_total": 285593560,
+      "output_tokens": {
+        "n": 23,
+        "mean": 86908.91304347826,
+        "se": 8160.158128581258
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9728170727127985,
+        "se": 0.002470933611372363
+      },
+      "model_calls": {
+        "n": 23,
+        "mean": 165.08695652173913,
+        "se": 15.791241010825255
+      },
+      "failed_model_requests": 1,
+      "minutes": {
+        "n": 23,
+        "mean": 18.75290507246377,
+        "se": 2.7415818250284136
+      }
+    },
+    {
+      "model": "beam",
+      "effort": "max",
+      "n": 23,
+      "usd": null,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 17285785.95652174,
+        "se": 3471496.7898260597
+      },
+      "raw_tokens_total": 397573077,
+      "output_tokens": {
+        "n": 23,
+        "mean": 115760.69565217392,
+        "se": 15988.85736343532
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.969021101887774,
+        "se": 0.002272950014512173
+      },
+      "model_calls": {
+        "n": 23,
+        "mean": 199.95652173913044,
+        "se": 25.59354524764707
+      },
+      "failed_model_requests": 5,
+      "minutes": {
+        "n": 23,
+        "mean": 22.445145652173913,
+        "se": 2.759103812073485
+      }
+    }
+  ],
+  "totals": {
+    "beam": {
+      "runs": 115,
+      "raw_tokens": 773276376,
+      "model_calls": 11596,
+      "failed_model_requests": 6,
+      "solver_hours": 20.205795833333333,
+      "usd": null
+    }
+  },
+  "limitations": [
+    "No list price exists for Beam, so the board shows Beam on its tokens and minutes views only.",
+    "Tokens are summed from Mirror's per-call usage records; cached input is a subset of input, and Mirror reports no separate reasoning count.",
+    "Six model requests in five runs failed (three \"temporarily unavailable\", three HTTP 520) and Mirror carried on; they report no usage.",
+    "Tokens and minutes cover all 23 runs at every level, judged or not."
+  ]
+}
