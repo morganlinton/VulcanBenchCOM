@@ -1,0 +1,677 @@
+[
+  {
+    "model": "beam",
+    "effort": "low",
+    "n": 11,
+    "runs": 23,
+    "timeouts": 0,
+    "not_judged": {
+      "empty_patch": 2,
+      "no_source_change": 10
+    },
+    "not_judged_tasks": [
+      "legacy-blendcore-binary-parity",
+      "legacy-depotcore-binary-parity",
+      "legacy-granarycore-binary-parity",
+      "legacy-hedgecore-binary-parity",
+      "legacy-lodgecore-binary-parity",
+      "legacy-matchcore-order-book-parity",
+      "legacy-metercore-binary-parity",
+      "legacy-pacecore-binary-parity",
+      "legacy-qlite-store-parity",
+      "legacy-queuecore-binary-parity",
+      "legacy-schedcore-binary-parity",
+      "legacy-tallycore-binary-parity"
+    ],
+    "combined_33": {
+      "n": 11,
+      "mean": 39.50890909090909,
+      "se": 2.3492621263515736
+    },
+    "combined_no_code_zero": {
+      "n": 23,
+      "mean": 18.895565217391304,
+      "se": 4.347915678909092
+    },
+    "combined_20_profile": {
+      "n": 11,
+      "mean": 41.14651515151515,
+      "se": 2.2379824898186653
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 11,
+        "mean": 37.43504545454545,
+        "se": 2.6457325874239492
+      },
+      "sol": {
+        "n": 11,
+        "mean": 41.582772727272726,
+        "se": 2.129973918666223
+      }
+    },
+    "code_quality": {
+      "n": 11,
+      "mean": 72.91666666666667,
+      "se": 5.22544459388608
+    },
+    "reviewed_score": {
+      "n": 11,
+      "mean": 71.78030303030303,
+      "se": 5.039800840913239
+    },
+    "intent_recovery": {
+      "n": 3,
+      "mean": 91.66666666666667,
+      "se": 8.333333333333334
+    },
+    "intent_recovery_redistributed_runs": 8,
+    "single_judge_runs": 0,
+    "readability": {
+      "n": 11,
+      "mean": 71.78030303030303,
+      "se": 3.3635425184833836
+    },
+    "maintainability": {
+      "n": 11,
+      "mean": 71.78030303030303,
+      "se": 7.14193471021394
+    },
+    "by_panel": {
+      "muse": {
+        "n": 11,
+        "mean": 64.20454545454545,
+        "se": 6.01724545646754
+      },
+      "sol": {
+        "n": 11,
+        "mean": 79.35606060606061,
+        "se": 4.3379068363491635
+      }
+    },
+    "functional": {
+      "n": 11,
+      "mean": 1.8181818181818181,
+      "se": 1.2196734422726125
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 0.8695652173913043,
+      "se": 0.6007385040937021
+    },
+    "automated_quality": {
+      "n": 11,
+      "mean": 81.48181818181818,
+      "se": 1.796008614163296
+    },
+    "security": {
+      "n": 11,
+      "mean": 89.54545454545455,
+      "se": 7.6412322142483085
+    },
+    "passed": 0,
+    "passed_all_runs": 0,
+    "hidden_behaviours_fixed": 3,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 0.3777913043478261,
+      "se": 0.02133749094526402
+    },
+    "minutes_median": 0.35278333333333334,
+    "priced_runs": 0,
+    "cli_versions": {
+      "Mirror CLI 0.1.1": 23
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 86611.52173913043,
+      "se": 5429.486076491994
+    },
+    "raw_tokens_total": 1992065,
+    "output_tokens": {
+      "n": 23,
+      "mean": 2326.3478260869565,
+      "se": 188.67607820008095
+    },
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.8166497622547785,
+      "se": 0.010905792877429862
+    },
+    "model_calls": {
+      "n": 23,
+      "mean": 12.521739130434783,
+      "se": 0.5653693927569556
+    },
+    "failed_model_requests": 0,
+    "usd": null
+  },
+  {
+    "model": "beam",
+    "effort": "medium",
+    "n": 20,
+    "runs": 23,
+    "timeouts": 0,
+    "not_judged": {
+      "empty_patch": 1,
+      "no_source_change": 2
+    },
+    "not_judged_tasks": [
+      "legacy-cellarcore-binary-parity",
+      "legacy-depotcore-binary-parity",
+      "legacy-granarycore-binary-parity"
+    ],
+    "combined_33": {
+      "n": 20,
+      "mean": 44.787155,
+      "se": 1.9046868692672847
+    },
+    "combined_no_code_zero": {
+      "n": 23,
+      "mean": 38.945352173913044,
+      "se": 3.6146744066966323
+    },
+    "combined_20_profile": {
+      "n": 20,
+      "mean": 47.35725303030303,
+      "se": 1.7636811726490094
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 20,
+        "mean": 42.205904999999994,
+        "se": 2.060001730380277
+      },
+      "sol": {
+        "n": 20,
+        "mean": 47.368404999999996,
+        "se": 1.7977087768253788
+      }
+    },
+    "code_quality": {
+      "n": 20,
+      "mean": 70.46401515151514,
+      "se": 2.4171599826848644
+    },
+    "reviewed_score": {
+      "n": 20,
+      "mean": 67.86458333333333,
+      "se": 2.1630512915752553
+    },
+    "intent_recovery": {
+      "n": 14,
+      "mean": 81.99404761904762,
+      "se": 5.505952380952381
+    },
+    "intent_recovery_redistributed_runs": 6,
+    "single_judge_runs": 0,
+    "readability": {
+      "n": 20,
+      "mean": 65.10416666666667,
+      "se": 1.44080157342245
+    },
+    "maintainability": {
+      "n": 20,
+      "mean": 70.625,
+      "se": 3.290222867902391
+    },
+    "by_panel": {
+      "muse": {
+        "n": 20,
+        "mean": 59.0625,
+        "se": 2.696393214455018
+      },
+      "sol": {
+        "n": 20,
+        "mean": 76.66666666666667,
+        "se": 1.9683162870453395
+      }
+    },
+    "functional": {
+      "n": 20,
+      "mean": 12.3885,
+      "se": 3.1573686808546935
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 10.772608695652174,
+      "se": 2.8771213666880113
+    },
+    "automated_quality": {
+      "n": 20,
+      "mean": 80.968,
+      "se": 0.8944962122246303
+    },
+    "security": {
+      "n": 20,
+      "mean": 99.5,
+      "se": 0.5
+    },
+    "passed": 0,
+    "passed_all_runs": 0,
+    "hidden_behaviours_fixed": 26,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 1.9331855072463768,
+      "se": 0.46051450499265995
+    },
+    "minutes_median": 1.00695,
+    "priced_runs": 0,
+    "cli_versions": {
+      "Mirror CLI 0.1.1": 23
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 436557.04347826086,
+      "se": 56012.36997717904
+    },
+    "raw_tokens_total": 10040812,
+    "output_tokens": {
+      "n": 23,
+      "mean": 8520.565217391304,
+      "se": 675.8669087653133
+    },
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9106521029417463,
+      "se": 0.004624223767025414
+    },
+    "model_calls": {
+      "n": 23,
+      "mean": 32.91304347826087,
+      "se": 2.657611221577079
+    },
+    "failed_model_requests": 0,
+    "usd": null
+  },
+  {
+    "model": "beam",
+    "effort": "high",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "not_judged": {},
+    "not_judged_tasks": [],
+    "combined_33": {
+      "n": 23,
+      "mean": 55.00715093167702,
+      "se": 2.7933462679862897
+    },
+    "combined_no_code_zero": null,
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 57.25261453039714,
+      "se": 2.8743802417486126
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 52.89915403726708,
+        "se": 2.755554883092138
+      },
+      "sol": {
+        "n": 23,
+        "mean": 57.115147826086954,
+        "se": 2.846782552913681
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 68.52155091285526,
+      "se": 1.5061832617396969
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 64.6286231884058,
+      "se": 1.6855992219588338
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 78.90269151138716,
+      "se": 2.748389050970205
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "single_judge_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 60.507246376811594,
+      "se": 1.4554381485695458
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 68.75,
+      "se": 2.1720251464278624
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 57.608695652173914,
+        "se": 1.7007421942729433
+      },
+      "sol": {
+        "n": 23,
+        "mean": 71.64855072463769,
+        "se": 1.8741266193210002
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 35.62,
+      "se": 5.533411487296696
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 35.62,
+      "se": 5.533411487296696
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 78.54521739130435,
+      "se": 0.8210212163962712
+    },
+    "security": {
+      "n": 23,
+      "mean": 93.04347826086956,
+      "se": 4.9676734682577
+    },
+    "passed": 0,
+    "passed_all_runs": 0,
+    "hidden_behaviours_fixed": 93,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 9.201744202898551,
+      "se": 1.3814292912022599
+    },
+    "minutes_median": 6.60165,
+    "priced_runs": 0,
+    "cli_versions": {
+      "Mirror CLI 0.1.1": 23
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 3394646.1739130435,
+      "se": 281863.6906282533
+    },
+    "raw_tokens_total": 78076862,
+    "output_tokens": {
+      "n": 23,
+      "mean": 42268.260869565216,
+      "se": 2489.7328961436583
+    },
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9526260259889935,
+      "se": 0.003645928300322017
+    },
+    "model_calls": {
+      "n": 23,
+      "mean": 93.69565217391305,
+      "se": 4.569375106517957
+    },
+    "failed_model_requests": 0,
+    "usd": null
+  },
+  {
+    "model": "beam",
+    "effort": "extra-high",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "not_judged": {},
+    "not_judged_tasks": [],
+    "combined_33": {
+      "n": 23,
+      "mean": 64.71627857142857,
+      "se": 3.758969540704052
+    },
+    "combined_no_code_zero": null,
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 67.00113721061547,
+      "se": 3.7757473861358757
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 63.24426770186335,
+        "se": 3.7102655356953105
+      },
+      "sol": {
+        "n": 23,
+        "mean": 66.18828944099378,
+        "se": 3.8186281237285438
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 66.94981648785996,
+      "se": 1.7626197761011668
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 62.59057971014493,
+      "se": 1.3844587529944024
+    },
+    "intent_recovery": {
+      "n": 22,
+      "mean": 79.54184704184703,
+      "se": 3.7380274894432093
+    },
+    "intent_recovery_redistributed_runs": 1,
+    "single_judge_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 57.06521739130435,
+      "se": 1.6554046089218357
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 68.11594202898551,
+      "se": 1.4727593382350164
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 57.2463768115942,
+        "se": 1.5655551226420916
+      },
+      "sol": {
+        "n": 23,
+        "mean": 67.93478260869566,
+        "se": 1.520356279265466
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 56.50695652173913,
+      "se": 7.182174724182696
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 56.50695652173913,
+      "se": 7.182174724182696
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 77.74695652173914,
+      "se": 0.8882772852477974
+    },
+    "security": {
+      "n": 23,
+      "mean": 91.30434782608695,
+      "se": 6.007385040937022
+    },
+    "passed": 4,
+    "passed_all_runs": 4,
+    "hidden_behaviours_fixed": 130,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 18.75290507246377,
+      "se": 2.7415818250284136
+    },
+    "minutes_median": 15.4811,
+    "priced_runs": 0,
+    "cli_versions": {
+      "Mirror CLI 0.1.1": 23
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 12417111.304347826,
+      "se": 2203962.3470025402
+    },
+    "raw_tokens_total": 285593560,
+    "output_tokens": {
+      "n": 23,
+      "mean": 86908.91304347826,
+      "se": 8160.158128581258
+    },
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9728170727127985,
+      "se": 0.002470933611372363
+    },
+    "model_calls": {
+      "n": 23,
+      "mean": 165.08695652173913,
+      "se": 15.791241010825255
+    },
+    "failed_model_requests": 1,
+    "usd": null
+  },
+  {
+    "model": "beam",
+    "effort": "max",
+    "n": 22,
+    "runs": 23,
+    "timeouts": 0,
+    "not_judged": {
+      "unreviewable": 1
+    },
+    "not_judged_tasks": [
+      "legacy-hedgecore-binary-parity"
+    ],
+    "combined_33": {
+      "n": 22,
+      "mean": 63.91552824675324,
+      "se": 4.124906789451947
+    },
+    "combined_no_code_zero": null,
+    "combined_20_profile": {
+      "n": 22,
+      "mean": 66.06215554899646,
+      "se": 4.2283214272134035
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 22,
+        "mean": 62.28411590909091,
+        "se": 4.17046933222537
+      },
+      "sol": {
+        "n": 21,
+        "mean": 64.71918299319728,
+        "se": 4.209663227967064
+      }
+    },
+    "code_quality": {
+      "n": 22,
+      "mean": 65.81316410861865,
+      "se": 1.646236653326315
+    },
+    "reviewed_score": {
+      "n": 22,
+      "mean": 61.553030303030305,
+      "se": 1.7160307303451008
+    },
+    "intent_recovery": {
+      "n": 21,
+      "mean": 77.57464096749811,
+      "se": 3.123333115158533
+    },
+    "intent_recovery_redistributed_runs": 1,
+    "single_judge_runs": 1,
+    "readability": {
+      "n": 22,
+      "mean": 57.57575757575758,
+      "se": 1.9508057335850906
+    },
+    "maintainability": {
+      "n": 22,
+      "mean": 65.53030303030303,
+      "se": 2.077586195947517
+    },
+    "by_panel": {
+      "muse": {
+        "n": 22,
+        "mean": 56.91287878787879,
+        "se": 1.7521072078759996
+      },
+      "sol": {
+        "n": 21,
+        "mean": 66.96428571428571,
+        "se": 1.9087879079142998
+      }
+    },
+    "functional": {
+      "n": 22,
+      "mean": 56.403636363636366,
+      "se": 7.576935483319003
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 58.29913043478261,
+      "se": 7.4840282877785915
+    },
+    "automated_quality": {
+      "n": 22,
+      "mean": 77.83318181818181,
+      "se": 1.2994619909632927
+    },
+    "security": {
+      "n": 22,
+      "mean": 86.81818181818181,
+      "se": 6.904931534509326
+    },
+    "passed": 5,
+    "passed_all_runs": 6,
+    "hidden_behaviours_fixed": 134,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 22.445145652173913,
+      "se": 2.759103812073485
+    },
+    "minutes_median": 19.198766666666664,
+    "priced_runs": 0,
+    "cli_versions": {
+      "Mirror CLI 0.1.1": 23
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 17285785.95652174,
+      "se": 3471496.7898260597
+    },
+    "raw_tokens_total": 397573077,
+    "output_tokens": {
+      "n": 23,
+      "mean": 115760.69565217392,
+      "se": 15988.85736343532
+    },
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.969021101887774,
+      "se": 0.002272950014512173
+    },
+    "model_calls": {
+      "n": 23,
+      "mean": 199.95652173913044,
+      "se": 25.59354524764707
+    },
+    "failed_model_requests": 5,
+    "usd": null
+  }
+]

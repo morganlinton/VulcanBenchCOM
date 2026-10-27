@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reflection Beam across effort levels | VulcanBench</title>
+<meta name="description" content="Frontier v4: 115 Mirror CLI runs of Reflection Beam (Beam-1.0-501B-A23B) at all five reasoning levels, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 39.51 at Low rising to 64.72 at Extra-high over judged runs (18.90 and 38.95 at Low and Medium with no-code runs as 0); 0, 0, 0, 4 and 6 of 23 tasks passed; 0.4 to 22.4 minutes a task; Reflection publishes no price.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-beam-v328.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Reflection Beam across effort levels | VulcanBench">
+<meta property="og:description" content="Frontier v4: 115 Mirror CLI runs of Reflection Beam (Beam-1.0-501B-A23B) at all five reasoning levels, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 39.51 at Low rising to 64.72 at Extra-high over judged runs (18.90 and 38.95 at Low and Medium with no-code runs as 0); 0, 0, 0, 4 and 6 of 23 tasks passed; 0.4 to 22.4 minutes a task; Reflection publishes no price.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-beam-v328.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-beam-v328.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1350">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: Reflection Beam 1.0 beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra at every effort level, with combined score and time per task">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reflection Beam across effort levels | VulcanBench">
+<meta name="twitter:description" content="Frontier v4: 115 Mirror CLI runs of Reflection Beam (Beam-1.0-501B-A23B) at all five reasoning levels, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 39.51 at Low rising to 64.72 at Extra-high over judged runs (18.90 and 38.95 at Low and Medium with no-code runs as 0); 0, 0, 0, 4 and 6 of 23 tasks passed; 0.4 to 22.4 minutes a task; Reflection publishes no price.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-beam-v328.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: Reflection Beam 1.0 beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra at every effort level, with combined score and time per task">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/analysis.html">Analysis</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="beam-v328-heading">
+      <header>
+        <p class="suite-label">October 27, 2026 &middot; Morgan Linton &middot; 115 runs &middot; Code quality protocol v3.28</p>
+        <h1 id="beam-v328-heading">Reflection Beam across every effort level</h1>
+        <p>115 runs of Reflection Beam 1.0 (<code>Beam-1.0-501B-A23B</code>, 501B total and 23B active parameters, open weights) in Mirror CLI, Reflection&rsquo;s own coding agent, on Reflection&rsquo;s API: 23 tasks at each of Beam&rsquo;s five reasoning levels, Low to Max. Code quality carries 33% of the combined score and is judged for a human reader under the same rubric, controls and gates as the other Frontier v4 reports, by Muse Spark 1.3 and GPT-6.1 Sol, the panel that judged DeepSeek V4.1 Flash, because Grok 4.6&rsquo;s Cursor account was out of usage. At Low and Medium Beam often ends without changing any source file; those runs have no code to judge, count as failed tasks and are shown both ways below. Reflection publishes no Beam price, so this report has time and tokens but no cost. Reflection Beam takes its place on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> with these caveats attached.</p>
+      </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A retired program to rebuild</h3><p>Each of the 23 tasks is a legacy binary with a written specification and an issue. Its real behaviour departs from the specification in documented ways, and hidden tests check the rewrite against the binary.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>One attempt per task and level</h3><p>Reflection Beam works in Mirror CLI with the binary, the specification and the code, once per task at each effort level, inside a flat 3-hour bound, one task at a time.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>Tests and two judges score it</h3><p>Hidden tests give functional correctness. Two calibrated judges from labs other than Reflection rate the code for a human reader and try to recover the documented departures.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>Scores, time and tokens per level</h3><p>Each level gets a combined score, tasks passed, minutes and tokens. Reflection publishes no price for Beam, so there is no cost figure.</p></li>
+        </ol>
+        <p>Combined score = 50% functional correctness + 8.5% lint and complexity + 8.5% security + 33% Code quality, averaged over the judged runs in each level, as on every other board column. Frontier Code quality is the reviewed layer plus intent recovery; it is never compared with Routine v1 Code quality.</p>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/cards/swe-v4-beam-v328.png" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, beside Opus 5.5, GPT-6.1 Sol and GPT-6 Astra</span></a>
+        <a class="resource" href="/assets/data/swe-v4-beam-v328/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 115 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores and the reason for any unjudged run</span></a>
+        <a class="resource" href="/assets/data/swe-v4-beam-v328-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, five effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-beam-v328"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-beam-v328/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=Reflection%20Beam%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-beam-v328.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this report, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#comparison"><span class="n">03</span>Beside Opus 5.5, Sol and Astra</a>
+        <a href="#tokens"><span class="n">04</span>Time and tokens</a>
+        <a href="#board"><span class="n">05</span>On the board</a>
+        <a href="#code-quality"><span class="n">06</span>Code quality</a>
+        <a href="#judges"><span class="n">07</span>Judges and calibration</a>
+        <a href="#run-notes"><span class="n">08</span>How it was run</a>
+        <a href="#reproduce"><span class="n">09</span>Reproduction</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>Reflection Beam ran every task once at each of the five reasoning levels its API takes (Extra-high is Beam&rsquo;s <code>xhigh</code>), 23 tasks per cell, through Mirror CLI 0.1.1 on Reflection&rsquo;s API, from October 23, 21:15 UTC, to October 25, 04:31 UTC, 2026, on the owner&rsquo;s Mac in the local sandbox, one task at a time. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a named human reader by Muse Spark 1.3 and GPT-6.1 Sol with a ground-truth intent-recovery probe.</p>
+        <div class="effort-choices">
+          <div><h3>Combined score</h3><p>39.51 to 64.72</p><p>Combined score climbs with effort: 39.51 at Low, 44.79 at Medium, 55.01 at High, 64.72 at Extra-high and 63.92 at Max, over 11, 20, 23, 23 and 22 judged runs. Counting the runs that left no code as 0, Low is 18.90 and Medium 38.95.</p></div>
+          <div><h3>Tasks passed</h3><p>0, 0, 0, 4 and 6 of 23</p><p>Beam fully solves no task below Extra-high. Functional correctness over all runs is 0.9%, 10.8%, 35.6%, 56.5% and 58.3%; of the 231 hidden behaviours the tasks test for, it fixes 3, 26, 93, 130 and 134. No run reached the 3-hour bound.</p></div>
+          <div><h3>No code at Low</h3><p>12 of 23 Low runs</p><p>At Low, 12 runs ended with no source change (two empty patches, ten that only changed file modes or left scratch files), and 3 more at Medium. Two Low answers said the full reconstruction was beyond the session&rsquo;s scope and two blamed a sandbox block that does not exist; see <a href="#run-notes">How it was run</a>.</p></div>
+          <div><h3>Runtime and tokens</h3><p>0.4 to 22.4 min &middot; 0.09M to 17.29M tokens</p><p>Low and Medium are fast because Beam stops early: 0.4 and 1.9 minutes a task. Work grows with effort to 9.2, 18.8 and 22.4 minutes and 3.39M, 12.42M and 17.29M tokens a task at High, Extra-high and Max. Reflection publishes no price, so there is no cost.</p></div>
+        </div>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score, tasks passed, Code quality, runtime and tokens at each effort level" tabindex="0"><table class="suite-results"><caption>Combined score, tasks passed, Code quality, runtime and tokens at each effort level, 23 runs per cell; the combined score is over the judged runs</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>39.51</td><td>44.79</td><td>55.01</td><td>64.72</td><td>63.92</td></tr><tr><th scope="row">Standard error</th><td>2.35</td><td>1.90</td><td>2.79</td><td>3.76</td><td>4.12</td></tr><tr><th scope="row">Judged runs</th><td>11</td><td>20</td><td>23</td><td>23</td><td>22</td></tr><tr><th scope="row">No-code runs counted as 0</th><td>18.90</td><td>38.95</td><td>same</td><td>same</td><td>same</td></tr></tbody><tbody><tr><th scope="row">Tasks passed</th><td>0/23</td><td>0/23</td><td>0/23</td><td>4/23</td><td>6/23</td></tr><tr><th scope="row">Functional, all runs</th><td>0.9%</td><td>10.8%</td><td>35.6%</td><td>56.5%</td><td>58.3%</td></tr><tr><th scope="row">Hidden behaviours fixed</th><td>3/231</td><td>26/231</td><td>93/231</td><td>130/231</td><td>134/231</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>72.92</td><td>70.46</td><td>68.52</td><td>66.95</td><td>65.81</td></tr><tr><th scope="row">Human readability</th><td>71.8</td><td>65.1</td><td>60.5</td><td>57.1</td><td>57.6</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>0.38</td><td>1.93</td><td>9.20</td><td>18.75</td><td>22.45</td></tr><tr><th scope="row">Tokens per task</th><td>0.09M</td><td>0.44M</td><td>3.39M</td><td>12.42M</td><td>17.29M</td></tr><tr><th scope="row">$ per task</th><td>unavailable</td><td>unavailable</td><td>unavailable</td><td>unavailable</td><td>unavailable</td></tr></tbody></table></div>
+        <p>Under the prior 50/15/15/20 profile applied to the same Code quality scores the ladder runs 41.15 to 67.00. Code quality falls slightly as effort rises (72.92 at Low to 65.81 at Max), but Low&rsquo;s figure rests on 11 runs that mostly changed little code; see <a href="#code-quality">What Code quality measures</a>.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-beam-v328.png" aria-label="Open the Reflection Beam results card at full resolution">
+          <img src="/assets/cards/swe-v4-beam-v328.png" width="1600" height="900" fetchpriority="high" alt="Reflection Beam 1.0 (501B-A23B) on VulcanBench Frontier v4 beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra. Left: combined score by effort level on an axis broken between 75 and 85. Opus 5.5, GPT-6 Astra and GPT-6.1 Sol sit between about 86 and 91; Beam rises from about 40 at Low to about 65 at Extra-high and Max, with hollow markers near 19 at Low and 39 at Medium for no-code runs counted as 0. Right: minutes per task, Beam from 0.4 at Low to 22 at Max. A footnote gives judged-run counts and the judge panels. Exact values are in the adjacent accessible tables.">
+        </a>
+        <figcaption>The harness card places Reflection Beam beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra; their columns come from their own reports and are judged by Muse Spark 1.3 and Grok 4.6, a different panel. The combined score axis is broken between 75 and 85 so the three frontier lines stay apart. Standard errors and every value are in the tables here. <a href="/assets/cards/swe-v4-beam-v328.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">Reflection Beam gains from effort, unlike most columns on the board: its combined score rises about 25 points from Low to Extra-high, and it passes its first tasks only at Extra-high and Max. Even at its best it is about 24 to 26 points below Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra and solves 4 to 6 tasks where they solve 21 to 23. Extra-high is its best level. These runs compare a model-and-harness combination, an early beta harness included, not an isolated base model, and its second judge differs from the frontier columns&rsquo;; the <a href="/leaderboard.html">Frontier v4 leaderboard</a> places every level beside the other models with that caveat.</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">23 runs at every level; Judged counts the runs with a published Code quality score. Combined (33%) is the published score, over the judged runs. No-code as 0 counts each run that left no code to review as 0 over all 23. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the judges with a valid review. Passed counts all 23 runs. Runtime is solver wall-clock per task over all 23 runs.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench Frontier v4: Reflection Beam effort results under Code quality protocol v3.28</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">No-code as 0</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="beam" data-effort="low"><th scope="row"><a href="/models/reflection-beam.html">Reflection Beam</a> / Mirror CLI</th><td>Low</td><td>39.51</td><td>2.35</td><td>18.90</td><td>41.15</td><td>72.92</td><td>71.8</td><td>71.8</td><td>91.7</td><td>11/23</td><td>0/23</td><td>0.4</td></tr>
+              <tr data-model="beam" data-effort="medium"><th scope="row"><a href="/models/reflection-beam.html">Reflection Beam</a> / Mirror CLI</th><td>Medium</td><td>44.79</td><td>1.90</td><td>38.95</td><td>47.36</td><td>70.46</td><td>65.1</td><td>70.6</td><td>82.0</td><td>20/23</td><td>0/23</td><td>1.9</td></tr>
+              <tr data-model="beam" data-effort="high"><th scope="row"><a href="/models/reflection-beam.html">Reflection Beam</a> / Mirror CLI</th><td>High</td><td>55.01</td><td>2.79</td><td>same</td><td>57.25</td><td>68.52</td><td>60.5</td><td>68.8</td><td>78.9</td><td>23/23</td><td>0/23</td><td>9.2</td></tr>
+              <tr data-model="beam" data-effort="extra-high"><th scope="row"><a href="/models/reflection-beam.html">Reflection Beam</a> / Mirror CLI</th><td>Extra-high</td><td>64.72</td><td>3.76</td><td>same</td><td>67.00</td><td>66.95</td><td>57.1</td><td>68.1</td><td>79.5</td><td>23/23</td><td>4/23</td><td>18.8</td></tr>
+              <tr data-model="beam" data-effort="max"><th scope="row"><a href="/models/reflection-beam.html">Reflection Beam</a> / Mirror CLI</th><td>Max</td><td>63.92</td><td>4.12</td><td>same</td><td>66.06</td><td>65.81</td><td>57.6</td><td>65.5</td><td>77.6</td><td>22/23</td><td>6/23</td><td>22.4</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>Which runs are judged.</strong> 99 of the 115 runs carry a published Code quality score. Three ended with an empty patch (Low blendcore and metercore, Medium granarycore) and twelve changed no source file, only file modes from <code>chmod</code> or scratch files (ten at Low, two at Medium); neither kind has code to review, so neither is judged and each counts as a failed task, as empty patches have since protocol v3.15. The owner extended the empty-patch rule to the second kind on October 26, 2026, after the judges had reviewed them; their reviews are kept but not used. Max hedgecore passed every hidden test but is unjudged: Beam left 6.5M characters of scratch files in its workspace, beyond GPT-6.1 Sol&rsquo;s input limit, and Muse Spark 1.3&rsquo;s two reviews cited no code. Max payrollcore is published from Muse Spark 1.3 alone for the same input-limit reason.</p>
+        <p><strong>Four factors by effort</strong>, over the judged runs. Functional correctness averages 1.82, 12.39, 35.62, 56.51 and 56.40 from Low to Max; lint and complexity 81.48, 80.97, 78.55, 77.75 and 77.83; security 89.55, 99.50, 93.04, 91.30 and 86.82. Only the Code quality factor depends on the judges.</p>
+        <p><strong>Intent recovery</strong> is scored over the specification departures a submission actually passed tests for. 16 published runs (8 at Low, 6 at Medium, 1 each at Extra-high and Max) passed none, so their 9 intent points move to the reviewed score, as the protocol pre-registers. <strong>SE</strong> is one sample standard error across the cell&rsquo;s judged tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. Neither judge produced a reviewer fallback.</p>
+      </div>
+
+      <section class="report-section" id="comparison" aria-labelledby="comparison-heading">
+        <h2 id="comparison-heading">Beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra</h2>
+        <p>At every level Reflection Beam is far below the three frontier models. Its best, 64.72 at Extra-high, compares with 90.68 for Claude Opus 5.5, 88.78 for GPT-6.1 Sol and 89.16 for GPT-6 Astra at the same level; at Max it is 63.92 against 90.22, 88.35 and 89.30. It fully solves 4 and 6 tasks at Extra-high and Max, against 22 and 21 for Opus 5.5 and 23 at both levels for GPT-6.1 Sol and GPT-6 Astra. It is the fastest of the four at Low and Medium only because it stops early; at Max it takes 22.4 minutes a task, faster than Opus 5.5 (37.5) but slower than GPT-6.1 Sol (14.5) and GPT-6 Astra (10.3). It also uses far more tokens: 17.29M a task at Max, about twice Opus 5.5&rsquo;s 8.72M and about 17 and 18 times GPT-6.1 Sol&rsquo;s and GPT-6 Astra&rsquo;s, most of it cached input.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Reflection Beam beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra at every effort level" tabindex="0"><table class="suite-results">
+        <caption>Combined score, tasks passed, minutes, tokens and list-price cost per task at every effort level, 23 runs per cell; Opus 5.5, GPT-6.1 Sol and GPT-6 Astra from their published reports</caption><thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th><th scope="col">Tokens/task</th><th scope="col">$/task</th><th scope="col">Code quality judges</th></tr></thead><tbody>
+        <tr data-compare="beam-low"><th scope="row">Reflection Beam / Mirror CLI</th><td>Low</td><td>39.51</td><td>2.35</td><td>11*</td><td>0/23</td><td>0.4</td><td>0.09M</td><td>unavailable</td><td>Muse Spark 1.3 and GPT-6.1 Sol</td></tr>
+        <tr data-compare="opus55-low"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Low</td><td>86.36</td><td>1.30</td><td>23</td><td>17/23</td><td>13.7</td><td>2.77M</td><td>$1.70</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="gpt61sol-low"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>Low</td><td>86.22</td><td>0.82</td><td>23</td><td>20/23</td><td>6.9</td><td>1.24M</td><td>$0.31</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="astra-low"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Low</td><td>87.43</td><td>0.51</td><td>23</td><td>22/23</td><td>4.2</td><td>0.89M</td><td>$1.72</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="beam-medium"><th scope="row">Reflection Beam / Mirror CLI</th><td>Medium</td><td>44.79</td><td>1.90</td><td>20*</td><td>0/23</td><td>1.9</td><td>0.44M</td><td>unavailable</td><td>Muse Spark 1.3 and GPT-6.1 Sol</td></tr>
+        <tr data-compare="opus55-medium"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Medium</td><td>90.86</td><td>0.64</td><td>23</td><td>23/23</td><td>18.6</td><td>5.01M</td><td>$2.84</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="gpt61sol-medium"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>Medium</td><td>86.44</td><td>0.78</td><td>23</td><td>22/23</td><td>10.6</td><td>1.62M</td><td>$0.40</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="astra-medium"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Medium</td><td>87.73</td><td>0.32</td><td>23</td><td>23/23</td><td>3.8</td><td>0.68M</td><td>$1.48</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="beam-high"><th scope="row">Reflection Beam / Mirror CLI</th><td>High</td><td>55.01</td><td>2.79</td><td>23</td><td>0/23</td><td>9.2</td><td>3.39M</td><td>unavailable</td><td>Muse Spark 1.3 and GPT-6.1 Sol</td></tr>
+        <tr data-compare="opus55-high"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>High</td><td>91.11</td><td>0.57</td><td>22*</td><td>22/23</td><td>21.4</td><td>4.11M</td><td>$3.27</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="gpt61sol-high"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>High</td><td>88.23</td><td>0.40</td><td>23</td><td>23/23</td><td>10.2</td><td>0.91M</td><td>$0.33</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="astra-high"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>High</td><td>88.16</td><td>0.42</td><td>23</td><td>23/23</td><td>4.9</td><td>0.77M</td><td>$1.71</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="beam-extra-high"><th scope="row">Reflection Beam / Mirror CLI</th><td>Extra-high</td><td>64.72</td><td>3.76</td><td>23</td><td>4/23</td><td>18.8</td><td>12.42M</td><td>unavailable</td><td>Muse Spark 1.3 and GPT-6.1 Sol</td></tr>
+        <tr data-compare="opus55-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Extra-high</td><td>90.68</td><td>1.10</td><td>23</td><td>22/23</td><td>20.7</td><td>3.90M</td><td>$4.11</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="gpt61sol-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>Extra-high</td><td>88.78</td><td>0.40</td><td>23</td><td>23/23</td><td>15.4</td><td>1.12M</td><td>$0.43</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="astra-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Extra-high</td><td>89.16</td><td>0.30</td><td>23</td><td>23/23</td><td>8.1</td><td>0.93M</td><td>$2.30</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="beam-max"><th scope="row">Reflection Beam / Mirror CLI</th><td>Max</td><td>63.92</td><td>4.12</td><td>22*</td><td>6/23</td><td>22.4</td><td>17.29M</td><td>unavailable</td><td>Muse Spark 1.3 and GPT-6.1 Sol</td></tr>
+        <tr data-compare="opus55-max"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Max</td><td>90.22</td><td>1.02</td><td>23</td><td>21/23</td><td>37.5</td><td>8.72M</td><td>$8.75</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="gpt61sol-max"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>Max</td><td>88.35</td><td>0.33</td><td>23</td><td>23/23</td><td>14.5</td><td>1.04M</td><td>$0.46</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        <tr data-compare="astra-max"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Max</td><td>89.30</td><td>0.37</td><td>23</td><td>23/23</td><td>10.3</td><td>0.95M</td><td>$2.57</td><td>Muse Spark 1.3 and Grok 4.6</td></tr>
+        </tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Read the comparison with its limits.</strong> * Judged on fewer than 23 runs: Beam at Low, Medium and Max for the reasons above, and Opus 5.5 at High, where a safeguard stop left one run with no code to review. The panels differ: Beam&rsquo;s Code quality is a mean of Muse Spark 1.3 and GPT-6.1 Sol, the other three columns&rsquo; a mean of Muse Spark 1.3 and Grok 4.6, and the panels are not calibrated against each other. GPT-6.1 Sol therefore judges a column it is shown beside; its own column was judged without it. Harnesses differ (Mirror CLI, Claude Code, Codex). The other three columns&rsquo; $/task is API-equivalent at list price from their receipts (GPT-6 Astra&rsquo;s is its report&rsquo;s central estimate); Beam has no price. Their figures are the published rows of their own reports. The gap is large enough that the panel difference cannot close it: Beam&rsquo;s functional correctness alone, half the combined score, is 56.5% at best against 95.7% or more for the other three at every level from High up.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="tokens" aria-labelledby="tokens-heading">
+        <h2 id="tokens-heading">Time and tokens</h2>
+        <p>Reflection publishes no price for Beam (its public API beta is free to start), so no run is priced: cost is unavailable, not zero, and the board shows Beam on its Tokens and Minutes views only. Tokens are summed from Mirror&rsquo;s per-call usage records, input (cached included) plus output; Mirror reports no separate reasoning count. Judging is excluded.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Tokens, model calls and runtime at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Tokens, model calls and runtime at each effort level, n=23 runs per cell</caption><thead><tr><th scope="col">Effort</th><th scope="col">Runs</th><th scope="col">Tokens/task</th><th scope="col">Output/task</th><th scope="col">Cached share of input</th><th scope="col">Model calls/task</th><th scope="col">Failed requests</th><th scope="col">Min/task</th><th scope="col">Median min</th></tr></thead><tbody><tr data-econ-effort="low"><th scope="row">Low</th><td>23</td><td>0.09M</td><td>2.3K</td><td>81.7%</td><td>12.5</td><td>0</td><td>0.4</td><td>0.4</td></tr><tr data-econ-effort="medium"><th scope="row">Medium</th><td>23</td><td>0.44M</td><td>8.5K</td><td>91.1%</td><td>32.9</td><td>0</td><td>1.9</td><td>1.0</td></tr><tr data-econ-effort="high"><th scope="row">High</th><td>23</td><td>3.39M</td><td>42.3K</td><td>95.3%</td><td>93.7</td><td>0</td><td>9.2</td><td>6.6</td></tr><tr data-econ-effort="extra-high"><th scope="row">Extra-high</th><td>23</td><td>12.42M</td><td>86.9K</td><td>97.3%</td><td>165.1</td><td>1</td><td>18.8</td><td>15.5</td></tr><tr data-econ-effort="max"><th scope="row">Max</th><td>23</td><td>17.29M</td><td>115.8K</td><td>96.9%</td><td>200.0</td><td>5</td><td>22.4</td><td>19.2</td></tr><tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>115</td><td>773M</td><td></td><td></td><td>11,596</td><td>6</td><td>20.2 h</td><td></td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Reading the tokens.</strong> Beam&rsquo;s runs grow long at higher effort: about 200 model calls a task at Max, each resending a growing context that Reflection&rsquo;s API mostly serves from cache. Six model requests in five runs failed (three &ldquo;temporarily unavailable&rdquo;, three HTTP 520); Mirror carried on and every run finished. Per-run figures are in <a href="/assets/data/swe-v4-beam-v328/economics.json">economics.json</a> and <a href="/assets/data/swe-v4-beam-v328/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="board" aria-labelledby="board-heading">
+        <h2 id="board-heading">On the Frontier v4 board</h2>
+        <p>Reflection Beam&rsquo;s best level, Extra-high at 64.72 &plusmn; 3.76 (n=23), ranks 63rd of the board&rsquo;s 75 model and effort columns, below every column of Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra and just below GPT-5.6 Terra at Medium. By level it ranks Low 75th, Medium 72nd, High 68th, Extra-high 63rd, Max 64th; Low is last on the board. Extra-high carries the best tag, and with no price the board picks levels on time alone: its critical, routine and rough effort suggestions all pick Extra-high, because Max, the only level within 5 points, is slower. The <a href="/leaderboard.html">leaderboard</a> carries every column; Reflection Beam&rsquo;s cells carry the &loz;&loz; footnote with the disclosures on this page, including the Low and Medium figures with no-code runs as 0.</p>
+        <p>Read these placements with the panel in mind. Most columns, Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra included, are judged by Muse Spark 1.3 and Grok 4.6; Grok 4.7&rsquo;s, DeepSeek V4.1 Flash&rsquo;s and Reflection Beam&rsquo;s by Muse Spark 1.3 and GPT-6.1 Sol; Muse Wonder Full&rsquo;s by Claude Opus 5.5 and GPT-6.1 Sol. Scores from different panels are not calibrated against each other, so gaps of a point or two between Reflection Beam and its neighbours are not a reliable order.</p>
+      </section>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel carries 24 points. An intent-recovery probe carries 9: the judge, given only the specification and the code, lists where the code departs from the specification, and a separate call matches that list against a frozen answer key, over the departures the submission passed tests for. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force. Frontier Code quality is therefore the reviewed layer plus intent recovery, and it is never compared with Routine v1 Code quality, which is scored on a different suite and population.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each effort level, out of 100, mean of the judges over the judged runs per level (11, 20, 23, 23 and 22)</caption><thead><tr><th scope="col">Component</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>72.92</td><td>70.46</td><td>68.52</td><td>66.95</td><td>65.81</td></tr><tr><th scope="row">Human readability</th><td>71.8</td><td>65.1</td><td>60.5</td><td>57.1</td><td>57.6</td></tr><tr><th scope="row">Maintainability</th><td>71.8</td><td>70.6</td><td>68.8</td><td>68.1</td><td>65.5</td></tr><tr><th scope="row">Intent recovery</th><td>91.7</td><td>82.0</td><td>78.9</td><td>79.5</td><td>77.6</td></tr><tr><th scope="row">Runs with no intent denominator</th><td>8</td><td>6</td><td>0</td><td>1</td><td>1</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>64.2</td><td>59.1</td><td>57.6</td><td>57.2</td><td>56.9</td></tr><tr><th scope="row">Rated by GPT-6.1 Sol</th><td>79.4</td><td>76.7</td><td>71.6</td><td>67.9</td><td>67.0</td></tr><tr><th scope="row">Standard error of Code quality</th><td>5.23</td><td>2.42</td><td>1.51</td><td>1.76</td><td>1.65</td></tr></tbody></table></div>
+        <p>Code quality is highest at Low and drifts down as Beam writes more code, from 72.92 to 65.81. At Low it rests on 11 runs, most of which changed little, and 8 of them passed no quirk family, so their score is the reviewed layer alone. Human readability falls most, from 71.8 at Low to 57.1 at Extra-high. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-beam-v328/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-beam-v328/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p><strong>GPT-6.1 Sol in Grok 4.6&rsquo;s seat.</strong> The scored panel is Muse Spark 1.3 (Meta) through the Muse CLI on its Standard tier, with its v3.4 settings and binary pin, and GPT-6.1 Sol (OpenAI) at medium effort through Codex CLI 0.159.0, its launcher and native binary pinned by sha256, with equal weight. Grok 4.6, the second judge for most columns, runs through Cursor, and a probe through the pinned Cursor CLI on October 24, 2026 still found the account out of usage. The owner kept GPT-6.1 Sol in the seat, as protocol v3.27 did for DeepSeek V4.1 Flash; this is the same pair, with the same settings and pins. Neither lab is Reflection. The Muse binary is a byte-identical backup of the v3.4 binary, matched by sha256 and re-checked before every stage. Every session is fresh, tools are disabled, the workspace is empty and solver labels are withheld. Muse&rsquo;s identity is checked per call from the CLI&rsquo;s own records; Codex does not record the serving model, so GPT-6.1 Sol&rsquo;s identity is the model requested.</p>
+        <p><strong>A different panel from the columns it is shown beside.</strong> Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra&rsquo;s own columns, like most columns on the board, are judged by Muse Spark 1.3 and Grok 4.6. Panels are not calibrated against each other, so Reflection Beam&rsquo;s Code quality and combined score are not strictly comparable with theirs. GPT-6.1 Sol therefore judges a column it is shown beside; its own column was judged without it. Protocol v3.28 changes nothing in the rubric, controls, quirk keys, gates, repeats, seed or weights from v3.27; it applies the protocol to this population with this judge pair.</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification: clear, compressed, compressed then auto-formatted, verbose with duplicated policy, needlessly abstracted, misleadingly commented, narrated with a comment on every line, a documented legacy quirk, an embedded instruction to give full marks, and hidden module state. Each program is reviewed five times in a seeded order. Twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point. Both judges retook the exam under v3.28 before any counted call.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts under v3.28</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.28</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr><tr><th scope="row">GPT-6.1 Sol</th><td>code-quality-maintenance-v3.28</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr></tbody></table></div>
+        <p>Both judges passed every gate with no allowance used. Every gate value and control mean is in <a href="/assets/data/swe-v4-beam-v328/calibration.json">calibration.json</a>.</p>
+        <p><strong>The judges disagree on level.</strong> GPT-6.1 Sol rates Reflection Beam&rsquo;s reviewed Code quality about 14 points above Muse Spark 1.3: 15.2 at Low, 17.6 at Medium, 14.0 at High, 10.7 at Extra-high, 10.1 at Max. Both passed the same exam, so this is a difference in how strictly each scores real code, not a failed judge; GPT-6.1 Sol rated DeepSeek V4.1 Flash about 8 points above Muse in the same way. The published score is their mean. Scored by one judge alone, the combined score would be (Muse or Sol) 37.44 or 41.58 at Low; 42.21 or 47.37 at Medium; 52.90 or 57.12 at High; 63.24 or 66.19 at Extra-high; 62.28 or 64.72 at Max; either way the ladder climbs from Low to Extra-high. Each run&rsquo;s single-judge figures are in <a href="/assets/data/swe-v4-beam-v328/runs.csv">runs.csv</a>.</p>
+        <p>Each judge was sent 112 primary reviews, 112 intent probes, 5 repeats and 10 pairwise checks, and Muse 112 answer-key matches to Sol&rsquo;s 111 (Sol had no probe for hedgecore). Muse needed a second attempt on two calls and Sol on 39, under the protocol&rsquo;s single-retry rule: 36 answer-key matches and three primary reviews that first failed when Codex returned 429 after the ChatGPT usage window ran out. 24 of Sol&rsquo;s answer-key matches are published through a standing operator rule: both attempts failed only because Sol numbered the departures from one instead of zero, so the wrapper moved the indexes down by one with every status untouched and kept the original in the receipt. Every operator marker is published in <a href="/assets/data/swe-v4-beam-v328/judge-protocols.json">judge-protocols.json</a>. Neither judge produced a reviewer fallback. Judging calls ran on October 25, 2026, from 04:31 to 20:21 UTC; the no-source-change exclusions were applied and the summary written on October 26.</p>
+      </section>
+
+      <section class="report-section" id="run-notes" aria-labelledby="run-notes-heading">
+        <h2 id="run-notes-heading">How it was run</h2>
+        <ul>
+          <li><strong>The model.</strong> Reflection Beam 1.0 through Reflection&rsquo;s API as <code>Beam-1.0-501B-A23B</code>, the versioned id Mirror uses by default. The API&rsquo;s model list shows only the alias <code>Beam-501B-A23B</code>, which the sweep checked before each level; requesting the versioned id keeps a later Beam version behind the alias from slipping in. Every inference in Mirror&rsquo;s conversation database names the requested model, so model identity is harness-recorded.</li>
+          <li><strong>Reflection&rsquo;s own harness.</strong> Mirror CLI (<code>reflection-mirror</code>, Reflection&rsquo;s open-source coding agent, Apache-2.0), version 0.1.1, an early beta, in its one-shot <code>exec</code> mode, pinned by exact version and a content hash of its installed package. It ran inside VulcanBench&rsquo;s macOS outer sandbox with Mirror&rsquo;s tool approvals automatic, since Mirror&rsquo;s own sandbox workspaces need a microsandbox VM, and updates off. Mirror refuses to run until its usage notice is acknowledged and the folder trusted; at the owner&rsquo;s approval each run had a private Mirror home with the notice acknowledged and only that run&rsquo;s workspace trusted. Usage analytics were off and web tools absent, as for every harness on the board.</li>
+          <li><strong>Five levels.</strong> Beam&rsquo;s <code>reasoning_effort</code> takes low, medium, high, xhigh and max; the board&rsquo;s Extra-high is xhigh.</li>
+          <li><strong>A misleading sandbox note.</strong> Task files are staged without execute bits, as for every column on the board, and models that hit Permission denied on the legacy binary usually run <code>chmod</code>. When that happens in Mirror, it appends a note saying the sandbox denied access. Two Low runs ended saying the sandbox blocked the binary, which it does not, and two other Low answers said the full reconstruction was beyond the session&rsquo;s scope. The adapter archived model messages and usage but not tool calls, so how often Beam saw the note cannot be counted.</li>
+          <li><strong>A daily token limit.</strong> Reflection&rsquo;s API has a daily token limit. It stopped the sweep on October 24 at 13:38 UTC after 13 Max tasks; the 1,200 attempts it cut short were set aside unscored and the sweep resumed after the 00:00 UTC reset. No finished run was affected. Six individual model requests failed in five runs and Mirror carried on.</li>
+          <li><strong>From a tagged run worktree.</strong> Every run ran from <code>bench/2026-10-23-beam-mirror-frontier-v4</code>, so every run summary carries a clean source block and records the frozen suite lock&rsquo;s task hash.</li>
+          <li><strong>No timeouts, no overlapping jobs.</strong> Every run finished inside the flat 3-hour bound; the longest, Extra-high blendcore, took 57.1 minutes. A per-minute log watched for any other local benchmark job beside the sweep and recorded none.</li>
+          <li><strong>Where and how.</strong> The local sandbox on the owner&rsquo;s Mac, one task at a time, from October 23, 21:15 UTC, to October 25, 04:31 UTC. The API key was in the agent&rsquo;s environment and the shell network was not isolated, as recorded on every run. Every integrity audit is clean: no web access, and no benchmark data or answer-key paths.</li>
+          <li><strong>One attempt per task and level.</strong> Runs were not repeated.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 115 run measurements, both judges&rsquo; six-dimension sub-scores and intent-recovery scores per judged run, the combined score from each judge alone, the reason for every unjudged run, hidden behaviours fixed, integrity-audit verdicts, each run&rsquo;s task hash and harness version, model calls, failed requests and raw tokens, five aggregates, every calibration gate value, the exact judge protocol text, every operator marker and source hashes. Each run&rsquo;s Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the judges with a valid review, or the reviewed score alone when the run passed no quirk family. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-beam-v328/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/code-quality-maintenance-v3.md">protocol document</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/DECISIONS.md">decision record</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/harness/agent/mirror_cli.py">Mirror CLI adapter</a> and the code in the <a href="https://github.com/morganlinton/VulcanBench">harness repository</a>.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists.</p>
+        <p>Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, Mirror conversation databases and solver traces, the 1,200 attempts cut short by the daily token limit, and host binary paths. Summed solver time is 20.21 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/analysis.html">Analysis</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>

@@ -268,8 +268,8 @@ class Grok47BundleTests(unittest.TestCase):
         self.assertLess(self.page_html.index('id="judge-caveat"'), self.page_html.index('id="across-efforts"'))
 
     def test_board_context(self):
-        # The page describes the board as published on October 4, 2026: columns added later (Sonnet 5.5, Haiku 5.5, Muse Wonder Full, DeepSeek V4.1 Flash) are set aside and ranks recounted.
-        later = {"sonnet55", "haiku55", "musewonderfull", "dsflash"}
+        # The page describes the board as published on October 4, 2026: columns added later (Sonnet 5.5, Haiku 5.5, Muse Wonder Full, DeepSeek V4.1 Flash, Reflection Beam) are set aside and ranks recounted.
+        later = {"sonnet55", "haiku55", "musewonderfull", "dsflash", "beam"}
         board = [dict(r) for r in json.loads((ROOT / "assets/data/swe-v4-board.json").read_text())["columns"] if r["key"] not in later]
         for rank, r in enumerate(board, 1):
             r["rank"] = rank

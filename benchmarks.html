@@ -83,6 +83,17 @@
     </header>
     <p class="suite-description">Formerly published as VulcanBench-Frontier v4; renamed on September 18, 2026 with its URLs unchanged. 23 behavioral-reconstruction tasks. From September 2026 the combined score weights functional correctness (50%), lint and complexity (8.5%), security (8.5%) and Code quality (33%), judged by a calibrated panel from labs with no model on the board. Time and cost are reported separately.</p>
 
+    <article class="suite-feature suite-preview" aria-labelledby="beam-v328-heading">
+      <div>
+        <p class="suite-label">October 27, 2026 &middot; 115 runs &middot; Code quality protocol v3.28</p>
+        <h3 id="beam-v328-heading"><a href="benchmarks/swe-v4-beam-v328.html">Reflection Beam across every effort level</a></h3>
+        <p>115 runs of Reflection Beam 1.0 (Beam-1.0-501B-A23B) in Mirror CLI 0.1.1, Reflection&rsquo;s own coding agent, on Reflection&rsquo;s API, 23 tasks at each of Beam&rsquo;s five reasoning levels, with Code quality at 33% of the combined score. Grok 4.6&rsquo;s Cursor account was still out of usage, so GPT-6.1 Sol sits beside Muse Spark 1.3, as for DeepSeek V4.1 Flash. At Low and Medium Beam often ends without changing any source file; those runs are not judged, count as failed and are shown both ways. Reflection publishes no price, so there is no cost.</p>
+        <p>Combined score 39.51 at Low, 44.79 at Medium, 55.01 at High, 64.72 at Extra-high and 63.92 at Max over judged runs (n=11, 20, 23, 23, 22); 18.90 and 38.95 at Low and Medium with no-code runs as 0. Tasks passed 0, 0, 0, 4 and 6 of 23; 0.4 to 22.4 minutes a task. Its best level is about 24 to 26 points below Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra.</p>
+        <div class="suite-downloads"><a href="benchmarks/swe-v4-beam-v328.html">Read the study</a><a href="benchmarks/swe-v4-beam-v328.html#comparison">Beside Opus 5.5, Sol and Astra</a><a href="benchmarks/swe-v4-beam-v328.html#judges">Judges and calibration</a><a href="benchmarks/swe-v4-beam-v328.html#run-notes">How it was run</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-beam-v328">GitHub evidence</a></div>
+      </div>
+      <a href="benchmarks/swe-v4-beam-v328.html" aria-label="Read the Reflection Beam effort report"><img src="assets/cards/swe-v4-beam-v328.png" width="1600" height="900" loading="lazy" alt="Preview of the Reflection Beam results card. Open the study for readable charts and tables."></a>
+    </article>
+
     <article class="suite-feature suite-preview" aria-labelledby="deepseek-flash-v327-heading">
       <div>
         <p class="suite-label">October 23, 2026 &middot; 69 runs &middot; Code quality protocol v3.27</p>
@@ -262,6 +273,7 @@
       <a class="model-chip" href="models/claude-haiku-5-5.html"><b>Claude Haiku 5.5</b><span>Anthropic</span></a>
       <a class="model-chip" href="models/muse-wonder-full.html"><b>Muse Wonder Full</b><span>Meta</span></a>
       <a class="model-chip" href="models/deepseek-v4-1-flash.html"><b>DeepSeek V4.1 Flash</b><span>DeepSeek</span></a>
+      <a class="model-chip" href="models/reflection-beam.html"><b>Reflection Beam</b><span>Reflection</span></a>
     </div>
   </section>
 
