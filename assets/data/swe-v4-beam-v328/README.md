@@ -173,6 +173,8 @@ exclusions.
 
 Raw prompts and responses, submitted patches and reconstructed sources, the
 quirk answer keys (they describe hidden-test behaviour), reviewer session
-identifiers and usage receipts, Mirror conversation databases and solver
-traces, the 1,200 attempts cut short by the daily token limit, and host binary
+identifiers and usage receipts, Mirror conversation databases and full solver
+traces (a structure-only redacted trace of every run, with model calls, token
+use and timing, is public at https://github.com/morganlinton/vulcanbench-beam-traces; this sweep's adapter recorded no tool
+names, inputs or outputs), the 1,200 attempts cut short by the daily token limit, and host binary
 paths.
