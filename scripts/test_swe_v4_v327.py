@@ -314,7 +314,7 @@ class FlashSiteTests(unittest.TestCase):
         markup = MODEL_PAGE.read_text()
         self.assertIn('href="../benchmarks/swe-v4-deepseek-flash-v327.html"', markup)
         self.assertIn(f'<link rel="canonical" href="{MODEL_URL}">', markup)
-        for value in ("88.65", "88.61", "88.36", "21, 20 and 20 of 23", "22nd of 70"):
+        for value in ("88.65", "88.61", "88.36", "21, 20 and 20 of 23", "22nd of 75 columns on the board as of October 27, 2026"):
             self.assertIn(value, markup, value)
         self.assertIn('href="deepseek-v4-flash.html"', markup)
         self.assertIn('href="deepseek-v4-1-flash.html"', (ROOT / "models/deepseek-v4-flash.html").read_text())
