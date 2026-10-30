@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>GPT-6.1 Terra across every effort level | VulcanBench Frontier v4</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-gpt61-terra-v329.html</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-gpt61-terra-v329.html</guid>
+      <pubDate>Fri, 30 Oct 2026 20:00:00 +0000</pubDate>
+      <description>115 runs of OpenAI's GPT-6.1 Terra (gpt-6.1-terra) in Codex CLI 0.159.0 on a ChatGPT subscription, the day after its release, 23 tasks at each of five effort levels (Low to Max), scored with Code quality at 33% of the combined score and judged by Muse Spark 1.3 and Grok 4.6 under protocol v3.29, the panel that judged the Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra columns it is compared with. Combined score 74.95 at Low, 80.10 at Medium, 79.19 at High, 83.68 at Extra-high and 90.00 at Max, every cell judged on 23 runs. Tasks passed 13, 12, 15, 16 and 23 of 23; $0.11 to $0.36 and 2.8 to 6.9 minutes a task at list price. At Max it sits between Claude Opus 5.5 and GPT-6 Astra and is the cheapest and fastest of the four at every level; it is above GPT-5.6 Terra at every level. Disclosed: Muse Spark 1.3's intent probe of Max settlecore is published through the escape-spelling recovery rule, Muse passed calibration with the one-gate allowance, and three Extra-high runs printed Codex's model metadata fallback notice. Includes per-run CSV, calibration record, public evidence links and redacted traces.</description>
+    </item>
+    <item>
       <title>Reflection Beam across every effort level | VulcanBench Frontier v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-beam-v328.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-beam-v328.html</guid>

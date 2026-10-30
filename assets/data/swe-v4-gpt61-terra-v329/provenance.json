@@ -1,0 +1,53 @@
+{
+  "source_artifacts_sha256": {
+    "v3.29/summary.json": "6d8a5c920b29923bba8cea6bbfc80fe89b7951ffcab32ffe76be21e4559ec91f",
+    "v3.29/protocol.json": "c02807ed8c25bebb01654a7f0cb843aa55ce19807f70a1afba9ef8686955a256",
+    "v3.29/private-manifest.json": "9d188da43c140c03a3ab2524945cf6973bb3daac761ac62b54db468d3f98bb37",
+    "v3.29/calibration-muse.json": "334413e94aa1ab00c9a5c37423e9352c43c77bceac484145913ed68d7841fd54",
+    "v3.29/calibration-grok.json": "14206ca6923f21a464599d6150fe9fb79b1b0d50017055e93dd12191f54c85ff",
+    "v3.29/calls/muse/probe/submission-011/selected.json": "76e9a42ec785cfa65840b640ec81b8b8afc97653876c31b147449e7dfeaf0e0a",
+    "v3.29/calls/muse/probe/submission-011/operator-invalid.superseded.json": "2bb46a9041e2e0987e43b680891f3a91853dbd088ef6f80fa5c4c88ba18f70e4",
+    "comparison.json": "abf22133b3b2d89a1263c5ba0b64d22e37838e7554465c8513d5e87e8a431911",
+    "terra-vs-frontier-card-efforts.csv": "cf5f2f4aac301628c3c85d1036eaf70f2927a561286ced3ca159cd7640a6071b",
+    "terra-vs-frontier-card.json": "44448d5d4ba86b96f99b9e4d55c8aab3ad4a95b2f07dfcfe86114380e5d6a857",
+    "terra-vs-frontier-card.png": "3e48b441fdae393290908a359146be2690d422bfb36947da8bd9214121638c42",
+    "opus55-astra-fable-efforts.csv": "1fde207b0c12819d5bec7867d1c92dd3ee678d01b443defdf2e1054e4e784f90",
+    "gpt61-sol-v318-efforts.csv": "53dad6a23755f61aefd764b9a63363af856e90d963bdc6992ab08c11e0f74d74",
+    "astra-vs-fable51-v34-efforts.csv": "0e16777adc3f95b23f9c15c2d507035208d66005c28715cf4e8cbb71b6040f0a",
+    "suite.lock.json": "861da9e5386e88e6c77236ee5326863e670b597a31ac8b62269c06b1e9aa79eb",
+    "run_gpt61_terra_v4.sh": "a27e05330292e3c40a03abdc7ef4cec99f85a89c1e6d020cbbd91c4f9de21180"
+  },
+  "export_checks": [
+    "115 solver summaries in the sweep folder, 23 per level, no task twice and no orphan attempt folder; the sweep log shows each level complete on its first attempt",
+    "every run is codex:gpt-6.1-terra at its requested level (Extra high as xhigh) on Codex CLI 0.159.0 with the workspace-write sandbox, from bench/2026-10-27-gpt61-terra-frontier-v4 with a clean source block and every task hash equal to the frozen suite lock",
+    "every integrity audit: no web, no benchmark data or answer-key paths, not contaminated",
+    "each run's token totals equal its Codex receipt, whose stream hash equals the archived stream; every run's API-equivalent cost recomputed at the published list rates and matched to the sweep's run-time stamp",
+    "the Codex model-metadata fallback notice appears in exactly three runs (extra-high hedgecore, pacecore and tallycore), each of which passed its tests",
+    "the population record's hash and the manifest's hash equal the ones frozen in the protocol, and every run's summary hash equals its manifest entry",
+    "rubric, prompts, schemas, seed, repeats, gate allowance, weights, retry rule, control hashes, both judges' settings and the Muse binary equal the published v3.24 record; the settings equal the recovered v3.3 and v3.4 protocols, whose hashes match the published values; the Cursor pin names version 2026.10.01-e373342 and its frozen directory digest, recomputed on this host when present",
+    "both judges passed calibration under v3.29 (Muse Spark 1.3 with the one-gate allowance on g11, Grok 4.6 on every gate); no reviewer fallback; every selected Grok call records the accepted display rename",
+    "no live operator marker; the one superseded marker is Muse's settlecore probe, published through recover_escaped_excerpts with one excerpt respelled, and its match call made",
+    "per-row Code quality, both combined scores and each judge's single-judge score recomputed and matched to the frozen summary, with intent recovery redistributed where no quirk family passed; each level's means and standard errors, per-judge means included, matched to the summary's groups",
+    "combined score, its standard error, Code quality, tasks passed, minutes and cost per level matched to the harness card table; the card is byte-identical to the harness copy and its record names this summary and the comparator tables",
+    "no dashes, NUL characters or host paths in exported text"
+  ],
+  "limits": [
+    "Muse Spark 1.3's intent probe of max settlecore is published through the owner-approved recover_escaped_excerpts rule (owner decision 2026-10-29): both attempts had decoded the escapes in one quoted byte-string line into control characters, and the rule wrote them back as the source spells them. The rule first spelled NUL only as backslash-zero, so the probe was marked invalid and the first summary published 114 of 115; the rule now also tries backslash-x-00, and the summary was rebuilt.",
+    "Muse Spark 1.3 passed calibration with the one-gate allowance: repeatability (g11) fell 0.26 short, within the half-point the protocol allows for one gate.",
+    "Three extra-high runs printed Codex's notice that it had no model metadata for gpt-6.1-terra and used fallback metadata; all three passed every hidden test, and they stay in the population.",
+    "Model identity is requested-only: Codex does not report the serving model.",
+    "The sweep ran on release day plus one, through Codex CLI 0.159.0 pinned by version; it cannot pin what OpenAI serves under the model id.",
+    "Frontier Code quality is the reviewed layer plus intent recovery and is never compared with Routine v1 Code quality.",
+    "One attempt per task and level, on the owner's Mac, local sandbox, flat 3-hour task bound, one task at a time."
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, integrity-audit verdicts, raw tokens and API-equivalent cost estimates.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts",
+    "solver event streams (a structure-only redacted trace of every run is public in the vulcanbench-gpt61-terra-traces repository)",
+    "host binary paths"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}

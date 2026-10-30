@@ -77,6 +77,10 @@ SOURCES = [
     {"bundle": "swe-v4-beam-v328", "report": "benchmarks/swe-v4-beam-v328.html", "protocol": "v3.28", "pass_over_all_runs": True,
      "zero_field": "combined_no_code_zero", "judges": "Muse Spark 1.3 and GPT-6.1 Sol",
      "models": {"beam": ("Reflection Beam", "Mirror CLI 0.1.1", "reflection-beam", "Reflection")}},
+    # GPT-6.1 Terra is judged by Muse Spark 1.3 and Grok 4.6 under v3.29. Every row is published (max settlecore through the escape
+    # rule recover_escaped_excerpts), so judged and passed counts are over 23.
+    {"bundle": "swe-v4-gpt61-terra-v329", "report": "benchmarks/swe-v4-gpt61-terra-v329.html", "protocol": "v3.29",
+     "models": {"gpt61terra": ("GPT-6.1 Terra", "Codex", "gpt-6-1-terra", "OpenAI")}},
 ]
 FOOTNOTES = {
     "fable": "Fable 5.1 runs include 11 disclosed Opus 4.8 fallbacks across the sweep; they stay in the population.",
@@ -156,6 +160,12 @@ FOOTNOTES = {
              "on {max_n} of 23: hedgecore passed its tests, but Beam left 6.5M characters of scratch files beside its code, beyond GPT-6.1 Sol's input "
              "limit, and Muse's two reviews cited no code, so no judge scored it. Reflection "
              "publishes no Beam price, so $/task is unavailable and Beam appears on the Tokens and Minutes views only."),
+    "gpt61terra": ("GPT-6.1 Terra ran in Codex CLI 0.159.0 on a ChatGPT subscription, from the day after its release, and is judged by "
+                   "Muse Spark 1.3 and Grok 4.6 under v3.29. At max, Muse Spark 1.3's intent probe of settlecore is published through the "
+                   "owner-approved escape rule first used for GPT-6.1 Sol: both attempts quoted a byte-string line with its escapes decoded "
+                   "into control characters, and the rule writes them back as the code spells them. At extra-high, {notices} runs printed "
+                   "Codex's notice that it had no model metadata for gpt-6.1-terra and used fallback settings; all of them passed their "
+                   "tests. Every cell is judged on 23 runs; no run reached the 3-hour bound."),
     "sol": "GPT-5.6 Sol at max is judged on 22 of 23 tasks: on codeccore, Grok 4.6's intent probe quoted an excerpt absent from the code on both attempts, so the v3.7 protocol publishes no Code quality score for that run; the run passed its tests and is priced.",
 }
 
@@ -216,7 +226,7 @@ def rows():
     return out
 
 
-COLORS = {"fable": "#E8590C", "opus55": "#A61E4D", "astra": "#0CA678", "terra": "#1098AD", "luna": "#E64980", "gpt55": "#6B7280", "sol": "#C77C02", "gpt6luna": "#9C36B5", "gpt6sol": "#8F9A00", "gpt61sol": "#2B8A3E", "grok47cursor": "#3B5BDB", "sonnet55": "#C92A2A", "haiku55": "#8B4513", "musewonderfull": "#0866FF", "dsflash": "#5786FE", "beam": "#212529"}  # one distinct hue per model, dark enough to read on the white chart and page; Anthropic in warm reds
+COLORS = {"fable": "#E8590C", "opus55": "#A61E4D", "astra": "#0CA678", "terra": "#1098AD", "luna": "#E64980", "gpt55": "#6B7280", "sol": "#C77C02", "gpt6luna": "#9C36B5", "gpt6sol": "#8F9A00", "gpt61sol": "#2B8A3E", "grok47cursor": "#3B5BDB", "sonnet55": "#C92A2A", "haiku55": "#8B4513", "musewonderfull": "#0866FF", "dsflash": "#5786FE", "beam": "#212529", "gpt61terra": "#330099"}  # one distinct hue per model, dark enough to read on the white chart and page; Anthropic in warm reds
 
 
 TOLERANCES = {"critical": 1.0, "routine": 3.0, "rough": 5.0}
@@ -283,6 +293,8 @@ def table_html(board):
             mark = "&para;&para;"
         if r["key"] == "beam":
             mark = "&loz;&loz;"
+        if r["key"] == "gpt61terra" and r["effort"] in ("extra-high", "max"):
+            mark = "**"
         cost = f'${r["usd"]:.2f}' if priced(r) else "unavailable"
         lines.append(
             f'<tr class="v4row{cls}" data-model="{r["key"]}" data-effort="{r["effort"]}" data-best="{int(r["best"])}"><td class="l lb-rank">{r["rank"]}</td>'
@@ -333,6 +345,14 @@ def beam_footnote(board):
                                     low_zero=cells["low"]["combined_timeouts_zero"], med_zero=cells["medium"]["combined_timeouts_zero"])
 
 
+def gpt61terra_footnote(board):
+    groups = read("swe-v4-gpt61-terra-v329/groups.json")
+    assert all(r["n"] == r["passed_of"] == 23 for r in board if r["key"] == "gpt61terra")
+    notices = {g["effort"]: g["codex_notice_runs"] for g in groups}
+    assert set(e for e, n in notices.items() if n) == {"extra-high"}
+    return FOOTNOTES["gpt61terra"].format(notices=("one", "two", "three", "four", "five")[notices["extra-high"] - 1])
+
+
 def grok47_footnote(board):
     cells = {r["effort"]: r for r in board if r["key"] == "grok47cursor"}
     shared = read("swe-v4-grok47-cursor-v320/shared-judge.json")["columns"]
@@ -356,7 +376,7 @@ def render(board):
             f"<script>window.VB_V4 = {payload};</script>\n"
             f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
-            "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24, v3.26, v3.27 and v3.28 apply the same rubric, controls and gates to each population; v3.20 "
+            "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24, v3.26, v3.27, v3.28 and v3.29 apply the same rubric, controls and gates to each population; v3.20 "
             "seats GPT-6.1 Sol in place of Grok 4.6 to judge Grok 4.7, see &loz;; v3.23 and v3.24 judge Grok 4.6 through a newer Cursor CLI, see &dagger;&dagger; and &Dagger;&Dagger;; "
             "v3.26 to v3.26.3 seat Claude Opus 5.5 and GPT-6.1 Sol to judge Muse Wonder Full, see &sect;&sect;; "
             "v3.27 and v3.28 seat GPT-6.1 Sol in place of Grok 4.6 to judge DeepSeek V4.1 Flash and Reflection Beam, see &para;&para; and &loz;&loz;). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The table below carries every column. "
@@ -367,14 +387,14 @@ def render(board):
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
             '<noscript><p class="lb-context">The chart needs JavaScript; the table below carries every column.</p></noscript>\n'
             f"{table_html(board)}\n"
-            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) + " * " + escape(FOOTNOTES["gpt61sol"]) + " &loz; " + escape(grok47_footnote(board)) + " &dagger;&dagger; " + escape(FOOTNOTES["sonnet55"]) + " &Dagger;&Dagger; " + escape(haiku55_footnote(board)) + " &sect;&sect; " + escape(musewonder_footnote(board)) + " &para;&para; " + escape(dsflash_footnote(board)) + " &loz;&loz; " + escape(beam_footnote(board)) +
+            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) + " * " + escape(FOOTNOTES["gpt61sol"]) + " &loz; " + escape(grok47_footnote(board)) + " &dagger;&dagger; " + escape(FOOTNOTES["sonnet55"]) + " &Dagger;&Dagger; " + escape(haiku55_footnote(board)) + " &sect;&sect; " + escape(musewonder_footnote(board)) + " &para;&para; " + escape(dsflash_footnote(board)) + " &loz;&loz; " + escape(beam_footnote(board)) + " ** " + escape(gpt61terra_footnote(board)) +
             ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
             'The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model&rsquo;s highest-scoring effort level. '
             'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
             '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
             '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>, '
             '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>, <a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>, '
-            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>, <a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>, <a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>, <a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>, <a href="benchmarks/swe-v4-sonnet55-v323.html">Sonnet 5.5</a>, <a href="benchmarks/swe-v4-haiku55-v324.html">Haiku 5.5</a>, <a href="benchmarks/swe-v4-musewonder-full-v326.html">Muse Wonder Full</a>, <a href="benchmarks/swe-v4-deepseek-flash-v327.html">DeepSeek V4.1 Flash</a>, <a href="benchmarks/swe-v4-beam-v328.html">Reflection Beam</a>. '
+            '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>, <a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>, <a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>, <a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>, <a href="benchmarks/swe-v4-sonnet55-v323.html">Sonnet 5.5</a>, <a href="benchmarks/swe-v4-haiku55-v324.html">Haiku 5.5</a>, <a href="benchmarks/swe-v4-musewonder-full-v326.html">Muse Wonder Full</a>, <a href="benchmarks/swe-v4-deepseek-flash-v327.html">DeepSeek V4.1 Flash</a>, <a href="benchmarks/swe-v4-beam-v328.html">Reflection Beam</a>, <a href="benchmarks/swe-v4-gpt61-terra-v329.html">GPT-6.1 Terra</a>. '
             '<a href="assets/data/swe-v4-board.csv" download>Download the board as CSV</a>.</p>\n'
             f"{END}")
 
