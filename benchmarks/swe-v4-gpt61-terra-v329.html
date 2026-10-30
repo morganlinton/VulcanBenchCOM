@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPT-6.1 Terra across effort levels | VulcanBench</title>
+<meta name="description" content="Frontier v4: 115 Codex runs of GPT-6.1 Terra at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 74.95 at Low rising to 90.00 at Max; 13, 12, 15, 16 and 23 of 23 tasks passed; $0.11 to $0.36 and 2.8 to 6.9 minutes per task, the cheapest and fastest beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-gpt61-terra-v329.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="GPT-6.1 Terra across effort levels | VulcanBench">
+<meta property="og:description" content="Frontier v4: 115 Codex runs of GPT-6.1 Terra at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 74.95 at Low rising to 90.00 at Max; 13, 12, 15, 16 and 23 of 23 tasks passed; $0.11 to $0.36 and 2.8 to 6.9 minutes per task, the cheapest and fastest beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-gpt61-terra-v329.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-gpt61-terra-v329.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1350">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: GPT-6.1 Terra beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra at every effort level, with combined score and cost per task">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPT-6.1 Terra across effort levels | VulcanBench">
+<meta name="twitter:description" content="Frontier v4: 115 Codex runs of GPT-6.1 Terra at five effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 74.95 at Low rising to 90.00 at Max; 13, 12, 15, 16 and 23 of 23 tasks passed; $0.11 to $0.36 and 2.8 to 6.9 minutes per task, the cheapest and fastest beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-gpt61-terra-v329.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: GPT-6.1 Terra beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra at every effort level, with combined score and cost per task">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=30">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/analysis.html">Analysis</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/benchmark-your-stack.html">For teams</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="gpt61-terra-v329-heading">
+      <header>
+        <p class="suite-label">October 30, 2026 &middot; Morgan Linton &middot; 115 runs &middot; Code quality protocol v3.29</p>
+        <h1 id="gpt61-terra-v329-heading">GPT-6.1 Terra across every effort level</h1>
+        <p>115 runs of OpenAI&rsquo;s GPT-6.1 Terra (<code>gpt-6.1-terra</code>) through the Codex CLI on a ChatGPT subscription, 23 tasks at each of five effort levels, Low to Max, the day after the model&rsquo;s release. GPT-6.1 Terra is a new model, the second Terra on the board after <a href="/models/gpt-5-6-terra.html">GPT-5.6 Terra</a>. Code quality carries 33% of the combined score and is judged for a human reader by Muse Spark 1.3 and Grok 4.6, the panel that judged Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra, so GPT-6.1 Terra takes its place on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> beside them. Every run finished inside the 3-hour task bound, and every cell is judged on all 23 runs, one of them through an escape-spelling recovery described under the results table.</p>
+      </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A retired program to rebuild</h3><p>Each of the 23 tasks is a legacy binary with a written specification and an issue. Its real behaviour departs from the specification in documented ways, and hidden tests check the rewrite against the binary.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>One attempt per task and level</h3><p>GPT-6.1 Terra works in Codex with the binary, the specification and the code, once per task at each effort level, inside a flat 3-hour bound, one task at a time.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>Tests and two judges score it</h3><p>Hidden tests give functional correctness. Two calibrated judges from labs other than OpenAI rate the code for a human reader and try to recover the documented departures.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>Scores, time and cost per level</h3><p>Each level gets a combined score, tasks passed, minutes and API-equivalent cost at OpenAI&rsquo;s list price.</p></li>
+        </ol>
+        <p>Combined score = 50% functional correctness + 8.5% lint and complexity + 8.5% security + 33% Code quality, averaged over the 23 runs in each level, as on every other board column. Frontier Code quality is the reviewed layer plus intent recovery; it is never compared with Routine v1 Code quality.</p>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/cards/swe-v4-gpt61-terra-v329.png" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, beside Opus 5.5, GPT-6.1 Sol and GPT-6 Astra</span></a>
+        <a class="resource" href="/assets/data/swe-v4-gpt61-terra-v329/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 115 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores</span></a>
+        <a class="resource" href="/assets/data/swe-v4-gpt61-terra-v329-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, five effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt61-terra-v329"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-gpt61-terra-v329/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
+        <a class="resource" href="https://github.com/morganlinton/vulcanbench-gpt61-terra-traces"><span class="resource-kind">Traces</span><span class="resource-title">Session traces</span><span class="resource-meta">GitHub, all 115 runs, structure only</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=GPT-6.1%20Terra%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-gpt61-terra-v329.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this report, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#comparison"><span class="n">03</span>Beside Opus 5.5, Sol and Astra</a>
+        <a href="#terra-family"><span class="n">04</span>Against GPT-5.6 Terra</a>
+        <a href="#cost"><span class="n">05</span>Cost and tokens</a>
+        <a href="#board"><span class="n">06</span>On the board</a>
+        <a href="#code-quality"><span class="n">07</span>Code quality</a>
+        <a href="#judges"><span class="n">08</span>Judges and calibration</a>
+        <a href="#run-notes"><span class="n">09</span>How it was run</a>
+        <a href="#reproduce"><span class="n">10</span>Reproduction</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>GPT-6.1 Terra ran every task once at each of the five effort levels Codex offers for it (Extra-high is Codex&rsquo;s <code>xhigh</code>), 23 tasks per cell, through Codex CLI 0.159.0 on a ChatGPT subscription on October 27, 2026, from 15:14 to 23:16 UTC, the day after OpenAI released it, on the owner&rsquo;s Mac, one task at a time. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a named human reader by Muse Spark 1.3 and Grok 4.6 with a ground-truth intent-recovery probe. No run reached the flat 3-hour task bound; the longest, Extra-high paddockcore, took 19.5 minutes. All 115 runs carry a published Code quality score.</p>
+        <div class="effort-choices">
+          <div><h3>Combined score</h3><p>74.95 at Low to 90.00 at Max</p><p>The score climbs with effort, unevenly: 74.95 at Low, 80.10 at Medium, 79.19 at High, 83.68 at Extra-high and 90.00 at Max. The step from Extra-high to Max, 6.32 points, is the largest, and Max is the only level with a standard error under 2 points (0.39).</p></div>
+          <div><h3>Tasks passed</h3><p>13, 12, 15, 16 and 23 of 23</p><p>GPT-6.1 Terra fully solves 12 to 16 tasks from Low to Extra-high and every task at Max. Of the 231 hidden behaviours the tasks test for, it fixes 170, 188, 176, 205 and 231. Six tasks fail at every level from Low to Extra-high and pass only at Max.</p></div>
+          <div><h3>Code quality</h3><p>66.55 to 76.59</p><p>The judges rate the code 66.55 at Low, 67.29 at Medium, 69.96 at High, 70.94 at Extra-high and 76.59 at Max, rising with effort, with standard errors of 1.07 to 1.35.</p></div>
+          <div><h3>Runtime and cost</h3><p>2.8 to 6.9 min &middot; $0.11 to $0.36 per task</p><p>Max takes about two and a half times as long as Low and costs about three times as much. The whole sweep took 8.0 hours of solver time and prices at $22.49 for 115 runs, $0.20 per task, at GPT-6.1 Terra&rsquo;s list rates.</p></div>
+        </div>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score, tasks passed, Code quality, runtime and cost at each effort level" tabindex="0"><table class="suite-results"><caption>Combined score, tasks passed, Code quality, runtime and cost at each effort level, 23 runs per cell</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>74.95</td><td>80.10</td><td>79.19</td><td>83.68</td><td>90.00</td></tr><tr><th scope="row">Standard error</th><td>3.90</td><td>2.61</td><td>3.38</td><td>2.09</td><td>0.39</td></tr><tr><th scope="row">Judged runs</th><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr></tbody><tbody><tr><th scope="row">Tasks passed</th><td>13/23</td><td>12/23</td><td>15/23</td><td>16/23</td><td>23/23</td></tr><tr><th scope="row">Hidden behaviours fixed</th><td>170/231</td><td>188/231</td><td>176/231</td><td>205/231</td><td>231/231</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>66.55</td><td>67.29</td><td>69.96</td><td>70.94</td><td>76.59</td></tr><tr><th scope="row">Human readability</th><td>57.2</td><td>57.9</td><td>61.2</td><td>63.1</td><td>70.4</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>2.8</td><td>3.1</td><td>3.2</td><td>4.9</td><td>6.9</td></tr><tr><th scope="row">API-equivalent $ per task</th><td>$0.11</td><td>$0.14</td><td>$0.13</td><td>$0.24</td><td>$0.36</td></tr></tbody></table></div>
+        <p>Under the prior 50/15/15/20 profile applied to the same Code quality scores the ladder has the same shape, 78.26 to 91.30. The card and the full per-effort table follow.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-gpt61-terra-v329.png" aria-label="Open the GPT-6.1 Terra results card at full resolution">
+          <img src="/assets/cards/swe-v4-gpt61-terra-v329.png" width="1600" height="900" fetchpriority="high" alt="GPT-6.1 Terra on VulcanBench Frontier v4 beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra. Left: combined score by effort level. Opus 5.5, GPT-6 Astra and GPT-6.1 Sol sit between about 86 and 91 at every level; GPT-6.1 Terra rises from about 75 at Low to 90 at Max, where it meets them. Right: cost per task at list price, with GPT-6.1 Terra the lowest bar at every level, $0.11 at Low to $0.36 at Max, against up to $8.75 for Opus 5.5 at Max. A footnote gives judged-run counts and the judge panel. Exact values are in the adjacent accessible tables.">
+        </a>
+        <figcaption>The harness card places GPT-6.1 Terra beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra, all judged by Muse Spark 1.3 and Grok 4.6; their columns come from their own reports. Combined score uses a focused scale; whiskers show &plusmn;1 task standard error, not statistical significance. Cost is API-equivalent at list price (Opus 5.5 with its fallback turns, GPT-6 Astra at its report&rsquo;s central estimate). <a href="/assets/cards/swe-v4-gpt61-terra-v329.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">GPT-6.1 Terra is a model to run at Max. There it scores 90.00, between Claude Opus 5.5 (90.22) and GPT-6 Astra (89.30), passes every hidden test on every task, and costs $0.36 a task. Below Max it is about 5 to 12 points behind the other three columns, because it fully solves only 12 to 16 tasks where they solve 17 to 23. These runs compare a model-and-harness combination, not an isolated base model; the <a href="/leaderboard.html">Frontier v4 leaderboard</a> places every GPT-6.1 Terra level beside the other models judged under the same protocol.</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">n=23 at every level. Combined (33%) is the published score. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the two judges. Passed counts all 23 runs. Runtime is solver wall-clock per task over every run in the cell.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench Frontier v4: GPT-6.1 Terra effort results under Code quality protocol v3.29</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="gpt61terra" data-effort="low"><th scope="row"><a href="/models/gpt-6-1-terra.html">GPT-6.1 Terra</a> / Codex</th><td>Low</td><td>74.95</td><td>3.90</td><td>78.26</td><td>66.55</td><td>57.2</td><td>68.0</td><td>77.8</td><td>23/23</td><td>13/23</td><td>2.8</td></tr>
+              <tr data-model="gpt61terra" data-effort="medium"><th scope="row"><a href="/models/gpt-6-1-terra.html">GPT-6.1 Terra</a> / Codex</th><td>Medium</td><td>80.10</td><td>2.61</td><td>83.29</td><td>67.29</td><td>57.9</td><td>69.2</td><td>77.5</td><td>23/23</td><td>12/23</td><td>3.1</td></tr>
+              <tr data-model="gpt61terra" data-effort="high"><th scope="row"><a href="/models/gpt-6-1-terra.html">GPT-6.1 Terra</a> / Codex</th><td>High</td><td>79.19</td><td>3.38</td><td>82.04</td><td>69.96</td><td>61.2</td><td>71.0</td><td>80.2</td><td>23/23</td><td>15/23</td><td>3.2</td></tr>
+              <tr data-model="gpt61terra" data-effort="extra-high"><th scope="row"><a href="/models/gpt-6-1-terra.html">GPT-6.1 Terra</a> / Codex</th><td>Extra-high</td><td>83.68</td><td>2.09</td><td>85.94</td><td>70.94</td><td>63.1</td><td>73.1</td><td>78.5</td><td>23/23</td><td>16/23</td><td>4.9</td></tr>
+              <tr data-model="gpt61terra" data-effort="max"><th scope="row"><a href="/models/gpt-6-1-terra.html">GPT-6.1 Terra</a> / Codex</th><td>Max</td><td>90.00</td><td>0.39</td><td>91.30</td><td>76.59</td><td>70.4</td><td>78.9</td><td>81.8</td><td>23/23</td><td>23/23</td><td>6.9</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>Max settlecore is published through a recovery.</strong> Muse Spark 1.3&rsquo;s intent probe of Max settlecore quoted a byte-string line from the code with its escapes decoded into control characters, on both of its two attempts, so the quote no longer matched the code. That is the JSON-escaping slip the operator rule <code>recover_escaped_excerpts</code> was written for under v3.18, for Muse&rsquo;s probe of GPT-6.1 Sol at High codeccore: the rule writes such characters back as the source spells them, after which the excerpt must be verbatim and the attempt must pass every other check. The rule spelled a decoded NUL byte only as <code>\0</code>, and this source writes <code>\x00</code>, so the probe was first marked invalid and the first summary published 114 of the 115 runs, with Max on 22. The owner chose on October 29 to recover it under the rule. The rule now tries both spellings (harness PR #239), the invalid marker is kept beside the recovered call, the one missing answer-key match was made on October 30, and the summary was rebuilt. Max moved from 89.95 on 22 runs to 90.00 on 23; settlecore scores 91.11, with Code quality 80.30. No other call changed.</p>
+        <p><strong>Four factors by effort.</strong> Functional correctness averages 74.67, 84.54, 80.96, 90.48 and 100.00 from Low to Max; lint and complexity 84.12, 84.19, 84.25, 83.28 and 84.93; security 100.00, 99.57, 99.57, 93.48 and 88.26. Security is the one factor that falls with effort: the scan flags more of the Extra-high and Max submissions, which costs Max about 1 point of combined score against a clean scan. Only the Code quality factor depends on the judges.</p>
+        <p><strong>Intent recovery</strong> is scored over the specification departures a submission actually passed tests for. Three runs (Low granarycore and paddockcore, Medium granarycore) passed none, so their 9 intent points move to the reviewed score, as the protocol pre-registers. <strong>SE</strong> is one sample standard error of the combined score across the cell&rsquo;s tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. No solver fallback occurred, and neither judge produced a reviewer fallback on any of the 115 submissions.</p>
+      </div>
+
+      <section class="report-section" id="comparison" aria-labelledby="comparison-heading">
+        <h2 id="comparison-heading">Beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra</h2>
+        <p>At Max GPT-6.1 Terra catches the three frontier columns: 90.00, against 90.22 for Claude Opus 5.5, 89.30 for GPT-6 Astra and 88.35 for GPT-6.1 Sol. It passes all 23 tasks there, as GPT-6.1 Sol and GPT-6 Astra do and Opus 5.5 (21) does not, and its Code quality at Max, 76.59, is above GPT-6 Astra&rsquo;s 76.26 and GPT-6.1 Sol&rsquo;s 73.80 and below Opus 5.5&rsquo;s 79.77. Below Max it is well behind: 74.95 to 83.68 from Low to Extra-high, against 86.22 or more for every other column at every level.</p>
+        <p>It is the cheapest and the fastest of the four at every level. At Max it costs $0.36 a task, against $0.46 for GPT-6.1 Sol, $2.57 for GPT-6 Astra and $8.75 for Opus 5.5, and takes 6.9 minutes, against 10.3, 14.5 and 37.5. At Extra-high and Max it uses more tokens than GPT-6.1 Sol and GPT-6 Astra (2.15M and 2.38M a task, against about 1M), but its list price is half of GPT-6.1 Sol&rsquo;s, so it still costs less.</p>
+        <div class="suite-table-scroll" role="region" aria-label="GPT-6.1 Terra beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra at every effort level" tabindex="0"><table class="suite-results">
+        <caption>Combined score, tasks passed, minutes, tokens, list-price cost and Code quality per task at every effort level, 23 runs per cell; Opus 5.5, GPT-6.1 Sol and GPT-6 Astra from their published reports</caption><thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th><th scope="col">Tokens/task</th><th scope="col">$/task</th><th scope="col">Code quality</th></tr></thead><tbody>
+        <tr data-compare="gpt61terra-low"><th scope="row">GPT-6.1 Terra / Codex</th><td>Low</td><td>74.95</td><td>3.90</td><td>23</td><td>13/23</td><td>2.8</td><td>0.77M</td><td>$0.11</td><td>66.55</td></tr>
+        <tr data-compare="opus55-low"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Low</td><td>86.36</td><td>1.30</td><td>23</td><td>17/23</td><td>13.7</td><td>2.77M</td><td>$1.70</td><td>72.53</td></tr>
+        <tr data-compare="gpt61sol-low"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>Low</td><td>86.22</td><td>0.82</td><td>23</td><td>20/23</td><td>6.9</td><td>1.24M</td><td>$0.31</td><td>70.79</td></tr>
+        <tr data-compare="astra-low"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Low</td><td>87.43</td><td>0.51</td><td>23</td><td>22/23</td><td>4.2</td><td>0.89M</td><td>$1.72</td><td>70.31</td></tr>
+        <tr data-compare="gpt61terra-medium"><th scope="row">GPT-6.1 Terra / Codex</th><td>Medium</td><td>80.10</td><td>2.61</td><td>23</td><td>12/23</td><td>3.1</td><td>0.98M</td><td>$0.14</td><td>67.29</td></tr>
+        <tr data-compare="opus55-medium"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Medium</td><td>90.86</td><td>0.64</td><td>23</td><td>23/23</td><td>18.6</td><td>5.01M</td><td>$2.84</td><td>77.32</td></tr>
+        <tr data-compare="gpt61sol-medium"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>Medium</td><td>86.44</td><td>0.78</td><td>23</td><td>22/23</td><td>10.6</td><td>1.62M</td><td>$0.40</td><td>70.25</td></tr>
+        <tr data-compare="astra-medium"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Medium</td><td>87.73</td><td>0.32</td><td>23</td><td>23/23</td><td>3.8</td><td>0.68M</td><td>$1.48</td><td>71.19</td></tr>
+        <tr data-compare="gpt61terra-high"><th scope="row">GPT-6.1 Terra / Codex</th><td>High</td><td>79.19</td><td>3.38</td><td>23</td><td>15/23</td><td>3.2</td><td>0.90M</td><td>$0.13</td><td>69.96</td></tr>
+        <tr data-compare="opus55-high"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>High</td><td>91.11</td><td>0.57</td><td>22*</td><td>22/23</td><td>21.4</td><td>4.11M</td><td>$3.27</td><td>77.99</td></tr>
+        <tr data-compare="gpt61sol-high"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>High</td><td>88.23</td><td>0.40</td><td>23</td><td>23/23</td><td>10.2</td><td>0.91M</td><td>$0.33</td><td>73.67</td></tr>
+        <tr data-compare="astra-high"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>High</td><td>88.16</td><td>0.42</td><td>23</td><td>23/23</td><td>4.9</td><td>0.77M</td><td>$1.71</td><td>73.48</td></tr>
+        <tr data-compare="gpt61terra-extra-high"><th scope="row">GPT-6.1 Terra / Codex</th><td>Extra-high</td><td>83.68</td><td>2.09</td><td>23</td><td>16/23</td><td>4.9</td><td>2.15M</td><td>$0.24</td><td>70.94</td></tr>
+        <tr data-compare="opus55-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Extra-high</td><td>90.68</td><td>1.10</td><td>23</td><td>22/23</td><td>20.7</td><td>3.90M</td><td>$4.11</td><td>79.98</td></tr>
+        <tr data-compare="gpt61sol-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>Extra-high</td><td>88.78</td><td>0.40</td><td>23</td><td>23/23</td><td>15.4</td><td>1.12M</td><td>$0.43</td><td>74.99</td></tr>
+        <tr data-compare="astra-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Extra-high</td><td>89.16</td><td>0.30</td><td>23</td><td>23/23</td><td>8.1</td><td>0.93M</td><td>$2.30</td><td>75.47</td></tr>
+        <tr data-compare="gpt61terra-max"><th scope="row">GPT-6.1 Terra / Codex</th><td>Max</td><td>90.00</td><td>0.39</td><td>23</td><td>23/23</td><td>6.9</td><td>2.38M</td><td>$0.36</td><td>76.59</td></tr>
+        <tr data-compare="opus55-max"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Max</td><td>90.22</td><td>1.02</td><td>23</td><td>21/23</td><td>37.5</td><td>8.72M</td><td>$8.75</td><td>79.77</td></tr>
+        <tr data-compare="gpt61sol-max"><th scope="row"><a href="/benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a> / Codex</th><td>Max</td><td>88.35</td><td>0.33</td><td>23</td><td>23/23</td><td>14.5</td><td>1.04M</td><td>$0.46</td><td>73.80</td></tr>
+        <tr data-compare="astra-max"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Max</td><td>89.30</td><td>0.37</td><td>23</td><td>23/23</td><td>10.3</td><td>0.95M</td><td>$2.57</td><td>76.26</td></tr>
+        </tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Read the comparison with its limits.</strong> * Opus 5.5 at High is judged on 22 runs, where a safeguard stop left one run with no code to review. All four columns are judged by Muse Spark 1.3 and Grok 4.6 under the same rubric, each in its own protocol run (v3.29, v3.15, v3.18 and v3.4). Harnesses differ: Claude Code for Opus 5.5, Codex for the other three, with GPT-6.1 Terra on the same Codex version as GPT-6.1 Sol. $/task is API-equivalent at list price from each run&rsquo;s receipts: Opus 5.5 with Claude Code&rsquo;s refusal fallback turns included, GPT-6 Astra at its report&rsquo;s central estimate. Their figures are the published rows of their own reports.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="terra-family" aria-labelledby="terra-family-heading">
+        <h2 id="terra-family-heading">Against GPT-5.6 Terra</h2>
+        <p>GPT-5.6 Terra ran the same 23 tasks through Codex in September and was judged by the same two judges under v3.6. GPT-6.1 Terra scores higher at every level, by 15.25 points at Low, 13.75 at Medium, 2.51 at High, 0.22 at Extra-high and 0.95 at Max, and passes more tasks below Max (13, 12, 15 and 16 against 2, 5, 11 and 14); both pass all 23 at Max. It is also cheaper and faster at every level: $0.11 to $0.36 a task against $0.58 to $2.12, and 2.8 to 6.9 minutes against 6.7 to 19.7, using 0.77M to 2.38M tokens a task against 1.21M to 5.86M. Its list price is lower too: $1.00 input and $5.00 output per million tokens, against $2.00 and $12.00. Code quality is the exception: GPT-6.1 Terra&rsquo;s is 2.19 to 5.76 points lower from Low to Extra-high and 4.07 points higher at Max.</p>
+        <div class="suite-table-scroll" role="region" aria-label="GPT-6.1 Terra and GPT-5.6 Terra" tabindex="0"><table class="suite-results"><caption>GPT-6.1 Terra and GPT-5.6 Terra on Frontier v4, 23 runs per cell, each judged by Muse Spark 1.3 and Grok 4.6 in its own protocol run (v3.29 and v3.6) and priced at its own list rates</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr data-family="combined-gpt61terra"><th scope="row">Combined, GPT-6.1 Terra</th><td>74.95</td><td>80.10</td><td>79.19</td><td>83.68</td><td>90.00</td></tr><tr data-family="combined-terra"><th scope="row">Combined, GPT-5.6 Terra</th><td>59.70</td><td>66.35</td><td>76.68</td><td>83.46</td><td>89.05</td></tr></tbody><tbody><tr data-family="passed-gpt61terra"><th scope="row">Tasks passed, GPT-6.1 Terra</th><td>13/23</td><td>12/23</td><td>15/23</td><td>16/23</td><td>23/23</td></tr><tr data-family="passed-terra"><th scope="row">Tasks passed, GPT-5.6 Terra</th><td>2/23</td><td>5/23</td><td>11/23</td><td>14/23</td><td>23/23</td></tr></tbody><tbody><tr data-family="cq-gpt61terra"><th scope="row">Code quality, GPT-6.1 Terra</th><td>66.55</td><td>67.29</td><td>69.96</td><td>70.94</td><td>76.59</td></tr><tr data-family="cq-terra"><th scope="row">Code quality, GPT-5.6 Terra</th><td>72.31</td><td>70.93</td><td>73.90</td><td>73.13</td><td>72.52</td></tr></tbody><tbody><tr data-family="usd-gpt61terra"><th scope="row">$ per task, GPT-6.1 Terra</th><td>$0.11</td><td>$0.14</td><td>$0.13</td><td>$0.24</td><td>$0.36</td></tr><tr data-family="usd-terra"><th scope="row">$ per task, GPT-5.6 Terra</th><td>$0.58</td><td>$0.69</td><td>$1.18</td><td>$2.12</td><td>$1.88</td></tr></tbody><tbody><tr data-family="minutes-gpt61terra"><th scope="row">Minutes per task, GPT-6.1 Terra</th><td>2.8</td><td>3.1</td><td>3.2</td><td>4.9</td><td>6.9</td></tr><tr data-family="minutes-terra"><th scope="row">Minutes per task, GPT-5.6 Terra</th><td>6.7</td><td>7.9</td><td>12.6</td><td>19.2</td><td>19.7</td></tr></tbody></table></div>
+        <p>The two sweeps ran on different Codex CLI versions and a month apart, so read the speed figures with that in mind. <a href="/benchmarks/swe-v4-terra-v36.html">GPT-5.6 Terra&rsquo;s report</a> has its full record.</p>
+      </section>
+
+      <section class="report-section" id="cost" aria-labelledby="cost-heading">
+        <h2 id="cost-heading">Cost and tokens across effort levels</h2>
+        <p>All 115 runs priced from their Codex receipts at list API rates, cache-aware, with judging excluded. These are API-equivalent estimates, not subscription charges: GPT-6.1 Terra ran on a ChatGPT subscription, and what the plan bills is not observable from the receipts. Cost per task is $0.11 at Low, $0.14 at Medium, $0.13 at High, $0.24 at Extra-high and $0.36 at Max; the whole sweep comes to $22.49. Max&rsquo;s step in score comes with a step in reasoning: its median run spends 14.5K output tokens on reasoning, against 0.6K to 1.7K at the lower levels, and its mean output is 28.8K tokens a task against 12.9K at Extra-high.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Cost, tokens and runtime at each effort level" tabindex="0"><table class="suite-results">
+        <caption>API-equivalent cost, tokens and runtime at each effort level, n=23 runs per cell</caption><thead><tr><th scope="col">Effort</th><th scope="col">Runs</th><th scope="col">$/task</th><th scope="col">Level total</th><th scope="col">Tokens/task</th><th scope="col">Output/task</th><th scope="col">Median reasoning</th><th scope="col">Cached share of input</th><th scope="col">Min/task</th><th scope="col">Median min</th></tr></thead><tbody><tr data-econ-effort="low"><th scope="row">Low</th><td>23</td><td>$0.11</td><td>$2.62</td><td>0.77M</td><td>5.5K</td><td>0.6K</td><td>92.6%</td><td>2.8</td><td>2.3</td></tr><tr data-econ-effort="medium"><th scope="row">Medium</th><td>23</td><td>$0.14</td><td>$3.19</td><td>0.98M</td><td>7.9K</td><td>1.2K</td><td>93.5%</td><td>3.1</td><td>2.7</td></tr><tr data-econ-effort="high"><th scope="row">High</th><td>23</td><td>$0.13</td><td>$2.95</td><td>0.90M</td><td>7.2K</td><td>1.2K</td><td>93.8%</td><td>3.2</td><td>2.5</td></tr><tr data-econ-effort="extra-high"><th scope="row">Extra-high</th><td>23</td><td>$0.24</td><td>$5.53</td><td>2.15M</td><td>12.9K</td><td>1.7K</td><td>94.9%</td><td>4.9</td><td>3.8</td></tr><tr data-econ-effort="max"><th scope="row">Max</th><td>23</td><td>$0.36</td><td>$8.20</td><td>2.38M</td><td>28.8K</td><td>14.5K</td><td>94.8%</td><td>6.9</td><td>6.1</td></tr><tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>115</td><td>$0.20</td><td>$22.49</td><td>165M</td><td></td><td></td><td></td><td>8.0 h</td><td></td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Pricing.</strong> Rates checked 2026-10-26 from <a href="https://developers.openai.com/api/docs/pricing">OpenAI</a>: GPT-6.1 Terra at $1.00 input, $0.05 cached input and $5.00 output per million tokens. Codex receipts report input, cached input, output and reasoning tokens per run, so cached input is billed at the cache-read rate and the rest at the standard rate; reasoning tokens are part of output and are not billed twice. Codex keeps each request within its context window, so no long-context premium is modelled. The sweep stamped each run at these rates at run time; the export recomputed every run from its receipt and matched every stamp.</p>
+          <p><strong>Tokens</strong> are Codex&rsquo;s raw totals, input (cached included) plus output; the full sweep row sums them over all 115 runs (Tokens/task in that row is the sweep total). Per-run estimates, token usage breakdowns and the rate table are in <a href="/assets/data/swe-v4-gpt61-terra-v329/economics.json">economics.json</a> and <a href="/assets/data/swe-v4-gpt61-terra-v329/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="board" aria-labelledby="board-heading">
+        <h2 id="board-heading">On the Frontier v4 board</h2>
+        <p>GPT-6.1 Terra&rsquo;s best level, Max at 90.00 &plusmn; 0.39 (n=23), ranks 16th of the board&rsquo;s 80 model and effort columns, just below Claude Fable 5.1 at High (90.07) and just above Grok 4.7 at Low (89.42) and GPT-6 Astra at Max (89.30). By level it ranks Low 62nd, Medium 56th, High 57th, Extra-high 49th, Max 16th. Of the 17 priced columns scoring 89 or more, GPT-6.1 Terra at Max is the cheapest, at $0.36 a task against $0.84 to $14.49 for the rest. Max carries the best tag, and the board&rsquo;s critical, routine and rough effort suggestions all pick Max, because no other level is within 5 points of it. The <a href="/leaderboard.html">leaderboard</a> carries every column; GPT-6.1 Terra&rsquo;s Extra-high and Max cells carry the ** footnote with the disclosures on this page.</p>
+        <p>Read these placements with the panel in mind. GPT-6.1 Terra, Claude Opus 5.5, GPT-6.1 Sol, GPT-6 Astra and most other columns are judged by Muse Spark 1.3 and Grok 4.6; Grok 4.7&rsquo;s, DeepSeek V4.1 Flash&rsquo;s and Reflection Beam&rsquo;s by Muse Spark 1.3 and GPT-6.1 Sol; Muse Wonder Full&rsquo;s by Claude Opus 5.5 and GPT-6.1 Sol. Scores from different panels are not calibrated against each other, so gaps of a point or two between columns judged by different panels are not a reliable order.</p>
+      </section>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel carries 24 points. An intent-recovery probe carries 9: the judge, given only the specification and the code, lists where the code departs from the specification, and a separate call matches that list against a frozen answer key, over the departures the submission passed tests for. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force. Frontier Code quality is therefore the reviewed layer plus intent recovery, and it is never compared with Routine v1 Code quality, which is scored on a different suite and population.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each effort level, out of 100, mean of both judges over 23 runs</caption><thead><tr><th scope="col">Component</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>66.55</td><td>67.29</td><td>69.96</td><td>70.94</td><td>76.59</td></tr><tr><th scope="row">Human readability</th><td>57.2</td><td>57.9</td><td>61.2</td><td>63.1</td><td>70.4</td></tr><tr><th scope="row">Maintainability</th><td>68.0</td><td>69.2</td><td>71.0</td><td>73.1</td><td>78.9</td></tr><tr><th scope="row">Intent recovery</th><td>77.8</td><td>77.5</td><td>80.2</td><td>78.5</td><td>81.8</td></tr><tr><th scope="row">Runs with no intent denominator</th><td>2</td><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>61.7</td><td>62.0</td><td>65.2</td><td>66.7</td><td>73.0</td></tr><tr><th scope="row">Rated by Grok 4.6</th><td>63.6</td><td>65.1</td><td>67.0</td><td>69.6</td><td>76.3</td></tr><tr><th scope="row">Standard error of Code quality</th><td>1.29</td><td>1.20</td><td>1.07</td><td>1.35</td><td>1.19</td></tr></tbody></table></div>
+        <p>Code quality rises with effort, and the step to Max, 5.65 points, is the largest. Human readability is the weaker sub-score at every level, 57.2 to 70.4 against 68.0 to 78.9 for maintainability. Grok 4.6 is the higher rater at every level, by 1.8 to 3.3 points on the reviewed score. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-gpt61-terra-v329/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-gpt61-terra-v329/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p>The scored panel is Muse Spark 1.3 (Meta) through the Muse CLI on its Standard tier, and Grok 4.6 (xAI) through the Cursor CLI at medium effort, with equal weight, the same settings and pinned Muse binary as under v3.24. Grok 4.6 ran through the Cursor CLI pinned to version 2026.10.01-e373342, the build v3.23 and v3.24 used, with a digest of its version directory checked before every stage; Cursor had since updated itself to a newer build. Neither lab is OpenAI. Every session is fresh, tools are disabled, the workspace is empty, model identity is checked per call from the CLI&rsquo;s own records, and solver labels are withheld. Protocol v3.29 changes nothing in the rubric, controls, quirk keys, gates, repeats, seed, weights or judges from v3.24; it applies the protocol to this population.</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification: clear, compressed, compressed then auto-formatted, verbose with duplicated policy, needlessly abstracted, misleadingly commented, narrated with a comment on every line, a documented legacy quirk, an embedded instruction to give full marks, and hidden module state. Each program is reviewed five times in a seeded order. Twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point. Both judges retook the exam under v3.29 before any counted call.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts under v3.29</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.29</td><td>80</td><td>passed</td><td>yes</td><td>g11 repeatability</td></tr><tr><th scope="row">Grok 4.6</th><td>code-quality-maintenance-v3.29</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr></tbody></table></div>
+        <p>Muse Spark 1.3 passed with the one-gate allowance: its repeatability gate (g11) fell 0.26 short, within the half point the protocol allows for one gate, as under v3.23. Grok 4.6 passed every gate. Every gate value and control mean is in <a href="/assets/data/swe-v4-gpt61-terra-v329/calibration.json">calibration.json</a>.</p>
+        <p><strong>The judges agree closely.</strong> Scored by one judge alone, the combined score would be (Muse or Grok) 74.61 or 75.29 at Low; 79.67 or 80.52 at Medium; 78.92 or 79.46 at High; 83.19 or 84.16 at Extra-high; 89.39 or 90.60 at Max. Either way the ladder has the same shape. Each run&rsquo;s single-judge figures are in <a href="/assets/data/swe-v4-gpt61-terra-v329/runs.csv">runs.csv</a>.</p>
+        <p>Under v3.29 each judge made 440 counted calls: 80 in calibration, 115 primary reviews, 5 repeats, 10 pairwise checks, 115 intent probes and 115 answer-key matches. Muse needed a second attempt on 12 calls (eight unsupported excerpts, two JSON syntax errors, two answer-key matching errors) and Grok on 4 (three unsupported excerpts, one matching error), under the protocol&rsquo;s single-retry rule. Muse&rsquo;s probe of Max settlecore is published through the recovery described under the results table. Every Grok call reported the display label &ldquo;Grok 4.6 Medium&rdquo; for the pinned model id, where the frozen settings say &ldquo;Cursor Grok 4.6 Medium&rdquo;; the operator wrapper accepts the rename and records it on all 440 selected Grok calls. Neither judge produced a reviewer fallback. Judging ran on October 28, 2026, from 13:57 to 23:26 UTC, and the recovery&rsquo;s one match call on October 30 at 22:58 UTC. Every operator record is in <a href="/assets/data/swe-v4-gpt61-terra-v329/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="run-notes" aria-labelledby="run-notes-heading">
+        <h2 id="run-notes-heading">How it was run</h2>
+        <ul>
+          <li><strong>The model.</strong> GPT-6.1 Terra through the Codex CLI as <code>gpt-6.1-terra</code>, released by OpenAI on October 26, 2026. Codex does not report the serving model, so model identity is the model requested.</li>
+          <li><strong>Codex CLI 0.159.0.</strong> Pinned by version from its own install, the version GPT-6.1 Sol ran on, signed in with a ChatGPT subscription, in <code>codex exec</code> with Codex&rsquo;s <code>workspace-write</code> sandbox, network access off, user configuration ignored and no saved session.</li>
+          <li><strong>Five levels.</strong> Codex takes low, medium, high, xhigh and max for GPT-6.1 Terra; the board&rsquo;s Extra-high is xhigh.</li>
+          <li><strong>A model metadata notice.</strong> In three Extra-high runs (hedgecore, pacecore and tallycore, run back to back), Codex printed its notice that it had no model metadata for <code>gpt-6.1-terra</code> and used fallback metadata. All three passed every hidden test, and they stay in the population; no other run printed it.</li>
+          <li><strong>From a tagged run worktree.</strong> Every run ran from <code>bench/2026-10-27-gpt61-terra-frontier-v4</code>, so every run summary carries a clean source block and records the frozen suite lock&rsquo;s task hash.</li>
+          <li><strong>No timeouts, no retries.</strong> Every run finished inside the flat 3-hour bound; the longest, Extra-high paddockcore, took 19.5 minutes. The sweep log shows each level complete on its first attempt.</li>
+          <li><strong>Where and how.</strong> The owner&rsquo;s Mac, one task at a time, on October 27, 2026, from 15:14 to 23:16 UTC. Every integrity audit is clean: no web access, and no benchmark data or answer-key paths.</li>
+          <li><strong>The day after release.</strong> The Codex CLI is pinned by version, but the sweep cannot pin what OpenAI serves under the model id.</li>
+          <li><strong>One attempt per task and level.</strong> Runs were not repeated, and effort labels are Codex&rsquo;s own.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 115 run measurements, both judges&rsquo; six-dimension sub-scores and intent-recovery scores per run, the combined score from each judge alone, hidden behaviours fixed, integrity-audit verdicts, each run&rsquo;s task hash and Codex notices, raw tokens and API-equivalent cost estimates per run, five aggregates, every calibration gate value, the exact judge protocol text, the operator record for the Max settlecore recovery and source hashes. Each run&rsquo;s Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges, or the reviewed score alone when the run passed no quirk family. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-gpt61-terra-v329/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/code-quality-maintenance-v3.md">protocol document</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/maintenance-v3-operations.md">operations log</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/DECISIONS.md">decision record</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/harness/agent/cli_agents.py">Codex adapter</a> and the code in the <a href="https://github.com/morganlinton/VulcanBench">harness repository</a>.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Hash checks bind the export to frozen files, including the operator&rsquo;s superseded marker and the recovered probe; they do not prove that judges were unbiased or that no training overlap exists.</p>
+        <p>Withheld: raw prompts and responses, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, solver event streams (a structure-only redacted trace of every run, every agent message, command and file change with its timing, is public in <a href="https://github.com/morganlinton/vulcanbench-gpt61-terra-traces">vulcanbench-gpt61-terra-traces</a>), and host binary paths. Summed solver time is 8.02 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/analysis.html">Analysis</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>

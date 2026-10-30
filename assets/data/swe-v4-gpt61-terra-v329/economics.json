@@ -1,0 +1,224 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a ChatGPT subscription through Codex, so these are estimates, not bills. Judging and local infrastructure are excluded. Every run in the sweep is priced.",
+  "pricing_verified": "2026-10-26",
+  "sources": {
+    "openai": "https://developers.openai.com/api/docs/pricing",
+    "model_page": "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
+  },
+  "rates_per_million": {
+    "gpt61terra": {
+      "input": 1.0,
+      "cached_input": 0.05,
+      "output": 5.0
+    }
+  },
+  "groups": [
+    {
+      "model": "gpt61terra",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.11388121739130434,
+        "se": 0.012431742121271202
+      },
+      "usd_total": 2.6192680000000004,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 772326.9130434783,
+        "se": 124553.3036918452
+      },
+      "raw_tokens_total": 17763519,
+      "output_tokens": {
+        "n": 23,
+        "mean": 5475.260869565217,
+        "se": 514.1837470792324
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 957.2608695652174,
+        "se": 212.33443880523112
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9262798511394646,
+        "se": 0.004215773617243187
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 2.784699275362319,
+        "se": 0.3558717242999399
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt61terra",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.13880178260869566,
+        "se": 0.0157420831414473
+      },
+      "usd_total": 3.1924410000000005,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 980738.1739130435,
+        "se": 151330.81756814927
+      },
+      "raw_tokens_total": 22556978,
+      "output_tokens": {
+        "n": 23,
+        "mean": 7896.260869565217,
+        "se": 849.023184870818
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 1892.4782608695652,
+        "se": 368.2986783583332
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9353193496044325,
+        "se": 0.004855416309227155
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 3.112063768115942,
+        "se": 0.3568523321664143
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt61terra",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.12833173913043477,
+        "se": 0.009959278123636384
+      },
+      "usd_total": 2.9516300000000006,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 901051.9565217391,
+        "se": 109686.98253594103
+      },
+      "raw_tokens_total": 20724195,
+      "output_tokens": {
+        "n": 23,
+        "mean": 7152,
+        "se": 435.6344471474932
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 1417.9130434782608,
+        "se": 135.15920802522427
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9381341315379912,
+        "se": 0.003469340527588736
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 3.204827536231884,
+        "se": 0.3749792218465635
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt61terra",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.24049547826086956,
+        "se": 0.05293864630337905
+      },
+      "usd_total": 5.531395999999999,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2154061.565217391,
+        "se": 663391.7521656494
+      },
+      "raw_tokens_total": 49543416,
+      "output_tokens": {
+        "n": 23,
+        "mean": 12930.652173913044,
+        "se": 2541.31760867796
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 3735.1304347826085,
+        "se": 1250.7415544330352
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9493486907166425,
+        "se": 0.003906255905420619
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 4.949247826086957,
+        "se": 0.8244009545206528
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt61terra",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.356363347826087,
+        "se": 0.03309458686697399
+      },
+      "usd_total": 8.196356999999999,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2377189.5217391304,
+        "se": 388193.14662501693
+      },
+      "raw_tokens_total": 54675359,
+      "output_tokens": {
+        "n": 23,
+        "mean": 28762.82608695652,
+        "se": 1362.0329255656043
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 15331.739130434782,
+        "se": 742.0232708319141
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9481161433001566,
+        "se": 0.004519520865675356
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 6.877489855072463,
+        "se": 0.5087577231911165
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "gpt61terra": {
+      "runs": 115,
+      "usd": 22.491092000000005,
+      "raw_tokens": 165263467,
+      "solver_hours": 8.022525833333335
+    }
+  },
+  "limitations": [
+    "Codex receipts report input, cached input, output and reasoning tokens per run; cached input is billed at the cache-read rate and the rest of the input at the standard rate. Reasoning tokens are part of output and are not billed twice.",
+    "Standard tier, short-context rates; Codex keeps each request within its context window, so no long-context premium is modelled.",
+    "No Batch, Flex, Fast or priority pricing is applied.",
+    "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
+    "The sweep stamped each run at run time at the published GPT-6.1 Terra list rates; the export recomputes every run from its receipt and matched every stamp."
+  ],
+  "comparison_sha256": "abf22133b3b2d89a1263c5ba0b64d22e37838e7554465c8513d5e87e8a431911",
+  "note": "Per-run estimates are in runs.json (estimated_usd, raw_tokens, token_usage). Judging is excluded."
+}

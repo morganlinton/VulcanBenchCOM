@@ -1,0 +1,632 @@
+[
+  {
+    "model": "gpt61terra",
+    "effort": "low",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "unpublished_runs": 0,
+    "combined_33": {
+      "n": 23,
+      "mean": 74.94792468401164,
+      "se": 3.900777864554756
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 78.26378505223367,
+      "se": 3.9612624058289625
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 74.60586538461538,
+        "se": 3.788770068776787
+      },
+      "grok": {
+        "n": 23,
+        "mean": 75.2899839834079,
+        "se": 4.027304318009349
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 66.55316439160312,
+      "se": 1.2947864046842064
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 62.63586956521739,
+      "se": 1.172060212318281
+    },
+    "intent_recovery": {
+      "n": 21,
+      "mean": 77.78493001707288,
+      "se": 3.1164298611575987
+    },
+    "intent_recovery_redistributed_runs": 2,
+    "readability": {
+      "n": 23,
+      "mean": 57.2463768115942,
+      "se": 1.2277720450832474
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 68.02536231884058,
+      "se": 1.6753351219122696
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 61.68478260869565,
+        "se": 1.751089413415639
+      },
+      "grok": {
+        "n": 23,
+        "mean": 63.58695652173913,
+        "se": 1.0710574139065612
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 74.6704347826087,
+      "se": 7.90775122509856
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 84.11956521739131,
+      "se": 0.8370103673454837
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 13,
+    "passed_all_runs": 13,
+    "hidden_behaviours_fixed": 170,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 2.784699275362319,
+      "se": 0.3558717242999399
+    },
+    "minutes_median": 2.3055499999999998,
+    "priced_runs": 23,
+    "cli_versions": {
+      "codex-cli 0.159.0": 23
+    },
+    "codex_notice_runs": 0,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 772326.9130434783,
+      "se": 124553.3036918452
+    },
+    "raw_tokens_total": 17763519,
+    "output_tokens": {
+      "n": 23,
+      "mean": 5475.260869565217,
+      "se": 514.1837470792324
+    },
+    "reasoning_output_tokens": {
+      "n": 23,
+      "mean": 957.2608695652174,
+      "se": 212.33443880523112
+    },
+    "reasoning_output_tokens_median": 626,
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9262798511394646,
+      "se": 0.004215773617243187
+    },
+    "usd": {
+      "n": 23,
+      "mean": 0.11388121739130434,
+      "se": 0.012431742121271202
+    },
+    "usd_total": 2.6192680000000004
+  },
+  {
+    "model": "gpt61terra",
+    "effort": "medium",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "unpublished_runs": 0,
+    "combined_33": {
+      "n": 23,
+      "mean": 80.09534322416714,
+      "se": 2.611626816300619
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 83.29151236247284,
+      "se": 2.625577926833747
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 79.66950683229813,
+        "se": 2.5730062412981494
+      },
+      "grok": {
+        "n": 23,
+        "mean": 80.52117961603614,
+        "se": 2.6654645264985986
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 67.29408355149461,
+      "se": 1.2003783445111367
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 63.541666666666664,
+      "se": 1.2732521151039182
+    },
+    "intent_recovery": {
+      "n": 22,
+      "mean": 77.45244654335563,
+      "se": 2.691584364955556
+    },
+    "intent_recovery_redistributed_runs": 1,
+    "readability": {
+      "n": 23,
+      "mean": 57.880434782608695,
+      "se": 1.341847671557698
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 69.20289855072464,
+      "se": 1.4582540547522869
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 61.95652173913044,
+        "se": 1.5945865061286226
+      },
+      "grok": {
+        "n": 23,
+        "mean": 65.1268115942029,
+        "se": 1.2371525716945568
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 84.53739130434782,
+      "se": 5.156090807767183
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 84.19478260869565,
+      "se": 0.6265382239522249
+    },
+    "security": {
+      "n": 23,
+      "mean": 99.56521739130434,
+      "se": 0.4347826086956522
+    },
+    "passed": 12,
+    "passed_all_runs": 12,
+    "hidden_behaviours_fixed": 188,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 3.112063768115942,
+      "se": 0.3568523321664143
+    },
+    "minutes_median": 2.71825,
+    "priced_runs": 23,
+    "cli_versions": {
+      "codex-cli 0.159.0": 23
+    },
+    "codex_notice_runs": 0,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 980738.1739130435,
+      "se": 151330.81756814927
+    },
+    "raw_tokens_total": 22556978,
+    "output_tokens": {
+      "n": 23,
+      "mean": 7896.260869565217,
+      "se": 849.023184870818
+    },
+    "reasoning_output_tokens": {
+      "n": 23,
+      "mean": 1892.4782608695652,
+      "se": 368.2986783583332
+    },
+    "reasoning_output_tokens_median": 1193,
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9353193496044325,
+      "se": 0.004855416309227155
+    },
+    "usd": {
+      "n": 23,
+      "mean": 0.13880178260869566,
+      "se": 0.0157420831414473
+    },
+    "usd_total": 3.1924410000000005
+  },
+  {
+    "model": "gpt61terra",
+    "effort": "high",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "unpublished_runs": 0,
+    "combined_33": {
+      "n": 23,
+      "mean": 79.18980937757894,
+      "se": 3.376528504697109
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 82.042862073368,
+      "se": 3.406737160066666
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 78.92407836945662,
+        "se": 3.3620341993636638
+      },
+      "grok": {
+        "n": 23,
+        "mean": 79.45554038570125,
+        "se": 3.405007212090495
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 69.96170167118783,
+      "se": 1.071962430481393
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 66.1231884057971,
+      "se": 1.217936596577714
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 80.19773704556313,
+      "se": 2.564075156958434
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 61.231884057971016,
+      "se": 1.1247280025667903
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 71.01449275362319,
+      "se": 1.587554633679913
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 65.21739130434783,
+        "se": 1.5576741605230147
+      },
+      "grok": {
+        "n": 23,
+        "mean": 67.02898550724638,
+        "se": 1.1615926823625244
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 80.95608695652174,
+      "se": 6.7693041701694066
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 84.25130434782608,
+      "se": 0.4993407924603704
+    },
+    "security": {
+      "n": 23,
+      "mean": 99.56521739130434,
+      "se": 0.4347826086956522
+    },
+    "passed": 15,
+    "passed_all_runs": 15,
+    "hidden_behaviours_fixed": 176,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 3.204827536231884,
+      "se": 0.3749792218465635
+    },
+    "minutes_median": 2.4717,
+    "priced_runs": 23,
+    "cli_versions": {
+      "codex-cli 0.159.0": 23
+    },
+    "codex_notice_runs": 0,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 901051.9565217391,
+      "se": 109686.98253594103
+    },
+    "raw_tokens_total": 20724195,
+    "output_tokens": {
+      "n": 23,
+      "mean": 7152,
+      "se": 435.6344471474932
+    },
+    "reasoning_output_tokens": {
+      "n": 23,
+      "mean": 1417.9130434782608,
+      "se": 135.15920802522427
+    },
+    "reasoning_output_tokens_median": 1244,
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9381341315379912,
+      "se": 0.003469340527588736
+    },
+    "usd": {
+      "n": 23,
+      "mean": 0.12833173913043477,
+      "se": 0.009959278123636384
+    },
+    "usd_total": 2.9516300000000006
+  },
+  {
+    "model": "gpt61terra",
+    "effort": "extra-high",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "unpublished_runs": 0,
+    "combined_33": {
+      "n": 23,
+      "mean": 83.67512515962298,
+      "se": 2.092456926969088
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 85.94198296894146,
+      "se": 2.0752498139546884
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 83.19063465013247,
+        "se": 2.0729991942231933
+      },
+      "grok": {
+        "n": 23,
+        "mean": 84.15961566911349,
+        "se": 2.1284770479338517
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 70.94154527948994,
+      "se": 1.3461497439250945
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 68.1159420289855,
+      "se": 1.5984408501293987
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 78.4764872808351,
+      "se": 2.7354434946425576
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 63.13405797101449,
+      "se": 1.9045251795937768
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 73.09782608695652,
+      "se": 1.5983241883878188
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 66.66666666666667,
+        "se": 1.8569342677745249
+      },
+      "grok": {
+        "n": 23,
+        "mean": 69.56521739130434,
+        "se": 1.6450087911536029
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 90.48,
+      "se": 4.208291411106236
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 83.27956521739131,
+      "se": 0.38984058678780875
+    },
+    "security": {
+      "n": 23,
+      "mean": 93.47826086956522,
+      "se": 1.1521925570868308
+    },
+    "passed": 16,
+    "passed_all_runs": 16,
+    "hidden_behaviours_fixed": 205,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 4.949247826086957,
+      "se": 0.8244009545206528
+    },
+    "minutes_median": 3.8069833333333336,
+    "priced_runs": 23,
+    "cli_versions": {
+      "codex-cli 0.159.0": 23
+    },
+    "codex_notice_runs": 3,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 2154061.565217391,
+      "se": 663391.7521656494
+    },
+    "raw_tokens_total": 49543416,
+    "output_tokens": {
+      "n": 23,
+      "mean": 12930.652173913044,
+      "se": 2541.31760867796
+    },
+    "reasoning_output_tokens": {
+      "n": 23,
+      "mean": 3735.1304347826085,
+      "se": 1250.7415544330352
+    },
+    "reasoning_output_tokens_median": 1677,
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9493486907166425,
+      "se": 0.003906255905420619
+    },
+    "usd": {
+      "n": 23,
+      "mean": 0.24049547826086956,
+      "se": 0.05293864630337905
+    },
+    "usd_total": 5.531395999999999
+  },
+  {
+    "model": "gpt61terra",
+    "effort": "max",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "unpublished_runs": 0,
+    "combined_33": {
+      "n": 23,
+      "mean": 89.99726838379011,
+      "se": 0.39269417819646124
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 91.2979162800309,
+      "se": 0.2657748275754257
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 89.39380934283108,
+        "se": 0.5185749599798946
+      },
+      "grok": {
+        "n": 23,
+        "mean": 90.60072742474917,
+        "se": 0.31752181253373446
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 76.59284226971974,
+      "se": 1.1875733532396258
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 74.6376811594203,
+      "se": 1.163437308904757
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 81.80660523051827,
+      "se": 2.7239489569150255
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 70.38043478260869,
+      "se": 1.385872256234094
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 78.89492753623189,
+      "se": 1.113732027055011
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 73.0072463768116,
+        "se": 1.5797834228933862
+      },
+      "grok": {
+        "n": 23,
+        "mean": 76.26811594202898,
+        "se": 0.8858138246943487
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 84.93478260869566,
+      "se": 0.7381543776227592
+    },
+    "security": {
+      "n": 23,
+      "mean": 88.26086956521739,
+      "se": 0.8670913426276801
+    },
+    "passed": 23,
+    "passed_all_runs": 23,
+    "hidden_behaviours_fixed": 231,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 6.877489855072463,
+      "se": 0.5087577231911165
+    },
+    "minutes_median": 6.10845,
+    "priced_runs": 23,
+    "cli_versions": {
+      "codex-cli 0.159.0": 23
+    },
+    "codex_notice_runs": 0,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 2377189.5217391304,
+      "se": 388193.14662501693
+    },
+    "raw_tokens_total": 54675359,
+    "output_tokens": {
+      "n": 23,
+      "mean": 28762.82608695652,
+      "se": 1362.0329255656043
+    },
+    "reasoning_output_tokens": {
+      "n": 23,
+      "mean": 15331.739130434782,
+      "se": 742.0232708319141
+    },
+    "reasoning_output_tokens_median": 14539,
+    "cached_input_share": {
+      "n": 23,
+      "mean": 0.9481161433001566,
+      "se": 0.004519520865675356
+    },
+    "usd": {
+      "n": 23,
+      "mean": 0.356363347826087,
+      "se": 0.03309458686697399
+    },
+    "usd_total": 8.196356999999999
+  }
+]

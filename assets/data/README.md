@@ -69,6 +69,13 @@ DeepSeek V4.1 Flash report under Code quality protocol v3.27, exported by
 the two pauses, and list-price and billed cost.
 `swe-v4-deepseek-flash-v327-scores.csv` holds its three effort aggregates.
 
+`swe-v4-gpt61-terra-v329/` is the public record of the October 30, 2026
+GPT-6.1 Terra report under Code quality protocol v3.29, exported by
+`scripts/export_swe_v4_v329_evidence.py`; its README explains the judge panel
+(Muse Spark 1.3 and Grok 4.6), the Codex settings, the Max settlecore
+recovery, the Codex model metadata notice and API-equivalent cost.
+`swe-v4-gpt61-terra-v329-scores.csv` holds its five effort aggregates.
+
 `swe-v4-beam-v328/` is the public record of the October 27, 2026 Reflection
 Beam report under Code quality protocol v3.28, exported by
 `scripts/export_swe_v4_v328_evidence.py`; its README explains the judge panel
