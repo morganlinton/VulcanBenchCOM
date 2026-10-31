@@ -76,16 +76,16 @@
       g += '<line x1="' + X(t).toFixed(1) + '" y1="' + T + '" x2="' + X(t).toFixed(1) + '" y2="' + (H - B) + '" stroke="' + GRID + '" stroke-opacity="' + (t === 0 ? 0.35 : 0.08) + '"/>';
       g += '<text x="' + X(t).toFixed(1) + '" y="' + (H - B + 20) + '" text-anchor="' + (t === 0 ? "start" : "middle") + '" font-size="12" fill="' + SOFT + '">' + ax.fmt(t) + "</text>";
     }
-    // The quadrant to focus on: above the median score and left of the median x of every plotted level, so it holds still across zoom.
-    var qx = X(median(all.map(function (r) { return r[xKey]; }))), qy = Math.min(H - B, Math.max(T, Y(median(all.map(function (r) { return r.combined; })))));
+    // The quadrant to focus on: a score of ZOOM_MIN or more, left of the median x of every plotted level, so it holds still across zoom.
+    var qx = X(median(all.map(function (r) { return r[xKey]; }))), qy = Math.min(H - B, Math.max(T, Y(ZOOM_MIN)));
     var QINK = "#047857", qlabel = "Most attractive quadrant";
-    g += '<rect x="0" y="' + T + '" width="' + qx.toFixed(1) + '" height="' + (qy - T).toFixed(1) + '" fill="#10b981" fill-opacity="0.09"/>' +
-      '<polyline fill="none" stroke="' + QINK + '" stroke-opacity="0.45" stroke-dasharray="4 4" points="' + qx.toFixed(1) + "," + T + " " + qx.toFixed(1) + "," + qy.toFixed(1) + " 0," + qy.toFixed(1) + '"/>' +
-      '<text x="' + (P + 6) + '" y="' + (T + 16) + '" font-size="11.5" font-weight="600" fill="' + QINK + '">' + qlabel + "</text>";
+    g += '<rect x="0" y="' + T + '" width="' + qx.toFixed(1) + '" height="' + (qy - T).toFixed(1) + '" fill="#10b981" fill-opacity="0.2"/>' +
+      '<polyline fill="none" stroke="' + QINK + '" stroke-opacity="0.85" stroke-width="1.5" stroke-dasharray="5 4" points="' + qx.toFixed(1) + "," + T + " " + qx.toFixed(1) + "," + qy.toFixed(1) + " 0," + qy.toFixed(1) + '"/>' +
+      '<text x="' + (P + 6) + '" y="' + (T + 16) + '" font-size="12" font-weight="700" fill="' + QINK + '">' + qlabel + "</text>";
     g += '<text x="' + P + '" y="' + (T - 14) + '" font-size="13" font-weight="600" fill="' + INK + '">VulcanBench Frontier v4 score' + (zoom === "top" ? ", " + lo + " and up" : "") + "</text>";
     g += '<text x="' + ((VIEW - room) / 2).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="12.5" fill="#3d3a35">' + esc(ax.label) + "</text>";
 
-    var boxes = [{ x: P, y: T - 27, w: 40 * 13 * 0.62, h: 18 }, { x: P + 6, y: T + 4, w: qlabel.length * 11.5 * 0.62, h: 14 }], edge = cap ? VIEW - 4 : PW;  // labels stay inside the first view, off the title and off the quadrant's name
+    var boxes = [{ x: P, y: T - 27, w: 40 * 13 * 0.62, h: 18 }, { x: P + 6, y: T + 4, w: qlabel.length * 12 * 0.62, h: 15 }], edge = cap ? VIEW - 4 : PW;  // labels stay inside the first view, off the title and off the quadrant's name
     function hits(b, set) { return b.x < 0 || b.x + b.w > edge || b.y < T - 12 || b.y + b.h > H - B + 4 || set.some(function (q) { return b.x < q.x + q.w && b.x + b.w > q.x && b.y < q.y + q.h && b.y + b.h > q.y; }); }
     function place(x, y, text, size, tries, anchor, set, force) {
       // The first free spot from tries; null when every spot collides, unless force (then the first try).
@@ -243,7 +243,7 @@
     var c = chart(), gone = hidden();
     app.innerHTML = '<div class="v4controls"><div class="v4group"><span class="v4label">X axis</span><div class="lb-toggle chart-toggle on v4modes" role="tablist" aria-label="Chart x axis">' + tabs + "</div></div>" +
       '<div class="v4group"><span class="v4label">Y axis</span><div class="lb-toggle chart-toggle on v4modes" role="group" aria-label="Chart y axis range">' + zooms + "</div></div></div>" +
-      '<figure class="v4card v4chart">' + legend() + '<div class="v4plotwrap">' + c.html + '<div class="v4tip" hidden></div></div><figcaption><span>Each line is one model through its reasoning-effort levels. The x axis starts at zero on the left, so cheaper levels sit toward the left of each line. The shaded top-left corner is the quadrant to focus on: levels above the median score and below the median ' + QUAD[xKey] + ' of the levels plotted. Hover or tap a model in the key to pick out its line with every effort level labelled; hover a dot for the exact numbers.' +
+      '<figure class="v4card v4chart">' + legend() + '<div class="v4plotwrap">' + c.html + '<div class="v4tip" hidden></div></div><figcaption><span>Each line is one model through its reasoning-effort levels. The x axis starts at zero on the left, so cheaper levels sit toward the left of each line. The shaded top-left corner is the quadrant to focus on: levels that score ' + ZOOM_MIN + ' or more for less than the median ' + QUAD[xKey] + ' of the levels plotted. Hover or tap a model in the key to pick out its line with every effort level labelled; hover a dot for the exact numbers.' +
       (c.beyond.length ? " The cost axis shows up to " + AXES.usd.fmt(CAP) + " per task; scroll the chart right for " + c.beyond.map(function (b) { return b.caption; }).join(" and ") + "." : "") +
       (gone.length ? " " + gone.map(function (m) { return m.name; }).join(" and ") + (gone.length > 1 ? " have" : " has") + " no level at " + ZOOM_MIN + " or above, so " + (gone.length > 1 ? "they sit" : "it sits") + " out of this view; choose All scores to see " + (gone.length > 1 ? "them" : "it") + "." : "") +
       (unplotted().length ? " " + unplotted().map(function (m) { return m.name; }).join(" and ") + " has no list price, so it is not on the cost view; choose Tokens or Minutes to see it." : "") + "</span></figcaption></figure>";
