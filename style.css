@@ -922,6 +922,12 @@ section[id] { scroll-margin-top: 90px; }
 .v4lad-lab.row2 { top: 37px; }
 .v4lad-axis { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; color: #6f6a62; margin: 2px 4px 0; }
 .v4steps { margin-top: 10px; font-size: 13px; }
+.lb-notes { margin-top: 14px; }
+.lb-notes summary { cursor: pointer; color: var(--soft); font-family: var(--mono); font-size: 12.5px; }
+.lb-notes p, .lb-notes li { font-size: 14.5px; line-height: 1.55; color: var(--soft); }
+.lb-notes p { margin-top: 12px; }
+.lb-notes ul { list-style: none; margin: 12px 0 0; padding: 0; }
+.lb-notes li + li { margin-top: 8px; }
 .v4steps summary { cursor: pointer; color: var(--soft); font-family: var(--mono); font-size: 12px; }
 .v4step { display: grid; grid-template-columns: 120px 1fr 150px; align-items: center; gap: 8px; padding: 3px 0; }
 .v4step-from { font-size: 12.5px; color: var(--soft); }

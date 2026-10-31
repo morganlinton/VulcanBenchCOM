@@ -353,22 +353,27 @@ def render(board):
             "colors": COLORS, "efforts": list(EFFORTS), "tolerances": TOLERANCES, "suggestions": suggestions(board)}
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     assert "</script" not in payload
+    notes = [("&dagger;", FOOTNOTES["fable"]), ("&Dagger;", FOOTNOTES["terra"]), ("&sect;", FOOTNOTES["sol"]), ("&para;", gpt6luna_footnote(board)),
+             ("&Vert;", FOOTNOTES["gpt6sol"]), ("*", FOOTNOTES["gpt61sol"]), ("&loz;", grok47_footnote(board)), ("&dagger;&dagger;", FOOTNOTES["sonnet55"]),
+             ("&Dagger;&Dagger;", haiku55_footnote(board)), ("&sect;&sect;", musewonder_footnote(board)), ("&para;&para;", dsflash_footnote(board)),
+             ("&loz;&loz;", beam_footnote(board)), ("**", gpt61terra_footnote(board))]
     return (f"{START}\n"
             f"<script>window.VB_V4 = {payload};</script>\n"
-            f'<p class="lb-context">{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
+            '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
+            '<noscript><p class="lb-context">The chart needs JavaScript; <a href="assets/data/swe-v4-board.csv" download>the CSV</a> carries every column.</p></noscript>\n'
+            '<details class="lb-notes"><summary>Notes on the board and on individual columns</summary>\n'
+            f'<p>{len(models)} models, {len(board)} model&times;effort columns, {runs:,} runs. Combined score is 50% functional '
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
             "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24, v3.26, v3.27, v3.28 and v3.29 apply the same rubric, controls and gates to each population; v3.20 "
             "seats GPT-6.1 Sol in place of Grok 4.6 to judge Grok 4.7, see &loz;; v3.23 and v3.24 judge Grok 4.6 through a newer Cursor CLI, see &dagger;&dagger; and &Dagger;&Dagger;; "
             "v3.26 to v3.26.3 seat Claude Opus 5.5 and GPT-6.1 Sol to judge Muse Wonder Full, see &sect;&sect;; "
-            "v3.27 and v3.28 seat GPT-6.1 Sol in place of Grok 4.6 to judge DeepSeek V4.1 Flash and Reflection Beam, see &para;&para; and &loz;&loz;). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The shaded top-left corner is the quadrant to focus on: levels that score 80 or more and cost less than the median column. Hover a dot for every figure the board carries; the CSV has them all. "
+            "v3.27 and v3.28 seat GPT-6.1 Sol in place of Grok 4.6 to judge DeepSeek V4.1 Flash and Reflection Beam, see &para;&para; and &loz;&loz;). The shaded top-left corner of the chart is the quadrant to focus on: levels that score 80 or more for less than the median cost (or tokens, or minutes) of the plotted levels. "
             "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription except DeepSeek V4.1 Flash, "
             "which ran on a metered DeepSeek API key and is shown at DeepSeek&rsquo;s off-peak list price, see &para;&para;. "
             "Grok 4.7 and Reflection Beam have no list price, so their $/task is unavailable and they appear on the Tokens and Minutes views only. "
             "Muse Wonder Full&rsquo;s $/task is an estimate at the Muse Wonder 1.0 list price, see &sect;&sect;.</p>\n"
-            '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
-            '<noscript><p class="lb-context">The chart needs JavaScript; <a href="assets/data/swe-v4-board.csv" download>the CSV</a> carries every column.</p></noscript>\n'
-            '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) + " * " + escape(FOOTNOTES["gpt61sol"]) + " &loz; " + escape(grok47_footnote(board)) + " &dagger;&dagger; " + escape(FOOTNOTES["sonnet55"]) + " &Dagger;&Dagger; " + escape(haiku55_footnote(board)) + " &sect;&sect; " + escape(musewonder_footnote(board)) + " &para;&para; " + escape(dsflash_footnote(board)) + " &loz;&loz; " + escape(beam_footnote(board)) + " ** " + escape(gpt61terra_footnote(board)) +
-            ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
+            "<ul>\n" + "".join(f"<li>{m} {escape(text)}</li>\n" for m, text in notes) + "</ul>\n"
+            '<p>SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
             'A dot marked best is that model&rsquo;s highest-scoring effort level. '
             'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
             '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
@@ -376,6 +381,7 @@ def render(board):
             '<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>, <a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>, '
             '<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>, <a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>, <a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>, <a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>, <a href="benchmarks/swe-v4-sonnet55-v323.html">Sonnet 5.5</a>, <a href="benchmarks/swe-v4-haiku55-v324.html">Haiku 5.5</a>, <a href="benchmarks/swe-v4-musewonder-full-v326.html">Muse Wonder Full</a>, <a href="benchmarks/swe-v4-deepseek-flash-v327.html">DeepSeek V4.1 Flash</a>, <a href="benchmarks/swe-v4-beam-v328.html">Reflection Beam</a>, <a href="benchmarks/swe-v4-gpt61-terra-v329.html">GPT-6.1 Terra</a>. '
             '<a href="assets/data/swe-v4-board.csv" download>Download the board as CSV</a>.</p>\n'
+            "</details>\n"
             f"{END}")
 
 

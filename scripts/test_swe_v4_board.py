@@ -284,7 +284,7 @@ class BoardTests(unittest.TestCase):
         self.assertTrue(self.col("grok47cursor", "extra-high")["best"])
         js = (ROOT / "leaderboard-v4.js").read_text()
         self.assertIn("function plotted()", js)  # unpriced columns sit out the cost view
-        self.assertIn("has no list price, so it is not on the cost view", js)
+        self.assertIn("on the Tokens and Minutes views only", js)  # unpriced models are named in the caption
         self.assertIn("Most attractive quadrant", js)  # the shaded top-left corner: a score of 80 or more, left of the median x
         self.assertNotIn('id="v4board"', self.page)  # the chart and the CSV carry the board; no table
         models, columns, runs = len({r["model"] for r in self.rows}), len(self.rows), sum(r["n"] for r in self.rows)
