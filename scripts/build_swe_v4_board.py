@@ -3,7 +3,7 @@
 Every model-and-harness column at every effort level it ran, ranked by
 combined score, with Code quality, tasks passed, runtime and API-equivalent
 cost beside it (unavailable for a column with no list price, never $0). Reads only the public bundles under assets/data/ and writes
-assets/data/swe-v4-board.json, assets/data/swe-v4-board.csv and the table
+assets/data/swe-v4-board.json, assets/data/swe-v4-board.csv and the chart
 block between the markers in leaderboard.html.
 
     python3 scripts/build_swe_v4_board.py            # rewrite the outputs
@@ -16,7 +16,7 @@ import io
 import json
 import statistics
 import sys
-from html import escape
+from html import escape, unescape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -265,44 +265,24 @@ def suggestions(board):
     return out
 
 
-def table_html(board):
-    lines = ['<div class="lb-scroll">', '<table class="lb" id="v4board">',
-             '<caption class="sr-only">VulcanBench Frontier v4 board: every model and effort level, ranked by combined score</caption>',
-             '<thead><tr><th class="l" scope="col">#</th><th class="l" scope="col">Model / harness</th><th scope="col">Effort</th>'
-             '<th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Code quality</th><th scope="col">Passed</th>'
-             '<th scope="col">Min/task</th><th scope="col">$/task</th></tr></thead>', "<tbody>"]
-    for r in board:
-        cls = " leader" if r["rank"] == 1 else ""
-        tag = '<span class="fb-best">best</span>' if r["best"] else ""
-        mark = "&dagger;" if r["key"] == "fable" else ("&Dagger;" if r["key"] == "terra" and r["effort"] == "max" else ("&sect;" if r["key"] == "sol" and r["effort"] == "max" else ""))
-        if r["key"] == "gpt6luna" and r["effort"] in ("extra-high", "max"):
-            mark = "&para;"
-        if r["key"] == "gpt6sol" and r["effort"] == "medium":
-            mark = "&Vert;"
-        if r["key"] == "gpt61sol" and r["effort"] == "medium":
-            mark = "*"
-        if r["key"] == "grok47cursor":
-            mark = "&loz;"
-        if r["key"] == "sonnet55":
-            mark = "&dagger;&dagger;"
-        if r["key"] == "haiku55":
-            mark = "&Dagger;&Dagger;"
-        if r["key"] == "musewonderfull":
-            mark = "&sect;&sect;"
-        if r["key"] == "dsflash":
-            mark = "&para;&para;"
-        if r["key"] == "beam":
-            mark = "&loz;&loz;"
-        if r["key"] == "gpt61terra" and r["effort"] in ("extra-high", "max"):
-            mark = "**"
-        cost = f'${r["usd"]:.2f}' if priced(r) else "unavailable"
-        lines.append(
-            f'<tr class="v4row{cls}" data-model="{r["key"]}" data-effort="{r["effort"]}" data-best="{int(r["best"])}"><td class="l lb-rank">{r["rank"]}</td>'
-            f'<td class="l"><span class="v4dot" style="background:{COLORS[r["key"]]}"></span><a class="lb-model" href="models/{r["slug"]}.html">{escape(r["model"])}</a> <span class="lb-harness">{escape(r["harness"])}</span>{tag}</td>'
-            f'<td class="fb-eff">{LABEL[r["effort"]]}{mark}</td><td class="lb-win">{r["combined"]:.2f}</td><td>{r["combined_se"]:.2f}</td>'
-            f'<td>{r["code_quality"]:.2f}</td><td>{r["passed"]}/{r["passed_of"]}</td><td>{r["minutes"]:.1f}</td><td>{cost}</td></tr>')
-    lines += ["</tbody>", "</table>", "</div>"]
-    return "\n".join(lines)
+def mark(r):
+    """The footnote mark a column carries in the chart's pointer text, as an HTML entity."""
+    if r["key"] == "fable":
+        return "&dagger;"
+    if r["key"] == "terra" and r["effort"] == "max":
+        return "&Dagger;"
+    if r["key"] == "sol" and r["effort"] == "max":
+        return "&sect;"
+    if r["key"] == "gpt6luna" and r["effort"] in ("extra-high", "max"):
+        return "&para;"
+    if r["key"] == "gpt6sol" and r["effort"] == "medium":
+        return "&Vert;"
+    if r["key"] == "gpt61sol" and r["effort"] == "medium":
+        return "*"
+    if r["key"] == "gpt61terra" and r["effort"] in ("extra-high", "max"):
+        return "**"
+    return {"grok47cursor": "&loz;", "sonnet55": "&dagger;&dagger;", "haiku55": "&Dagger;&Dagger;", "musewonderfull": "&sect;&sect;",
+            "dsflash": "&para;&para;", "beam": "&loz;&loz;"}.get(r["key"], "")
 
 
 def gpt6luna_footnote(board):
@@ -368,7 +348,8 @@ def render(board):
     models = sorted({r["model"] for r in board})
     runs = sum(r["n"] for r in board)
     data = {"columns": [{k: r[k] for k in ("model", "lab", "harness", "slug", "key", "effort", "n", "combined", "combined_se", "code_quality",
-                                            "passed", "minutes", "usd", "raw_tokens", "output_tokens_median", "output_tokens_mean", "rank", "best")} for r in board],
+                                            "passed", "passed_of", "minutes", "usd", "raw_tokens", "output_tokens_median", "output_tokens_mean", "rank", "best")}
+                        | {"mark": unescape(mark(r))} for r in board],
             "colors": COLORS, "efforts": list(EFFORTS), "tolerances": TOLERANCES, "suggestions": suggestions(board)}
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     assert "</script" not in payload
@@ -379,17 +360,16 @@ def render(board):
             "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24, v3.26, v3.27, v3.28 and v3.29 apply the same rubric, controls and gates to each population; v3.20 "
             "seats GPT-6.1 Sol in place of Grok 4.6 to judge Grok 4.7, see &loz;; v3.23 and v3.24 judge Grok 4.6 through a newer Cursor CLI, see &dagger;&dagger; and &Dagger;&Dagger;; "
             "v3.26 to v3.26.3 seat Claude Opus 5.5 and GPT-6.1 Sol to judge Muse Wonder Full, see &sect;&sect;; "
-            "v3.27 and v3.28 seat GPT-6.1 Sol in place of Grok 4.6 to judge DeepSeek V4.1 Flash and Reflection Beam, see &para;&para; and &loz;&loz;). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The table below carries every column. "
+            "v3.27 and v3.28 seat GPT-6.1 Sol in place of Grok 4.6 to judge DeepSeek V4.1 Flash and Reflection Beam, see &para;&para; and &loz;&loz;). The chart plots combined score against cost per task, $0 on the left, one line per model from Low to Max; the cost axis shows up to $5 per task and scrolls sideways for anything costlier. The shaded top-left corner is the quadrant to focus on: levels that score above the median column and cost less than the median one. Hover a dot for every figure the board carries; the CSV has them all. "
             "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription except DeepSeek V4.1 Flash, "
             "which ran on a metered DeepSeek API key and is shown at DeepSeek&rsquo;s off-peak list price, see &para;&para;. "
             "Grok 4.7 and Reflection Beam have no list price, so their $/task is unavailable and they appear on the Tokens and Minutes views only. "
             "Muse Wonder Full&rsquo;s $/task is an estimate at the Muse Wonder 1.0 list price, see &sect;&sect;.</p>\n"
             '<div id="v4app" class="v4app" aria-live="polite"></div>\n'
-            '<noscript><p class="lb-context">The chart needs JavaScript; the table below carries every column.</p></noscript>\n'
-            f"{table_html(board)}\n"
+            '<noscript><p class="lb-context">The chart needs JavaScript; <a href="assets/data/swe-v4-board.csv" download>the CSV</a> carries every column.</p></noscript>\n'
             '<p class="lb-context">&dagger; ' + escape(FOOTNOTES["fable"]) + " &Dagger; " + escape(FOOTNOTES["terra"]) + " &sect; " + escape(FOOTNOTES["sol"]) + " &para; " + escape(gpt6luna_footnote(board)) + " &Vert; " + escape(FOOTNOTES["gpt6sol"]) + " * " + escape(FOOTNOTES["gpt61sol"]) + " &loz; " + escape(grok47_footnote(board)) + " &dagger;&dagger; " + escape(FOOTNOTES["sonnet55"]) + " &Dagger;&Dagger; " + escape(haiku55_footnote(board)) + " &sect;&sect; " + escape(musewonder_footnote(board)) + " &para;&para; " + escape(dsflash_footnote(board)) + " &loz;&loz; " + escape(beam_footnote(board)) + " ** " + escape(gpt61terra_footnote(board)) +
             ' SE is one task standard error of the combined score. Astra&rsquo;s $/task is the central estimate; its report carries a long-context upper bound. '
-            'The <span class="lb-tag" style="margin-left:0;">best</span> tag marks each model&rsquo;s highest-scoring effort level. '
+            'A dot marked best is that model&rsquo;s highest-scoring effort level. '
             'Per-run records, judge sub-scores and pricing are in each report&rsquo;s evidence bundle: '
             '<a href="benchmarks/swe-v4-astra-fable51-v34.html">Astra vs. Fable 5.1</a>, '
             '<a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. Luna</a>, <a href="benchmarks/swe-v4-terra-v36.html">Terra</a>, '

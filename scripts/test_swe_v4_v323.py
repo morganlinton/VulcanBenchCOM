@@ -493,6 +493,8 @@ class SonnetBundleTests(unittest.TestCase):
         for name in ("benchmarks.html", "index.html", "feed.xml", "llms.txt", "models/claude-sonnet-5-5.html", "leaderboard.html",
                      "assets/data/swe-v4-sonnet55-v323/README.md"):
             text = (ROOT / name).read_text()
+            if name == "leaderboard.html":  # plus the chart's pointer text, which rounds each level's score to two places
+                text += " " + " ".join(f'{c["combined"]:.2f}' for c in json.loads(text.split("window.VB_V4 = ", 1)[1].split(";</script>", 1)[0])["columns"])
             for figure in figures:
                 self.assertIn(figure, text, (name, figure))
 

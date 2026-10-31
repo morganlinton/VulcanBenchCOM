@@ -860,7 +860,6 @@ section[id] { scroll-margin-top: 90px; }
 .v4se { position: absolute; top: 50%; height: 1px; border-left: 1px solid #1c1a17; border-right: 1px solid #1c1a17; background: #1c1a17; opacity: 0.55; }
 .v4se::before, .v4se::after { content: ""; position: absolute; top: -4px; width: 1px; height: 9px; background: #1c1a17; }
 .v4se::before { left: -1px; } .v4se::after { right: -1px; }
-#v4board tr[hidden] { display: none; }
 .v4chart { margin-top: 14px; padding: 14px 14px 14px; background: #fff; border-color: rgba(28,26,23,0.14); border-radius: 10px; }
 .v4chart svg { border-radius: 6px; }
 .v4chart figcaption { margin-top: 10px; }

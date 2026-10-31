@@ -329,7 +329,7 @@ class WonderSiteTests(unittest.TestCase):
         self.assertNotIn(chr(0x2014), item)
         leaderboard = (ROOT / "leaderboard.html").read_text()
         self.assertIn('<a href="benchmarks/swe-v4-musewonder-full-v326.html">Muse Wonder Full</a>', leaderboard)
-        self.assertEqual(len(re.findall(r'data-model="musewonderfull" data-effort="[a-z-]+" data-best', leaderboard)), 4)
+        self.assertEqual(len(re.findall(r'"key":"musewonderfull","effort":"[a-z-]+"', leaderboard)), 4)
         index = (ROOT / "benchmarks.html").read_text()
         self.assertLess(index.index("swe-v4-musewonder-full-v326.html"), index.index("swe-v4-haiku55-vs-frontier.html"))
 

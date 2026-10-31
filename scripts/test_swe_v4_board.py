@@ -20,6 +20,13 @@ class BoardTests(unittest.TestCase):
         cls.json = json.loads((ROOT / "assets/data/swe-v4-board.json").read_text())
         with (ROOT / "assets/data/swe-v4-board.csv").open(newline="") as source:
             cls.csv = list(csv.DictReader(source))
+        cls.chart = json.loads(re.search(r"window\.VB_V4 = (\{.*?\});</script>", cls.page).group(1))["columns"]
+
+    def col(self, key, effort):
+        return next((c for c in self.chart if c["key"] == key and c["effort"] == effort), None)
+
+    def marks(self, mark):
+        return sum(1 for c in self.chart if c["mark"] == mark)
 
     def test_outputs_are_current(self):
         block = board.render(self.rows)
@@ -197,28 +204,28 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(self.page.count(board.END), 1)
         self.assertIn("VulcanBench-SWE v3 (retired in August 2026)", self.page)
         self.assertIn("&sect; GPT-5.6 Sol at max is judged on 22 of 23 tasks", self.page)
-        self.assertIn('data-model="sol" data-effort="max"', self.page)
-        self.assertIn("<td class=\"fb-eff\">max&sect;</td>", self.page)
+        self.assertIsNotNone(self.col("sol", "max"))
+        self.assertEqual(self.col("sol", "max")["mark"], "\u00a7")
         self.assertIn('<a href="benchmarks/swe-v4-sol-v37.html">Sol</a>', self.page)
         self.assertIn("&para; GPT-6 Luna at extra-high and max is judged on 21 and 19 of 23 tasks", self.page)
         self.assertIn("its best tag and effort suggestions use these figures", self.page)
-        self.assertIn('data-model="gpt6luna" data-effort="extra-high" data-best="1"', self.page)
+        self.assertTrue(self.col("gpt6luna", "extra-high")["best"])
         self.assertIn("gives 71.94 at extra-high and 67.26 at max", self.page)
         for effort in ("extra-high", "max"):
-            self.assertIn(f'data-model="gpt6luna" data-effort="{effort}"', self.page)
-            self.assertIn(f'<td class="fb-eff">{effort}&para;</td><td class="lb-win">', self.page)
-        self.assertEqual(len(re.findall(r"(?<!&para;)&para;</td>", self.page)), 2)  # GPT-6 Luna's single mark, not DeepSeek's doubled one
+            self.assertIsNotNone(self.col("gpt6luna", effort))
+            self.assertEqual(self.col("gpt6luna", effort)["mark"], "\u00b6")
+        self.assertEqual(self.marks("\u00b6"), 2)  # GPT-6 Luna's single mark, not DeepSeek's doubled one
         self.assertIn('<a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna</a>', self.page)
         self.assertIn("&Vert; GPT-6 Sol at medium is judged on 22 of 23 tasks", self.page)
-        self.assertIn('data-model="gpt6sol" data-effort="medium"', self.page)
-        self.assertIn('<td class="fb-eff">medium&Vert;</td><td class="lb-win">', self.page)
-        self.assertEqual(self.page.count("&Vert;</td>"), 1)
-        self.assertIn('data-model="gpt6sol" data-effort="max" data-best="1"', self.page)
+        self.assertIsNotNone(self.col("gpt6sol", "medium"))
+        self.assertEqual(self.col("gpt6sol", "medium")["mark"], "\u2016")
+        self.assertEqual(self.marks("\u2016"), 1)
+        self.assertTrue(self.col("gpt6sol", "max")["best"])
         self.assertIn('<a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol</a>', self.page)
         self.assertIn("* GPT-6.1 Sol at medium includes paddockcore with Code quality from Muse Spark 1.3 alone", self.page)
-        self.assertIn('<td class="fb-eff">medium*</td><td class="lb-win">', self.page)
-        self.assertEqual(len(re.findall(r"(?<!\*)\*</td>", self.page)), 1)  # GPT-6.1 Sol's single mark, not GPT-6.1 Terra's doubled one
-        self.assertIn('data-model="gpt61sol" data-effort="extra-high" data-best="1"', self.page)
+        self.assertEqual(self.col("gpt61sol", "medium")["mark"], "*")
+        self.assertEqual(self.marks("*"), 1)  # GPT-6.1 Sol's single mark, not GPT-6.1 Terra's doubled one
+        self.assertTrue(self.col("gpt61sol", "extra-high")["best"])
         self.assertIn('<a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol</a>', self.page)
         self.assertIn('<a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>', self.page)
         self.assertIn("v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24, v3.26, v3.27, v3.28 and v3.29", self.page)
@@ -226,8 +233,8 @@ class BoardTests(unittest.TestCase):
         self.assertIn("judged by Claude Opus 5.5 and GPT-6.1 Sol under v3.26 to v3.26.3, not by Muse Spark 1.3 and Grok 4.6", self.page)
         self.assertIn("gives 84.36 at high and 83.78 at extra-high", self.page)
         self.assertIn("priced at the Muse Wonder 1.0 list price", self.page)
-        self.assertEqual(self.page.count("&sect;&sect;</td>"), 4)
-        self.assertIn('data-model="musewonderfull" data-effort="medium" data-best="1"', self.page)
+        self.assertEqual(self.marks("\u00a7\u00a7"), 4)
+        self.assertTrue(self.col("musewonderfull", "medium")["best"])
         self.assertIn('<a href="benchmarks/swe-v4-musewonder-full-v326.html">Muse Wonder Full</a>', self.page)
         self.assertIn("&para;&para; DeepSeek V4.1 Flash (deepseek-flash, which DeepSeek&#x27;s pricing page mapped to DeepSeek-V4.1-Flash-1017)", self.page)
         self.assertIn("judged by Muse Spark 1.3 and GPT-6.1 Sol under v3.27, not by Muse Spark 1.3 and Grok 4.6", self.page)
@@ -238,8 +245,8 @@ class BoardTests(unittest.TestCase):
         self.assertIn("off-peak list price ($0.15 input, $0.003 cached, $0.60 output per million)", self.page)
         self.assertIn("the billed amount was $0.068 to $0.101 per task", self.page)
         self.assertIn("every model here ran on a subscription except DeepSeek V4.1 Flash", self.page)
-        self.assertEqual(self.page.count("&para;&para;</td>"), 3)
-        self.assertIn('data-model="dsflash" data-effort="low" data-best="1"', self.page)
+        self.assertEqual(self.marks("\u00b6\u00b6"), 3)
+        self.assertTrue(self.col("dsflash", "low")["best"])
         self.assertIn('<a href="benchmarks/swe-v4-deepseek-flash-v327.html">DeepSeek V4.1 Flash</a>', self.page)
         self.assertIn("&loz;&loz; Reflection Beam (Beam-1.0-501B-A23B, 501B total and 23B active parameters) ran in Mirror CLI 0.1.1", self.page)
         self.assertIn("judged by Muse Spark 1.3 and GPT-6.1 Sol under v3.28, the v3.27 panel, not by Muse Spark 1.3 and Grok 4.6", self.page)
@@ -248,37 +255,38 @@ class BoardTests(unittest.TestCase):
         self.assertIn("gives 18.90 at low and 38.95 at medium", self.page)
         self.assertIn("Max is judged on 22 of 23", self.page)
         self.assertIn("Grok 4.7 and Reflection Beam have no list price", self.page)
-        self.assertEqual(self.page.count("&loz;&loz;</td>"), 5)
-        self.assertIn('data-model="beam" data-effort="extra-high" data-best="1"', self.page)
+        self.assertEqual(self.marks("\u25ca\u25ca"), 5)
+        self.assertTrue(self.col("beam", "extra-high")["best"])
         self.assertIn('<a href="benchmarks/swe-v4-beam-v328.html">Reflection Beam</a>', self.page)
         self.assertIn("** GPT-6.1 Terra ran in Codex CLI 0.159.0 on a ChatGPT subscription", self.page)
         self.assertIn("Muse Spark 1.3&#x27;s intent probe of settlecore is published through the owner-approved escape rule", self.page)
         self.assertIn("At extra-high, three runs printed Codex&#x27;s notice", self.page)
-        self.assertEqual(self.page.count("**</td>"), 2)
-        self.assertIn('data-model="gpt61terra" data-effort="max" data-best="1"', self.page)
+        self.assertEqual(self.marks("**"), 2)
+        self.assertTrue(self.col("gpt61terra", "max")["best"])
         self.assertIn('<a href="benchmarks/swe-v4-gpt61-terra-v329.html">GPT-6.1 Terra</a>', self.page)
         self.assertIn("&Dagger;&Dagger; Haiku 5.5 ran in Claude Code 2.1.293 to 2.1.296", self.page)
         self.assertIn("judged on 22, 22 and 21 of 23 tasks", self.page)
-        self.assertEqual(self.page.count("&Dagger;&Dagger;</td>"), 5)
+        self.assertEqual(self.marks("\u2021\u2021"), 5)
         self.assertIn('<a href="benchmarks/swe-v4-haiku55-v324.html">Haiku 5.5</a>', self.page)
         self.assertIn("&dagger;&dagger; Sonnet 5.5 ran in Claude Code 2.1.291 to 2.1.293", self.page)
         self.assertIn("committed hash bridge", self.page)
         self.assertIn("Grok 4.6 ran through Cursor CLI 2026.10.01, which updates itself", self.page)
-        self.assertEqual(self.page.count("&dagger;&dagger;</td>"), 5)
+        self.assertEqual(self.marks("\u2020\u2020"), 5)
         self.assertIn('<a href="benchmarks/swe-v4-sonnet55-v323.html">Sonnet 5.5</a>', self.page)
         self.assertIn("&loz; Grok 4.7 (xAI) ran in Cursor&#x27;s agent CLI 2026.10.01", self.page)
         self.assertIn("judged by Muse Spark 1.3 and GPT-6.1 Sol under v3.20", self.page)
         self.assertIn("second at Low behind Fable 5.1 (89.46)", self.page)
         self.assertIn("$/task is unavailable, not $0", self.page)
-        self.assertEqual(len(re.findall(r"(?<!&loz;)&loz;</td>", self.page)), 4)  # Grok 4.7's single mark, not Beam's doubled one
-        frontier = self.page.split(board.START, 1)[1].split(board.END, 1)[0]
-        self.assertEqual(frontier.count("<td>unavailable</td>"), 9)  # Grok 4.7's four columns and Reflection Beam's five
-        self.assertNotIn('data-model="grok47cursor" data-effort="max"', self.page)
+        self.assertEqual(self.marks("\u25ca"), 4)  # Grok 4.7's single mark, not Beam's doubled one
+        self.assertEqual(sum(1 for c in self.chart if c["usd"] is None), 9)  # Grok 4.7's four columns and Reflection Beam's five
+        self.assertIsNone(self.col("grok47cursor", "max"))
         self.assertIn('<a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7</a>', self.page)
-        self.assertIn('data-model="grok47cursor" data-effort="extra-high" data-best="1"', self.page)
+        self.assertTrue(self.col("grok47cursor", "extra-high")["best"])
         js = (ROOT / "leaderboard-v4.js").read_text()
         self.assertIn("function plotted()", js)  # unpriced columns sit out the cost view
         self.assertIn("has no list price, so it is not on the cost view", js)
+        self.assertIn("Most attractive quadrant", js)  # the shaded top-left corner, split at the median score and the median x
+        self.assertNotIn('id="v4board"', self.page)  # the chart and the CSV carry the board; no table
         models, columns, runs = len({r["model"] for r in self.rows}), len(self.rows), sum(r["n"] for r in self.rows)
         self.assertIn(f"&middot; {models} models &middot; {columns} model&times;effort columns &middot; {runs} runs &middot;", self.page)
         self.assertEqual(len(set(board.COLORS.values())), len(board.COLORS))

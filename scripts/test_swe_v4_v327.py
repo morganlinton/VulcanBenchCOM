@@ -333,7 +333,7 @@ class FlashSiteTests(unittest.TestCase):
         self.assertNotIn(chr(0x2014), item)
         leaderboard = (ROOT / "leaderboard.html").read_text()
         self.assertIn('<a href="benchmarks/swe-v4-deepseek-flash-v327.html">DeepSeek V4.1 Flash</a>', leaderboard)
-        self.assertEqual(len(re.findall(r'data-model="dsflash" data-effort="[a-z-]+" data-best', leaderboard)), 3)
+        self.assertEqual(len(re.findall(r'"key":"dsflash","effort":"[a-z-]+"', leaderboard)), 3)
         index = (ROOT / "benchmarks.html").read_text()
         self.assertLess(index.index("swe-v4-deepseek-flash-v327.html"), index.index("swe-v4-musewonder-full-v326.html"))
 

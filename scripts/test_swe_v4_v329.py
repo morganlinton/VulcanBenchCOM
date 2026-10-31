@@ -371,7 +371,7 @@ class TerraSiteTests(unittest.TestCase):
         self.assertNotIn(chr(0x2014), item)
         leaderboard = (ROOT / "leaderboard.html").read_text()
         self.assertIn('<a href="benchmarks/swe-v4-gpt61-terra-v329.html">GPT-6.1 Terra</a>', leaderboard)
-        self.assertEqual(len(re.findall(r'data-model="gpt61terra" data-effort="[a-z-]+" data-best', leaderboard)), 5)
+        self.assertEqual(len(re.findall(r'"key":"gpt61terra","effort":"[a-z-]+"', leaderboard)), 5)
         index = (ROOT / "benchmarks.html").read_text()
         self.assertLess(index.index("swe-v4-gpt61-terra-v329.html"), index.index("swe-v4-beam-v328.html"))
 

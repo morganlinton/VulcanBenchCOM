@@ -343,7 +343,7 @@ class BeamSiteTests(unittest.TestCase):
         self.assertNotIn(chr(0x2014), item)
         leaderboard = (ROOT / "leaderboard.html").read_text()
         self.assertIn('<a href="benchmarks/swe-v4-beam-v328.html">Reflection Beam</a>', leaderboard)
-        self.assertEqual(len(re.findall(r'data-model="beam" data-effort="[a-z-]+" data-best', leaderboard)), 5)
+        self.assertEqual(len(re.findall(r'"key":"beam","effort":"[a-z-]+"', leaderboard)), 5)
         index = (ROOT / "benchmarks.html").read_text()
         self.assertLess(index.index("swe-v4-beam-v328.html"), index.index("swe-v4-deepseek-flash-v327.html"))
 
