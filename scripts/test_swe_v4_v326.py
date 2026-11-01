@@ -316,7 +316,7 @@ class WonderSiteTests(unittest.TestCase):
         self.assertIn(f"{TRACES}", (DATA / "README.md").read_text())
 
     def test_site_references(self):
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "README.md", "models/muse-wonder-full.html"):
+        for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "README.md", "models/muse-wonder-full.html"):
             self.assertIn("swe-v4-musewonder-full-v326.html", (ROOT / name).read_text(), name)
         self.assertIn('href="models/muse-wonder-full.html"', (ROOT / "benchmarks.html").read_text())
         self.assertIn('href="muse-wonder-full.html"', (ROOT / "models/muse-spark-1-2.html").read_text())

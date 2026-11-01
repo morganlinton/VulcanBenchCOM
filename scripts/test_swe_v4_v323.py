@@ -181,7 +181,7 @@ class SonnetPageTests(unittest.TestCase):
         self.assertIn('href="claude-sonnet-5-5.html"', (ROOT / "models/claude-opus-5-5.html").read_text())
         self.assertIn('href="/models/claude-sonnet-5-5.html"', self.page_html)
         self.assertIn('href="models/claude-sonnet-5-5.html"', (ROOT / "benchmarks.html").read_text())
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "leaderboard.html", "README.md"):
+        for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "leaderboard.html", "README.md"):
             text = text_of(name)
             self.assertIn("swe-v4-sonnet55-v323.html", text, name)
             if name != "feed.xml":  # feed.xml keeps historical item text as published
@@ -195,8 +195,6 @@ class SonnetPageTests(unittest.TestCase):
         self.assertIn("<loc>https://vulcanbench.com/models/claude-sonnet-5-5.html</loc>", (ROOT / "sitemap.xml").read_text())
         index = (ROOT / "benchmarks.html").read_text()
         self.assertLess(index.index("swe-v4-sonnet55-v323.html"), index.index("swe-v4-grok47-cursor-v320.html"))
-        home = (ROOT / "index.html").read_text()
-        self.assertLess(home.index("swe-v4-sonnet55-v323.html"), home.index("swe-v4-grok47-cursor-v320.html"))
 
     def test_page_links_resolve(self):
         # Fails until the export, the PDF render and the two cards are in place.
@@ -302,7 +300,7 @@ class FrontierComparisonTests(unittest.TestCase):
         self.assertIn('href="https://github.com/morganlinton/vulcanbench-sonnet55-traces"', self.page_html)
 
     def test_site_references(self):
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "README.md", "benchmarks/swe-v4-sonnet55-v323.html",
+        for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "README.md", "benchmarks/swe-v4-sonnet55-v323.html",
                      "models/claude-sonnet-5-5.html", "models/claude-opus-5-5.html", "models/gpt-6-1-sol.html"):
             self.assertIn("swe-v4-sonnet55-vs-frontier.html", (ROOT / name).read_text(), name)
         self.assertIn(f"<loc>{FRONTIER_URL}</loc>", (ROOT / "sitemap.xml").read_text())
@@ -490,7 +488,7 @@ class SonnetBundleTests(unittest.TestCase):
 
     def test_scores_appear_everywhere(self):
         figures = [f'{self.groups[e]["combined_33"]["mean"]:.2f}' for e in EFFORTS]
-        for name in ("benchmarks.html", "index.html", "feed.xml", "llms.txt", "models/claude-sonnet-5-5.html", "leaderboard.html",
+        for name in ("feed.xml", "llms.txt", "models/claude-sonnet-5-5.html", "leaderboard.html",
                      "assets/data/swe-v4-sonnet55-v323/README.md"):
             text = (ROOT / name).read_text()
             if name == "leaderboard.html":  # plus the chart's pointer text, which rounds each level's score to two places

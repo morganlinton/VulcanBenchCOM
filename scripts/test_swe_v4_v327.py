@@ -320,7 +320,7 @@ class FlashSiteTests(unittest.TestCase):
         self.assertIn('href="deepseek-v4-1-flash.html"', (ROOT / "models/deepseek-v4-flash.html").read_text())
 
     def test_site_references(self):
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "README.md", "models/deepseek-v4-1-flash.html"):
+        for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "README.md", "models/deepseek-v4-1-flash.html"):
             self.assertIn("swe-v4-deepseek-flash-v327.html", (ROOT / name).read_text(), name)
         self.assertIn('href="models/deepseek-v4-1-flash.html"', (ROOT / "benchmarks.html").read_text())
         self.assertIn("swe-v4-deepseek-flash-v327/", (ROOT / "assets/data/README.md").read_text())

@@ -117,3 +117,17 @@
 .status-box h3 { font-family: var(--display); font-size: 20px; margin: 0 0 8px; }
 .status-box p { font-size: 16px; line-height: 1.55; margin: 0; }
 .suite-preview > .status-box { margin: 0; align-self: start; }
+
+/* Benchmarks index only: compact report entries, one takeaway line and a smaller card */
+.benchmark-index .suite-preview { grid-template-columns: 1fr 280px; gap: 28px; }
+.benchmark-index .suite-feature { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--hairline); }
+.benchmark-index .suite-feature h3 { font-size: clamp(21px, 2.2vw, 25px); margin: 6px 0 8px; }
+.benchmark-index .suite-takeaway { font-size: 17px; color: var(--soft); margin: 0 0 12px; }
+.benchmark-index .suite-preview .suite-downloads { gap: 8px 20px; }
+.benchmark-index .suite-preview .suite-downloads a { font-size: 14.5px; }
+.archive-list { margin-top: 18px; }
+.archive-list summary { cursor: pointer; font-family: var(--mono); font-size: 13px; color: var(--soft); margin-bottom: 8px; }
+@media (max-width: 760px) {
+  .benchmark-index .suite-preview { grid-template-columns: 1fr; }
+  .benchmark-index .suite-preview > a { max-width: 320px; }
+}

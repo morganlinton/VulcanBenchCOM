@@ -295,7 +295,7 @@ class GPT6SolBundleTests(unittest.TestCase):
         self.assertIn('href="/models/gpt-6-sol.html"', self.page_html)
 
     def test_every_level_everywhere_scores_appear(self):
-        for name in ("benchmarks.html", "index.html", "feed.xml", "llms.txt", "models/gpt-6-sol.html", "leaderboard.html",
+        for name in ("feed.xml", "llms.txt", "models/gpt-6-sol.html", "leaderboard.html",
                      "assets/data/swe-v4-gpt6-sol-v317/README.md"):
             text = (ROOT / name).read_text()
             if name == "leaderboard.html":  # plus the chart's pointer text, which rounds each level's score to two places
@@ -374,7 +374,7 @@ class GPT6SolBundleTests(unittest.TestCase):
             elif parsed.fragment:
                 self.assertIn(parsed.fragment, self.page.ids)
         self.assertGreater((ROOT / "assets/reports/vulcanbench-swe-v4-gpt6-sol-v317-report.pdf").stat().st_size, 100_000)
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "leaderboard.html", "README.md"):
+        for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "leaderboard.html", "README.md"):
             text = html.unescape((ROOT / name).read_text())
             self.assertIn("swe-v4-gpt6-sol-v317.html", text, name)
             if name != "feed.xml":  # feed.xml keeps historical item text as published
@@ -390,8 +390,6 @@ class GPT6SolBundleTests(unittest.TestCase):
         index = (ROOT / "benchmarks.html").read_text()
         self.assertLess(index.index("swe-v4-gpt6-sol-v317.html"), index.index("swe-v4-gpt6-luna-v316.html"))
         self.assertIn("assets/cards/swe-v4-gpt6-sol-v317.png", index)
-        home = (ROOT / "index.html").read_text()
-        self.assertLess(home.index("swe-v4-gpt6-sol-v317.html"), home.index("swe-v4-gpt6-luna-v316.html"))
         unescaped = html.unescape(self.page_html)
         for mark in (chr(0x2014), chr(0x2013), "/Users/", "SWE v4", "ultra"):
             self.assertNotIn(mark, unescaped, mark)

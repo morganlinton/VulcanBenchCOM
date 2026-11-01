@@ -317,7 +317,7 @@ class HaikuComparisonTests(unittest.TestCase):
 
     def test_site_references(self):
         for page in ("swe-v4-haiku55-v324.html", "swe-v4-haiku55-vs-frontier.html"):
-            for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "README.md", "models/claude-haiku-5-5.html"):
+            for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "README.md", "models/claude-haiku-5-5.html"):
                 self.assertIn(page, (ROOT / name).read_text(), (name, page))
         for name in ("models/claude-sonnet-5-5.html", "models/gpt-6-1-sol.html", "models/gpt-6-luna.html"):
             self.assertIn("swe-v4-haiku55-vs-frontier.html", (ROOT / name).read_text(), name)

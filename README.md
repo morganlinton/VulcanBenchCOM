@@ -3,7 +3,7 @@
 Static marketing + results site for [VulcanBench](https://github.com/morganlinton/VulcanBench), the open-source coding benchmark.
 
 ## Pages
-- `index.html`: homepage: what VulcanBench is, an animated live-run terminal, stats, and the two primary CTAs
+- `index.html`: homepage: what VulcanBench is, an animated live-run terminal, the five newest reports (a test keeps them in step with `benchmarks.html`) and the ways to work with VulcanBench
 - `benchmarks.html`: suite-separated results, with the current Frontier v4 comparison first and all earlier reports in a labeled archive
 - `benchmarks/safety-v1-opus55.html`: Claude Opus 5.5 on VulcanBench Safety v1 (harmful instructions hidden in the repository), with the standalone card and per-level and per-kind tables
 - `benchmarks/swe-v4-gpt61-terra-v329.html`: GPT-6.1 Terra through Codex CLI 0.159.0 at all five effort levels under Code quality protocol v3.29 (judged by Muse Spark 1.3 and Grok 4.6), with the comparison with Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra and with GPT-5.6 Terra, cost and tokens, calibration record, the Max settlecore recovery and Codex notice disclosures, evidence links and the redacted traces repository

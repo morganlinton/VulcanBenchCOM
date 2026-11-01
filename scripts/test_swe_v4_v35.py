@@ -285,7 +285,7 @@ class Gpt55LunaBundleTests(unittest.TestCase):
         card = ROOT / "assets/cards/swe-v4-gpt55-luna-v35.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), CARD_SHA256)
         self.assertGreater((ROOT / "assets/reports/vulcanbench-swe-v4-gpt55-luna-v35-report.pdf").stat().st_size, 100_000)
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "leaderboard.html"):
+        for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "leaderboard.html"):
             text = html.unescape((ROOT / name).read_text())
             self.assertIn("swe-v4-gpt55-luna-v35.html", text, name)
             if name != "feed.xml":  # feed.xml keeps historical item text as published
