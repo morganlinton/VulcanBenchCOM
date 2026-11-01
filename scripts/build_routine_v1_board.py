@@ -170,7 +170,7 @@ def render(data, board):
             f"within {TOLERANCE:g} combined-score points of the model&rsquo;s best.</p>\n"
             f"{picks_html(picks)}\n"
             f"{table_html(board, picks)}\n"
-            '<p class="lb-context">Combined score uses the Frontier weights: 50% functional correctness from hidden tests, 8.5% lint and complexity, 8.5% security and 33% Code quality, '
+            '<details class="lb-notes"><summary>Notes on this board</summary>\n<p>Combined score uses the Frontier weights: 50% functional correctness from hidden tests, 8.5% lint and complexity, 8.5% security and 33% Code quality, '
             f"judged by {panels} under Code quality protocol v3.8 (Opus 5.5 under v3.14, the same protocol on its own population, judged in a separate session) with the same rubric, controls, gates and calibration exam as Frontier v4. "
             "Grok 4.7 is judged under v3.22 by Muse Spark 1.3 alone: Grok 4.6 is not neutral for an xAI model, and GPT-6.1 Sol, seated in its place, "
             "failed that protocol&rsquo;s calibration exam on two gates, so the single-panel rule publishes from Muse. Muse rates code above Grok 4.6, so "
@@ -179,7 +179,7 @@ def render(data, board):
             "routine tickets have no such quirks by design, so the protocol&rsquo;s own pre-registered rule scores Routine Code quality from the reviewed panel alone. Compare levels and models within this table, never across the two boards. "
             "SE is one task standard error of the combined score. Sec/task is mean wall clock. $/task is API-equivalent at list rates from the solver receipts, not a subscription bill; "
             "Grok 4.7 has no list price and ran on the Cursor subscription, so its cost is unavailable, not $0, and its suggestion is made on time alone. "
-            '<a href="assets/data/routine-v1-board.csv" download>Download this table as CSV</a>.</p>\n'
+            '<a href="assets/data/routine-v1-board.csv" download>Download this table as CSV</a>.</p>\n</details>\n'
             "  </section>\n"
             f"{END}")
 

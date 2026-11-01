@@ -22,6 +22,7 @@
   function fmtTokens(v) { return v >= 1e6 ? (v / 1e6).toFixed(1) + "M" : v >= 1e3 ? Math.round(v / 1e3) + "k" : String(Math.round(v)); }
   function median(v) { var a = v.slice().sort(function (p, q) { return p - q; }), h = a.length >> 1; return a.length % 2 ? a[h] : (a[h - 1] + a[h]) / 2; }
   var QUAD = { usd: "cost", output_tokens_median: "token count", minutes: "time" };  // what the shaded corner is cheaper in, per x axis
+  function names(ms) { return ms.map(function (m) { return m.name; }).join(" and "); }
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
   function niceStep(span) {
     var raw = span / 6, p = Math.pow(10, Math.floor(Math.log10(raw))), m = raw / p;
@@ -32,7 +33,7 @@
   var pinned = {}, hoverKey = null;  // models picked out in the key, and the one under the pointer
 
   function past(cols, cap) {
-    // Columns past the cap, grouped by model: pointer text, caption text and the cheapest such level (where the line leaves the view).
+    // Columns past the cap, grouped by model: pointer text and the cheapest such level (where the line leaves the view).
     var out = [];
     MODELS.forEach(function (m) {
       var all = cols.filter(function (r) { return r.key === m.key; });
@@ -41,8 +42,7 @@
       var lo = "$" + off[0].usd.toFixed(2), hi = "$" + off[off.length - 1].usd.toFixed(2);
       var whole = off.length === all.length, one = off.length === 1;
       out.push({ key: m.key, first: off[0],
-        text: m.name + " " + (one ? SHORT_EFFORT[off[0].effort] + " " + lo : (whole ? "" : off.length + " levels ") + lo + " to " + hi),
-        caption: whole ? "every " + m.name + " level (" + lo + " to " + hi + ")" : off.map(function (r) { return m.name + " " + LABEL[r.effort] + " at $" + r.usd.toFixed(2); }).join(", ") });
+        text: m.name + " " + (one ? SHORT_EFFORT[off[0].effort] + " " + lo : (whole ? "" : off.length + " levels ") + lo + " to " + hi) });
     });
     return out;
   }
@@ -243,10 +243,10 @@
     var c = chart(), gone = hidden();
     app.innerHTML = '<div class="v4controls"><div class="v4group"><span class="v4label">X axis</span><div class="lb-toggle chart-toggle on v4modes" role="tablist" aria-label="Chart x axis">' + tabs + "</div></div>" +
       '<div class="v4group"><span class="v4label">Y axis</span><div class="lb-toggle chart-toggle on v4modes" role="group" aria-label="Chart y axis range">' + zooms + "</div></div></div>" +
-      '<figure class="v4card v4chart">' + legend() + '<div class="v4plotwrap">' + c.html + '<div class="v4tip" hidden></div></div><figcaption><span>Each line is one model through its reasoning-effort levels. The x axis starts at zero on the left, so cheaper levels sit toward the left of each line. The shaded top-left corner is the quadrant to focus on: levels that score ' + ZOOM_MIN + ' or more for less than the median ' + QUAD[xKey] + ' of the levels plotted. Hover or tap a model in the key to pick out its line with every effort level labelled; hover a dot for the exact numbers.' +
-      (c.beyond.length ? " The cost axis shows up to " + AXES.usd.fmt(CAP) + " per task; scroll the chart right for " + c.beyond.map(function (b) { return b.caption; }).join(" and ") + "." : "") +
-      (gone.length ? " " + gone.map(function (m) { return m.name; }).join(" and ") + (gone.length > 1 ? " have" : " has") + " no level at " + ZOOM_MIN + " or above, so " + (gone.length > 1 ? "they sit" : "it sits") + " out of this view; choose All scores to see " + (gone.length > 1 ? "them" : "it") + "." : "") +
-      (unplotted().length ? " " + unplotted().map(function (m) { return m.name; }).join(" and ") + " has no list price, so it is not on the cost view; choose Tokens or Minutes to see it." : "") + "</span></figcaption></figure>";
+      '<figure class="v4card v4chart">' + legend() + '<div class="v4plotwrap">' + c.html + '<div class="v4tip" hidden></div></div><figcaption><span>Shaded: a score of ' + ZOOM_MIN + ' or more for less than the median ' + QUAD[xKey] + '. Hover a dot for its figures; pick a model in the key to label its effort levels.' +
+      (c.beyond.length ? " Scroll the chart right for levels above " + AXES.usd.fmt(CAP) + " per task." : "") +
+      (gone.length ? " " + names(gone) + (gone.length > 1 ? " have" : " has") + " no level at " + ZOOM_MIN + " or above." : "") +
+      (unplotted().length ? " " + names(unplotted()) + (unplotted().length > 1 ? " have" : " has") + " no list price, so " + (unplotted().length > 1 ? "they are" : "it is") + " on the Tokens and Minutes views only." : "") + "</span></figcaption></figure>";
     focus();
     try { localStorage.setItem("vb_v4_axis", xKey); localStorage.setItem("vb_v4_zoom", zoom); } catch (e) {}
   }
