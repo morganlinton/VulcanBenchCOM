@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vulcanbench.com/</loc><lastmod>2026-10-30</lastmod><priority>1.0</priority></url>
-  <url><loc>https://vulcanbench.com/benchmarks.html</loc><lastmod>2026-10-30</lastmod><priority>0.9</priority></url>
+  <url><loc>https://vulcanbench.com/</loc><lastmod>2026-10-31</lastmod><priority>1.0</priority></url>
+  <url><loc>https://vulcanbench.com/benchmarks.html</loc><lastmod>2026-10-31</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/leaderboard.html</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
-  <url><loc>https://vulcanbench.com/methodology.html</loc><lastmod>2026-10-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://vulcanbench.com/methodology.html</loc><lastmod>2026-10-31</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/methodology-notes.html</loc><lastmod>2026-10-14</lastmod><priority>0.7</priority></url>
-  <url><loc>https://vulcanbench.com/benchmark-your-stack.html</loc><lastmod>2026-10-14</lastmod><priority>0.7</priority></url>
-  <url><loc>https://vulcanbench.com/benchmark-your-model.html</loc><lastmod>2026-10-14</lastmod><priority>0.7</priority></url>
-  <url><loc>https://vulcanbench.com/support.html</loc><lastmod>2026-10-14</lastmod><priority>0.7</priority></url>
-  <url><loc>https://vulcanbench.com/blog.html</loc><lastmod>2026-10-14</lastmod><priority>0.7</priority></url>
-  <url><loc>https://vulcanbench.com/analysis.html</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://vulcanbench.com/benchmark-your-stack.html</loc><lastmod>2026-10-31</lastmod><priority>0.7</priority></url>
+  <url><loc>https://vulcanbench.com/benchmark-your-model.html</loc><lastmod>2026-10-31</lastmod><priority>0.7</priority></url>
+  <url><loc>https://vulcanbench.com/support.html</loc><lastmod>2026-10-31</lastmod><priority>0.7</priority></url>
+  <url><loc>https://vulcanbench.com/blog.html</loc><lastmod>2026-10-31</lastmod><priority>0.7</priority></url>
+  <url><loc>https://vulcanbench.com/analysis.html</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html</loc><lastmod>2026-10-14</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-beam-v328.html</loc><lastmod>2026-10-27</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-deepseek-flash-v327.html</loc><lastmod>2026-10-23</lastmod><priority>0.9</priority></url>
