@@ -346,7 +346,7 @@ class Grok47BundleTests(unittest.TestCase):
                       f"{max(c['mean_combined'] for c in lowest.values()):.2f}", section)
         for needle in ("Muse Spark 1.3 alone", "failed the calibration exam on two gates", "g04", "0.4 short", "g14", "single-panel rule",
                        "v3.20 Frontier v4 judging is unaffected", "93.1 to 95.6", "82.5 to 89.8", "97.10 on Muse alone",
-                       "Routine and Frontier Code quality are not comparable", "/leaderboard.html#routine-v1-board"):
+                       "Routine and Frontier Code quality are not comparable", "/assets/data/routine-v1-board.csv"):
             self.assertIn(needle, section, needle)
         [record] = [r for r in data["code_quality"]["additional_records"] if r["protocol"] == "code-quality-maintenance-v3.22"]
         self.assertEqual((record["passing_panels"], record["failed_panels"]), (["muse"], ["sol"]))
