@@ -47,14 +47,20 @@
     return out;
   }
 
-  function ymin() { return zoom === "top" ? ZOOM_MIN : Math.max(0, Math.floor((Math.min.apply(null, plotted().map(function (r) { return r.combined; })) - 4) / 10) * 10); }
+  function ymin() { return zoom === "top" ? ZOOM_MIN : Math.max(0, Math.floor(Math.min.apply(null, plotted().map(function (r) { return r.combined; })) / 10) * 10); }
   function shown() { var lo = ymin(); return plotted().filter(function (r) { return r.combined >= lo; }); }  // levels inside the y range
   function hidden() { var s = shown(); return MODELS.filter(function (m) { return plotted().some(function (r) { return r.key === m.key; }) && !s.some(function (r) { return r.key === m.key; }); }); }
 
   function chart() {
     // $0 on the left. The y axis is pinned; the plot scrolls sideways when the cost axis runs past CAP, so $0 to CAP keeps the full width.
     var size = window.VB_V4_SIZE || {}, W = size.W || 960, H = size.H || 600, L = 56, T = 40, B = 56, P = 12, ax = AXES[xKey];
-    var all = plotted(), cols = shown(), lo = ymin(), hi = zoom === "top" ? Math.min(100, Math.ceil((Math.max.apply(null, cols.map(function (r) { return r.combined; })) + 1) / 2) * 2) : 100, ystep = zoom === "top" ? 2 : 10;
+    var all = plotted(), cols = shown(), lo = ymin(), ytop = Math.max.apply(null, cols.map(function (r) { return r.combined; }));
+    var hi = zoom === "top" ? Math.min(100, Math.ceil((ytop + 1) / 2) * 2) : Math.min(100, Math.ceil((ytop + 1) / 5) * 5);
+    // All scores: the y axis is stretched above ZOOM_MIN, where most levels sit, and compressed below it; a break mark shows the change.
+    var split = zoom === "top" || lo >= ZOOM_MIN ? null : ZOOM_MIN, SHARE = 0.72;  // share of the plot height above the split
+    var yticks = [];
+    if (split === null) { for (var t0 = lo; t0 <= hi; t0 += 2) yticks.push(t0); }
+    else { for (var t1 = lo; t1 < split; t1 += 10) yticks.push(t1); for (var t2 = split; t2 <= hi; t2 += 5) yticks.push(t2); }
     var xs = cols.map(function (r) { return r[xKey]; });
     var top = Math.max.apply(null, xs), cap = xKey === "usd" && top > CAP ? CAP : 0;
     var step = niceStep(cap || top);
@@ -63,14 +69,22 @@
     var VIEW = W - L, room = cap ? 64 : R;  // the visible plot width, and how much of it stays clear of the axis at the right edge
     var per = (VIEW - P - room) / (cap || xmax), PW = cap ? Math.ceil(P + xmax * per + R) : VIEW;
     function X(v) { return P + v * per; }
-    function Y(v) { return T + (1 - (v - lo) / (hi - lo)) * (H - T - B); }
+    function Y(v) {
+      var h = H - T - B;
+      if (split === null) return T + (1 - (v - lo) / (hi - lo)) * h;
+      return v >= split ? T + (1 - (v - split) / (hi - split)) * h * SHARE : T + h * SHARE + (split - v) / (split - lo) * h * (1 - SHARE);
+    }
     var INK = "#1c1a17", SOFT = "#6f6a62", GRID = "#1c1a17", BG = "#ffffff";
     var yaxis = '<rect x="0" y="0" width="' + L + '" height="' + H + '" fill="' + BG + '"/>';
     var g = '<defs><clipPath id="v4clip"><rect x="0" y="' + (T - 10) + '" width="' + PW + '" height="' + (H - T - B + 16) + '"/></clipPath></defs>' +
       '<rect x="0" y="0" width="' + PW + '" height="' + H + '" fill="' + BG + '"/>';
-    for (var y = lo; y <= hi; y += ystep) {
+    yticks.forEach(function (y) {
       g += '<line x1="0" y1="' + Y(y).toFixed(1) + '" x2="' + (PW - R + 8) + '" y2="' + Y(y).toFixed(1) + '" stroke="' + GRID + '" stroke-opacity="' + (y === lo ? 0.35 : 0.08) + '"/>';
       yaxis += '<text x="' + (L - 10) + '" y="' + (Y(y) + 4).toFixed(1) + '" text-anchor="end" font-size="12" fill="' + SOFT + '">' + y + "</text>";
+    });
+    if (split !== null) {  // a break mark on the axis just below the split, where the scale changes
+      var by = Y(split) + 14;
+      yaxis += '<path d="M' + (L - 9) + "," + (by + 3) + " l8,-6 M" + (L - 9) + "," + (by + 8) + ' l8,-6" stroke="' + SOFT + '" stroke-width="1.3" fill="none"/>';
     }
     for (var t = 0; t <= xmax + 1e-9; t += step) {
       g += '<line x1="' + X(t).toFixed(1) + '" y1="' + T + '" x2="' + X(t).toFixed(1) + '" y2="' + (H - B) + '" stroke="' + GRID + '" stroke-opacity="' + (t === 0 ? 0.35 : 0.08) + '"/>';
@@ -196,7 +210,7 @@
 
     var label = "VulcanBench Frontier v4 score against " + ax.label.toLowerCase() + ", $0 on the left, one line per model across its effort levels";
     return {
-      beyond: beyond,
+      beyond: beyond, stretched: split !== null,
       html: '<div class="v4frame">' +
         '<svg class="v4yaxis" viewBox="0 0 ' + L + " " + H + '" style="width:' + (100 * L / W).toFixed(3) + '%" aria-hidden="true" font-family="IBM Plex Mono, SF Mono, monospace">' + yaxis + "</svg>" +
         '<div class="v4scroll" style="width:' + (100 * VIEW / W).toFixed(3) + '%"' + (cap ? ' tabindex="0" role="region" aria-label="Chart, scrolls sideways past ' + ax.fmt(cap) + '"' : "") + ">" +
@@ -244,6 +258,7 @@
     app.innerHTML = '<div class="v4controls"><div class="v4group"><span class="v4label">X axis</span><div class="lb-toggle chart-toggle on v4modes" role="tablist" aria-label="Chart x axis">' + tabs + "</div></div>" +
       '<div class="v4group"><span class="v4label">Y axis</span><div class="lb-toggle chart-toggle on v4modes" role="group" aria-label="Chart y axis range">' + zooms + "</div></div></div>" +
       '<figure class="v4card v4chart">' + legend() + '<div class="v4plotwrap">' + c.html + '<div class="v4tip" hidden></div></div><figcaption><span>Shaded: a score of ' + ZOOM_MIN + ' or more for less than the median ' + QUAD[xKey] + '. Hover a dot for its figures; pick a model in the key to label its effort levels.' +
+      (c.stretched ? " The y axis is stretched above " + ZOOM_MIN + ", where most levels sit; the mark on the axis shows where the scale changes." : "") +
       (c.beyond.length ? " Scroll the chart right for levels above " + AXES.usd.fmt(CAP) + " per task." : "") +
       (gone.length ? " " + names(gone) + (gone.length > 1 ? " have" : " has") + " no level at " + ZOOM_MIN + " or above." : "") +
       (unplotted().length ? " " + names(unplotted()) + (unplotted().length > 1 ? " have" : " has") + " no list price, so " + (unplotted().length > 1 ? "they are" : "it is") + " on the Tokens and Minutes views only." : "") + "</span></figcaption></figure>";
