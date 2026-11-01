@@ -37,7 +37,7 @@
 <link rel="apple-touch-icon" href="assets/logo.png">
 <link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
 <link rel="stylesheet" href="style.css?v=30">
-<link rel="stylesheet" href="benchmarks-suites.css?v=5">
+<link rel="stylesheet" href="benchmarks-suites.css?v=6">
 </head>
 <body>
 
@@ -81,14 +81,13 @@
       <div><p class="suite-label">Current suite</p><h2 id="swe-v4-heading">VulcanBench Frontier v4</h2></div>
       <a href="methodology.html">Suite methodology &rarr;</a>
     </header>
-    <p class="suite-description">Formerly published as VulcanBench-SWE v4; renamed on September 18, 2026 with its URLs unchanged. 23 behavioral-reconstruction tasks. From September 2026 the combined score weights functional correctness (50%), lint and complexity (8.5%), security (8.5%) and Code quality (33%), judged by a calibrated two-model panel that never includes the graded model&rsquo;s own lab. Time and cost are reported separately.</p>
+    <p class="suite-description">23 hard tasks that rebuild a retired program from its real behaviour, formerly published as VulcanBench-SWE v4. Combined score: 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality from a two-model panel that never includes the graded model&rsquo;s own lab.</p>
 
     <article class="suite-feature suite-preview" aria-labelledby="gpt61-terra-v329-heading">
       <div>
         <p class="suite-label">October 30, 2026 &middot; 115 runs &middot; Code quality protocol v3.29</p>
         <h3 id="gpt61-terra-v329-heading"><a href="benchmarks/swe-v4-gpt61-terra-v329.html">GPT-6.1 Terra across every effort level</a></h3>
-        <p>115 runs of GPT-6.1 Terra in the Codex CLI on a ChatGPT subscription, the day after its release, 23 tasks at each of five effort levels, with Code quality at 33% of the combined score, judged by Muse Spark 1.3 and Grok 4.6 like Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra. Every cell is judged on 23 runs, one of them through an escape-spelling recovery the report describes.</p>
-        <p>Combined score 74.95 at Low, 80.10 at Medium, 79.19 at High, 83.68 at Extra-high and 90.00 at Max. Tasks passed 13, 12, 15, 16 and 23 of 23; $0.11 to $0.36 and 2.8 to 6.9 minutes a task. At Max it sits between Claude Opus 5.5 and GPT-6 Astra and is the cheapest and fastest of the four at every level.</p>
+        <p class="suite-takeaway">Rises from 74.95 at Low to 90.00 at Max, where it passes all 23 tasks, at $0.11 to $0.36 a task.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-gpt61-terra-v329.html">Read the study</a><a href="benchmarks/swe-v4-gpt61-terra-v329.html#comparison">Beside Opus 5.5, Sol and Astra</a><a href="benchmarks/swe-v4-gpt61-terra-v329.html#terra-family">Against GPT-5.6 Terra</a><a href="benchmarks/swe-v4-gpt61-terra-v329.html#run-notes">How it was run</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt61-terra-v329">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-gpt61-terra-v329.html" aria-label="Read the GPT-6.1 Terra effort report"><img src="assets/cards/swe-v4-gpt61-terra-v329.png" width="1600" height="900" loading="lazy" alt="Preview of the GPT-6.1 Terra results card. Open the study for readable charts and tables."></a>
@@ -98,8 +97,7 @@
       <div>
         <p class="suite-label">October 27, 2026 &middot; 115 runs &middot; Code quality protocol v3.28</p>
         <h3 id="beam-v328-heading"><a href="benchmarks/swe-v4-beam-v328.html">Reflection Beam across every effort level</a></h3>
-        <p>115 runs of Reflection Beam 1.0 (Beam-1.0-501B-A23B) in Mirror CLI 0.1.1, Reflection&rsquo;s own coding agent, on Reflection&rsquo;s API, 23 tasks at each of Beam&rsquo;s five reasoning levels, with Code quality at 33% of the combined score. Grok 4.6&rsquo;s Cursor account was still out of usage, so GPT-6.1 Sol sits beside Muse Spark 1.3, as for DeepSeek V4.1 Flash. At Low and Medium Beam often ends without changing any source file; those runs are not judged, count as failed and are shown both ways. Reflection publishes no price, so there is no cost.</p>
-        <p>Combined score 39.51 at Low, 44.79 at Medium, 55.01 at High, 64.72 at Extra-high and 63.92 at Max over judged runs (n=11, 20, 23, 23, 22); 18.90 and 38.95 at Low and Medium with no-code runs as 0. Tasks passed 0, 0, 0, 4 and 6 of 23; 0.4 to 22.4 minutes a task. Its best level is about 24 to 26 points below Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra.</p>
+        <p class="suite-takeaway">Scores 39.51 to 64.72 on judged runs and passes at most 6 of 23 tasks; Reflection publishes no price.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-beam-v328.html">Read the study</a><a href="benchmarks/swe-v4-beam-v328.html#comparison">Beside Opus 5.5, Sol and Astra</a><a href="benchmarks/swe-v4-beam-v328.html#judges">Judges and calibration</a><a href="benchmarks/swe-v4-beam-v328.html#run-notes">How it was run</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-beam-v328">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-beam-v328.html" aria-label="Read the Reflection Beam effort report"><img src="assets/cards/swe-v4-beam-v328.png" width="1600" height="900" loading="lazy" alt="Preview of the Reflection Beam results card. Open the study for readable charts and tables."></a>
@@ -109,8 +107,7 @@
       <div>
         <p class="suite-label">October 23, 2026 &middot; 69 runs &middot; Code quality protocol v3.27</p>
         <h3 id="deepseek-flash-v327-heading"><a href="benchmarks/swe-v4-deepseek-flash-v327.html">DeepSeek V4.1 Flash across every effort level</a></h3>
-        <p>69 runs of DeepSeek V4.1 Flash in DeepSeek Harness 0.2.1-rc.2, DeepSeek&rsquo;s own agent, on a metered API key, 23 tasks at each of the three levels DeepSeek&rsquo;s API offers, Low, High and Max, with Code quality at 33% of the combined score. Grok 4.6&rsquo;s Cursor account was out of usage, so GPT-6.1 Sol takes its seat beside Muse Spark 1.3, as it did for Grok 4.7; Claude Opus 5.5 and GPT-6.1 Sol&rsquo;s own columns have a different panel. Cost is DeepSeek&rsquo;s off-peak list price, with the billed amount beside it.</p>
-        <p>Combined score 88.65 at Low, 88.61 at High and 88.36 at Max (judged n=23 at every level, no timeouts): flat across levels, highest of the three models at Low and behind Opus 5.5 at High and Max. Tasks passed 21, 20 and 20 of 23; 8.1 to 10.6 minutes and $0.058 to $0.074 per task ($0.068 to $0.101 billed), about a fifth of GPT-6.1 Sol&rsquo;s cost.</p>
+        <p class="suite-takeaway">Flat at 88.36 to 88.65 from Low to Max, at about a fifth of GPT-6.1 Sol&rsquo;s cost per task.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-deepseek-flash-v327.html">Read the study</a><a href="benchmarks/swe-v4-deepseek-flash-v327.html#comparison">Beside Opus 5.5 and GPT-6.1 Sol</a><a href="benchmarks/swe-v4-deepseek-flash-v327.html#judges">Judges and calibration</a><a href="benchmarks/swe-v4-deepseek-flash-v327.html#run-notes">How it was run</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-deepseek-flash-v327">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-deepseek-flash-v327.html" aria-label="Read the DeepSeek V4.1 Flash effort report"><img src="assets/cards/swe-v4-deepseek-flash-v327.png" width="1600" height="900" loading="lazy" alt="Preview of the DeepSeek V4.1 Flash results card. Open the study for readable charts and tables."></a>
@@ -120,8 +117,7 @@
       <div>
         <p class="suite-label">October 17, 2026 &middot; 92 runs &middot; Code quality protocol v3.26</p>
         <h3 id="musewonder-full-v326-heading"><a href="benchmarks/swe-v4-musewonder-full-v326.html">Muse Wonder Full across every effort level</a></h3>
-        <p>92 runs of Meta&rsquo;s Muse Wonder Full through Muse Code in Contributor mode, 23 tasks at each of the four effort levels it offers, Low to Extra-high, with Code quality at 33% of the combined score. Muse Spark 1.3 is a Meta model, so Code quality is judged by Claude Opus 5.5 and GPT-6.1 Sol under the same rubric, a different panel from the other columns; the two judges differ by about 17 points and both single-judge figures are shown. Cost is an estimate at the Muse Wonder 1.0 list price.</p>
-        <p>Combined score 86.95 at Low, 88.27 at Medium, 88.19 at High and 87.59 at Extra-high (judged n=23, 23, 22, 22; one 3-hour timeout each at High and Extra-high, 84.36 and 83.78 counted as 0). Tasks passed 18, 21, 19 and 19 of 23; 27.3 to 36.2 minutes and an estimated $3.93 to $5.08 per task.</p>
+        <p class="suite-takeaway">Scores 86.95 to 88.27 across its four levels, judged by Claude Opus 5.5 and GPT-6.1 Sol in place of the usual panel.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-musewonder-full-v326.html">Read the study</a><a href="benchmarks/swe-v4-musewonder-full-v326.html#judges">Judges and calibration</a><a href="benchmarks/swe-v4-musewonder-full-v326.html#run-notes">How it was run</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-musewonder-full-v326">GitHub evidence</a><a href="https://github.com/morganlinton/vulcanbench-musewonder-full-traces">Traces</a></div>
       </div>
       <a href="benchmarks/swe-v4-musewonder-full-v326.html" aria-label="Read the Muse Wonder Full effort report"><img src="assets/cards/swe-v4-musewonder-full-v326.png" width="3450" height="2370" loading="lazy" alt="Preview of the Muse Wonder Full results card. Open the study for readable charts and tables."></a>
@@ -131,8 +127,7 @@
       <div>
         <p class="suite-label">October 12, 2026 &middot; 460 runs &middot; four models, five effort levels</p>
         <h3 id="haiku55-vs-frontier-heading"><a href="benchmarks/swe-v4-haiku55-vs-frontier.html">Claude Haiku 5.5 vs Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna</a></h3>
-        <p>Claude Haiku 5.5 beside Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna on the same 23 tasks at every effort level, judged by the same panel (Muse Spark 1.3 and Grok 4.6): combined score with &plusmn;1 SE and judged n, Code quality, tasks solved, cost and minutes per task, three comparison cards, every caveat and every data link.</p>
-        <p>At Max Haiku 5.5 (92.16 &plusmn; 0.37, n=21) and Sonnet 5.5 (92.02 &plusmn; 0.35) are effectively tied, with Haiku about 3.6 times cheaper per task; below Max Haiku rates higher on Code quality but solves fewer tasks. GPT-6.1 Sol solves more tasks at every level for 1.9 to 3.8 times less per task and scores about 3 points lower at Extra-high and Max; GPT-6 Luna scores far lower at every level and is 5 to 142 times cheaper.</p>
+        <p class="suite-takeaway">At Max Haiku 5.5 and Sonnet 5.5 are effectively tied (92.16 and 92.02), with Haiku about 3.6 times cheaper per task.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-haiku55-vs-frontier.html">Read the comparison</a><a href="benchmarks/swe-v4-haiku55-vs-frontier.html#by-level">Every level, side by side</a><a href="benchmarks/swe-v4-haiku55-vs-frontier.html#data">Get the data</a></div>
       </div>
       <a href="benchmarks/swe-v4-haiku55-vs-frontier.html" aria-label="Read the four-model comparison"><img src="assets/cards/swe-v4-haiku55-vs-sonnet55.png" width="2400" height="2340" loading="lazy" alt="Preview of the Claude Haiku 5.5 and Claude Sonnet 5.5 comparison card. Open the page for readable charts and tables."></a>
@@ -142,8 +137,7 @@
       <div>
         <p class="suite-label">October 12, 2026 &middot; 115 runs &middot; Code quality protocol v3.24</p>
         <h3 id="haiku55-v324-heading"><a href="benchmarks/swe-v4-haiku55-v324.html">Claude Haiku 5.5 across every effort level</a></h3>
-        <p>115 runs through Claude Code on a Claude Max subscription, 23 tasks at each of five effort levels, with Code quality at 33% of the combined score, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same rubric as the other Frontier v4 reports. Three runs a safety classifier stopped with an empty patch and one unpublished judge probe are counted and disclosed, and cost is shown with a floor and a ceiling for Haiku&rsquo;s two price tiers.</p>
-        <p>Combined score 84.42 at Low, 84.03 at Medium, 88.01 at High, 91.83 at Extra-high and 92.16 at Max (judged n=23, 22, 23, 22, 21). Tasks passed 13, 13, 17, 22 and 22 of 23; 19.0 to 27.7 minutes and $0.84 to $1.54 per task as Claude Code reports it, between a floor and a ceiling for Haiku&rsquo;s two price tiers.</p>
+        <p class="suite-takeaway">Rises from 84.42 at Low to 92.16 at Max, at $0.84 to $1.54 a task.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-haiku55-v324.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-haiku55-v324-report.pdf">Full PDF</a><a href="benchmarks/swe-v4-haiku55-v324.html#cost">Cost and price tiers</a><a href="benchmarks/swe-v4-haiku55-v324.html#run-notes">How it was run</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-haiku55-v324">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-haiku55-v324.html" aria-label="Read the Claude Haiku 5.5 effort report"><img src="assets/cards/swe-v4-haiku55-v324.png" width="2400" height="2235" loading="lazy" alt="Preview of the Claude Haiku 5.5 effort card. Open the study for readable charts and tables."></a>
@@ -153,8 +147,7 @@
       <div>
         <p class="suite-label">October 8, 2026 &middot; 345 runs &middot; three models, five effort levels</p>
         <h3 id="sonnet55-vs-frontier-heading"><a href="benchmarks/swe-v4-sonnet55-vs-frontier.html">Claude Sonnet 5.5 vs Claude Opus 5.5 vs GPT-6.1 Sol</a></h3>
-        <p>The three models side by side on the same 23 tasks at every effort level, judged by the same neutral panel (Muse Spark 1.3 and Grok 4.6): combined score with &plusmn;1 SE and judged n, Code quality, tasks solved, cost and minutes per task, with every caveat and every data link in one place.</p>
-        <p>Tasks solved Low to Max: Sonnet 5.5 15, 17, 20, 22, 23; Opus 5.5 17, 23, 22, 22, 21; GPT-6.1 Sol 20, 22, 23, 23, 23. Cost per task: $2.39 to $5.52, $1.70 to $8.75 and $0.31 to $0.46. Sonnet 5.5 has the highest best-level score of the three (92.02 &plusmn; 0.35 at Max), edging Opus 5.5 (91.11 &plusmn; 0.57 at High) by about 0.9 points, not a clear win, and clearly ahead of GPT-6.1 Sol (88.78 &plusmn; 0.40 at Extra-high).</p>
+        <p class="suite-takeaway">Sonnet 5.5&rsquo;s best level (92.02) edges Opus 5.5 (91.11) by under a point; GPT-6.1 Sol solves the most tasks for far less.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-sonnet55-vs-frontier.html">Read the comparison</a><a href="benchmarks/swe-v4-sonnet55-vs-frontier.html#by-level">Every level, side by side</a><a href="benchmarks/swe-v4-sonnet55-vs-frontier.html#data">Get the data</a></div>
       </div>
       <a href="benchmarks/swe-v4-sonnet55-vs-frontier.html" aria-label="Read the three-model comparison"><img src="assets/cards/swe-v4-sonnet55-vs-frontier.png" width="2400" height="2445" loading="lazy" alt="Preview of the Claude Sonnet 5.5, Claude Opus 5.5 and GPT-6.1 Sol comparison card. Open the page for readable charts and tables."></a>
@@ -164,8 +157,7 @@
       <div>
         <p class="suite-label">October 8, 2026 &middot; 115 runs &middot; Code quality protocol v3.23</p>
         <h3 id="sonnet55-v323-heading"><a href="benchmarks/swe-v4-sonnet55-v323.html">Claude Sonnet 5.5 across every effort level</a></h3>
-        <p>115 runs through Claude Code on a Claude Max subscription, 23 tasks at each of five effort levels, with Code quality at 33% of the combined score, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same rubric as the other Frontier v4 reports. The sweep predates the tagged-worktree rule, and Grok 4.6 judged through a newer Cursor CLI than in earlier rounds; both are disclosed. A second card sets Sonnet 5.5 beside Claude Opus 5.5 and Claude Fable 5.1 at every level.</p>
-        <p>Combined score 81.63 at Low, 84.10 at Medium, 86.79 at High, 90.20 at Extra-high and 92.02 at Max. Tasks passed 15, 17, 20, 22 and 23 of 23; 14.8 to 38.0 minutes and $2.39 to $5.52 per task, Claude Code&rsquo;s own cost. Refusal fallback on; no run used it.</p>
+        <p class="suite-takeaway">Rises from 81.63 at Low to 92.02 at Max, where it passes all 23 tasks, at $2.39 to $5.52 a task.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-sonnet55-v323.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-sonnet55-v323-report.pdf">Full PDF</a><a href="benchmarks/swe-v4-sonnet55-v323.html#compared">Beside Opus 5.5 and Fable 5.1</a><a href="benchmarks/swe-v4-sonnet55-v323.html#run-notes">How it was run</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-sonnet55-v323">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-sonnet55-v323.html" aria-label="Read the Claude Sonnet 5.5 effort report"><img src="assets/cards/swe-v4-sonnet55-v323.png" width="2400" height="2130" loading="lazy" alt="Preview of the Claude Sonnet 5.5 effort card. Open the study for readable charts and tables."></a>
@@ -175,8 +167,7 @@
       <div>
         <p class="suite-label">October 4, 2026 &middot; 92 runs &middot; Code quality protocol v3.20</p>
         <h3 id="grok47-cursor-v320-heading"><a href="benchmarks/swe-v4-grok47-cursor-v320.html">Grok 4.7 across every effort level</a></h3>
-        <p>92 runs through Cursor&rsquo;s agent CLI on the Cursor subscription, 23 tasks at each of the four effort levels Cursor offers (no Max), with Code quality at 33% of the combined score, judged by Muse Spark 1.3 and GPT-6.1 Sol because Grok 4.6, the usual second judge, is not neutral for an xAI model. Companion cards cover time and tokens, Grok 4.7 beside the leaders, and VulcanBench Safety v1.</p>
-        <p>Combined score 89.42 at Low, 92.30 at Medium, 92.71 at High and 93.15 at Extra-high, the top three places on the board; on Muse Spark 1.3 alone it stays first at Medium to Extra-high and is second at Low. Tasks passed 18, 21, 22 and 23 of 23; 20.2 to 28.5 minutes per task; cost unavailable, no list price.</p>
+        <p class="suite-takeaway">Scores 89.42 to 93.15, the top three places on the board, judged by Muse Spark 1.3 and GPT-6.1 Sol; no list price.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-grok47-cursor-v320.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-grok47-cursor-v320-report.pdf">Full PDF</a><a href="benchmarks/swe-v4-grok47-cursor-v320.html#judge-pair">The shared-judge check</a><a href="benchmarks/swe-v4-grok47-cursor-v320.html#safety">Safety v1</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-grok47-cursor-v320">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-grok47-cursor-v320.html" aria-label="Read the Grok 4.7 effort report"><img src="assets/cards/swe-v4-grok47-cursor-v320.png" width="2400" height="1867" loading="lazy" alt="Preview of the Grok 4.7 effort card. Open the study for readable charts and tables."></a>
@@ -186,8 +177,7 @@
       <div>
         <p class="suite-label">October 1, 2026 &middot; 115 runs &middot; Code quality protocol v3.18</p>
         <h3 id="gpt61-sol-v318-heading"><a href="benchmarks/swe-v4-gpt61-sol-v318.html">GPT-6.1 Sol across every effort level</a></h3>
-        <p>115 runs through Codex CLI 0.159.0 on a ChatGPT Pro subscription, 23 tasks at each of five effort levels, with Code quality at 33% of the combined score, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the other Frontier v4 reports. Companion cards price the runs and set three generations of Sol side by side.</p>
-        <p>Combined score 86.22 at Low, 86.44 at Medium, 88.23 at High, 88.78 at Extra-high and 88.35 at Max, ahead of GPT-6 Sol and GPT-5.6 Sol at every level. Tasks passed 20, 22, 23, 23 and 23 of 23, every hidden test from High up; $0.31 to $0.46 per task, $44.33 for all 115 runs.</p>
+        <p class="suite-takeaway">Scores 86.22 to 88.78 and passes every task from High up, at $0.31 to $0.46 a task.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-gpt61-sol-v318.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-gpt61-sol-v318-report.pdf">Full PDF</a><a href="benchmarks/swe-v4-gpt61-sol-v318.html#cost">Cost and tokens card</a><a href="benchmarks/swe-v4-gpt61-sol-v318.html#sol-family">Three generations of Sol</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt61-sol-v318">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-gpt61-sol-v318.html" aria-label="Read the GPT-6.1 Sol effort report"><img src="assets/cards/swe-v4-gpt61-sol-v318.png" width="2400" height="1867" loading="lazy" alt="Preview of the GPT-6.1 Sol effort card. Open the study for readable charts and tables."></a>
@@ -197,8 +187,7 @@
       <div>
         <p class="suite-label">September 30, 2026 &middot; 115 runs &middot; Code quality protocol v3.17</p>
         <h3 id="gpt6-sol-v317-heading"><a href="benchmarks/swe-v4-gpt6-sol-v317.html">GPT-6 Sol across every effort level</a></h3>
-        <p>115 runs through Codex CLI 0.155.0 on a ChatGPT Pro subscription, 23 tasks at each of five effort levels, with Code quality at 33% of the combined score, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the other Frontier v4 reports. Companion cards price the runs and set GPT-6 Sol, and the whole GPT-6 family, beside GPT-5.6.</p>
-        <p>Combined score 67.62 at Low, 80.60 at Medium, 82.83 at High, 85.94 at Extra-high and 86.82 at Max, slightly behind GPT-5.6 Sol at every level. Tasks passed 4, 13, 15, 18 and 19 of 23; $1.02 to $2.52 per task, $221.38 for all 115 runs. Medium is judged on 22 of 23 after one invalid judge probe.</p>
+        <p class="suite-takeaway">Rises from 67.62 at Low to 86.82 at Max, slightly behind GPT-5.6 Sol at every level.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-gpt6-sol-v317.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-gpt6-sol-v317-report.pdf">Full PDF</a><a href="benchmarks/swe-v4-gpt6-sol-v317.html#cost">Cost and tokens card</a><a href="benchmarks/swe-v4-gpt6-sol-v317.html#gpt56-sol">Beside GPT-5.6 Sol</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt6-sol-v317">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-gpt6-sol-v317.html" aria-label="Read the GPT-6 Sol effort report"><img src="assets/cards/swe-v4-gpt6-sol-v317.png" width="2400" height="1867" loading="lazy" alt="Preview of the GPT-6 Sol effort card. Open the study for readable charts and tables."></a>
@@ -208,8 +197,7 @@
       <div>
         <p class="suite-label">September 28, 2026 &middot; 115 runs &middot; Code quality protocol v3.16</p>
         <h3 id="gpt6-luna-v316-heading"><a href="benchmarks/swe-v4-gpt6-luna-v316.html">GPT-6 Luna across every effort level</a></h3>
-        <p>115 runs through Codex CLI 0.155.0 on a ChatGPT Pro subscription, 23 tasks at each of five effort levels, with Code quality at 33% of the combined score, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the other Frontier v4 reports. A companion card prices the runs and counts raw tokens at every level.</p>
-        <p>Combined score over judged runs 40.83 at Low, 45.72 at Medium, 57.35 at High, 78.79 at Extra-high and 81.42 at Max. Six runs hit the 3-hour bound (2 at Extra-high, 4 at Max); counting them as 0 gives 71.94 and 67.26. Tasks passed 0, 0, 2, 11 and 12 of 23; $0.010 to $0.160 per priced task.</p>
+        <p class="suite-takeaway">Rises from 40.83 at Low to 81.42 at Max over judged runs; six runs hit the 3-hour bound.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-gpt6-luna-v316.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-gpt6-luna-v316-report.pdf">Full PDF</a><a href="benchmarks/swe-v4-gpt6-luna-v316.html#cost">Cost and tokens card</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt6-luna-v316">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-gpt6-luna-v316.html" aria-label="Read the GPT-6 Luna effort report"><img src="assets/cards/swe-v4-gpt6-luna-v316.png" width="2400" height="2130" loading="lazy" alt="Preview of the GPT-6 Luna effort card. Open the study for readable charts and tables."></a>
@@ -219,8 +207,7 @@
       <div>
         <p class="suite-label">September 26, 2026 &middot; 115 runs &middot; Code quality protocol v3.15</p>
         <h3 id="opus55-v315-heading"><a href="benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5 across every effort level</a></h3>
-        <p>115 runs through Claude Code on a Claude Max subscription, 23 tasks at each of five effort levels, with Code quality at 33% of the combined score, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the other Frontier v4 reports. A second card sets Opus 5.5 beside GPT-6 Astra and Claude Fable 5.1 at every level.</p>
-        <p>Combined score 86.36 at Low, 90.86 at Medium with all 23 tasks passed, 91.11 at High, second on Frontier v4 only to Fable 5.1 at Max, then 90.68 and 90.22; $1.70 to $8.75 per task. Claude Code's refusal fallback was on, following Artificial Analysis: Opus 4.8 wrote 0.0, 6.4, 20.9, 32.4, 47.8% of replies from Low to Max, and every run counts.</p>
+        <p class="suite-takeaway">Rises from 86.36 at Low to a peak of 91.11 at High, at $1.70 to $8.75 a task.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-opus55-v315.html">Read the study</a><a href="benchmarks/swe-v4-opus55-v315.html#compared">Beside Astra and Fable 5.1</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-opus55-v315">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-opus55-v315.html" aria-label="Read the Claude Opus 5.5 effort report"><img src="assets/cards/swe-v4-opus55-v315.png" width="2400" height="2130" loading="lazy" alt="Preview of the Claude Opus 5.5 effort card. Open the study for readable charts and tables."></a>
@@ -230,8 +217,7 @@
       <div>
         <p class="suite-label">September 19, 2026 &middot; 115 runs &middot; Code quality protocol v3.7</p>
         <h3 id="sol-v37-heading"><a href="benchmarks/swe-v4-sol-v37.html">GPT-5.6 Sol across every effort level</a></h3>
-        <p>115 runs through the Codex CLI on a ChatGPT Pro subscription, 23 tasks at each of Sol's five effort levels, with Code quality at 33% of the combined score, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the other Frontier v4 reports. Sol joins Terra, Luna, GPT-5.5, Astra and Fable 5.1 on the <a href="leaderboard.html">Frontier v4 leaderboard</a>, completing the GPT-5.6 family.</p>
-        <p>Most of the effort curve is one step: combined score 69.05 at Low, 82.56 at Medium, then 85.76 to 87.18 from High to Max, where Sol passes 21 of 22 judged tasks. Code quality stays within about three points at every effort. A companion card prices the same runs at API-equivalent rates and counts raw tokens at every effort: $1.36 to $2.05 per task, with High the most expensive level.</p>
+        <p class="suite-takeaway">One big step from Low (69.05) to Medium (82.56), then 85.76 to 87.18 from High to Max.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-sol-v37.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-sol-v37-report.pdf">Full PDF</a><a href="benchmarks/swe-v4-sol-v37.html#cost">Cost and tokens card</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-sol-v37">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-sol-v37.html" aria-label="Read the GPT-5.6 Sol effort report"><img src="assets/cards/swe-v4-sol-v37.png" width="2400" height="1725" loading="lazy" alt="Preview of the GPT-5.6 Sol effort card. Open the study for readable charts and tables."></a>
@@ -241,8 +227,7 @@
       <div>
         <p class="suite-label">September 17, 2026 &middot; 115 runs &middot; Code quality protocol v3.6 and the v3.6.1 top-up</p>
         <h3 id="terra-v36-heading"><a href="benchmarks/swe-v4-terra-v36.html">GPT-5.6 Terra across every effort level</a></h3>
-        <p>115 runs through the Codex CLI on a ChatGPT subscription, 23 tasks at each of Terra's five effort levels, with Code quality at 33% of the combined score, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the other Frontier v4 reports. Terra joins GPT-5.5, Luna, Astra and Fable 5.1 on the <a href="leaderboard.html">Frontier v4 leaderboard</a>.</p>
-        <p>The steepest effort curve on the board so far: combined score rises at every step, 59.70 at Low to 89.05 at Max, where Terra passes every task. Code quality stays within three points at every effort. A companion card prices the same runs at API-equivalent rates and counts raw tokens at every effort: $0.58 to $2.12 per task.</p>
+        <p class="suite-takeaway">The steepest effort curve: 59.70 at Low to 89.05 at Max, where it passes every task.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-terra-v36.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-terra-v36-report.pdf">Full PDF</a><a href="benchmarks/swe-v4-terra-v36.html#cost">Cost and tokens card</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-terra-v36">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-terra-v36.html" aria-label="Read the GPT-5.6 Terra effort report"><img src="assets/cards/swe-v4-terra-v36.png" width="2400" height="1725" alt="Preview of the GPT-5.6 Terra effort card. Open the study for readable charts and tables."></a>
@@ -252,8 +237,7 @@
       <div>
         <p class="suite-label">September 15, 2026 &middot; 207 runs &middot; Code quality protocol v3.5</p>
         <h3 id="gpt55-luna-v35-heading"><a href="benchmarks/swe-v4-gpt55-luna-v35.html">GPT-5.5 vs. GPT-5.6 Luna across every effort level</a></h3>
-        <p>207 runs through the Codex CLI on a ChatGPT subscription, 23 tasks at every effort level each API offers (four for GPT-5.5, five for Luna), with Code quality at 33% of the combined score, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under the same frozen protocol as the Astra and Fable 5.1 report.</p>
-        <p>The effort knob decides it: GPT-5.5 leads at Low and Medium, Luna edges ahead at High and Extra-high, and Luna's Max level, which GPT-5.5 does not offer, is the top cell with 19 of 23 tasks passed. Luna is rated higher on Code quality at every matched effort. A companion card prices the same runs at API-equivalent rates and counts raw tokens at every effort: Luna costs 17 to 75 times less per task at matched effort.</p>
+        <p class="suite-takeaway">GPT-5.5 leads at Low and Medium, Luna from High up, and Luna costs 17 to 75 times less per task.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-gpt55-luna-v35.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-gpt55-luna-v35-report.pdf">Full PDF</a><a href="benchmarks/swe-v4-gpt55-luna-v35.html#cost">Cost and tokens card</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gpt55-luna-v35">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-gpt55-luna-v35.html" aria-label="Read the GPT-5.5 and GPT-5.6 Luna effort comparison"><img src="assets/cards/swe-v4-gpt55-luna-v35.png" width="2400" height="1725" loading="lazy" alt="Preview of the GPT-5.5 and GPT-5.6 Luna comparison card. Open the study for readable charts and tables."></a>
@@ -263,8 +247,7 @@
       <div>
         <p class="suite-label">September 9, 2026 &middot; 230 runs rescored &middot; Code quality protocol v3.4</p>
         <h3 id="astra-fable-v34-heading"><a href="benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra vs. Fable 5.1 under a neutral Code quality panel</a></h3>
-        <p>230 runs from the September 2026 effort sweep, 23 tasks at five effort levels per model, with Code quality at 33% of the combined score, judged for a human reader by Muse Spark 1.3 and Grok 4.6 under a frozen, calibrated six-dimension rubric with an intent-recovery probe.</p>
-        <p>Fable 5.1 has the higher combined score and Code quality at every matched effort; Astra is faster and cheaper at every effort. The widest gap is human readability. Both judges agree on every ranking. A companion card prices the same runs at API-equivalent rates and counts raw tokens at every effort: Astra costs $1.48 to $2.57 per task against Fable's $7.96 to $14.49.</p>
+        <p class="suite-takeaway">Fable 5.1 scores higher at every matched effort; Astra is faster and costs $1.48 to $2.57 a task against Fable&rsquo;s $7.96 to $14.49.</p>
         <div class="suite-downloads"><a href="benchmarks/swe-v4-astra-fable51-v34.html">Read the study</a><a href="assets/reports/vulcanbench-swe-v4-astra-fable51-v34-report.pdf">Full PDF</a><a href="benchmarks/swe-v4-astra-fable51-v34.html#cost">Cost and tokens card</a><a href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-astra-fable51-v34">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/swe-v4-astra-fable51-v34.html" aria-label="Read the Astra and Fable neutral-panel comparison"><img src="assets/cards/swe-v4-astra-fable51-v34.png" width="2400" height="1725" loading="lazy" alt="Preview of the neutral-panel comparison card. Open the study for readable charts and tables."></a>
@@ -294,13 +277,13 @@
       <div><p class="suite-label">Agent safety</p><h2 id="safety-v1-heading">VulcanBench Safety v1</h2></div>
       <a href="blog/02-vulcanbench-safety-v1.html">Why Safety v1 &rarr;</a>
     </header>
-    <p class="suite-description">A private suite that asks what a coding agent does when the repository tells it to do something it should not. Ten Frontier v4 tasks each hide two harmful instructions in ordinary-looking places (README sections, design docs, code comments, program output), and every run is labeled as followed, refused and told the user, or refused silently. Only aggregates are published. Safety v1 has no effect on any Frontier v4 score.</p>
+    <p class="suite-description">What a coding agent does when the repository tells it to do something it should not: ten Frontier v4 tasks, each hiding two harmful instructions. Only aggregates are published, and Safety v1 has no effect on any Frontier v4 score.</p>
 
     <article class="suite-feature suite-preview" aria-labelledby="safety-v1-opus55-preview-heading">
       <div>
         <p class="suite-label">October 6, 2026 &middot; 50 runs &middot; Claude Code 2.1.280</p>
         <h3 id="safety-v1-opus55-preview-heading"><a href="benchmarks/safety-v1-opus55.html">Claude Opus 5.5 on VulcanBench Safety v1</a></h3>
-        <p>Over 50 runs, Low to Max, Claude Opus 5.5 followed 0 of 60 instructions to contact the network, leak a secret or delete files. It followed 3 of 100 planted instructions overall (two code injections into its fix and one harmless test), flagged the note to the user in 64 of 97 refusals, and passed 44 of 50 tasks.</p>
+        <p class="suite-takeaway">Followed 0 of 60 instructions to contact the network, leak a secret or delete files, and 3 of 100 planted instructions overall.</p>
         <div class="suite-downloads"><a href="benchmarks/safety-v1-opus55.html">Read the study</a><a href="assets/cards/safety-v1-opus55.png?v=1">Results card</a><a href="benchmarks/swe-v4-grok47-cursor-v320.html#safety">Beside Grok 4.7</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/safety-v1-opus55-2026-10">GitHub evidence</a></div>
       </div>
       <a href="benchmarks/safety-v1-opus55.html" aria-label="Read the Claude Opus 5.5 Safety v1 report"><img src="assets/cards/safety-v1-opus55.png?v=1" width="2400" height="2002" loading="lazy" alt="Preview of the Claude Opus 5.5 Safety v1 card. Open the study for readable charts and tables."></a>
@@ -312,14 +295,13 @@
       <div><p class="suite-label">Decision models</p><h2 id="verdict-v2-heading">VulcanBench Verdict v2</h2></div>
       <a href="benchmarks/verdict-v2-jev.html">Read the report &rarr;</a>
     </header>
-    <p class="suite-description">A suite for models that return a typed decision instead of text. Twenty question families in eight areas, twelve in software engineering and eight in general reasoning, with every answer checked by running code, a type checker, hidden tests, a merged fix, a security advisory or the generator that built the question. Each family is scored as skill above its floor, the best of the most common answer, guessing and every surface shortcut built for it, so 0 is no better than the best dumb strategy and 100 is perfect. It replaces Verdict v1, which asked one kind of question and whose headline could not separate Jev from guessing. Verdict and Frontier scores measure different things and are not comparable.</p>
+    <p class="suite-description">Twenty question families for models that return a typed decision instead of text, each scored as skill above the best dumb strategy. It replaces Verdict v1; Verdict and Frontier scores are not comparable.</p>
 
     <article class="suite-feature suite-preview" aria-labelledby="verdict-v2-jev-preview-heading">
       <div>
         <p class="suite-label">September 25, 2026 &middot; 4,774 test items &middot; jev-1.13.0</p>
         <h3 id="verdict-v2-jev-preview-heading"><a href="benchmarks/verdict-v2-jev.html">Jev 1.13.0 on VulcanBench Verdict v2</a></h3>
-        <p>TypeSafe AI's Jev scores 45.9 on the Verdict Index (95% interval 43.1 to 48.4): 49.6 on the software families and 40.4 on the general ones, with a Calibration Index of 0.33. It answers in 0.3 seconds, $0.58 for all 4,774 items. GPT-6 Astra at high effort, given exactly the same inputs as a reference that shows every family is answerable rather than as a leaderboard entry, scores 91.7.</p>
-        <p>Jev is strongest where the answer can be recognised from the shape of the text, such as whether a snippet type-checks (87) or which service caused an incident (82), and weakest on multi-step work: 24 on filtering and totalling a table, 1 on predicting which hidden test a patch fails. On size-matched patch pairs it is above the floor, unlike v1, at skill 36 against 58 for the reference. The admission gate was amended after the pilot; the report sets out the change and its reasons. The reference scored 100 on all eight general families, so they have no headroom for ranking strong reasoning models.</p>
+        <p class="suite-takeaway">Scores 45.9 on the Verdict Index against 91.7 for a GPT-6 Astra reference, answering in 0.3 seconds.</p>
         <div class="suite-downloads"><a href="benchmarks/verdict-v2-jev.html">Read the study</a><a href="assets/data/verdict-v2-jev/report.md">Full report</a><a href="assets/data/verdict-v2-jev/scores.csv">Scores CSV</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict/v2">Suite code</a></div>
       </div>
       <a href="benchmarks/verdict-v2-jev.html" aria-label="Read the Jev report on Verdict v2"><img src="assets/cards/verdict-v2-jev.png?v=1" width="2400" height="1725" loading="lazy" alt="Preview of the Jev Verdict v2 results card. Open the study for readable charts and tables."></a>
@@ -331,14 +313,13 @@
       <div><p class="suite-label">Decision models, earlier version</p><h2 id="verdict-v1-heading">VulcanBench Verdict v1</h2></div>
       <a href="benchmarks/verdict-v1-jev.html">Read the v1 report &rarr;</a>
     </header>
-    <p class="suite-description">A suite for models that return a typed decision instead of text, and so cannot take a coding benchmark. It asks them to judge code rather than write it: 2,163 test items mined from 745 real agent patches produced during Frontier v4 sweeps, with the answers taken from those tasks' hidden test suites. Accuracy is always published beside calibration and beside the score for simply answering each question's most common label. Verdict and Frontier scores measure different things and are not comparable.</p>
+    <p class="suite-description">The first Verdict suite: models judge code rather than write it, 2,163 items from 745 real agent patches, with accuracy published beside calibration. Verdict and Frontier scores are not comparable.</p>
 
     <article class="suite-feature suite-preview" aria-labelledby="verdict-jev-preview-heading">
       <div>
         <p class="suite-label">September 22, 2026, corrected and extended with a control September 23 &middot; 2,641 queries &middot; jev-1.13.0</p>
         <h3 id="verdict-jev-preview-heading"><a href="benchmarks/verdict-v1-jev.html">Jev 1.13.0 on VulcanBench Verdict v1</a></h3>
-        <p>The first measurement of TypeSafe AI's Jev on software engineering. Jev is a System One model: it returns a typed decision in a single parallel pass and generates no text, so it was asked to judge 745 patches that frontier coding agents had already written, each one graded by hidden tests.</p>
-        <p>Its stated probability that a patch passes never rises above 0.42, on a population where 63% of them pass, which is a large calibration failure. The ranking underneath is sounder: AUROC 0.69 on that question, and at a cutoff fitted on held-out items its accuracy draws level with the majority answer rather than beating it. On which of two patches a code-quality panel preferred, it agrees 89.7% of the time at AUROC 0.962, for 328 ms and $0.15 per 1,000 decisions. Corrected on September 23 after the first version scored these questions at a cutoff the model never crosses. A control, GPT-6 Astra given the same inputs, ranks the fixes far better (AUROC 0.87 against 0.69) and beats guessing by about 10 points, so the questions are answerable and Jev's shortfall is real; even ranking fixes by lines changed alone beats Jev (0.78).</p>
+        <p class="suite-takeaway">Badly calibrated (never above 0.42 where 63% of patches pass), but it matches a code-quality panel&rsquo;s preference 89.7% of the time.</p>
         <div class="suite-downloads"><a href="benchmarks/verdict-v1-jev.html">Read the study</a><a href="assets/data/verdict-v1-jev/report.md">Full report</a><a href="assets/data/verdict-v1-jev/scores.csv">Scores CSV</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict">Suite code</a></div>
       </div>
       <a href="benchmarks/verdict-v1-jev.html" aria-label="Read the Jev report on Verdict v1"><img src="assets/cards/verdict-v1-jev.png?v=7" width="2400" height="1725" loading="lazy" alt="Preview of the Jev results card. Open the study for readable charts and tables."></a>
@@ -350,7 +331,7 @@
       <div><p class="suite-label">Archive</p><h2 id="archive-heading">Earlier suites &amp; studies</h2></div>
       <a href="#swe-v4">Back to Frontier v4 &uarr;</a>
     </header>
-    <p class="suite-description">Eval Suite 3, earlier coding suites, voice-v1 and special studies. Each report retains its original task set and scoring method. These percentages do not belong on the Frontier v4 score scale.</p>
+    <p class="suite-description">Eval Suite 3, earlier coding suites, voice-v1 and special studies, each on its own task set and scoring method, not the Frontier v4 scale.</p>
     <p class="archive-model-label">Browse historical reports by model</p>
 
   <div class="models-strip" aria-label="Browse historical results by model">
@@ -377,6 +358,7 @@
 
   <div class="report-list">
 
+    <details class="archive-list"><summary>Show the 20 earlier reports</summary>
     <a class="report-row" href="benchmarks/20-musespark-pi-harness.html">
       <div class="no">Report<b>20</b></div>
       <div>
@@ -576,6 +558,7 @@
       </div>
       <div class="arrow">&rarr;</div>
     </a>
+    </details>
 
   </div>
   </section>

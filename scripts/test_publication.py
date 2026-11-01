@@ -1,5 +1,6 @@
 """Regression checks for publication copy and the writing guard."""
 
+import re
 import unittest
 
 from check_benchmark_index import ROOT
@@ -16,9 +17,16 @@ class PublicationTests(unittest.TestCase):
         home = (ROOT / "index.html").read_text()
         self.assertNotIn("No model judges another model", home)
         self.assertNotIn("Memorization cannot help", home)
-        self.assertIn("benchmarks/swe-v4-astra-fable51-v34.html", home)
+        self.assertIn("benchmarks/swe-v4-astra-fable51-v34.html", (ROOT / "benchmarks.html").read_text())
         self.assertNotIn("benchmarks/swe-v4-astra-fable51.html", home)
         self.assertNotIn("new eval suite is built", (ROOT / "leaderboard.html").read_text())
+
+    def test_home_lists_the_five_newest_reports(self):
+        # The home page shows the five newest Benchmarks entries, newest first; Benchmarks carries every report.
+        home = (ROOT / "index.html").read_text()
+        index = (ROOT / "benchmarks.html").read_text()
+        newest = re.findall(r'<h3 id="[^"]+"><a href="(benchmarks/[^"]+)"', index)[:5]
+        self.assertEqual(re.findall(r'<a class="report-row" href="(benchmarks/[^"]+)"', home), newest)
 
 
 if __name__ == "__main__":

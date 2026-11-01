@@ -115,26 +115,9 @@
     <h2 class="section-head">Benchmarking what matters to engineering teams: accuracy, token use, time, and cost,
     all on real engineering tasks, no puzzles, no math problems.</h2>
     <div class="prose">
-      <p class="lead">Hi I'm <a href="https://www.morganlinton.com/">Morgan</a>, and I run the open source benchmarking tool and
-      lab that is VulcanBench. My motivation behind building this developed organically through my own need, as a
-      Founder and CTO, to help my team leverage the best models for the work that we do.</p>
-      <p>The core problem I ran into with agentic coding benchmarks is that a good chunk of the tasks in the evals
-      are things like puzzles and math problems, that don't represent the kind of work engineering teams do every
-      day. At the same time, benchmarks that I like, don't show how models compared across token use and time,
-      which is critical for engineering leaders to know.</p>
-      <p>So, I started testing models myself, on real engineering tasks, and looking at not just task completion
-      scores, but also at token use, cost, and time to complete tasks. If I am comparing two models, and one is 5%
-      better than the other, but that model also has an overthinking problem and uses 5x the number of tokens and
-      takes much longer to solve problems, that would be important to know, right?</p>
-      <p>I also learned through my own testing that two models that have different scores on a popular benchmark,
-      might actually produce the same accuracy on regular every day engineering tasks.</p>
-      <p>And what started as a bunch of Python scripts I was piecing together to test different models for my team,
-      turned into fully open source benchmarking software, and open, transparent evals.</p>
-      <p>The harness and published task suites are open source. Each report links its evidence and explains
-      what can be independently checked, what is withheld, and what would be needed to reproduce a run.
-      Alongside scores, I report token use, estimated API cost and time to complete tasks.</p>
-      <p>My goal is simple: let's build better benchmarks that represent the real work engineering teams do, and
-      that go beyond scores, showing things like token use, cost, and time to complete a task.</p>
+      <p class="lead">Hi, I'm <a href="https://www.morganlinton.com/">Morgan</a>. I built VulcanBench to help my own team pick
+      models for real engineering work, measuring not just accuracy but token use, cost and time, with open-source harnesses and
+      published evidence. <a href="blog/01-why-i-started-vulcanbench.html">Why I started VulcanBench &rarr;</a></p>
       <p>Live long and benchmark 🖖</p>
     </div>
   </section>
@@ -146,7 +129,7 @@
       <div class="feature">
         <div class="n">01</div>
         <h3>Suite-specific scoring</h3>
-        <p>Functional outcomes come from deterministic tests. Frontier v4 combined scores also include lint and complexity checks, a security scan and, from September 2026, 33% Code quality judged for a human reader by a calibrated two-model panel that never includes the graded model&rsquo;s own lab. Earlier reports retain their own scoring methods.</p>
+        <p>Functional outcomes come from deterministic tests. Frontier v4 adds lint and complexity checks, a security scan and 33% Code quality from a calibrated two-model panel that never includes the graded model&rsquo;s own lab.</p>
       </div>
       <div class="feature">
         <div class="n">02</div>
@@ -164,156 +147,45 @@
 
   <section class="reveal">
     <div class="section-label">The latest measurements</div>
-    <h2>Recent reports by suite.</h2>
+    <h2>Latest reports.</h2>
     <div class="report-list">
     <a class="report-row" href="benchmarks/swe-v4-gpt61-terra-v329.html">
       <div class="no">Suite<b>v4</b></div>
       <div><div class="rtitle">GPT-6.1 Terra across every effort level</div>
-      <div class="rsub">115 Codex runs of GPT-6.1 Terra at all five effort levels, the day after its release, with Code quality at 33% judged by Muse Spark 1.3 and Grok 4.6. Combined score 74.95, 80.10, 79.19, 83.68 and 90.00 from Low to Max (n=23 at every level). Tasks passed 13, 12, 15, 16 and 23 of 23; $0.11 to $0.36 and 2.8 to 6.9 minutes a task, the cheapest and fastest beside Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra.</div>
+      <div class="rsub">Rises from 74.95 at Low to 90.00 at Max, where it passes all 23 tasks, at $0.11 to $0.36 a task.</div>
       <div class="meta">October 30, 2026 &middot; 23 tasks &middot; 115 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.29</div></div>
       <div class="arrow">&rarr;</div>
     </a>
     <a class="report-row" href="benchmarks/swe-v4-beam-v328.html">
       <div class="no">Suite<b>v4</b></div>
       <div><div class="rtitle">Reflection Beam across every effort level</div>
-      <div class="rsub">115 Mirror CLI runs of Reflection Beam 1.0 (Beam-1.0-501B-A23B) at all five reasoning levels, with Code quality at 33% judged by Muse Spark 1.3 and GPT-6.1 Sol (Grok 4.6&rsquo;s Cursor account was out of usage). Combined score 39.51, 44.79, 55.01, 64.72 and 63.92 from Low to Max over judged runs (n=11, 20, 23, 23, 22); 18.90 and 38.95 at Low and Medium counting runs that left no code as 0. Tasks passed 0, 0, 0, 4 and 6 of 23; 0.4 to 22.4 minutes a task; Reflection publishes no price.</div>
+      <div class="rsub">Scores 39.51 to 64.72 on judged runs and passes at most 6 of 23 tasks; Reflection publishes no price.</div>
       <div class="meta">October 27, 2026 &middot; 23 tasks &middot; 115 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.28</div></div>
       <div class="arrow">&rarr;</div>
     </a>
     <a class="report-row" href="benchmarks/swe-v4-deepseek-flash-v327.html">
       <div class="no">Suite<b>v4</b></div>
       <div><div class="rtitle">DeepSeek V4.1 Flash across every effort level</div>
-      <div class="rsub">69 DeepSeek Harness runs on a metered API key at Low, High and Max, the levels DeepSeek&rsquo;s API offers, with Code quality at 33% judged by Muse Spark 1.3 and GPT-6.1 Sol (Grok 4.6&rsquo;s Cursor account was out of usage). Combined score 88.65 at Low, 88.61 at High and 88.36 at Max (judged n=23 at every level). Tasks passed 21, 20 and 20 of 23; 8.1 to 10.6 minutes and $0.058 to $0.074 per task at the off-peak list price ($0.068 to $0.101 billed).</div>
+      <div class="rsub">Flat at 88.36 to 88.65 from Low to Max, at about a fifth of GPT-6.1 Sol&rsquo;s cost per task.</div>
       <div class="meta">October 23, 2026 &middot; 23 tasks &middot; 69 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.27</div></div>
       <div class="arrow">&rarr;</div>
     </a>
     <a class="report-row" href="benchmarks/swe-v4-musewonder-full-v326.html">
       <div class="no">Suite<b>v4</b></div>
       <div><div class="rtitle">Muse Wonder Full across every effort level</div>
-      <div class="rsub">92 Muse Code runs in Contributor mode at the four effort levels it offers, with Code quality at 33% judged by Claude Opus 5.5 and GPT-6.1 Sol (Muse Spark 1.3 is a Meta model). Combined score 86.95 at Low, 88.27 at Medium, 88.19 at High and 87.59 at Extra-high (judged n=23, 23, 22, 22; 84.36 and 83.78 with one timeout each counted as 0). Tasks passed 18, 21, 19 and 19 of 23; 27.3 to 36.2 minutes and an estimated $3.93 to $5.08 per task.</div>
+      <div class="rsub">Scores 86.95 to 88.27 across its four levels, judged by Claude Opus 5.5 and GPT-6.1 Sol in place of the usual panel.</div>
       <div class="meta">October 17, 2026 &middot; 23 tasks &middot; 92 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.26</div></div>
       <div class="arrow">&rarr;</div>
     </a>
     <a class="report-row" href="benchmarks/swe-v4-haiku55-vs-frontier.html">
       <div class="no">Suite<b>v4</b></div>
       <div><div class="rtitle">Claude Haiku 5.5 vs Claude Sonnet 5.5, GPT-6.1 Sol and GPT-6 Luna</div>
-      <div class="rsub">The four models side by side at every effort level on the same 23 tasks and judges. At Max Haiku 5.5 (92.16 &plusmn; 0.37, n=21) and Sonnet 5.5 (92.02 &plusmn; 0.35) are effectively tied, with Haiku about 3.6 times cheaper per task; below Max Haiku rates higher on Code quality but solves fewer tasks. GPT-6.1 Sol solves more tasks at every level for 1.9 to 3.8 times less per task and scores about 3 points lower at Extra-high and Max; GPT-6 Luna scores far lower at every level and is 5 to 142 times cheaper.</div>
+      <div class="rsub">At Max Haiku 5.5 and Sonnet 5.5 are effectively tied (92.16 and 92.02), with Haiku about 3.6 times cheaper per task.</div>
       <div class="meta">October 12, 2026 &middot; 23 tasks &middot; 460 runs &middot; VulcanBench Frontier v4</div></div>
       <div class="arrow">&rarr;</div>
     </a>
-    <a class="report-row" href="benchmarks/swe-v4-haiku55-v324.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">Claude Haiku 5.5 across every effort level</div>
-      <div class="rsub">115 Claude Code runs at five effort levels with Code quality at 33% judged by Muse Spark 1.3 and Grok 4.6. Combined score 84.42 at Low, 84.03 at Medium, 88.01 at High, 91.83 at Extra-high and 92.16 at Max (judged n=23, 22, 23, 22, 21). Tasks passed 13, 13, 17, 22 and 22 of 23; 19.0 to 27.7 minutes and $0.84 to $1.54 per task as Claude Code reports it, between a floor and a ceiling for Haiku&rsquo;s two price tiers.</div>
-      <div class="meta">October 12, 2026 &middot; 23 tasks &middot; 115 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.24</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-sonnet55-vs-frontier.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">Claude Sonnet 5.5 vs Claude Opus 5.5 vs GPT-6.1 Sol</div>
-      <div class="rsub">The three models side by side at every effort level on the same 23 tasks and judges. Tasks solved Low to Max: Sonnet 5.5 15 to 23, Opus 5.5 17 to 23, GPT-6.1 Sol 20 to 23; cost per task $2.39 to $5.52, $1.70 to $8.75 and $0.31 to $0.46. Sonnet 5.5 has the highest best-level score of the three (92.02 &plusmn; 0.35 at Max), edging Opus 5.5 (91.11 &plusmn; 0.57 at High) by about 0.9 points, not a clear win, and clearly ahead of GPT-6.1 Sol (88.78 &plusmn; 0.40 at Extra-high).</div>
-      <div class="meta">October 8, 2026 &middot; 23 tasks &middot; 345 runs &middot; VulcanBench Frontier v4</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-sonnet55-v323.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">Claude Sonnet 5.5 across every effort level</div>
-      <div class="rsub">115 Claude Code runs at five effort levels with Code quality at 33% judged by Muse Spark 1.3 and Grok 4.6. Combined score 81.63 at Low, 84.10 at Medium, 86.79 at High, 90.20 at Extra-high and 92.02 at Max. Tasks passed 15, 17, 20, 22 and 23 of 23; $2.39 to $5.52 per task. Judge versions disclosed.</div>
-      <div class="meta">October 8, 2026 &middot; 23 tasks &middot; 115 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.23</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-grok47-cursor-v320.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">Grok 4.7 across every effort level</div>
-      <div class="rsub">92 Cursor runs at four effort levels with Code quality at 33% judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 89.42 at Low, 92.30 at Medium, 92.71 at High and 93.15 at Extra-high, the top three places on the board, with a different second judge from the other columns; on Muse Spark 1.3 alone it stays first at Medium to Extra-high. Tasks passed 18, 21, 22 and 23 of 23; cost unavailable. Includes Safety v1.</div>
-      <div class="meta">October 4, 2026 &middot; 23 tasks &middot; 92 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.20</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-gpt61-sol-v318.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">GPT-6.1 Sol across every effort level</div>
-      <div class="rsub">115 Codex runs at five effort levels with Code quality at 33% judged by Muse Spark 1.3 and Grok 4.6. Combined score 86.22 at Low, 86.44 at Medium, 88.23 at High, 88.78 at Extra-high and 88.35 at Max, ahead of GPT-6 Sol and GPT-5.6 Sol at every level. Tasks passed 20, 22, 23, 23 and 23 of 23; $0.31 to $0.46 per task, $44.33 for all 115 runs.</div>
-      <div class="meta">October 1, 2026 &middot; 23 tasks &middot; 115 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.18</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-gpt6-sol-v317.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">GPT-6 Sol across every effort level</div>
-      <div class="rsub">115 Codex runs at five effort levels with Code quality at 33% judged by Muse Spark 1.3 and Grok 4.6. Combined score 67.62 at Low, 80.60 at Medium, 82.83 at High, 85.94 at Extra-high and 86.82 at Max, slightly behind GPT-5.6 Sol at every level. Tasks passed 4, 13, 15, 18 and 19 of 23; $1.02 to $2.52 per task, $221.38 for all 115 runs.</div>
-      <div class="meta">September 30, 2026 &middot; 23 tasks &middot; 115 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.17</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-gpt6-luna-v316.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">GPT-6 Luna across every effort level</div>
-      <div class="rsub">115 Codex runs at five effort levels with Code quality at 33% judged by Muse Spark 1.3 and Grok 4.6. Combined score over judged runs 40.83 at Low, 45.72 at Medium, 57.35 at High, 78.79 at Extra-high and 81.42 at Max. Six runs hit the 3-hour bound (2 at Extra-high, 4 at Max); counting them as 0 gives 71.94 and 67.26. Tasks passed 0, 0, 2, 11 and 12 of 23; $0.010 to $0.160 per priced task.</div>
-      <div class="meta">September 28, 2026 &middot; 23 tasks &middot; 115 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.16</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-opus55-v315.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">Claude Opus 5.5 across every effort level</div>
-      <div class="rsub">115 Claude Code runs at five effort levels with Code quality at 33% judged by Muse Spark 1.3 and Grok 4.6. Combined score 86.36 at Low, 90.86 at Medium with all 23 tasks passed, 91.11 at High, second on Frontier v4 only to Fable 5.1 at Max, then 90.68 and 90.22; $1.70 to $8.75 per task. Refusal fallback on and disclosed.</div>
-      <div class="meta">September 26, 2026 &middot; 23 tasks &middot; 115 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.15</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-sol-v37.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">GPT-5.6 Sol across every effort level</div>
-      <div class="rsub">115 Codex runs at five effort levels with Code quality at 33% judged by Muse Spark 1.3 and Grok 4.6. Most of the curve is one step: 69.05 at Low, 82.56 at Medium, then 85.76 to 87.18 from High to Max, at $1.36 to $2.05 per task with High the most expensive level.</div>
-      <div class="meta">September 19, 2026 &middot; 23 tasks &middot; 115 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.7</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-terra-v36.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">GPT-5.6 Terra across every effort level</div>
-      <div class="rsub">115 Codex runs at five effort levels with Code quality at 33% judged by Muse Spark 1.3 and Grok 4.6. The steepest effort curve on the Frontier v4 board: 59.70 at Low to 89.05 at Max, where Terra passes every task, at $0.58 to $2.12 per task.</div>
-      <div class="meta">September 17, 2026 &middot; 23 tasks &middot; 115 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.6 and the v3.6.1 top-up</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-gpt55-luna-v35.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">GPT-5.5 vs. GPT-5.6 Luna across every effort level</div>
-      <div class="rsub">207 Codex runs at every effort level each API offers, with Code quality at 33% judged by Muse Spark 1.3 and Grok 4.6. GPT-5.5 leads at Low and Medium; Luna edges ahead from High up and its Max level is the top cell, at 17 to 75 times less per task.</div>
-      <div class="meta">September 15, 2026 &middot; 23 tasks &middot; 207 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.5</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/swe-v4-astra-fable51-v34.html">
-      <div class="no">Suite<b>v4</b></div>
-      <div><div class="rtitle">GPT-6 Astra vs. Fable 5.1 under a neutral Code quality panel</div>
-      <div class="rsub">230 runs from the September 2026 effort sweep, scored with Code quality at 33% and judged for a human reader by Muse Spark 1.3 and Grok 4.6. Fable leads combined score and Code quality at every effort; Astra is faster at every effort.</div>
-      <div class="meta">September 9, 2026 &middot; 23 matched tasks &middot; 230 runs &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.4</div></div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    <a class="report-row" href="benchmarks/20-musespark-pi-harness.html">
-      <div class="no">Report<b>20</b></div>
-      <div>
-        <div class="rtitle">Muse Spark 1.2 in Pi vs. a bare-bones harness</div>
-        <div class="rsub">Our first open-source-harness study: Pi beats the bare loop at every effort level, 4.3 to 17.4 points. And the integrity audit caught the model hunting the host for answer keys: 17 of 69 cells were replaced by kernel-confined, audited-clean reruns.</div>
-        <div class="meta">2026-08-28 &middot; 23 tasks &middot; 138 scored cells &middot; v3 suite &middot; Harness Study No. 04</div>
-      </div>
-      <div class="arrow">&rarr;</div>
-    </a>
 
-    <a class="report-row" href="benchmarks/19-musespark-effort.html">
-      <div class="no">Report<b>19</b></div>
-      <div>
-        <div class="rtitle">Muse Spark 1.2 across the effort knob</div>
-        <div class="rsub">Meta&rsquo;s flagship runs the steepest backward reasoning dial measured on v3: 87.0% at low, 52.2% at xhigh, &minus;34.8 points. Higher effort converts wrong answers into wall-clock timeouts under the same budgets every model gets.</div>
-        <div class="meta">2026-08-25 &middot; 23 tasks &middot; 69 runs &middot; v3 suite</div>
-      </div>
-      <div class="arrow">&rarr;</div>
-    </a>
 
-    <a class="report-row" href="benchmarks/18-glm53-zcode-harness.html">
-      <div class="no">Report<b>18</b></div>
-      <div>
-        <div class="rtitle">GLM 5.3 in ZCode vs. a bare-bones harness</div>
-        <div class="rsub">Our first subscription-harness study: the same GLM 5.3 through Z.ai&rsquo;s own ZCode harness and through a bare-bones API loop. The effort knob points opposite directions, and at max the harness is worth 21.8 points, 65.2% to 87.0%, with zero timed-out runs.</div>
-        <div class="meta">2026-08-24 &middot; 23 tasks &middot; 138 runs &middot; v3 suite &middot; Harness Study No. 03</div>
-      </div>
-      <div class="arrow">&rarr;</div>
-    </a>
 
 
 
@@ -326,58 +198,27 @@
   </section>
 
   <section class="reveal">
-    <div class="section-label">From the blog</div>
-    <h2>Why this exists.</h2>
-    <div class="report-list">
-    <a class="report-row" href="blog/01-why-i-started-vulcanbench.html">
-      <div class="no">Post<b class="postno">01</b></div>
-      <div>
-        <div class="rtitle">Why I started VulcanBench, and my journey building evals and benchmarking models across effort levels</div>
-        <div class="rsub">From a $300,000 model bill to under $30,000: how routing my own team&rsquo;s coding work across models and effort levels turned into a public benchmark.</div>
-        <div class="meta">2026-09-02 &middot; Morgan Linton &middot; 5 min read</div>
+    <div class="section-label">Work with VulcanBench</div>
+    <h2>Measure your own stack.</h2>
+    <div class="cols3">
+      <div class="feature">
+        <div class="n">For teams</div>
+        <h3>Routing on your codebase</h3>
+        <p>A private eval suite built from your pull requests, returned as a routing policy your team can deploy.</p>
+        <p><a href="benchmark-your-stack.html">How it works &rarr;</a></p>
       </div>
-      <div class="arrow">&rarr;</div>
-    </a>
-    </div>
-    <div class="dl-row" style="margin-top:24px;">
-      <a class="btn" href="blog.html">All posts &rarr;</a>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="section-label">New &middot; For engineering teams</div>
-    <h2>Model routing and eval suites built on your codebase.</h2>
-    <div class="prose">
-      <p>A private eval suite built from your repositories and the pull requests your engineers actually ship, run
-      across models and effort levels in the same harness as the public reports, and returned as a routing policy
-      your team can deploy, with the measurements and cost model behind it.</p>
-    </div>
-    <div class="dl-row" style="margin-top:24px;">
-      <a class="btn" href="benchmark-your-stack.html">How it works &rarr;</a>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="section-label">For labs &amp; teams</div>
-    <h2>Have your own model measured.</h2>
-    <div class="prose">
-      <p class="lead">Have your own model, fine-tune, or agent scaffold measured on the same suite, in a private report
-      graded to the same standard as everything published here.</p>
-    </div>
-    <div class="dl-row" style="margin-top:20px;">
-      <a class="btn primary" href="benchmark-your-model.html">Benchmark your model &rarr;</a>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="section-label">Support VulcanBench</div>
-    <h2>VulcanBench is free. Sponsoring keeps it running.</h2>
-    <div class="prose">
-      <p class="lead">Sponsorships run entirely through GitHub Sponsors, at whatever amount and cadence you choose.
-      Sponsors are named on GitHub as a thank you.</p>
-    </div>
-    <div class="dl-row" style="margin-top:20px;">
-      <a class="btn primary" href="https://github.com/sponsors/morganlinton">Sponsor on GitHub &rarr;</a>
+      <div class="feature">
+        <div class="n">For labs</div>
+        <h3>Have your model measured</h3>
+        <p>Your model, fine-tune or agent scaffold on the same suite, in a private report graded to the same standard.</p>
+        <p><a href="benchmark-your-model.html">Benchmark your model &rarr;</a></p>
+      </div>
+      <div class="feature">
+        <div class="n">Support</div>
+        <h3>Sponsor VulcanBench</h3>
+        <p>VulcanBench is free. Sponsorships through GitHub Sponsors keep it running, at any amount you choose.</p>
+        <p><a href="https://github.com/sponsors/morganlinton">Sponsor on GitHub &rarr;</a></p>
+      </div>
     </div>
   </section>
 </div>

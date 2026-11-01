@@ -215,8 +215,7 @@ class SolBundleTests(unittest.TestCase):
                       f'<td>{t["raw_tokens"] / 1e6:,.0f}M</td><td>{t["solver_hours"]:.1f} h</td>', self.page_html)
         self.assertEqual(self.econ["rates_per_million"], {"sol": {"input": 4.0, "cached_input": 0.4, "output": 20.0}})
         usd = [eg[e]["usd"]["mean"] for e in EFFORTS]
-        index = (ROOT / "benchmarks.html").read_text()
-        self.assertIn(f"${min(usd):.2f} to ${max(usd):.2f} per task", index)
+        self.assertIn(f"${min(usd):.2f} to ${max(usd):.2f} per task", self.page_html)
         self.assertEqual(max(eg.values(), key=lambda r: r["usd"]["mean"])["effort"], "high")
         card = ROOT / "assets/cards/swe-v4-sol-v37-economics.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), ECONOMICS_CARD_SHA256)
@@ -324,7 +323,7 @@ class SolBundleTests(unittest.TestCase):
         card = ROOT / "assets/cards/swe-v4-sol-v37.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), CARD_SHA256)
         self.assertGreater((ROOT / "assets/reports/vulcanbench-swe-v4-sol-v37-report.pdf").stat().st_size, 100_000)
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "leaderboard.html", "README.md"):
+        for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "leaderboard.html", "README.md"):
             text = html.unescape((ROOT / name).read_text())
             self.assertIn("swe-v4-sol-v37.html", text, name)
             if name != "feed.xml":  # feed.xml keeps historical item text as published

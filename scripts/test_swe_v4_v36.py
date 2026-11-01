@@ -179,8 +179,7 @@ class TerraBundleTests(unittest.TestCase):
         self.assertIn(f'<tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>115</td><td>${t["usd"] / 115:.2f}</td><td>${t["usd"]:,.2f}</td>', self.page_html)
         self.assertEqual(econ["rates_per_million"], {"terra": {"input": 2.0, "cached_input": 0.2, "output": 12.0}})
         usd = [eg[e]["usd"]["mean"] for e in EFFORTS]
-        index = (ROOT / "benchmarks.html").read_text()
-        self.assertIn(f"${min(usd):.2f} to ${max(usd):.2f} per task", index)
+        self.assertIn(f"${min(usd):.2f} to ${max(usd):.2f} per task", self.page_html)
         card = ROOT / "assets/cards/swe-v4-terra-v36-economics.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), ECONOMICS_CARD_SHA256)
 
@@ -268,7 +267,7 @@ class TerraBundleTests(unittest.TestCase):
         card = ROOT / "assets/cards/swe-v4-terra-v36.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), CARD_SHA256)
         self.assertGreater((ROOT / "assets/reports/vulcanbench-swe-v4-terra-v36-report.pdf").stat().st_size, 100_000)
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "leaderboard.html"):
+        for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "leaderboard.html"):
             text = html.unescape((ROOT / name).read_text())
             self.assertIn("swe-v4-terra-v36.html", text, name)
             if name != "feed.xml":  # feed.xml keeps historical item text as published

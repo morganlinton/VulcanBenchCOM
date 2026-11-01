@@ -358,7 +358,7 @@ class TerraSiteTests(unittest.TestCase):
         self.assertIn('href="gpt-6-1-terra.html"', (ROOT / "models/gpt-5-6-terra.html").read_text())
 
     def test_site_references(self):
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "README.md", "models/gpt-6-1-terra.html"):
+        for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "README.md", "models/gpt-6-1-terra.html"):
             self.assertIn("swe-v4-gpt61-terra-v329.html", (ROOT / name).read_text(), name)
         self.assertIn('href="models/gpt-6-1-terra.html"', (ROOT / "benchmarks.html").read_text())
         self.assertIn("swe-v4-gpt61-terra-v329/", (ROOT / "assets/data/README.md").read_text())

@@ -146,8 +146,8 @@ class NeutralPanelBundleTests(unittest.TestCase):
         self.assertEqual(f'{t["astra"]["long_context_upper_usd"]:.2f}', "419.42")
         astra_costs = [eg["astra", e]["usd"]["mean"] for e in EFFORTS]
         fable_costs = [eg["fable", e]["usd"]["mean"] for e in EFFORTS]
-        index = (ROOT / "benchmarks.html").read_text()
-        self.assertIn(f"Astra costs ${min(astra_costs):.2f} to ${max(astra_costs):.2f} per task against Fable's ${min(fable_costs):.2f} to ${max(fable_costs):.2f}", index)
+        index = html.unescape((ROOT / "benchmarks.html").read_text())  # the Benchmarks takeaway carries the cost range
+        self.assertIn(f"costs ${min(astra_costs):.2f} to ${max(astra_costs):.2f} a task against Fable\u2019s ${min(fable_costs):.2f} to ${max(fable_costs):.2f}", index)
         card = ROOT / "assets/cards/swe-v4-astra-fable51-v34-economics.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), ECONOMICS_CARD_SHA256)
         for r in self.rows:
@@ -219,7 +219,7 @@ class NeutralPanelBundleTests(unittest.TestCase):
         card = ROOT / "assets/cards/swe-v4-astra-fable51-v34.png"
         self.assertEqual(hashlib.sha256(card.read_bytes()).hexdigest(), CARD_SHA256)
         self.assertGreater((ROOT / "assets/reports/vulcanbench-swe-v4-astra-fable51-v34-report.pdf").stat().st_size, 100_000)
-        for name in ("benchmarks.html", "index.html", "sitemap.xml", "feed.xml", "llms.txt", "methodology.html", "leaderboard.html"):
+        for name in ("benchmarks.html", "sitemap.xml", "feed.xml", "llms.txt", "methodology.html", "leaderboard.html"):
             text = html.unescape((ROOT / name).read_text())
             self.assertIn("swe-v4-astra-fable51-v34.html", text, name)
             if name != "feed.xml":  # feed.xml keeps historical item text as published
