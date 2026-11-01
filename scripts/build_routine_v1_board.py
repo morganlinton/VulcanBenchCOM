@@ -1,11 +1,11 @@
-"""Build the VulcanBench Routine v1 section of the leaderboard from the public aggregates.
+"""Build the published VulcanBench Routine v1 board data from the public aggregates.
 
 Routine v1 is the private companion to Frontier v4: twelve routine tickets
 (small Python packages, one clear ticket each). Task content is never
 published, so this reads one aggregate file, per model and effort level,
 written by the private repository's scripts/build_routine_aggregates.py, and
-writes assets/data/routine-v1-board.csv and the block between the markers in
-leaderboard.html.
+writes assets/data/routine-v1-board.csv. The leaderboard page shows Frontier v4
+only, so nothing here writes to it.
 
 Nothing partial is published: the build refuses unless every cell has all
 twelve tasks, no run is flagged, and the Code quality v3.8 record says it is
@@ -21,17 +21,13 @@ import csv
 import io
 import json
 import sys
-from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGE = ROOT / "leaderboard.html"
 DATA = ROOT / "assets/data/routine-v1-aggregates.json"
 CSV = ROOT / "assets/data/routine-v1-board.csv"
-START, END = "<!-- routine-v1-board:start -->", "<!-- routine-v1-board:end -->"
-ANCHOR = '  <section class="lb-section" id="swe-v3-board"'  # the Routine section goes in just above the retired v3 board
 EFFORTS = ("low", "medium", "high", "extra-high", "max")
-# Board order and display: key -> (model, harness, model page slug, lab, colour). Colours match the Frontier v4 board.
+# Board order and display: key -> (model, harness, model page slug, lab, colour).
 MODELS = {
     "fable": ("Fable 5.1", "Claude Code", "fable-5-1", "Anthropic", "#FF7A3D"),
     "opus55": ("Opus 5.5", "Claude Code", "claude-opus-5-5", "Anthropic", "#FFB347"),
@@ -117,73 +113,6 @@ def suggestions(board):
     return out
 
 
-def money(value):
-    return "unavailable" if value is None else (f"${value:.3f}" if value < 0.1 else f"${value:.2f}")
-
-
-def table_html(board, picks):
-    lines = ['<div class="lb-scroll">', '<table class="lb" id="routineboard">',
-             '<caption class="sr-only">VulcanBench Routine v1: every model and effort level on twelve routine tickets</caption>',
-             '<thead><tr><th class="l" scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Passed</th>'
-             '<th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Code quality</th><th scope="col">Sec/task</th>'
-             '<th scope="col">$/task</th></tr></thead>', "<tbody>"]
-    for r in board:
-        picked = picks[r["key"]]["effort"] == r["effort"]
-        tag = '<span class="fb-best">suggested</span>' if picked else ""
-        page = ROOT / f'models/{r["slug"]}.html'
-        name = f'<a class="lb-model" href="models/{r["slug"]}.html">{escape(r["model"])}</a>' if page.is_file() else f'<span class="lb-model">{escape(r["model"])}</span>'
-        se = "" if r["combined_se"] is None else f'{r["combined_se"]:.2f}'
-        lines.append(
-            f'<tr data-model="{r["key"]}" data-effort="{r["effort"]}" data-suggested="{int(picked)}">'
-            f'<td class="l"><span class="v4dot" style="background:{MODELS[r["key"]][4]}"></span>{name} <span class="lb-harness">{escape(r["harness"])}</span>{tag}</td>'
-            f'<td class="fb-eff">{r["effort"]}</td><td>{r["passed"]}/{r["n"]}</td><td class="lb-win">{r["combined"]:.2f}</td><td>{se}</td>'
-            f'<td>{r["code_quality"]:.2f}</td><td>{r["seconds"]:.0f}</td><td>{money(r["usd"])}</td></tr>')
-    lines += ["</tbody>", "</table>", "</div>"]
-    return "\n".join(lines)
-
-
-def picks_html(picks):
-    items = []
-    for key in MODELS:
-        if key not in picks:
-            continue
-        p = picks[key]
-        note = "its lowest level" if p["effort"] == p["lowest_effort"] else f'{p["gap"]:.1f} points under its best at {p["best_effort"]}'
-        items.append(f'<li><strong>{escape(p["model"])}</strong>: {p["effort"]} ({p["passed"]}/{p["n"]} passed, combined {p["combined"]:.1f}, {note})</li>')
-    return '<ul class="lb-context">' + "".join(items) + "</ul>"
-
-
-def render(data, board):
-    picks = suggestions(board)
-    models = len({r["key"] for r in board})
-    runs = sum(r["n"] for r in board)
-    panels = " and ".join({"muse": "Muse Spark 1.3", "grok": "Grok 4.6"}.get(p, p) for p in data["code_quality"]["passing_panels"])
-    return (f"{START}\n"
-            '  <section class="lb-section" id="routine-v1-board" aria-labelledby="rv1-board-heading" style="margin-top:40px;">\n'
-            '    <div class="lb-shead">\n      <h2 id="rv1-board-heading">VulcanBench Routine v1</h2>\n    </div>\n'
-            f'<p class="lb-context">Frontier v4 asks which model and effort level can do hard work. Routine v1 asks the everyday question: what is the cheapest effort level '
-            f"that is enough for an ordinary ticket. It is {data['tasks']} private routine tickets on small Python packages (a targeted bug fix, a small feature behind a flag, input validation, "
-            "an edge case in dates, money or text), each admitted because a frontier model at its lowest effort finds it easy. "
-            f"{models} models, {len(board)} model&times;effort columns, {runs:,} runs, one attempt per task and level, each model through its own CLI on a subscription. "
-            "The tasks stay private so they cannot leak into training data, so only per-model, per-effort aggregates are published.</p>\n"
-            '<p class="lb-context"><strong>Suggested effort for routine work</strong>, by the same rule as the Frontier board: the cheapest level, then the fastest, '
-            f"within {TOLERANCE:g} combined-score points of the model&rsquo;s best.</p>\n"
-            f"{picks_html(picks)}\n"
-            f"{table_html(board, picks)}\n"
-            '<details class="lb-notes"><summary>Notes on this board</summary>\n<p>Combined score uses the Frontier weights: 50% functional correctness from hidden tests, 8.5% lint and complexity, 8.5% security and 33% Code quality, '
-            f"judged by {panels} under Code quality protocol v3.8 (Opus 5.5 under v3.14, the same protocol on its own population, judged in a separate session) with the same rubric, controls, gates and calibration exam as Frontier v4. "
-            "Grok 4.7 is judged under v3.22 by Muse Spark 1.3 alone: Grok 4.6 is not neutral for an xAI model, and GPT-6.1 Sol, seated in its place, "
-            "failed that protocol&rsquo;s calibration exam on two gates, so the single-panel rule publishes from Muse. Muse rates code above Grok 4.6, so "
-            "rescoring every other column from Muse alone puts their lowest tested levels at 93.1 to 95.6, against Grok 4.7&rsquo;s 97.3 at Low: still first. "
-            "<strong>Routine and Frontier Code quality are not comparable.</strong> On Frontier v4 part of Code quality measures whether a reviewer can recover each task&rsquo;s deliberate legacy quirks; "
-            "routine tickets have no such quirks by design, so the protocol&rsquo;s own pre-registered rule scores Routine Code quality from the reviewed panel alone. Compare levels and models within this table, never across the two boards. "
-            "SE is one task standard error of the combined score. Sec/task is mean wall clock. $/task is API-equivalent at list rates from the solver receipts, not a subscription bill; "
-            "Grok 4.7 has no list price and ran on the Cursor subscription, so its cost is unavailable, not $0, and its suggestion is made on time alone. "
-            '<a href="assets/data/routine-v1-board.csv" download>Download this table as CSV</a>.</p>\n</details>\n'
-            "  </section>\n"
-            f"{END}")
-
-
 def csv_text(board, picks):
     buffer = io.StringIO()
     writer = csv.writer(buffer, lineterminator="\n")
@@ -197,49 +126,22 @@ def csv_text(board, picks):
     return buffer.getvalue()
 
 
-def place(page, block):
-    """Replace the marked block, or insert it above the retired v3 section the first time."""
-    if page.count(START) == 1 and page.count(END) == 1:
-        head, rest = page.split(START, 1)
-        _, tail = rest.split(END, 1)
-        return head + block + tail
-    assert START not in page and END not in page, "leaderboard.html has a broken routine-v1-board block"
-    assert page.count(ANCHOR) == 1, "leaderboard.html lost the v3 section the Routine block sits above"
-    head, tail = page.split(ANCHOR, 1)
-    return head + block + "\n\n" + ANCHOR + tail
-
-
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--from", dest="source", type=Path, help="import this aggregate file into assets/data first")
-    parser.add_argument("--preview", action="store_true", help="build from unfinished data into a scratch copy of the page; never for publication")
     args = parser.parse_args()
     data = load(args.source or DATA)
     blockers = problems(data)
-    if blockers and not args.preview:
+    if blockers:
         print("refusing to publish Routine v1:")
         for b in blockers:
             print(f"  {b}")
         sys.exit(1)
-    if args.preview:
-        for c in data["cells"]:  # unjudged preview only: stand in the no-judges total so the layout can be checked
-            c.setdefault("mean_combined", round(100 * c["mean_total_no_judges"], 2))
-            c.setdefault("mean_code_quality", 0.0)
-        data.setdefault("code_quality", {}).setdefault("passing_panels", ["muse", "grok"])
-        data["cells"] = [c for c in data["cells"] if c["model_key"] in MODELS]
     board = rows(data)
-    block = render(data, board)
     table = csv_text(board, suggestions(board))
-    for text in (block, table):
-        assert chr(0x2014) not in text and chr(0x2013) not in text
-    new_page = place(PAGE.read_text(), block)
-    if args.preview:
-        out = ROOT / "leaderboard.preview.html"
-        out.write_text(new_page)
-        print(f"PREVIEW ONLY ({len(blockers)} blocker(s)); wrote {out.name}, which is not tracked or published")
-        return
-    outputs = {PAGE: new_page, CSV: table, DATA: json.dumps(data, indent=1) + "\n"}
+    assert chr(0x2014) not in table and chr(0x2013) not in table
+    outputs = {CSV: table, DATA: json.dumps(data, indent=1) + "\n"}
     stale = [p for p, text in outputs.items() if not p.exists() or p.read_text() != text]
     if args.check:
         for p in stale:

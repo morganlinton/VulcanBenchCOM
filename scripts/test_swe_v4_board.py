@@ -202,7 +202,6 @@ class BoardTests(unittest.TestCase):
         self.assertNotIn(chr(0x2013), text)
         self.assertEqual(self.page.count(board.START), 1)
         self.assertEqual(self.page.count(board.END), 1)
-        self.assertIn("VulcanBench-SWE v3 (retired in August 2026)", self.page)
         self.assertIn("&sect; GPT-5.6 Sol at max is judged on 22 of 23 tasks", self.page)
         self.assertIsNotNone(self.col("sol", "max"))
         self.assertEqual(self.col("sol", "max")["mark"], "\u00a7")
@@ -291,8 +290,8 @@ class BoardTests(unittest.TestCase):
         self.assertIn(f"&middot; {models} models &middot; {columns} model&times;effort columns &middot; {runs} runs &middot;", self.page)
         self.assertEqual(len(set(board.COLORS.values())), len(board.COLORS))
         self.assertEqual(set(board.COLORS), {r["key"] for r in self.rows})
-        self.assertLess(self.page.index('id="swe-v4-board"'), self.page.index('id="swe-v3-board"'))
-        self.assertNotIn('id="fullboard"', self.page)  # the retired v3 board is JSON only; the page keeps one chart
+        self.assertNotIn('id="swe-v3-board"', self.page)  # the leaderboard page shows Frontier v4 only
+        self.assertNotIn('id="fullboard"', self.page)  # the retired v3 board stays JSON only; the page keeps one chart
 
 
 if __name__ == "__main__":
