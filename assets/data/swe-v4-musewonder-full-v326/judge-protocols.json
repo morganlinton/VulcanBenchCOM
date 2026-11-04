@@ -34,22 +34,26 @@
     "v3.26": "code-quality-maintenance-v3.26",
     "v3.26.1": "code-quality-maintenance-v3.26.1",
     "v3.26.2": "code-quality-maintenance-v3.26.2",
-    "v3.26.3": "code-quality-maintenance-v3.26.3"
+    "v3.26.3": "code-quality-maintenance-v3.26.3",
+    "v3.26.5": "code-quality-maintenance-v3.26.5"
   },
   "protocol_sha256": {
     "v3.25": "992597c6cd5753ce049a7496ed630f2941c2a5876a9d2b89c3b63d64efb744ad",
     "v3.26": "a718b2766f9db218fc070ad4e8d740293cd52371b4ab03af463cee60ef44a22d",
     "v3.26.1": "5eef085fdaa8de908fc03751df157287a84e83d87c6bfa21e07e3cca32197f15",
     "v3.26.2": "d08704a8c501766d4ca00a84b8590a1e2f365c0a58feab1498f17c14f89d23cb",
-    "v3.26.3": "2271aa3dff46892901859999ad83c4ff12bc00e74710cb0f876da8fc4b96c721"
+    "v3.26.3": "2271aa3dff46892901859999ad83c4ff12bc00e74710cb0f876da8fc4b96c721",
+    "v3.26.5": "00f8519f6303ff27448064290221b144cc0845534249523d9119e397f6d2b532"
   },
   "rounds": {
     "v3.25": "GPT-6.1 Sol's exam and its Low and Medium votes (44 runs); the Grok 4.7 seat stopped on its first exam call when the Cursor account ran out of usage, a stop and not an exam failure, so no Grok 4.7 vote exists",
     "v3.26": "Claude Opus 5.5 replaces the Grok 4.7 seat and takes the exam; Low and Medium (44 runs) with GPT-6.1 Sol's v3.25 work attached as a scored sibling on byte-identical inputs",
     "v3.26.1": "the two Medium runs made on Muse Code 1.4.9 after the quota reset (cellarcore, paddockcore), no new exam",
     "v3.26.2": "High, 22 judged runs (paddockcore hit the 3-hour bound), no new exam",
-    "v3.26.3": "Extra-high, 22 judged runs (depotcore hit the 3-hour bound), no new exam"
+    "v3.26.3": "Extra-high, 22 judged runs (depotcore hit the 3-hour bound), no new exam",
+    "v3.26.5": "Max, 23 judged runs from its own run root on Muse Code 1.4.9, no new exam"
   },
+  "not_yet_judged": "v3.26.4 would judge the clean Extra-high depotcore rerun (19 October); it is on hold, so Extra-high keeps the published, timed-out run",
   "excluded_judges": {
     "muse": "Muse Spark 1.3 is a Meta model and is not neutral for a Meta submission (owner decision in chat, 2026-10-15)"
   },
@@ -521,6 +525,12 @@
         "musewonderfull/extra-high": 22
       },
       "excluded": 1
+    },
+    "v3.26.5": {
+      "cells": {
+        "musewonderfull/max": 23
+      },
+      "excluded": 0
     }
   },
   "not_judged": [
@@ -562,6 +572,10 @@
     "v3.26.3": {
       "claude": "cd9c41b7855fa03c3b47c10fd0b54ed30b25de08c7fea030a2c376d4b8e0e601",
       "sol": "386d37b8e04238c73308239e486aaedef8b9c5fdff20192eac6ab0c25cc40d93"
+    },
+    "v3.26.5": {
+      "claude": "cd9c41b7855fa03c3b47c10fd0b54ed30b25de08c7fea030a2c376d4b8e0e601",
+      "sol": "386d37b8e04238c73308239e486aaedef8b9c5fdff20192eac6ab0c25cc40d93"
     }
   },
   "counted_calls": {
@@ -591,6 +605,12 @@
         "primary": 22,
         "probe": 22,
         "repeat": 1
+      },
+      "v3.26.5": {
+        "match": 23,
+        "primary": 23,
+        "probe": 23,
+        "repeat": 1
       }
     },
     "claude": {
@@ -619,6 +639,12 @@
         "primary": 22,
         "probe": 22,
         "repeat": 1
+      },
+      "v3.26.5": {
+        "match": 23,
+        "primary": 23,
+        "probe": 23,
+        "repeat": 1
       }
     }
   },
@@ -630,13 +656,15 @@
       "v3.25": 7,
       "v3.26.1": 1,
       "v3.26.2": 2,
-      "v3.26.3": 2
+      "v3.26.3": 2,
+      "v3.26.5": 5
     },
     "claude": {
       "v3.26": 0,
       "v3.26.1": 0,
       "v3.26.2": 1,
-      "v3.26.3": 0
+      "v3.26.3": 0,
+      "v3.26.5": 1
     }
   },
   "operator_recoveries": [
@@ -702,6 +730,31 @@
       "stage": "match",
       "submission": "extra-high-003",
       "method": "one-based departure indexes moved to zero-based; statuses untouched"
+    },
+    {
+      "round": "v3.26.5",
+      "panel": "sol",
+      "stage": "match",
+      "submission": "max-002",
+      "method": "one-based departure indexes moved to zero-based; statuses untouched"
+    },
+    {
+      "round": "v3.26.5",
+      "panel": "sol",
+      "stage": "match",
+      "submission": "max-013",
+      "method": "one-based departure indexes moved to zero-based; statuses untouched"
+    }
+  ],
+  "operator_stops": [
+    {
+      "round": "v3.26.5",
+      "panel": "claude",
+      "stage": "primary",
+      "submission": "max-001",
+      "attempts_set_aside": 1,
+      "finding": "the pinned Claude Code's sign-in had expired: a synthetic 'Failed to authenticate' result with zero output tokens and no model response, refused by the reviewer identity guard; nothing was judged",
+      "action": "the attempt was set aside under auth-stops/ with a note after the owner signed in again, and the same call resumed with identical inputs, as the protocol does for quota stops"
     }
   ],
   "operator_recovery_rule": "recover_one_based_indexes: both attempts of a GPT-6.1 Sol answer-key match failed only because the departure indexes were one-based (every cited index between 1 and the departure count, the largest equal to the count); the indexes are moved to zero-based, statuses untouched, and the original indexes are kept in the receipt"

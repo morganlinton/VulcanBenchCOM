@@ -1,4 +1,4 @@
-"""Stdlib checks for the Muse Wonder Full bundle (v3.26 to v3.26.3), its report page, its card, its model page and the site links to them."""
+"""Stdlib checks for the Muse Wonder Full bundle (v3.26 to v3.26.3 and v3.26.5), its report page, its card, its model page and the site links to them."""
 
 import csv
 import hashlib
@@ -19,15 +19,15 @@ MODEL_PAGE = ROOT / "models/muse-wonder-full.html"
 URL = "https://vulcanbench.com/benchmarks/swe-v4-musewonder-full-v326.html"
 MODEL_URL = "https://vulcanbench.com/models/muse-wonder-full.html"
 TRACES = "https://github.com/morganlinton/vulcanbench-musewonder-full-traces"
-EFFORTS = ("low", "medium", "high", "extra-high")
+EFFORTS = ("low", "medium", "high", "extra-high", "max")
 PANELS = ("claude", "sol")
 PLACEHOLDER = "{{" + "TBD:"  # spelled in two parts so this line does not count itself
-RUNS = 92
-PASSED = [18, 21, 19, 19]
-JUDGED = [23, 23, 22, 22]
+RUNS = 115
+PASSED = [18, 21, 19, 19, 22]
+JUDGED = [23, 23, 22, 22, 23]
 TIMEOUTS = {("high", "legacy-paddockcore-binary-parity"), ("extra-high", "legacy-depotcore-binary-parity")}
-VERSIONS = {"low": {"1.4.6": 23}, "medium": {"1.4.6": 21, "1.4.9": 2}, "high": {"1.4.9": 23}, "extra-high": {"1.4.9": 23}}
-ROUNDS = {"low": {"v3.26": 23}, "medium": {"v3.26": 21, "v3.26.1": 2}, "high": {"v3.26.2": 22}, "extra-high": {"v3.26.3": 22}}
+VERSIONS = {"low": {"1.4.6": 23}, "medium": {"1.4.6": 21, "1.4.9": 2}, "high": {"1.4.9": 23}, "extra-high": {"1.4.9": 23}, "max": {"1.4.9": 23}}
+ROUNDS = {"low": {"v3.26": 23}, "medium": {"v3.26": 21, "v3.26.1": 2}, "high": {"v3.26.2": 22}, "extra-high": {"v3.26.3": 22}, "max": {"v3.26.5": 23}}
 WONDER = (4.00, 0.20, 20.00)  # Muse Wonder 1.0 list price per million: uncached input, cached input, output
 SPARK = (1.25, 0.15, 4.25)  # Muse Spark 1.3 list price, for Muse Code 1.4.9's reminder observers
 # The harness card (docs/results/swe-v4-musewonder-full-2026-10/musewonder-full-vs-frontier.json), per level.
@@ -40,9 +40,11 @@ CARD = {
              "usd": 4.719412567391305, "minutes": 36.17281014492754, "claude": 59.56439393939394, "sol": 77.08333333333333},
     "extra-high": {"combined": 87.58899923939697, "combined_se": 0.964079486318422, "zero": 83.78078188116231, "functional": 93.16782608695652,
                    "usd": 5.081019567391304, "minutes": 33.337392028985505, "claude": 57.765151515151516, "sol": 74.90530303030303},
+    "max": {"combined": 88.36127541371671, "combined_se": 0.7559472850525527, "zero": None, "functional": 99.03391304347826,
+            "usd": 5.910995563043478, "minutes": 40.93668623188406, "claude": 57.2463768115942, "sol": 75.36231884057972},
 }
 # Copied byte for byte from the harness (docs/results/swe-v4-musewonder-full-2026-10/musewonder-full-vs-frontier.png).
-CARD_PNG = ("swe-v4-musewonder-full-v326.png", "fbd9ed9221e51acae49af56ae420f0e6518ee6ddd6a7655e2d1adb13f684930e", 3450, 2370)
+CARD_PNG = ("swe-v4-musewonder-full-v326.png", "e14076e5bc3858a7c20ca784a1128029f624a1456af655563b4bdc579deb9260", 3450, 2370)
 TOUCHED = ("benchmarks/swe-v4-musewonder-full-v326.html", "models/muse-wonder-full.html", "models/muse-spark-1-2.html", "benchmarks.html",
            "index.html", "feed.xml", "llms.txt", "leaderboard.html", "README.md", "assets/data/README.md",
            "assets/data/swe-v4-musewonder-full-v326/README.md", "assets/data/swe-v4-musewonder-full-v326/REPRODUCING.md",
@@ -61,7 +63,7 @@ class WonderBundleTests(unittest.TestCase):
 
     def test_every_run_recomputes(self):
         self.assertEqual(len(self.rows), RUNS)
-        self.assertEqual((self.runs["published"], self.runs["timeouts"]), (90, 2))
+        self.assertEqual((self.runs["published"], self.runs["timeouts"]), (113, 2))
         self.assertEqual({(r["effort"], r["task"]) for r in self.rows if r["judged"] != "published"}, TIMEOUTS)
         for r in self.rows:
             self.assertEqual(r["integrity_audit"]["contaminated"], False)
@@ -117,7 +119,7 @@ class WonderBundleTests(unittest.TestCase):
             self.assertEqual(rounds, ROUNDS[effort], effort)
         self.assertEqual({r["task"] for r in self.rows if r["effort"] == "medium" and "1.4.9" in r["solver_cli_version"]},
                          {"legacy-cellarcore-binary-parity", "legacy-paddockcore-binary-parity"})
-        self.assertEqual([sum(1 for r in self.rows if r["effort"] == e and r["overlap_minutes_logged"]) for e in EFFORTS[1:]], [9, 14, 5])
+        self.assertEqual([sum(1 for r in self.rows if r["effort"] == e and r["overlap_minutes_logged"]) for e in EFFORTS[1:]], [9, 14, 5, 0])
         self.assertTrue(all(r["overlap_minutes_logged"] is None for r in self.rows if r["effort"] == "low"))
 
     def test_runs_csv_and_scores_csv(self):
@@ -131,7 +133,7 @@ class WonderBundleTests(unittest.TestCase):
             self.assertAlmostEqual(float(c["combined_timeouts_zero"]), r["combined_timeouts_zero"], delta=5.1e-5)
         with (ROOT / "assets/data/swe-v4-musewonder-full-v326-scores.csv").open(newline="") as source:
             scores = {r["effort"]: r for r in csv.DictReader(source)}
-        self.assertEqual(set(scores), set(EFFORTS))  # no max in Contributor mode
+        self.assertEqual(set(scores), set(EFFORTS))  # Max added in v3.26.5
         for e, g in self.groups.items():
             self.assertAlmostEqual(float(scores[e]["combined_33"]), g["combined_33"]["mean"], places=4)
             self.assertAlmostEqual(float(scores[e]["combined_timeouts_zero"]), g["combined_timeouts_zero"]["mean"], places=4)
@@ -166,12 +168,12 @@ class WonderBundleTests(unittest.TestCase):
             else:
                 self.assertEqual(g["timeouts"], 1)
                 self.assertAlmostEqual(g["combined_timeouts_zero"]["mean"], c["zero"], places=9)
-        self.assertEqual([round(self.groups[e]["combined_33"]["mean"], 2) for e in EFFORTS], [86.95, 88.27, 88.19, 87.59])
-        self.assertEqual([round(self.groups[e]["combined_timeouts_zero"]["mean"], 2) for e in EFFORTS], [86.95, 88.27, 84.36, 83.78])
+        self.assertEqual([round(self.groups[e]["combined_33"]["mean"], 2) for e in EFFORTS], [86.95, 88.27, 88.19, 87.59, 88.36])
+        self.assertEqual([round(self.groups[e]["combined_timeouts_zero"]["mean"], 2) for e in EFFORTS], [86.95, 88.27, 84.36, 83.78, 88.36])
         gap = statistics.mean(self.groups[e]["by_panel"]["sol"]["mean"] - self.groups[e]["by_panel"]["claude"]["mean"] for e in EFFORTS)
         self.assertEqual(round(gap), 17)
         t = self.econ["totals"]["musewonderfull"]
-        self.assertEqual((t["runs"], f'{t["usd"]:.2f}', f'{t["reminder_usd"]:.2f}'), (RUNS, "409.79", "5.97"))
+        self.assertEqual((t["runs"], f'{t["usd"]:.2f}', f'{t["reminder_usd"]:.2f}'), (RUNS, "545.75", "8.95"))
 
     def test_judges_and_rounds(self):
         for judge, protocol in (("claude", "code-quality-maintenance-v3.26"), ("sol", "code-quality-maintenance-v3.25")):
@@ -189,12 +191,14 @@ class WonderBundleTests(unittest.TestCase):
         self.assertEqual(set(p["replaced_seats"]), {"grok"})
         self.assertEqual(p["grok_calls_before_stop"], {"calibration": 7})
         reused = p["exam_verdicts_reused"]
-        self.assertEqual(set(reused), {"v3.26.1", "v3.26.2", "v3.26.3"})
+        self.assertEqual(set(reused), {"v3.26.1", "v3.26.2", "v3.26.3", "v3.26.5"})
         self.assertEqual(len({json.dumps(v, sort_keys=True) for v in reused.values()}), 1)  # one Opus verdict, one Sol verdict, every round
         self.assertEqual(reused["v3.26.2"]["sol"], p["scored_sibling"]["calibration_sha256"])
         primaries = {panel: sum(r.get("primary", 0) for r in rounds.values()) for panel, rounds in p["counted_calls"].items()}
-        self.assertEqual(primaries, {"claude": 90, "sol": 90})
-        self.assertEqual(len(p["operator_recoveries"]), 9)
+        self.assertEqual(primaries, {"claude": 113, "sol": 113})
+        self.assertEqual(len(p["operator_recoveries"]), 11)
+        self.assertEqual([(s["round"], s["panel"], s["stage"], s["submission"]) for s in p["operator_stops"]],
+                         [("v3.26.5", "claude", "primary", "max-001")])  # expired judge sign-in, resumed with identical inputs
         self.assertTrue(all(r["panel"] == "sol" and r["stage"] == "match" for r in p["operator_recoveries"]))
         for name in ("runs.json", "groups.json", "calibration.json", "judge-protocols.json", "economics.json", "provenance.json", "README.md", "REPRODUCING.md"):
             text = (DATA / name).read_text()
@@ -277,20 +281,20 @@ class WonderPageTests(unittest.TestCase):
             self.assertIn(needle, unscored, needle)
         cost = self.section("cost", "board")
         for needle in ("no API price", "estimate", "Muse Wonder 1.0 list price", "$4.00", "$0.20", "$20.00", "Muse Spark 1.3", "$1.25",
-                       "$0.15", "$4.25", "$5.97", "$409.79"):
+                       "$0.15", "$4.25", "$8.95", "$545.75"):
             self.assertIn(needle, cost, needle)
         board = self.section("board", "code-quality")
-        for needle in ("ranks 23rd of the board’s 67", "High ranks 25th, Extra-high 29th and Low 32nd", "not calibrated against each other"):
+        for needle in ("ranks 25th of the board’s 81", "Medium ranks 28th, High 30th, Extra-high 34th and Low 37th", "not calibrated against each other"):
             self.assertIn(needle, board, needle)
         judges = self.section("judges", "run-notes")
         for needle in ("Claude Opus 5.5", "GPT-6.1 Sol", "not neutral for a Meta submission", "Grok 4.7", "ran out of usage",
                        "scored sibling", "byte-identical", "no new exam", "about 17 points", "passed every gate with no allowance used",
-                       "Nine of Sol’s answer-key matches"):
+                       "Eleven of Sol’s answer-key matches", "expired Claude Code sign-in", "identical inputs"):
             self.assertIn(needle, judges, needle)
         notes = self.section("run-notes", "reproduce")
-        for needle in ("Contributor mode", "Meta may train", "skill-reminder plugin was off", "offers no Max level", "1.4.6", "1.4.9",
+        for needle in ("Contributor mode", "Meta may train", "skill-reminder plugin was off", "Max under Contributor", "Contributor mode honors Max", "1.4.6", "1.4.9",
                        "21 runs on 1.4.6 and 2 on 1.4.9", "weekly limit", "reset the quota", "transport error", "9 of the 23 Medium tasks",
-                       "14 of the 23 High tasks", "5 Extra-high tasks", "145 of its 180 minutes", "clean rerun", "No hash bridge"):
+                       "14 of the 23 High tasks", "5 Extra-high tasks", "145 of its 180 minutes", "rerun alone on October 19", "not yet judged", "no other job ran during Max", "No hash bridge"):
             self.assertIn(needle, notes, needle)
         self.assertIn("never compared with Routine v1 Code quality", self.text)
 
@@ -310,7 +314,7 @@ class WonderSiteTests(unittest.TestCase):
         self.assertIn(f'href="{TRACES}"', markup)
         self.assertIn("Redacted agent traces", html.unescape(markup))
         self.assertIn(f'<link rel="canonical" href="{MODEL_URL}">', markup)
-        for e, (combined, passed) in zip(EFFORTS, (("86.95", 18), ("88.27", 21), ("88.19", 19), ("87.59", 19))):
+        for e, (combined, passed) in zip(EFFORTS, (("86.95", 18), ("88.27", 21), ("88.19", 19), ("87.59", 19), ("88.36", 22))):
             self.assertIn(combined, markup, e)
         self.assertIn(f'href="{TRACES}"', PAGE.read_text())
         self.assertIn(f"{TRACES}", (DATA / "README.md").read_text())
@@ -329,7 +333,7 @@ class WonderSiteTests(unittest.TestCase):
         self.assertNotIn(chr(0x2014), item)
         leaderboard = (ROOT / "leaderboard.html").read_text()
         self.assertIn('<a href="benchmarks/swe-v4-musewonder-full-v326.html">Muse Wonder Full</a>', leaderboard)
-        self.assertEqual(len(re.findall(r'"key":"musewonderfull","effort":"[a-z-]+"', leaderboard)), 4)
+        self.assertEqual(len(re.findall(r'"key":"musewonderfull","effort":"[a-z-]+"', leaderboard)), 5)
         index = (ROOT / "benchmarks.html").read_text()
         self.assertLess(index.index("swe-v4-musewonder-full-v326.html"), index.index("swe-v4-haiku55-vs-frontier.html"))
 

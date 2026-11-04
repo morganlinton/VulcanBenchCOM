@@ -1,6 +1,6 @@
 {
-  "runs": 92,
-  "published": 90,
+  "runs": 115,
+  "published": 113,
   "timeouts": 2,
   "weights": {
     "functional": 0.5,
@@ -12,7 +12,7 @@
     "l1": 0.24,
     "l2": 0.09
   },
-  "judged_rule": "judged is \"published\" where a v3.26, v3.26.1, v3.26.2 or v3.26.3 summary publishes a Code quality score from both judges (judged_under names the round); the two timed-out rows carry the reason they have none",
+  "judged_rule": "judged is \"published\" where a v3.26, v3.26.1, v3.26.2, v3.26.3 or v3.26.5 summary publishes a Code quality score from both judges (judged_under names the round); the two timed-out rows carry the reason they have none",
   "timeouts_rule": "combined_timeouts_zero is the combined score with each timed-out run counted as 0 (harness DECISIONS.md 2026-09-28); for every judged run it equals combined_33",
   "single_judge_rule": "combined_single_judge recomputes the combined score with Code quality from one judge's reviewed score and intent recovery alone; it is a sensitivity figure, not the published score",
   "intent_recovery_rule": "When a submission passed no quirk family, intent recovery has no denominator; no Muse Wonder Full run needed that rule",
@@ -7887,6 +7887,2076 @@
       "main_model_usd": 3.0898752000000003,
       "reminder_usd": 0.1241045,
       "estimated_usd": 3.2139797000000003,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-blendcore-binary-parity",
+      "run_id": "legacy-blendcore-binary-parity-4e00285d",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.7985,
+      "security": 1.0,
+      "reviewed_score": 64.58333333333334,
+      "intent_recovery": 68.75,
+      "intent_recovery_redistributed": false,
+      "code_quality": 65.71969696969697,
+      "combined_33": 86.97475,
+      "combined_timeouts_zero": 86.97475,
+      "combined_20_profile": 90.1214393939394,
+      "combined_single_judge": {
+        "claude": 85.03725,
+        "sol": 88.91225
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 50.0,
+          "maintainability": 58.333333333333336,
+          "reviewed_score": 54.16666666666667,
+          "intent_recovery": 75.0,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 66.66666666666666,
+          "maintainability": 83.33333333333334,
+          "reviewed_score": 75.0,
+          "intent_recovery": 62.5,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 9,
+      "duration_s": 1044.745,
+      "started_at": "2026-11-04T01:12:23.271713+00:00",
+      "finished_at": "2026-11-04T01:29:48.047462+00:00",
+      "evidence_sha256": "b872d7583c216052a5ac49ca83d471ca95c61faa28fc0e6a71132a1dc3660b2c",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "edbea8a8869f8f2c71351caed7934cfb906c8d392da0fbd6c25d073bda783366",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 9,
+      "hidden_behaviours": 9,
+      "model_calls": {
+        "muse-wonder-full-1.0": 63,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 6872769,
+      "token_usage": {
+        "input_tokens": 6811308,
+        "cached_input_tokens": 6636172,
+        "uncached_input_tokens": 175136,
+        "output_tokens": 61461,
+        "reasoning_output_tokens": 39350
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 90181,
+        "cached_input_tokens": 0,
+        "output_tokens": 2105,
+        "reasoning_output_tokens": 1815
+      },
+      "main_model_usd": 3.2569984000000005,
+      "reminder_usd": 0.1216725,
+      "estimated_usd": 3.3786709000000004,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-cellarcore-binary-parity",
+      "run_id": "legacy-cellarcore-binary-parity-af2e6b0e",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.746,
+      "security": 1.0,
+      "reviewed_score": 65.625,
+      "intent_recovery": 98.07692307692308,
+      "intent_recovery_redistributed": false,
+      "code_quality": 74.47552447552447,
+      "combined_33": 89.41792307692307,
+      "combined_timeouts_zero": 89.41792307692307,
+      "combined_20_profile": 91.08510489510489,
+      "combined_single_judge": {
+        "claude": 88.341,
+        "sol": 90.49484615384615
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 58.333333333333336,
+          "maintainability": 62.5,
+          "reviewed_score": 60.41666666666667,
+          "intent_recovery": 100.0,
+          "scored_quirks": 13,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 70.83333333333334,
+          "maintainability": 70.83333333333334,
+          "reviewed_score": 70.83333333333334,
+          "intent_recovery": 96.15384615384616,
+          "scored_quirks": 13,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 14,
+      "duration_s": 3908.999,
+      "started_at": "2026-11-04T04:19:29.298222+00:00",
+      "finished_at": "2026-11-04T05:24:38.358727+00:00",
+      "evidence_sha256": "a6b2bfae2a4f089f6e8dfa7006b54a481e331097782ecc03795359285d542d59",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "14623e543d6119bb11558ed1267c38f921dac169333092fb0d468cc2c3f82c0e",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 14,
+      "hidden_behaviours": 14,
+      "model_calls": {
+        "muse-wonder-full-1.0": 158,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 23002731,
+      "token_usage": {
+        "input_tokens": 22867552,
+        "cached_input_tokens": 22643096,
+        "uncached_input_tokens": 224456,
+        "output_tokens": 135179,
+        "reasoning_output_tokens": 79741
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 131836,
+        "cached_input_tokens": 0,
+        "output_tokens": 1969,
+        "reasoning_output_tokens": 1679
+      },
+      "main_model_usd": 8.1300232,
+      "reminder_usd": 0.17316325,
+      "estimated_usd": 8.30318645,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-codeccore-binary-parity",
+      "run_id": "legacy-codeccore-binary-parity-8d433674",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.7946,
+      "security": 1.0,
+      "reviewed_score": 62.5,
+      "intent_recovery": 96.875,
+      "intent_recovery_redistributed": false,
+      "code_quality": 71.875,
+      "combined_33": 88.97285,
+      "combined_timeouts_zero": 88.97285,
+      "combined_20_profile": 91.29400000000001,
+      "combined_single_judge": {
+        "claude": 86.6916,
+        "sol": 91.2541
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 54.166666666666664,
+          "maintainability": 54.166666666666664,
+          "reviewed_score": 54.166666666666664,
+          "intent_recovery": 93.75,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 70.83333333333334,
+          "maintainability": 70.83333333333334,
+          "reviewed_score": 70.83333333333334,
+          "intent_recovery": 100.0,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 10,
+      "duration_s": 1414.722,
+      "started_at": "2026-11-03T19:02:37.523418+00:00",
+      "finished_at": "2026-11-03T19:26:12.277014+00:00",
+      "evidence_sha256": "f5db48245ab5022225d133572e6a840a02666fbd259f685fd6696fdf5eda8d44",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "79993e47183af4274cd12dd18e21d9bcc2d2d74baa6ab076d78c29be59b2fd7d",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 10,
+      "hidden_behaviours": 10,
+      "model_calls": {
+        "muse-wonder-full-1.0": 72,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 6617019,
+      "token_usage": {
+        "input_tokens": 6542279,
+        "cached_input_tokens": 6408736,
+        "uncached_input_tokens": 133543,
+        "output_tokens": 74740,
+        "reasoning_output_tokens": 43490
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 80253,
+        "cached_input_tokens": 0,
+        "output_tokens": 1420,
+        "reasoning_output_tokens": 1118
+      },
+      "main_model_usd": 3.3107192000000003,
+      "reminder_usd": 0.10635125,
+      "estimated_usd": 3.41707045,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-depotcore-binary-parity",
+      "run_id": "legacy-depotcore-binary-parity-4bf691a6",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.7216,
+      "security": 1.0,
+      "reviewed_score": 61.458333333333336,
+      "intent_recovery": 86.53846153846153,
+      "intent_recovery_redistributed": false,
+      "code_quality": 68.29836829836829,
+      "combined_33": 87.17206153846153,
+      "combined_timeouts_zero": 87.17206153846153,
+      "combined_20_profile": 89.48367365967366,
+      "combined_single_judge": {
+        "claude": 83.71052307692307,
+        "sol": 90.63359999999999
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 54.166666666666664,
+          "maintainability": 50,
+          "reviewed_score": 52.08333333333333,
+          "intent_recovery": 73.07692307692307,
+          "scored_quirks": 13,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 70.83333333333334,
+          "maintainability": 70.83333333333334,
+          "reviewed_score": 70.83333333333334,
+          "intent_recovery": 100.0,
+          "scored_quirks": 13,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 14,
+      "duration_s": 830.34,
+      "started_at": "2026-11-04T02:53:29.261720+00:00",
+      "finished_at": "2026-11-04T03:07:19.634297+00:00",
+      "evidence_sha256": "458b3e1084aae402a6e5dc1df72bbda953f63a8bb02956c7d5f388b4c6e39081",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "8c2f1526622b0a9b5543dcfd65592bbf3212a9a1b14a022f4de15079613ecd77",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 14,
+      "hidden_behaviours": 14,
+      "model_calls": {
+        "muse-wonder-full-1.0": 64,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 7296314,
+      "token_usage": {
+        "input_tokens": 7251958,
+        "cached_input_tokens": 7090432,
+        "uncached_input_tokens": 161526,
+        "output_tokens": 44356,
+        "reasoning_output_tokens": 27205
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 78316,
+        "cached_input_tokens": 0,
+        "output_tokens": 1860,
+        "reasoning_output_tokens": 1548
+      },
+      "main_model_usd": 2.9513104000000006,
+      "reminder_usd": 0.1058,
+      "estimated_usd": 3.0571104000000004,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-freightcore-binary-parity",
+      "run_id": "legacy-freightcore-binary-parity-be7fdeaf",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.7856,
+      "security": 1.0,
+      "reviewed_score": 64.58333333333333,
+      "intent_recovery": 83.33333333333334,
+      "intent_recovery_redistributed": false,
+      "code_quality": 69.69696969696969,
+      "combined_33": 88.17759999999998,
+      "combined_timeouts_zero": 88.17759999999998,
+      "combined_20_profile": 90.72339393939394,
+      "combined_single_judge": {
+        "claude": 86.67759999999998,
+        "sol": 89.67759999999998
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 54.166666666666664,
+          "maintainability": 58.333333333333336,
+          "reviewed_score": 56.25,
+          "intent_recovery": 88.88888888888889,
+          "scored_quirks": 9,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 66.66666666666666,
+          "maintainability": 79.16666666666666,
+          "reviewed_score": 72.91666666666666,
+          "intent_recovery": 77.77777777777779,
+          "scored_quirks": 9,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 9,
+      "duration_s": 1843.287,
+      "started_at": "2026-11-03T18:31:53.729038+00:00",
+      "finished_at": "2026-11-03T19:02:37.059800+00:00",
+      "evidence_sha256": "985d57861673029302942e4340d249800b0cbe63fa0ab91eb7f3061b191a8b6b",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "aee89697698f6bf517bb5b764f9291612715a6300c24a5466a08cd21334f47fb",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 9,
+      "hidden_behaviours": 9,
+      "model_calls": {
+        "muse-wonder-full-1.0": 93,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 13188264,
+      "token_usage": {
+        "input_tokens": 13090746,
+        "cached_input_tokens": 12881316,
+        "uncached_input_tokens": 209430,
+        "output_tokens": 97518,
+        "reasoning_output_tokens": 53666
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 115192,
+        "cached_input_tokens": 0,
+        "output_tokens": 1487,
+        "reasoning_output_tokens": 1180
+      },
+      "main_model_usd": 5.3643432,
+      "reminder_usd": 0.15030975,
+      "estimated_usd": 5.51465295,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-granarycore-binary-parity",
+      "run_id": "legacy-granarycore-binary-parity-5c8966e5",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.6116,
+      "security": 1.0,
+      "reviewed_score": 53.125,
+      "intent_recovery": 82.6923076923077,
+      "intent_recovery_redistributed": false,
+      "code_quality": 61.18881118881119,
+      "combined_33": 83.89090769230769,
+      "combined_timeouts_zero": 83.89090769230769,
+      "combined_20_profile": 86.41176223776225,
+      "combined_single_judge": {
+        "claude": 81.46783076923076,
+        "sol": 86.31398461538461
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 45.83333333333333,
+          "maintainability": 41.66666666666667,
+          "reviewed_score": 43.75,
+          "intent_recovery": 80.76923076923077,
+          "scored_quirks": 13,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 62.5,
+          "maintainability": 62.5,
+          "reviewed_score": 62.5,
+          "intent_recovery": 84.61538461538461,
+          "scored_quirks": 13,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 14,
+      "duration_s": 3281.013,
+      "started_at": "2026-11-04T01:58:47.720401+00:00",
+      "finished_at": "2026-11-04T02:53:28.774347+00:00",
+      "evidence_sha256": "66ea6648ee153e0a8d2f2a19df9016cd2e8fe07198e8eae164450438ac9768b8",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "f52e631dd039ac0f8bdafb1d56d6f279cd170853ebfc7e0d56fa8c6dd485bb92",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 14,
+      "hidden_behaviours": 14,
+      "model_calls": {
+        "muse-wonder-full-1.0": 74,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 7877099,
+      "token_usage": {
+        "input_tokens": 7759603,
+        "cached_input_tokens": 7077036,
+        "uncached_input_tokens": 682567,
+        "output_tokens": 117496,
+        "reasoning_output_tokens": 55900
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 109088,
+        "cached_input_tokens": 0,
+        "output_tokens": 4201,
+        "reasoning_output_tokens": 3820
+      },
+      "main_model_usd": 6.4955952,
+      "reminder_usd": 0.15421425,
+      "estimated_usd": 6.64980945,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-hedgecore-binary-parity",
+      "run_id": "legacy-hedgecore-binary-parity-a2fa14a8",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.8034,
+      "security": 1.0,
+      "reviewed_score": 64.58333333333334,
+      "intent_recovery": 93.75,
+      "intent_recovery_redistributed": false,
+      "code_quality": 72.53787878787878,
+      "combined_33": 89.2664,
+      "combined_timeouts_zero": 89.2664,
+      "combined_20_profile": 91.55857575757575,
+      "combined_single_judge": {
+        "claude": 87.3289,
+        "sol": 91.2039
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 50.0,
+          "maintainability": 58.333333333333336,
+          "reviewed_score": 54.16666666666667,
+          "intent_recovery": 100.0,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 62.5,
+          "maintainability": 87.5,
+          "reviewed_score": 75.0,
+          "intent_recovery": 87.5,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 8,
+      "duration_s": 2355.942,
+      "started_at": "2026-11-03T22:46:51.526493+00:00",
+      "finished_at": "2026-11-03T23:26:07.511176+00:00",
+      "evidence_sha256": "270f1009a743a48900bb924a59119b8fba5122e7a63e5567c350f15e646f95d2",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "3b92343e6adab8117d03ac535e06bc0e232f6b76e03072ed2e0aab25fe27e8e4",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 8,
+      "hidden_behaviours": 8,
+      "model_calls": {
+        "muse-wonder-full-1.0": 89,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 14496802,
+      "token_usage": {
+        "input_tokens": 14382029,
+        "cached_input_tokens": 14139860,
+        "uncached_input_tokens": 242169,
+        "output_tokens": 114773,
+        "reasoning_output_tokens": 70633
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 104964,
+        "cached_input_tokens": 0,
+        "output_tokens": 2155,
+        "reasoning_output_tokens": 1806
+      },
+      "main_model_usd": 6.092108,
+      "reminder_usd": 0.14036375,
+      "estimated_usd": 6.232471749999999,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-lodgecore-binary-parity",
+      "run_id": "legacy-lodgecore-binary-parity-2c16741e",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.7484,
+      "security": 1.0,
+      "reviewed_score": 55.208333333333336,
+      "intent_recovery": 93.18181818181819,
+      "intent_recovery_redistributed": false,
+      "code_quality": 65.56473829201101,
+      "combined_33": 86.49776363636363,
+      "combined_timeouts_zero": 86.49776363636363,
+      "combined_20_profile": 89.33894765840222,
+      "combined_single_judge": {
+        "claude": 83.54321818181816,
+        "sol": 89.45230909090908
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 50.0,
+          "maintainability": 37.5,
+          "reviewed_score": 43.75,
+          "intent_recovery": 90.9090909090909,
+          "scored_quirks": 11,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 70.83333333333334,
+          "maintainability": 62.5,
+          "reviewed_score": 66.66666666666667,
+          "intent_recovery": 95.45454545454545,
+          "scored_quirks": 11,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 12,
+      "duration_s": 4328.74,
+      "started_at": "2026-11-04T03:07:20.052727+00:00",
+      "finished_at": "2026-11-04T04:19:28.871460+00:00",
+      "evidence_sha256": "584a8f7171f91395ab92409744237419fd8192acd24f32de98db65d9bc0027e8",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "6661ccff9c7bfbc304fc27dbb23833a21a3c9897a6980b5a8c85b9ad4af1f75d",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 12,
+      "hidden_behaviours": 12,
+      "model_calls": {
+        "muse-wonder-full-1.0": 199,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 38634140,
+      "token_usage": {
+        "input_tokens": 38418195,
+        "cached_input_tokens": 37814340,
+        "uncached_input_tokens": 603855,
+        "output_tokens": 215945,
+        "reasoning_output_tokens": 142335
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 163417,
+        "cached_input_tokens": 0,
+        "output_tokens": 2466,
+        "reasoning_output_tokens": 2126
+      },
+      "main_model_usd": 14.297188,
+      "reminder_usd": 0.21475175,
+      "estimated_usd": 14.51193975,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-matchcore-order-book-parity",
+      "run_id": "legacy-matchcore-order-book-parity-bb3bc8fe",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 0.7778,
+      "automated_quality": 0.7519,
+      "security": 1.0,
+      "reviewed_score": 62.5,
+      "intent_recovery": 81.25,
+      "intent_recovery_redistributed": false,
+      "code_quality": 67.61363636363636,
+      "combined_33": 76.09365,
+      "combined_timeouts_zero": 76.09365,
+      "combined_20_profile": 78.69122727272728,
+      "combined_single_judge": {
+        "claude": 74.09365,
+        "sol": 78.09365
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 50.0,
+          "maintainability": 58.333333333333336,
+          "reviewed_score": 54.16666666666667,
+          "intent_recovery": 81.25,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 62.5,
+          "maintainability": 79.16666666666666,
+          "reviewed_score": 70.83333333333333,
+          "intent_recovery": 81.25,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 7,
+      "duration_s": 2644.268,
+      "started_at": "2026-11-03T16:46:58.761308+00:00",
+      "finished_at": "2026-11-03T17:31:03.081284+00:00",
+      "evidence_sha256": "00c73fca18686a71835254f614dc534ae8a8f00a5fe49cccf3ef033d1d2e3e70",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "339de35e45cd4edbfb2ebd91e8ae32cb86ac46b7cb363449d2148e651d43fbcb",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 7,
+      "hidden_behaviours": 9,
+      "model_calls": {
+        "muse-wonder-full-1.0": 118,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 14882449,
+      "token_usage": {
+        "input_tokens": 14788726,
+        "cached_input_tokens": 14578948,
+        "uncached_input_tokens": 209778,
+        "output_tokens": 93723,
+        "reasoning_output_tokens": 48314
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 131783,
+        "cached_input_tokens": 0,
+        "output_tokens": 1304,
+        "reasoning_output_tokens": 1007
+      },
+      "main_model_usd": 5.629361599999999,
+      "reminder_usd": 0.17027075,
+      "estimated_usd": 5.7996323499999995,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-metercore-binary-parity",
+      "run_id": "legacy-metercore-binary-parity-39538d27",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.83,
+      "security": 1.0,
+      "reviewed_score": 79.16666666666667,
+      "intent_recovery": 71.875,
+      "intent_recovery_redistributed": false,
+      "code_quality": 77.1780303030303,
+      "combined_33": 91.02375,
+      "combined_timeouts_zero": 91.02375,
+      "combined_20_profile": 92.88560606060605,
+      "combined_single_judge": {
+        "claude": 89.30499999999999,
+        "sol": 92.74249999999999
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 70.83333333333334,
+          "maintainability": 70.83333333333334,
+          "reviewed_score": 70.83333333333334,
+          "intent_recovery": 75.0,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 87.5,
+          "maintainability": 87.5,
+          "reviewed_score": 87.5,
+          "intent_recovery": 68.75,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 9,
+      "duration_s": 1072.186,
+      "started_at": "2026-11-03T18:14:01.087690+00:00",
+      "finished_at": "2026-11-03T18:31:53.297180+00:00",
+      "evidence_sha256": "b4a5a9c67ebadf868c53a33df7a88ba3648fcab1064538618ac9b6c80c0bdf76",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "2b42dff1baf192f99e10bfbfe508572e99669577794bca67dbb0e1b5b50cfbb0",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 9,
+      "hidden_behaviours": 9,
+      "model_calls": {
+        "muse-wonder-full-1.0": 44,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 3040934,
+      "token_usage": {
+        "input_tokens": 2986821,
+        "cached_input_tokens": 2890224,
+        "uncached_input_tokens": 96597,
+        "output_tokens": 54113,
+        "reasoning_output_tokens": 29997
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 69047,
+        "cached_input_tokens": 0,
+        "output_tokens": 2008,
+        "reasoning_output_tokens": 1653
+      },
+      "main_model_usd": 2.0466928,
+      "reminder_usd": 0.09484275,
+      "estimated_usd": 2.1415355500000004,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-pacecore-binary-parity",
+      "run_id": "legacy-pacecore-binary-parity-9fe45377",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.8,
+      "security": 1.0,
+      "reviewed_score": 67.70833333333334,
+      "intent_recovery": 92.85714285714286,
+      "intent_recovery_redistributed": false,
+      "code_quality": 74.56709956709956,
+      "combined_33": 89.90714285714286,
+      "combined_timeouts_zero": 89.90714285714286,
+      "combined_20_profile": 91.91341991341992,
+      "combined_single_judge": {
+        "claude": 87.15714285714284,
+        "sol": 92.65714285714286
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 54.166666666666664,
+          "maintainability": 58.333333333333336,
+          "reviewed_score": 56.25,
+          "intent_recovery": 92.85714285714286,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 70.83333333333334,
+          "maintainability": 87.5,
+          "reviewed_score": 79.16666666666667,
+          "intent_recovery": 92.85714285714286,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 9,
+      "duration_s": 2072.396,
+      "started_at": "2026-11-04T00:37:50.342755+00:00",
+      "finished_at": "2026-11-04T01:12:22.792040+00:00",
+      "evidence_sha256": "9e344e98aa2fa2cc6afbc40c895de1b357d607899f52a6b3cc5b0a5e0b4353fa",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "cb57aeeefa7fe2e3448ebf2945b5a4920d8be822e7f671d2c13355a96fa69fa3",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 9,
+      "hidden_behaviours": 9,
+      "model_calls": {
+        "muse-wonder-full-1.0": 121,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 14314339,
+      "token_usage": {
+        "input_tokens": 14213707,
+        "cached_input_tokens": 14038228,
+        "uncached_input_tokens": 175479,
+        "output_tokens": 100632,
+        "reasoning_output_tokens": 63693
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 101930,
+        "cached_input_tokens": 0,
+        "output_tokens": 2067,
+        "reasoning_output_tokens": 1737
+      },
+      "main_model_usd": 5.5222016,
+      "reminder_usd": 0.13619725,
+      "estimated_usd": 5.65839885,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-paddockcore-binary-parity",
+      "run_id": "legacy-paddockcore-binary-parity-d015d2c1",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.8186,
+      "security": 0.95,
+      "reviewed_score": 54.16666666666667,
+      "intent_recovery": 62.5,
+      "intent_recovery_redistributed": false,
+      "code_quality": 56.43939393939394,
+      "combined_33": 83.6581,
+      "combined_timeouts_zero": 83.6581,
+      "combined_20_profile": 87.81687878787878,
+      "combined_single_judge": {
+        "claude": 82.17595714285714,
+        "sol": 85.14024285714285
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 50.0,
+          "maintainability": 50.0,
+          "reviewed_score": 50.0,
+          "intent_recovery": 57.14285714285714,
+          "scored_quirks": 14,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 58.333333333333336,
+          "maintainability": 58.333333333333336,
+          "reviewed_score": 58.333333333333336,
+          "intent_recovery": 67.85714285714286,
+          "scored_quirks": 14,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 15,
+      "duration_s": 9042.681,
+      "started_at": "2026-11-04T05:24:38.785995+00:00",
+      "finished_at": "2026-11-04T07:55:21.587361+00:00",
+      "evidence_sha256": "7a5428dc7d17d30bf8f01d85a1f9ec707277462754eed37e06dde15fb095f42d",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "f02ead4f1144990632936d6cc8af725ee6862f7234fe5138fa48698faa2ad644",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 15,
+      "hidden_behaviours": 15,
+      "model_calls": {
+        "muse-wonder-full-1.0": 318,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 63007913,
+      "token_usage": {
+        "input_tokens": 62672731,
+        "cached_input_tokens": 61439256,
+        "uncached_input_tokens": 1233475,
+        "output_tokens": 335182,
+        "reasoning_output_tokens": 221762
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 60144,
+        "cached_input_tokens": 0,
+        "output_tokens": 3824,
+        "reasoning_output_tokens": 3444
+      },
+      "main_model_usd": 23.925391200000004,
+      "reminder_usd": 0.091432,
+      "estimated_usd": 24.016823200000005,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-payrollcore-binary-parity",
+      "run_id": "legacy-payrollcore-binary-parity-a48e922c",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.777,
+      "security": 1.0,
+      "reviewed_score": 61.458333333333336,
+      "intent_recovery": 90.0,
+      "intent_recovery_redistributed": false,
+      "code_quality": 69.24242424242425,
+      "combined_33": 87.9545,
+      "combined_timeouts_zero": 87.9545,
+      "combined_20_profile": 90.50348484848486,
+      "combined_single_judge": {
+        "claude": 86.1545,
+        "sol": 89.75450000000001
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 54.166666666666664,
+          "maintainability": 50,
+          "reviewed_score": 52.08333333333333,
+          "intent_recovery": 95.0,
+          "scored_quirks": 10,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 70.83333333333334,
+          "maintainability": 70.83333333333334,
+          "reviewed_score": 70.83333333333334,
+          "intent_recovery": 85.0,
+          "scored_quirks": 10,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 10,
+      "duration_s": 1723.294,
+      "started_at": "2026-11-03T17:45:17.311809+00:00",
+      "finished_at": "2026-11-03T18:14:00.641744+00:00",
+      "evidence_sha256": "f2c0686044f7a61643a61822a5c1768c7c8db080a599b11e7e18ee0c0025abf5",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "717b8a73907075008457ecc01fa25b38e18c2edf1dabbdf2aac18f2e8d7c2c96",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 10,
+      "hidden_behaviours": 10,
+      "model_calls": {
+        "muse-wonder-full-1.0": 68,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 8221378,
+      "token_usage": {
+        "input_tokens": 8129093,
+        "cached_input_tokens": 7788496,
+        "uncached_input_tokens": 340597,
+        "output_tokens": 92285,
+        "reasoning_output_tokens": 58668
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 82089,
+        "cached_input_tokens": 0,
+        "output_tokens": 1611,
+        "reasoning_output_tokens": 1283
+      },
+      "main_model_usd": 4.7657872,
+      "reminder_usd": 0.109458,
+      "estimated_usd": 4.8752452,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-qlite-store-parity",
+      "run_id": "legacy-qlite-store-parity-027537c2",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.7778,
+      "security": 1.0,
+      "reviewed_score": 73.95833333333333,
+      "intent_recovery": 94.44444444444444,
+      "intent_recovery_redistributed": false,
+      "code_quality": 79.54545454545453,
+      "combined_33": 91.36129999999999,
+      "combined_timeouts_zero": 91.36129999999999,
+      "combined_20_profile": 92.57609090909091,
+      "combined_single_judge": {
+        "claude": 89.1113,
+        "sol": 93.6113
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 66.66666666666666,
+          "maintainability": 62.5,
+          "reviewed_score": 64.58333333333333,
+          "intent_recovery": 94.44444444444444,
+          "scored_quirks": 9,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 79.16666666666666,
+          "maintainability": 87.5,
+          "reviewed_score": 83.33333333333333,
+          "intent_recovery": 94.44444444444444,
+          "scored_quirks": 9,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 9,
+      "duration_s": 853.34,
+      "started_at": "2026-11-03T17:31:03.511326+00:00",
+      "finished_at": "2026-11-03T17:45:16.875296+00:00",
+      "evidence_sha256": "4e498d948706dc5c8b4f065e6832ab11ab753b6ff3bb138bd1cc1167320df744",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "ca5322f8165e0d9aa9fde0a66980b770c7121a830b0d36c73027d6bef829bd3a",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 9,
+      "hidden_behaviours": 9,
+      "model_calls": {
+        "muse-wonder-full-1.0": 45,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 3245962,
+      "token_usage": {
+        "input_tokens": 3199011,
+        "cached_input_tokens": 3103076,
+        "uncached_input_tokens": 95935,
+        "output_tokens": 46951,
+        "reasoning_output_tokens": 29327
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 59884,
+        "cached_input_tokens": 0,
+        "output_tokens": 3150,
+        "reasoning_output_tokens": 2719
+      },
+      "main_model_usd": 1.9433752000000002,
+      "reminder_usd": 0.0882425,
+      "estimated_usd": 2.0316177,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-queuecore-binary-parity",
+      "run_id": "legacy-queuecore-binary-parity-eb09716f",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.7737,
+      "security": 1.0,
+      "reviewed_score": 69.79166666666666,
+      "intent_recovery": 78.57142857142857,
+      "intent_recovery_redistributed": false,
+      "code_quality": 72.18614718614718,
+      "combined_33": 88.89787857142856,
+      "combined_timeouts_zero": 88.89787857142856,
+      "combined_20_profile": 91.04272943722944,
+      "combined_single_judge": {
+        "claude": 86.14787857142856,
+        "sol": 91.64787857142856
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 54.166666666666664,
+          "maintainability": 62.5,
+          "reviewed_score": 58.33333333333333,
+          "intent_recovery": 78.57142857142857,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 79.16666666666666,
+          "maintainability": 83.33333333333334,
+          "reviewed_score": 81.25,
+          "intent_recovery": 78.57142857142857,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 8,
+      "duration_s": 2154.177,
+      "started_at": "2026-11-03T22:10:56.884910+00:00",
+      "finished_at": "2026-11-03T22:46:51.103728+00:00",
+      "evidence_sha256": "f4cac33416cdad6465cc90ae1ba9b046513084cbb7275c53b25d4b37cabe4301",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "a264780309ac649a9567bbdcd61651a74010be71ee1b4e22201645ac4075050b",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 8,
+      "hidden_behaviours": 8,
+      "model_calls": {
+        "muse-wonder-full-1.0": 103,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 8977417,
+      "token_usage": {
+        "input_tokens": 8891542,
+        "cached_input_tokens": 8761644,
+        "uncached_input_tokens": 129898,
+        "output_tokens": 85875,
+        "reasoning_output_tokens": 57096
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 71253,
+        "cached_input_tokens": 0,
+        "output_tokens": 1333,
+        "reasoning_output_tokens": 1050
+      },
+      "main_model_usd": 3.9894208,
+      "reminder_usd": 0.0947315,
+      "estimated_usd": 4.0841523,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-quotacore-binary-parity",
+      "run_id": "legacy-quotacore-binary-parity-32054be7",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.8097,
+      "security": 1.0,
+      "reviewed_score": 58.333333333333336,
+      "intent_recovery": 97.22222222222223,
+      "intent_recovery_redistributed": false,
+      "code_quality": 68.93939393939394,
+      "combined_33": 88.13244999999999,
+      "combined_timeouts_zero": 88.13244999999999,
+      "combined_20_profile": 90.9333787878788,
+      "combined_single_judge": {
+        "claude": 86.38244999999999,
+        "sol": 89.88244999999999
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 50,
+          "maintainability": 50,
+          "reviewed_score": 50.0,
+          "intent_recovery": 100.0,
+          "scored_quirks": 9,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 62.5,
+          "maintainability": 70.83333333333334,
+          "reviewed_score": 66.66666666666667,
+          "intent_recovery": 94.44444444444444,
+          "scored_quirks": 9,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 10,
+      "duration_s": 6661.493,
+      "started_at": "2026-11-03T19:26:12.716326+00:00",
+      "finished_at": "2026-11-03T21:17:14.253301+00:00",
+      "evidence_sha256": "22b359fc20d661dcbe655d6a96124563146860adad213c9a500c3fe130d4361d",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "8fc60b8cfca8516e292e128144c0018073d3a2f71fc6c93718c70a319f0b9ccc",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 10,
+      "hidden_behaviours": 10,
+      "model_calls": {
+        "muse-wonder-full-1.0": 107,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 10663742,
+      "token_usage": {
+        "input_tokens": 10585032,
+        "cached_input_tokens": 9880376,
+        "uncached_input_tokens": 704656,
+        "output_tokens": 78710,
+        "reasoning_output_tokens": 48765
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 89065,
+        "cached_input_tokens": 0,
+        "output_tokens": 1240,
+        "reasoning_output_tokens": 915
+      },
+      "main_model_usd": 6.3688992,
+      "reminder_usd": 0.11660125,
+      "estimated_usd": 6.485500450000001,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-reflowcore-binary-parity",
+      "run_id": "legacy-reflowcore-binary-parity-143d1164",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.8443,
+      "security": 1.0,
+      "reviewed_score": 79.16666666666667,
+      "intent_recovery": 92.85714285714286,
+      "intent_recovery_redistributed": false,
+      "code_quality": 82.9004329004329,
+      "combined_33": 93.03369285714287,
+      "combined_timeouts_zero": 93.03369285714287,
+      "combined_20_profile": 94.24458658008659,
+      "combined_single_judge": {
+        "claude": 90.53369285714285,
+        "sol": 95.53369285714285
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 75,
+          "maintainability": 62.5,
+          "reviewed_score": 68.75,
+          "intent_recovery": 92.85714285714286,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 95.83333333333334,
+          "maintainability": 83.33333333333334,
+          "reviewed_score": 89.58333333333334,
+          "intent_recovery": 92.85714285714286,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 8,
+      "duration_s": 1773.793,
+      "started_at": "2026-11-03T23:52:44.391542+00:00",
+      "finished_at": "2026-11-04T00:22:18.211812+00:00",
+      "evidence_sha256": "4d6c9b43f2129a23de9f24dcd2835cd8ea3cb369c6bf8eb2b598b395d2d0e58d",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "d666cf4cc81d154882ae8a5e633e923ab7b3b32d1d3003a3872fc544853109fe",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 8,
+      "hidden_behaviours": 8,
+      "model_calls": {
+        "muse-wonder-full-1.0": 59,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 6082116,
+      "token_usage": {
+        "input_tokens": 5998396,
+        "cached_input_tokens": 5778760,
+        "uncached_input_tokens": 219636,
+        "output_tokens": 83720,
+        "reasoning_output_tokens": 54967
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 88213,
+        "cached_input_tokens": 0,
+        "output_tokens": 2249,
+        "reasoning_output_tokens": 1930
+      },
+      "main_model_usd": 3.708696,
+      "reminder_usd": 0.1198245,
+      "estimated_usd": 3.8285205,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-schedcore-binary-parity",
+      "run_id": "legacy-schedcore-binary-parity-28f13b19",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.7477,
+      "security": 1.0,
+      "reviewed_score": 61.45833333333333,
+      "intent_recovery": 100.0,
+      "intent_recovery_redistributed": false,
+      "code_quality": 71.96969696969697,
+      "combined_33": 88.60544999999999,
+      "combined_timeouts_zero": 88.60544999999999,
+      "combined_20_profile": 90.6094393939394,
+      "combined_single_judge": {
+        "claude": 85.35544999999999,
+        "sol": 91.85544999999999
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 45.83333333333333,
+          "maintainability": 50,
+          "reviewed_score": 47.916666666666664,
+          "intent_recovery": 100.0,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 62.5,
+          "maintainability": 87.5,
+          "reviewed_score": 75.0,
+          "intent_recovery": 100.0,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 8,
+      "duration_s": 1596.009,
+      "started_at": "2026-11-03T23:26:07.933326+00:00",
+      "finished_at": "2026-11-03T23:52:43.971791+00:00",
+      "evidence_sha256": "56e588ff2e4890b770c362e4fdff7eb27f103ffe471dc4291f08feb39a754944",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "e7cdc8747144dacdd89758a81003fe86488b706e39aed2ed3e5a3415e164e448",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 8,
+      "hidden_behaviours": 8,
+      "model_calls": {
+        "muse-wonder-full-1.0": 60,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 5318630,
+      "token_usage": {
+        "input_tokens": 5240343,
+        "cached_input_tokens": 5108528,
+        "uncached_input_tokens": 131815,
+        "output_tokens": 78287,
+        "reasoning_output_tokens": 49908
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 83355,
+        "cached_input_tokens": 0,
+        "output_tokens": 1517,
+        "reasoning_output_tokens": 1230
+      },
+      "main_model_usd": 3.1147056,
+      "reminder_usd": 0.110641,
+      "estimated_usd": 3.2253466000000004,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-settlecore-binary-parity",
+      "run_id": "legacy-settlecore-binary-parity-8b1db06a",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.7657,
+      "security": 1.0,
+      "reviewed_score": 70.83333333333334,
+      "intent_recovery": 91.66666666666666,
+      "intent_recovery_redistributed": false,
+      "code_quality": 76.51515151515152,
+      "combined_33": 90.25845,
+      "combined_timeouts_zero": 90.25845,
+      "combined_20_profile": 91.78853030303031,
+      "combined_single_judge": {
+        "claude": 89.00845,
+        "sol": 91.50845
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 62.5,
+          "maintainability": 66.66666666666666,
+          "reviewed_score": 64.58333333333333,
+          "intent_recovery": 94.44444444444444,
+          "scored_quirks": 9,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 70.83333333333334,
+          "maintainability": 83.33333333333334,
+          "reviewed_score": 77.08333333333334,
+          "intent_recovery": 88.88888888888889,
+          "scored_quirks": 9,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 10,
+      "duration_s": 2000.036,
+      "started_at": "2026-11-03T16:13:36.112525+00:00",
+      "finished_at": "2026-11-03T16:46:58.283501+00:00",
+      "evidence_sha256": "a4627bb0fde1496d471c31faf32759ca9d2fffe1d5d3a9f04cd11c64fe7247ee",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "55bfeaa8853688fd3dd113703fcbc7acd3779d4c15a5d80eae6160e440455fa6",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 10,
+      "hidden_behaviours": 10,
+      "model_calls": {
+        "muse-wonder-full-1.0": 115,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 18849662,
+      "token_usage": {
+        "input_tokens": 18737045,
+        "cached_input_tokens": 18474920,
+        "uncached_input_tokens": 262125,
+        "output_tokens": 112617,
+        "reasoning_output_tokens": 64465
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 120196,
+        "cached_input_tokens": 0,
+        "output_tokens": 2638,
+        "reasoning_output_tokens": 2286
+      },
+      "main_model_usd": 6.995824,
+      "reminder_usd": 0.1614565,
+      "estimated_usd": 7.1572805,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-snapcore-binary-parity",
+      "run_id": "legacy-snapcore-binary-parity-e7187c36",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.8207,
+      "security": 1.0,
+      "reviewed_score": 62.49999999999999,
+      "intent_recovery": 75.0,
+      "intent_recovery_redistributed": false,
+      "code_quality": 65.9090909090909,
+      "combined_33": 87.22595,
+      "combined_timeouts_zero": 87.22595,
+      "combined_20_profile": 90.49231818181819,
+      "combined_single_judge": {
+        "claude": 84.72595,
+        "sol": 89.72594999999998
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 54.166666666666664,
+          "maintainability": 50,
+          "reviewed_score": 52.08333333333333,
+          "intent_recovery": 75.0,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 66.66666666666666,
+          "maintainability": 79.16666666666666,
+          "reviewed_score": 72.91666666666666,
+          "intent_recovery": 75.0,
+          "scored_quirks": 8,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 10,
+      "duration_s": 1247.7,
+      "started_at": "2026-11-03T21:17:14.716440+00:00",
+      "finished_at": "2026-11-03T21:38:02.449299+00:00",
+      "evidence_sha256": "f5c13910edc15eb69945205369e46e557121fe6f6d63f3778f7fd4f451d088d2",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "2e5277103fde7f2b7acb26f5537cde9b84fb6a0b67737fe7f6aa6a697dba1e0d",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 10,
+      "hidden_behaviours": 10,
+      "model_calls": {
+        "muse-wonder-full-1.0": 68,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 6495629,
+      "token_usage": {
+        "input_tokens": 6429376,
+        "cached_input_tokens": 6294864,
+        "uncached_input_tokens": 134512,
+        "output_tokens": 66253,
+        "reasoning_output_tokens": 37678
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 94377,
+        "cached_input_tokens": 0,
+        "output_tokens": 2176,
+        "reasoning_output_tokens": 1842
+      },
+      "main_model_usd": 3.1220808,
+      "reminder_usd": 0.12721925,
+      "estimated_usd": 3.24930005,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-stampcore-binary-parity",
+      "run_id": "legacy-stampcore-binary-parity-f25053c4",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.8023,
+      "security": 1.0,
+      "reviewed_score": 73.95833333333333,
+      "intent_recovery": 82.14285714285714,
+      "intent_recovery_redistributed": false,
+      "code_quality": 76.19047619047618,
+      "combined_33": 90.46240714285713,
+      "combined_timeouts_zero": 90.46240714285713,
+      "combined_20_profile": 92.27259523809525,
+      "combined_single_judge": {
+        "claude": 87.89097857142856,
+        "sol": 93.0338357142857
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 62.5,
+          "maintainability": 66.66666666666666,
+          "reviewed_score": 64.58333333333333,
+          "intent_recovery": 78.57142857142857,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 79.16666666666666,
+          "maintainability": 87.5,
+          "reviewed_score": 83.33333333333333,
+          "intent_recovery": 85.71428571428571,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 9,
+      "duration_s": 1738.701,
+      "started_at": "2026-11-04T01:29:48.512631+00:00",
+      "finished_at": "2026-11-04T01:58:47.266693+00:00",
+      "evidence_sha256": "94fc71f2d4b4e6fe8f18962164fdfff98abfc5bfbc5ff45c185a38f5cf744d05",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "ee0d9497c8645950b5b43b7c1084e61312e3de76d5e662bc566b7f65c41ab9da",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 9,
+      "hidden_behaviours": 9,
+      "model_calls": {
+        "muse-wonder-full-1.0": 124,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 16877999,
+      "token_usage": {
+        "input_tokens": 16780165,
+        "cached_input_tokens": 16550844,
+        "uncached_input_tokens": 229321,
+        "output_tokens": 97834,
+        "reasoning_output_tokens": 57565
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 123393,
+        "cached_input_tokens": 0,
+        "output_tokens": 1651,
+        "reasoning_output_tokens": 1331
+      },
+      "main_model_usd": 6.1841328,
+      "reminder_usd": 0.161258,
+      "estimated_usd": 6.3453908000000006,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-tallycore-binary-parity",
+      "run_id": "legacy-tallycore-binary-parity-e60560e1",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.8026,
+      "security": 1.0,
+      "reviewed_score": 75.0,
+      "intent_recovery": 100.0,
+      "intent_recovery_redistributed": false,
+      "code_quality": 81.81818181818181,
+      "combined_33": 92.32209999999999,
+      "combined_timeouts_zero": 92.32209999999999,
+      "combined_20_profile": 93.40263636363638,
+      "combined_single_judge": {
+        "claude": 90.82209999999999,
+        "sol": 93.82209999999999
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 70.83333333333334,
+          "maintainability": 66.66666666666666,
+          "reviewed_score": 68.75,
+          "intent_recovery": 100.0,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 79.16666666666666,
+          "maintainability": 83.33333333333334,
+          "reviewed_score": 81.25,
+          "intent_recovery": 100.0,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 8,
+      "duration_s": 931.27,
+      "started_at": "2026-11-04T00:22:18.629201+00:00",
+      "finished_at": "2026-11-04T00:37:49.919504+00:00",
+      "evidence_sha256": "e092162238d4c8f968b7e1f2786fa701cbbf130e5a9f3dc0209623b03236d936",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "626198e10ed7cde68874859f04280f4d06188c3e9255f48fa4cddc5fca281bfc",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 8,
+      "hidden_behaviours": 8,
+      "model_calls": {
+        "muse-wonder-full-1.0": 34,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 3285658,
+      "token_usage": {
+        "input_tokens": 3243765,
+        "cached_input_tokens": 3116008,
+        "uncached_input_tokens": 127757,
+        "output_tokens": 41893,
+        "reasoning_output_tokens": 25350
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 66594,
+        "cached_input_tokens": 0,
+        "output_tokens": 2635,
+        "reasoning_output_tokens": 2275
+      },
+      "main_model_usd": 1.9720896,
+      "reminder_usd": 0.09444125,
+      "estimated_usd": 2.06653085,
+      "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
+      "overlap_minutes_logged": 0
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "task": "legacy-vaultcore-binary-parity",
+      "run_id": "legacy-vaultcore-binary-parity-a420c420",
+      "judged_under": "code-quality-maintenance-v3.26.5",
+      "judged": "published",
+      "scored_panels": [
+        "claude",
+        "sol"
+      ],
+      "finished": true,
+      "functional": 1.0,
+      "automated_quality": 0.8364,
+      "security": 1.0,
+      "reviewed_score": 83.33333333333334,
+      "intent_recovery": 82.14285714285714,
+      "intent_recovery_redistributed": false,
+      "code_quality": 83.008658008658,
+      "combined_33": 93.00225714285713,
+      "combined_timeouts_zero": 93.00225714285713,
+      "combined_20_profile": 94.14773160173159,
+      "combined_single_judge": {
+        "claude": 90.68082857142856,
+        "sol": 95.32368571428572
+      },
+      "panels": {
+        "claude": {
+          "scored": true,
+          "readability": 75.0,
+          "maintainability": 75,
+          "reviewed_score": 75.0,
+          "intent_recovery": 78.57142857142857,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        },
+        "sol": {
+          "scored": true,
+          "readability": 87.5,
+          "maintainability": 95.83333333333334,
+          "reviewed_score": 91.66666666666667,
+          "intent_recovery": 85.71428571428571,
+          "scored_quirks": 7,
+          "reviewer_fallback": false
+        }
+      },
+      "passed_quirk_families": 9,
+      "duration_s": 1973.495,
+      "started_at": "2026-11-03T21:38:02.874861+00:00",
+      "finished_at": "2026-11-03T22:10:56.407314+00:00",
+      "evidence_sha256": "3856c32b051e60f3ac4e1c0a0fccbfca2a386b9a499d5b051f7a6905c1d9062c",
+      "solver_cli_version": "Muse Code 1.4.9 (1.4.9-R6297.1)",
+      "solver_binary_sha256": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e",
+      "source_tag": "bench/2026-11-03-musewonder-full-max",
+      "task_hash": "a6e1b00dc9a61f29af86c47b0c578b0bb2a9dbe9ab750fd76cf1afc339fc76b6",
+      "integrity_audit": {
+        "web": "no_web",
+        "benchmark_data_paths": 0,
+        "answer_key_paths": 0,
+        "contaminated": false,
+        "outside_workspace": "Muse Code's own per-run session folder only"
+      },
+      "hidden_behaviours_fixed": 9,
+      "hidden_behaviours": 9,
+      "model_calls": {
+        "muse-wonder-full-1.0": 73,
+        "muse-spark-1.3 (reminder observers)": 2
+      },
+      "raw_tokens": 7870275,
+      "token_usage": {
+        "input_tokens": 7789081,
+        "cached_input_tokens": 7630356,
+        "uncached_input_tokens": 158725,
+        "output_tokens": 81194,
+        "reasoning_output_tokens": 47068
+      },
+      "reminder_observer_usage": {
+        "model": "muse-spark-1.3",
+        "calls": 2,
+        "input_tokens": 103838,
+        "cached_input_tokens": 0,
+        "output_tokens": 1897,
+        "reasoning_output_tokens": 1606
+      },
+      "main_model_usd": 3.7848512000000003,
+      "reminder_usd": 0.13785975,
+      "estimated_usd": 3.9227109500000004,
       "pricing_method": "estimate: Muse Wonder Full main-model tokens at the Muse Wonder 1.0 list price (uncached input $4.00, cached input $0.20, output $20.00 per million) plus, on Muse Code 1.4.9 runs, the Muse Spark 1.3 reminder-observer tokens at Muse Spark 1.3's list price ($1.25, $0.15, $4.25 per million)",
       "overlap_minutes_logged": 0
     }

@@ -1,32 +1,36 @@
 # VulcanBench Frontier v4: Muse Wonder Full under Code quality protocol v3.26
 
-Public record for the October 2026 Muse Wonder Full report: 92 solver runs
-from the October 13 to 17, 2026 Muse Code effort sweep (23 tasks, one attempt
-per task at each of the four effort levels Muse Code offers in Contributor
-mode, Low to Extra-high, on the owner's Muse Code subscription, local sandbox,
-flat 3-hour task bound, one sweep at a time), judged for Code quality by
-Claude Opus 5.5 and GPT-6.1 Sol, with Code quality at 33% of the combined
-score. Functional, lint and complexity, and security measurements come from
-the sweep. 90 runs carry a published Code quality score, each the equal mean
-of both judges; the other two hit the 3-hour bound and count in tasks passed,
-time and cost.
+Public record for the Muse Wonder Full report: 115 solver runs from the
+Muse Code effort sweep (23 tasks, one attempt per task at each of five effort
+levels in Contributor mode: Low to Extra-high from October 13 to 17, 2026 and
+Max from November 3 to 4, 2026, on the owner's Muse Code subscription, local
+sandbox, flat 3-hour task bound, one sweep at a time), judged for Code
+quality by Claude Opus 5.5 and GPT-6.1 Sol, with Code quality at 33% of the
+combined score. Functional, lint and complexity, and security measurements
+come from the sweep. 113 runs carry a published Code quality score, each the
+equal mean of both judges; the other two hit the 3-hour bound and count in
+tasks passed, time and cost.
 
 Muse Wonder Full (`muse-wonder-full-1.0`) is Meta's model, run through Muse
 Code as `muse-code:muse-wonder-full-1.0-contributor` in Contributor mode,
 where Meta may train on submitted content. The owner accepted that, so
 Frontier v4 task content may enter future Meta training data. Muse Code's
-skill-reminder plugin was off for every run. Muse Code does not offer Max in
-Contributor mode, so these four levels are every level that could be run.
+skill-reminder plugin was off for every run. Max was first left out: Meta
+documents Max as Standard-only for Muse Spark and says nothing about it for
+Muse Wonder Full in Contributor mode. A probe on November 3, 2026 showed
+Contributor mode honors Max (2.4 times Extra-high's reasoning on the same
+puzzle), so it was run and added on November 4 (harness decision record,
+2026-11-03).
 
 ## Files
 
 | File | What readers can inspect |
 |---|---|
 | [runs.json](runs.json) | Every run: task, effort, the four score factors, hidden behaviours fixed, each judge's reviewed score, human readability, maintainability and intent recovery, the combined score under the 33% and prior 20% profiles, the timeouts-as-0 figure, the combined score from each judge alone, the round that judged it, integrity-audit verdicts, the task hash, timing, logged overlap minutes, raw tokens, model calls by model, reminder-observer usage, the estimated cost, Muse Code version, passed quirk families and evidence hash; the two timed-out rows say why they have no score |
-| [runs.csv](runs.csv) | The same 92 records flat for spreadsheets |
-| [groups.json](groups.json) | Four effort aggregates with sample standard errors: both combined figures, per-judge means and single-judge combined scores, judged and all-run pass counts, hidden behaviours fixed, Muse Code versions, runtime, cost and tokens |
+| [runs.csv](runs.csv) | The same 115 records flat for spreadsheets |
+| [groups.json](groups.json) | Five effort aggregates with sample standard errors: both combined figures, per-judge means and single-judge combined scores, judged and all-run pass counts, hidden behaviours fixed, Muse Code versions, runtime, cost and tokens |
 | [calibration.json](calibration.json) | Each judge's calibration verdict (Claude Opus 5.5 under v3.26, GPT-6.1 Sol under v3.25), every gate value, the allowance rule and control means |
-| [judge-protocols.json](judge-protocols.json) | The exact system text, rubric, pair instruction, probe and match instructions, schemas, weights, repeats, seed, allowance rule, retry rule, control source hashes, the five rounds and how they bind each other, the excluded and replaced judges, judge settings and binary pins, counted calls, second attempts and operator recoveries |
+| [judge-protocols.json](judge-protocols.json) | The exact system text, rubric, pair instruction, probe and match instructions, schemas, weights, repeats, seed, allowance rule, retry rule, control source hashes, the six rounds and how they bind each other, the excluded and replaced judges, judge settings and binary pins, counted calls, second attempts, operator recoveries and the one call set aside for an expired judge sign-in |
 | [economics.json](economics.json) | Estimated cost and raw-token aggregates per effort, sweep totals, the rates applied, the pricing method and its limitations |
 | [provenance.json](provenance.json) | Frozen source hashes, export checks and publication limits |
 | [REPRODUCING.md](REPRODUCING.md) | Public arithmetic checks and links to the protocol document, the decision record and the code |
@@ -60,8 +64,9 @@ intent recovery. It is never compared with Routine v1 Code quality.
 | medium | 23 | 88.27 | 0.95 | 88.27 | 72.29 | 21 | 227 | 27.3 | 4.09 |
 | high | 22 | 88.19 | 1.04 | 84.36 | 73.58 | 19 | 210 | 36.2 | 4.72 |
 | extra-high | 22 | 87.59 | 0.96 | 83.78 | 71.84 | 19 | 211 | 33.3 | 5.08 |
+| max | 23 | 88.36 | 0.76 | 88.36 | 71.89 | 22 | 229 | 40.9 | 5.91 |
 
-pass@1 is 0.783, 0.913, 0.826 and 0.826 from Low to Extra-high. Runtime and
+pass@1 is 0.783, 0.913, 0.826, 0.826 and 0.957 from Low to Max. Runtime and
 cost cover every run, the two timeouts included, as on the harness card.
 Every run's integrity audit is clean: no web access, no benchmark data or
 answer-key paths, and nothing touched outside the workspace except Muse
@@ -75,11 +80,11 @@ Code's own per-run session folder.
   and priced from the usage Muse Code reported before the bound. Their
   `judged` field says so.
 
-High and Extra-high are therefore judged on 22 runs. The combined score at
+High and Extra-high are therefore judged on 22 runs; Max had no timeout. The combined score at
 those levels is over judged runs; `combined_timeouts_zero` gives 84.36 at High
 and 83.78 at Extra-high with each timeout counted as 0.
 
-## Two Muse Code versions
+## Two Muse Code versions, three run roots
 
 Low (23 tasks) and the first 21 Medium tasks ran on Muse Code 1.4.6 from the
 tagged run worktree `bench/2026-10-13-musewonder-full-v2-low`. The Muse Code
@@ -91,11 +96,12 @@ chose for the rest of the sweep, keeping what had already run. The last two
 Medium tasks, High and Extra-high ran on 1.4.9 from
 `bench/2026-10-16-musewonder-full-149`, a second run root that continues the
 first and skips the tasks it completed. Medium therefore mixes versions: 21
-runs on 1.4.6 and 2 on 1.4.9.
+runs on 1.4.6 and 2 on 1.4.9. Max ran on the same 1.4.9 binary from
+`bench/2026-11-03-musewonder-full-max`, in its own run root.
 
 Muse Code 1.4.9 runs its end-of-run goal and verify reminder observers on
 Muse Spark 1.3, not on the main model as 1.4.6 did. Those calls are recorded
-apart (`reminder_observer_usage`, on 46 of the 48 1.4.9 runs; the two
+apart (`reminder_observer_usage`, on 69 of the 71 1.4.9 runs; the two
 timeouts reached no end of run); every other call was Muse Wonder Full, which
 the adapter enforces per run.
 
@@ -107,7 +113,7 @@ the Muse Wonder 1.0 list price checked on 2026-10-15 ($4.00 uncached input,
 $0.20 cached input, $20.00 output per million, the same at any context
 length), and the 1.4.9 reminder-observer tokens at Muse Spark 1.3's list
 price checked on 2026-10-16 ($1.25, $0.15 and $4.25), exactly as the harness
-card does. The sweep comes to an estimated $409.79, of which $5.97 is
+card does. The sweep comes to an estimated $545.75, of which $8.95 is
 reminder observers. Solver inference only; judging is excluded and
 subscription bills are not observable.
 
@@ -132,7 +138,8 @@ refuses to prepare unless the manifest, evidence, signals, controls, quirk
 keys, diagnostic selection and calibration order are byte-identical to
 v3.25's, and it re-checks Sol's protocol hash before every stage. Opus 5.5
 took the exam under v3.26. v3.26.1 (the two Medium runs on 1.4.9), v3.26.2
-(High) and v3.26.3 (Extra-high) reuse both verdicts with no new exam, each
+(High), v3.26.3 (Extra-high) and v3.26.5 (Max) reuse both verdicts with no
+new exam, each
 binding them by hash; every round's rubric, prompts, schemas, seed, repeats,
 gate allowance and weights equal v3.25's. Both judges passed every gate with
 no allowance used. Claude Opus 5.5 is also a compared model on the harness
@@ -142,19 +149,24 @@ Spark 1.3 and Grok 4.6.
 The two judges disagree in level, not much in order: Claude Opus 5.5 rates
 Muse Wonder Full's reviewed Code quality about 17 points below GPT-6.1 Sol at
 every level (58.9 against 76.0 at Low, 58.2 and 75.3 at Medium, 59.6 and 77.1
-at High, 57.8 and 74.9 at Extra-high). The published score is their mean;
-`combined_single_judge` gives the combined score from each judge alone, 85.02
-to 86.24 from Opus 5.5 and 88.88 to 90.30 from Sol.
+at High, 57.8 and 74.9 at Extra-high, 57.2 and 75.4 at Max). The published
+score is their mean; `combined_single_judge` gives the combined score from
+each judge alone, 85.02 to 86.24 from Opus 5.5 and 88.88 to 90.53 from Sol.
 
 Opus 5.5 made 80 calibration calls under v3.26; GPT-6.1 Sol made 80 under
-v3.25. Across the rounds each judge made 90 primary reviews, 90 intent
-probes and 90 answer-key matches, 6 repeats and 4 pairwise checks. Opus
-needed a second attempt on one call and Sol on twelve, under the single-retry
-rule. Nine of Sol's answer-key matches are published through the standing
+v3.25. Across the rounds each judge made 113 primary reviews, 113 intent
+probes and 113 answer-key matches, 7 repeats and 4 pairwise checks. Opus
+needed a second attempt on two calls and Sol on seventeen, under the
+single-retry rule. Eleven of Sol's answer-key matches are published through the standing
 `recover_one_based_indexes` rule: both attempts failed only because the
 departure indexes were one-based, so they were moved to zero-based with
 statuses untouched and the original kept in the receipt. Neither judge
-produced a reviewer fallback.
+produced a reviewer fallback. In v3.26.5 the first Opus 5.5 call met an
+expired Claude Code sign-in: a synthetic "Failed to authenticate" result with
+no model response, so nothing was judged. After the owner signed in again
+the attempt was set aside under `auth-stops/` with a note and the same call
+resumed with identical inputs, as the protocol does for quota stops
+(`operator_stops` in `judge-protocols.json`).
 
 ## Population and run notes
 
@@ -166,16 +178,18 @@ produced a reviewer fallback.
   apart unscored and the task was rerun.
 - The sweep ran 2026-10-13 20:31 to 2026-10-14 22:20 UTC (Low and 21 Medium
   tasks), paused for the quota, and resumed 2026-10-16 11:31 to 2026-10-17
-  16:11 UTC. Judging ran in four rounds, on October 15, 16 and 17.
+  16:11 UTC. Max ran 2026-11-03 16:13 to 2026-11-04 07:55 UTC with no
+  stops. Judging ran in five rounds, on October 15, 16 and 17 and
+  November 4.
 - A per-minute log recorded any other local benchmark process beside the
   sweep from Medium on. It flags 9 of 23 Medium runs, 14 of 23 High runs and
   5 of 23 Extra-high runs (`overlap_minutes_logged`); the Extra-high ones
   ran beside another session's Frontier v5 jobs on October 17, 10:08 to
-  15:46 UTC. Overlap can lengthen minutes. Extra-high depotcore hit the
+  15:46 UTC. No other job ran during Max. Overlap can lengthen minutes. Extra-high depotcore hit the
   3-hour limit with 145 of its 180 minutes overlapped, so its timeout, and
-  its score of 0, may be partly due to the load; a clean rerun is scheduled
-  after the Muse quota reset on October 19, and this bundle will be updated
-  with it.
+  its score of 0, may be partly due to the load. The task was rerun alone on
+  October 19; that rerun is not yet judged, so this bundle keeps the original
+  run and will be updated when it is.
 - One attempt per task and level; runs were not repeated.
 
 ## Withheld
