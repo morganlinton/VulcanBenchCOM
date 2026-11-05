@@ -132,16 +132,44 @@
         "mean": 33.337392028985505,
         "se": 7.033674640417152
       }
+    },
+    {
+      "model": "musewonderfull",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 5.910995563043478,
+        "se": 0.9963243010545804
+      },
+      "usd_total": 135.95289795,
+      "reminder_usd_total": 2.9811027500000002,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 13439967,
+        "se": 2796107.4053033227
+      },
+      "raw_tokens_total": 309119241,
+      "output_tokens": {
+        "n": 23,
+        "mean": 100466.82608695653,
+        "se": 13125.849566730056
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 40.93668623188406,
+        "se": 6.819423739121764
+      }
     }
   ],
   "totals": {
     "musewonderfull": {
-      "runs": 92,
-      "usd": 409.7945240499998,
-      "reminder_usd": 5.973363249999999,
-      "raw_tokens": 879206360,
-      "reminder_tokens": 4773911,
-      "solver_hours": 47.58504555555556
+      "runs": 115,
+      "usd": 545.7474219999998,
+      "reminder_usd": 8.954465999999998,
+      "raw_tokens": 1188325601,
+      "reminder_tokens": 7041282,
+      "solver_hours": 63.277441944444455
     }
   },
   "limitations": [

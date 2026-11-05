@@ -520,5 +520,134 @@
     "usd_total": 116.86345005,
     "reminder_usd_total": 2.83779885,
     "overlapping_runs": 5
+  },
+  {
+    "model": "musewonderfull",
+    "effort": "max",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "timeout_tasks": [],
+    "combined_33": {
+      "n": 23,
+      "mean": 88.36127541371671,
+      "se": 0.7559472850525527
+    },
+    "combined_timeouts_zero": {
+      "n": 23,
+      "mean": 88.36127541371671,
+      "se": 0.7559472850525527
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 90.57989353136982,
+      "se": 0.6607722397824298
+    },
+    "combined_single_judge": {
+      "claude": {
+        "n": 23,
+        "mean": 86.18883698258263,
+        "se": 0.7687183738661082
+      },
+      "sol": {
+        "n": 23,
+        "mean": 90.5337138448508,
+        "se": 0.7656807876894423
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 71.88609809163168,
+      "se": 1.407943000282
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 66.30434782608695,
+      "se": 1.7097636023636766
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 86.77076546641764,
+      "se": 2.1731677594294183
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 64.4927536231884,
+      "se": 1.8820695522197886
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 68.11594202898551,
+      "se": 1.8589415478630893
+    },
+    "by_panel": {
+      "claude": {
+        "n": 23,
+        "mean": 57.2463768115942,
+        "se": 1.7856759257412256
+      },
+      "sol": {
+        "n": 23,
+        "mean": 75.36231884057972,
+        "se": 1.750663409416289
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 99.03391304347826,
+      "se": 0.966086956521739
+    },
+    "functional_all_runs": {
+      "n": 23,
+      "mean": 99.03391304347826,
+      "se": 0.966086956521739
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 78.12217391304348,
+      "se": 1.0173071398584654
+    },
+    "security": {
+      "n": 23,
+      "mean": 99.78260869565217,
+      "se": 0.2173913043478261
+    },
+    "passed": 22,
+    "passed_all_runs": 22,
+    "hidden_behaviours_fixed": 229,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 40.93668623188406,
+      "se": 6.819423739121764
+    },
+    "minutes_median": 30.72145,
+    "priced_runs": 23,
+    "cli_versions": {
+      "Muse Code 1.4.9 (1.4.9-R6297.1)": 23
+    },
+    "judged_in": {
+      "code-quality-maintenance-v3.26.5": 23
+    },
+    "raw_tokens": {
+      "n": 23,
+      "mean": 13439967,
+      "se": 2796107.4053033227
+    },
+    "raw_tokens_total": 309119241,
+    "output_tokens": {
+      "n": 23,
+      "mean": 100466.82608695653,
+      "se": 13125.849566730056
+    },
+    "usd": {
+      "n": 23,
+      "mean": 5.910995563043478,
+      "se": 0.9963243010545804
+    },
+    "usd_total": 135.95289795,
+    "reminder_usd_total": 2.9811027500000002,
+    "overlapping_runs": 0
   }
 ]

@@ -1,4 +1,4 @@
-"""Export the public record of the Muse Wonder Full effort sweep on Frontier v4, judged under v3.26 to v3.26.3.
+"""Export the public record of the Muse Wonder Full effort sweep on Frontier v4, judged under v3.26 to v3.26.3 and v3.26.5.
 
 Adapted from the v3.24 Claude Haiku 5.5 export, with the same publication
 scope: per-run scores, per-panel sub-scores, aggregates, judge protocol text,
@@ -8,23 +8,29 @@ quirk answer keys and host paths are withheld. Run from the site root:
     python3 scripts/export_swe_v4_v326_evidence.py --harness-root ../VulcanBench
 
 --harness-root holds the frozen run directories (runs-effort-musewonder-full-v2,
-runs-effort-musewonder-full-v2-149, runs-code-quality-maintenance-v3.25 and
-v3.26 to v3.26.3), the population records and card in
+runs-effort-musewonder-full-v2-149, runs-effort-musewonder-full-v2-149-max,
+runs-code-quality-maintenance-v3.25, v3.26 to v3.26.3 and v3.26.5), the
+population records and card in
 docs/results/swe-v4-musewonder-full-2026-10, and the per-minute overlap logs.
 
 What differs from the Haiku 5.5 export, all forced by the sweep or its judging:
 
-- Two Muse Code versions, two run roots. Low and 21 Medium tasks ran on Muse
+- Two Muse Code versions, three run roots. Low and 21 Medium tasks ran on Muse
   Code 1.4.6 from bench/2026-10-13-musewonder-full-v2-low; after the Muse Code
   weekly limit stopped Medium and Meta reset the quota, the last two Medium
   tasks, High and Extra-high ran on Muse Code 1.4.9 from
-  bench/2026-10-16-musewonder-full-149, which continues the first root.
-- Four judging rounds, one panel. v3.26 seats Claude Opus 5.5 (Muse Spark 1.3
+  bench/2026-10-16-musewonder-full-149, which continues the first root. Max
+  ran on the same 1.4.9 binary from bench/2026-11-03-musewonder-full-max in
+  its own root, after a probe showed Contributor mode honors Max (harness
+  DECISIONS.md, 2026-11-03).
+- Five judging rounds, one panel. v3.26 seats Claude Opus 5.5 (Muse Spark 1.3
   is a Meta model, so it is not neutral for a Meta submission, and Grok 4.7's
   Cursor account ran out of usage on its first exam call under v3.25) with
   GPT-6.1 Sol's v3.25 work attached as a scored sibling. v3.26.1 (the two
-  Medium top-up runs), v3.26.2 (High) and v3.26.3 (Extra-high) reuse both exam
-  verdicts with no new exam. The export checks every hash that binds them.
+  Medium top-up runs), v3.26.2 (High), v3.26.3 (Extra-high) and v3.26.5
+  (Max) reuse both exam verdicts with no new exam. The export checks every
+  hash that binds them. v3.26.4 (the Extra-high depotcore rerun) is not
+  judged, so Extra-high keeps its published, timed-out depotcore run.
 - Two timeouts. High paddockcore and Extra-high depotcore hit the flat 3-hour
   task bound with no finished code to judge. They count as failed tasks, are
   timed and priced (Muse Code reported usage before the bound), and each
@@ -51,7 +57,7 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parents[1]
 DEST = SITE / "assets/data/swe-v4-musewonder-full-v326"
 SCORES = SITE / "assets/data/swe-v4-musewonder-full-v326-scores.csv"
-EFFORTS = ("low", "medium", "high", "extra-high")
+EFFORTS = ("low", "medium", "high", "extra-high", "max")
 MODEL = "musewonderfull"
 NAMES = {MODEL: "Muse Wonder Full"}
 SOLVER = "muse-code:muse-wonder-full-1.0-contributor"
@@ -65,17 +71,24 @@ LOCK = "tasks/coding-intelligence-index-v4/suite.lock.json"
 SWEEPS = {  # run root: (Muse Code version, bench tag, commit)
     "runs-effort-musewonder-full-v2": ("Muse Code 1.4.6 (1.4.6-R6000.1)", "bench/2026-10-13-musewonder-full-v2-low", "1f2e3a72d4"),
     "runs-effort-musewonder-full-v2-149": ("Muse Code 1.4.9 (1.4.9-R6297.1)", "bench/2026-10-16-musewonder-full-149", "fe63022c01"),
+    "runs-effort-musewonder-full-v2-149-max": ("Muse Code 1.4.9 (1.4.9-R6297.1)", "bench/2026-11-03-musewonder-full-max", "be1873c8c8"),
 }
+# Extra-high depotcore: the published run hit the 3-hour bound while another job ran. Its clean rerun (19 October) replaced it in
+# extra-high/ and the published run moved to overlap-superseded/; the rerun is not judged (v3.26.4 is on hold), so the bundle keeps
+# the published run and checks the rerun is held apart.
+XH_PUBLISHED = "runs-effort-musewonder-full-v2-149/overlap-superseded/extra-high-legacy-depotcore-binary-parity-995c75a9"
+XH_RERUN = "runs-effort-musewonder-full-v2-149/extra-high/legacy-depotcore-binary-parity-20fa8072"
 SOLVER_BINARIES = {"Muse Code 1.4.6 (1.4.6-R6000.1)": "c713165a287d64afb8816f8351a240b457a23524f4ade06bca0e41dfde410460",
                    "Muse Code 1.4.9 (1.4.9-R6297.1)": "2b856618ae3de3a63956e6d510b849ad707b16e5d2ed196299f3fe5ef2e3ff5e"}
-VERSIONS = {"low": {"1.4.6": 23}, "medium": {"1.4.6": 21, "1.4.9": 2}, "high": {"1.4.9": 23}, "extra-high": {"1.4.9": 23}}
+VERSIONS = {"low": {"1.4.6": 23}, "medium": {"1.4.6": 21, "1.4.9": 2}, "high": {"1.4.9": 23}, "extra-high": {"1.4.9": 23}, "max": {"1.4.9": 23}}
 # The judging rounds: (round, directory, population record beside the card, efforts it judges).
 ROUNDS = (("v3.26", "runs-code-quality-maintenance-v3.26", "comparison.json"),
           ("v3.26.1", "runs-code-quality-maintenance-v3.26.1", "comparison-topup.json"),
           ("v3.26.2", "runs-code-quality-maintenance-v3.26.2", "comparison-high.json"),
-          ("v3.26.3", "runs-code-quality-maintenance-v3.26.3", "comparison-extra-high.json"))
+          ("v3.26.3", "runs-code-quality-maintenance-v3.26.3", "comparison-extra-high.json"),
+          ("v3.26.5", "runs-code-quality-maintenance-v3.26.5", "comparison-max.json"))
 SOL_ROUND = "runs-code-quality-maintenance-v3.25"  # GPT-6.1 Sol's exam and its Low and Medium votes, the v3.26 scored sibling
-JUDGED_IN = {"low": {"v3.26": 23}, "medium": {"v3.26": 21, "v3.26.1": 2}, "high": {"v3.26.2": 22}, "extra-high": {"v3.26.3": 22}}
+JUDGED_IN = {"low": {"v3.26": 23}, "medium": {"v3.26": 21, "v3.26.1": 2}, "high": {"v3.26.2": 22}, "extra-high": {"v3.26.3": 22}, "max": {"v3.26.5": 23}}
 TOPUP = {"legacy-cellarcore-binary-parity", "legacy-paddockcore-binary-parity"}
 TIMEOUT_S = 10800
 TIMEOUTS = {("high", "legacy-paddockcore-binary-parity"), ("extra-high", "legacy-depotcore-binary-parity")}
@@ -90,11 +103,16 @@ PRICING_METHOD = ("estimate: Muse Wonder Full main-model tokens at the Muse Wond
                   "list price ($1.25, $0.15, $4.25 per million)")
 # Per-minute logs of any other local benchmark process beside the sweep (timing caveat only); they start with Medium.
 OVERLAP_LOGS = ("logs/musewonder-full-v2-medium-overlap.log", "logs/musewonder-full-v2-149-overlap.log")
-OVERLAPS = {"low": None, "medium": 9, "high": 14, "extra-high": 5}
+# Max's monitor writes a line only in a minute when another benchmark process runs; it never did, so its log was never created.
+MAX_OVERLAP_LOG = "logs/musewonder-full-max-overlap.log"
+OVERLAPS = {"low": None, "medium": 9, "high": 14, "extra-high": 5, "max": 0}
 INFRA_ABORTED = {"high-legacy-snapcore-binary-parity-1098fab2"}
 QUOTA_ABORTED = {"medium-legacy-cellarcore-binary-parity-cb3eb4d6"}
 RECOVERY_METHOD = "one-based departure indexes moved to zero-based; statuses untouched"
-EXPECTED_RECOVERIES = {"v3.25": 5, "v3.26": 0, "v3.26.1": 1, "v3.26.2": 2, "v3.26.3": 1}  # all GPT-6.1 Sol answer-key matches
+EXPECTED_RECOVERIES = {"v3.25": 5, "v3.26": 0, "v3.26.1": 1, "v3.26.2": 2, "v3.26.3": 1, "v3.26.5": 2}  # all GPT-6.1 Sol answer-key matches
+# v3.26.5: the Claude judge's first call met an expired Claude Code sign-in (a synthetic "Failed to authenticate" result, zero output
+# tokens, no model response); the operator set the attempt aside under auth-stops/ and resumed the call with identical inputs.
+AUTH_STOPS = {("v3.26.5", "claude", "primary", "max-001"): 1}
 FORBIDDEN = (chr(0x2014), chr(0x2013), "/Users/", "/home/", "/private/", "/var/folders/")
 
 
@@ -200,7 +218,9 @@ def solver_facts(root, run_dir, effort, lock):
 def overlap_minutes(root, start, end):
     """Minutes in which the per-minute overlap log recorded another local benchmark process during this run."""
     stamps = []
-    for name in OVERLAP_LOGS:
+    for name in OVERLAP_LOGS + (MAX_OVERLAP_LOG,):
+        if name == MAX_OVERLAP_LOG and not (root / name).exists():
+            continue
         for line in (root / name).read_text().splitlines():
             if "overlap_procs=" in line:
                 stamps.append(datetime.fromisoformat(line.split()[0].replace("Z", "+00:00")))
@@ -236,7 +256,7 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
     card = read(card_path)
     assert card["final"] is True
     card_groups = card["groups"]["wonder"]
-    assert list(card_groups) == list(EFFORTS)  # Max is not offered in Contributor mode
+    assert list(card_groups) == list(EFFORTS)  # Max joined in v3.26.5 (harness DECISIONS.md, 2026-11-03)
 
     # GPT-6.1 Sol's round (v3.25): its exam, its protocol and the Grok seat that stopped before any vote.
     sol_dir = root / SOL_ROUND
@@ -278,7 +298,7 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
             "sol": {"sha256": digest(sol_dir / "calibration-sol.json"), "protocol_sha256": digest(sol_dir / "protocol.json")}}
     gate = rounds["v3.26.1"]["protocol"]["top_up_of"]
     assert gate["protocol_sha256"] == exam["claude"]["protocol_sha256"] and gate["summary_sha256"] == digest(rounds["v3.26"]["dir"] / "summary.json")
-    for name in ("v3.26.1", "v3.26.2", "v3.26.3"):
+    for name in ("v3.26.1", "v3.26.2", "v3.26.3", "v3.26.5"):
         protocol = rounds[name]["protocol"]
         record = protocol["top_up_of"] if name == "v3.26.1" else protocol["extends"]
         for p in PANELS:
@@ -290,20 +310,28 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
             assert all(record["protocol_sha256"][d] == digest(root / d / "protocol.json") for d in record["directories"])
     excluded = [x for name in ("v3.26.2", "v3.26.3") for x in rounds[name]["protocol"]["population"]["excluded"]]
     assert {(x["effort"], x["task"]) for x in excluded} == TIMEOUTS and all(not x["finished"] for x in excluded)
-    assert rounds["v3.26"]["protocol"]["population"]["excluded"] == [] and rounds["v3.26.1"]["protocol"]["population"]["excluded"] == []
+    assert all(rounds[n]["protocol"]["population"]["excluded"] == [] for n in ("v3.26", "v3.26.1", "v3.26.5"))
+    assert rounds["v3.26.5"]["protocol"]["extends"]["directories"] == [r[1] for r in ROUNDS[:4]]
     assert {x["task"] for x in v326["population"]["missing"]} == TOPUP
 
-    # Every finished solver summary in the two sweep roots: 92 runs, 23 per level, none duplicated; aborted attempts kept apart.
+    # Every finished solver summary in the three sweep roots: 115 runs, 23 per level, none duplicated; aborted attempts kept apart,
+    # and Extra-high depotcore on its published run, not the unjudged rerun.
     found = {}
     for sweep in SWEEPS:
         for p in sorted((root / sweep).glob("*/legacy-*/summary.json")):
+            if p.parent == root / XH_RERUN:
+                continue
             effort = p.parent.parent.name
             assert effort in EFFORTS, p
             key = (effort, read(p)["task_id"])
             assert key not in found, key
             found[key] = (sweep, p.parent)
         assert all((d / "summary.json").exists() for d in (root / sweep).glob("*/legacy-*") if d.parent.name in EFFORTS)
-    assert len(found) == 92 and Counter(e for e, _ in found) == {e: 23 for e in EFFORTS}
+    rerun = read(root / XH_RERUN / "summary.json")
+    assert rerun["task_id"] == "legacy-depotcore-binary-parity" and rerun["effort"]["requested"] == "extra-high"
+    assert not (root / "runs-code-quality-maintenance-v3.26.4/summary.json").exists()  # judge it before it replaces the published run
+    found["extra-high", "legacy-depotcore-binary-parity"] = ("runs-effort-musewonder-full-v2-149", root / XH_PUBLISHED)
+    assert len(found) == 115 and Counter(e for e, _ in found) == {e: 23 for e in EFFORTS}
     assert {p.name for p in (root / "runs-effort-musewonder-full-v2/quota-aborted").iterdir()} == QUOTA_ABORTED
     assert {p.name for p in (root / "runs-effort-musewonder-full-v2-149/infra-aborted").iterdir()} == INFRA_ABORTED
     for parent in ("runs-effort-musewonder-full-v2/quota-aborted", "runs-effort-musewonder-full-v2-149/infra-aborted"):
@@ -367,14 +395,16 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
     for key in sorted(TIMEOUTS):
         solver, facts, run_dir = facts_by_key[key]
         rows.append({
-            "model": MODEL, "effort": key[0], "task": key[1], "run_id": run_dir.name, "judged_under": None, "judged": TIMEOUT_NOTE,
+            # The superseded folder carries the effort as a prefix; the run id is the one the run was published under.
+            "model": MODEL, "effort": key[0], "task": key[1], "run_id": run_dir.name.removeprefix(f"{key[0]}-"), "judged_under": None,
+            "judged": TIMEOUT_NOTE,
             "scored_panels": [], "finished": False, "functional": 0.0, "automated_quality": None, "security": None, "reviewed_score": None,
             "intent_recovery": None, "intent_recovery_redistributed": None, "code_quality": None, "combined_33": None,
             "combined_timeouts_zero": 0.0, "combined_20_profile": None, "combined_single_judge": None, "panels": None,
             "passed_quirk_families": None, "duration_s": solver["duration_s"], "started_at": solver["started_at"],
             "finished_at": solver["finished_at"], "evidence_sha256": None, **facts,
         })
-    assert len(rows) == 92 and {(r["effort"], r["task"]) for r in rows} == set(found)
+    assert len(rows) == 115 and {(r["effort"], r["task"]) for r in rows} == set(found)
     for r in rows:
         r["overlap_minutes_logged"] = None if r["effort"] == "low" else overlap_minutes(root, r["started_at"], r["finished_at"])
     rows.sort(key=lambda r: (EFFORTS.index(r["effort"]), r["task"]))
@@ -389,8 +419,8 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
         assert got == expected, (effort, got)
 
     save("runs.json", {
-        "runs": len(rows), "published": 90, "timeouts": 2, "weights": WEIGHTS, "code_quality_split": SPLIT_WITHOUT_L3,
-        "judged_rule": "judged is \"published\" where a v3.26, v3.26.1, v3.26.2 or v3.26.3 summary publishes a Code quality score from both "
+        "runs": len(rows), "published": 113, "timeouts": 2, "weights": WEIGHTS, "code_quality_split": SPLIT_WITHOUT_L3,
+        "judged_rule": "judged is \"published\" where a v3.26, v3.26.1, v3.26.2, v3.26.3 or v3.26.5 summary publishes a Code quality score from both "
                        "judges (judged_under names the round); the two timed-out rows carry the reason they have none",
         "timeouts_rule": "combined_timeouts_zero is the combined score with each timed-out run counted as 0 (harness DECISIONS.md 2026-09-28); "
                          "for every judged run it equals combined_33",
@@ -488,20 +518,20 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
         for p in PANELS:
             assert abs(c["by_judge_l1"][p] - g["by_panel"][p]["mean"]) < 1e-9, (effort, p)
         groups.append(g)
-    # Each round's own summary aggregates its level; Low and High, Extra-high are whole levels within one round.
-    for effort, name in (("low", "v3.26"), ("high", "v3.26.2"), ("extra-high", "v3.26.3")):
+    # Each round's own summary aggregates its level; Low, High, Extra-high and Max are whole levels within one round.
+    for effort, name in (("low", "v3.26"), ("high", "v3.26.2"), ("extra-high", "v3.26.3"), ("max", "v3.26.5")):
         entry = rounds[name]["summary"]["groups"][f"{MODEL}/{effort}"]
         g = next(x for x in groups if x["effort"] == effort)
         for field, key in (("combined_33", "composite_v3"), ("code_quality", "code_quality"), ("reviewed_score", "l1"), ("intent_recovery", "l2")):
             assert abs(g[field]["mean"] - entry[key]["mean"]) < 1e-9 and abs(g[field]["se"] - entry[key]["se"]) < 1e-9, (effort, field)
-    assert [g["passed_all_runs"] for g in groups] == [18, 21, 19, 19]
-    assert [g["n"] for g in groups] == [23, 23, 22, 22] and [g["timeouts"] for g in groups] == [0, 0, 1, 1]
-    assert [round(g["combined_33"]["mean"], 2) for g in groups] == [86.95, 88.27, 88.19, 87.59]
-    assert [round(g["combined_timeouts_zero"]["mean"], 2) for g in groups] == [86.95, 88.27, 84.36, 83.78]
-    assert [f'{g["usd"]["mean"]:.2f}' for g in groups] == ["3.93", "4.09", "4.72", "5.08"]
+    assert [g["passed_all_runs"] for g in groups] == [18, 21, 19, 19, 22]
+    assert [g["n"] for g in groups] == [23, 23, 22, 22, 23] and [g["timeouts"] for g in groups] == [0, 0, 1, 1, 0]
+    assert [round(g["combined_33"]["mean"], 2) for g in groups] == [86.95, 88.27, 88.19, 87.59, 88.36]
+    assert [round(g["combined_timeouts_zero"]["mean"], 2) for g in groups] == [86.95, 88.27, 84.36, 83.78, 88.36]
+    assert [f'{g["usd"]["mean"]:.2f}' for g in groups] == ["3.93", "4.09", "4.72", "5.08", "5.91"]
     # Analysis No. 02 publishes the single-judge figures to one decimal.
     assert [(round(g["combined_single_judge"]["claude"]["mean"], 1), round(g["combined_single_judge"]["sol"]["mean"], 1)) for g in groups] == [
-        (85.0, 88.9), (86.2, 90.3), (86.1, 90.2), (85.7, 89.5)]
+        (85.0, 88.9), (86.2, 90.3), (86.1, 90.2), (85.7, 89.5), (86.2, 90.5)]
     with (root / RESULTS / "musewonder-full-vs-frontier-efforts.csv").open(newline="") as source:
         table = {r["effort"]: r for r in csv.DictReader(source) if r["model"] == "wonder"}
     for g in groups:
@@ -570,7 +600,7 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
         calibration[panel] = {"judge": JUDGES[panel], "taken_under": protocol_id,
                               **{k: result[k] for k in ("passed", "failing_gates", "call_count", "protocol_sha256", "allowance", "allowance_used",
                                                         "gates", "control_means")},
-                              "gates_later_rounds": "v3.26.1, v3.26.2 and v3.26.3 reuse this verdict with no new exam; each records its sha256"}
+                              "gates_later_rounds": "v3.26.1, v3.26.2, v3.26.3 and v3.26.5 reuse this verdict with no new exam; each records its sha256"}
     save("calibration.json", calibration)
 
     counted, second, recoveries = {}, {}, []
@@ -587,10 +617,25 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
             grok_calls = counts.get("grok")
     assert grok_calls == {"calibration": 7} and "claude" not in counted.get("claude", {}).get("v3.25", {})
     assert counted["claude"]["v3.26"] == counted["sol"]["v3.25"] == {"calibration": 80, "match": 44, "pairwise": 4, "primary": 44, "probe": 44, "repeat": 2}
-    for name, n, repeats in (("v3.26.1", 2, 2), ("v3.26.2", 22, 1), ("v3.26.3", 22, 1)):
+    for name, n, repeats in (("v3.26.1", 2, 2), ("v3.26.2", 22, 1), ("v3.26.3", 22, 1), ("v3.26.5", 23, 1)):
         for panel in PANELS:
             assert counted[panel][name] == {"match": n, "primary": n, "probe": n, "repeat": repeats}, (name, panel)
-    assert second == {"claude": {"v3.26": 0, "v3.26.1": 0, "v3.26.2": 1, "v3.26.3": 0}, "sol": {"v3.25": 7, "v3.26.1": 1, "v3.26.2": 2, "v3.26.3": 2}}, second
+    assert second == {"claude": {"v3.26": 0, "v3.26.1": 0, "v3.26.2": 1, "v3.26.3": 0, "v3.26.5": 1},
+                      "sol": {"v3.25": 7, "v3.26.1": 1, "v3.26.2": 2, "v3.26.3": 2, "v3.26.5": 5}}, second
+    auth_stops = []
+    for (name, panel, stage, call), expected in AUTH_STOPS.items():
+        folder = rounds[name]["dir"] / "calls" / panel / stage / call / "auth-stops"
+        notes = [read(f) for f in sorted(folder.glob("*-note.json"))]
+        attempts = [read(f) for f in sorted(folder.glob("*-attempt-*.json"))]
+        assert len(notes) == len(attempts) == expected and all(a["status"] == "failed" for a in attempts), call
+        assert "OAuth session expired" in notes[0]["finding"] and "identical inputs" in notes[0]["action"]
+        assert (folder.parent / "selected.json").exists()  # the resumed call answered
+        auth_stops.append({"round": name, "panel": panel, "stage": stage, "submission": call, "attempts_set_aside": expected,
+                           "finding": "the pinned Claude Code's sign-in had expired: a synthetic 'Failed to authenticate' result with zero "
+                                      "output tokens and no model response, refused by the reviewer identity guard; nothing was judged",
+                           "action": "the attempt was set aside under auth-stops/ with a note after the owner signed in again, and the same "
+                                     "call resumed with identical inputs, as the protocol does for quota stops"})
+    assert sum(1 for _ in root.glob("runs-code-quality-maintenance-v3.26*/calls/*/*/*/auth-stops")) == len(AUTH_STOPS)
 
     sol_settings = public_settings(sol_protocol["reviewers"]["sol"])
     claude_settings = public_settings(v326["reviewers"]["claude"])
@@ -606,7 +651,10 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
             "v3.26.1": "the two Medium runs made on Muse Code 1.4.9 after the quota reset (cellarcore, paddockcore), no new exam",
             "v3.26.2": "High, 22 judged runs (paddockcore hit the 3-hour bound), no new exam",
             "v3.26.3": "Extra-high, 22 judged runs (depotcore hit the 3-hour bound), no new exam",
+            "v3.26.5": "Max, 23 judged runs from its own run root on Muse Code 1.4.9, no new exam",
         },
+        "not_yet_judged": "v3.26.4 would judge the clean Extra-high depotcore rerun (19 October); it is on hold, so Extra-high keeps the "
+                          "published, timed-out run",
         "excluded_judges": v326["excluded_judges"], "replaced_seats": v326["replaced_seats"],
         "scored_sibling": {"panel": "sol", "protocol_id": sibling["protocol_id"], "protocol_sha256": sibling["protocol_sha256"],
                            "calibration_sha256": sibling["calibration_sha256"], "role": sibling["role"],
@@ -632,6 +680,7 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
                                         for p in PANELS} for name, r in rounds.items() if name != "v3.26"},
         "counted_calls": counted, "grok_calls_before_stop": grok_calls, "second_attempts": second,
         "operator_recoveries": recoveries,
+        "operator_stops": auth_stops,
         "operator_recovery_rule": "recover_one_based_indexes: both attempts of a GPT-6.1 Sol answer-key match failed only because the departure "
                                   "indexes were one-based (every cited index between 1 and the departure count, the largest equal to the count); "
                                   "the indexes are moved to zero-based, statuses untouched, and the original indexes are kept in the receipt",
@@ -644,31 +693,35 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
             "v3.25/protocol.json": digest(sol_dir / "protocol.json"), "v3.25/private-manifest.json": digest(sol_dir / "private-manifest.json"),
             "v3.25/calibration-sol.json": digest(sol_dir / "calibration-sol.json"),
             **{name: digest(root / RESULTS / name) for name in ("comparison.json", "comparison-topup.json", "comparison-high.json",
-                                                                "comparison-extra-high.json", "musewonder-full-vs-frontier.json",
+                                                                "comparison-extra-high.json", "comparison-max.json", "musewonder-full-vs-frontier.json",
                                                                 "musewonder-full-vs-frontier-efforts.csv", "musewonder-full-vs-frontier.png",
                                                                 "pricing-check.json")},
             "suite.lock.json": digest(root / LOCK),
             **{f"{s}/protocol.json": digest(root / s / "protocol.json") for s in SWEEPS},
             **overlap_logs,
         },
-        "export_checks": ["92 solver summaries across the two run roots, 23 per level, no task twice; the quota-stopped Medium cellarcore "
-                          "attempt and the transport-stopped High snapcore attempt hold no summary and are not part of the population",
+        "export_checks": ["115 solver summaries across the three run roots, 23 per level, no task twice; the quota-stopped Medium cellarcore "
+                          "attempt and the transport-stopped High snapcore attempt hold no summary and are not part of the population; "
+                          "Extra-high depotcore is the published run, and its unjudged clean rerun is held apart",
                           "every run is muse-code:muse-wonder-full-1.0-contributor at its requested level; Low and 21 Medium runs on Muse Code "
                           "1.4.6 from bench/2026-10-13-musewonder-full-v2-low, the last two Medium runs, High and Extra-high on 1.4.9 from "
-                          "bench/2026-10-16-musewonder-full-149, every source block clean, every task hash equal to the frozen suite lock",
+                          "bench/2026-10-16-musewonder-full-149, Max on 1.4.9 from bench/2026-11-03-musewonder-full-max, every source block "
+                          "clean, every task hash equal to the frozen suite lock",
                           "every integrity audit: no web, no benchmark data or answer-key paths, nothing outside the workspace but Muse "
                           "Code's own per-run session folder",
                           "each run's token totals equal its trace's muse_usage record; reminder-observer usage appears only on 1.4.9 runs, "
                           "only on muse-spark-1.3, and equals the population record",
-                          "the four population records' hashes equal the ones frozen in their protocols, and every judged run's summary "
+                          "the five population records' hashes equal the ones frozen in their protocols, and every judged run's summary "
                           "hash equals its manifest entry",
-                          "v3.26 binds GPT-6.1 Sol's v3.25 protocol, calibration and manifest by hash; v3.26.1 to v3.26.3 bind both exam "
-                          "verdicts by hash and plan no calibration calls",
+                          "v3.26 binds GPT-6.1 Sol's v3.25 protocol, calibration and manifest by hash; v3.26.1 to v3.26.3 and v3.26.5 bind "
+                          "both exam verdicts by hash and plan no calibration calls",
                           "rubric, prompts, schemas, seed, repeats, gate allowance, weights, retry rule and control hashes are identical in "
                           "v3.25 and every v3.26 round",
                           "both judges passed calibration with no failing gate and no allowance used; no reviewer fallbacks in any round",
-                          "per-row Code quality and both combined scores recomputed and matched to the frozen summaries; Low, High and "
-                          "Extra-high cell means and standard errors matched to their round's summary",
+                          "per-row Code quality and both combined scores recomputed and matched to the frozen summaries; Low, High, "
+                          "Extra-high and Max cell means and standard errors matched to their round's summary",
+                          "the one v3.26.5 call set aside for an expired judge sign-in holds a failed attempt and a note, and the resumed "
+                          "call answered",
                           "combined score, its standard error, the timeouts-as-0 figure, functional score, tasks passed, minutes, cost and each "
                           "judge's reviewed score per level matched to the harness card",
                           "the rates applied equal the pricing check; no dashes or host paths in exported text"],
@@ -681,15 +734,17 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
                    "from its own round, judged by Muse Spark 1.3 and Grok 4.6.",
                    "High paddockcore and Extra-high depotcore hit the 3-hour bound and have no Code quality score; each level carries a "
                    "second figure with the timeout counted as 0.",
-                   "Two Muse Code versions: Low and 21 Medium runs on 1.4.6, the last two Medium runs, High and Extra-high on 1.4.9, which "
+                   "Two Muse Code versions: Low and 21 Medium runs on 1.4.6, the last two Medium runs, High, Extra-high and Max on 1.4.9, which "
                    "Meta released with a quota reset and which runs its reminder observers on Muse Spark 1.3.",
                    "Cost is an estimate at the Muse Wonder 1.0 list price; Meta publishes no price for Muse Wonder Full.",
                    "Contributor mode: Meta may train on submitted content, so Frontier v4 task content may enter future Meta training data. "
-                   "The owner accepted this. Max is not offered in Contributor mode, so these are all the levels.",
+                   "The owner accepted this. Max ran on 3 November 2026, after a probe showed Contributor mode honors Max (harness "
+                   "DECISIONS.md, 2026-11-03); it used more reasoning tokens than Extra-high on 16 of the 23 tasks, about 14% "
+                   "more in all.",
                    "The per-minute overlap log recorded another local benchmark process during 9 Medium, 14 High and 5 Extra-high runs "
                    "(overlap_minutes_logged); this can lengthen minutes, and Extra-high depotcore hit the 3-hour limit with 145 of its 180 "
-                   "minutes overlapped, so its timeout may be partly due to the load. A clean rerun is scheduled after the "
-                   "2026-10-19 Muse quota reset. The log started with Medium.",
+                   "minutes overlapped, so its timeout may be partly due to the load. Its clean rerun (2026-10-19) is not yet judged, "
+                   "so the published run stands. The log started with Medium. No other job ran during Max.",
                    "One High snapcore attempt stopped on a Meta API transport error 8 minutes in; it is unscored and kept apart, and the "
                    "task was rerun.",
                    "Frontier Code quality is the reviewed layer plus intent recovery and is never compared with Routine v1 Code quality.",
