@@ -40,8 +40,8 @@ class BoardTests(unittest.TestCase):
         self.assertEqual(sum(1 for r in self.rows if r["best"]), 17)
         self.assertEqual([r["rank"] for r in self.rows], list(range(1, 82)))
         self.assertEqual([r["combined"] for r in self.rows], sorted((r["combined"] for r in self.rows), reverse=True))
-        # 1209 before Sonnet 5.5, plus its 115 judged runs, Haiku 5.5's 111, Muse Wonder Full's 113, DeepSeek V4.1 Flash's 69, Reflection Beam's 99 and GPT-6.1 Terra's 115.
-        self.assertEqual(sum(r["n"] for r in self.rows), 1831)
+        # 1209 before Sonnet 5.5, plus its 115 judged runs, Haiku 5.5's 111, Muse Wonder Full's 114, DeepSeek V4.1 Flash's 69, Reflection Beam's 99 and GPT-6.1 Terra's 115.
+        self.assertEqual(sum(r["n"] for r in self.rows), 1832)
         for r in self.rows:
             self.assertTrue((ROOT / f"models/{r['slug']}.html").is_file(), r["slug"])
             self.assertTrue((ROOT / r["report"]).is_file(), r["report"])
@@ -106,13 +106,13 @@ class BoardTests(unittest.TestCase):
         self.assertEqual([haiku[e]["rank"] for e in board.EFFORTS], [46, 49, 32, 7, 4])
         wonder = {r["effort"]: r for r in self.rows if r["key"] == "musewonderfull"}
         self.assertEqual(set(wonder), set(board.EFFORTS))  # Max ran under Contributor after a probe (harness DECISIONS.md 2026-11-03)
-        self.assertEqual([wonder[e]["n"] for e in board.EFFORTS], [23, 23, 22, 22, 23])  # high paddockcore and extra-high depotcore timed out
-        self.assertEqual([wonder[e]["passed"] for e in board.EFFORTS], [18, 21, 19, 19, 22])
+        self.assertEqual([wonder[e]["n"] for e in board.EFFORTS], [23, 23, 22, 23, 23])  # high paddockcore timed out; extra-high depotcore is its judged rerun
+        self.assertEqual([wonder[e]["passed"] for e in board.EFFORTS], [18, 21, 19, 20, 22])
         self.assertTrue(all(wonder[e]["passed_of"] == 23 for e in wonder))
-        self.assertEqual([round(wonder[e]["combined"], 2) for e in board.EFFORTS], [86.95, 88.27, 88.19, 87.59, 88.36])
-        self.assertEqual([round(wonder[e]["combined_timeouts_zero"], 2) for e in board.EFFORTS[:4]], [86.95, 88.27, 84.36, 83.78])
-        self.assertEqual([f'{wonder[e]["usd"]:.2f}' for e in board.EFFORTS], ["3.93", "4.09", "4.72", "5.08", "5.91"])  # estimate, every run
-        self.assertEqual([wonder[e]["rank"] for e in board.EFFORTS], [37, 28, 30, 34, 25])
+        self.assertEqual([round(wonder[e]["combined"], 2) for e in board.EFFORTS], [86.95, 88.27, 88.19, 87.36, 88.36])
+        self.assertEqual([round(wonder[e]["combined_timeouts_zero"], 2) for e in board.EFFORTS], [86.95, 88.27, 84.36, 87.36, 88.36])
+        self.assertEqual([f'{wonder[e]["usd"]:.2f}' for e in board.EFFORTS], ["3.93", "4.09", "4.72", "4.86", "5.91"])  # estimate, every run
+        self.assertEqual([wonder[e]["rank"] for e in board.EFFORTS], [37, 28, 30, 35, 25])
         self.assertTrue(wonder["max"]["best"])
         flash = {r["effort"]: r for r in self.rows if r["key"] == "dsflash"}
         self.assertEqual(set(flash), {"low", "high", "max"})  # DeepSeek's API offers no medium and nothing maps to extra-high
@@ -230,8 +230,9 @@ class BoardTests(unittest.TestCase):
         self.assertIn('<a href="benchmarks/swe-v4-opus55-v315.html">Opus 5.5</a>', self.page)
         self.assertIn("v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24, v3.26, v3.27, v3.28 and v3.29", self.page)
         self.assertIn("&sect;&sect; Muse Wonder Full (Meta) ran in Muse Code in Contributor mode", self.page)
-        self.assertIn("judged by Claude Opus 5.5 and GPT-6.1 Sol under v3.26 to v3.26.3 and v3.26.5, not by Muse Spark 1.3 and Grok 4.6", self.page)
-        self.assertIn("gives 84.36 at high and 83.78 at extra-high", self.page)
+        self.assertIn("judged by Claude Opus 5.5 and GPT-6.1 Sol under v3.26 to v3.26.5, not by Muse Spark 1.3 and Grok 4.6", self.page)
+        self.assertIn("gives 84.36 at high; its best tag", self.page)
+        self.assertIn("the rerun, judged in v3.26.4, replaces it", self.page)
         self.assertIn("priced at the Muse Wonder 1.0 list price", self.page)
         self.assertEqual(self.marks("\u00a7\u00a7"), 5)
         self.assertTrue(self.col("musewonderfull", "max")["best"])

@@ -58,8 +58,9 @@ SOURCES = [
     # all 23 runs; $/task is Claude Code's own total over every run, with the tier floor and ceiling in its bundle.
     {"bundle": "swe-v4-haiku55-v324", "report": "benchmarks/swe-v4-haiku55-v324.html", "protocol": "v3.24", "pass_over_all_runs": True,
      "models": {"haiku55": ("Haiku 5.5", "Claude Code", "claude-haiku-5-5", "Anthropic")}},
-    # Muse Wonder Full is judged by Claude Opus 5.5 and GPT-6.1 Sol (Muse Spark 1.3 is not neutral for Meta) under v3.26 to v3.26.3 and v3.26.5.
-    # One timeout each at high and extra-high, so passes count over all 23 runs and the cells carry the timeouts-as-0 figure.
+    # Muse Wonder Full is judged by Claude Opus 5.5 and GPT-6.1 Sol (Muse Spark 1.3 is not neutral for Meta) under v3.26 to v3.26.5.
+    # One timeout at high, so passes count over all 23 runs and that cell carries the timeouts-as-0 figure; extra-high depotcore
+    # timed out beside another job and its clean rerun, judged in v3.26.4, replaces it.
     # Max ran under Contributor after a probe (harness DECISIONS.md 2026-11-03). $/task is an estimate at the Muse Wonder 1.0 list price.
     {"bundle": "swe-v4-musewonder-full-v326", "report": "benchmarks/swe-v4-musewonder-full-v326.html", "protocol": "v3.26", "pass_over_all_runs": True,
      "judges": "Claude Opus 5.5 and GPT-6.1 Sol",
@@ -131,12 +132,13 @@ FOOTNOTES = {
     "musewonderfull": ("Muse Wonder Full (Meta) ran in Muse Code in Contributor mode with its skill reminder off: low and 21 medium tasks "
                        "on Muse Code 1.4.6, then the last 2 medium tasks, high, extra-high and max on Muse Code 1.4.9, which runs its goal and verify "
                        "reminder observers on Muse Spark 1.3. Max ran later, on 3 November 2026, after a probe showed Contributor mode honors "
-                       "it. It is judged by Claude Opus 5.5 and GPT-6.1 Sol under v3.26 to v3.26.3 and v3.26.5, not by Muse Spark 1.3 and Grok 4.6: Muse Spark 1.3 is a Meta model and is not neutral for a "
+                       "it. It is judged by Claude Opus 5.5 and GPT-6.1 Sol under v3.26 to v3.26.5, not by Muse Spark 1.3 and Grok 4.6: Muse Spark 1.3 is a Meta model and is not neutral for a "
                        "Meta submission. Its Code quality and combined score are therefore not strictly comparable with the other columns; Opus "
-                       "5.5 rates its reviewed Code quality about {gap:.0f} points below GPT-6.1 Sol. High and extra-high are each judged on {h_n} "
-                       "of 23 tasks: paddockcore and depotcore hit the flat 3-hour task bound and have no finished code to judge; they count "
-                       "as failed tasks in Passed (over all 23) and are included in Min/task and $/task. Counting each timeout as a combined score of 0 over all 23 "
-                       "runs gives {h_zero:.2f} at high and {xh_zero:.2f} at extra-high; its best tag and effort suggestions use these figures. "
+                       "5.5 rates its reviewed Code quality about {gap:.0f} points below GPT-6.1 Sol. High is judged on {h_n} "
+                       "of 23 tasks: paddockcore hit the flat 3-hour task bound and has no finished code to judge; it counts "
+                       "as a failed task in Passed (over all 23) and is included in Min/task and $/task. Counting the timeout as a combined score of 0 over all 23 "
+                       "runs gives {h_zero:.2f} at high; its best tag and effort suggestions use that figure. Extra-high depotcore first timed out while "
+                       "another job shared the machine; it was rerun alone and the rerun, judged in v3.26.4, replaces it. "
                        "$/task is an estimate: Meta lists no API price for Muse Wonder Full, so its tokens are priced at the Muse Wonder 1.0 list "
                        "price ($4.00 input, $0.20 cached, $20.00 output per million) and the 1.4.9 reminder tokens at Muse Spark 1.3's."),
     "dsflash": ("DeepSeek V4.1 Flash (deepseek-flash, which DeepSeek's pricing page mapped to DeepSeek-V4.1-Flash-1017) ran in "
@@ -301,9 +303,8 @@ def musewonder_footnote(board):
     cells = {r["effort"]: r for r in board if r["key"] == "musewonderfull"}
     groups = read("swe-v4-musewonder-full-v326/groups.json")
     gap = statistics.mean(g["by_panel"]["sol"]["mean"] - g["by_panel"]["claude"]["mean"] for g in groups)
-    assert cells["high"]["n"] == cells["extra-high"]["n"]
-    return FOOTNOTES["musewonderfull"].format(gap=gap, h_n=cells["high"]["n"],
-                                              h_zero=cells["high"]["combined_timeouts_zero"], xh_zero=cells["extra-high"]["combined_timeouts_zero"])
+    assert all(cells[e]["n"] == 23 and cells[e]["combined_timeouts_zero"] == cells[e]["combined"] for e in cells if e != "high")
+    return FOOTNOTES["musewonderfull"].format(gap=gap, h_n=cells["high"]["n"], h_zero=cells["high"]["combined_timeouts_zero"])
 
 
 def dsflash_footnote(board):
@@ -366,7 +367,7 @@ def render(board):
             "correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a human reader by Muse Spark 1.3 and Grok 4.6 "
             "under one frozen protocol (v3.4 to v3.7, v3.15 to v3.18, v3.20, v3.23, v3.24, v3.26, v3.27, v3.28 and v3.29 apply the same rubric, controls and gates to each population; v3.20 "
             "seats GPT-6.1 Sol in place of Grok 4.6 to judge Grok 4.7, see &loz;; v3.23 and v3.24 judge Grok 4.6 through a newer Cursor CLI, see &dagger;&dagger; and &Dagger;&Dagger;; "
-            "v3.26 to v3.26.3 and v3.26.5 seat Claude Opus 5.5 and GPT-6.1 Sol to judge Muse Wonder Full, see &sect;&sect;; "
+            "v3.26 to v3.26.5 seat Claude Opus 5.5 and GPT-6.1 Sol to judge Muse Wonder Full, see &sect;&sect;; "
             "v3.27 and v3.28 seat GPT-6.1 Sol in place of Grok 4.6 to judge DeepSeek V4.1 Flash and Reflection Beam, see &para;&para; and &loz;&loz;). The shaded top-left corner of the chart is the quadrant to focus on: levels that score 80 or more for less than the median cost (or tokens, or minutes) of the plotted levels. "
             "Completion tokens are the model's own output per task, reasoning included. $/task is API-equivalent at list rates from the solver receipts; every model here ran on a subscription except DeepSeek V4.1 Flash, "
             "which ran on a metered DeepSeek API key and is shown at DeepSeek&rsquo;s off-peak list price, see &para;&para;. "

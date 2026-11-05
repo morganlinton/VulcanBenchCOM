@@ -32,8 +32,8 @@ rank,model,lab,harness,effort,best_effort,n,combined_33,combined_33_se,code_qual
 31,GPT-6 Astra,OpenAI,Codex,high,False,23,88.1580,0.4248,73.4751,23,4.8999,1.711065,767511.9,8056.0,8196.7,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4,23,
 32,Haiku 5.5,Anthropic,Claude Code,high,False,23,88.0150,1.4200,77.5959,17,26.8190,1.247401,16976544.4,131564.0,169245.4,benchmarks/swe-v4-haiku55-v324.html,code-quality-maintenance-v3.24,23,
 33,GPT-6 Astra,OpenAI,Codex,medium,False,23,87.7262,0.3185,71.1864,23,3.8226,1.481347,684214.0,5271.0,5901.8,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4,23,
-34,Muse Wonder Full,Meta,Muse Code,extra-high,False,22,87.5890,0.9641,71.8377,19,33.3374,5.081020,11370595.7,72186.0,90233.3,benchmarks/swe-v4-musewonder-full-v326.html,code-quality-maintenance-v3.26,23,83.7808
-35,GPT-6 Astra,OpenAI,Codex,low,False,23,87.4325,0.5104,70.3092,22,4.2187,1.721698,890204.1,4194.0,6381.7,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4,23,
+34,GPT-6 Astra,OpenAI,Codex,low,False,23,87.4325,0.5104,70.3092,22,4.2187,1.721698,890204.1,4194.0,6381.7,benchmarks/swe-v4-astra-fable51-v34.html,code-quality-maintenance-v3.4,23,
+35,Muse Wonder Full,Meta,Muse Code,extra-high,False,23,87.3562,0.9502,71.1137,20,30.2598,4.857141,11175546.8,72186.0,87768.3,benchmarks/swe-v4-musewonder-full-v326.html,code-quality-maintenance-v3.26,23,87.3562
 36,GPT-5.6 Sol,OpenAI,Codex,max,True,22,87.1801,0.6243,67.5751,21,11.6052,1.773526,2111816.7,28025.0,29211.0,benchmarks/swe-v4-sol-v37.html,code-quality-maintenance-v3.7,22,
 37,Muse Wonder Full,Meta,Muse Code,low,False,23,86.9510,1.1639,72.2530,18,27.2864,3.931575,7990716.3,42282.0,68647.3,benchmarks/swe-v4-musewonder-full-v326.html,code-quality-maintenance-v3.26,23,86.9510
 38,GPT-6 Sol,OpenAI,Codex,max,True,23,86.8189,0.9121,70.7810,19,24.4933,2.520618,8324693.0,32197.0,54959.3,benchmarks/swe-v4-gpt6-sol-v317.html,code-quality-maintenance-v3.17,23,

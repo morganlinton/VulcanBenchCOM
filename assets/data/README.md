@@ -57,9 +57,10 @@ floor and ceiling, the two pauses and the judge settings.
 
 `swe-v4-musewonder-full-v326/` is the public record of the October 17, 2026
 Muse Wonder Full report under Code quality protocols v3.26 to v3.26.3, with
-Max added under v3.26.5 on November 4, 2026, exported by `scripts/export_swe_v4_v326_evidence.py`; its README explains the
+Max (v3.26.5) and the Extra-high depotcore rerun (v3.26.4) added on November
+4, 2026, exported by `scripts/export_swe_v4_v326_evidence.py`; its README explains the
 judge panel (Claude Opus 5.5 and GPT-6.1 Sol, and why), the two Muse Code
-versions, the two timeouts and both combined figures, and the estimated cost.
+versions, the timeout and both combined figures, the depotcore rerun, and the estimated cost.
 `swe-v4-musewonder-full-v326-scores.csv` holds its five effort aggregates.
 
 `swe-v4-deepseek-flash-v327/` is the public record of the October 23, 2026
