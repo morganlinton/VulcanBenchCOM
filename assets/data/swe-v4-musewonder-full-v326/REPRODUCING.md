@@ -14,7 +14,7 @@ The first command needs Python 3.10 or newer and its standard library. It
 recomputes every judged run's Code quality, both combined scores, the
 timeouts-as-0 figure and each judge's single-judge combined score from the
 stored factors and judge sub-scores, rebuilds the five aggregates and their
-standard errors, checks the two timed-out runs, the hidden-behaviour counts,
+standard errors, checks the timed-out run and the depotcore rerun, the hidden-behaviour counts,
 integrity verdicts, Muse Code versions and task hashes, re-prices every run
 from its token usage at the stated rates, checks the flat CSVs and the report
 page tables against them, checks the calibration verdicts, pins the card
@@ -31,7 +31,7 @@ All of the following live in the VulcanBench harness repository.
 - [Operations log](https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/maintenance-v3-operations.md)
 - [Plain-language system summary](https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/maintenance-v3-system-summary.md)
 - [The ten calibration controls and their verifier](https://github.com/morganlinton/VulcanBench/tree/main/docs/judging/controls-v3)
-- Runners: [v3.25](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v325.py), [v3.26](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v326.py), [v3.26.1](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3261.py), [v3.26.2](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3262.py), [v3.26.3](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3263.py) and [v3.26.5](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3265.py), which reuse the frozen [v3 implementation](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3.py), and the [operator wrapper](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3_resume.py) with its retry and recovery rules
+- Runners: [v3.25](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v325.py), [v3.26](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v326.py), [v3.26.1](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3261.py), [v3.26.2](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3262.py), [v3.26.3](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3263.py), [v3.26.4](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3264.py) and [v3.26.5](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3265.py), which reuse the frozen [v3 implementation](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3.py), and the [operator wrapper](https://github.com/morganlinton/VulcanBench/blob/main/harness/maintenance_review_v3_resume.py) with its retry and recovery rules
 - [Sweep runner](https://github.com/morganlinton/VulcanBench/blob/main/scripts/cii-v4-board/run_muse_wonder_sweep.py), [population builder](https://github.com/morganlinton/VulcanBench/blob/main/scripts/cii-v4-board/build_musewonder_population.py) and [card generator](https://github.com/morganlinton/VulcanBench/blob/main/scripts/cii-v4-board/make_musewonder_frontier_card.py)
 - [Population records, pricing check and card](https://github.com/morganlinton/VulcanBench/tree/main/docs/results/swe-v4-musewonder-full-2026-10)
 - [Score composition](https://github.com/morganlinton/VulcanBench/blob/main/harness/evaluator/reviewed_score.py)
@@ -40,7 +40,7 @@ All of the following live in the VulcanBench harness repository.
 `judge-protocols.json` in this folder carries the exact rubric, system text,
 probe and match instructions and schemas as frozen, with the SHA-256 of each
 round's protocol file, the hashes by which the later rounds bind both exam
-verdicts, the judge settings and binary pins, the operator recoveries and the one judge-sign-in stop.
+verdicts, the judge settings and binary pins, the operator recoveries and the two operator stops (a judge sign-in and a Codex reconnect).
 `provenance.json` carries the hashes of the frozen summaries, manifests,
 calibration files, population records, card, pricing check, suite lock and
 overlap logs the export was built from and checked against. The export
@@ -68,8 +68,10 @@ python3 -m harness.maintenance_review_v326 summarize
 ```
 
 then `build_musewonder_population.py --top-up`, `--level high`,
-`--level extra-high` and `--level max` with the v3.26.1, v3.26.2, v3.26.3 and
-v3.26.5 runners in the same way, without the calibrate step. Each runner refuses to start unless the
+`--level extra-high`, `--level extra-high --only legacy-depotcore-binary-parity`
+and `--level max` with the
+v3.26.1, v3.26.2, v3.26.3, v3.26.4 and v3.26.5 runners in the same way,
+without the calibrate step. Each runner refuses to start unless the
 code and protocol document hashes match its frozen `protocol.json`. New judge
 calls consume subscription quota and will not reproduce the exact saved
 responses.

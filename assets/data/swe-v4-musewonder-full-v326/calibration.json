@@ -175,7 +175,7 @@
         "verifiability": 1.5
       }
     },
-    "gates_later_rounds": "v3.26.1, v3.26.2, v3.26.3 and v3.26.5 reuse this verdict with no new exam; each records its sha256"
+    "gates_later_rounds": "v3.26.1 to v3.26.5 reuse this verdict with no new exam; each records its sha256"
   },
   "sol": {
     "judge": "GPT-6.1 Sol",
@@ -353,6 +353,6 @@
         "verifiability": 2.1
       }
     },
-    "gates_later_rounds": "v3.26.1, v3.26.2, v3.26.3 and v3.26.5 reuse this verdict with no new exam; each records its sha256"
+    "gates_later_rounds": "v3.26.1 to v3.26.5 reuse this verdict with no new exam; each records its sha256"
   }
 }
