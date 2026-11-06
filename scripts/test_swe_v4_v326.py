@@ -44,7 +44,7 @@ CARD = {
             "usd": 5.910995563043478, "minutes": 40.93668623188406, "claude": 57.2463768115942, "sol": 75.36231884057972},
 }
 # Copied byte for byte from the harness (docs/results/swe-v4-musewonder-full-2026-10/musewonder-full-vs-frontier.png).
-CARD_PNG = ("swe-v4-musewonder-full-v326.png", "53f00a73be100b4c1882750c84b73760574e50a145d09a0b254ff643c6845350", 3450, 2370)
+CARD_PNG = ("swe-v4-musewonder-full-v326.png", "174c3855b32cb839563182c799ea0641822411ffcabf01945687c3be8a76f98d", 3450, 2370)
 TOUCHED = ("benchmarks/swe-v4-musewonder-full-v326.html", "models/muse-wonder-full.html", "models/muse-spark-1-2.html", "benchmarks.html",
            "index.html", "feed.xml", "llms.txt", "leaderboard.html", "README.md", "assets/data/README.md",
            "assets/data/swe-v4-musewonder-full-v326/README.md", "assets/data/swe-v4-musewonder-full-v326/REPRODUCING.md",
