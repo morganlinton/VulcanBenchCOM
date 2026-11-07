@@ -62,6 +62,13 @@ the page shows an error, never a silent drop. Export the list as CSV with the to
 
 `npm install` once for `@vercel/blob` (Vercel installs it at deploy time from `package-lock.json`).
 
+To get a Slack message per signup, create an incoming webhook in Slack (an app with the Incoming Webhooks feature,
+pointed at the channel you want) and add its URL to the Vercel project as the environment variable
+`SLACK_WAITLIST_WEBHOOK` (Project > Settings > Environment Variables, Production). Each stored signup then posts
+"New eval suite builder waitlist signup: <email> (<repo>). That makes N." to that channel. A Slack failure is logged
+and never fails the signup; leave the variable unset to turn the posts off. The URL is a secret: it lives in Vercel
+only, never in this repository.
+
 ## Local preview
     python3 -m http.server 8899
 Then open http://localhost:8899

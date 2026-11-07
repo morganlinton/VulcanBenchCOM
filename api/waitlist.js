@@ -12,6 +12,11 @@
  *
  * "website" is a honeypot: humans never see it, so a filled value is a bot.
  * Those get a success answer and nothing is stored.
+ *
+ * With SLACK_WAITLIST_WEBHOOK set (a Slack incoming webhook URL, added as an
+ * environment variable in the Vercel dashboard), each stored signup is also
+ * posted to that channel with the running total. The post is best effort: a
+ * Slack failure is logged and never fails the signup.
  */
 "use strict";
 
@@ -77,6 +82,48 @@ async function store(record) {
   throw new Error("no waitlist store: connect a Vercel Blob store (BLOB_READ_WRITE_TOKEN)");
 }
 
+async function countSignups(where) {
+  if (where === "blob") {
+    const { list } = require("@vercel/blob");
+    const token = process.env.BLOB_READ_WRITE_TOKEN;
+    let count = 0;
+    let cursor;
+    do {
+      const page = await list({ prefix: "waitlist/", cursor, token, limit: 1000 });
+      count += page.blobs.length;
+      cursor = page.hasMore ? page.cursor : undefined;
+    } while (cursor);
+    return count;
+  }
+  const text = fs.readFileSync(process.env.WAITLIST_FILE, "utf8");
+  return text.split("\n").filter(Boolean).length;
+}
+
+function slackEscape(text) {
+  return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+async function notifySlack(record, where) {
+  const url = process.env.SLACK_WAITLIST_WEBHOOK;
+  if (!url) return false;
+  let total = "";
+  try {
+    total = ` That makes ${await countSignups(where)}.`;
+  } catch (e) {
+    console.error("waitlist count failed:", e && e.message ? e.message : e);
+  }
+  const repo = record.repo ? ` (${slackEscape(record.repo)})` : "";
+  const text = `New eval suite builder waitlist signup: ${slackEscape(record.email)}${repo}.${total}`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text }),
+    signal: AbortSignal.timeout(5000),
+  });
+  if (!response.ok) throw new Error(`slack answered ${response.status}`);
+  return true;
+}
+
 function send(res, status, wantsJson, body, redirectQuery) {
   if (wantsJson) {
     res.statusCode = status;
@@ -132,12 +179,18 @@ module.exports = async function handler(req, res) {
     source: "vulcanbench.com" + PAGE,
   };
 
+  let where;
   try {
-    await store(record);
+    where = await store(record);
   } catch (e) {
     console.error("waitlist store failed:", e && e.message ? e.message : e);
     send(res, 500, wantsJson, { ok: false, error: "store" }, "error=store");
     return;
+  }
+  try {
+    await notifySlack(record, where);
+  } catch (e) {
+    console.error("waitlist slack post failed:", e && e.message ? e.message : e);
   }
   send(res, 200, wantsJson, { ok: true }, "joined=1");
 };
