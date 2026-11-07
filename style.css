@@ -973,6 +973,17 @@ section[id] { scroll-margin-top: 90px; }
 .intake .form-msg:empty { display: none; }
 .intake .form-msg.ok { color: var(--pass); font-weight: 600; }
 .intake .form-msg.err { color: var(--ember); }
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 22px; margin-top: 26px; }
+.shot { margin: 0; }
+.shot img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--hairline); border-radius: 6px; background: #0b0b0b;
+  box-shadow: var(--card-shadow);
+}
+.shot figcaption { font-size: 15px; color: var(--soft); line-height: 1.5; margin-top: 10px; }
+@media (max-width: 720px) {
+  .shots { grid-template-columns: 1fr; }
+}
 @media (max-width: 720px) {
   .fit-grid, .intake { grid-template-columns: 1fr; }
   .intake { padding: 20px 18px; }
