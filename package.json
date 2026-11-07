@@ -1,0 +1,16 @@
+{
+  "name": "vulcanbench-com",
+  "private": true,
+  "description": "VulcanBench.com: a static site on Vercel plus the eval suite builder waitlist function in api/",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/waitlist_dev.js",
+    "waitlist:export": "node scripts/waitlist_export.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.8.2"
+  }
+}

@@ -37,7 +37,7 @@ def priority(rel):
 
 
 def order(rel):
-    groups = ("index.html", "benchmarks.html", "leaderboard.html", "methodology.html", "methodology-notes.html", "benchmark-your-stack.html",
+    groups = ("index.html", "benchmarks.html", "leaderboard.html", "methodology.html", "methodology-notes.html", "eval-suite-builder.html",
               "benchmark-your-model.html", "support.html", "blog.html", "analysis.html")
     if rel in groups:
         return (0, groups.index(rel), rel)

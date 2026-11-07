@@ -24,6 +24,7 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 - `benchmarks/swe-v4-astra-fable51-v34.html`: the same runs rescored under Code quality protocol v3.4 (33% weight, neutral Muse Spark 1.3 and Grok 4.6 panel), with PDF, calibration record and evidence links
 - `benchmarks/NN-*.html`: one journal-style page per report (abstract, findings, table, figure, downloads)
 - `leaderboard.html`: directs readers to suite-specific results and the frozen earlier-suite archive
+- `eval-suite-builder.html`: the eval suite builder waitlist (build an eval suite from your own repository); signups go through `api/waitlist.js` to the project's Vercel Blob store, see "Waitlist" below
 - `methodology.html`: how VulcanBench measures (decontamination, grading, metrics, sandbox, effort, economics)
 - `404.html`: styled not-found page
 - `style.css`: shared stylesheet (serif journal look with an ember accent)
@@ -49,9 +50,24 @@ Each page carries a canonical URL, Open Graph + Twitter card tags, and the homep
 and `robots.txt` are at the root. **All absolute URLs are hardcoded to `https://vulcanbench.com`; update them if the
 domain changes.**
 
+## Waitlist
+The eval suite builder page posts to `api/waitlist.js`, a Vercel serverless function (the only server-side code on the
+site). It validates the address, ignores honeypot submissions and writes one private JSON record per signup to the
+project's Vercel Blob store at `waitlist/<sha256 of the lowercased email>.json`, so a repeat signup overwrites rather
+than duplicates. The store is connected once in the Vercel dashboard (Project > Storage > Blob); Vercel sets
+`BLOB_READ_WRITE_TOKEN` itself and no token is kept in this repository. Without a store the function answers 500 and
+the page shows an error, never a silent drop. Export the list as CSV with the token in the environment:
+
+    BLOB_READ_WRITE_TOKEN=... node scripts/waitlist_export.js > waitlist.csv
+
+`npm install` once for `@vercel/blob` (Vercel installs it at deploy time from `package-lock.json`).
+
 ## Local preview
     python3 -m http.server 8899
 Then open http://localhost:8899
+
+To exercise the waitlist form as well, run `node scripts/waitlist_dev.js` instead (same port). It serves the site and
+the function, and appends signups to `.waitlist-local.jsonl` (git ignored) in place of the Blob store.
 
 The benchmark index uses `benchmarks-suites.css` for page-scoped styles.
 Keep new suite results in their own section, never in a pooled ranking with
