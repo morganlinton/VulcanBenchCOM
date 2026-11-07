@@ -81,7 +81,7 @@ footer .brandf img.mark { border-radius: 4px; }
   text-transform: uppercase; letter-spacing: 2px;
 }
 .nav a {
-  color: var(--faint); text-decoration: none;
+  color: var(--faint); text-decoration: none; white-space: nowrap;
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
   transition: color 0.15s, border-color 0.15s;
@@ -937,7 +937,7 @@ section[id] { scroll-margin-top: 90px; }
 .v4sub { margin: 26px 0 0; font-size: 20px; }
 @media (max-width: 760px) { .v4step { grid-template-columns: 1fr; gap: 3px; } .v4step-val { text-align: left; } }
 
-/* ---- for-teams page: fit lists, questions, intake form ---- */
+/* ---- eval suite builder and intake forms: fit lists, questions, form ---- */
 .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 26px; }
 .fit { border: 1px solid var(--hairline); border-top: 3px solid var(--ink); padding: 22px 24px 24px; }
 .fit h3 { font-size: 19px; margin-top: 0; }
@@ -966,6 +966,24 @@ section[id] { scroll-margin-top: 90px; }
 .intake input::placeholder, .intake textarea::placeholder { color: var(--faint); font-style: italic; }
 .intake input:focus, .intake select:focus, .intake textarea:focus { outline: 2px solid var(--ember); outline-offset: -1px; border-color: var(--ember); }
 .intake .dl-row { margin-top: 4px; }
+.intake .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.intake.waitlist { position: relative; }
+.intake .form-note { font-size: 14px; color: var(--faint); font-style: italic; margin-top: -6px; }
+.intake .form-msg { font-size: 16px; margin-top: -6px; min-height: 1.4em; }
+.intake .form-msg:empty { display: none; }
+.intake .form-msg.ok { color: var(--pass); font-weight: 600; }
+.intake .form-msg.err { color: var(--ember); }
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 22px; margin-top: 26px; }
+.shot { margin: 0; }
+.shot img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--hairline); border-radius: 6px; background: #0b0b0b;
+  box-shadow: var(--card-shadow);
+}
+.shot figcaption { font-size: 15px; color: var(--soft); line-height: 1.5; margin-top: 10px; }
+@media (max-width: 720px) {
+  .shots { grid-template-columns: 1fr; }
+}
 @media (max-width: 720px) {
   .fit-grid, .intake { grid-template-columns: 1fr; }
   .intake { padding: 20px 18px; }
