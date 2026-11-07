@@ -41,6 +41,7 @@ class PublicationTests(unittest.TestCase):
         function = (ROOT / "api" / "waitlist.js").read_text()
         self.assertIn("BLOB_READ_WRITE_TOKEN", function)
         self.assertIn('access: "private"', function)
+        self.assertIn("SLACK_WAITLIST_WEBHOOK", function)
 
     def test_home_lists_the_five_newest_reports(self):
         # The home page shows the five newest Benchmarks entries, newest first; Benchmarks carries every report.
