@@ -86,3 +86,12 @@ runs are judged and why, both combined figures, and why there is no cost.
 
 Earlier suite results live in their own report pages and keep their original
 scoring conventions; do not pool them with Frontier v4.
+
+`report-01/` holds the derived numbers behind Report 01, "How Claude Fable 5.2
+thinks" (November 12, 2026): `summary.json` (every figure on the page),
+`runs-traces.csv` (one row per Claude Code run of Fable 5.2 and Opus 5.5, Opus
+5.5 runs with refusal fallback left out) and `runs-records.csv` (receipts and
+patch shape for every run of Fable 5.2, Fable 5.1, Opus 5.5 and GPT-6 Astra).
+`scripts/build_report01_data.py` builds them from the private run records and
+`scripts/build_report01_charts.py` draws the page's charts from `summary.json`.
+No file contains thinking text or task content.
