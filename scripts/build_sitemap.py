@@ -4,8 +4,8 @@
     python3 scripts/build_sitemap.py --check    # exit 1 if sitemap.xml is stale
 
 A page with uncommitted changes is dated today. Priorities: the homepage 1.0,
-the benchmarks index, methodology and Frontier v4 reports 0.9, archive reports and
-the leaderboard 0.8, everything else 0.7. 404.html is never listed.
+the benchmarks index, methodology and Frontier v4 reports 0.9, archive reports,
+the leaderboard, analysis and reports 0.8, everything else 0.7. 404.html is never listed.
 """
 
 import datetime
@@ -31,14 +31,14 @@ def priority(rel):
         return "0.9"
     if rel.startswith("benchmarks/") or rel == "leaderboard.html":
         return "0.8"
-    if rel == "analysis.html" or rel.startswith("analysis/"):
+    if rel in ("analysis.html", "reports.html") or rel.startswith(("analysis/", "reports/")):
         return "0.8"
     return "0.7"
 
 
 def order(rel):
     groups = ("index.html", "benchmarks.html", "leaderboard.html", "methodology.html", "methodology-notes.html", "eval-suite-builder.html",
-              "benchmark-your-model.html", "support.html", "blog.html", "analysis.html")
+              "benchmark-your-model.html", "support.html", "blog.html", "analysis.html", "reports.html")
     if rel in groups:
         return (0, groups.index(rel), rel)
     if rel.startswith("benchmarks/swe-v4"):
@@ -49,6 +49,8 @@ def order(rel):
         return (3, 0, rel)
     if rel.startswith("analysis/"):
         return (3, 1, rel)
+    if rel.startswith("reports/"):
+        return (3, 2, rel)
     return (4, 0, rel)
 
 

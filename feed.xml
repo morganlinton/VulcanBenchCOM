@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>How Claude Fable 5.2 thinks | VulcanBench Reports</title>
+      <link>https://vulcanbench.com/reports/01-how-claude-fable-5-2-thinks.html</link>
+      <guid>https://vulcanbench.com/reports/01-how-claude-fable-5-2-thinks.html</guid>
+      <pubDate>Thu, 12 Nov 2026 20:00:00 +0000</pubDate>
+      <description>Claude Fable 5.2 solved all 115 of its VulcanBench Frontier v4 runs; this report shows how, from its traces, without quoting its thinking. It inspected the reference binary before its first edit in every run, usually by its second tool call. At Low it thinks in one long burst between reading the disassembly and writing the rewrite (62% of a run's thinking) and finishes in under five minutes on average; from Low to Max its output grows 8.7 times and thinking rises from 48% to 67% of it, but the patch stays one file of about 100 lines, and the extra thinking goes to verification: testing takes 46% of thinking at Max, and 21 of 23 Max runs mutation-tested their own checks. GPT-6 Astra, compared through receipts and patches, reasons far less and adds a new regression test file in all 115 runs; Claude Opus 5.5 at Low often probes the binary as a black box (12 of 23 runs inspected it before editing); Claude Fable 5.1's output barely moved with effort. Methods, caveats (lost Astra and Fable 5.1 streams, Opus 5.5 fallback runs excluded from trace measures, different judge panels) and data files included.</description>
+    </item>
+    <item>
       <title>GPT-6.1 Terra across every effort level | VulcanBench Frontier v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-gpt61-terra-v329.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-gpt61-terra-v329.html</guid>
