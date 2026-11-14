@@ -214,9 +214,13 @@ class Fable52PageTests(unittest.TestCase):
             self.assertEqual(re.findall(r"<td>([^<]+)</td>", row), [f'{float(card[m, e]["combined"]):.2f}' for e in EFFORTS])
         with (DATA / "muse-like-for-like.csv").open() as fh:
             muse = {(r["model"], r["effort"]): r for r in csv.DictReader(fh)}
+        # Fable 5.2's Muse-alone combined score comes from groups.json at full precision:
+        # the CSV's four decimals put Extra-high exactly on a rounding boundary (92.1250).
+        own = {x["effort"]: x["combined_single_judge"]["muse"]["mean"] for x in json.loads((DATA / "groups.json").read_text())}
         for m in ("fable52", "fable51", "opus55", "astra"):
             row = self.page_html[self.page_html.index(f'data-muse="combined-{m}"'):].split("</tr>")[0]
-            self.assertEqual(re.findall(r"<td>([^<]+)</td>", row), [f'{float(muse[m, e]["muse_combined"]):.2f}' for e in EFFORTS])
+            expected = [own[e] if m == "fable52" else float(muse[m, e]["muse_combined"]) for e in EFFORTS]
+            self.assertEqual(re.findall(r"<td>([^<]+)</td>", row), [f"{v:.2f}" for v in expected])
         for key, bundle, model in (("fable51", "swe-v4-astra-fable51-v34", "fable"), ("opus55", "swe-v4-opus55-v315", "opus55"),
                                    ("astra", "swe-v4-astra-fable51-v34", "astra")):
             groups = {x["effort"]: x for x in json.loads((ROOT / "assets/data" / bundle / "groups.json").read_text()) if x["model"] == model}
