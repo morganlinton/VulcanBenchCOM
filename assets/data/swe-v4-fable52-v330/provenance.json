@@ -1,0 +1,72 @@
+{
+  "source_artifacts_sha256": {
+    "v3.30.2/summary.json": "4f93602b6bd2a3028607d25469e04ae912f0e4bf52f15e5628a6237a8cb0a7c5",
+    "v3.30.2/protocol.json": "3219d892402c78ccaff8997fa644b5bc9ef9d4d23f40beb8f57b798ab3959356",
+    "v3.30.2/private-manifest.json": "499dd69a6b0daf42f89cd633bde7f0bc1886db1646fd5a86810627826112c07c",
+    "v3.30.3/summary.json": "09d864f35136cf2954b08a2a44d76755484ecaf5a66b6af2903a383f13e27548",
+    "v3.30.3/protocol.json": "dd265fd7072f7847141d065f4d424a1b57541c6dcef2a8b89297c6ce6a4d4f9d",
+    "v3.30.3/private-manifest.json": "e0f7bdaa8c8bf9b48e629716ec3f201052b6b49812983c74803ea6f4ae16f14e",
+    "v3.30.2/calibration-sol.json": "2ad5be7750847065dd4c6d2406625dc5b334e20cba2970f22a863a48332a55e1",
+    "v3.30/summary.json": "960380aeeece94c54d3b47b07f3401e85cff9494fe6a9cc0d843c0b1a4c77304",
+    "v3.30/protocol.json": "d09ff4a8dd93fcdffb8b536164ef04d6061e2eede1e9fa16341791b219cb9d02",
+    "v3.30.1/summary.json": "fcce9b42a038ada827661bc897da28a21152ef5073abd1727648006ae40dd69b",
+    "v3.30.1/protocol.json": "befc044400740a8e42f86761c90043724fa73bc92a4b12d6924c9dadc4d04279",
+    "v3.30/calibration-muse.json": "5f87b99887b36f2974b102917d800820061043fba0e5b03a87a28f7dde90549c",
+    "v3.30/calibration-grok.json": "06fc1ae689bb08ee59b145f1843cb37cdbe00340f2c471a2125204a1ec61395c",
+    "comparison.json": "ae324108523523554b49df34dc9e2eeb607e00f614777317cf17bae3a6bc77e9",
+    "comparison-max.json": "29e92f95daab647d2b2a386c547dab0306cd28c31827c62868b14c1a6f354455",
+    "fable52-vs-frontier-efforts.csv": "2fc4bb1a152bd22312a119a13f7c2f27a1bf0377e75b1a49f607c1a5a5b855a6",
+    "fable52-vs-frontier.json": "9c1b9d136d1dd50ebebc0912373a0adac553316e6e2ca98cce0315dfc23a53f6",
+    "fable52-vs-frontier.png": "5fc96dc31f01cf7fc2c0c43d5b53de61f3b1180adb4d10871a7552ff16dabe77",
+    "muse-like-for-like.csv": "38bbb08c7353e6e8634ea53e7072fbbded09514623c726f425070c4bcb5e8ca3",
+    "memorization-check.json": "c53806f2b886be2f17fcf37fcb815754e4dabfc6c3ce801ae780aa92a012eb73",
+    "fable52-no-memorization.png": "aa71d2f41ea1b4149a3894ff82e1ee5cf13c22833ec2c56adb31f954334bed0d",
+    "README.md": "1a99333d9a33182df4a2d483ca5dd9e525da1b84126ad25e95851ec732738052",
+    "suite.lock.json": "861da9e5386e88e6c77236ee5326863e670b597a31ac8b62269c06b1e9aa79eb"
+  },
+  "memorization_check": {
+    "file": "memorization-check.json",
+    "sha256": "c53806f2b886be2f17fcf37fcb815754e4dabfc6c3ce801ae780aa92a012eb73",
+    "copied_reference_lines_pct": 5.6,
+    "other_models_copied_lines_pct": [
+      4.4,
+      5.7
+    ],
+    "inspected_binary_before_first_edit": "115 of 115",
+    "recall_answers_saying_not_remembered": "5 of 5"
+  },
+  "export_checks": [
+    "115 solver summaries in the sweep folder, 23 per level, no task twice and no orphan attempt folder; the 69 Max attempts the Fable usage limit refused hold no summary and are kept apart; the sweep log shows each level complete and the Max resume after the limit reset",
+    "every run is claude-code:claude-fable-5-2 at its requested level on Claude Code 2.1.321 in auto permission mode with safe mode, from bench/2026-11-09-fable52-frontier-v4 with a clean source block and every task hash equal to the frozen suite lock; every reply in every stream was served by claude-fable-5-2",
+    "every integrity audit: no web, no benchmark data or answer-key paths, not contaminated",
+    "each run's tokens and thinking tokens summed over every result receipt in the archived stream (whose hash matches), and its session list-price total, equal the population record; exactly two runs have two receipts",
+    "the population records' hashes and the manifests' hashes equal those frozen in v3.30.2 and v3.30.3, Muse's manifests are byte-identical, and every run's summary hash equals its manifest entry",
+    "rubric, prompts, schemas, seed, repeats, gate allowance, weights, retry rule, control hashes and both judges' pins equal the published v3.27 record",
+    "Muse Spark 1.3 (v3.30) and GPT-6.1 Sol (v3.30.2) passed every calibration gate with no allowance; Grok 4.6 failed g14_pair_2_1 under v3.30 and judged nothing; no reviewer fallback; no operator marker; twelve Sol answer-key matches recovered under recover_one_based_indexes and one Muse probe excerpt re-wrapped",
+    "per-row Code quality, both combined scores and each judge's single-judge score recomputed and matched to the frozen summaries; each level's means and standard errors, per-judge means included, matched to the summaries' groups",
+    "combined score, its standard error, Code quality, tasks passed, minutes and cost per level matched to the harness card table; the cards are byte-identical to the harness copies and the card record names both published summaries",
+    "no dashes, NUL characters or host paths in exported text"
+  ],
+  "limits": [
+    "Claude Fable 5.2 is judged by Muse Spark 1.3 and GPT-6.1 Sol. The Claude Fable 5.1 and Claude Opus 5.5 board rows keep their published Muse Spark 1.3 and Grok 4.6 scores; the comparison card shows them under a matched Muse and Sol panel from comparison-only rounds v3.30.4 and v3.30.5, and GPT-6 Astra with its published Muse and Grok scores, because Sol shares its lab. Scores from different panels are not calibrated against each other.",
+    "GPT-6.1 Sol reviews Fable 5.2 about 7 points higher than Muse Spark 1.3 does at every level; the published score is their mean and combined_single_judge gives each judge alone.",
+    "Grok 4.6 failed its v3.30 calibration exam (gate g14_pair_2_1), so the usual Muse and Grok panel could not judge.",
+    "Runs used --thinking-display summarized so traces keep thinking summaries, a run condition earlier Claude columns did not have; the summaries are withheld because they describe the reference programs.",
+    "The Fable usage limit refused the first Max attempts; they did no work and are not part of the population. Max ran from November 10 at 23:14 to November 11 at 13:28 PST after the limit reset.",
+    "Two run summaries count only the last of two result receipts and no summary records thinking tokens (adapter issues); every figure here is summed from the raw streams, and grading is unaffected.",
+    "Thirteen judge answers went through frozen recovery rules (twelve Sol index shifts, one Muse excerpt re-wrap); none changes a score.",
+    "Frontier Code quality is the reviewed layer plus intent recovery and is never compared with Routine v1 Code quality.",
+    "One attempt per task and level, on the owner's Mac, local sandbox, flat 3-hour task bound, one task at a time."
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, integrity-audit verdicts, raw and thinking tokens, tool-call counts and list-price cost.",
+  "withheld": [
+    "raw prompts and responses",
+    "thinking summaries",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts",
+    "solver event streams (a structure-only redacted trace of every run is public in the vulcanbench-fable52-traces repository)",
+    "host binary paths"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}

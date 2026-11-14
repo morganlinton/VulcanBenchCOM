@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Fable 5.2 across effort levels | VulcanBench</title>
+<meta name="description" content="Frontier v4: 115 Claude Code runs of Claude Fable 5.2 at five effort levels, every run solved, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 91.92 at Low to 93.85 at Max, first on the board at every level it ran; $1.72 to $10.88 and 4.3 to 37.1 minutes per task. Its code quality is about level with Claude Fable 5.1's; its lead comes from correctness, speed and cost.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-fable52-v330.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Claude Fable 5.2 across effort levels | VulcanBench">
+<meta property="og:description" content="Frontier v4: 115 Claude Code runs of Claude Fable 5.2 at five effort levels, every run solved, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 91.92 at Low to 93.85 at Max; $1.72 to $10.88 and 4.3 to 37.1 minutes per task.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-fable52-v330.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-fable52-v330.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1350">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: Claude Fable 5.2 beside Claude Fable 5.1, Claude Opus 5.5 and GPT-6 Astra at every effort level, with combined score and cost per task">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Fable 5.2 across effort levels | VulcanBench">
+<meta name="twitter:description" content="Frontier v4: 115 Claude Code runs of Claude Fable 5.2 at five effort levels, every run solved, Code quality judged by Muse Spark 1.3 and GPT-6.1 Sol. Combined score 91.92 at Low to 93.85 at Max; $1.72 to $10.88 and 4.3 to 37.1 minutes per task.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-fable52-v330.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: Claude Fable 5.2 beside Claude Fable 5.1, Claude Opus 5.5 and GPT-6 Astra at every effort level, with combined score and cost per task">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=34">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/analysis.html">Analysis</a>
+      <a href="/reports.html">Reports</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/eval-suite-builder.html">Eval suite builder</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="fable52-v330-heading">
+      <header>
+        <p class="suite-label">November 13, 2026 &middot; Morgan Linton &middot; 115 runs &middot; Code quality protocol v3.30.2 and v3.30.3</p>
+        <h1 id="fable52-v330-heading">Claude Fable 5.2 across every effort level</h1>
+        <p>115 runs of Anthropic&rsquo;s Claude Fable 5.2 (<code>claude-fable-5-2</code>) in Claude Code on a Claude subscription, 23 tasks at each of five effort levels, Low to Max, from November 9 to 11, 2026. It solved all 115, the first column on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> to solve every run at every level. Code quality carries 33% of the combined score and is judged for a human reader by Muse Spark 1.3 and GPT-6.1 Sol: Grok 4.6, the usual second judge, failed its calibration exam for this round, so GPT-6.1 Sol took the seat. Most other columns, Claude Fable 5.1 and Claude Opus 5.5 among them, are judged by Muse Spark 1.3 and Grok 4.6, so this page also shows a matched panel and Muse alone.</p>
+      </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A retired program to rebuild</h3><p>Each of the 23 tasks is a legacy binary with a written specification and an issue. Its real behaviour departs from the specification in documented ways, and hidden tests check the rewrite against the binary.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>One attempt per task and level</h3><p>Claude Fable 5.2 works in Claude Code with the binary, the specification and the code, once per task at each effort level, inside a flat 3-hour bound, one task at a time.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>Tests and two judges score it</h3><p>Hidden tests give functional correctness. Two calibrated judges from labs other than Anthropic rate the code for a human reader and try to recover the documented departures.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>Scores, time and cost per level</h3><p>Each level gets a combined score, tasks passed, minutes and Claude Code&rsquo;s own list-price cost.</p></li>
+        </ol>
+        <p>Combined score = 50% functional correctness + 8.5% lint and complexity + 8.5% security + 33% Code quality, averaged over the 23 runs in each level, as on every other board column. Frontier Code quality is the reviewed layer plus intent recovery; it is never compared with Routine v1 Code quality.</p>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/cards/swe-v4-fable52-v330.png" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, beside Fable 5.1, Opus 5.5 and GPT-6 Astra</span></a>
+        <a class="resource" href="/assets/cards/swe-v4-fable52-v330-memorization.png" download><span class="resource-kind">Card</span><span class="resource-title">Memorization check</span><span class="resource-meta">PNG, copying, binary inspection and recall</span></a>
+        <a class="resource" href="/assets/data/swe-v4-fable52-v330/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 115 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores</span></a>
+        <a class="resource" href="/assets/data/swe-v4-fable52-v330-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, five effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-fable52-v330"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-fable52-v330/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
+        <a class="resource" href="https://github.com/morganlinton/vulcanbench-fable52-traces"><span class="resource-kind">Traces</span><span class="resource-title">Session traces</span><span class="resource-meta">GitHub, all 115 runs, structure only</span></a>
+        <a class="resource" href="/reports/01-how-claude-fable-5-2-thinks.html"><span class="resource-kind">Report</span><span class="resource-title">How Claude Fable 5.2 thinks</span><span class="resource-meta">Report 01, a deep look at its traces</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=Claude%20Fable%205.2%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-fable52-v330.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this report, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#comparison"><span class="n">03</span>Beside Fable 5.1, Opus 5.5 and Astra</a>
+        <a href="#panels"><span class="n">04</span>Matched panel and Muse alone</a>
+        <a href="#behaviour"><span class="n">05</span>How it works</a>
+        <a href="#memorization"><span class="n">06</span>Memorization check</a>
+        <a href="#cost"><span class="n">07</span>Cost and tokens</a>
+        <a href="#board"><span class="n">08</span>On the board</a>
+        <a href="#code-quality"><span class="n">09</span>Code quality</a>
+        <a href="#judges"><span class="n">10</span>Judges and calibration</a>
+        <a href="#run-notes"><span class="n">11</span>How it was run</a>
+        <a href="#reproduce"><span class="n">12</span>Reproduction</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>Claude Fable 5.2 ran every task once at each of the five effort levels Claude Code offers for it (Extra-high is Claude Code&rsquo;s <code>xhigh</code>), 23 tasks per cell, in Claude Code 2.1.321 on the owner&rsquo;s Mac, one task at a time. Low to Extra-high ran on November 9 and 10; Max waited about a day for the Fable usage limit to reset and ran on November 10 and 11. No run reached the flat 3-hour task bound; the longest, Max reflowcore, took 52.1 minutes. All 115 runs passed every hidden test and carry a published Code quality score.</p>
+        <div class="effort-choices">
+          <div><h3>Combined score</h3><p>91.92 at Low to 93.85 at Max</p><p>The score rises at every step: 91.92 at Low, 92.25 at Medium, 92.76 at High, 93.25 at Extra-high and 93.85 at Max, with standard errors of 0.39 to 0.45. Max is 1.93 points above Low.</p></div>
+          <div><h3>Tasks passed</h3><p>23 of 23 at every level</p><p>Claude Fable 5.2 fixes all 231 hidden behaviours the tasks test for at every level. No earlier Frontier v4 column solved every run; GPT-6 Astra came closest, with 114 of 115.</p></div>
+          <div><h3>Code quality</h3><p>80.63 to 86.02</p><p>The judges rate the code 80.63 at Low, 81.49 at Medium, 82.95 at High, 84.25 at Extra-high and 86.02 at Max. By Muse alone it is about level with Claude Fable 5.1&rsquo;s, slightly below at every level and within the standard error; see <a href="#panels">the panels</a>.</p></div>
+          <div><h3>Runtime and cost</h3><p>4.3 to 37.1 min &middot; $1.72 to $10.88 per task</p><p>Low and Medium cost $1.72 a task and take under 5 minutes; Max costs six times as much and takes eight times as long. The whole sweep took 26.1 hours of solver time and prices at $509.85 at list price.</p></div>
+        </div>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score, tasks passed, Code quality, runtime and cost at each effort level" tabindex="0"><table class="suite-results"><caption>Combined score, tasks passed, Code quality, runtime and cost at each effort level, 23 runs per cell</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>91.92</td><td>92.25</td><td>92.76</td><td>93.25</td><td>93.85</td></tr><tr><th scope="row">Standard error</th><td>0.39</td><td>0.44</td><td>0.43</td><td>0.45</td><td>0.42</td></tr><tr><th scope="row">Judged runs</th><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr></tbody><tbody><tr><th scope="row">Tasks passed</th><td>23/23</td><td>23/23</td><td>23/23</td><td>23/23</td><td>23/23</td></tr><tr><th scope="row">Hidden behaviours fixed</th><td>231/231</td><td>231/231</td><td>231/231</td><td>231/231</td><td>231/231</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>80.63</td><td>81.49</td><td>82.95</td><td>84.25</td><td>86.02</td></tr><tr><th scope="row">Human readability</th><td>76.7</td><td>78.1</td><td>80.0</td><td>82.8</td><td>84.2</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>4.6</td><td>4.3</td><td>7.8</td><td>14.2</td><td>37.1</td></tr><tr><th scope="row">List-price $ per task</th><td>$1.72</td><td>$1.72</td><td>$2.86</td><td>$4.99</td><td>$10.88</td></tr></tbody></table></div>
+        <p>Under the prior 50/15/15/20 profile applied to the same Code quality scores the ladder has the same shape, 93.14 to 94.48. The card and the full per-effort table follow.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-fable52-v330.png" aria-label="Open the Claude Fable 5.2 results card at full resolution">
+          <img src="/assets/cards/swe-v4-fable52-v330.png" width="1600" height="900" fetchpriority="high" alt="Claude Fable 5.2 on VulcanBench Frontier v4 beside Claude Fable 5.1, Claude Opus 5.5 and GPT-6 Astra. Left: combined score by effort level, with Claude Fable 5.2 highest at every level, from about 92 at Low to about 94 at Max; Claude Fable 5.1 and Claude Opus 5.5 are shown under the matched Muse Spark 1.3 and GPT-6.1 Sol panel and GPT-6 Astra under its published panel. Right: cost per task at list price, Claude Fable 5.2 from $1.72 at Low to $10.88 at Max. A footnote gives the judge panels. Exact values are in the adjacent accessible tables.">
+        </a>
+        <figcaption>The harness card places Claude Fable 5.2 beside Claude Fable 5.1, Claude Opus 5.5 and GPT-6 Astra. On the card, Fable 5.1 and Opus 5.5 are scored by the matched Muse Spark 1.3 and GPT-6.1 Sol panel from comparison-only rounds; the board keeps their published Muse and Grok scores. GPT-6 Astra keeps its published Muse and Grok scores, because GPT-6.1 Sol shares its lab. Whiskers show &plusmn;1 task standard error, not statistical significance. Cost is Claude Code&rsquo;s own list-price total for the Claude columns and GPT-6 Astra&rsquo;s report&rsquo;s central estimate. <a href="/assets/cards/swe-v4-fable52-v330.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">Claude Fable 5.2 leads at every effort level, and its lead comes from correctness, speed and cost, not from code quality. It solves every task at every level, so it does not need high effort to be right: Low and Medium score within 2 points of Max at about a sixth of the cost and an eighth of the time. Its code is rated about as well as Claude Fable 5.1&rsquo;s, the strongest earlier Claude column. These runs compare a model-and-harness combination, not an isolated base model.</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">n=23 at every level. Combined (33%) is the published score. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the two judges. Passed counts all 23 runs. Runtime is solver wall-clock per task over every run in the cell.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench Frontier v4: Claude Fable 5.2 effort results under Code quality protocol v3.30.2 and v3.30.3</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="fable52" data-effort="low"><th scope="row"><a href="/models/claude-fable-5-2.html">Claude Fable 5.2</a> / Claude Code</th><td>Low</td><td>91.92</td><td>0.39</td><td>93.14</td><td>80.63</td><td>76.7</td><td>82.7</td><td>83.1</td><td>23/23</td><td>23/23</td><td>4.6</td></tr>
+              <tr data-model="fable52" data-effort="medium"><th scope="row"><a href="/models/claude-fable-5-2.html">Claude Fable 5.2</a> / Claude Code</th><td>Medium</td><td>92.25</td><td>0.44</td><td>93.40</td><td>81.49</td><td>78.1</td><td>83.6</td><td>83.2</td><td>23/23</td><td>23/23</td><td>4.3</td></tr>
+              <tr data-model="fable52" data-effort="high"><th scope="row"><a href="/models/claude-fable-5-2.html">Claude Fable 5.2</a> / Claude Code</th><td>High</td><td>92.76</td><td>0.43</td><td>93.74</td><td>82.95</td><td>80.0</td><td>84.8</td><td>84.5</td><td>23/23</td><td>23/23</td><td>7.8</td></tr>
+              <tr data-model="fable52" data-effort="extra-high"><th scope="row"><a href="/models/claude-fable-5-2.html">Claude Fable 5.2</a> / Claude Code</th><td>Extra-high</td><td>93.25</td><td>0.45</td><td>94.10</td><td>84.25</td><td>82.8</td><td>85.3</td><td>84.8</td><td>23/23</td><td>23/23</td><td>14.2</td></tr>
+              <tr data-model="fable52" data-effort="max"><th scope="row"><a href="/models/claude-fable-5-2.html">Claude Fable 5.2</a> / Claude Code</th><td>Max</td><td>93.85</td><td>0.42</td><td>94.48</td><td>86.02</td><td>84.2</td><td>87.6</td><td>86.3</td><td>23/23</td><td>23/23</td><td>37.1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>Four factors by effort.</strong> Functional correctness is 100.00 at every level; lint and complexity 80.34, 80.67, 81.03, 81.70 and 81.86 from Low to Max; security 99.78 at Low and 100.00 above it. Only the Code quality factor depends on the judges.</p>
+        <p><strong>Intent recovery</strong> is scored over the specification departures a submission actually passed tests for; every Claude Fable 5.2 run passed at least one, so no run needed the rule that moves its 9 intent points to the reviewed score. <strong>SE</strong> is one sample standard error of the combined score across the cell&rsquo;s tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. Claude Code&rsquo;s refusal fallback was on, as for every Claude column, and never answered: every reply in every run came from <code>claude-fable-5-2</code>. Neither judge produced a reviewer fallback on any of the 115 submissions.</p>
+      </div>
+
+      <section class="report-section" id="comparison" aria-labelledby="comparison-heading">
+        <h2 id="comparison-heading">Beside Claude Fable 5.1, Claude Opus 5.5 and GPT-6 Astra</h2>
+        <p>On the published scores, the ones the board uses, Claude Fable 5.2 is ahead of all three at every level, and its Low level (91.92) is above every Fable 5.1, Opus 5.5 and Astra cell (the highest, Fable 5.1 at Max, is 91.84). The panels differ, though: Fable 5.2 is judged by Muse Spark 1.3 and GPT-6.1 Sol, the other three by Muse Spark 1.3 and Grok 4.6, and GPT-6.1 Sol rates Fable 5.2&rsquo;s code about 7 points higher than Muse does. <a href="#panels">The next section</a> removes that difference two ways.</p>
+        <p>Speed and cost are where the gap is largest. At Low Fable 5.2 costs $1.72 a task, about the same as GPT-6 Astra ($1.72) and Opus 5.5 ($1.70), and takes 4.6 minutes against 4.2 and 13.7, while solving 23 tasks to their 22 and 17. Fable 5.1 took 26.9 to 38.8 minutes a task at every level and cost $7.96 to $14.49. At Max Fable 5.2 is the most expensive of the four, $10.88 against $9.06, $8.75 and $2.57.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Claude Fable 5.2 beside Claude Fable 5.1, Claude Opus 5.5 and GPT-6 Astra at every effort level" tabindex="0"><table class="suite-results">
+        <caption>Published combined score, tasks passed, minutes, list-price cost and Code quality per task at every effort level, 23 runs per cell; Fable 5.1, Opus 5.5 and GPT-6 Astra from their published reports, each with its own judge panel</caption><thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th><th scope="col">$/task</th><th scope="col">Code quality</th><th scope="col">Judges</th></tr></thead><tbody>
+        <tr data-compare="fable52-low"><th scope="row">Claude Fable 5.2 / Claude Code</th><td>Low</td><td>91.92</td><td>0.39</td><td>23</td><td>23/23</td><td>4.6</td><td>$1.72</td><td>80.63</td><td>Muse, Sol</td></tr>
+        <tr data-compare="fable51-low"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">Claude Fable 5.1</a> / Claude Code</th><td>Low</td><td>89.12</td><td>1.15</td><td>23</td><td>19/23</td><td>26.9</td><td>$7.96</td><td>78.36</td><td>Muse, Grok</td></tr>
+        <tr data-compare="opus55-low"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Low</td><td>86.36</td><td>1.30</td><td>23</td><td>17/23</td><td>13.7</td><td>$1.70</td><td>72.53</td><td>Muse, Grok</td></tr>
+        <tr data-compare="astra-low"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Low</td><td>87.43</td><td>0.51</td><td>23</td><td>22/23</td><td>4.2</td><td>$1.72</td><td>70.31</td><td>Muse, Grok</td></tr>
+        <tr data-compare="fable52-medium"><th scope="row">Claude Fable 5.2 / Claude Code</th><td>Medium</td><td>92.25</td><td>0.44</td><td>23</td><td>23/23</td><td>4.3</td><td>$1.72</td><td>81.49</td><td>Muse, Sol</td></tr>
+        <tr data-compare="fable51-medium"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">Claude Fable 5.1</a> / Claude Code</th><td>Medium</td><td>90.13</td><td>0.94</td><td>23</td><td>20/23</td><td>31.7</td><td>$9.19</td><td>80.14</td><td>Muse, Grok</td></tr>
+        <tr data-compare="opus55-medium"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Medium</td><td>90.86</td><td>0.64</td><td>23</td><td>23/23</td><td>18.6</td><td>$2.84</td><td>77.32</td><td>Muse, Grok</td></tr>
+        <tr data-compare="astra-medium"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Medium</td><td>87.73</td><td>0.32</td><td>23</td><td>23/23</td><td>3.8</td><td>$1.48</td><td>71.19</td><td>Muse, Grok</td></tr>
+        <tr data-compare="fable52-high"><th scope="row">Claude Fable 5.2 / Claude Code</th><td>High</td><td>92.76</td><td>0.43</td><td>23</td><td>23/23</td><td>7.8</td><td>$2.86</td><td>82.95</td><td>Muse, Sol</td></tr>
+        <tr data-compare="fable51-high"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">Claude Fable 5.1</a> / Claude Code</th><td>High</td><td>90.07</td><td>0.78</td><td>23</td><td>20/23</td><td>28.8</td><td>$9.70</td><td>80.86</td><td>Muse, Grok</td></tr>
+        <tr data-compare="opus55-high"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>High</td><td>91.11</td><td>0.57</td><td>22*</td><td>22/23</td><td>21.4</td><td>$3.27</td><td>77.99</td><td>Muse, Grok</td></tr>
+        <tr data-compare="astra-high"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>High</td><td>88.16</td><td>0.42</td><td>23</td><td>23/23</td><td>4.9</td><td>$1.71</td><td>73.48</td><td>Muse, Grok</td></tr>
+        <tr data-compare="fable52-extra-high"><th scope="row">Claude Fable 5.2 / Claude Code</th><td>Extra-high</td><td>93.25</td><td>0.45</td><td>23</td><td>23/23</td><td>14.2</td><td>$4.99</td><td>84.25</td><td>Muse, Sol</td></tr>
+        <tr data-compare="fable51-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">Claude Fable 5.1</a> / Claude Code</th><td>Extra-high</td><td>90.75</td><td>0.82</td><td>23</td><td>22/23</td><td>38.8</td><td>$14.49</td><td>81.93</td><td>Muse, Grok</td></tr>
+        <tr data-compare="opus55-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Extra-high</td><td>90.68</td><td>1.10</td><td>23</td><td>22/23</td><td>20.7</td><td>$4.11</td><td>79.98</td><td>Muse, Grok</td></tr>
+        <tr data-compare="astra-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Extra-high</td><td>89.16</td><td>0.30</td><td>23</td><td>23/23</td><td>8.1</td><td>$2.30</td><td>75.47</td><td>Muse, Grok</td></tr>
+        <tr data-compare="fable52-max"><th scope="row">Claude Fable 5.2 / Claude Code</th><td>Max</td><td>93.85</td><td>0.42</td><td>23</td><td>23/23</td><td>37.1</td><td>$10.88</td><td>86.02</td><td>Muse, Sol</td></tr>
+        <tr data-compare="fable51-max"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">Claude Fable 5.1</a> / Claude Code</th><td>Max</td><td>91.84</td><td>0.47</td><td>23</td><td>23/23</td><td>27.1</td><td>$9.06</td><td>82.43</td><td>Muse, Grok</td></tr>
+        <tr data-compare="opus55-max"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Max</td><td>90.22</td><td>1.02</td><td>23</td><td>21/23</td><td>37.5</td><td>$8.75</td><td>79.77</td><td>Muse, Grok</td></tr>
+        <tr data-compare="astra-max"><th scope="row"><a href="/benchmarks/swe-v4-astra-fable51-v34.html">GPT-6 Astra</a> / Codex</th><td>Max</td><td>89.30</td><td>0.37</td><td>23</td><td>23/23</td><td>10.3</td><td>$2.57</td><td>76.26</td><td>Muse, Grok</td></tr>
+        </tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Read the comparison with its limits.</strong> * Opus 5.5 at High is judged on 22 runs, where a safeguard stop left one run with no code to review. Muse is Muse Spark 1.3, Sol is GPT-6.1 Sol and Grok is Grok 4.6; each column is judged in its own protocol run (v3.30.2 and v3.30.3, v3.4, v3.15 and v3.4). Harnesses differ: Claude Code for the three Claude columns, on different versions, and Codex for GPT-6 Astra. Fable 5.1 and Opus 5.5 ran with Claude Code&rsquo;s refusal fallback answering part of some runs (11 and 30); Fable 5.2 never needed it. $/task is Claude Code&rsquo;s own list-price total for the Claude columns and GPT-6 Astra&rsquo;s report&rsquo;s central estimate.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="panels" aria-labelledby="panels-heading">
+        <h2 id="panels-heading">Matched panel and Muse alone</h2>
+        <p><strong>Matched panel.</strong> For the card, GPT-6.1 Sol also reviewed the frozen Claude Fable 5.1 and Claude Opus 5.5 patches beside Muse&rsquo;s existing reviews, in comparison-only rounds v3.30.4 and v3.30.5. These figures are for this comparison only; the board keeps Fable 5.1&rsquo;s and Opus 5.5&rsquo;s published Muse and Grok scores. Under the matched panel Fable 5.2 still leads at every level, but only narrowly at Medium, where it is 0.08 ahead of Opus 5.5, well inside one standard error of the difference (0.72). Fable 5.1 at Max (92.69) is ahead of Fable 5.2 at Low (91.92), and Opus 5.5&rsquo;s best level (Medium, 92.16) is 0.24 above it. GPT-6 Astra cannot join this panel, because GPT-6.1 Sol shares its lab.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Matched panel comparison" tabindex="0"><table class="suite-results"><caption>Combined score and Code quality under the matched Muse Spark 1.3 and GPT-6.1 Sol panel, 23 runs per cell; for this comparison only, the board keeps each model&rsquo;s published scores</caption><thead><tr><th scope="col">Model</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr data-matched="combined-fable52"><th scope="row">Combined, Claude Fable 5.2</th><td>91.92</td><td>92.25</td><td>92.76</td><td>93.25</td><td>93.85</td></tr><tr data-matched="combined-fable51"><th scope="row">Combined, Claude Fable 5.1</th><td>90.04</td><td>91.07</td><td>90.89</td><td>91.52</td><td>92.69</td></tr><tr data-matched="combined-opus55"><th scope="row">Combined, Claude Opus 5.5</th><td>87.85</td><td>92.16</td><td>91.96</td><td>91.65</td><td>91.24</td></tr><tr data-matched="cq-fable52"><th scope="row">Code quality, Claude Fable 5.2</th><td>80.63</td><td>81.49</td><td>82.95</td><td>84.25</td><td>86.02</td></tr><tr data-matched="cq-fable51"><th scope="row">Code quality, Claude Fable 5.1</th><td>81.15</td><td>82.99</td><td>83.35</td><td>84.26</td><td>85.01</td></tr><tr data-matched="cq-opus55"><th scope="row">Code quality, Claude Opus 5.5</th><td>77.03</td><td>81.26</td><td>80.56</td><td>82.94</td><td>82.87</td></tr></tbody></table></div>
+        <p>Sol reviews every model higher than Muse does, and by different amounts: 6.7 to 8.1 points for Fable 5.2, 3.1 to 5.5 for Fable 5.1 and 5.8 to 10.1 for Opus 5.5. Under the matched panel Fable 5.2&rsquo;s Code quality is within 1.5 points of Fable 5.1&rsquo;s at every level, below it from Low to Extra-high and 1.0 above it at Max; every gap is inside the standard error of the difference (1.6 to 2.1).</p>
+        <p><strong>Muse alone.</strong> Muse Spark 1.3 sat on every one of these rounds, Astra&rsquo;s included, with the same pinned binary, rubric and weights, so its scores alone are the only like-for-like comparison that includes all four models.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Muse Spark 1.3 alone, four models" tabindex="0"><table class="suite-results"><caption>Combined score and Code quality from Muse Spark 1.3 alone, the one judge on every round, 23 runs per cell</caption><thead><tr><th scope="col">Model</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr data-muse="combined-fable52"><th scope="row">Combined, Claude Fable 5.2</th><td>91.09</td><td>91.16</td><td>91.53</td><td>92.13</td><td>92.78</td></tr><tr data-muse="combined-fable51"><th scope="row">Combined, Claude Fable 5.1</th><td>89.46</td><td>90.14</td><td>89.89</td><td>90.86</td><td>92.19</td></tr><tr data-muse="combined-opus55"><th scope="row">Combined, Claude Opus 5.5</th><td>86.47</td><td>91.05</td><td>91.03</td><td>90.79</td><td>90.35</td></tr><tr data-muse="combined-astra"><th scope="row">Combined, GPT-6 Astra</th><td>87.05</td><td>87.20</td><td>87.51</td><td>88.77</td><td>88.98</td></tr><tr data-muse="cq-fable52"><th scope="row">Code quality, Claude Fable 5.2</th><td>78.13</td><td>78.18</td><td>79.23</td><td>80.85</td><td>82.80</td></tr><tr data-muse="cq-fable51"><th scope="row">Code quality, Claude Fable 5.1</th><td>79.38</td><td>80.16</td><td>80.33</td><td>82.26</td><td>83.51</td></tr><tr data-muse="cq-opus55"><th scope="row">Code quality, Claude Opus 5.5</th><td>72.84</td><td>77.88</td><td>77.74</td><td>80.31</td><td>80.15</td></tr><tr data-muse="cq-astra"><th scope="row">Code quality, GPT-6 Astra</th><td>69.16</td><td>69.61</td><td>71.52</td><td>74.28</td><td>75.28</td></tr></tbody></table></div>
+        <p>Judged by Muse alone, Fable 5.2&rsquo;s code is slightly below Fable 5.1&rsquo;s at every level, by 0.7 to 2.0 points, each smaller than the standard error of the difference (1.8 to 2.6). It still leads on combined score at every level, because it solves every task. Under both panels its lead comes from correctness, speed and cost, not from code quality.</p>
+      </section>
+
+      <section class="report-section" id="behaviour" aria-labelledby="behaviour-heading">
+        <h2 id="behaviour-heading">How it works, and how that differs from Fable 5.1</h2>
+        <p>Fable 5.2&rsquo;s runs recorded summaries of its thinking (a run condition earlier Claude columns did not have) and every tool call. They are withheld because they describe the reference programs, but their structure is public in the <a href="https://github.com/morganlinton/vulcanbench-fable52-traces">session traces</a>. Fable 5.1&rsquo;s raw runs did not survive a host reset in September, so the comparison with it uses what both left in the same form: usage receipts, durations, fallback records and patches.</p>
+        <ul>
+          <li><strong>Effort controls how much it thinks.</strong> From Low to Max its output per task grows 8.7 times (16 thousand to 142 thousand tokens) and thinking rises from 48% to 67% of it. Fable 5.1&rsquo;s output grew only 1.2 times, and its time stayed between 27 and 39 minutes at every level.</li>
+          <li><strong>It is lean at low effort.</strong> At Low it used 19% of Fable 5.1&rsquo;s output tokens, 17% of its time and 22% of its cost, and solved 23 tasks to Fable 5.1&rsquo;s 19.</li>
+          <li><strong>The patch does not grow.</strong> In every run it changed exactly one file, the module under repair, with a median of 97 to 113 added lines at every level, and kept its test harnesses in scratch space. Fable 5.1&rsquo;s median patch grew from 112 to 190 lines with effort and added test files in 5 to 11 runs per level.</li>
+          <li><strong>It reads the binary first.</strong> It inspected the reference binary in all 115 runs, at a median of its second tool call at Low and its seventh at Max, and the extra effort at higher levels goes to checking its rewrite against the binary rather than to a different answer.</li>
+        </ul>
+        <p><a href="/reports/01-how-claude-fable-5-2-thinks.html">Report 01, How Claude Fable 5.2 thinks</a>, follows these patterns through its traces in depth, with comparisons to GPT-6 Astra and Claude Opus 5.5.</p>
+      </section>
+
+      <section class="report-section" id="memorization" aria-labelledby="memorization-heading">
+        <h2 id="memorization-heading">Memorization check</h2>
+        <p>Every Frontier v4 reference fix and test has been public on GitHub since late August 2026, about ten weeks before Claude Fable 5.2, and it solved every run, so the harness checked whether it was reciting answers.</p>
+        <ul>
+          <li><strong>Copying.</strong> Its solved patches reproduce 5.6% of the reference fixes&rsquo; distinctive lines verbatim, in the same range as six other models (4.4% to 5.7%), including Claude Opus 5, which was benchmarked before the fixes were public. A recited fix would score near 100%.</li>
+          <li><strong>Working it out.</strong> It inspected the legacy binary before its first edit in 115 of 115 runs, against 43% to 67% for Claude Opus 5, Sonnet 5.5 and Haiku 5.5.</li>
+          <li><strong>Recall.</strong> With no tools, asked to reproduce five reference fixes from memory, it answered each time that it did not remember the fix and wrote none; asked to fix one task blind, it declined to write a diff.</li>
+        </ul>
+        <figure class="suite-card">
+          <a href="/assets/cards/swe-v4-fable52-v330-memorization.png" aria-label="Open the memorization check card at full resolution">
+            <img src="/assets/cards/swe-v4-fable52-v330-memorization.png" width="1600" height="900" loading="lazy" alt="Memorization check for Claude Fable 5.2 on VulcanBench Frontier v4: the share of reference-fix lines its patches copy, about 5.6%, sits among six other models at 4.4% to 5.7%; it inspected the legacy binary before its first edit in every run, against 43% to 67% for three other Claude models.">
+          </a>
+          <figcaption>The memorization card from the harness results. The full check, the recall prompts and the model&rsquo;s verbatim answers are in the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/results/swe-v4-fable52-2026-11/README.md">Fable 5.2 results</a>. <a href="/assets/cards/swe-v4-fable52-v330-memorization.png">Open full-size card</a>.</figcaption>
+        </figure>
+      </section>
+
+      <section class="report-section" id="cost" aria-labelledby="cost-heading">
+        <h2 id="cost-heading">Cost and tokens across effort levels</h2>
+        <p>All 115 runs are priced at Claude Code&rsquo;s own list-price total for each session, the cost basis of every Claude column, with judging excluded. These are list-price estimates, not subscription charges: Claude Fable 5.2 ran on a Claude subscription. Cost per task is $1.72 at Low and Medium, $2.86 at High, $4.99 at Extra-high and $10.88 at Max; the whole sweep comes to $509.85. The extra cost is extra thinking: mean output rises from 16.2K tokens a task at Low to 141.5K at Max, of which thinking is 7.7K and 94.7K, and tool calls from about 11 to 59 a task.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Cost, tokens and runtime at each effort level" tabindex="0"><table class="suite-results">
+        <caption>List-price cost, tokens, tool calls and runtime at each effort level, n=23 runs per cell</caption><thead><tr><th scope="col">Effort</th><th scope="col">Runs</th><th scope="col">$/task</th><th scope="col">Level total</th><th scope="col">Tokens/task</th><th scope="col">Output/task</th><th scope="col">Thinking/task</th><th scope="col">Tool calls/task</th><th scope="col">Min/task</th><th scope="col">Median min</th></tr></thead><tbody><tr data-econ-effort="low"><th scope="row">Low</th><td>23</td><td>$1.72</td><td>$39.65</td><td>0.65M</td><td>16.2K</td><td>7.7K</td><td>10.7</td><td>4.6</td><td>3.5</td></tr><tr data-econ-effort="medium"><th scope="row">Medium</th><td>23</td><td>$1.72</td><td>$39.51</td><td>0.59M</td><td>15.0K</td><td>7.1K</td><td>10.3</td><td>4.3</td><td>3.6</td></tr><tr data-econ-effort="high"><th scope="row">High</th><td>23</td><td>$2.86</td><td>$65.70</td><td>1.19M</td><td>30.8K</td><td>18.3K</td><td>16.4</td><td>7.8</td><td>6.2</td></tr><tr data-econ-effort="extra-high"><th scope="row">Extra-high</th><td>23</td><td>$4.99</td><td>$114.76</td><td>2.51M</td><td>61.7K</td><td>40.8K</td><td>27.0</td><td>14.2</td><td>13.4</td></tr><tr data-econ-effort="max"><th scope="row">Max</th><td>23</td><td>$10.88</td><td>$250.23</td><td>7.91M</td><td>141.5K</td><td>94.7K</td><td>58.9</td><td>37.1</td><td>39.0</td></tr><tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>115</td><td>$4.43</td><td>$509.85</td><td>295M</td><td></td><td></td><td></td><td>26.1 h</td><td></td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Pricing.</strong> Claude Code reports its list-price total for the session on each result receipt, cumulatively. Two runs (Low matchcore and Extra-high reflowcore) have two receipts, because a background task resumed the session after the model stopped; tokens and thinking tokens are summed over both, and the cost is the session&rsquo;s last total. The run summaries kept only the last receipt and recorded no thinking tokens (adapter issues, fix pending); every figure here comes from the raw streams and matches the population record. Grading is unaffected. The adapter&rsquo;s own run-time estimate prices cached prompt tokens at the full input rate and reads higher (Max $14.01 a task); it is not used.</p>
+          <p><strong>Tokens</strong> are input, cache read, cache creation and output tokens summed over a run&rsquo;s receipts; the full sweep row sums them over all 115 runs. Per-run figures are in <a href="/assets/data/swe-v4-fable52-v330/economics.json">economics.json</a> and <a href="/assets/data/swe-v4-fable52-v330/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="board" aria-labelledby="board-heading">
+        <h2 id="board-heading">On the Frontier v4 board</h2>
+        <p>Claude Fable 5.2 takes first place on the board&rsquo;s 86 model and effort columns: Max ranks 1st (93.85 &plusmn; 0.42, n=23), Extra-high 2nd, High 4th, Medium 7th and Low 10th; Grok 4.7 at Extra-high (93.15) is third. Max carries the best tag. Its spread from Low to Max is under 2 points, so the board&rsquo;s effort suggestions pick Extra-high for critical work and Medium for routine and rough work. The <a href="/leaderboard.html">leaderboard</a> carries every column; Claude Fable 5.2&rsquo;s cells carry the &Vert;&Vert; footnote with the panel disclosure on this page.</p>
+        <p>Read these placements with the panel in mind. Claude Fable 5.2 is judged by Muse Spark 1.3 and GPT-6.1 Sol, as are Grok 4.7, DeepSeek V4.1 Flash and Reflection Beam; most other columns, Claude Fable 5.1 and Claude Opus 5.5 included, by Muse Spark 1.3 and Grok 4.6. Scores from different panels are not calibrated against each other, so gaps of a point or two between columns judged by different panels are not a reliable order. By Muse alone, Fable 5.2&rsquo;s combined score is 91.09 to 92.78.</p>
+      </section>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel carries 24 points. An intent-recovery probe carries 9: the judge, given only the specification and the code, lists where the code departs from the specification, and a separate call matches that list against a frozen answer key, over the departures the submission passed tests for. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each effort level, out of 100, mean of both judges over 23 runs</caption><thead><tr><th scope="col">Component</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th><th scope="col">Max</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>80.63</td><td>81.49</td><td>82.95</td><td>84.25</td><td>86.02</td></tr><tr><th scope="row">Human readability</th><td>76.7</td><td>78.1</td><td>80.0</td><td>82.8</td><td>84.2</td></tr><tr><th scope="row">Maintainability</th><td>82.7</td><td>83.6</td><td>84.8</td><td>85.3</td><td>87.6</td></tr><tr><th scope="row">Intent recovery</th><td>83.1</td><td>83.2</td><td>84.5</td><td>84.8</td><td>86.3</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>76.4</td><td>77.1</td><td>78.4</td><td>80.4</td><td>82.2</td></tr><tr><th scope="row">Rated by GPT-6.1 Sol</th><td>83.1</td><td>84.6</td><td>86.4</td><td>87.7</td><td>89.6</td></tr><tr><th scope="row">Standard error of Code quality</th><td>1.00</td><td>1.22</td><td>1.13</td><td>1.24</td><td>1.15</td></tr></tbody></table></div>
+        <p>Code quality rises at every level, by 5.40 points from Low to Max. Human readability is the weaker sub-score at every level. GPT-6.1 Sol is the higher rater at every level, by 6.7 to 8.1 points on the reviewed score. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-fable52-v330/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-fable52-v330/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p>Round v3.30 seated Muse Spark 1.3 (Meta) and Grok 4.6 (xAI), the panel of the Claude Opus 5.5 column, and both retook the calibration exam. Grok 4.6 failed one gate, g14_pair_2_1 (a pair of controls it scored 100 one way round and 50 the other), which the one-gate allowance does not cover, so it judged nothing. Muse Spark 1.3 passed every gate and judged Low to Extra-high under v3.30 and Max under v3.30.1. On the owner&rsquo;s choice, GPT-6.1 Sol (OpenAI) through the Codex CLI at medium effort took Grok&rsquo;s seat, passed every gate under v3.30.2, and judged Low to Extra-high under v3.30.2 and Max under v3.30.3, on byte-copied freezes of the same populations. Neither judge&rsquo;s lab is Anthropic. The rubric, prompts, schemas, seed, repeats, gate allowance, weights and both judges&rsquo; pins equal the published v3.27 record, the Muse and Sol round that judged DeepSeek V4.1 Flash.</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification, each five times in a seeded order, and twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.30</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr><tr><th scope="row">Grok 4.6</th><td>code-quality-maintenance-v3.30</td><td>80</td><td>failed, judged nothing</td><td>no</td><td>g14_pair_2_1</td></tr><tr><th scope="row">GPT-6.1 Sol</th><td>code-quality-maintenance-v3.30.2</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr></tbody></table></div>
+        <p>Every gate value and control mean is in <a href="/assets/data/swe-v4-fable52-v330/calibration.json">calibration.json</a>.</p>
+        <p><strong>One judge alone.</strong> Scored by one judge alone, the combined score would be (Muse or Sol) 91.09 or 92.74 at Low; 91.16 or 93.34 at Medium; 91.53 or 93.99 at High; 92.13 or 94.37 at Extra-high; 92.78 or 94.91 at Max. Either way the ladder rises at every level.</p>
+        <p><strong>Counted calls and recoveries.</strong> GPT-6.1 Sol made 80 calibration calls and 92 primary reviews, 4 repeats, 8 pairwise checks, 92 intent probes and 92 answer-key matches under v3.30.2, and 23 primary reviews, 1 repeat, 23 probes and 23 matches under v3.30.3. Muse Spark 1.3 made the same counts under v3.30 and v3.30.1. Twelve of Sol&rsquo;s answer-key matches (8 and 4) numbered the departures from one instead of zero and were published through the protocol&rsquo;s frozen rule for that slip, <code>recover_one_based_indexes</code>, which leaves every score unchanged because intent scoring reads match statuses only. One Muse intent probe under v3.30 quoted an excerpt with its line breaks changed; it was re-wrapped to the source&rsquo;s line breaks, after which it had to be verbatim in the code and pass the frozen validator. No other call was edited, there is no operator marker, and neither judge produced a reviewer fallback. In UTC, Muse judged on November 10 (Low to Extra-high) and November 12 (Max), and Sol on November 12. Every operator record is in <a href="/assets/data/swe-v4-fable52-v330/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="run-notes" aria-labelledby="run-notes-heading">
+        <h2 id="run-notes-heading">How it was run</h2>
+        <ul>
+          <li><strong>The model.</strong> Claude Fable 5.2 as <code>claude-fable-5-2</code> in Claude Code 2.1.321, pinned by hash with auto-updates off: the first release that names the model. Claude Code reports the serving model on every reply, and every reply in every run is <code>claude-fable-5-2</code>.</li>
+          <li><strong>Harness settings.</strong> Permission mode auto, safe mode, no web access, a Claude subscription, refusal fallback on as for every Claude column (never used). Every integrity audit is clean: no web access, no benchmark data or answer-key paths. Every file written outside the workspace was scratch space under the temporary directory.</li>
+          <li><strong>Thinking summaries recorded.</strong> Runs used <code>--thinking-display summarized</code>, so the traces keep summaries of the model&rsquo;s thinking, a run condition earlier Claude columns did not have. The summaries are withheld from the public traces, which keep thinking as lengths only, because they describe the reference programs.</li>
+          <li><strong>Five levels.</strong> Claude Code takes low, medium, high, xhigh and max for Claude Fable 5.2; the board&rsquo;s Extra-high is xhigh.</li>
+          <li><strong>Max waited for the usage limit.</strong> The Fable weekly usage limit was used up by the end of Extra-high. The first Max attempts were refused by the limit, did no work, hold no summary and are kept apart, not part of the population. Max ran from 23:15 PST on November 10, when the limit reset, to 13:28 PST on November 11.</li>
+          <li><strong>From a tagged run worktree.</strong> Every run ran from <code>bench/2026-11-09-fable52-frontier-v4</code>, so every run summary carries a clean source block and records the frozen suite lock&rsquo;s task hash.</li>
+          <li><strong>Two receipts in two runs.</strong> Claude Code 2.1.321 can emit a second result receipt when a background task resumes a session after the model stops. It happened in two runs; their totals sum both receipts, as described under cost.</li>
+          <li><strong>Where and how.</strong> The owner&rsquo;s Mac, one task at a time, on November 9 to 11, 2026. Runs were not repeated, and effort labels are Claude Code&rsquo;s own.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 115 run measurements, both judges&rsquo; six-dimension sub-scores and intent-recovery scores per run, the combined score from each judge alone, hidden behaviours fixed, integrity-audit verdicts, each run&rsquo;s task hash, raw and thinking tokens, tool-call counts and list-price cost per run, five aggregates, every calibration gate value (Grok&rsquo;s failed exam included), the exact judge protocol text, every operator recovery, the card&rsquo;s per-level table, the Muse-alone table and source hashes. Each run&rsquo;s Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-fable52-v330/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/code-quality-maintenance-v3.md">protocol document</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/maintenance-v3-operations.md">operations log</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/DECISIONS.md">decision record</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/results/swe-v4-fable52-2026-11/README.md">Fable 5.2 results</a> and the code in the <a href="https://github.com/morganlinton/VulcanBench">harness repository</a>.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists.</p>
+        <p>Withheld: raw prompts and responses, thinking summaries, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, solver event streams (a structure-only redacted trace of every run, with every tool call and its timing and thinking as lengths only, is public in <a href="https://github.com/morganlinton/vulcanbench-fable52-traces">vulcanbench-fable52-traces</a>), and host binary paths. Summed solver time is 26.07 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/analysis.html">Analysis</a>
+      <a href="/reports.html">Reports</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>
