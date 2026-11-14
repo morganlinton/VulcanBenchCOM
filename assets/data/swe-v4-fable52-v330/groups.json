@@ -1,0 +1,637 @@
+[
+  {
+    "model": "fable52",
+    "effort": "low",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "unpublished_runs": 0,
+    "judged_under": "code-quality-maintenance-v3.30.2",
+    "combined_33": {
+      "n": 23,
+      "mean": 91.91759409937887,
+      "se": 0.39293716564375675
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 93.14416440805572,
+      "se": 0.3240084096574511
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 91.0947500955566,
+        "se": 0.49017206273756325
+      },
+      "sol": {
+        "n": 23,
+        "mean": 92.74043810320114,
+        "se": 0.44208762979989547
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 80.62723508375682,
+      "se": 0.9967653943654816
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 79.71014492753623,
+      "se": 1.2126430295776138
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 83.0728088336784,
+      "se": 2.2341770893692536
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 76.72101449275362,
+      "se": 1.5752916988703265
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 82.69927536231884,
+      "se": 1.1525679632093295
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 76.3586956521739,
+        "se": 1.4082953739554671
+      },
+      "sol": {
+        "n": 23,
+        "mean": 83.06159420289855,
+        "se": 1.2986283069297764
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 80.34217391304348,
+      "se": 0.942730655879125
+    },
+    "security": {
+      "n": 23,
+      "mean": 99.78260869565217,
+      "se": 0.2173913043478261
+    },
+    "passed": 23,
+    "passed_all_runs": 23,
+    "hidden_behaviours_fixed": 231,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 4.633498550724638,
+      "se": 0.6441842109354138
+    },
+    "minutes_median": 3.5103,
+    "priced_runs": 23,
+    "cli_versions": {
+      "2.1.321 (Claude Code)": 23
+    },
+    "solver_fallback_runs": 0,
+    "two_receipt_runs": 1,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 648534.1739130435,
+      "se": 151670.6535935045
+    },
+    "raw_tokens_total": 14916286,
+    "output_tokens": {
+      "n": 23,
+      "mean": 16184.173913043478,
+      "se": 2162.1580491386917
+    },
+    "thinking_tokens": {
+      "n": 23,
+      "mean": 7713.521739130435,
+      "se": 1115.0474154110589
+    },
+    "tool_calls": {
+      "n": 23,
+      "mean": 10.73913043478261,
+      "se": 1.6421057907700183
+    },
+    "usd": {
+      "n": 23,
+      "mean": 1.723948452173913,
+      "se": 0.2093140689825835
+    },
+    "usd_total": 39.65081439999999
+  },
+  {
+    "model": "fable52",
+    "effort": "medium",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "unpublished_runs": 0,
+    "judged_under": "code-quality-maintenance-v3.30.2",
+    "combined_33": {
+      "n": 23,
+      "mean": 92.24715243669374,
+      "se": 0.4392391102418472
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 93.39724982988027,
+      "se": 0.3210002698097043
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 91.15588989488772,
+        "se": 0.5925197799349778
+      },
+      "sol": {
+        "n": 23,
+        "mean": 93.33841497849976,
+        "se": 0.41001361829211397
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 81.48635784505349,
+      "se": 1.224121664113025
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 80.84239130434783,
+      "se": 1.0715795837989155
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 83.20360195360195,
+      "se": 2.288650243857344
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 78.07971014492753,
+      "se": 1.2207657214037388
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 83.60507246376811,
+      "se": 1.1954525325401524
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 77.08333333333333,
+        "se": 1.4991122391234353
+      },
+      "sol": {
+        "n": 23,
+        "mean": 84.60144927536231,
+        "se": 1.2476587265865358
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 80.66652173913043,
+      "se": 0.8740970742066476
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 23,
+    "passed_all_runs": 23,
+    "hidden_behaviours_fixed": 231,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 4.298171014492754,
+      "se": 0.45573022195522306
+    },
+    "minutes_median": 3.6205,
+    "priced_runs": 23,
+    "cli_versions": {
+      "2.1.321 (Claude Code)": 23
+    },
+    "solver_fallback_runs": 0,
+    "two_receipt_runs": 0,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 593073.5652173914,
+      "se": 99999.30673221798
+    },
+    "raw_tokens_total": 13640692,
+    "output_tokens": {
+      "n": 23,
+      "mean": 15047.130434782608,
+      "se": 1100.128438970025
+    },
+    "thinking_tokens": {
+      "n": 23,
+      "mean": 7081.086956521739,
+      "se": 633.5495616659588
+    },
+    "tool_calls": {
+      "n": 23,
+      "mean": 10.26086956521739,
+      "se": 0.9201679501802508
+    },
+    "usd": {
+      "n": 23,
+      "mean": 1.717883243478261,
+      "se": 0.18482904926442256
+    },
+    "usd_total": 39.51131459999999
+  },
+  {
+    "model": "fable52",
+    "effort": "high",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "unpublished_runs": 0,
+    "judged_under": "code-quality-maintenance-v3.30.2",
+    "combined_33": {
+      "n": 23,
+      "mean": 92.7612357142857,
+      "se": 0.4336415084942332
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 93.74448409561454,
+      "se": 0.3448350566666685
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 91.5340408982322,
+        "se": 0.53654336702054
+      },
+      "sol": {
+        "n": 23,
+        "mean": 93.98843053033922,
+        "se": 0.3953288758837831
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 82.9508987389422,
+      "se": 1.1275327872498804
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 82.3822463768116,
+      "se": 0.8881263840043255
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 84.46730503795722,
+      "se": 2.6643971464433758
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 79.98188405797102,
+      "se": 0.8760769851366492
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 84.78260869565217,
+      "se": 1.0595045692277094
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 78.35144927536231,
+        "se": 0.9952532891790594
+      },
+      "sol": {
+        "n": 23,
+        "mean": 86.41304347826087,
+        "se": 1.0549187113788405
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 81.02869565217391,
+      "se": 1.0080988847341827
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 23,
+    "passed_all_runs": 23,
+    "hidden_behaviours_fixed": 231,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 7.8015108695652176,
+      "se": 0.7607266948369847
+    },
+    "minutes_median": 6.229433333333334,
+    "priced_runs": 23,
+    "cli_versions": {
+      "2.1.321 (Claude Code)": 23
+    },
+    "solver_fallback_runs": 0,
+    "two_receipt_runs": 0,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 1188268.2608695652,
+      "se": 197518.33191204575
+    },
+    "raw_tokens_total": 27330170,
+    "output_tokens": {
+      "n": 23,
+      "mean": 30809.130434782608,
+      "se": 2108.2419265743206
+    },
+    "thinking_tokens": {
+      "n": 23,
+      "mean": 18275.478260869564,
+      "se": 1344.2933313638323
+    },
+    "tool_calls": {
+      "n": 23,
+      "mean": 16.434782608695652,
+      "se": 1.3229893192911968
+    },
+    "usd": {
+      "n": 23,
+      "mean": 2.8564122086956525,
+      "se": 0.2750240187769356
+    },
+    "usd_total": 65.69748080000001
+  },
+  {
+    "model": "fable52",
+    "effort": "extra-high",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "unpublished_runs": 0,
+    "judged_under": "code-quality-maintenance-v3.30.2",
+    "combined_33": {
+      "n": 23,
+      "mean": 93.24598745819398,
+      "se": 0.44810899953695665
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 94.10417224080267,
+      "se": 0.32926412083862056
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 92.12501875298614,
+        "se": 0.5863560469684224
+      },
+      "sol": {
+        "n": 23,
+        "mean": 94.36695616340181,
+        "se": 0.38028391656152793
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 84.24749163879598,
+      "se": 1.2394751796339105
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 84.05797101449275,
+      "se": 1.2973353529322944
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 84.75287997027128,
+      "se": 2.271330317222148
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 82.78985507246377,
+      "se": 1.4301062651620426
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 85.32608695652173,
+      "se": 1.3323645303149463
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 80.43478260869566,
+        "se": 1.581199211159217
+      },
+      "sol": {
+        "n": 23,
+        "mean": 87.68115942028986,
+        "se": 1.2210711801152392
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 81.69782608695652,
+      "se": 0.8682047163286046
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 23,
+    "passed_all_runs": 23,
+    "hidden_behaviours_fixed": 231,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 14.200776811594203,
+      "se": 0.752536884888609
+    },
+    "minutes_median": 13.440066666666667,
+    "priced_runs": 23,
+    "cli_versions": {
+      "2.1.321 (Claude Code)": 23
+    },
+    "solver_fallback_runs": 0,
+    "two_receipt_runs": 1,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 2510352.347826087,
+      "se": 334833.8805782199
+    },
+    "raw_tokens_total": 57738104,
+    "output_tokens": {
+      "n": 23,
+      "mean": 61658.913043478264,
+      "se": 3245.1431796722463
+    },
+    "thinking_tokens": {
+      "n": 23,
+      "mean": 40767.782608695656,
+      "se": 2258.4977263803708
+    },
+    "tool_calls": {
+      "n": 23,
+      "mean": 27,
+      "se": 1.7366088438908291
+    },
+    "usd": {
+      "n": 23,
+      "mean": 4.989511504347826,
+      "se": 0.3580790396223007
+    },
+    "usd_total": 114.75876459999999
+  },
+  {
+    "model": "fable52",
+    "effort": "max",
+    "n": 23,
+    "runs": 23,
+    "timeouts": 0,
+    "unpublished_runs": 0,
+    "judged_under": "code-quality-maintenance-v3.30.3",
+    "combined_33": {
+      "n": 23,
+      "mean": 93.84597998088867,
+      "se": 0.41795212768921164
+    },
+    "combined_20_profile": {
+      "n": 23,
+      "mean": 94.48369010699446,
+      "se": 0.31577787981907834
+    },
+    "combined_single_judge": {
+      "muse": {
+        "n": 23,
+        "mean": 92.78128815097945,
+        "se": 0.4569553026924856
+      },
+      "sol": {
+        "n": 23,
+        "mean": 94.9106718107979,
+        "se": 0.4261751498676217
+      }
+    },
+    "code_quality": {
+      "n": 23,
+      "mean": 86.02410270888531,
+      "se": 1.1506885249962142
+    },
+    "reviewed_score": {
+      "n": 23,
+      "mean": 85.91485507246377,
+      "se": 1.187627782057953
+    },
+    "intent_recovery": {
+      "n": 23,
+      "mean": 86.31542973934279,
+      "se": 2.0563889754017683
+    },
+    "intent_recovery_redistributed_runs": 0,
+    "readability": {
+      "n": 23,
+      "mean": 84.23913043478261,
+      "se": 1.372622953790103
+    },
+    "maintainability": {
+      "n": 23,
+      "mean": 87.59057971014492,
+      "se": 1.293160373983178
+    },
+    "by_panel": {
+      "muse": {
+        "n": 23,
+        "mean": 82.2463768115942,
+        "se": 1.2689979052342655
+      },
+      "sol": {
+        "n": 23,
+        "mean": 89.58333333333333,
+        "se": 1.3228134069542532
+      }
+    },
+    "functional": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "automated_quality": {
+      "n": 23,
+      "mean": 81.85913043478261,
+      "se": 0.9783976803763396
+    },
+    "security": {
+      "n": 23,
+      "mean": 100.0,
+      "se": 0.0
+    },
+    "passed": 23,
+    "passed_all_runs": 23,
+    "hidden_behaviours_fixed": 231,
+    "hidden_behaviours": 231,
+    "minutes": {
+      "n": 23,
+      "mean": 37.08653188405797,
+      "se": 2.1561391816650817
+    },
+    "minutes_median": 38.95305,
+    "priced_runs": 23,
+    "cli_versions": {
+      "2.1.321 (Claude Code)": 23
+    },
+    "solver_fallback_runs": 0,
+    "two_receipt_runs": 0,
+    "raw_tokens": {
+      "n": 23,
+      "mean": 7905905.565217392,
+      "se": 557017.021264683
+    },
+    "raw_tokens_total": 181835828,
+    "output_tokens": {
+      "n": 23,
+      "mean": 141517.26086956522,
+      "se": 5125.203639342809
+    },
+    "thinking_tokens": {
+      "n": 23,
+      "mean": 94675.52173913043,
+      "se": 3583.3733587142365
+    },
+    "tool_calls": {
+      "n": 23,
+      "mean": 58.869565217391305,
+      "se": 2.51580329058952
+    },
+    "usd": {
+      "n": 23,
+      "mean": 10.8796342,
+      "se": 0.43585059797352127
+    },
+    "usd_total": 250.23158659999999
+  }
+]

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vulcanbench.com/</loc><lastmod>2026-11-12</lastmod><priority>1.0</priority></url>
-  <url><loc>https://vulcanbench.com/benchmarks.html</loc><lastmod>2026-11-12</lastmod><priority>0.9</priority></url>
-  <url><loc>https://vulcanbench.com/leaderboard.html</loc><lastmod>2026-11-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://vulcanbench.com/</loc><lastmod>2026-11-13</lastmod><priority>1.0</priority></url>
+  <url><loc>https://vulcanbench.com/benchmarks.html</loc><lastmod>2026-11-13</lastmod><priority>0.9</priority></url>
+  <url><loc>https://vulcanbench.com/leaderboard.html</loc><lastmod>2026-11-13</lastmod><priority>0.8</priority></url>
   <url><loc>https://vulcanbench.com/methodology.html</loc><lastmod>2026-11-12</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/methodology-notes.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/eval-suite-builder.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
@@ -14,6 +14,7 @@
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-astra-fable51-v34.html</loc><lastmod>2026-11-12</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-beam-v328.html</loc><lastmod>2026-11-12</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-deepseek-flash-v327.html</loc><lastmod>2026-11-12</lastmod><priority>0.9</priority></url>
+  <url><loc>https://vulcanbench.com/benchmarks/swe-v4-fable52-v330.html</loc><lastmod>2026-11-13</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-gpt55-luna-v35.html</loc><lastmod>2026-11-12</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-gpt6-luna-v316.html</loc><lastmod>2026-11-12</lastmod><priority>0.9</priority></url>
   <url><loc>https://vulcanbench.com/benchmarks/swe-v4-gpt6-sol-v317.html</loc><lastmod>2026-11-12</lastmod><priority>0.9</priority></url>
@@ -57,6 +58,7 @@
   <url><loc>https://vulcanbench.com/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html</loc><lastmod>2026-11-12</lastmod><priority>0.8</priority></url>
   <url><loc>https://vulcanbench.com/analysis/02-muse-wonder-full-combined-time-cost.html</loc><lastmod>2026-11-12</lastmod><priority>0.8</priority></url>
   <url><loc>https://vulcanbench.com/reports/01-how-claude-fable-5-2-thinks.html</loc><lastmod>2026-11-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://vulcanbench.com/models/claude-fable-5-2.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/claude-fable-5.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/claude-haiku-4-5.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/claude-haiku-5-5.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
@@ -68,7 +70,7 @@
   <url><loc>https://vulcanbench.com/models/deepseek-v4-1-flash.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/deepseek-v4-flash.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/deepseek-v4-pro.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
-  <url><loc>https://vulcanbench.com/models/fable-5-1.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://vulcanbench.com/models/fable-5-1.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/glm-5-2.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/glm-5-3.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://vulcanbench.com/models/gpt-5-5.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>

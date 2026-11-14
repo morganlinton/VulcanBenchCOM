@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>Claude Fable 5.2 across every effort level | VulcanBench Frontier v4</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-fable52-v330.html</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-fable52-v330.html</guid>
+      <pubDate>Fri, 13 Nov 2026 20:00:00 +0000</pubDate>
+      <description>115 runs of Anthropic's Claude Fable 5.2 (claude-fable-5-2) in Claude Code 2.1.321 on a Claude subscription, November 9 to 11, 2026, at all five effort levels (Low to Max; Extra-high is Claude Code's xhigh). It solved all 115 runs, the first Frontier v4 column to solve every run. Code quality at 33% is judged for a human reader by Muse Spark 1.3 and GPT-6.1 Sol under protocols v3.30.2 and v3.30.3, because Grok 4.6 failed its v3.30 calibration exam; most other columns, Claude Fable 5.1 and Claude Opus 5.5 included, are judged by Muse Spark 1.3 and Grok 4.6, and GPT-6.1 Sol rates Fable 5.2's reviewed layer 6.7 to 8.1 points above Muse. Combined score 91.92 at Low, 92.25 at Medium, 92.76 at High, 93.25 at Extra-high and 93.85 at Max (judged n=23 at every level, no timeouts), ranks 1, 2, 4, 7 and 10 of 86 columns on the board as of November 13, 2026; by Muse alone 91.09 to 92.78. $1.72 to $10.88 and 4.3 to 37.1 minutes a task at Claude Code's list price. Under a matched Muse and Sol panel (comparison only; the board keeps published scores) it leads Claude Fable 5.1 and Claude Opus 5.5 at every level, by 0.08 at Medium, and its code quality is about level with Fable 5.1's: its lead comes from correctness, speed and cost. Disclosed: thinking summaries recorded, Max waited for the Fable usage limit, two runs with two result receipts, thirteen judge answers through frozen recovery rules with no score change. Includes per-run CSV, calibration record, a memorization check, evidence links and redacted traces.</description>
+    </item>
+    <item>
       <title>How Claude Fable 5.2 thinks | VulcanBench Reports</title>
       <link>https://vulcanbench.com/reports/01-how-claude-fable-5-2-thinks.html</link>
       <guid>https://vulcanbench.com/reports/01-how-claude-fable-5-2-thinks.html</guid>

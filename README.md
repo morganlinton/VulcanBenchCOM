@@ -6,6 +6,7 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, the five newest reports (a test keeps them in step with `benchmarks.html`) and the ways to work with VulcanBench
 - `benchmarks.html`: suite-separated results, with the current Frontier v4 comparison first and all earlier reports in a labeled archive
 - `benchmarks/safety-v1-opus55.html`: Claude Opus 5.5 on VulcanBench Safety v1 (harmful instructions hidden in the repository), with the standalone card and per-level and per-kind tables
+- `benchmarks/swe-v4-fable52-v330.html`: Claude Fable 5.2 through Claude Code 2.1.321 at all five effort levels under Code quality protocols v3.30.2 and v3.30.3 (judged by Muse Spark 1.3 and GPT-6.1 Sol after Grok 4.6 failed calibration), with the comparison with Claude Fable 5.1, Claude Opus 5.5 and GPT-6 Astra, the matched-panel and Muse-alone tables, the memorization check, cost and tokens, calibration record, run disclosures, evidence links and the redacted traces repository
 - `benchmarks/swe-v4-gpt61-terra-v329.html`: GPT-6.1 Terra through Codex CLI 0.159.0 at all five effort levels under Code quality protocol v3.29 (judged by Muse Spark 1.3 and Grok 4.6), with the comparison with Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra and with GPT-5.6 Terra, cost and tokens, calibration record, the Max settlecore recovery and Codex notice disclosures, evidence links and the redacted traces repository
 - `benchmarks/swe-v4-beam-v328.html`: Reflection Beam through Mirror CLI 0.1.1 at all five effort levels under Code quality protocol v3.28 (judged by Muse Spark 1.3 and GPT-6.1 Sol), with both combined figures for the runs that left no code, time and tokens (no price exists), the comparison with Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra, calibration record, the judge-panel, exclusion and harness disclosures and evidence links
 - `benchmarks/swe-v4-deepseek-flash-v327.html`: DeepSeek V4.1 Flash through DeepSeek Harness 0.2.1-rc.2 at Low, High and Max under Code quality protocol v3.27 (judged by Muse Spark 1.3 and GPT-6.1 Sol), with list and billed cost, the comparison with Claude Opus 5.5 and GPT-6.1 Sol, calibration record, the judge-panel and harness disclosures and evidence links
@@ -84,6 +85,11 @@ archive. Run `python3 scripts/check_benchmark_index.py` after index edits.
 The Muse Wonder Full record, `assets/data/swe-v4-musewonder-full-v326/`, has no PDF; it is exported
 by `python3 scripts/export_swe_v4_v326_evidence.py --harness-root ../VulcanBench`, which reads the six
 judging rounds, the three run roots and the harness card, and refuses to write if any number differs.
+
+The Claude Fable 5.2 record, `assets/data/swe-v4-fable52-v330/`, has no PDF; it is exported
+by `python3 scripts/export_swe_v4_v330_evidence.py --harness-root ../VulcanBench --results-root <harness at main> --judging-root <v3.30.1 run worktree> --muse-root <v3.30 run worktree>`,
+which reads the published rounds v3.30.2 and v3.30.3, Muse's rounds v3.30 and v3.30.1, the sweep's run summaries and streams and the
+harness card table, and refuses to write if any number differs.
 
 The GPT-6.1 Terra record, `assets/data/swe-v4-gpt61-terra-v329/`, has no PDF; it is exported
 by `python3 scripts/export_swe_v4_v329_evidence.py --harness-root ../VulcanBench --judging <v3.29 round>`, which reads the
