@@ -30,6 +30,8 @@ CARD = {"low": (88.4360, 0.3481, 70.3077, 2.7553, 0.2331), "medium": (88.9414, 0
         "max": (88.7438, 0.4027, 71.0646, 11.2644, 0.5493)}
 # Copied byte for byte from the harness (docs/results/swe-v4-gpt62-sol-2026-11/gpt62sol-vs-frontier.png, 2400x1350), shown at 1600x900.
 CARD_PNG = ("swe-v4-gpt62-sol-v331.png", "38b5ada9bbb5b283f4103d86f6e36884b6ae227357cc0a73b27401599d928ab9", 2400, 1350)
+# The head-to-head card against GPT-6.1 Sol (harness docs/results/swe-v4-gpt62-sol-2026-11/gpt62sol-vs-gpt61sol.png), shown in that section.
+SOL_CARD_PNG = ("swe-v4-gpt62sol-vs-gpt61sol.png", "6b09129fd469e150362b8c607efafb099e6e219d7cedda0cc1efedcba46314a3", 2400, 1350)
 # Comparators on the page and the card: published board rows.
 COMPARATORS = {"fable52": "Fable 5.2", "opus55": "Opus 5.5", "gpt61sol": "GPT-6.1 Sol"}
 PREVIOUS = ("gpt61sol", "swe-v4-gpt61-sol-v318")
@@ -339,6 +341,16 @@ class GPT62SolPageTests(unittest.TestCase):
                        "bench/2026-11-17-gpt62-sol-frontier-v4", "No timeouts", "23.6 minutes", "00:34 to 12:44 UTC"):
             self.assertIn(needle, notes, needle)
         self.assertIn("never compared with Routine v1 Code quality", self.text)
+
+    def test_sol_family_card_pinned(self):
+        name, sha, width, height = SOL_CARD_PNG
+        data = (ROOT / "assets/cards" / name).read_bytes()
+        self.assertEqual(hashlib.sha256(data).hexdigest(), sha)
+        self.assertEqual((int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")), (width, height))
+        section = self.page_html.split('id="sol-family"', 1)[1].split("</section>", 1)[0]
+        self.assertIn(f'src="/assets/cards/{name}" width="1600" height="900" loading="lazy"', section)
+        for needle in ("$0.23 and $0.33 against $0.31 and $0.40", "$0.41, $0.46 and $0.55 against $0.33, $0.43 and $0.46", "v3.18", "v3.31"):
+            self.assertIn(needle, section, needle)
 
     def test_card_pinned(self):
         name, sha, width, height = CARD_PNG
