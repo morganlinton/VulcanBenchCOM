@@ -70,6 +70,13 @@ DeepSeek V4.1 Flash report under Code quality protocol v3.27, exported by
 the two pauses, and list-price and billed cost.
 `swe-v4-deepseek-flash-v327-scores.csv` holds its three effort aggregates.
 
+`swe-v4-gpt62-sol-v331/` is the public record of the November 19, 2026
+GPT-6.2 Sol report under Code quality protocol v3.31, exported by
+`scripts/export_swe_v4_v331_evidence.py`; its README explains the judge panel
+(Muse Spark 1.3 and Grok 4.6), the Codex settings, the one-judge row, the
+Cursor usage-limit pause and list-price cost. `swe-v4-gpt62-sol-v331-scores.csv`
+holds its five effort aggregates.
+
 `swe-v4-fable52-v330/` is the public record of the November 13, 2026
 Claude Fable 5.2 report under Code quality protocols v3.30.2 and v3.30.3,
 exported by `scripts/export_swe_v4_v330_evidence.py`; its README explains the

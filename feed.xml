@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>GPT-6.2 Sol across every effort level | VulcanBench Frontier v4</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-gpt62-sol-v331.html</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-gpt62-sol-v331.html</guid>
+      <pubDate>Thu, 19 Nov 2026 20:00:00 +0000</pubDate>
+      <description>115 runs of OpenAI's GPT-6.2 Sol (gpt-6.2-sol) in Codex CLI 0.166.0 on a ChatGPT subscription, on its release day and the next (November 18, 2026, 00:34 to 12:44 UTC), at all five effort levels (Low to Max; Extra-high is Codex's xhigh), Code quality at 33% judged for a human reader by Muse Spark 1.3 and Grok 4.6 under protocol v3.31. It passed every hidden test in all 115 runs. Combined score 88.44 at Low, 88.94 at Medium, 88.86 at High, 89.01 at Extra-high and 88.74 at Max (judged n=23 at every level, no timeouts), nearly flat; best level Extra-high, 27th of 91 columns on the board as of November 19, 2026, and the board's effort suggestions pick Low. $0.23 to $0.55 and 2.8 to 11.3 minutes per task at list price, against $1.70 to $10.88 for Claude Fable 5.2 and Claude Opus 5.5; 2.2 to 2.5 points above GPT-6.1 Sol at Low and Medium and level with it above. Low granarycore is scored from Muse Spark 1.3 alone because Grok 4.6's review of it had no valid response.</description>
+    </item>
+    <item>
       <title>Claude Fable 5.2 across every effort level | VulcanBench Frontier v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-fable52-v330.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-fable52-v330.html</guid>
