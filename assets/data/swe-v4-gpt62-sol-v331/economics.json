@@ -1,0 +1,224 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a ChatGPT subscription through Codex, so these are estimates, not bills. Judging and local infrastructure are excluded. Every run in the sweep is priced.",
+  "pricing_verified": "2026-11-17",
+  "sources": {
+    "openai": "https://developers.openai.com/api/docs/pricing",
+    "model_page": "https://developers.openai.com/api/docs/models/gpt-6.2-sol"
+  },
+  "rates_per_million": {
+    "gpt62sol": {
+      "input": 2.0,
+      "cached_input": 0.1,
+      "output": 10.0
+    }
+  },
+  "groups": [
+    {
+      "model": "gpt62sol",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.2331083043478261,
+        "se": 0.02835482272518067
+      },
+      "usd_total": 5.361491,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 768086.0869565217,
+        "se": 134110.81897165743
+      },
+      "raw_tokens_total": 17665980,
+      "output_tokens": {
+        "n": 23,
+        "mean": 4877.434782608696,
+        "se": 430.1354360939621
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 669.4782608695652,
+        "se": 132.30532524879936
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9079887993267247,
+        "se": 0.006755217705868147
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 2.7553108695652173,
+        "se": 0.2358967136572333
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt62sol",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.32535521739130435,
+        "se": 0.02790423408384743
+      },
+      "usd_total": 7.48317,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1045419.5217391305,
+        "se": 137931.08559794902
+      },
+      "raw_tokens_total": 24044649,
+      "output_tokens": {
+        "n": 23,
+        "mean": 7783.739130434783,
+        "se": 449.07442017036453
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 2031.4347826086957,
+        "se": 225.01528122097045
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.917785405863833,
+        "se": 0.0045550848139539355
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 4.351560869565217,
+        "se": 0.2414952747823738
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt62sol",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.40650773913043475,
+        "se": 0.029822959090637
+      },
+      "usd_total": 9.349677999999999,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1297056.2608695652,
+        "se": 178359.7439163169
+      },
+      "raw_tokens_total": 29832294,
+      "output_tokens": {
+        "n": 23,
+        "mean": 11072.260869565218,
+        "se": 486.3236500098046
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 3846.2608695652175,
+        "se": 245.16089108855275
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9208414973427321,
+        "se": 0.005751895194102788
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 5.1436,
+        "se": 0.2328014818361413
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt62sol",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.45864565217391307,
+        "se": 0.031136471613907556
+      },
+      "usd_total": 10.54885,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1311142,
+        "se": 158235.1308311095
+      },
+      "raw_tokens_total": 30156266,
+      "output_tokens": {
+        "n": 23,
+        "mean": 13871.130434782608,
+        "se": 581.3817543455933
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 5564.913043478261,
+        "se": 267.04770719324273
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9136085457208201,
+        "se": 0.005513841853606013
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 8.217201449275363,
+        "se": 0.8193312094242593
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt62sol",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.5493027826086957,
+        "se": 0.02787168763013117
+      },
+      "usd_total": 12.633964,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1305702.8260869565,
+        "se": 125430.52077507977
+      },
+      "raw_tokens_total": 30031165,
+      "output_tokens": {
+        "n": 23,
+        "mean": 22141.82608695652,
+        "se": 730.9393427199451
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 12230.652173913044,
+        "se": 473.21393188579395
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9101513327101112,
+        "se": 0.004933910249815016
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 11.264447101449276,
+        "se": 0.5462893147110115
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "gpt62sol": {
+      "runs": 115,
+      "usd": 45.377153,
+      "raw_tokens": 131730354,
+      "solver_hours": 12.163979444444445
+    }
+  },
+  "limitations": [
+    "Codex receipts report input, cached input, output and reasoning tokens per run; cached input is billed at the cache-read rate and the rest of the input at the standard rate. Reasoning tokens are part of output and are not billed twice.",
+    "Standard tier, short-context rates; Codex keeps each request within its context window, so no long-context premium is modelled.",
+    "No Batch, Flex, Fast or priority pricing is applied.",
+    "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
+    "The sweep stamped each run at run time at the published GPT-6.2 Sol list rates; the export recomputes every run from its receipt and matched every stamp."
+  ],
+  "comparison_sha256": "811f455e0f811dfa20b9f2cc1af0290d8dd48cbd2a190dbdce6e717ef1be8450",
+  "note": "Per-run estimates are in runs.json (estimated_usd, raw_tokens, token_usage). Judging is excluded."
+}
