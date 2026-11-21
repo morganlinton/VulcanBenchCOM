@@ -250,8 +250,8 @@ class WonderPageTests(unittest.TestCase):
         self.assertIn("intent/post?text=Muse%20Wonder%20Full%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4", self.page_html)
         self.assertIn("Morgan Linton", self.text)
         self.assertNotIn(".pdf", self.page_html)
-        for target in (TRACES, "https://github.com/morganlinton/VulcanBench", "/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html",
-                       "/analysis/02-muse-wonder-full-combined-time-cost.html"):
+        for target in (TRACES, "https://github.com/morganlinton/VulcanBench", "/benchmarks/swe-v4-musewonder-full-vs-gpt61-sol-traces.html",
+                       "/benchmarks/swe-v4-musewonder-full-vs-frontier.html"):
             self.assertIn(f'href="{target}"', self.page_html)
 
     def test_tables_match_the_bundle(self):
