@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>How Gemini 4 Neon thinks | VulcanBench Reports</title>
+      <link>https://vulcanbench.com/reports/02-how-gemini-4-neon-thinks.html</link>
+      <guid>https://vulcanbench.com/reports/02-how-gemini-4-neon-thinks.html</guid>
+      <pubDate>Sat, 21 Nov 2026 22:00:00 +0000</pubDate>
+      <description>Gemini 4 Neon solved 86 of its 92 VulcanBench Frontier v4 runs (all 23 tasks at Medium, High and Extra-high, 17 at Low); this report shows how, from its Antigravity traces, without quoting its thinking. It gathers before it thinks: it reads the repository and, at Low and Medium, runs the program before reading the machine code, and about 75% of every run passes before its first edit. From Low to Extra-high its thinking grows 4.4 times (9.1k to 40.3k tokens a task, 45% to 71% of output) and the share spent before reading code or binary rises from 32% to 71%: from High up it reads both the macOS and the Linux binary in 18 of 23 runs, and it runs scripted experiments before editing at every level. The checking after the rewrite does not grow; none of its 92 runs used mutation testing, a Linux build in a container, a throughput check or a second Python version, where Claude Fable 5.2 reaches for them at high effort. All six misses came at Low, in runs whose thinking was split into small pieces; Neon solved the same tasks at Medium. Methods, caveats (different harnesses, AI Pro quota reruns) and data files included.</description>
+    </item>
+    <item>
       <title>Gemini 4 Neon across every effort level | VulcanBench Frontier v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-gemini4-neon-v332.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-gemini4-neon-v332.html</guid>
