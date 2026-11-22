@@ -1,5 +1,6 @@
 """Regression checks for the build-off pages and the playable builds they host."""
 
+import json
 import re
 import unittest
 from urllib.parse import unquote, urlsplit
@@ -75,6 +76,13 @@ class BuildOffTests(unittest.TestCase):
         self.assertIn('access: "private"', function)
         self.assertNotIn("address:", function)  # a stored record never carries the address
         self.assertIn(".build-off-votes-local.json", (ROOT / ".gitignore").read_text())
+
+    def test_renamed_playable_build_redirects(self):
+        # Fall Line became Tahoe Ski Adventures; links to the old address must keep working.
+        self.assertFalse((BUILD_OFFS / "play" / "fall-line").exists())
+        redirects = {r["source"]: r["destination"] for r in json.loads((ROOT / "vercel.json").read_text())["redirects"]}
+        self.assertEqual(redirects["/build-offs/play/fall-line/:path*"], "/build-offs/play/tahoe-ski-adventures/:path*")
+        self.assertTrue((BUILD_OFFS / "play" / "tahoe-ski-adventures" / "index.html").is_file())
 
 
 if __name__ == "__main__":

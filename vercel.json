@@ -19,6 +19,11 @@
       "source": "/analysis/02-muse-wonder-full-combined-time-cost.html",
       "destination": "/benchmarks/swe-v4-musewonder-full-vs-frontier.html",
       "permanent": true
+    },
+    {
+      "source": "/build-offs/play/fall-line/:path*",
+      "destination": "/build-offs/play/tahoe-ski-adventures/:path*",
+      "permanent": true
     }
   ],
   "headers": [

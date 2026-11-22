@@ -27,8 +27,8 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 - `benchmarks/swe-v4-astra-fable51-v34.html`: the same runs rescored under Code quality protocol v3.4 (33% weight, neutral Muse Spark 1.3 and Grok 4.6 panel), with PDF, calibration record and evidence links
 - `benchmarks/NN-*.html`: one journal-style page per report (abstract, findings, table, figure, downloads)
 - `build-offs.html`: the build-offs index. A build-off puts complete things that models built from an open-ended brief side by side for readers to try and vote on; VulcanBench does not score it and it is not a benchmark
-- `build-offs/01-ski-sim.html`: build-off 01, Google's Chamonix Ski Sim (linked out to Google AI Studio) beside Fall Line (Claude Fable 5.2 in Claude Code), with the reader vote, how each was made and why it is not a benchmark
-- `build-offs/play/fall-line/`: the playable Fall Line build, generated from the `VulcanBench/ski-simulator-llm-test` repository (see "Build-offs" below); never edit it by hand
+- `build-offs/01-ski-sim.html`: build-off 01, Google's Chamonix Ski Sim (linked out to Google AI Studio) beside Tahoe Ski Adventures (Claude Fable 5.2 in Claude Code), with the reader vote, how each was made and why it is not a benchmark
+- `build-offs/play/tahoe-ski-adventures/`: the playable Tahoe Ski Adventures build (first published as Fall Line; `vercel.json` redirects the old `build-offs/play/fall-line/` address), generated from the `VulcanBench/ski-simulator-llm-test` repository (see "Build-offs" below); never edit it by hand
 - `leaderboard.html`: directs readers to suite-specific results and the frozen earlier-suite archive
 - `eval-suite-builder.html`: the eval suite builder waitlist (build an eval suite from your own repository); signups go through `api/waitlist.js` to the project's Vercel Blob store, see "Waitlist" below
 - `build-offs.css`, `build-off-vote.js`: page-scoped styles for build-off pages and the script behind the reader vote box
@@ -85,17 +85,18 @@ that VulcanBench hosts live under `build-offs/play/<entry>/`; entries hosted els
 The vote box is a `<div class="bo-vote" data-build-off="<slug>">` with one `button[data-choice]` and one
 `.bo-vote-row[data-choice]` per entry; `build-off-vote.js` wires it up and shows the tally only after the reader has
 voted. It talks to `api/build-off-vote.js`, the site's second serverless function, which must list the same slug and
-choices in `BUILD_OFFS` (a test checks this). A vote is one private blob at
+choices in `BUILD_OFFS` (a test checks this). A choice is a stable id, not a display name: Tahoe Ski Adventures keeps
+the id `fall-line` from its first name so the votes already cast still count. A vote is one private blob at
 `build-off-votes/<slug>/<choice>/<voter>.json` in the same Vercel Blob store as the waitlist, where `<voter>` is an
 HMAC of the caller's network address keyed with `BUILD_OFF_VOTE_KEY` (optional; the Blob token is the fallback), so
 the address is never stored. The tally is the number of blobs under each choice. Preview deployments write under
 `build-off-votes-preview/` and never change the published tally. One vote per address is a courtesy limit, not
 security. `node scripts/waitlist_dev.js` serves the function locally and keeps votes in `.build-off-votes-local.json`.
 
-Fall Line is built from a checkout of `VulcanBench/ski-simulator-llm-test` beside this one:
+Tahoe Ski Adventures is built from a checkout of `VulcanBench/ski-simulator-llm-test` beside this one:
 
     cd ../ski-simulator-llm-test && npm install
-    npx vite build --base=./ --outDir ../VulcanBenchCOM/build-offs/play/fall-line --emptyOutDir
+    npx vite build --base=./ --outDir ../VulcanBenchCOM/build-offs/play/tahoe-ski-adventures --emptyOutDir
 
 The build must contain no forbidden dash characters (the tests scan it). `build-offs/play/THIRD_PARTY_LICENSES.txt`
 carries the license notices for what the playable builds bundle; update it when a build's dependencies change.

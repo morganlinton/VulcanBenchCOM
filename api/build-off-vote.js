@@ -28,6 +28,8 @@ const fs = require("fs");
 
 // Every build-off that takes votes, with its entries in page order. A page's
 // data-build-off and data-choice attributes must match (scripts/test_build_offs.py).
+// A choice is a stable id, not a display name: "fall-line" is Tahoe Ski
+// Adventures, which keeps the id from its first name so earlier votes count.
 const BUILD_OFFS = {
   "01-ski-sim": ["chamonix-ski-sim", "fall-line"],
 };
