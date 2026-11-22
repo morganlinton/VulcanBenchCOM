@@ -1,6 +1,6 @@
 Third-party software in the playable builds under build-offs/play/
 
-fall-line/ bundles three.js (https://threejs.org), used under the MIT License:
+tahoe-ski-adventures/ bundles three.js (https://threejs.org), used under the MIT License:
 
 The MIT License
 
