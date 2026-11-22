@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0b1220" />
+    <title>Fall Line: alpine ski sim</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1220'/%3E%3Cpath d='M4 25 13 9l5 8 3-4 7 12z' fill='%23fff'/%3E%3Cpath d='M9 27 23 7' stroke='%23ff5a2c' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/index-stViIB9j.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BRU_RJM1.css">
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+
+    <div id="loading">
+      <div class="loading-mark">FALL LINE</div>
+      <div class="loading-sub">Shaping the mountain…</div>
+    </div>
+
+    <!-- In-run HUD -->
+    <div id="hud" class="hidden">
+      <div class="chip tl">
+        <div class="label">Time</div>
+        <div id="time" class="big mono">0:00.00</div>
+        <div id="delta" class="mono"></div>
+        <div id="penalty" class="warn mono"></div>
+      </div>
+
+      <div class="chip tr">
+        <div class="row" id="row-gates"><span class="label">Gates</span><span id="gates" class="mono">0/0</span></div>
+        <div class="row"><span class="label" id="best-label">Best</span><span id="best" class="mono">--</span></div>
+        <div class="row" id="row-target"><span class="label" id="target-label">Gold</span><span id="target" class="mono">--</span></div>
+        <div class="row"><span class="label">Style</span><span id="style" class="mono">0</span></div>
+      </div>
+
+      <div class="chip bc">
+        <div class="speed"><span id="speed" class="mono">0</span><span class="unit" id="speed-unit">km/h</span></div>
+        <div class="telemetry">
+          <div><span class="label" id="alt-label">Alt m</span><span id="alt" class="mono">3275</span></div>
+          <div><span class="label">Drop</span><span id="drop" class="mono">0</span></div>
+          <div><span class="label">Slope</span><span id="slope" class="mono">0°</span></div>
+          <div><span class="label">Edge</span><span id="edge" class="mono">0°</span></div>
+          <div><span class="label">Snow</span><span id="snow">Groomed</span></div>
+          <div><span class="label">Skis</span><span id="ski-state">Glide</span></div>
+        </div>
+      </div>
+
+      <canvas id="map" aria-hidden="true"></canvas>
+
+      <div id="section-chip"><span class="dot"></span><span id="section">Sommet du Corbeau</span></div>
+      <div id="alert" class="hidden">
+        <div class="alert-title">⚠ Avalanche</div>
+        <div id="alert-detail" class="mono"></div>
+      </div>
+
+      <button id="pause-btn" class="round" aria-label="Pause">II</button>
+
+      <!-- On-screen controls, shown on touch devices -->
+      <div id="touch" class="hidden">
+        <div class="pad left">
+          <button data-touch="left" aria-label="Steer left">◀</button>
+          <button data-touch="right" aria-label="Steer right">▶</button>
+        </div>
+        <div class="pad right">
+          <button data-touch="brake">Brake</button>
+          <button data-touch="tuck">Tuck</button>
+          <button data-touch="jump" class="big">Jump</button>
+        </div>
+      </div>
+
+      <div id="toasts"></div>
+      <div id="countdown"></div>
+      <div id="hint">
+        <b>← →</b> carve <b>↑</b> tuck <b>↓</b> brake <b>Space</b> jump · in the air <b>← →</b> spin, <b>↑ ↓</b> flip · <b>C</b> camera
+        <b>R</b> reset <b>Esc</b> pause
+      </div>
+    </div>
+
+    <!-- Title -->
+    <div id="title" class="screen hidden">
+      <div class="panel">
+        <div class="eyebrow">Pic du Corbeau · 3 275 m</div>
+        <h1>FALL<br />LINE</h1>
+        <p class="lede">
+          <span id="len">Four kilometres</span> and <span id="vert">1 300 vertical metres</span> from the summit gate to the village. Carve
+          the gates, send the kickers, or leave the piste and find your own way down through the trees.
+        </p>
+
+        <div class="group-label">Conditions</div>
+        <div id="conditions" class="cards"></div>
+
+        <div class="opts">
+          <div>
+            <div class="group-label">Mode</div>
+            <div id="modes" class="seg">
+              <button data-mode="race" class="on">Race</button>
+              <button data-mode="free">Free ride</button>
+            </div>
+          </div>
+          <div>
+            <div class="group-label">Camera</div>
+            <div id="cameras" class="seg">
+              <button data-cam="chase" class="on">Chase</button>
+              <button data-cam="helmet">Helmet</button>
+              <button data-cam="drone">Drone</button>
+            </div>
+          </div>
+          <div>
+            <div class="group-label">Units</div>
+            <div id="units" class="seg">
+              <button data-units="metric" class="on">km/h</button>
+              <button data-units="imperial">mph</button>
+            </div>
+          </div>
+        </div>
+        <p id="mode-blurb" class="blurb"></p>
+
+        <button id="start" class="primary">Drop in <span class="kbd">Enter</span></button>
+
+        <div class="controls">
+          <div><b>← →</b> / <b>A D</b> carve</div>
+          <div><b>↑</b> / <b>W</b> tuck · push off</div>
+          <div><b>↓</b> / <b>S</b> snowplough brake</div>
+          <div><b>Space</b> jump · in the air <b>← →</b> spin, <b>↑ ↓</b> flip</div>
+          <div><b>C</b> camera · <b>V</b> scout · <b>G</b> ghost · <b>R</b> reset</div>
+          <div><b>T</b> weather · <b>M</b> mute · gamepad and touch work too</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div id="finish" class="screen hidden">
+      <div class="panel results">
+        <div class="eyebrow" id="f-eyebrow">Run complete</div>
+        <div id="f-time" class="final mono">0:00.00</div>
+        <div id="f-badge" class="badge hidden">New personal best</div>
+        <div id="f-medal" class="medal-line"></div>
+        <div class="stats">
+          <div><span class="label" id="f-raw-label">Skied time</span><span id="f-raw" class="mono"></span></div>
+          <div><span class="label">Penalties</span><span id="f-pen" class="mono"></span></div>
+          <div><span class="label">Gates</span><span id="f-gates" class="mono"></span></div>
+          <div><span class="label">Top speed</span><span id="f-top" class="mono"></span></div>
+          <div><span class="label">Longest air</span><span id="f-air" class="mono"></span></div>
+          <div><span class="label">Style</span><span id="f-style" class="mono"></span></div>
+          <div><span class="label">Falls</span><span id="f-falls" class="mono"></span></div>
+          <div><span class="label">Previous best</span><span id="f-best" class="mono"></span></div>
+        </div>
+        <div class="actions">
+          <button id="again" class="primary">Run it again <span class="kbd">Enter</span></button>
+          <button id="watch" class="ghost">Watch replay <span class="kbd">W</span></button>
+          <button id="to-title" class="ghost">Back to the lodge</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="replay-bar" class="bar hidden">
+      <span class="tag">Replay</span>
+      <span id="replay-info" class="mono"></span>
+      <span class="keys"><b>Space</b> pause <b>← →</b> skip <b>C</b> camera</span>
+      <button id="replay-exit" class="ghost small">Done <span class="kbd">Esc</span></button>
+    </div>
+    <div id="scout-bar" class="bar hidden">
+      <span class="tag">Line scout</span>
+      <span>Helicopter preview of the run ahead</span>
+      <span class="keys"><b>V</b> drop back in</span>
+    </div>
+
+    <div id="pause" class="screen hidden">
+      <div class="panel small">
+        <div class="eyebrow">Paused</div>
+        <div class="actions">
+          <button id="resume" class="primary">Resume <span class="kbd">Esc</span></button>
+          <button id="restart" class="ghost">Restart run</button>
+          <button id="quit" class="ghost">Back to title</button>
+        </div>
+        <div class="controls one">
+          <div><b>← →</b> carve · <b>↑</b> tuck · <b>↓</b> brake · <b>Space</b> jump</div>
+          <div>In the air: <b>← →</b> spin · <b>↑ ↓</b> flip</div>
+          <div>Land tails-first to ride switch</div>
+          <div><b>C</b> camera · <b>V</b> scout · <b>G</b> ghost</div>
+          <div><b>R</b> reset to the piste · <b>T</b> weather · <b>M</b> mute</div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
