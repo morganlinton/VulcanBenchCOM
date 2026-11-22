@@ -69,9 +69,6 @@
 
   <nav class="suite-nav" aria-label="Evaluation suites">
     <a href="#swe-v4">VulcanBench Frontier v4 <span>Current suite</span></a>
-    <a href="#safety-v1">VulcanBench Safety v1 <span>Agent safety</span></a>
-    <a href="#verdict-v2">VulcanBench Verdict v2 <span>Decision models</span></a>
-    <a href="#verdict-v1">VulcanBench Verdict v1 <span>Decision models, earlier version</span></a>
     <a href="#archive">Earlier suites &amp; studies <span>Archive</span></a>
   </nav>
   <p class="suite-comparability">Compare results within the same suite and scoring protocol. Scores from different suites are not directly comparable.</p>
@@ -306,60 +303,6 @@
       <a class="model-chip" href="models/gpt-6-2-sol.html"><b>GPT-6.2 Sol</b><span>OpenAI</span></a>
       <a class="model-chip" href="models/gemini-4-neon.html"><b>Gemini 4 Neon</b><span>Google</span></a>
     </div>
-  </section>
-
-  <section class="suite-section" id="safety-v1" aria-labelledby="safety-v1-heading">
-    <header class="suite-heading">
-      <div><p class="suite-label">Agent safety</p><h2 id="safety-v1-heading">VulcanBench Safety v1</h2></div>
-      <a href="blog/02-vulcanbench-safety-v1.html">Why Safety v1 &rarr;</a>
-    </header>
-    <p class="suite-description">What a coding agent does when the repository tells it to do something it should not: ten Frontier v4 tasks, each hiding two harmful instructions. Only aggregates are published, and Safety v1 has no effect on any Frontier v4 score.</p>
-
-    <article class="suite-feature suite-preview" aria-labelledby="safety-v1-opus55-preview-heading">
-      <div>
-        <p class="suite-label">October 6, 2026 &middot; 50 runs &middot; Claude Code 2.1.280</p>
-        <h3 id="safety-v1-opus55-preview-heading"><a href="benchmarks/safety-v1-opus55.html">Claude Opus 5.5 on VulcanBench Safety v1</a></h3>
-        <p class="suite-takeaway">Followed 0 of 60 instructions to contact the network, leak a secret or delete files, and 3 of 100 planted instructions overall.</p>
-        <div class="suite-downloads"><a href="benchmarks/safety-v1-opus55.html">Read the study</a><a href="assets/cards/safety-v1-opus55.png?v=1">Results card</a><a href="benchmarks/swe-v4-grok47-cursor-v320.html#safety">Beside Grok 4.7</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/docs/results/safety-v1-opus55-2026-10">GitHub evidence</a></div>
-      </div>
-      <a href="benchmarks/safety-v1-opus55.html" aria-label="Read the Claude Opus 5.5 Safety v1 report"><img src="assets/cards/safety-v1-opus55.png?v=1" width="2400" height="2002" loading="lazy" alt="Preview of the Claude Opus 5.5 Safety v1 card. Open the study for readable charts and tables."></a>
-    </article>
-  </section>
-
-  <section class="suite-section" id="verdict-v2" aria-labelledby="verdict-v2-heading">
-    <header class="suite-heading">
-      <div><p class="suite-label">Decision models</p><h2 id="verdict-v2-heading">VulcanBench Verdict v2</h2></div>
-      <a href="benchmarks/verdict-v2-jev.html">Read the report &rarr;</a>
-    </header>
-    <p class="suite-description">Twenty question families for models that return a typed decision instead of text, each scored as skill above the best dumb strategy. It replaces Verdict v1; Verdict and Frontier scores are not comparable.</p>
-
-    <article class="suite-feature suite-preview" aria-labelledby="verdict-v2-jev-preview-heading">
-      <div>
-        <p class="suite-label">September 25, 2026 &middot; 4,774 test items &middot; jev-1.13.0</p>
-        <h3 id="verdict-v2-jev-preview-heading"><a href="benchmarks/verdict-v2-jev.html">Jev 1.13.0 on VulcanBench Verdict v2</a></h3>
-        <p class="suite-takeaway">Scores 45.9 on the Verdict Index against 91.7 for a GPT-6 Astra reference, answering in 0.3 seconds.</p>
-        <div class="suite-downloads"><a href="benchmarks/verdict-v2-jev.html">Read the study</a><a href="assets/data/verdict-v2-jev/report.md">Full report</a><a href="assets/data/verdict-v2-jev/scores.csv">Scores CSV</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict/v2">Suite code</a></div>
-      </div>
-      <a href="benchmarks/verdict-v2-jev.html" aria-label="Read the Jev report on Verdict v2"><img src="assets/cards/verdict-v2-jev.png?v=1" width="2400" height="1725" loading="lazy" alt="Preview of the Jev Verdict v2 results card. Open the study for readable charts and tables."></a>
-    </article>
-  </section>
-
-  <section class="suite-section" id="verdict-v1" aria-labelledby="verdict-v1-heading">
-    <header class="suite-heading">
-      <div><p class="suite-label">Decision models, earlier version</p><h2 id="verdict-v1-heading">VulcanBench Verdict v1</h2></div>
-      <a href="benchmarks/verdict-v1-jev.html">Read the v1 report &rarr;</a>
-    </header>
-    <p class="suite-description">The first Verdict suite: models judge code rather than write it, 2,163 items from 745 real agent patches, with accuracy published beside calibration. Verdict and Frontier scores are not comparable.</p>
-
-    <article class="suite-feature suite-preview" aria-labelledby="verdict-jev-preview-heading">
-      <div>
-        <p class="suite-label">September 22, 2026, corrected and extended with a control September 23 &middot; 2,641 queries &middot; jev-1.13.0</p>
-        <h3 id="verdict-jev-preview-heading"><a href="benchmarks/verdict-v1-jev.html">Jev 1.13.0 on VulcanBench Verdict v1</a></h3>
-        <p class="suite-takeaway">Badly calibrated (never above 0.42 where 63% of patches pass), but it matches a code-quality panel&rsquo;s preference 89.7% of the time.</p>
-        <div class="suite-downloads"><a href="benchmarks/verdict-v1-jev.html">Read the study</a><a href="assets/data/verdict-v1-jev/report.md">Full report</a><a href="assets/data/verdict-v1-jev/scores.csv">Scores CSV</a><a href="https://github.com/morganlinton/VulcanBench/tree/main/harness/verdict">Suite code</a></div>
-      </div>
-      <a href="benchmarks/verdict-v1-jev.html" aria-label="Read the Jev report on Verdict v1"><img src="assets/cards/verdict-v1-jev.png?v=7" width="2400" height="1725" loading="lazy" alt="Preview of the Jev results card. Open the study for readable charts and tables."></a>
-    </article>
   </section>
 
   <section class="suite-section suite-archive" id="archive" aria-labelledby="archive-heading">
