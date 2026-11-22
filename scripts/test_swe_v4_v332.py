@@ -18,7 +18,6 @@ MODEL_PAGE = ROOT / "models/gemini-4-neon.html"
 URL = "https://vulcanbench.com/benchmarks/swe-v4-gemini4-neon-v332.html"
 MODEL_URL = "https://vulcanbench.com/models/gemini-4-neon.html"
 EFFORTS = ("low", "medium", "high", "extra-high")  # Antigravity offers no Max level for Neon
-ALL_EFFORTS = ("low", "medium", "high", "extra-high", "max")
 PANELS = ("muse", "grok")
 PLACEHOLDER = "{{" + "TBD:"  # spelled in two parts so this line does not count itself
 ENTITIES = ("&" + "mdash;", "&" + "ndash;")  # spelled in parts so this file carries no dash entity
@@ -30,7 +29,7 @@ TOOLS = ("read_file", "write_file", "edit_file", "run_command")
 CARD = {"low": (84.3209, 1.0948, 66.1494, 5.1269, 0.7322), "medium": (87.4833, 0.4919, 67.8718, 5.8511, 0.9181),
         "high": (87.8685, 0.4601, 69.0667, 6.4493, 1.1913), "extra-high": (87.7024, 0.5109, 68.6887, 10.1158, 1.8036)}
 # Copied byte for byte from the harness (docs/results/swe-v4-gemini4-neon-2026-11/gemini4neon-vs-frontier.png, 2400x1350), shown at 1600x900.
-CARD_PNG = ("swe-v4-gemini4-neon-v332.png", "fb5ed88eaa2874b9fdb0d1247aad689989645726890e8715108e89b0f706836b", 2400, 1350)
+CARD_PNG = ("swe-v4-gemini4-neon-v332.png", "bdf9d8dd129518b6297252e5a854a8c47e01bc7e342dd8e9abea14cd721bfad9", 2400, 1350)
 # Comparators on the page and the card: published board rows.
 COMPARATORS = {"opus55": "Opus 5.5", "gpt62sol": "GPT-6.2 Sol"}
 UNPUBLISHED = {("low", "legacy-codeccore-binary-parity"): "submission-048", ("extra-high", "legacy-codeccore-binary-parity"): "submission-069"}
@@ -290,7 +289,7 @@ class Gemini4NeonPageTests(unittest.TestCase):
     def test_comparison_matches_the_board(self):
         board = board_rows()
         for key, name in {"neon": "Gemini 4 Neon", **COMPARATORS}.items():
-            for e in (EFFORTS if key == "neon" else ALL_EFFORTS):
+            for e in EFFORTS:  # only the levels all three share
                 b = board[name, e]
                 star = "*" if key == "opus55" and int(b["n"]) < 23 else ""
                 cells = (f'<td>{label(e)}</td><td>{float(b["combined_33"]):.2f}</td><td>{float(b["combined_33_se"]):.2f}</td><td>{b["n"]}{star}</td>'
@@ -299,6 +298,8 @@ class Gemini4NeonPageTests(unittest.TestCase):
                 row = self.page_html[self.page_html.index(f'data-compare="{key}-{e}"'):]
                 self.assertIn(cells, row[:row.index("</tr>")], (key, e))
         self.assertNotIn('data-compare="neon-max"', self.page_html)
+        self.assertNotIn('data-compare="opus55-max"', self.page_html)
+        self.assertNotIn('data-compare="gpt62sol-max"', self.page_html)
         comparison = self.section("comparison", "low")
         for needle in ("3.0 to 3.4 points", "1.0 to 1.5 points", "4.1 at Low", "both models pass 17 tasks", "same rubric", "Harnesses differ",
                        "no Max level", "$0.73 to $1.80"):
