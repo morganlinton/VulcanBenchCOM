@@ -49,6 +49,33 @@ class BuildOffTests(unittest.TestCase):
             self.assertIn(f'href="play/{entry.name}/index.html"', pages)
             self.assertIn(f"{entry.name}/", notice)
 
+    def test_vote_boxes_match_the_vote_function(self):
+        # api/build-off-vote.js only accepts the build-offs and choices it lists; a page must offer exactly those.
+        function = (ROOT / "api" / "build-off-vote.js").read_text()
+        listed = {slug: re.findall(r'"([^"]+)"', choices) for slug, choices in re.findall(r'^  "([^"]+)": \[([^\]]*)\],$', function, re.M)}
+        self.assertTrue(listed)
+        voting = {}
+        for page in PAGES:
+            text = page.read_text()
+            boxes = re.findall(r'<div class="bo-vote" data-build-off="([^"]+)">', text)
+            if not boxes:
+                continue
+            self.assertEqual(boxes, [page.stem], page)
+            voting[page.stem] = re.findall(r'<button class="btn" type="button" data-choice="([^"]+)"', text)
+            self.assertEqual(re.findall(r'<div class="bo-vote-row" data-choice="([^"]+)"', text), voting[page.stem], page)
+            self.assertIn('<script src="../build-off-vote.js?v=', text, page)
+            self.assertIn('<link rel="stylesheet" href="../build-offs.css?v=', text, page)
+            self.assertIn("reader poll", text, page)
+        self.assertEqual(voting, listed)
+
+    def test_vote_function_keeps_previews_and_addresses_out_of_the_tally(self):
+        function = (ROOT / "api" / "build-off-vote.js").read_text()
+        self.assertIn('process.env.VERCEL_ENV === "production" ? "build-off-votes" : "build-off-votes-preview"', function)
+        self.assertIn('createHmac("sha256", key)', function)
+        self.assertIn('access: "private"', function)
+        self.assertNotIn("address:", function)  # a stored record never carries the address
+        self.assertIn(".build-off-votes-local.json", (ROOT / ".gitignore").read_text())
+
 
 if __name__ == "__main__":
     unittest.main()

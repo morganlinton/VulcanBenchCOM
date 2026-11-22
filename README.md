@@ -26,11 +26,12 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 - `benchmarks/swe-v4-gpt55-luna-v35.html`: GPT-5.5 vs. GPT-5.6 Luna through Codex at every effort level under Code quality protocol v3.5, with PDF, calibration record and evidence links
 - `benchmarks/swe-v4-astra-fable51-v34.html`: the same runs rescored under Code quality protocol v3.4 (33% weight, neutral Muse Spark 1.3 and Grok 4.6 panel), with PDF, calibration record and evidence links
 - `benchmarks/NN-*.html`: one journal-style page per report (abstract, findings, table, figure, downloads)
-- `build-offs.html`: the build-offs index. A build-off puts complete things that models built from an open-ended brief side by side for readers to try; it has no score and is not a benchmark
-- `build-offs/01-ski-sim.html`: build-off 01, Google's Chamonix Ski Sim (linked out to Google AI Studio) beside Fall Line (Claude Fable 5.2 in Claude Code), with how each was made and why it is not a benchmark
+- `build-offs.html`: the build-offs index. A build-off puts complete things that models built from an open-ended brief side by side for readers to try and vote on; VulcanBench does not score it and it is not a benchmark
+- `build-offs/01-ski-sim.html`: build-off 01, Google's Chamonix Ski Sim (linked out to Google AI Studio) beside Fall Line (Claude Fable 5.2 in Claude Code), with the reader vote, how each was made and why it is not a benchmark
 - `build-offs/play/fall-line/`: the playable Fall Line build, generated from the `VulcanBench/ski-simulator-llm-test` repository (see "Build-offs" below); never edit it by hand
 - `leaderboard.html`: directs readers to suite-specific results and the frozen earlier-suite archive
 - `eval-suite-builder.html`: the eval suite builder waitlist (build an eval suite from your own repository); signups go through `api/waitlist.js` to the project's Vercel Blob store, see "Waitlist" below
+- `build-offs.css`, `build-off-vote.js`: page-scoped styles for build-off pages and the script behind the reader vote box
 - `methodology.html`: how VulcanBench measures (decontamination, grading, metrics, sandbox, effort, economics)
 - `404.html`: styled not-found page
 - `style.css`: shared stylesheet (serif journal look with an ember accent)
@@ -57,8 +58,8 @@ and `robots.txt` are at the root. **All absolute URLs are hardcoded to `https://
 domain changes.**
 
 ## Waitlist
-The eval suite builder page posts to `api/waitlist.js`, a Vercel serverless function (the only server-side code on the
-site). It validates the address, ignores honeypot submissions and writes one private JSON record per signup to the
+The eval suite builder page posts to `api/waitlist.js`, a Vercel serverless function (the site's only server-side code
+besides the build-off vote, see "Build-offs" below). It validates the address, ignores honeypot submissions and writes one private JSON record per signup to the
 project's Vercel Blob store at `waitlist/<sha256 of the lowercased email>.json`, so a repeat signup overwrites rather
 than duplicates. The store is connected once in the Vercel dashboard (Project > Storage > Blob); Vercel sets
 `BLOB_READ_WRITE_TOKEN` itself and no token is kept in this repository. Without a store the function answers 500 and
@@ -77,9 +78,19 @@ only, never in this repository.
 
 ## Build-offs
 A build-off page links every entry so readers can try it, says how each entry was made (model, tool, brief, human
-involvement, testing) and marks what is unknown as unknown. Give the entries identical treatment on the page and do
-not score, rank or pick a winner. Entries that VulcanBench hosts live under `build-offs/play/<entry>/`; entries hosted
-elsewhere are linked out.
+involvement, testing) and marks what is unknown as unknown. Give the entries identical treatment on the page.
+VulcanBench does not score, rank or pick a winner; readers vote, and the page calls the tally a reader poll. Entries
+that VulcanBench hosts live under `build-offs/play/<entry>/`; entries hosted elsewhere are linked out.
+
+The vote box is a `<div class="bo-vote" data-build-off="<slug>">` with one `button[data-choice]` and one
+`.bo-vote-row[data-choice]` per entry; `build-off-vote.js` wires it up and shows the tally only after the reader has
+voted. It talks to `api/build-off-vote.js`, the site's second serverless function, which must list the same slug and
+choices in `BUILD_OFFS` (a test checks this). A vote is one private blob at
+`build-off-votes/<slug>/<choice>/<voter>.json` in the same Vercel Blob store as the waitlist, where `<voter>` is an
+HMAC of the caller's network address keyed with `BUILD_OFF_VOTE_KEY` (optional; the Blob token is the fallback), so
+the address is never stored. The tally is the number of blobs under each choice. Preview deployments write under
+`build-off-votes-preview/` and never change the published tally. One vote per address is a courtesy limit, not
+security. `node scripts/waitlist_dev.js` serves the function locally and keeps votes in `.build-off-votes-local.json`.
 
 Fall Line is built from a checkout of `VulcanBench/ski-simulator-llm-test` beside this one:
 

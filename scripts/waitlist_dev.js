@@ -1,4 +1,4 @@
-/* Local preview of the site plus the waitlist function, no Vercel login needed.
+/* Local preview of the site plus its serverless functions, no Vercel login needed.
  *
  *   node scripts/waitlist_dev.js            (http://localhost:8899)
  *   PORT=9000 node scripts/waitlist_dev.js
@@ -6,6 +6,8 @@
  * Static files are served from the repository root. POST /api/waitlist runs
  * api/waitlist.js with WAITLIST_FILE pointing at .waitlist-local.jsonl (git
  * ignored), so a signup can be checked end to end without a Blob token.
+ * /api/build-off-vote runs api/build-off-vote.js the same way, keeping votes
+ * in .build-off-votes-local.json (git ignored).
  */
 "use strict";
 
@@ -16,9 +18,13 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const PORT = Number(process.env.PORT || 8899);
 process.env.WAITLIST_FILE = process.env.WAITLIST_FILE || path.join(ROOT, ".waitlist-local.jsonl");
+process.env.BUILD_OFF_VOTES_FILE = process.env.BUILD_OFF_VOTES_FILE || path.join(ROOT, ".build-off-votes-local.json");
 delete process.env.VERCEL_ENV;
 
-const handler = require(path.join(ROOT, "api", "waitlist.js"));
+const FUNCTIONS = {
+  "/api/waitlist": require(path.join(ROOT, "api", "waitlist.js")),
+  "/api/build-off-vote": require(path.join(ROOT, "api", "build-off-vote.js")),
+};
 
 const TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -39,7 +45,8 @@ const TYPES = {
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://localhost");
-  if (url.pathname === "/api/waitlist") {
+  const handler = FUNCTIONS[url.pathname];
+  if (handler) {
     Promise.resolve(handler(req, res)).catch((e) => {
       res.statusCode = 500;
       res.end(String(e));
@@ -62,4 +69,5 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`VulcanBench.com preview on http://localhost:${PORT}`);
   console.log(`Waitlist signups append to ${process.env.WAITLIST_FILE}`);
+  console.log(`Build-off votes are kept in ${process.env.BUILD_OFF_VOTES_FILE}`);
 });
