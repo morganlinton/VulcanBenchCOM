@@ -6,6 +6,7 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 - `index.html`: homepage: what VulcanBench is, an animated live-run terminal, the five newest reports (a test keeps them in step with `benchmarks.html`) and the ways to work with VulcanBench
 - `benchmarks.html`: suite-separated results, with the current Frontier v4 comparison first and all earlier reports in a labeled archive
 - `benchmarks/safety-v1-opus55.html`: Claude Opus 5.5 on VulcanBench Safety v1 (harmful instructions hidden in the repository), with the standalone card and per-level and per-kind tables
+- `benchmarks/swe-v4-gemini4-neon-v332.html`: Gemini 4 Neon through Antigravity CLI 1.5.12 at its four effort levels (no Max) under Code quality protocol v3.32 (judged by Muse Spark 1.3 and Grok 4.6), with the comparison with Claude Opus 5.5 and GPT-6.2 Sol, the six partial Low tasks, cost, tokens and tool calls, calibration record, the two unpublished codeccore rows and the quota waits, evidence links and the reproduction notes
 - `benchmarks/swe-v4-gpt62-sol-v331.html`: GPT-6.2 Sol through Codex CLI 0.166.0 at all five effort levels under Code quality protocol v3.31 (judged by Muse Spark 1.3 and Grok 4.6), with the comparison with Claude Fable 5.2, Claude Opus 5.5 and GPT-6.1 Sol and with GPT-6.1 Sol alone, cost and tokens, calibration record, the one-judge Low granarycore row and the Cursor usage-limit pause, evidence links and the reproduction notes
 - `benchmarks/swe-v4-fable52-v330.html`: Claude Fable 5.2 through Claude Code 2.1.321 at all five effort levels under Code quality protocols v3.30.2 and v3.30.3 (judged by Muse Spark 1.3 and GPT-6.1 Sol after Grok 4.6 failed calibration), with the comparison with Claude Fable 5.1, Claude Opus 5.5 and GPT-6 Astra, the matched-panel and Muse-alone tables, the memorization check, cost and tokens, calibration record, run disclosures, evidence links and the redacted traces repository
 - `benchmarks/swe-v4-gpt61-terra-v329.html`: GPT-6.1 Terra through Codex CLI 0.159.0 at all five effort levels under Code quality protocol v3.29 (judged by Muse Spark 1.3 and Grok 4.6), with the comparison with Claude Opus 5.5, GPT-6.1 Sol and GPT-6 Astra and with GPT-5.6 Terra, cost and tokens, calibration record, the Max settlecore recovery and Codex notice disclosures, evidence links and the redacted traces repository
@@ -86,6 +87,10 @@ archive. Run `python3 scripts/check_benchmark_index.py` after index edits.
 The Muse Wonder Full record, `assets/data/swe-v4-musewonder-full-v326/`, has no PDF; it is exported
 by `python3 scripts/export_swe_v4_v326_evidence.py --harness-root ../VulcanBench`, which reads the six
 judging rounds, the three run roots and the harness card, and refuses to write if any number differs.
+
+The Gemini 4 Neon record, `assets/data/swe-v4-gemini4-neon-v332/`, has no PDF; it is exported
+by `python3 scripts/export_swe_v4_v332_evidence.py --harness-root ../VulcanBench-neon --sweep-root ../VulcanBench --judging <v3.32 round>`, which reads the
+v3.32 judging round, the sweep's run summaries, streams and tool-call logs, the sweep launcher and log and the harness card table, and refuses to write if any number differs.
 
 The GPT-6.2 Sol record, `assets/data/swe-v4-gpt62-sol-v331/`, has no PDF; it is exported
 by `python3 scripts/export_swe_v4_v331_evidence.py --harness-root ../VulcanBench --judging <v3.31 round>`, which reads the

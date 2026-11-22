@@ -1,0 +1,186 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a Google AI Pro subscription through Antigravity, so these are estimates, not bills. Judging, quota-refused attempts and local infrastructure are excluded. Every run in the population is priced.",
+  "pricing_verified": "2026-11-19",
+  "sources": {
+    "google": "https://ai.google.dev/gemini-api/docs/pricing"
+  },
+  "rates_per_million": {
+    "neon": {
+      "input": 3.0,
+      "cached_input": 0.15,
+      "output": 15.0
+    }
+  },
+  "groups": [
+    {
+      "model": "neon",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.7322171739130435,
+        "se": 0.08982559377688615
+      },
+      "usd_total": 16.840995,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 908417.1739130435,
+        "se": 186350.43782861266
+      },
+      "raw_tokens_total": 20893595,
+      "output_tokens": {
+        "n": 23,
+        "mean": 20130.347826086956,
+        "se": 2371.938209981687
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 9059.869565217392,
+        "se": 942.7670322472482
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.8366705269111414,
+        "se": 0.013902854309842493
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 5.126886956521739,
+        "se": 0.6019626983366969
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "neon",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.9180630434782608,
+        "se": 0.1122471472658
+      },
+      "usd_total": 21.115449999999996,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1102275.1304347827,
+        "se": 246399.1152507833
+      },
+      "raw_tokens_total": 25352328,
+      "output_tokens": {
+        "n": 23,
+        "mean": 28415.739130434784,
+        "se": 3508.5569188817744
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 15646.08695652174,
+        "se": 846.5955675482047
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.8412508082805298,
+        "se": 0.011205030008124655
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 5.851132608695652,
+        "se": 0.6685804478165251
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "neon",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.1912725652173912,
+        "se": 0.08918404508153929
+      },
+      "usd_total": 27.399269000000004,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1438439,
+        "se": 218137.4918493837
+      },
+      "raw_tokens_total": 33084097,
+      "output_tokens": {
+        "n": 23,
+        "mean": 38164.17391304348,
+        "se": 1339.5293177424662
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 25292.739130434784,
+        "se": 778.0409502248857
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.8831130279226713,
+        "se": 0.005134275698575454
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 6.449327536231884,
+        "se": 0.23384515147852425
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "neon",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.8035872173913043,
+        "se": 0.13125776627883667
+      },
+      "usd_total": 41.482506,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 2448843.304347826,
+        "se": 241842.59422476715
+      },
+      "raw_tokens_total": 56323396,
+      "output_tokens": {
+        "n": 23,
+        "mean": 56866.260869565216,
+        "se": 1662.3752676527415
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 40314.95652173913,
+        "se": 1099.172170493951
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9128702649834258,
+        "se": 0.005260325501460039
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 10.115786956521738,
+        "se": 0.23926889512034077
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "neon": {
+      "runs": 92,
+      "usd": 106.83822000000004,
+      "raw_tokens": 135653416,
+      "solver_hours": 10.558201388888891
+    }
+  },
+  "limitations": [
+    "Antigravity receipts report input, cached input, output and thinking tokens per run; cached input is billed at the cache-read rate and the rest of the input at the standard rate. Thinking tokens are part of output and are not billed twice.",
+    "Standard tier rates; no long-context premium is modelled.",
+    "No Batch or priority pricing is applied.",
+    "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
+    "The sweep stamped each run at run time at the published Gemini 4 Neon list rates; the export recomputes every run from its receipt and matched every stamp.",
+    "40 attempts refused by the AI Pro quota (4 of them at Extra high cut mid-task) are not priced: they are not population rows and each was rerun from scratch."
+  ],
+  "comparison_sha256": "7cc0fed460981f2c894beb2bc3a621a8b805aeb6a511742a673c2f753a150003",
+  "note": "Per-run estimates are in runs.json (estimated_usd, raw_tokens, token_usage). Judging is excluded."
+}

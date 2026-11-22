@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemini 4 Neon across effort levels | VulcanBench</title>
+<meta name="description" content="Frontier v4: 92 Antigravity runs of Gemini 4 Neon at four effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 84.32 at Low to 87.87 at High; 17 of 23 tasks passed at Low, all 23 above; $0.73 to $1.80 and 5.1 to 10.1 minutes per task, beside Claude Opus 5.5 and GPT-6.2 Sol.">
+<link rel="canonical" href="https://vulcanbench.com/benchmarks/swe-v4-gemini4-neon-v332.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Gemini 4 Neon across effort levels | VulcanBench">
+<meta property="og:description" content="Frontier v4: 92 Antigravity runs of Gemini 4 Neon at four effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 84.32 at Low to 87.87 at High; 17 of 23 tasks passed at Low, all 23 above; $0.73 to $1.80 and 5.1 to 10.1 minutes per task, beside Claude Opus 5.5 and GPT-6.2 Sol.">
+<meta property="og:url" content="https://vulcanbench.com/benchmarks/swe-v4-gemini4-neon-v332.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/cards/swe-v4-gemini4-neon-v332.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1350">
+<meta property="og:image:alt" content="VulcanBench Frontier v4: Gemini 4 Neon beside Claude Opus 5.5 and GPT-6.2 Sol at every effort level, with combined score and cost per task">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gemini 4 Neon across effort levels | VulcanBench">
+<meta name="twitter:description" content="Frontier v4: 92 Antigravity runs of Gemini 4 Neon at four effort levels, Code quality judged by Muse Spark 1.3 and Grok 4.6. Combined score 84.32 at Low to 87.87 at High; 17 of 23 tasks passed at Low, all 23 above; $0.73 to $1.80 and 5.1 to 10.1 minutes per task, beside Claude Opus 5.5 and GPT-6.2 Sol.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/cards/swe-v4-gemini4-neon-v332.png">
+<meta name="twitter:image:alt" content="VulcanBench Frontier v4: Gemini 4 Neon beside Claude Opus 5.5 and GPT-6.2 Sol at every effort level, with combined score and cost per task">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="/style.css?v=34">
+<link rel="stylesheet" href="/benchmarks-suites.css?v=5">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="/index.html" aria-label="VulcanBench home">
+      <img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/benchmarks.html" class="active">Benchmarks</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="/reports.html">Reports</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/eval-suite-builder.html">Eval suite builder</a>
+      <a href="/blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<main class="wrap-wide benchmark-report">
+<p class="report-back"><a href="/benchmarks.html#swe-v4">All VulcanBench Frontier v4 reports</a></p>
+    <article class="suite-feature" aria-labelledby="gemini4-neon-v332-heading">
+      <header>
+        <p class="suite-label">November 21, 2026 &middot; Morgan Linton &middot; 92 runs &middot; Code quality protocol v3.32</p>
+        <h1 id="gemini4-neon-v332-heading">Gemini 4 Neon across every effort level</h1>
+        <p>92 runs of Google&rsquo;s Gemini 4 Neon (<code>gemini-4-neon</code>) through the Antigravity CLI on a Google AI Pro subscription, 23 tasks at each of the four effort levels Antigravity offers for it, Low to Extra-high. Gemini 4 Neon is the first Google model on the board. Code quality carries 33% of the combined score and is judged for a human reader by Muse Spark 1.3 and Grok 4.6, the panel that judged Claude Opus 5.5, GPT-6.1 Sol and GPT-6.2 Sol, so Gemini 4 Neon takes its place on the <a href="/leaderboard.html">Frontier v4 leaderboard</a> beside them. Every run finished inside the 3-hour task bound. Low and Extra-high are judged on 22 of 23 runs, for the reason given under the results table.</p>
+      </header>
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading">How the test works</h2>
+        <ol class="flow">
+          <li><span class="flow-n" aria-hidden="true">1</span><h3>A retired program to rebuild</h3><p>Each of the 23 tasks is a legacy binary with a written specification and an issue. Its real behaviour departs from the specification in documented ways, and hidden tests check the rewrite against the binary.</p></li>
+          <li><span class="flow-n" aria-hidden="true">2</span><h3>One attempt per task and level</h3><p>Gemini 4 Neon works in Antigravity with the binary, the specification and the code, once per task at each effort level, inside a flat 3-hour bound, one task at a time.</p></li>
+          <li><span class="flow-n" aria-hidden="true">3</span><h3>Tests and two judges score it</h3><p>Hidden tests give functional correctness. Two calibrated judges from labs other than Google rate the code for a human reader and try to recover the documented departures.</p></li>
+          <li><span class="flow-n" aria-hidden="true">4</span><h3>Scores, time and cost per level</h3><p>Each level gets a combined score, tasks passed, minutes and API-equivalent cost at Google&rsquo;s list price.</p></li>
+        </ol>
+        <p>Combined score = 50% functional correctness + 8.5% lint and complexity + 8.5% security + 33% Code quality, averaged over the judged runs in each level, as on every other board column. Frontier Code quality is the reviewed layer plus intent recovery; it is never compared with Routine v1 Code quality.</p>
+      </section>
+      <div class="report-resources" aria-label="Report and evidence downloads">
+        <a class="resource" href="/assets/cards/swe-v4-gemini4-neon-v332.png" download><span class="resource-kind">Card</span><span class="resource-title">Results card</span><span class="resource-meta">PNG, beside Opus 5.5 and GPT-6.2 Sol</span></a>
+        <a class="resource" href="/assets/data/swe-v4-gemini4-neon-v332/runs.csv" download><span class="resource-kind">Data</span><span class="resource-title">All 92 runs</span><span class="resource-meta">CSV, one row per run with both judges' scores</span></a>
+        <a class="resource" href="/assets/data/swe-v4-gemini4-neon-v332-scores.csv" download><span class="resource-kind">Data</span><span class="resource-title">Scores by effort</span><span class="resource-meta">CSV, four effort aggregates</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/tree/main/assets/data/swe-v4-gemini4-neon-v332"><span class="resource-kind">Evidence</span><span class="resource-title">Run records and judge protocol</span><span class="resource-meta">GitHub, JSON and CSV bundle</span></a>
+        <a class="resource" href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-gemini4-neon-v332/REPRODUCING.md"><span class="resource-kind">Evidence</span><span class="resource-title">Reproduction guide</span><span class="resource-meta">GitHub, public arithmetic checks</span></a>
+        <a class="resource" href="https://x.com/intent/post?text=Gemini%204%20Neon%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbenchmarks%2Fswe-v4-gemini4-neon-v332.html" target="_blank" rel="noopener"><span class="resource-kind">Share</span><span class="resource-title">Post on X</span><span class="resource-meta">A link to this report, ready to post</span></a>
+      </div>
+      <nav class="report-contents" aria-label="Study sections">
+        <span class="report-contents-label">On this page</span>
+        <a href="#across-efforts"><span class="n">01</span>Across efforts</a>
+        <a href="#results"><span class="n">02</span>All results</a>
+        <a href="#comparison"><span class="n">03</span>Beside Opus 5.5 and GPT-6.2 Sol</a>
+        <a href="#low"><span class="n">04</span>Where Low falls short</a>
+        <a href="#cost"><span class="n">05</span>Cost and tokens</a>
+        <a href="#board"><span class="n">06</span>On the board</a>
+        <a href="#code-quality"><span class="n">07</span>Code quality</a>
+        <a href="#judges"><span class="n">08</span>Judges and calibration</a>
+        <a href="#run-notes"><span class="n">09</span>How it was run</a>
+        <a href="#reproduce"><span class="n">10</span>Reproduction</a>
+      </nav>
+
+      <section class="report-section" id="across-efforts" aria-labelledby="across-efforts-heading">
+        <h2 id="across-efforts-heading">Across every effort level</h2>
+        <p>Gemini 4 Neon ran every task once at each of the four effort levels Antigravity offers for it (Extra-high is Antigravity&rsquo;s <code>xhigh</code>; there is no Max), 23 tasks per cell, through Antigravity CLI 1.5.12 on a Google AI Pro subscription from November 20, 2026, 13:50 UTC, to November 21, 09:58 UTC, on the owner&rsquo;s Mac, one task at a time. About nine of those hours were waits on the plan&rsquo;s usage quota. Combined score weights are 50% functional correctness, 8.5% lint and complexity, 8.5% security and 33% Code quality, judged for a named human reader by Muse Spark 1.3 and Grok 4.6 with a ground-truth intent-recovery probe. No run reached the flat 3-hour task bound; the longest, Medium granarycore, took 19.0 minutes.</p>
+        <div class="effort-choices">
+          <div><h3>Combined score</h3><p>84.32 at Low to 87.87 at High</p><p>Low is the outlier: 84.32, then 87.48 at Medium, 87.87 at High and 87.70 at Extra-high. Above Low the three levels sit within 0.4 points of each other, less than one standard error.</p></div>
+          <div><h3>Tasks passed</h3><p>17 of 23 at Low, 23 of 23 above</p><p>At Low, six tasks pass only part of their hidden tests (220 of the 231 hidden behaviours fixed). From Medium up Gemini 4 Neon fully solves every task and fixes all 231, so the differences between those levels come from Code quality, lint and security.</p></div>
+          <div><h3>Code quality</h3><p>66.15 to 69.07</p><p>The judges rate the code 66.15 at Low, 67.87 at Medium, 69.07 at High and 68.69 at Extra-high, with standard errors of 1.21 to 1.45: a slow rise of about three points, flat from High.</p></div>
+          <div><h3>Runtime and cost</h3><p>5.1 to 10.1 min &middot; $0.73 to $1.80 per task</p><p>Extra-high takes twice as long as Low and costs two and a half times as much, for no score over High. The whole sweep took 10.6 hours of solver time and prices at $106.84 for 92 runs, $1.16 per task, at Gemini 4 Neon&rsquo;s list rates.</p></div>
+        </div>
+        <div class="suite-table-scroll" role="region" aria-label="Combined score, tasks passed, Code quality, runtime and cost at each effort level" tabindex="0"><table class="suite-results"><caption>Combined score, tasks passed, Code quality, runtime and cost at each effort level, 23 runs per cell</caption><thead><tr><th scope="col">Metric</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th></tr></thead><tbody><tr><th scope="row">Combined score</th><td>84.32</td><td>87.48</td><td>87.87</td><td>87.70</td></tr><tr><th scope="row">Standard error</th><td>1.09</td><td>0.49</td><td>0.46</td><td>0.51</td></tr><tr><th scope="row">Judged runs</th><td>22</td><td>23</td><td>23</td><td>22</td></tr></tbody><tbody><tr><th scope="row">Tasks passed</th><td>17/23</td><td>23/23</td><td>23/23</td><td>23/23</td></tr><tr><th scope="row">Hidden behaviours fixed</th><td>220/231</td><td>231/231</td><td>231/231</td><td>231/231</td></tr></tbody><tbody><tr><th scope="row">Code quality</th><td>66.15</td><td>67.87</td><td>69.07</td><td>68.69</td></tr><tr><th scope="row">Human readability</th><td>55.8</td><td>57.6</td><td>59.1</td><td>60.0</td></tr></tbody><tbody><tr><th scope="row">Minutes per task</th><td>5.1</td><td>5.9</td><td>6.4</td><td>10.1</td></tr><tr><th scope="row">API-equivalent $ per task</th><td>$0.73</td><td>$0.92</td><td>$1.19</td><td>$1.80</td></tr></tbody></table></div>
+        <p>Under the prior 50/15/15/20 profile applied to the same Code quality scores the ladder has the same shape, 87.27 at Low and 90.20 to 90.42 above. The card and the full per-effort table follow.</p>
+      </section>
+      <figure class="suite-card">
+        <a href="/assets/cards/swe-v4-gemini4-neon-v332.png" aria-label="Open the Gemini 4 Neon results card at full resolution">
+          <img src="/assets/cards/swe-v4-gemini4-neon-v332.png" width="1600" height="900" fetchpriority="high" alt="Gemini 4 Neon on VulcanBench Frontier v4 beside Claude Opus 5.5 and GPT-6.2 Sol. Left: combined score by effort level. Opus 5.5 is highest from Medium to Max, near 91; GPT-6.2 Sol is a flat line near 89; Gemini 4 Neon rises from about 84 at Low to about 88 from Medium to Extra-high, below both, and has no Max point. Right: cost per task at list price, with Gemini 4 Neon between the two at $0.73 to $1.80, against $0.23 to $0.55 for GPT-6.2 Sol and $1.70 to $8.75 for Opus 5.5. A footnote gives run and judged-run counts and the judges. Exact values are in the adjacent accessible tables.">
+        </a>
+        <figcaption>The harness card places Gemini 4 Neon beside Claude Opus 5.5 and GPT-6.2 Sol; their columns are their published board rows. All three are judged by Muse Spark 1.3 and Grok 4.6. Combined score uses a focused scale; whiskers show &plusmn;1 task standard error, not statistical significance. Cost is API-equivalent at list price. <a href="/assets/cards/swe-v4-gemini4-neon-v332.png">Open full-size card</a>.</figcaption>
+      </figure>
+      <p class="suite-reading">Gemini 4 Neon is a model to run at Medium. Low misses six tasks; Medium solves all 23 and scores 87.48, within 0.4 points of the best (87.87 at High) for $0.92 a task and 5.9 minutes, against $1.19 and 6.4 minutes at High. Extra-high adds time and cost and no score. From Medium up it sits 1.0 to 1.5 points behind GPT-6.2 Sol and about 3 points behind Claude Opus 5.5, and it costs three to four times as much per task as GPT-6.2 Sol. These runs compare a model-and-harness combination, not an isolated base model; the <a href="/leaderboard.html">Frontier v4 leaderboard</a> places every Gemini 4 Neon level beside the other models.</p>
+
+      <details class="suite-details" id="results" open>
+        <summary>Combined score and Code quality by effort</summary>
+        <p id="effort-table-note">n=23 runs at every level; Low and Extra-high are judged on 22. Combined (33%) is the published score. Combined (20% profile) applies the prior 50/15/15/20 weights to the same Code quality scores for comparison. Code quality, human readability, maintainability and intent recovery are out of 100 and equal means of the two judges over the judged runs. Passed counts all 23 runs. Runtime is solver wall-clock per task over every run in the cell.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Effort results, scroll horizontally on small screens" tabindex="0">
+          <table class="suite-results" aria-describedby="effort-table-note">
+            <caption>VulcanBench Frontier v4: Gemini 4 Neon effort results under Code quality protocol v3.32</caption>
+            <thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined (33%)</th><th scope="col">SE</th><th scope="col">Combined (20% profile)</th><th scope="col">Code quality</th><th scope="col">Human readability</th><th scope="col">Maintainability</th><th scope="col">Intent recovery</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th></tr></thead>
+            <tbody>
+              <tr data-model="neon" data-effort="low"><th scope="row"><a href="/models/gemini-4-neon.html">Gemini 4 Neon</a> / Antigravity</th><td>Low</td><td>84.32</td><td>1.09</td><td>87.27</td><td>66.15</td><td>55.8</td><td>66.2</td><td>79.9</td><td>22/23</td><td>17/23</td><td>5.1</td></tr>
+              <tr data-model="neon" data-effort="medium"><th scope="row"><a href="/models/gemini-4-neon.html">Gemini 4 Neon</a> / Antigravity</th><td>Medium</td><td>87.48</td><td>0.49</td><td>90.20</td><td>67.87</td><td>57.6</td><td>68.6</td><td>80.6</td><td>23/23</td><td>23/23</td><td>5.9</td></tr>
+              <tr data-model="neon" data-effort="high"><th scope="row"><a href="/models/gemini-4-neon.html">Gemini 4 Neon</a> / Antigravity</th><td>High</td><td>87.87</td><td>0.46</td><td>90.42</td><td>69.07</td><td>59.1</td><td>71.3</td><td>79.3</td><td>23/23</td><td>23/23</td><td>6.4</td></tr>
+              <tr data-model="neon" data-effort="extra-high"><th scope="row"><a href="/models/gemini-4-neon.html">Gemini 4 Neon</a> / Antigravity</th><td>Extra-high</td><td>87.70</td><td>0.51</td><td>90.27</td><td>68.69</td><td>60.0</td><td>70.2</td><td>78.2</td><td>22/23</td><td>23/23</td><td>10.1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="suite-notes">
+        <p><strong>Low and Extra-high codeccore have no Code quality score.</strong> Grok 4.6&rsquo;s intent probe of codeccore returned replies that were not valid JSON on both of its two attempts, at Low and again at Extra-high: it quoted the codeccore memo line with its double quotes unescaped, the same line it broke on when judging GPT-5.6 Sol (v3.7) and GPT-6 Sol (v3.17). The operator rule <code>invalidate_unrecoverable_probe</code> marks such a probe invalid, and the frozen summary then publishes no Code quality score for that submission, as it did in those two rounds; the owner chose to keep that rule rather than score the runs from Muse alone. Both runs passed every hidden test, are timed and priced, and count in Tasks passed. Judging stopped at the first of the two, and the rule was extended to cover two malformed replies (<a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/DECISIONS.md">decision record</a>) before the remaining probes resumed.</p>
+        <p><strong>Four factors by effort.</strong> Over every run, functional correctness is 95.01 at Low and 100.00 above; lint and complexity average 77.99, 77.70, 77.37 and 77.47 from Low to Extra-high; security 99.78, 99.78, 100.00 and 99.57.</p>
+        <p><strong>Intent recovery</strong> is scored over the specification departures a submission actually passed tests for. Every judged run passed at least one quirk family, so no run needed its intent points moved to the reviewed score. <strong>SE</strong> is one sample standard error of the combined score across the cell&rsquo;s judged tasks. It describes task sampling, not judge uncertainty, repeated runs or a significance test. No solver fallback occurred, and neither judge produced a reviewer fallback on any of the 92 submissions.</p>
+      </div>
+
+      <section class="report-section" id="comparison" aria-labelledby="comparison-heading">
+        <h2 id="comparison-heading">Beside Claude Opus 5.5 and GPT-6.2 Sol</h2>
+        <p>Claude Opus 5.5 is ahead from Medium up, 90.68 to 91.11 against Gemini 4 Neon&rsquo;s 87.48 to 87.87, a gap of 3.0 to 3.4 points; at Low both models pass 17 tasks and Opus 5.5 leads by 2.0. GPT-6.2 Sol is ahead at every level, by 1.0 to 1.5 points from Medium up and by 4.1 at Low, where it passes all 23 tasks. Gemini 4 Neon&rsquo;s Code quality, 66.15 to 69.07, is the lowest of the three: GPT-6.2 Sol&rsquo;s is 70.31 to 71.91 and Opus 5.5&rsquo;s 72.53 to 79.98.</p>
+        <p>On cost Gemini 4 Neon sits between them: $0.73 to $1.80 a task, against $0.23 to $0.46 for GPT-6.2 Sol and $1.70 to $4.11 for Opus 5.5 over the same four levels. It is quicker than Opus 5.5 at every level (5.1 to 10.1 minutes against 13.7 to 21.4) and slower than GPT-6.2 Sol at every level (2.8 to 8.2 minutes over the same four).</p>
+        <div class="suite-table-scroll" role="region" aria-label="Gemini 4 Neon beside Claude Opus 5.5 and GPT-6.2 Sol at every effort level" tabindex="0"><table class="suite-results">
+        <caption>Combined score, tasks passed, minutes, tokens, list-price cost and Code quality per task at every effort level; Opus 5.5 and GPT-6.2 Sol from their published board rows</caption><thead><tr><th scope="col">Model / harness</th><th scope="col">Effort</th><th scope="col">Combined</th><th scope="col">SE</th><th scope="col">Judged</th><th scope="col">Passed</th><th scope="col">Min/task</th><th scope="col">Tokens/task</th><th scope="col">$/task</th><th scope="col">Code quality</th></tr></thead><tbody>
+        <tr data-compare="neon-low"><th scope="row">Gemini 4 Neon / Antigravity</th><td>Low</td><td>84.32</td><td>1.09</td><td>22</td><td>17/23</td><td>5.1</td><td>0.91M</td><td>$0.73</td><td>66.15</td></tr>
+        <tr data-compare="opus55-low"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Low</td><td>86.36</td><td>1.30</td><td>23</td><td>17/23</td><td>13.7</td><td>2.77M</td><td>$1.70</td><td>72.53</td></tr>
+        <tr data-compare="gpt62sol-low"><th scope="row"><a href="/benchmarks/swe-v4-gpt62-sol-v331.html">GPT-6.2 Sol</a> / Codex</th><td>Low</td><td>88.44</td><td>0.35</td><td>23</td><td>23/23</td><td>2.8</td><td>0.77M</td><td>$0.23</td><td>70.31</td></tr>
+        <tr data-compare="neon-medium"><th scope="row">Gemini 4 Neon / Antigravity</th><td>Medium</td><td>87.48</td><td>0.49</td><td>23</td><td>23/23</td><td>5.9</td><td>1.10M</td><td>$0.92</td><td>67.87</td></tr>
+        <tr data-compare="opus55-medium"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Medium</td><td>90.86</td><td>0.64</td><td>23</td><td>23/23</td><td>18.6</td><td>5.01M</td><td>$2.84</td><td>77.32</td></tr>
+        <tr data-compare="gpt62sol-medium"><th scope="row"><a href="/benchmarks/swe-v4-gpt62-sol-v331.html">GPT-6.2 Sol</a> / Codex</th><td>Medium</td><td>88.94</td><td>0.47</td><td>23</td><td>23/23</td><td>4.4</td><td>1.05M</td><td>$0.33</td><td>71.78</td></tr>
+        <tr data-compare="neon-high"><th scope="row">Gemini 4 Neon / Antigravity</th><td>High</td><td>87.87</td><td>0.46</td><td>23</td><td>23/23</td><td>6.4</td><td>1.44M</td><td>$1.19</td><td>69.07</td></tr>
+        <tr data-compare="opus55-high"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>High</td><td>91.11</td><td>0.57</td><td>22*</td><td>22/23</td><td>21.4</td><td>4.11M</td><td>$3.27</td><td>77.99</td></tr>
+        <tr data-compare="gpt62sol-high"><th scope="row"><a href="/benchmarks/swe-v4-gpt62-sol-v331.html">GPT-6.2 Sol</a> / Codex</th><td>High</td><td>88.86</td><td>0.33</td><td>23</td><td>23/23</td><td>5.1</td><td>1.30M</td><td>$0.41</td><td>71.43</td></tr>
+        <tr data-compare="neon-extra-high"><th scope="row">Gemini 4 Neon / Antigravity</th><td>Extra-high</td><td>87.70</td><td>0.51</td><td>22</td><td>23/23</td><td>10.1</td><td>2.45M</td><td>$1.80</td><td>68.69</td></tr>
+        <tr data-compare="opus55-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Extra-high</td><td>90.68</td><td>1.10</td><td>23</td><td>22/23</td><td>20.7</td><td>3.90M</td><td>$4.11</td><td>79.98</td></tr>
+        <tr data-compare="gpt62sol-extra-high"><th scope="row"><a href="/benchmarks/swe-v4-gpt62-sol-v331.html">GPT-6.2 Sol</a> / Codex</th><td>Extra-high</td><td>89.01</td><td>0.43</td><td>23</td><td>23/23</td><td>8.2</td><td>1.31M</td><td>$0.46</td><td>71.91</td></tr>
+        <tr data-compare="opus55-max"><th scope="row"><a href="/benchmarks/swe-v4-opus55-v315.html">Claude Opus 5.5</a> / Claude Code</th><td>Max</td><td>90.22</td><td>1.02</td><td>23</td><td>21/23</td><td>37.5</td><td>8.72M</td><td>$8.75</td><td>79.77</td></tr>
+        <tr data-compare="gpt62sol-max"><th scope="row"><a href="/benchmarks/swe-v4-gpt62-sol-v331.html">GPT-6.2 Sol</a> / Codex</th><td>Max</td><td>88.74</td><td>0.40</td><td>23</td><td>23/23</td><td>11.3</td><td>1.31M</td><td>$0.55</td><td>71.06</td></tr>
+        </tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Read the comparison with its limits.</strong> All three models are judged by Muse Spark 1.3 and Grok 4.6 under the same rubric, each in its own protocol run (v3.32, v3.15 and v3.31). Gemini 4 Neon has no Max level. * Opus 5.5 at High is judged on 22 runs, where a safeguard stop left one run with no code to review; that run scored 0 and is priced. Harnesses differ: Antigravity for Gemini 4 Neon, Claude Code for Opus 5.5, Codex for GPT-6.2 Sol. $/task is API-equivalent at list price from each run&rsquo;s receipts; for Opus 5.5 it is Claude Code&rsquo;s own list-price total.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="low" aria-labelledby="low-heading">
+        <h2 id="low-heading">Where Low falls short</h2>
+        <p>Six of the 23 tasks pass only part of their hidden tests at Low: cellarcore (12 of 14 hidden behaviours), hedgecore (6 of 8), lodgecore (11 of 12), matchcore (7 of 9), quotacore (8 of 10) and tallycore (6 of 8). Each misses one to three of the documented departures from the specification, and each passes in full at Medium. Those six runs score 73.62 to 80.75 combined, which is what pulls Low down to 84.32 and widens its standard error to 1.09, against about 0.5 at the other levels.</p>
+        <div class="suite-table-scroll" role="region" aria-label="The six Low runs that did not pass every hidden test" tabindex="0"><table class="suite-results"><caption>The six Low runs that did not pass every hidden test; every one passed in full at Medium, High and Extra-high</caption><thead><tr><th scope="col">Task</th><th scope="col">Hidden behaviours fixed</th><th scope="col">Functional</th><th scope="col">Combined</th></tr></thead><tbody>
+        <tr><th scope="row">cellarcore</th><td>12/14</td><td>85.7</td><td>77.45</td></tr>
+        <tr><th scope="row">hedgecore</th><td>6/8</td><td>75.0</td><td>74.99</td></tr>
+        <tr><th scope="row">lodgecore</th><td>11/12</td><td>91.7</td><td>80.75</td></tr>
+        <tr><th scope="row">matchcore</th><td>7/9</td><td>77.8</td><td>78.84</td></tr>
+        <tr><th scope="row">quotacore</th><td>8/10</td><td>80.0</td><td>78.25</td></tr>
+        <tr><th scope="row">tallycore</th><td>6/8</td><td>75.0</td><td>73.62</td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="report-section" id="cost" aria-labelledby="cost-heading">
+        <h2 id="cost-heading">Cost and tokens across effort levels</h2>
+        <p>All 92 runs priced from their Antigravity receipts at list API rates, cache-aware, with judging excluded. These are API-equivalent estimates, not subscription charges: Gemini 4 Neon ran on a Google AI Pro subscription, and what the plan bills is not observable from the receipts. Cost per task is $0.73 at Low, $0.92 at Medium, $1.19 at High and $1.80 at Extra-high; the whole sweep comes to $106.84. Effort shows up in thinking: the median run spends 7.2K output tokens thinking at Low and 40.8K at Extra-high, and mean output rises from 20.1K to 56.9K tokens a task. Total tokens nearly triple, from 0.91M to 2.45M a task, as longer runs re-read more context.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Cost, tokens and runtime at each effort level" tabindex="0"><table class="suite-results">
+        <caption>API-equivalent cost, tokens and runtime at each effort level, n=23 runs per cell</caption><thead><tr><th scope="col">Effort</th><th scope="col">Runs</th><th scope="col">$/task</th><th scope="col">Level total</th><th scope="col">Tokens/task</th><th scope="col">Output/task</th><th scope="col">Median thinking</th><th scope="col">Cached share of input</th><th scope="col">Min/task</th><th scope="col">Median min</th></tr></thead><tbody><tr data-econ-effort="low"><th scope="row">Low</th><td>23</td><td>$0.73</td><td>$16.84</td><td>0.91M</td><td>20.1K</td><td>7.2K</td><td>83.7%</td><td>5.1</td><td>3.8</td></tr><tr data-econ-effort="medium"><th scope="row">Medium</th><td>23</td><td>$0.92</td><td>$21.12</td><td>1.10M</td><td>28.4K</td><td>14.6K</td><td>84.1%</td><td>5.9</td><td>4.9</td></tr><tr data-econ-effort="high"><th scope="row">High</th><td>23</td><td>$1.19</td><td>$27.40</td><td>1.44M</td><td>38.2K</td><td>24.3K</td><td>88.3%</td><td>6.4</td><td>6.1</td></tr><tr data-econ-effort="extra-high"><th scope="row">Extra-high</th><td>23</td><td>$1.80</td><td>$41.48</td><td>2.45M</td><td>56.9K</td><td>40.8K</td><td>91.3%</td><td>10.1</td><td>10.1</td></tr><tr data-econ-effort="sweep"><th scope="row">Full sweep</th><td>92</td><td>$1.16</td><td>$106.84</td><td>136M</td><td></td><td></td><td></td><td>10.6 h</td><td></td></tr></tbody></table></div>
+        <div class="suite-notes">
+          <p><strong>Pricing.</strong> Rates checked 2026-11-19 from <a href="https://ai.google.dev/gemini-api/docs/pricing">Google</a>: Gemini 4 Neon at $3.00 input, $0.15 cached input and $15.00 output per million tokens. Antigravity receipts report input, cached input, output and thinking tokens per run, so cached input is billed at the cache-read rate and the rest at the standard rate; thinking tokens are part of output and are not billed twice. The sweep stamped each run at these rates at run time; the export recomputed every run from its receipt and matched every stamp. The 40 attempts the plan&rsquo;s quota refused are not priced: none is a population row.</p>
+          <p><strong>Tokens</strong> are Antigravity&rsquo;s raw totals, input (cached included) plus output; the full sweep row sums them over all 92 runs (Tokens/task in that row is the sweep total). <strong>Tool calls</strong> average 27.5, 23.8, 24.5 and 31.0 a task from Low to Extra-high, 2,455 in all: 1,497 shell commands, 776 file reads, 171 edits and 11 file writes. Per-run estimates, token usage breakdowns, tool-call counts and the rate table are in <a href="/assets/data/swe-v4-gemini4-neon-v332/economics.json">economics.json</a> and <a href="/assets/data/swe-v4-gemini4-neon-v332/runs.csv">runs.csv</a>.</p>
+        </div>
+      </section>
+
+      <section class="report-section" id="board" aria-labelledby="board-heading">
+        <h2 id="board-heading">On the Frontier v4 board</h2>
+        <p>Gemini 4 Neon&rsquo;s best level, High at 87.87 &plusmn; 0.46 (n=23), ranks 43rd of the board&rsquo;s 95 model and effort columns, just below Claude Haiku 5.5 at High (88.02) and just above GPT-6 Astra at Medium (87.73). By level it ranks Low 60th, Medium 46th, High 43rd and Extra-high 45th: the three upper levels sit within 0.4 points of each other. High carries the best tag; the board&rsquo;s critical and routine effort suggestions pick Medium, within 0.4 points of the best for about three quarters of the cost, and the rough suggestion picks Low. The <a href="/leaderboard.html">leaderboard</a> carries every column; Gemini 4 Neon&rsquo;s cells carry the &dagger;&dagger;&dagger; footnote with the disclosures on this page.</p>
+        <p>Read these placements with the panel in mind. Gemini 4 Neon, Claude Opus 5.5, GPT-6.2 Sol and most other columns are judged by Muse Spark 1.3 and Grok 4.6; Claude Fable 5.2&rsquo;s, Grok 4.7&rsquo;s, DeepSeek V4.1 Flash&rsquo;s and Reflection Beam&rsquo;s by Muse Spark 1.3 and GPT-6.1 Sol; Muse Wonder Full&rsquo;s by Claude Opus 5.5 and GPT-6.1 Sol. Scores from different panels are not calibrated against each other, so gaps of a point or two between columns judged by different panels are not a reliable order.</p>
+      </section>
+
+      <section class="report-section" id="code-quality" aria-labelledby="code-quality-heading">
+        <h2 id="code-quality-heading">What Code quality measures</h2>
+        <p>Every judge receives the same rubric, frozen by hash before any review. It names the reader it scores for: an engineer who has never seen the code, reads it top to bottom without running it, and must make a correct change in one sitting. It tells the judge that its own ease at parsing dense code is not evidence of readability. Six dimensions are scored 0 to 4 in half steps against written anchors: naming, presentation and intent form the human readability sub-score; structure, changeability and verifiability form the maintainability sub-score. Every score must cite an exact excerpt from the code and a concrete consequence for that reader. The host computes the sub-scores; the judge does no arithmetic.</p>
+        <p>The 33 points have three designed layers. The reviewed panel carries 24 points. An intent-recovery probe carries 9: the judge, given only the specification and the code, lists where the code departs from the specification, and a separate call matches that list against a frozen answer key, over the departures the submission passed tests for. The third layer, measured maintenance, is designed for 12 points but is not yet built, so the pre-registered 24 plus 9 split is in force. Frontier Code quality is therefore the reviewed layer plus intent recovery, and it is never compared with Routine v1 Code quality, which is scored on a different suite and population.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Code quality components at each effort level" tabindex="0"><table class="suite-results">
+        <caption>Code quality components at each effort level, out of 100, mean of both judges over the judged runs (22 at Low and Extra-high)</caption><thead><tr><th scope="col">Component</th><th scope="col">Low</th><th scope="col">Medium</th><th scope="col">High</th><th scope="col">Extra-high</th></tr></thead><tbody><tr><th scope="row">Code quality</th><td>66.15</td><td>67.87</td><td>69.07</td><td>68.69</td></tr><tr><th scope="row">Human readability</th><td>55.8</td><td>57.6</td><td>59.1</td><td>60.0</td></tr><tr><th scope="row">Maintainability</th><td>66.2</td><td>68.6</td><td>71.3</td><td>70.2</td></tr><tr><th scope="row">Intent recovery</th><td>79.9</td><td>80.6</td><td>79.3</td><td>78.2</td></tr><tr><th scope="row">Runs with no intent denominator</th><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><th scope="row">Rated by Muse Spark 1.3</th><td>57.6</td><td>60.8</td><td>63.7</td><td>63.1</td></tr><tr><th scope="row">Rated by Grok 4.6</th><td>64.4</td><td>65.4</td><td>66.8</td><td>67.1</td></tr><tr><th scope="row">Standard error of Code quality</th><td>1.45</td><td>1.26</td><td>1.21</td><td>1.36</td></tr></tbody></table></div>
+        <p>Code quality rises about three points from Low to High and then holds. Human readability is the weaker sub-score at every level, 55.8 to 60.0 against 66.2 to 71.3 for maintainability. Grok 4.6 is the higher rater at every level, by 3.1 to 6.8 points on the reviewed score. Per-run sub-scores from each judge are in <a href="/assets/data/swe-v4-gemini4-neon-v332/runs.csv">runs.csv</a>; the exact rubric, system text, probe and match instructions are in <a href="/assets/data/swe-v4-gemini4-neon-v332/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="judges" aria-labelledby="judges-heading">
+        <h2 id="judges-heading">Judges and calibration</h2>
+        <p>The scored panel is Muse Spark 1.3 (Meta) through the Muse CLI on its Standard tier, and Grok 4.6 (xAI) through the Cursor CLI at medium effort, with equal weight, the same settings and pinned Muse binary as under v3.24. Grok 4.6 ran through the Cursor CLI pinned to version 2026.10.01-e373342, the build v3.23 to v3.31 used, with a digest of its version directory checked before every stage. Neither lab is Google. Every session is fresh, tools are disabled, the workspace is empty, model identity is checked per call from the CLI&rsquo;s own records, and solver labels are withheld. Protocol v3.32 changes nothing in the rubric, controls, quirk keys, gates, repeats, seed, weights or judges from v3.24; it applies the protocol to this population. The owner chose this panel on November 21.</p>
+        <p>Before scoring a single submission, each judge reviews ten held-out programs that implement the same ledger specification: clear, compressed, compressed then auto-formatted, verbose with duplicated policy, needlessly abstracted, misleadingly commented, narrated with a comment on every line, a documented legacy quirk, an embedded instruction to give full marks, and hidden module state. Each program is reviewed five times in a seeded order. Twenty gates fixed in advance check that the judge sees the construct; a judge may miss at most one gate by at most half a point. Both judges retook the exam under v3.32 before any counted call.</p>
+        <div class="suite-table-scroll" role="region" aria-label="Calibration verdicts" tabindex="0"><table class="suite-results">
+        <caption>Calibration verdicts under v3.32</caption><thead><tr><th scope="col">Judge</th><th scope="col">Protocol</th><th scope="col">Calls</th><th scope="col">Result</th><th scope="col">Allowance used</th><th scope="col">Failing gates</th></tr></thead><tbody><tr><th scope="row">Muse Spark 1.3</th><td>code-quality-maintenance-v3.32</td><td>80</td><td>passed</td><td>yes</td><td>g11 repeatability</td></tr><tr><th scope="row">Grok 4.6</th><td>code-quality-maintenance-v3.32</td><td>80</td><td>passed</td><td>no</td><td>none</td></tr></tbody></table></div>
+        <p>Muse Spark 1.3 passed with the one-gate allowance: its repeatability gate (g11) fell 0.02 short, within the half point the protocol allows for one gate, as under v3.23, v3.29 and v3.31. Grok 4.6 passed every gate. Every gate value and control mean is in <a href="/assets/data/swe-v4-gemini4-neon-v332/calibration.json">calibration.json</a>.</p>
+        <p><strong>The judges agree on the shape.</strong> Scored by one judge alone, the combined score would be (Muse or Grok) 83.44 or 85.20 at Low; 86.88 or 88.08 at Medium; 87.43 or 88.31 at High; 87.13 or 88.28 at Extra-high. Either way Low is the outlier and the upper three levels are level. Each run&rsquo;s single-judge figures are in <a href="/assets/data/swe-v4-gemini4-neon-v332/runs.csv">runs.csv</a>.</p>
+        <p>Under v3.32 each judge was planned for 368 counted calls: 80 in calibration, 92 primary reviews, 4 repeats, 8 pairwise checks, 92 intent probes and 92 answer-key matches. Grok&rsquo;s two invalid probes have no answer-key match, so it made 366 counted calls and has 364 selected. Muse needed a second attempt on 2 calls (both unsupported excerpts) and Grok on 7 (four unsupported excerpts and three JSON syntax errors, two of them the codeccore probes, which failed again), under the protocol&rsquo;s single-retry rule. Every Grok call reported the display label &ldquo;Grok 4.6 Medium&rdquo; for the pinned model id, where the frozen settings say &ldquo;Cursor Grok 4.6 Medium&rdquo;; the operator wrapper accepts the rename and records it on all 364 selected Grok calls. Neither judge produced a reviewer fallback, and no call waited on a usage limit. Judging ran on November 21, 2026, from 14:58 to 21:19 UTC, when it stopped at the Low codeccore probe, and resumed from November 22, 02:19 UTC, to 03:31 UTC with the extended rule; no benchmark run overlapped either window. Every operator record is in <a href="/assets/data/swe-v4-gemini4-neon-v332/judge-protocols.json">judge-protocols.json</a>.</p>
+      </section>
+
+      <section class="report-section" id="run-notes" aria-labelledby="run-notes-heading">
+        <h2 id="run-notes-heading">How it was run</h2>
+        <ul>
+          <li><strong>The model.</strong> Gemini 4 Neon through the Antigravity CLI, which takes the effort level as part of the model name (<code>gemini-4-neon-low</code> to <code>gemini-4-neon-xhigh</code>). Antigravity reports the model it served, <code>gemini-4-neon</code>, on every run.</li>
+          <li><strong>Antigravity CLI 1.5.12.</strong> Pinned by file hash, signed in with the owner&rsquo;s Google AI Pro subscription, in headless mode with a private home folder per run inside the harness&rsquo;s macOS sandbox. Antigravity offers no Max level for Neon, so the sweep has four levels.</li>
+          <li><strong>A custom agent with no web tools.</strong> Antigravity&rsquo;s default agent carries a web search tool that its permission settings cannot switch off. Every run instead used a custom main agent limited to the default file and shell tools (read file, write file, edit file and run command), whose prompt body is Antigravity&rsquo;s own identity text, verbatim; URL, browser and MCP tools were also denied. Every archived tool call is one of those four tools, and every integrity audit is clean: no web search or fetch, and no benchmark data or answer-key paths.</li>
+          <li><strong>The plan&rsquo;s usage quota.</strong> The AI Pro plan refused 40 attempts on its usage quota (10 at Medium, 8 at High, 22 at Extra-high), four of them at Extra-high cut off mid-task. Each was classified as infrastructure and rerun from scratch after the quota reset, so the sweep waited about nine hours in all; no refused attempt is in the population or the cost.</li>
+          <li><strong>From a tagged run worktree.</strong> Every run ran from <code>bench/2026-11-20-gemini4-neon-frontier-v4</code>, so every run summary carries a clean source block and records the frozen suite lock&rsquo;s task hash. A first launch the evening before was stopped after one Low run: shell heredocs failed inside the sandbox, a fault no earlier harness had met. The fix went in through its own pull request, the voided run was set aside, and the sweep restarted from Low on the new tag.</li>
+          <li><strong>The pinned binary.</strong> During setup, before any run, Antigravity updated itself to 1.6.1 in place; the pinned 1.5.12 binary was restored by hash and its folder made read-only, which the updater skips, and the launcher checks the hash before every run. The run receipts written from the sweep tag still describe the update control as an environment variable, which turned out not to stop the updater.</li>
+          <li><strong>No timeouts.</strong> Every run finished inside the flat 3-hour bound; the longest, Medium granarycore, took 19.0 minutes.</li>
+          <li><strong>Where and how.</strong> The owner&rsquo;s Mac, one task at a time, from November 20, 2026, 13:50 UTC, to November 21, 09:58 UTC.</li>
+          <li><strong>One attempt per task and level.</strong> Runs were not repeated, and effort labels are Antigravity&rsquo;s own.</li>
+        </ul>
+      </section>
+
+      <section class="report-section" id="reproduce" aria-labelledby="reproduce-heading">
+        <h2 id="reproduce-heading">Evidence and reproduction</h2>
+        <p>Public files contain all 92 run measurements, both judges&rsquo; six-dimension sub-scores and intent-recovery scores for the 90 published runs, the combined score from each judge alone, hidden behaviours fixed, integrity-audit verdicts, tool-call counts, each run&rsquo;s task hash, raw tokens and API-equivalent cost estimates per run, four aggregates, every calibration gate value, the exact judge protocol text, the operator records for the two unpublished rows, and source hashes. Each run&rsquo;s Code quality is (0.24 &times; reviewed score + 0.09 &times; intent recovery) / 0.33, where both terms are the equal mean of the two judges. The combined score is 100 &times; (0.50F + 0.085Q + 0.085S + 0.33C / 100). The <a href="https://github.com/morganlinton/VulcanBenchCOM/blob/main/assets/data/swe-v4-gemini4-neon-v332/REPRODUCING.md">reproduction guide</a> gives the public arithmetic checks and links the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/code-quality-maintenance-v3.md">protocol document</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/maintenance-v3-operations.md">operations log</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/docs/DECISIONS.md">decision record</a>, the <a href="https://github.com/morganlinton/VulcanBench/blob/main/harness/agent/antigravity_cli.py">Antigravity adapter</a> and the code in the <a href="https://github.com/morganlinton/VulcanBench">harness repository</a>.</p>
+        <p>No human rated anything; the scores are model judgment for a human reader, not human validation. Hash checks bind the export to frozen files, including the operator&rsquo;s two invalidation markers; they do not prove that judges were unbiased or that no training overlap exists.</p>
+        <p>Withheld: raw prompts and responses, the model&rsquo;s thinking text, submitted patches and reconstructed sources, the quirk answer keys (they describe hidden-test behaviour), reviewer session identifiers and usage receipts, solver event streams and tool-call inputs, and host binary paths. Summed solver time is 10.56 hours; judging is excluded.</p>
+      </section>
+    </article>
+</main>
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="/benchmarks.html">Benchmarks</a>
+      <a href="/reports.html">Reports</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="/assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="/site.js?v=14" defer></script>
+<script src="/share.js?v=2" defer></script>
+</body>
+</html>

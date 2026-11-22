@@ -7,6 +7,13 @@
     <description>VulcanBench technical reports: suite-specific scores, reasoning effort, Code quality, runtime, tokens and estimated API costs.</description>
     <language>en</language>
     <item>
+      <title>Gemini 4 Neon across every effort level | VulcanBench Frontier v4</title>
+      <link>https://vulcanbench.com/benchmarks/swe-v4-gemini4-neon-v332.html</link>
+      <guid>https://vulcanbench.com/benchmarks/swe-v4-gemini4-neon-v332.html</guid>
+      <pubDate>Sat, 21 Nov 2026 20:00:00 +0000</pubDate>
+      <description>92 runs of Google's Gemini 4 Neon (gemini-4-neon) in Antigravity CLI 1.5.12 on a Google AI Pro subscription, through a custom agent limited to file and shell tools (no web search), from November 20, 2026, 13:50 UTC, to November 21, 09:58 UTC, at the four effort levels Antigravity offers (Low to Extra-high; no Max), Code quality at 33% judged for a human reader by Muse Spark 1.3 and Grok 4.6 under protocol v3.32. Combined score 84.32 at Low (judged n=22, 17 of 23 tasks passed), 87.48 at Medium, 87.87 at High and 87.70 at Extra-high (n=22), with every task passed from Medium up and no timeouts; best level High, 43rd of 95 columns on the leaderboard. Low and Extra-high codeccore are unpublished: Grok 4.6's intent probe returned malformed JSON on both attempts. $0.73 to $1.80 and 5.1 to 10.1 minutes per task at list price, $106.84 for the sweep; beside Claude Opus 5.5 and GPT-6.2 Sol.</description>
+    </item>
+    <item>
       <title>GPT-6.2 Sol across every effort level | VulcanBench Frontier v4</title>
       <link>https://vulcanbench.com/benchmarks/swe-v4-gpt62-sol-v331.html</link>
       <guid>https://vulcanbench.com/benchmarks/swe-v4-gpt62-sol-v331.html</guid>
