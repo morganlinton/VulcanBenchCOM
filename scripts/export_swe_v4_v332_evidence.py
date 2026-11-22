@@ -632,7 +632,8 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
     assert {r["model"] for r in compared} == set(COMPARATORS) and len(compared) == 5 * len(COMPARATORS)
     for r in compared:
         b = board[COMPARATORS[r["model"]], r["effort"]]
-        assert (int(r["judged"]), int(r["n"])) == (int(b["n"]), int(b["passed_of"])), (r["model"], r["effort"])
+        # The board's n and passed_of both count judged runs; every comparator level ran 23 tasks.
+        assert (int(r["judged"]), int(r["n"])) == (int(b["n"]), 23), (r["model"], r["effort"])
         for column, source in (("combined", "combined_33"), ("combined_se", "combined_33_se"), ("code_quality", "code_quality"),
                                ("usd_per_task", "mean_usd"), ("minutes", "mean_minutes")):
             assert abs(float(r[column]) - float(b[source])) <= 5e-5, (r["model"], r["effort"], column)

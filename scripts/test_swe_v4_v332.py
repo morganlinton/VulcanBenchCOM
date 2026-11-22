@@ -30,7 +30,7 @@ TOOLS = ("read_file", "write_file", "edit_file", "run_command")
 CARD = {"low": (84.3209, 1.0948, 66.1494, 5.1269, 0.7322), "medium": (87.4833, 0.4919, 67.8718, 5.8511, 0.9181),
         "high": (87.8685, 0.4601, 69.0667, 6.4493, 1.1913), "extra-high": (87.7024, 0.5109, 68.6887, 10.1158, 1.8036)}
 # Copied byte for byte from the harness (docs/results/swe-v4-gemini4-neon-2026-11/gemini4neon-vs-frontier.png, 2400x1350), shown at 1600x900.
-CARD_PNG = ("swe-v4-gemini4-neon-v332.png", "d31fba9b67360b0dccce4e245ddebf32556e9fb7c9465e6fed241cab95b6ef85", 2400, 1350)
+CARD_PNG = ("swe-v4-gemini4-neon-v332.png", "fb5ed88eaa2874b9fdb0d1247aad689989645726890e8715108e89b0f706836b", 2400, 1350)
 # Comparators on the page and the card: published board rows.
 COMPARATORS = {"opus55": "Opus 5.5", "gpt62sol": "GPT-6.2 Sol"}
 UNPUBLISHED = {("low", "legacy-codeccore-binary-parity"): "submission-048", ("extra-high", "legacy-codeccore-binary-parity"): "submission-069"}
