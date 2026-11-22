@@ -26,6 +26,8 @@ class PublicationTests(unittest.TestCase):
         for page in ROOT.rglob("*.html"):
             if ".git" in page.parts or "node_modules" in page.parts:
                 continue
+            if page.is_relative_to(ROOT / "build-offs" / "play"):
+                continue  # a playable build-off entry is a generated app, not a site page with a masthead
             text = page.read_text()
             self.assertNotIn("benchmark-your-stack", text, page)
             self.assertNotIn("For teams", text, page)

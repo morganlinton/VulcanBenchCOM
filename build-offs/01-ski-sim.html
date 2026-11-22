@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ski simulators: Chamonix Ski Sim and Fall Line | VulcanBench Build-offs</title>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="description" content="Build-off 01: Google's Chamonix Ski Sim, a sample app built with Gemini in Google AI Studio, beside Fall Line, built by Claude Fable 5.2 in Claude Code after being shown it. Play both in your browser and decide. No score; how each was made is disclosed.">
+<link rel="canonical" href="https://vulcanbench.com/build-offs/01-ski-sim.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="Ski simulators: Chamonix Ski Sim and Fall Line | VulcanBench Build-offs">
+<meta property="og:description" content="Two browser ski games, each built by a model: Google's Chamonix Ski Sim (Gemini) and Fall Line (Claude Fable 5.2). Play both and decide. No score; how each was made is disclosed.">
+<meta property="og:url" content="https://vulcanbench.com/build-offs/01-ski-sim.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta property="article:published_time" content="2026-11-22T14:00:00+00:00">
+<meta property="article:author" content="Morgan Linton">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ski simulators: Chamonix Ski Sim and Fall Line | VulcanBench Build-offs">
+<meta name="twitter:description" content="Two browser ski games, each built by a model: Google's Chamonix Ski Sim (Gemini) and Fall Line (Claude Fable 5.2). Play both and decide. No score; how each was made is disclosed.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://vulcanbench.com/build-offs/01-ski-sim.html#article",
+  "headline": "Ski simulators: Chamonix Ski Sim and Fall Line",
+  "description": "Build-off 01: Google's Chamonix Ski Sim, a sample app built with Gemini in Google AI Studio, beside Fall Line, built by Claude Fable 5.2 in Claude Code after being shown it. Play both in your browser and decide. No score; how each was made is disclosed.",
+  "datePublished": "2026-11-22T14:00:00+00:00",
+  "dateModified": "2026-11-22T14:00:00+00:00",
+  "mainEntityOfPage": "https://vulcanbench.com/build-offs/01-ski-sim.html",
+  "image": "https://vulcanbench.com/assets/og-image.png",
+  "author": {"@type": "Person", "@id": "https://vulcanbench.com/#morgan", "name": "Morgan Linton", "url": "https://www.morganlinton.com/", "sameAs": ["https://www.morganlinton.com/", "https://github.com/morganlinton"]},
+  "publisher": {"@id": "https://vulcanbench.com/#org"}
+}
+</script>
+<link rel="stylesheet" href="../style.css?v=34">
+<link rel="stylesheet" href="../analysis.css?v=1">
+<link rel="stylesheet" href="../reports.css?v=1">
+<style>
+  /* Build-off entry cards: the two entries get identical treatment. */
+  .bo-entry { display: flex; flex-direction: column; }
+  .bo-entry h3 { font-size: 22px; }
+  .bo-entry p { font-size: 16.5px; line-height: 1.6; margin-top: 10px; }
+  .bo-entry .bo-go { margin-top: auto; padding-top: 18px; }
+  .bo-entry .bo-go .btn { display: block; text-align: center; padding-left: 12px; padding-right: 12px; }
+  .bo-entry .bo-hint { font-family: var(--mono); font-size: 12px; line-height: 1.5; color: var(--faint); margin-top: 10px; }
+  .bo-made td.l, .bo-made th.l { vertical-align: top; }
+  .bo-made td.l:first-child { font-family: var(--mono); font-size: 12.5px; color: var(--faint); white-space: nowrap; }
+  .bo-made td.l { width: 42%; }
+  .bo-made td.l:first-child { width: 16%; }
+  @media (max-width: 560px) {
+    .bo-made td.l:first-child { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../reports.html">Reports</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../eval-suite-builder.html">Eval suite builder</a>
+      <a href="../blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="../build-offs.html">Build-offs</a>
+    <span class="sep">/</span>
+    <span aria-current="page">Ski simulators</span>
+  </nav>
+
+  <div class="article-head">
+    <div class="rno">Build-off No. 01</div>
+    <h1>Ski simulators: Chamonix Ski Sim and Fall Line</h1>
+    <div class="byline">Two browser ski games, each built by a model. Play both and decide for yourself.</div>
+    <div class="runmeta">2026-11-22 &middot; Morgan Linton &middot; browser games &middot; 2 entries &middot; no score</div>
+  </div>
+
+  <div class="post-body an-body">
+    <p class="lead-in">A build-off takes an open-ended brief, lets each model build a complete working thing, and puts the results side by side for you to try. This is the first one: two skiing games that run in a browser. There is no score on this page. Play both, then decide which you would rather have shipped.</p>
+
+    <div class="rp-pair">
+      <div class="bo-entry">
+        <h3>Chamonix Ski Sim</h3>
+        <span class="rp-sub">Google &middot; Gemini &middot; Google AI Studio</span>
+        <p>A free-ski simulator set on the Vall&eacute;e Blanche in the Mont Blanc massif. Its own controls list a helmet view, a time-of-day setting, a scout view, replays, avalanches and switch riding.</p>
+        <div class="bo-go">
+          <a class="btn primary" href="https://aistudio.google.com/apps/bundled/chamonix_ski_sim" target="_blank" rel="noopener">Play Chamonix Ski Sim</a>
+          <div class="bo-hint">Opens in Google AI Studio in a new tab. It may ask you to sign in with a Google account.</div>
+        </div>
+      </div>
+      <div class="bo-entry">
+        <h3>Fall Line</h3>
+        <span class="rp-sub">VulcanBench &middot; Claude Fable 5.2 &middot; Claude Code</span>
+        <p>A ski game on an invented, procedurally generated mountain. A 43-gate race with medal times and a ghost of your best run, a free-ride mode with other skiers, tricks and avalanches, and four weather settings.</p>
+        <div class="bo-go">
+          <a class="btn primary" href="play/fall-line/index.html" target="_blank" rel="noopener">Play Fall Line</a>
+          <div class="bo-hint">Opens on this site in a new tab. No sign-in. Your best times are kept in your browser only.</div>
+        </div>
+      </div>
+    </div>
+    <p class="an-note">Both games show their controls on screen and both are built for a keyboard or a touch screen. Give each a few runs before you make up your mind.</p>
+
+    <h2 id="judge">What to look for</h2>
+    <p>There is no rubric. These are the questions I would ask of both:</p>
+    <ul>
+      <li><strong>The first minute.</strong> Can you work out how to start and steer without reading anything?</li>
+      <li><strong>The skiing.</strong> Does carving, speed and falling feel like something you can learn and get better at?</li>
+      <li><strong>The mountain.</strong> How does it look and sound, and does it hold up when you stop and look around?</li>
+      <li><strong>The second run.</strong> Is there a reason to go again?</li>
+      <li><strong>The rough edges.</strong> What broke, stuttered or confused you, and on what device?</li>
+    </ul>
+
+    <h2 id="made">How each entry was made</h2>
+    <p>The two entries were not made under the same conditions, and much less is known about one of them. Everything below about Chamonix Ski Sim comes from its public app page. Everything about Fall Line comes from the session and the repository it was built in.</p>
+    <div class="an-table bo-made">
+      <table>
+        <thead>
+          <tr><th class="l"></th><th class="l">Chamonix Ski Sim</th><th class="l">Fall Line</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="l">Published by</td><td class="l">Google, as a sample app in Google AI Studio</td><td class="l">VulcanBench</td></tr>
+          <tr><td class="l">Model</td><td class="l">Gemini. The version is not stated on the app page.</td><td class="l">Claude Fable 5.2 (<code>claude-fable-5-2</code>)</td></tr>
+          <tr><td class="l">Tool</td><td class="l">Google AI Studio</td><td class="l">Claude Code, in one session on November 21, 2026</td></tr>
+          <tr><td class="l">Brief</td><td class="l">Not published</td><td class="l">&ldquo;Google made this ski simulator in Gemini, can you build something similar in Fable?&rdquo; and later, &ldquo;I&rsquo;m off to bed, do everything you can overnight so I wake up to a game I can compare to what Google shared&rdquo;</td></tr>
+          <tr><td class="l">Saw the other entry</td><td class="l">No. It came first.</td><td class="l">Yes. Fable 5.2 was given the link and looked at Chamonix Ski Sim before and during the build.</td></tr>
+          <tr><td class="l">Human involvement</td><td class="l">Not published</td><td class="l">No person wrote or edited code. I unblocked the browser once so it could open Google&rsquo;s app, and asked for the commit and the pull request.</td></tr>
+          <tr><td class="l">Attempts</td><td class="l">Not published</td><td class="l">One. This is the only build, not the best of several.</td></tr>
+          <tr><td class="l">Time, tokens and cost</td><td class="l">Not published</td><td class="l">Not recorded. Its 15 commits run from 20:19 to 21:18 Pacific time; the work before the first commit was not timed.</td></tr>
+          <tr><td class="l">Testing before release</td><td class="l">Not published</td><td class="l">Automated only: scripted runs, an autopilot that finishes the race, and a review pass by the same model that found twelve bugs, all fixed. No person played it during the build.</td></tr>
+          <tr><td class="l">Built with</td><td class="l">See the Code tab on its app page</td><td class="l">three.js 0.187 and plain JavaScript, bundled with Vite. No image or sound files: the terrain, scenery and audio are generated in code.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="limits">Why this is not a benchmark</h2>
+    <ul>
+      <li><strong>The conditions differ.</strong> Chamonix Ski Sim is a published showcase. Its brief, the number of attempts behind it and how much a person edited it are not public. Fall Line was built afterwards, by a model that had seen it and was asked for something similar.</li>
+      <li><strong>They are not the same game.</strong> Fall Line is not a copy. It has an invented mountain where Google&rsquo;s is set on a real one, and it adds a gate race that Google&rsquo;s does not have. The features do not line up one to one.</li>
+      <li><strong>One sample each.</strong> A single build from each side, with no repeat runs, no fixed task and no rubric, says little about what either model does on average.</li>
+      <li><strong>VulcanBench is not neutral here.</strong> I commissioned one of the two entries, and Claude Fable 5.2, the model that built it, also drafted this page. I have kept the page to facts and to links so that the judging stays with you.</li>
+    </ul>
+    <p>A controlled version would give every model the same brief, the same tools and the same time, with no sight of the other entries, and then collect votes on unlabelled builds. This build-off does none of that. Treat it as two demos side by side.</p>
+
+    <h2 id="notes">Notes</h2>
+    <p><strong>Fall Line on this site.</strong> The playable build is served from this site and is the build Fable 5.2 wrote, with one change made for publication: nine long dashes in its on-screen text were replaced with colons and hyphens to meet this site&rsquo;s writing rule. It bundles <a href="https://threejs.org">three.js</a> under the MIT License; the notice is in <a href="play/THIRD_PARTY_LICENSES.txt">THIRD_PARTY_LICENSES.txt</a>.</p>
+    <p><strong>Chamonix Ski Sim.</strong> It is Google&rsquo;s app and Google hosts it, so it may change or move after this page was written. The description above is from its app page as it stood on November 22, 2026.</p>
+  </div>
+
+  <div class="post-foot">
+    <div class="dl-row">
+      <a class="btn primary" href="../build-offs.html">All build-offs &rarr;</a>
+      <a class="btn" href="https://x.com/intent/post?text=Build-off%2001%3A%20two%20ski%20simulators%2C%20each%20built%20by%20a%20model.%20Play%20both%20and%20decide.&amp;url=https%3A%2F%2Fvulcanbench.com%2Fbuild-offs%2F01-ski-sim.html" target="_blank" rel="noopener">Share on X</a>
+      <a class="btn" href="../benchmarks.html">Read the benchmarks</a>
+    </div>
+    <p style="margin-top:34px;"><a class="back" href="../build-offs.html">&larr; All build-offs</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured across tasks, effort, time and cost.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../reports.html">Reports</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=14" defer></script>
+</body>
+</html>

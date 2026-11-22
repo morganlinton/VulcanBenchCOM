@@ -26,6 +26,9 @@ Static marketing + results site for [VulcanBench](https://github.com/morganlinto
 - `benchmarks/swe-v4-gpt55-luna-v35.html`: GPT-5.5 vs. GPT-5.6 Luna through Codex at every effort level under Code quality protocol v3.5, with PDF, calibration record and evidence links
 - `benchmarks/swe-v4-astra-fable51-v34.html`: the same runs rescored under Code quality protocol v3.4 (33% weight, neutral Muse Spark 1.3 and Grok 4.6 panel), with PDF, calibration record and evidence links
 - `benchmarks/NN-*.html`: one journal-style page per report (abstract, findings, table, figure, downloads)
+- `build-offs.html`: the build-offs index. A build-off puts complete things that models built from an open-ended brief side by side for readers to try; it has no score and is not a benchmark
+- `build-offs/01-ski-sim.html`: build-off 01, Google's Chamonix Ski Sim (linked out to Google AI Studio) beside Fall Line (Claude Fable 5.2 in Claude Code), with how each was made and why it is not a benchmark
+- `build-offs/play/fall-line/`: the playable Fall Line build, generated from the `VulcanBench/ski-simulator-llm-test` repository (see "Build-offs" below); never edit it by hand
 - `leaderboard.html`: directs readers to suite-specific results and the frozen earlier-suite archive
 - `eval-suite-builder.html`: the eval suite builder waitlist (build an eval suite from your own repository); signups go through `api/waitlist.js` to the project's Vercel Blob store, see "Waitlist" below
 - `methodology.html`: how VulcanBench measures (decontamination, grading, metrics, sandbox, effort, economics)
@@ -71,6 +74,22 @@ pointed at the channel you want) and add its URL to the Vercel project as the en
 "New eval suite builder waitlist signup: <email> (<repo>). That makes N." to that channel. A Slack failure is logged
 and never fails the signup; leave the variable unset to turn the posts off. The URL is a secret: it lives in Vercel
 only, never in this repository.
+
+## Build-offs
+A build-off page links every entry so readers can try it, says how each entry was made (model, tool, brief, human
+involvement, testing) and marks what is unknown as unknown. Give the entries identical treatment on the page and do
+not score, rank or pick a winner. Entries that VulcanBench hosts live under `build-offs/play/<entry>/`; entries hosted
+elsewhere are linked out.
+
+Fall Line is built from a checkout of `VulcanBench/ski-simulator-llm-test` beside this one:
+
+    cd ../ski-simulator-llm-test && npm install
+    npx vite build --base=./ --outDir ../VulcanBenchCOM/build-offs/play/fall-line --emptyOutDir
+
+The build must contain no forbidden dash characters (the tests scan it). `build-offs/play/THIRD_PARTY_LICENSES.txt`
+carries the license notices for what the playable builds bundle; update it when a build's dependencies change.
+`scripts/test_build_offs.py` checks that the index lists every build-off, that each page's local links resolve and
+that each playable build's files are all present. Playable builds are exempt from the masthead nav test.
 
 ## Local preview
     python3 -m http.server 8899
