@@ -1,0 +1,38 @@
+/* Build-off pages: entry cards, the "how each entry was made" table and the reader vote.
+   Builds on analysis.css and reports.css. The entries always get identical treatment:
+   no lab colors, same card, same button, same bar. */
+.bo-entry { display: flex; flex-direction: column; }
+.bo-entry h3 { font-size: 22px; }
+.bo-entry p { font-size: 16.5px; line-height: 1.6; margin-top: 10px; }
+.bo-entry .bo-go { margin-top: auto; padding-top: 18px; }
+.bo-entry .bo-go .btn { display: block; text-align: center; padding-left: 12px; padding-right: 12px; }
+.bo-hint { font-family: var(--mono); font-size: 12px; line-height: 1.5; color: var(--faint); margin-top: 10px; }
+
+.bo-made td.l, .bo-made th.l { vertical-align: top; }
+.bo-made td.l { width: 42%; }
+.bo-made td.l:first-child { width: 16%; font-family: var(--mono); font-size: 12.5px; color: var(--faint); white-space: nowrap; }
+
+.bo-vote { margin: 22px 0 6px; border: 1px solid var(--hairline); border-radius: 6px; background: rgba(255, 255, 255, 0.55); padding: 20px 20px 16px; }
+.bo-vote-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.bo-vote-choices .btn { text-align: center; padding-left: 12px; padding-right: 12px; }
+.bo-vote-choices .btn:disabled { opacity: 0.55; cursor: default; transform: none; }
+.post-body .bo-vote p { font-family: var(--mono); font-size: 12.5px; line-height: 1.5; color: var(--faint); margin-top: 14px; }
+.post-body .bo-vote p.bo-vote-status:empty { display: none; }
+.bo-vote-result { margin-top: 18px; display: grid; gap: 12px; }
+.bo-vote-result[hidden] { display: none; }
+.bo-vote-row { display: grid; grid-template-columns: minmax(150px, 1.2fr) 2fr minmax(110px, auto); gap: 12px; align-items: center; }
+.bo-vote-name { font-family: var(--display); font-weight: 600; font-size: 15.5px; }
+.bo-vote-row.mine .bo-vote-name::after { content: " (your vote)"; font-family: var(--mono); font-weight: 400; font-size: 11.5px; color: var(--faint); white-space: nowrap; }
+.bo-vote-track { display: block; height: 10px; border-radius: 5px; background: var(--hairline-soft); overflow: hidden; }
+.bo-vote-fill { display: block; height: 100%; width: 0; border-radius: 5px; background: var(--ink); transition: width 0.4s ease; }
+.bo-vote-num { font-family: var(--mono); font-size: 12.5px; color: var(--soft); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+@media (max-width: 560px) {
+  .bo-made td.l:first-child { white-space: normal; }
+  .bo-vote-choices { grid-template-columns: 1fr; }
+  .bo-vote-row { grid-template-columns: 1fr auto; }
+  .bo-vote-track { grid-column: 1 / -1; order: 3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bo-vote-fill { transition: none; }
+}
