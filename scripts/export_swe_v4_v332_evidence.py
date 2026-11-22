@@ -629,7 +629,7 @@ def main():  # noqa: PLR0912, PLR0915, one linear export
         board = {(r["model"], r["effort"]): r for r in csv.DictReader(handle)}
     with (results / f"{CARD_STEM}-efforts.csv").open(newline="") as handle:
         compared = [r for r in csv.DictReader(handle) if r["model"] != MODEL]
-    assert {r["model"] for r in compared} == set(COMPARATORS) and len(compared) == 5 * len(COMPARATORS)
+    assert {r["model"] for r in compared} == set(COMPARATORS) and len(compared) == len(EFFORTS) * len(COMPARATORS)
     for r in compared:
         b = board[COMPARATORS[r["model"]], r["effort"]]
         # The board's n and passed_of both count judged runs; every comparator level ran 23 tasks.
