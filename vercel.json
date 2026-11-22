@@ -4,6 +4,21 @@
       "source": "/benchmark-your-stack.html",
       "destination": "/eval-suite-builder.html",
       "permanent": true
+    },
+    {
+      "source": "/analysis.html",
+      "destination": "/benchmarks.html",
+      "permanent": true
+    },
+    {
+      "source": "/analysis/01-muse-wonder-full-vs-gpt-6-1-sol.html",
+      "destination": "/benchmarks/swe-v4-musewonder-full-vs-gpt61-sol-traces.html",
+      "permanent": true
+    },
+    {
+      "source": "/analysis/02-muse-wonder-full-combined-time-cost.html",
+      "destination": "/benchmarks/swe-v4-musewonder-full-vs-frontier.html",
+      "permanent": true
     }
   ],
   "headers": [
