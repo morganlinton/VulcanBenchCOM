@@ -30,6 +30,7 @@ CARD = {"low": (84.3209, 1.0948, 66.1494, 5.1269, 0.7322), "medium": (87.4833, 0
         "high": (87.8685, 0.4601, 69.0667, 6.4493, 1.1913), "extra-high": (87.7024, 0.5109, 68.6887, 10.1158, 1.8036)}
 # Copied byte for byte from the harness (docs/results/swe-v4-gemini4-neon-2026-11/gemini4neon-vs-frontier.png, 2400x1350), shown at 1600x900.
 CARD_PNG = ("swe-v4-gemini4-neon-v332.png", "bdf9d8dd129518b6297252e5a854a8c47e01bc7e342dd8e9abea14cd721bfad9", 2400, 1350)
+CARD_VERSION = 2  # bumped 2026-11-22 for the shared-levels card
 # Comparators on the page and the card: published board rows.
 COMPARATORS = {"opus55": "Opus 5.5", "gpt62sol": "GPT-6.2 Sol"}
 UNPUBLISHED = {("low", "legacy-codeccore-binary-parity"): "submission-048", ("extra-high", "legacy-codeccore-binary-parity"): "submission-069"}
@@ -339,8 +340,10 @@ class Gemini4NeonPageTests(unittest.TestCase):
         data = (ROOT / "assets/cards" / name).read_bytes()
         self.assertEqual(hashlib.sha256(data).hexdigest(), sha)
         self.assertEqual((int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")), (width, height))
-        self.assertIn(f'src="/assets/cards/{name}" width="1600" height="900"', self.page_html)  # 16:9, shown at the feature-card size
-        self.assertIn(f'<meta property="og:image" content="https://vulcanbench.com/assets/cards/{name}">', self.page_html)
+        # ?v= changes whenever the card does, so browsers and link previews refetch it.
+        self.assertIn(f'src="/assets/cards/{name}?v={CARD_VERSION}" width="1600" height="900"', self.page_html)  # 16:9, shown at the feature-card size
+        self.assertIn(f'<meta property="og:image" content="https://vulcanbench.com/assets/cards/{name}?v={CARD_VERSION}">', self.page_html)
+        self.assertNotIn(f'{name}"', self.page_html)  # no unversioned link left
         self.assertIn(f'<meta property="og:image:width" content="{width}">', self.page_html)
         self.assertIn(f'<meta property="og:image:height" content="{height}">', self.page_html)
         provenance = json.loads((DATA / "provenance.json").read_text())["source_artifacts_sha256"]
