@@ -58,10 +58,19 @@
 }
 </script>
 <link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
-<link rel="stylesheet" href="../style.css?v=34">
+<link rel="stylesheet" href="../style.css?v=35">
 </head>
 <body>
 
+<aside class="promo" id="promo" aria-label="New build-off">
+  <div class="inner">
+    <span class="promo-tag">New build-off</span>
+    <a class="promo-text" href="../build-offs/01-ski-sim.html">Google&rsquo;s Chamonix Ski Sim vs. Claude&rsquo;s Tahoe Ski Adventures.<span class="promo-more"> Ski both in your browser, then vote for your favorite.</span></a>
+    <a class="promo-cta" href="../build-offs/01-ski-sim.html">Play and vote &rarr;</a>
+    <button class="promo-close" type="button" aria-label="Hide this notice">&times;</button>
+  </div>
+</aside>
+<script>try{if(localStorage.getItem("vb-promo-hidden")==="01-ski-sim")document.getElementById("promo").hidden=true}catch(e){}</script>
 <header class="masthead">
   <div class="inner">
     <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
@@ -72,6 +81,7 @@
       <a href="../index.html">Home</a>
       <a href="../benchmarks.html" class="active">Benchmarks</a>
       <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../build-offs.html">Build-offs</a>
       <a href="../reports.html">Reports</a>
       <a href="../methodology.html">Methodology</a>
       <a href="../eval-suite-builder.html">Eval suite builder</a>
@@ -165,7 +175,7 @@
   </div>
 </footer>
 
-<script src="../site.js?v=14" defer></script>
+<script src="../site.js?v=15" defer></script>
 <script src="../share.js?v=2" defer></script>
 </body>
 </html>
