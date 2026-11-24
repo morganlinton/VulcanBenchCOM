@@ -77,6 +77,13 @@ GPT-6.2 Sol report under Code quality protocol v3.31, exported by
 Cursor usage-limit pause and list-price cost. `swe-v4-gpt62-sol-v331-scores.csv`
 holds its five effort aggregates.
 
+`swe-v4-gpt62-astra-v333/` is the public record of the November 24, 2026
+GPT-6.2 Astra report under Code quality protocol v3.33, exported by
+`scripts/export_swe_v4_v333_evidence.py`; its README explains the judge panel
+(Muse Spark 1.3 and Grok 4.6), the Codex settings, the security scan's
+low-severity findings and list-price cost.
+`swe-v4-gpt62-astra-v333-scores.csv` holds its five effort aggregates.
+
 `swe-v4-gemini4-neon-v332/` is the public record of the November 21, 2026
 Gemini 4 Neon report under Code quality protocol v3.32, exported by
 `scripts/export_swe_v4_v332_evidence.py`; its README explains the judge panel

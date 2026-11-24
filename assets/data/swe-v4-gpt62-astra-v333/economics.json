@@ -1,0 +1,224 @@
+{
+  "scope": "Solver inference only, API-equivalent at list rates; the model ran on a ChatGPT subscription through Codex, so these are estimates, not bills. Judging and local infrastructure are excluded. Every run in the sweep is priced.",
+  "pricing_verified": "2026-11-22",
+  "sources": {
+    "openai": "https://developers.openai.com/api/docs/pricing",
+    "model_page": "https://developers.openai.com/api/docs/models/gpt-6.2-astra"
+  },
+  "rates_per_million": {
+    "gpt62astra": {
+      "input": 8.0,
+      "cached_input": 0.4,
+      "output": 40.0
+    }
+  },
+  "groups": [
+    {
+      "model": "gpt62astra",
+      "effort": "low",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.5212870869565217,
+        "se": 0.05971059990113159
+      },
+      "usd_total": 11.989602999999999,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 359662.82608695654,
+        "se": 49764.70924810103
+      },
+      "raw_tokens_total": 8272245,
+      "output_tokens": {
+        "n": 23,
+        "mean": 2656.0434782608695,
+        "se": 240.2066590344851
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 103.1304347826087,
+        "se": 22.52739257869338
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.891984545177542,
+        "se": 0.004920364123286259
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 1.7200159420289856,
+        "se": 0.13148527687205874
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt62astra",
+      "effort": "medium",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.6661540434782609,
+        "se": 0.06003280576726718
+      },
+      "usd_total": 15.321543,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 512415.47826086957,
+        "se": 65640.42152045402
+      },
+      "raw_tokens_total": 11785556,
+      "output_tokens": {
+        "n": 23,
+        "mean": 3828.086956521739,
+        "se": 285.7700498572738
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 320.2608695652174,
+        "se": 45.100599778283296
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9117669262198607,
+        "se": 0.0049029101122931825
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 2.359663043478261,
+        "se": 0.13731574793935233
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt62astra",
+      "effort": "high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 0.9965496956521739,
+        "se": 0.07219481731774949
+      },
+      "usd_total": 22.920643,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 782855.8260869565,
+        "se": 83535.62510823704
+      },
+      "raw_tokens_total": 18005684,
+      "output_tokens": {
+        "n": 23,
+        "mean": 7445.95652173913,
+        "se": 340.71083260673794
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 2164.1739130434785,
+        "se": 155.69175805539325
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9283153137016156,
+        "se": 0.0036660845854500526
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 3.6109666666666667,
+        "se": 0.16581475631344392
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt62astra",
+      "effort": "extra-high",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 1.300020304347826,
+        "se": 0.10707453640752827
+      },
+      "usd_total": 29.900467,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 968311.9565217391,
+        "se": 125718.02166397889
+      },
+      "raw_tokens_total": 22271175,
+      "output_tokens": {
+        "n": 23,
+        "mean": 11622.565217391304,
+        "se": 526.3190049435519
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 5303.913043478261,
+        "se": 307.63472843375763
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9317562166647854,
+        "se": 0.0027243857522737847
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 5.66650652173913,
+        "se": 0.3648575037928288
+      },
+      "solver_fallback_runs": 0
+    },
+    {
+      "model": "gpt62astra",
+      "effort": "max",
+      "n": 23,
+      "usd": {
+        "n": 23,
+        "mean": 2.4156686521739132,
+        "se": 0.09729542636977709
+      },
+      "usd_total": 55.560379,
+      "raw_tokens": {
+        "n": 23,
+        "mean": 1311091.8260869565,
+        "se": 115972.42675031988
+      },
+      "raw_tokens_total": 30155112,
+      "output_tokens": {
+        "n": 23,
+        "mean": 30731.434782608696,
+        "se": 846.538891117388
+      },
+      "reasoning_output_tokens": {
+        "n": 23,
+        "mean": 21577.347826086956,
+        "se": 744.9730148936576
+      },
+      "cached_input_share": {
+        "n": 23,
+        "mean": 0.9255944157633592,
+        "se": 0.003969024878315246
+      },
+      "minutes": {
+        "n": 23,
+        "mean": 14.036634057971014,
+        "se": 0.4242370618666678
+      },
+      "solver_fallback_runs": 0
+    }
+  ],
+  "totals": {
+    "gpt62astra": {
+      "runs": 115,
+      "usd": 135.692635,
+      "raw_tokens": 90489772,
+      "solver_hours": 10.50095138888889
+    }
+  },
+  "limitations": [
+    "Codex receipts report input, cached input, output and reasoning tokens per run; cached input is billed at the cache-read rate and the rest of the input at the standard rate. Reasoning tokens are part of output and are not billed twice.",
+    "Standard tier, short-context rates. OpenAI bills prompts over 272K input tokens at a higher rate, but Codex keeps each request within its context window, so no long-context premium is modelled, as for every Codex column since GPT-6 Luna.",
+    "No Batch, Flex, Fast or priority pricing is applied.",
+    "The estimate covers the solver's exposed receipts, not an independently observed API invoice.",
+    "The sweep stamped each run at run time at the published GPT-6.2 Astra list rates; the export recomputes every run from its receipt and matched every stamp."
+  ],
+  "comparison_sha256": "867bca70ab44e2e22594a08115b83c9e0c2ebc879db3634dfa385e60733995aa",
+  "note": "Per-run estimates are in runs.json (estimated_usd, raw_tokens, token_usage). Judging is excluded."
+}

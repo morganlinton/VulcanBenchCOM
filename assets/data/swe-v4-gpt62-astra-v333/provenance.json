@@ -1,0 +1,47 @@
+{
+  "source_artifacts_sha256": {
+    "v3.33/summary.json": "b8c467e4393c7353ad4013d511c7ecc865599b38bad53c65a6dea79a71b084a5",
+    "v3.33/protocol.json": "976856239ee5b86ed377d5ec25337fa67b0922c13be80f7b2423fff79b6bd389",
+    "v3.33/private-manifest.json": "d3760a339b3e7b0fc8834c535eb909e4df97f82f30552b5e54617bb03808e4f5",
+    "v3.33/calibration-muse.json": "e5385a59f688b1700c81afc3e35e30b3fe3f418d078ee06476a35af5377ab987",
+    "v3.33/calibration-grok.json": "879b2cc7ea5a1cad9521b450c31ba3319c70fe09ed86810659b28f4bf60b488f",
+    "comparison.json": "867bca70ab44e2e22594a08115b83c9e0c2ebc879db3634dfa385e60733995aa",
+    "gpt62astra-vs-gpt6astra-efforts.csv": "1ece7f687c927fd53ad39b8c7ead1d1d276b5223ea8ada47e3fd3b1e2efa5f1c",
+    "gpt62astra-vs-gpt6astra.json": "09eb39fd8681bce31ed1387bf409add7e73c9d4e00d4ba0d12f2d7a0f25e740d",
+    "gpt62astra-vs-gpt6astra.png": "e56a27c4e71a8e653c85f335c09b4d6bbbe14581656e2eda657ec008601e8593",
+    "suite.lock.json": "861da9e5386e88e6c77236ee5326863e670b597a31ac8b62269c06b1e9aa79eb",
+    "run_gpt62_astra_v4.sh": "90a7b74fecb04cb287fe8f55ea7f3e8cd159ba334765149897f65f18574c76a0"
+  },
+  "export_checks": [
+    "115 solver summaries in the sweep folder, 23 per level, no task twice and no orphan attempt folder; the sweep log shows each level complete on its first attempt",
+    "every run is codex:gpt-6.2-astra at its requested level (Extra high as xhigh) on Codex CLI 0.166.0 with the workspace-write sandbox, from bench/2026-11-22-gpt62-astra-frontier-v4 with a clean source block and every task hash equal to the frozen suite lock",
+    "every integrity audit: no web, no benchmark data or answer-key paths, not contaminated",
+    "each run's token totals equal its Codex receipt, whose stream hash equals the archived stream; every run's API-equivalent cost recomputed at the published list rates and matched to the sweep's run-time stamp",
+    "no run printed a Codex notice, and every run passed every hidden test",
+    "the population record's hash and the manifest's hash equal the ones frozen in the protocol, and every run's summary hash equals its manifest entry",
+    "rubric, prompts, schemas, seed, repeats, gate allowance, weights, retry rule, control hashes, both judges' settings and the Muse binary equal the published v3.24 record; the settings equal the recovered v3.3 and v3.4 protocols, whose hashes match the published values; the Cursor pin names version 2026.10.01-e373342 and its frozen directory digest, recomputed on this host when present",
+    "both judges passed calibration under v3.33 on all 20 gates without the allowance; no reviewer fallback; every selected Grok call records the accepted display rename",
+    "no operator marker, live or superseded, no recovery and no quota stop; every submission has two valid reviews and two valid intent probes; each second attempt follows a first attempt the frozen validator rejected",
+    "per-row Code quality, both combined scores and each judge's single-judge score recomputed and matched to the frozen summary, with intent recovery redistributed where no quirk family passed; each level's means and standard errors, per-judge means included, matched to the summary's groups",
+    "combined score, its standard error, Code quality, tasks passed, minutes and cost per level matched to the harness card table; the card is byte-identical to the harness copy and its record names this summary and this board; its GPT-6 Astra rows equal the published board rows",
+    "no dashes, NUL characters or host paths in exported text"
+  ],
+  "limits": [
+    "The ChatGPT login reported plan prolite; earlier GPT columns ran on ChatGPT Pro. The plan sets usage limits, not the model served.",
+    "Model identity is requested-only: Codex does not report the serving model.",
+    "The sweep ran through Codex CLI 0.166.0 pinned by version; it cannot pin what OpenAI serves under the model id.",
+    "Costs are API-equivalent at standard short-context list rates; no long-context premium is modelled.",
+    "Frontier Code quality is the reviewed layer plus intent recovery and is never compared with Routine v1 Code quality.",
+    "One attempt per task and level, on the owner's Mac, local sandbox, flat 3-hour task bound, one task at a time."
+  ],
+  "publication_scope": "Per-run scores, per-panel sub-scores, aggregates, judge protocol text, calibration verdicts and control means, integrity-audit verdicts, raw tokens and API-equivalent cost estimates.",
+  "withheld": [
+    "raw prompts and responses",
+    "submitted patches and reconstructed sources",
+    "quirk answer keys (they describe hidden-test behaviour)",
+    "reviewer session identifiers and usage receipts",
+    "solver event streams",
+    "host binary paths"
+  ],
+  "integrity_limit": "Hash checks bind the export to frozen files; they do not prove that judges were unbiased or that no training overlap exists."
+}
