@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CGHTYB9MQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CGHTYB9MQW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPT-6.2 Astra coding benchmark results | VulcanBench</title>
+<meta name="description" content="Every VulcanBench measurement of GPT-6.2 Astra: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.">
+<link rel="canonical" href="https://vulcanbench.com/models/gpt-6-2-astra.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="VulcanBench">
+<meta property="og:title" content="GPT-6.2 Astra coding benchmark results | VulcanBench">
+<meta property="og:description" content="Every VulcanBench measurement of GPT-6.2 Astra: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.">
+<meta property="og:url" content="https://vulcanbench.com/models/gpt-6-2-astra.html">
+<meta property="og:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPT-6.2 Astra coding benchmark results | VulcanBench">
+<meta name="twitter:description" content="Every VulcanBench measurement of GPT-6.2 Astra: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.">
+<meta name="twitter:image" content="https://vulcanbench.com/assets/og-image.png">
+<meta name="twitter:image:alt" content="VulcanBench: benchmarking models on real engineering work">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "GPT-6.2 Astra coding benchmark results",
+  "description": "Every VulcanBench measurement of GPT-6.2 Astra: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level.",
+  "url": "https://vulcanbench.com/models/gpt-6-2-astra.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "VulcanBench",
+    "url": "https://vulcanbench.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vulcanbench.com/assets/logo.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="VulcanBench Reports" href="https://vulcanbench.com/feed.xml">
+<link rel="stylesheet" href="../style.css?v=35">
+</head>
+<body>
+
+<aside class="promo" id="promo" aria-label="New build-off">
+  <div class="inner">
+    <span class="promo-tag">New build-off</span>
+    <a class="promo-text" href="../build-offs/01-ski-sim.html">Google&rsquo;s Chamonix Ski Sim vs. Claude&rsquo;s Tahoe Ski Adventures.<span class="promo-more"> Ski both in your browser, then vote for your favorite.</span></a>
+    <a class="promo-cta" href="../build-offs/01-ski-sim.html">Play and vote &rarr;</a>
+    <button class="promo-close" type="button" aria-label="Hide this notice">&times;</button>
+  </div>
+</aside>
+<script>try{if(localStorage.getItem("vb-promo-hidden")==="01-ski-sim")document.getElementById("promo").hidden=true}catch(e){}</script>
+<header class="masthead">
+  <div class="inner">
+    <div class="brand"><a href="../index.html" aria-label="VulcanBench home">
+      <img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'">
+      <span class="wordmark"><span class="v">Vulcan</span><span class="rest">Bench</span></span>
+    </a></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../benchmarks.html" class="active">Benchmarks</a>
+      <a href="../leaderboard.html">Leaderboard</a>
+      <a href="../build-offs.html">Build-offs</a>
+      <a href="../reports.html">Reports</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../eval-suite-builder.html">Eval suite builder</a>
+      <a href="../blog.html">Blog</a>
+    </nav>
+  </div>
+  <div class="bar"></div>
+</header>
+
+<div class="wrap">
+  <div class="article-head">
+    <div class="rno">Model results &middot; OpenAI</div>
+    <h1>GPT-6.2 Astra</h1>
+    <p class="byline">Every published VulcanBench measurement of GPT-6.2 Astra, newest first: combined score, Code quality, runtime, tokens and API-equivalent cost at every effort level, graded by deterministic hidden tests on real tasks. Measured through the Codex CLI on a ChatGPT subscription. GPT-6.2 Astra is a newer model than <a href="gpt-6-astra.html">GPT-6 Astra</a>, which has its own page.</p>
+  </div>
+
+  <div class="report-list">
+    <a class="report-row" href="../benchmarks/swe-v4-gpt62-astra-v333.html">
+      <div class="no">Suite<b>v4</b></div>
+      <div>
+        <div class="rtitle">GPT-6.2 Astra across every effort level</div>
+        <div class="rsub">In Codex across five effort levels: combined score 87.68 at Low, 88.89 at Medium, 89.26 at High, 89.05 at Extra-high and 89.42 at Max. Every task passed at every level, with every hidden test passed in all 115 runs; Code quality 67.27 to 74.53; 1.7 to 14.0 minutes per task. Every cell is judged on 23 runs by both judges.</div>
+        <div class="meta">November 24, 2026 &middot; 23 tasks &middot; 5 effort levels &middot; 115 runs of GPT-6.2 Astra &middot; VulcanBench Frontier v4 &middot; Code quality protocol v3.33</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+    <a class="report-row" href="../benchmarks/swe-v4-gpt62-astra-v333.html#comparison">
+      <div class="no">Suite<b>v4</b></div>
+      <div>
+        <div class="rtitle">Against GPT-6 Astra</div>
+        <div class="rsub">GPT-6.2 Astra is cheaper than GPT-6 Astra at every level, $0.52 against $1.72 a task at Low and $2.42 against $2.57 at Max. It scores above GPT-6 Astra at Medium and High and level with it at Low, Extra-high and Max, with Code quality a little lower at every level. On the Frontier v4 board its Max level ranks 23rd of 100 columns.</div>
+        <div class="meta">November 24, 2026 &middot; comparison card &middot; VulcanBench Frontier v4</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+    <a class="report-row" href="../benchmarks/swe-v4-gpt62-astra-v333.html#cost">
+      <div class="no">Suite<b>v4</b></div>
+      <div>
+        <div class="rtitle">Cost and tokens across effort levels</div>
+        <div class="rsub">$0.52 to $2.42 per task at list API rates and 0.36M to 1.31M raw tokens per task across the five effort levels; the whole sweep prices at $135.69 for 115 runs, $1.18 per task.</div>
+        <div class="meta">November 24, 2026 &middot; API-equivalent estimates at list rates, solver inference only &middot; VulcanBench Frontier v4</div>
+      </div>
+      <div class="arrow">&rarr;</div>
+    </a>
+  </div>
+
+  <section>
+    <div class="section-label">Next</div>
+    <h2>How would GPT-6.2 Astra do on your stack?</h2>
+    <div class="prose">
+      <p>Public results answer "which model is stronger on this suite." Whether GPT-6.2 Astra belongs in
+      <em>your</em> routing table depends on your languages, your codebases, and your task mix, that gets measured, not
+      guessed. Grading rules are in the <a href="../methodology.html">methodology</a>.</p>
+    </div>
+    <div class="dl-row" style="margin-top:20px;">
+      <a class="btn primary" href="../eval-suite-builder.html">Build an eval suite from your repo</a>
+      <a class="btn" href="../benchmarks.html">All reports</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="rule"></div>
+  <div class="inner">
+    <span class="tag">Measured on the anvil, graded by hidden tests.</span>
+    <nav class="fnav">
+      <a href="../benchmarks.html">Benchmarks</a>
+      <a href="../reports.html">Reports</a>
+      <a href="../methodology.html">Methodology</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../support.html">Support</a>
+      <a href="https://github.com/morganlinton/VulcanBench">Repository</a>
+    </nav>
+    <span class="brandf"><img class="mark" src="../assets/logo.png" alt="VulcanBench" onerror="this.style.display='none'"><span><span class="v">Vulcan</span><span class="rest">Bench</span></span></span>
+  </div>
+</footer>
+
+<script src="../site.js?v=15" defer></script>
+</body>
+</html>
