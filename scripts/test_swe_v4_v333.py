@@ -235,7 +235,7 @@ class GPT62AstraPageTests(unittest.TestCase):
         self.assertIn("intent/post?text=GPT-6.2%20Astra%20across%20every%20effort%20level%20on%20VulcanBench%20Frontier%20v4", self.page_html)
         self.assertIn("Morgan Linton", self.text)
         self.assertNotIn(".pdf", self.page_html)
-        self.assertNotIn("vulcanbench-gpt62-astra-traces", self.page_html)  # no public trace repository yet
+        self.assertEqual(self.page_html.count("https://github.com/morganlinton/vulcanbench-gpt62-astra-traces"), 2)  # resource tile and withheld note
         for target in ("https://github.com/morganlinton/VulcanBench", "https://github.com/morganlinton/VulcanBench/blob/main/docs/DECISIONS.md",
                        "https://github.com/morganlinton/VulcanBench/blob/main/harness/agent/cli_agents.py",
                        "https://github.com/morganlinton/VulcanBench/blob/main/docs/judging/maintenance-v3-operations.md"):
