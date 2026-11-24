@@ -15,6 +15,21 @@
     });
   });
 
+  /* ---- promo bar: the close button hides it on this browser until the next build-off ---- */
+  var promo = document.getElementById("promo");
+  var promoClose = promo && promo.querySelector(".promo-close");
+  if (promoClose) {
+    promoClose.addEventListener("click", function () {
+      promo.hidden = true;
+      try { localStorage.setItem("vb-promo-hidden", "01-ski-sim"); } catch (e) { /* storage blocked: hide for this page only */ }
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest(".promo a") : null;
+    if (!a || typeof window.gtag !== "function") return;
+    window.gtag("event", "promo_click", { promo: "01-ski-sim", link_url: a.getAttribute("href") || "", page_path: window.location.pathname });
+  });
+
   /* ---- mobile nav: show a fade while more links are off-screen right ---- */
   var nav = document.querySelector(".masthead .nav");
   if (nav) {

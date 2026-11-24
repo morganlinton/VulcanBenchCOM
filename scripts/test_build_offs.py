@@ -30,6 +30,24 @@ class BuildOffTests(unittest.TestCase):
     def test_home_links_the_newest_build_off(self):
         self.assertIn(f'<a class="report-row" href="build-offs/{PAGES[-1].name}"', (ROOT / "index.html").read_text())
 
+    def test_every_page_links_build_offs_and_promotes_the_newest(self):
+        # The masthead nav and the promo bar are copied into every site page; the newest build-off page skips the bar.
+        newest = f"build-offs/{PAGES[-1].name}"
+        for page in ROOT.rglob("*.html"):
+            if {".git", "node_modules"} & set(page.parts) or page.is_relative_to(BUILD_OFFS / "play"):
+                continue
+            text = page.read_text()
+            rel = page.relative_to(ROOT).as_posix()
+            self.assertRegex(text, r'href="(\.\./|/)?build-offs\.html"[^>]*>Build-offs</a>', rel)
+            if rel == newest:
+                self.assertNotIn('id="promo"', text)
+                continue
+            self.assertIn('id="promo"', text, rel)
+            for link in re.findall(r'<a class="promo-(?:text|cta)" href="([^"]+)"', text):
+                self.assertTrue(urlsplit(link).path.endswith(newest), f"{rel}: {link}")
+            self.assertIn(f'localStorage.getItem("vb-promo-hidden")==="{PAGES[-1].stem}"', text, rel)
+        self.assertIn(f'"vb-promo-hidden", "{PAGES[-1].stem}"', (ROOT / "site.js").read_text())
+
     def test_local_links_resolve(self):
         for page in [ROOT / "build-offs.html", *PAGES, *(d / "index.html" for d in PLAYABLE)]:
             for link, target in local_targets(page):
